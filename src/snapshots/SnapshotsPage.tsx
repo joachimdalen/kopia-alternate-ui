@@ -1,0 +1,238 @@
+import {
+  Anchor,
+  Button,
+  Container,
+  Divider,
+  Group,
+  Stack,
+  Title,
+} from "@mantine/core";
+import {
+  IconArchive,
+  IconEye,
+  IconPlus,
+  IconRefresh,
+} from "@tabler/icons-react";
+import { DataTable } from "mantine-datatable";
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router";
+import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
+import useApiRequest from "../core/hooks/useApiRequest";
+import kopiaService from "../core/kopiaService";
+import { MenuButton } from "../core/MenuButton/MenuButton";
+import RelativeDate from "../core/RelativeDate";
+import { type SourceInfo, type Sources } from "../core/types";
+import { formatOwnerName } from "../utils/formatOwnerName";
+import { onlyUnique } from "../utils/onlyUnique";
+const PAGE_SIZES = [10, 20, 30, 40, 50, 100];
+function SnapshotsPage() {
+  const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState<Sources>();
+  const [filterState, setFilterState] = useState<"all" | "local" | string>();
+
+  const visibleData = useMemo(() => {
+    if (data === undefined) return [];
+    if (filterState === undefined) return data.sources.slice(0, pageSize);
+
+    let filterable = [...data.sources];
+
+    switch (filterState) {
+      case "all":
+        break;
+      case "local":
+        filterable = filterable.filter(
+          (x) =>
+            formatOwnerName(x.source) ===
+            data.localUsername + "@" + data.localHost
+        );
+        break;
+      default:
+        filterable = filterable.filter(
+          (x) => formatOwnerName(x.source) === filterState
+        );
+    }
+
+    return filterable.slice(0, pageSize);
+  }, [data, pageSize, filterState]);
+
+  const { error, execute, loading, loadingKey } = useApiRequest({
+    action: () => kopiaService.getSnapshots(),
+    onReturn(resp) {
+      console.log("setting", resp);
+      setData(resp);
+    },
+  });
+
+  useEffect(() => {
+    execute(undefined, "loading");
+  }, []);
+
+  // useInterval(() => {
+  //   execute(undefined, "fetch");
+  // }, 10000);
+
+  const uniqueOwners = (data?.sources || [])
+    .map((x) => formatOwnerName(x.source))
+    .filter(onlyUnique)
+    .sort();
+
+  const {
+    error: newSnapshotError,
+    execute: newSnapshot,
+    loading: startSnapshotLoading,
+    loadingKey: startSnapshotKey,
+  } = useApiRequest({
+    action: (data?: SourceInfo) => kopiaService.startSnapshot(data!),
+    onReturn() {
+      execute(undefined, "refresh");
+    },
+  });
+
+  const intError = error || newSnapshotError;
+
+  return (
+    <Container fluid>
+      <Stack>
+        <Title order={1}>Something</Title>
+        <Group justify="space-between">
+          <Group>
+            {/* This flickers on load */}
+            {data?.multiUser === true && (
+              <MenuButton
+                options={[
+                  { label: "All Snapshots", value: "all" },
+                  { label: "Local Snapshots", value: "local" },
+                  { label: "", value: "divider" },
+                  ...uniqueOwners.map((own) => ({
+                    label: own,
+                    value: own,
+                  })),
+                ]}
+                onClick={setFilterState}
+                disabled={loading}
+              />
+            )}
+            <Button
+              size="xs"
+              leftSection={<IconPlus size={16} />}
+              color="green"
+              disabled={loading}
+              component={Link}
+              to="/snapshots/new"
+            >
+              New Snapshot
+            </Button>
+          </Group>
+          <Button
+            size="xs"
+            leftSection={<IconRefresh size={16} />}
+            variant="light"
+            loading={loading && loadingKey === "refresh"}
+            onClick={() => execute(undefined, "refresh")}
+          >
+            Refresh
+          </Button>
+        </Group>
+        <Divider />
+        <ErrorAlert error={intError} />
+        <DataTable
+          withTableBorder
+          borderRadius="sm"
+          withColumnBorders
+          striped
+          highlightOnHover
+          minHeight={250}
+          records={visibleData}
+          fetching={loading && loadingKey === "loading"}
+          // define columns
+          idAccessor="source.path"
+          columns={[
+            {
+              accessor: "source.path",
+              title: "Path",
+              render: (item) => (
+                <Anchor
+                  component={Link}
+                  to={{
+                    pathname: "/snapshots/single-source",
+                    search: `?userName=${item.source.userName}&host=${
+                      item.source.host
+                    }&path=${encodeURIComponent(item.source.path)}`,
+                  }}
+                  td="none"
+                  fz="sm"
+                >
+                  {item.source.path}
+                </Anchor>
+              ),
+            },
+            {
+              accessor: "owner",
+              render: (item) => `${item.source.userName}@${item.source.host}`,
+            },
+            { accessor: "lastSnapshot.rootEntry.summ.size", title: "Size" },
+            {
+              accessor: "lastSnapshot.startTime",
+              title: "Last Snapshot",
+              render: (item) =>
+                item.lastSnapshot && (
+                  <RelativeDate value={item.lastSnapshot.startTime} />
+                ),
+            },
+            { accessor: "nextSnapshot" },
+            {
+              accessor: "",
+              title: "",
+              width: 300,
+              render: (item) => {
+                switch (item.status) {
+                  case "IDLE":
+                  case "PAUSED": {
+                    return (
+                      <Group justify="end">
+                        <Button
+                          component={Link}
+                          to="#"
+                          td="none"
+                          size="xs"
+                          leftSection={<IconEye size={14} />}
+                          variant="subtle"
+                        >
+                          Policy
+                        </Button>
+                        <Button
+                          size="xs"
+                          leftSection={<IconArchive size={14} />}
+                          variant="subtle"
+                          color="green"
+                          loading={startSnapshotLoading}
+                          onClick={() => newSnapshot(item.source)}
+                        >
+                          Snapshot Now
+                        </Button>
+                      </Group>
+                    );
+                  }
+
+                  default:
+                    return item.status;
+                }
+              },
+            },
+          ]}
+          totalRecords={1}
+          recordsPerPage={pageSize}
+          page={page}
+          onPageChange={(p) => setPage(p)}
+          recordsPerPageOptions={PAGE_SIZES}
+          onRecordsPerPageChange={setPageSize}
+          paginationSize="sm"
+          fz="sm"
+        />
+      </Stack>
+    </Container>
+  );
+}
+
+export default SnapshotsPage;
