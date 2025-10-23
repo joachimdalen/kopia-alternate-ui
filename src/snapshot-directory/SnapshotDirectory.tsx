@@ -153,7 +153,7 @@ function SnapshotDirectory() {
       </Stack>
       {show && oid && (
         <RestoreModal
-          onUpdated={() => console.log("ok")}
+          onRestoreStarted={() => console.log("ok")}
           oid={oid}
           onCancel={setShow.close}
         />
