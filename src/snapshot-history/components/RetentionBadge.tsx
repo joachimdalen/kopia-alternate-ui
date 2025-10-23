@@ -10,7 +10,7 @@ export default function RetentionBadge({ retention }: Props) {
       return "green";
     }
     if (retention.startsWith("daily-")) {
-      return "blue";
+      return "indigo";
     }
     if (retention.startsWith("weekly-")) {
       return "red";

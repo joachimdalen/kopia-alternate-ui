@@ -1,0 +1,64 @@
+"use client";
+
+import type { DataTableColumn } from "mantine-datatable";
+import { DataTable } from "mantine-datatable";
+import { useMemo, useState } from "react";
+
+interface Props<T> {
+  records: T[];
+  columns: DataTableColumn<T>[];
+  onSelectedRecordsChange?: (selectedRecords: T[]) => void;
+  selectedRecords?: T[];
+  noRecordsText?: string;
+  noRecordsIcon?: React.ReactNode;
+  idAccessor?: (keyof T | string) | ((record: T) => React.Key);
+  loading?: boolean;
+}
+
+const PAGE_SIZES = [10, 20, 30, 40, 50, 100];
+
+export function DataGrid<T>({
+  records,
+  columns,
+  selectedRecords,
+  noRecordsText,
+  noRecordsIcon,
+  onSelectedRecordsChange,
+  idAccessor,
+  loading,
+}: Props<T>) {
+  const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
+  const [page, setPage] = useState(1);
+
+  const visibleData = useMemo(() => {
+    if (records === undefined) return [];
+
+    return records.slice(0, pageSize);
+  }, [records, pageSize]);
+
+  return (
+    <DataTable
+      minHeight={250}
+      idAccessor={idAccessor}
+      withTableBorder
+      borderRadius="sm"
+      striped
+      highlightOnHover
+      fz="sm"
+      records={visibleData}
+      columns={columns}
+      selectedRecords={selectedRecords}
+      onSelectedRecordsChange={onSelectedRecordsChange}
+      totalRecords={records.length}
+      recordsPerPage={pageSize}
+      page={page}
+      onPageChange={(p) => setPage(p)}
+      recordsPerPageOptions={PAGE_SIZES}
+      onRecordsPerPageChange={setPageSize}
+      paginationSize="xs"
+      noRecordsText={noRecordsText}
+      noRecordsIcon={noRecordsIcon}
+      fetching={loading}
+    />
+  );
+}

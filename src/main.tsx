@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import App from "./App.tsx";
 import BaseLayout from "./BaseLayout.tsx";
 import "./index.css";
+import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
 
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
             path="/snapshots/single-source"
             element={<SnapshotHistory />}
           />
+          <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Anchor,
+  Badge,
   Button,
   Checkbox,
   Code,
@@ -10,37 +11,40 @@ import {
   Stack,
   Text,
   Title,
+  Tooltip,
 } from "@mantine/core";
 import {
   IconArrowLeft,
   IconFileText,
+  IconPin,
   IconRefresh,
   IconTrash,
 } from "@tabler/icons-react";
-import { DataTable } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router";
+import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
-import type { Snapshot, Snapshots, SourceInfo } from "../core/types";
+import type {
+  ItemAction,
+  Snapshot,
+  Snapshots,
+  SourceInfo,
+} from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
+import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
-const PAGE_SIZES = [10, 20, 30, 40, 50, 100];
 function SnapshotHistory() {
   const [searchParams] = useSearchParams();
-  console.log(searchParams);
   const [data, setData] = useState<Snapshots>();
-  const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
-  const [page, setPage] = useState(1);
-  const [records, setRecords] = useState<Snapshot[]>([]);
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
   const [showAll, setShowAll] = useState(false);
-  const [selectedSnapshot, setSelectedSnapshot] = useState<
-    Snapshot | undefined
-  >();
+  const [itemAction, setItemAction] =
+    useState<ItemAction<Snapshot, "description" | "pin">>();
+  const [pinAction, setPinAction] = useState<ItemAction<string, "pin">>();
   const sourceInfo: SourceInfo = useMemo(() => {
     return {
       host: searchParams.get("host") as string,
@@ -60,7 +64,6 @@ function SnapshotHistory() {
           : sourceInfo
       ),
     onReturn(resp) {
-      console.log("setting", resp);
       setData(resp);
     },
   });
@@ -68,12 +71,6 @@ function SnapshotHistory() {
   useEffect(() => {
     execute(undefined, "loading");
   }, [showAll]);
-
-  const visibleData = useMemo(() => {
-    if (data === undefined) return [];
-
-    return data.snapshots.slice(0, pageSize);
-  }, [data, pageSize]);
 
   return (
     <Container fluid>
@@ -128,15 +125,12 @@ function SnapshotHistory() {
         </Group>
         <Divider />
         <ErrorAlert error={error} />
-        <DataTable
-          withTableBorder
-          borderRadius="sm"
-          withColumnBorders
-          striped
-          highlightOnHover
-          minHeight={150}
-          records={visibleData}
-          // define columns
+
+        <DataGrid
+          selectedRecords={selectedRecords}
+          onSelectedRecordsChange={setSelectedRecords}
+          loading={loading && loadingKey === "loading"}
+          records={data?.snapshots ?? []}
           columns={[
             {
               accessor: "startTime",
@@ -144,6 +138,7 @@ function SnapshotHistory() {
                 <Anchor
                   component={Link}
                   to={`/snapshots/dir/${item.rootID}`}
+                  state={{ label: searchParams.get("path") }}
                   td="none"
                   fz="sm"
                 >
@@ -164,12 +159,39 @@ function SnapshotHistory() {
             },
             {
               accessor: "retention",
+              width: 600,
               render: (item) => {
                 return (
-                  <Group gap="xs">
-                    {item.retention.map((z) => (
-                      <RetentionBadge retention={z} key={z} />
-                    ))}
+                  <Group justify="space-between" wrap="nowrap">
+                    <Group gap="xs">
+                      {item.retention.map((z) => (
+                        <RetentionBadge retention={z} key={z} />
+                      ))}
+                      {item.pins.map((p) => (
+                        <Badge
+                          tt="none"
+                          radius={5}
+                          rightSection={<IconPin size={14} />}
+                          onClick={() => {
+                            setPinAction({
+                              item: p,
+                              action: "pin",
+                            });
+                            setItemAction({ item: item, action: "pin" });
+                          }}
+                        >
+                          {p}
+                        </Badge>
+                      ))}
+                    </Group>
+                    <Tooltip label="Add pin to prevent snapshot deletion">
+                      <ActionIcon
+                        variant="subtle"
+                        onClick={() => setItemAction({ item, action: "pin" })}
+                      >
+                        <IconPin size={16} />
+                      </ActionIcon>
+                    </Tooltip>
                   </Group>
                 );
               },
@@ -194,7 +216,12 @@ function SnapshotHistory() {
                       size="xs"
                       leftSection={<IconFileText size={14} />}
                       variant="subtle"
-                      onClick={() => setSelectedSnapshot(item)}
+                      onClick={() =>
+                        setItemAction({
+                          item,
+                          action: "description",
+                        })
+                      }
                     >
                       Update description
                     </Button>
@@ -203,25 +230,26 @@ function SnapshotHistory() {
               },
             },
           ]}
-          totalRecords={1}
-          recordsPerPage={pageSize}
-          page={page}
-          onPageChange={(p) => setPage(p)}
-          recordsPerPageOptions={PAGE_SIZES}
-          onRecordsPerPageChange={setPageSize}
-          paginationSize="sm"
-          fz="sm"
-          selectedRecords={selectedRecords}
-          onSelectedRecordsChange={setSelectedRecords}
-          fetching={loading && loadingKey === "loading"}
         />
       </Stack>
-      {selectedSnapshot && (
+      {itemAction?.action === "description" && itemAction?.item && (
         <UpdateDescriptionModal
-          snapshot={selectedSnapshot}
-          onCancel={() => setSelectedSnapshot(undefined)}
+          snapshot={itemAction.item}
+          onCancel={() => setItemAction(undefined)}
           onUpdated={() => {
             execute(null, "loading");
+            setItemAction(undefined);
+          }}
+        />
+      )}
+      {itemAction?.action === "pin" && itemAction?.item && (
+        <PinSnapshotModal
+          snapshot={itemAction.item}
+          pin={pinAction?.item}
+          onCancel={() => setItemAction(undefined)}
+          onUpdated={() => {
+            execute(null, "loading");
+            setItemAction(undefined);
           }}
         />
       )}

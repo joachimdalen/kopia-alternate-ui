@@ -59,7 +59,6 @@ function SnapshotsPage() {
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getSnapshots(),
     onReturn(resp) {
-      console.log("setting", resp);
       setData(resp);
     },
   });

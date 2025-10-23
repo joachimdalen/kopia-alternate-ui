@@ -1,6 +1,7 @@
 import { clientGet, clientPost } from "./clientApiFetch";
 import type {
   ApiResponse,
+  DirManifest,
   Snapshot,
   Snapshots,
   SourceInfo,
@@ -27,12 +28,48 @@ function updateDescription(
     snapshots: snapshotIds,
   });
 }
-
+function addPin(
+  snapshotId: string,
+  pin: string
+): Promise<ApiResponse<Snapshot[]>> {
+  return clientPost("/api/v1/snapshots/edit", {
+    addPins: [pin],
+    removePins: [],
+    snapshots: [snapshotId],
+  });
+}
+function updatePin(
+  snapshotId: string,
+  currentPin: string,
+  pin: string
+): Promise<ApiResponse<Snapshot[]>> {
+  return clientPost("/api/v1/snapshots/edit", {
+    addPins: [pin],
+    removePins: [currentPin],
+    snapshots: [snapshotId],
+  });
+}
+function removePin(
+  snapshotId: string,
+  pin: string
+): Promise<ApiResponse<Snapshot[]>> {
+  return clientPost("/api/v1/snapshots/edit", {
+    removePins: [pin],
+    snapshots: [snapshotId],
+  });
+}
+function getObjects(oid: string): Promise<ApiResponse<DirManifest>> {
+  return clientGet(`/api/v1/objects/${oid}`);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
   getSnapshot,
   updateDescription,
+  getObjects,
+  addPin,
+  updatePin,
+  removePin,
 };
 
 export default methods;

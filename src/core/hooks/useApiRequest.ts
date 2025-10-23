@@ -61,7 +61,6 @@ function useApiRequest<TResponse, TRequest>({
       setLoading({ isLoading: true, key: loadingKey });
       setError(undefined);
       const response = await action(data);
-      console.log("r1", response);
       if (!response.isError) {
         if (returnsData && response.data === undefined) {
           const err: ErrorInformation = {

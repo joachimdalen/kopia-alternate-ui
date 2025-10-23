@@ -5,6 +5,11 @@ export interface ApiResponse<T> {
   originResponseCode?: number;
 }
 
+export type ItemAction<T, TO> = {
+  item?: T;
+  action: TO;
+};
+
 export type SourceInfo = {
   host: string;
   userName: string;
@@ -38,7 +43,7 @@ export type DirEntry = {
   mode: string;
   mtime: string;
   obj: string;
-  summ: DirectorySummary;
+  summ?: DirectorySummary;
 };
 export type DirectorySummary = {
   size: number;
@@ -88,4 +93,10 @@ export type Snapshots = {
   snapshots: Snapshot[];
   unfilteredCount: number;
   uniqueCount: number;
+};
+
+export type DirManifest = {
+  steam: string;
+  entries: DirEntry[];
+  summary: DirectorySummary;
 };
