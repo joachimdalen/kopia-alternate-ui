@@ -2,6 +2,7 @@ import { clientGet, clientPost } from "./clientApiFetch";
 import type {
   ApiResponse,
   DirManifest,
+  RestoreRequest,
   Snapshot,
   Snapshots,
   SourceInfo,
@@ -61,6 +62,10 @@ function removePin(
 function getObjects(oid: string): Promise<ApiResponse<DirManifest>> {
   return clientGet(`/api/v1/objects/${oid}`);
 }
+
+function restore(data: RestoreRequest) {
+  return clientPost("/api/v1/restore", data);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -70,6 +75,7 @@ const methods = {
   addPin,
   updatePin,
   removePin,
+  restore,
 };
 
 export default methods;

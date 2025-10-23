@@ -100,3 +100,41 @@ export type DirManifest = {
   entries: DirEntry[];
   summary: DirectorySummary;
 };
+
+export type RestoreBase = {
+  root: string;
+  options: RestoreOptions;
+};
+
+export type RestoreOptions = {
+  incremental: boolean;
+  ignoreErrors: boolean;
+  restoreDirEntryAtDepth: number;
+  minSizeForPlaceholder: number;
+};
+
+export type RestoreZip = {
+  zipFile: string;
+  uncompressedZip: boolean;
+} & RestoreBase;
+
+export type RestoreTar = {
+  tarFile: string;
+} & RestoreBase;
+
+export type RestoreDirectory = {
+  fsOutput: {
+    targetPath: string;
+    skipOwners: boolean;
+    skipPermissions: boolean;
+    skipTimes: boolean;
+    ignorePermissionErrors: boolean;
+    overwriteFiles: boolean;
+    overwriteDirectories: boolean;
+    overwriteSymlinks: boolean;
+    writeFilesAtomically: boolean;
+    writeSparseFiles: boolean;
+  };
+} & RestoreBase;
+
+export type RestoreRequest = RestoreZip | RestoreTar | RestoreDirectory;
