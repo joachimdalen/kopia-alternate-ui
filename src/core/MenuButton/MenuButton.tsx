@@ -7,10 +7,12 @@ export function MenuButton({
   options,
   onClick,
   disabled,
+  prefix,
 }: {
   options: { label: string; value: string }[];
   onClick: (selected: string) => void;
   disabled?: boolean;
+  prefix?: string;
 }) {
   const [opened, setOpened] = useState(false);
   const [selected, setSelected] = useState(options[0]);
@@ -45,7 +47,11 @@ export function MenuButton({
           data-expanded={opened || undefined}
           size="xs"
         >
-          <span className={classes.label}>{selected.label}</span>
+          <span className={classes.label}>
+            {prefix === undefined
+              ? selected.label
+              : `${prefix} ${selected.label}`}
+          </span>
           <IconChevronDown size={16} className={classes.icon} stroke={1.5} />
         </UnstyledButton>
       </Menu.Target>

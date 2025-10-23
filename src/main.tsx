@@ -9,6 +9,7 @@ import "./index.css";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
+import TasksPage from "./tasks/TasksPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")!).render(
             element={<SnapshotHistory />}
           />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
+          <Route path="/tasks" element={<TasksPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

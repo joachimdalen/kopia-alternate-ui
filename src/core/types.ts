@@ -138,3 +138,66 @@ export type RestoreDirectory = {
 } & RestoreBase;
 
 export type RestoreRequest = RestoreZip | RestoreTar | RestoreDirectory;
+
+export type TaskList = {
+  tasks: Task[];
+};
+export type Task = {
+  id: string;
+  startTime: string;
+  endTime?: string;
+  kind: string;
+  description: string;
+  status: string;
+  progressInfo: string;
+  errorMessage?: string;
+  counters: {
+    "Cached Bytes": {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+    "Cached Files": {
+      value: number;
+      level: string;
+    };
+    Errors: {
+      value: number;
+      level: string;
+    };
+    "Excluded Directories": {
+      value: number;
+      level: string;
+    };
+    "Excluded Files": {
+      value: number;
+      level: string;
+    };
+    "Hashed Bytes": {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+    "Hashed Files": {
+      value: number;
+      level: string;
+    };
+    "Processed Bytes": {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+    "Processed Files": {
+      value: number;
+      level: string;
+    };
+    "Uploaded Bytes": {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+  };
+  logLine: string[];
+  error: string;
+  sequenceNumber?: number;
+};
