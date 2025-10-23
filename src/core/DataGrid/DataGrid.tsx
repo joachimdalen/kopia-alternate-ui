@@ -33,8 +33,11 @@ export function DataGrid<T>({
   const visibleData = useMemo(() => {
     if (records === undefined) return [];
 
-    return records.slice(0, pageSize);
-  }, [records, pageSize]);
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize;
+
+    return records.slice(from, to);
+  }, [records, pageSize, page]);
 
   return (
     <DataTable
