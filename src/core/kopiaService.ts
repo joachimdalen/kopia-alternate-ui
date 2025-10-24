@@ -7,6 +7,7 @@ import type {
   Snapshots,
   SourceInfo,
   Sources,
+  Status,
   TaskList,
 } from "./types";
 function getSnapshots(): Promise<ApiResponse<Sources>> {
@@ -70,6 +71,9 @@ function restore(data: RestoreRequest) {
 function getTasks(): Promise<ApiResponse<TaskList>> {
   return clientGet("/api/v1/tasks");
 }
+function getStatus(): Promise<ApiResponse<Status>> {
+  return clientGet("/api/v1/repo/status");
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -81,6 +85,7 @@ const methods = {
   removePin,
   restore,
   getTasks,
+  getStatus,
 };
 
 export default methods;

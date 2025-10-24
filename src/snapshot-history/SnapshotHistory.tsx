@@ -10,7 +10,6 @@ import {
   Group,
   Stack,
   Text,
-  Title,
   Tooltip,
 } from "@mantine/core";
 import {
@@ -27,6 +26,7 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
+import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type {
   ItemAction,
   Snapshot,
@@ -79,7 +79,7 @@ function SnapshotHistory() {
           <ActionIcon variant="subtle" component={Link} to="/snapshots">
             <IconArrowLeft size={24} />
           </ActionIcon>
-          <Title order={1}>Something</Title>
+          <RepoTitle />
         </Group>
         <Group justify="space-between">
           <Group>

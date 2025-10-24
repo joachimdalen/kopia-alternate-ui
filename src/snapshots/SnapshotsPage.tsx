@@ -5,7 +5,6 @@ import {
   Divider,
   Group,
   Stack,
-  Title,
 } from "@mantine/core";
 import {
   IconArchive,
@@ -21,6 +20,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
+import RepoTitle from "../core/RepoTitle/RepoTitle";
 import { type SourceInfo, type Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
@@ -93,7 +93,7 @@ function SnapshotsPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>Something</Title>
+        <RepoTitle />
         <Group justify="space-between">
           <Group>
             {/* This flickers on load */}

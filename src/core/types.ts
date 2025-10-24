@@ -201,3 +201,37 @@ export type Task = {
   error: string;
   sequenceNumber?: number;
 };
+
+export type Status = {
+  connected: boolean;
+  configFile?: string;
+  formatVersion?: string;
+  hash?: string;
+  encryption?: string;
+  ecc?: string;
+  eccOverheadPercent?: number;
+  splitter?: string;
+  maxPackSize?: number;
+  storage?: string;
+  apiServerURL?: string;
+  supportsContentCompression: boolean;
+} & ClientOptions;
+
+type ClientOptions = {
+  hostname: string;
+  username: string;
+  readOnly?: boolean;
+  permissiveCacheLoading?: boolean;
+  description?: string;
+  enableActions: boolean;
+  formatBlobCacheDuration?: string;
+  throttlingLimits?: {
+    readsPerSecond?: number;
+    writesPerSecond?: number;
+    listsPerSecond?: number;
+    maxUploadSpeedBytesPerSecond?: number;
+    maxDownloadSpeedBytesPerSecond?: number;
+    concurrentReads?: number;
+    concurrentWrites?: number;
+  };
+};
