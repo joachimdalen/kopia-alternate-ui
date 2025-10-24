@@ -7,8 +7,8 @@ import {
   Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { Link, NavLink } from "react-router";
 import classes from "./Header.module.css";
-import { NavLink } from "react-router";
 const links = [
   { link: "/snapshots", label: "Snapshots" },
   { link: "/policies", label: "Policies" },
@@ -35,7 +35,9 @@ export function Header() {
     <AppShellHeader className={classes.header}>
       <Container size="md" className={classes.inner}>
         <Box>
-          <Image src="/kopia-flat.svg" h={32} fit="contain" />
+          <Link to="/">
+            <Image src="/kopia-flat.svg" h={32} fit="contain" />
+          </Link>
         </Box>
         <Group gap={5} visibleFrom="xs">
           {items}
