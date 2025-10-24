@@ -2,8 +2,7 @@ import "@mantine/core/styles.layer.css";
 import "mantine-datatable/styles.layer.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
-import App from "./App.tsx";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import BaseLayout from "./BaseLayout.tsx";
 import "./index.css";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
@@ -16,7 +15,6 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         <Route element={<BaseLayout />}>
-          <Route path="/" element={<App />} />
           <Route path="/snapshots" element={<SnapshotsPage />} />
           <Route
             path="/snapshots/single-source"
@@ -24,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
           />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
           <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/" element={<Navigate to="/snapshots" />} />
         </Route>
       </Routes>
     </BrowserRouter>
