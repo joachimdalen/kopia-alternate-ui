@@ -17,8 +17,10 @@ export default function PolicyTextInput({
   placeholder,
   form,
   formKey,
+  effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
+  const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -33,7 +35,7 @@ export default function PolicyTextInput({
             placeholder={placeholder}
             {...inputProps}
           />
-          <TextInput label="Effective" readOnly />
+          <TextInput label="Effective" readOnly value={effectiveValue} />
         </Group>
       </AccordionPanel>
     </AccordionItem>

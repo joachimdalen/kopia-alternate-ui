@@ -1,4 +1,4 @@
-import { AccordionItem, AccordionPanel, Group, Select } from "@mantine/core";
+import { AccordionItem, AccordionPanel, Group } from "@mantine/core";
 import NumberSelect from "../../../../core/NumberSelect";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
@@ -7,6 +7,7 @@ type Props = {
   id: string;
   title: string;
   description: string;
+  effective?: number;
 } & PolicyInput;
 const logDetailsOptions = [
   { label: "Inherit from parent", value: "" },
@@ -29,8 +30,10 @@ export default function PolicyLogDetailsInput({
   description,
   form,
   formKey,
+  effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
+  const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -48,12 +51,13 @@ export default function PolicyLogDetailsInput({
             defaultIfNotSet=""
             {...inputProps}
           />
-          <Select
+          <NumberSelect
             description="Defined in global policy"
             label="Effective"
             data={logDetailsOptions}
             withCheckIcon={false}
             readOnly
+            value={effectiveValue}
           />
         </Group>
       </AccordionPanel>

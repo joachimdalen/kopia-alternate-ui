@@ -321,6 +321,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                         </Anchor>
                       </Text>
                     }
+                    effective={resolvedValue?.files?.ignore}
                   >
                     <Switch
                       label="Ignore Rules From Parent Directories"
@@ -336,6 +337,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
                     form={form}
                     formKey="files.ignoreDotFiles"
+                    effective={resolvedValue?.files?.ignoreDotFiles}
                   >
                     <Switch
                       label="Ignore Rule Files From Parent Directories"
@@ -350,6 +352,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Ignore directories containing CACHEDIR.TAG and similar"
                     form={form}
                     formKey="files.ignoreCacheDirs"
+                    effective={resolvedValue?.files?.ignoreCacheDirs}
                   />
 
                   <PolicyNumberInput
@@ -358,6 +361,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="When set, the files larger than the specified size are ignored (specified in bytes)"
                     form={form}
                     formKey="files.maxFileSize"
+                    effective={resolvedValue?.files?.maxFileSize}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="scan-only-one-fs"
@@ -365,6 +369,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Do not cross filesystem boundaries when creating a snapshot"
                     form={form}
                     formKey="files.oneFileSystem"
+                    effective={resolvedValue?.files?.oneFileSystem}
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -378,6 +383,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Treat directory read errors as non-fatal."
                     form={form}
                     formKey="errorHandling.ignoreDirectoryErrors"
+                    effective={
+                      resolvedValue?.errorHandling?.ignoreDirectoryErrors
+                    }
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-file-errors"
@@ -385,6 +393,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Treat file errors as non-fatal."
                     form={form}
                     formKey="errorHandling.ignoreFileErrors"
+                    effective={resolvedValue?.errorHandling?.ignoreFileErrors}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-unknown-dir-entries"
@@ -392,6 +401,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Treat unrecognized/unsupported directory entries as non-fatal errors."
                     form={form}
                     formKey="errorHandling.ignoreUnknownTypes"
+                    effective={resolvedValue?.errorHandling?.ignoreUnknownTypes}
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -405,6 +415,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
                     form={form}
                     formKey="compression.compressorName"
+                    effective={resolvedValue?.compression?.compressorName}
                   />
 
                   <PolicyNumberInput
@@ -414,6 +425,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="Minimum file size in bytes"
                     form={form}
                     formKey="compression.minSize"
+                    effective={resolvedValue?.compression?.minSize}
                   />
                   <PolicyNumberInput
                     id="max-file-size"
@@ -422,6 +434,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="Maximum file size in bytes"
                     form={form}
                     formKey="compression.maxSize"
+                    effective={resolvedValue?.compression?.maxSize}
                   />
                   <PolicyTextListInput
                     id="only-compress-ext"
@@ -430,6 +443,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="e.g. .txt"
                     form={form}
                     formKey="compression.onlyCompress"
+                    effective={resolvedValue?.compression?.onlyCompress}
                   />
                   <PolicyTextListInput
                     id="never-compress-ext"
@@ -438,6 +452,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="e.g. .mp4"
                     form={form}
                     formKey="compression.neverCompress"
+                    effective={resolvedValue?.compression?.neverCompress}
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -488,6 +503,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                           ]}
                           withCheckIcon={false}
                           disabled
+                          value={resolvedValue?.scheduling?.intervalSeconds}
                         />
                       </Group>
                     </AccordionPanel>
@@ -499,6 +515,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     // placeholder="e.g. 17:00"
                     form={form}
                     formKey="scheduling.timeOfDay"
+                    effective={resolvedValue?.scheduling?.timeOfDay}
                   />
 
                   <PolicyTextListInput
@@ -520,6 +537,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                         </Anchor>
                       </Text>
                     }
+                    effective={resolvedValue?.scheduling?.cron}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="run-missed-snapshots-on-startup"
@@ -527,6 +545,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
                     form={form}
                     formKey="scheduling.runMissed"
+                    effective={resolvedValue?.scheduling?.runMissed}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="manual-snapshots-only"
@@ -534,6 +553,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Only create snapshots manually (disables scheduled snapshots)"
                     form={form}
                     formKey="scheduling.manual"
+                    effective={resolvedValue?.scheduling?.manual}
                   />
                   <AccordionItem value="before-command-mode">
                     <PolicyAccordionControl
@@ -587,6 +607,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="must be specified using global, user, or host policy"
                     form={form}
                     formKey="upload.maxParallelSnapshots"
+                    effective={resolvedValue?.upload?.maxParallelSnapshots}
                   />
                   <PolicyNumberInput
                     id="maximum-parallel-file-reads"
@@ -595,6 +616,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     placeholder="max number of parallel file reads"
                     form={form}
                     formKey="upload.maxParallelFileReads"
+                    effective={resolvedValue?.upload?.maxParallelFileReads}
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -608,6 +630,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Script to run before snapshot"
                     form={form}
                     formKey="actions.beforeSnapshotRoot.script"
+                    effective={
+                      resolvedValue?.actions?.beforeSnapshotRoot?.script
+                    }
                   />
                   <PolicyNumberInput
                     id="before-timeout"
@@ -615,6 +640,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Timeout in seconds before Kopia kills the process"
                     form={form}
                     formKey="actions.beforeSnapshotRoot.timeout"
+                    effective={
+                      resolvedValue?.actions?.beforeSnapshotRoot?.timeout
+                    }
                   />
                   <AccordionItem value="before-command-mode">
                     <PolicyAccordionControl
@@ -658,6 +686,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                           withCheckIcon={false}
                           allowDeselect={false}
                           disabled
+                          value={
+                            resolvedValue?.actions?.beforeSnapshotRoot?.mode
+                          }
                         />
                       </Group>
                     </AccordionPanel>
@@ -668,6 +699,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Script to run after snapshot"
                     form={form}
                     formKey="actions.afterSnapshotRoot.script"
+                    effective={
+                      resolvedValue?.actions?.afterSnapshotRoot?.script
+                    }
                   />
                   <PolicyNumberInput
                     id="after-timeout"
@@ -675,6 +709,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Timeout in seconds before Kopia kills the process"
                     form={form}
                     formKey="actions.afterSnapshotRoot.timeout"
+                    effective={
+                      resolvedValue?.actions?.afterSnapshotRoot?.timeout
+                    }
                   />
                   <AccordionItem value="after-command-mode">
                     <PolicyAccordionControl
@@ -718,6 +755,9 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                           withCheckIcon={false}
                           allowDeselect={false}
                           disabled
+                          value={
+                            resolvedValue?.actions?.afterSnapshotRoot?.mode
+                          }
                         />
                       </Group>
                     </AccordionPanel>
@@ -734,6 +774,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Script to run before folder"
                     form={form}
                     formKey="actions.beforeFolder.script"
+                    effective={resolvedValue?.actions?.beforeFolder?.script}
                   />
                   <PolicyNumberInput
                     id="before-timeout"
@@ -741,6 +782,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Timeout in seconds before Kopia kills the process"
                     form={form}
                     formKey="actions.beforeFolder.timeout"
+                    effective={resolvedValue?.actions?.beforeFolder?.timeout}
                   />
                   <AccordionItem value="before-command-mode">
                     <PolicyAccordionControl
@@ -781,6 +823,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                           withCheckIcon={false}
                           allowDeselect={false}
                           disabled
+                          value={resolvedValue?.actions?.beforeFolder?.mode}
                         />
                       </Group>
                     </AccordionPanel>
@@ -791,6 +834,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Script to run after folder"
                     form={form}
                     formKey="actions.afterFolder.script"
+                    effective={resolvedValue?.actions?.afterFolder?.script}
                   />
                   <PolicyNumberInput
                     id="after-timeout"
@@ -798,6 +842,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Timeout in seconds before Kopia kills the process"
                     form={form}
                     formKey="actions.afterFolder.timeout"
+                    effective={resolvedValue?.actions?.afterFolder?.timeout}
                   />
                   <AccordionItem value="after-command-mode">
                     <PolicyAccordionControl
@@ -839,6 +884,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                           withCheckIcon={false}
                           allowDeselect={false}
                           disabled
+                          value={resolvedValue?.actions?.afterFolder?.mode}
                         />
                       </Group>
                     </AccordionPanel>
@@ -855,6 +901,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a directory is snapshotted"
                     form={form}
                     formKey="logging.directories.snapshotted"
+                    effective={resolvedValue?.logging?.directories?.snapshotted}
                   />
                   <PolicyLogDetailsInput
                     id="directory-ignored"
@@ -862,6 +909,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a directory is ignored"
                     form={form}
                     formKey="logging.directories.ignored"
+                    effective={resolvedValue?.logging?.directories?.ignored}
                   />
                   <PolicyLogDetailsInput
                     id="file-snapshotted"
@@ -869,6 +917,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a file, symbolic link, etc. is snapshotted"
                     form={form}
                     formKey="logging.entries.snapshotted"
+                    effective={resolvedValue?.logging?.entries?.snapshotted}
                   />
                   <PolicyLogDetailsInput
                     id="file-ignored"
@@ -876,6 +925,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a file, symbolic link, etc. is ignored"
                     form={form}
                     formKey="logging.entries.ignored"
+                    effective={resolvedValue?.logging?.entries?.ignored}
                   />
                   <PolicyLogDetailsInput
                     id="cache-hit"
@@ -883,6 +933,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a cache is used instead of uploading the file"
                     form={form}
                     formKey="logging.entries.cacheHit"
+                    effective={resolvedValue?.logging?.entries?.cacheHit}
                   />
                   <PolicyLogDetailsInput
                     id="cache-miss"
@@ -890,6 +941,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
                     description="Log verbosity when a cache cannot be used and a file must be hashed"
                     form={form}
                     formKey="logging.entries.cacheMiss"
+                    effective={resolvedValue?.logging?.entries?.cacheMiss}
                   />
                 </Accordion>
               </ScrollAreaAutosize>

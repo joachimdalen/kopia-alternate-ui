@@ -20,7 +20,7 @@ type Props = {
   title: string;
   description: string;
   children?: React.ReactElement;
-  effective?: string[];
+  effective?: TimeOfDay[];
 } & PolicyInput;
 
 export default function PolicyTimeOfDayInput({
@@ -30,11 +30,12 @@ export default function PolicyTimeOfDayInput({
   children,
   form,
   formKey,
+  effective,
 }: Props) {
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as TimeOfDay[]) || [];
-  const effectiveValues = (inputProps.value as TimeOfDay[]) || [];
+  const effectiveValues = (inputProps.value as TimeOfDay[]) || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl

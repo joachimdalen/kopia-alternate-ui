@@ -25,6 +25,7 @@ export default function PolicyNumberInput({
   effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
+  const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -43,7 +44,7 @@ export default function PolicyNumberInput({
           <NumberInput
             label="Effective"
             hideControls
-            value={effective as string | number}
+            value={effectiveValue}
             readOnly
           />
         </Group>

@@ -37,7 +37,7 @@ export type Sources = {
 export type TimeOfDay = { hour: number; min: number };
 export type SchedulingPolicy = {
   intervalSeconds?: number;
-  timeOfDay?: TimeOfDay;
+  timeOfDay?: TimeOfDay[];
   noParentTimeOfDay?: boolean;
   manual?: boolean;
   cron?: string[];

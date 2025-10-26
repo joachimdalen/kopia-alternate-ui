@@ -9,6 +9,7 @@ type Props = {
   id: string;
   title: string;
   description: string;
+  effective?: string;
 } & PolicyInput;
 
 export default function PolicyCompressionInput({
@@ -17,8 +18,10 @@ export default function PolicyCompressionInput({
   description,
   form,
   formKey,
+  effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
+  const effectiveValue = inputProps.value || effective;
   const [data, setData] = useState<AlgorithmsList>();
   const { execute } = useApiRequest({
     action: () => kopiaService.getAlgorithms(),
@@ -83,6 +86,7 @@ export default function PolicyCompressionInput({
             withCheckIcon={false}
             allowDeselect={false}
             readOnly
+            value={effectiveValue}
           />
         </Group>
       </AccordionPanel>

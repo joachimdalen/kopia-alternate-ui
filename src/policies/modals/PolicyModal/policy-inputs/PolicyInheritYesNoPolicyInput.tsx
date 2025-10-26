@@ -19,6 +19,7 @@ export default function PolicyInheritYesNoPolicyInput({
   effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
+  const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -38,7 +39,7 @@ export default function PolicyInheritYesNoPolicyInput({
             <Text size="sm" fw={500}>
               Effective
             </Text>
-            <InheritYesNoPolicyControl value={effective} disabled />
+            <InheritYesNoPolicyControl value={effectiveValue} disabled />
           </Box>
         </Group>
       </AccordionPanel>
