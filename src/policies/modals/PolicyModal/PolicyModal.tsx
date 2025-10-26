@@ -2,18 +2,22 @@ import {
   Accordion,
   AccordionItem,
   AccordionPanel,
+  Anchor,
   Button,
   Group,
   JsonInput,
+  LoadingOverlay,
   Modal,
   ScrollAreaAutosize,
   Select,
   Stack,
   Switch,
+  Table,
   Tabs,
   TabsList,
   TabsPanel,
   TabsTab,
+  Text,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
@@ -29,13 +33,21 @@ import {
   IconUpload,
 } from "@tabler/icons-react";
 import { yupResolver } from "mantine-form-yup-resolver";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
+import FormattedDate from "../../../core/FormattedDate";
 import IconWrapper from "../../../core/IconWrapper";
 import NumberSelect from "../../../core/NumberSelect";
+import RelativeDate from "../../../core/RelativeDate";
 import useApiRequest from "../../../core/hooks/useApiRequest";
 import kopiaService from "../../../core/kopiaService";
-import type { Policy, PolicyRef, Snapshot } from "../../../core/types";
+import type {
+  Policy,
+  PolicyRef,
+  ResolvedPolicy,
+  Snapshot,
+} from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import PolicyAccordionControl from "./components/PolicyAccordionControl";
@@ -43,8 +55,9 @@ import PolicyCompressionInput from "./policy-inputs/PolicyCompressionInput";
 import PolicyInheritYesNoPolicyInput from "./policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyLogDetailsInput from "./policy-inputs/PolicyLogDetailsInput";
 import PolicyNumberInput from "./policy-inputs/PolicyNumberInput";
-import PolicyTextAreaInput from "./policy-inputs/PolicyTextAreaInput";
 import PolicyTextInput from "./policy-inputs/PolicyTextInput";
+import PolicyTextListInput from "./policy-inputs/PolicyTextListInput";
+import PolicyTimeOfDayInput from "./policy-inputs/PolicyTimeOfDayInput";
 import type { PolicyForm } from "./types";
 type Props = {
   policy?: PolicyRef;
@@ -57,6 +70,11 @@ const schema = Yup.object({
 });
 
 export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
+  const [resolved, setResolved] = useState<ResolvedPolicy>();
+  const isGlobal =
+    policy?.target.host === "" &&
+    policy?.target.userName === "" &&
+    policy?.target.path === "";
   const form = useForm<PolicyForm>({
     mode: "controlled",
     initialValues: {},
@@ -71,14 +89,35 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
     action: (data?: Policy) => kopiaService.getPolicy(policy!.target),
     onReturn: (g) => {
       form.initialize(g);
+      executeResolve(g);
+    },
+  });
+
+  const {
+    error: resolveError,
+    loading: loadingResolve,
+    execute: executeResolve,
+  } = useApiRequest({
+    action: (data?: PolicyForm) =>
+      kopiaService.resolvePolicy(policy!.target, {
+        numUpcomingSnapshotTimes: 5,
+        updates: data!,
+      }),
+    onReturn: (g) => {
+      setResolved(g);
     },
   });
 
   useEffect(() => {
+    async function intLoad() {
+      await executeLoad();
+    }
     if (policy) {
-      executeLoad();
+      intLoad();
     }
   }, []);
+
+  const resolvedValue = resolved?.effective;
 
   async function submitForm(values: PolicyForm) {
     // await execute(values);
@@ -98,8 +137,9 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
         onSubmit={form.onSubmit(submitForm)}
         className={modalClasses.container}
       >
+        <LoadingOverlay visible={loadingData || loadingResolve} />
         <Stack w="100%">
-          {/* <ErrorAlert error={error} /> */}
+          <ErrorAlert error={loadError || resolveError} />
           <Tabs
             defaultValue="snapshot-retention"
             orientation="vertical"
@@ -202,6 +242,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of latest snapshots"
                     form={form}
                     formKey="retention.keepLatest"
+                    effective={resolvedValue?.retention?.keepLatest}
                   />
                   <PolicyNumberInput
                     id="hourly"
@@ -210,6 +251,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of hourly snapshots"
                     form={form}
                     formKey="retention.keepHourly"
+                    effective={resolvedValue?.retention?.keepHourly}
                   />
                   <PolicyNumberInput
                     id="daily"
@@ -218,6 +260,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of daily snapshots"
                     form={form}
                     formKey="retention.keepDaily"
+                    effective={resolvedValue?.retention?.keepDaily}
                   />
                   <PolicyNumberInput
                     id="weekly"
@@ -226,6 +269,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of weekly snapshots"
                     form={form}
                     formKey="retention.keepWeekly"
+                    effective={resolvedValue?.retention?.keepWeekly}
                   />
                   <PolicyNumberInput
                     id="monthly"
@@ -234,6 +278,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of monthly snapshots"
                     form={form}
                     formKey="retention.keepMonthly"
+                    effective={resolvedValue?.retention?.keepMonthly}
                   />
                   <PolicyNumberInput
                     id="annual"
@@ -242,6 +287,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     placeholder="# of annual snapshots"
                     form={form}
                     formKey="retention.keepAnnual"
+                    effective={resolvedValue?.retention?.keepAnnual}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-idential-snapshots"
@@ -249,6 +295,9 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     description="Do NOT save a snapshot when no files have been changed"
                     form={form}
                     formKey="retention.ignoreIdenticalSnapshots"
+                    effective={
+                      resolvedValue?.retention?.ignoreIdenticalSnapshots
+                    }
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -256,13 +305,25 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
             <TabsPanel value="files" px="xs">
               <ScrollAreaAutosize mah={600} scrollbarSize={4}>
                 <Accordion variant="contained">
-                  <PolicyTextAreaInput
+                  <PolicyTextListInput
                     id="ignore-files"
                     title="Ignore Files"
                     description="List of file and directory names to ignore."
                     form={form}
                     formKey="files.ignore"
                     placeholder="e.g. /file.txt"
+                    infoNode={
+                      <Text fz="xs">
+                        See{" "}
+                        <Anchor
+                          fz="xs"
+                          href="https://kopia.io/docs/advanced/kopiaignore/"
+                          target="_blank"
+                        >
+                          documentation on ignoring files.
+                        </Anchor>
+                      </Text>
+                    }
                   >
                     <Switch
                       label="Ignore Rules From Parent Directories"
@@ -271,8 +332,8 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                         type: "checkbox",
                       })}
                     />
-                  </PolicyTextAreaInput>
-                  <PolicyTextAreaInput
+                  </PolicyTextListInput>
+                  <PolicyTextListInput
                     id="ignore-rule-files"
                     title="Ignore Rule Files"
                     description="List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
@@ -284,7 +345,8 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                       description="When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored"
                       {...form.getInputProps("files.noParentDotFiles")}
                     />
-                  </PolicyTextAreaInput>
+                  </PolicyTextListInput>
+
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-well-known-cache-dirs"
                     title="Ignore Well-Known Cache Directories"
@@ -364,7 +426,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     form={form}
                     formKey="compression.maxSize"
                   />
-                  <PolicyTextAreaInput
+                  <PolicyTextListInput
                     id="only-compress-ext"
                     title="Only Compress Extensions"
                     description="Only compress files with the following file extensions (one extension per line)"
@@ -372,7 +434,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     form={form}
                     formKey="compression.onlyCompress"
                   />
-                  <PolicyTextAreaInput
+                  <PolicyTextListInput
                     id="never-compress-ext"
                     title="Never Compress Extensions"
                     description="Never compress the following file extensions (one extension per line)"
@@ -433,21 +495,34 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                       </Group>
                     </AccordionPanel>
                   </AccordionItem>
-                  <PolicyTextAreaInput
+                  <PolicyTimeOfDayInput
                     id="time-of-day"
                     title="Time Of Day"
                     description="Create snapshots at the specified times of day (24hr format)"
-                    placeholder="e.g. 17:00"
+                    // placeholder="e.g. 17:00"
                     form={form}
                     formKey="scheduling.timeOfDay"
                   />
-                  <PolicyTextInput
+
+                  <PolicyTextListInput
                     id="cron-expression"
                     title="Cron Expressions"
-                    description="Snapshot schedules using UNIX crontab syntax (one per line):"
+                    description="Snapshot schedules using UNIX crontab syntax:"
                     placeholder="minute hour day month weekday #comment"
                     form={form}
                     formKey="scheduling.cron"
+                    infoNode={
+                      <Text fz="xs">
+                        See{" "}
+                        <Anchor
+                          fz="xs"
+                          href="https://github.com/hashicorp/cronexpr#implementation"
+                          target="_blank"
+                        >
+                          supported format details.
+                        </Anchor>
+                      </Text>
+                    }
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="run-missed-snapshots-on-startup"
@@ -463,7 +538,45 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
                     form={form}
                     formKey="scheduling.manual"
                   />
-                  TODO: Add estimates
+                  <AccordionItem value="before-command-mode">
+                    <PolicyAccordionControl
+                      title="Upcoming Snapshots"
+                      description="Times of upcoming snapshots calculated based on policy parameters"
+                      isConfigured={
+                        resolved?.upcomingSnapshotTimes?.length !== undefined &&
+                        resolved?.upcomingSnapshotTimes?.length > 0
+                      }
+                    />
+                    <AccordionPanel>
+                      {resolved?.upcomingSnapshotTimes !== undefined && (
+                        <Table fz="xs" withTableBorder striped>
+                          <Table.Thead>
+                            <Table.Tr>
+                              <Table.Th>Timestamp</Table.Th>
+                              <Table.Th>From now</Table.Th>
+                            </Table.Tr>
+                          </Table.Thead>
+                          <Table.Tbody>
+                            {resolved.upcomingSnapshotTimes.map((t) => {
+                              return (
+                                <Table.Tr key={t}>
+                                  <Table.Td>
+                                    <FormattedDate
+                                      value={t}
+                                      format="YY-MM-DD h:mm A"
+                                    />
+                                  </Table.Td>
+                                  <Table.Td>
+                                    <RelativeDate value={t} />
+                                  </Table.Td>
+                                </Table.Tr>
+                              );
+                            })}
+                          </Table.Tbody>
+                        </Table>
+                      )}
+                    </AccordionPanel>
+                  </AccordionItem>
                 </Accordion>
               </ScrollAreaAutosize>
             </TabsPanel>
@@ -832,14 +945,22 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
         >
           Cancel
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="update-description-form"
-          loading={false || !form.isValid()}
-        >
-          Save
-        </Button>
+        <Group>
+          {policy && !isGlobal && (
+            <Button size="xs" color="red">
+              Delete
+            </Button>
+          )}
+          <Button
+            size="xs"
+            type="submit"
+            form="update-description-form"
+            loading={false}
+            disabled={!form.isValid()}
+          >
+            Save
+          </Button>
+        </Group>
       </Group>
     </Modal>
   );

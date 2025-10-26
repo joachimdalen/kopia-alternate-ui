@@ -53,7 +53,7 @@ export default function PolicyLogDetailsInput({
             label="Effective"
             data={logDetailsOptions}
             withCheckIcon={false}
-            disabled
+            readOnly
           />
         </Group>
       </AccordionPanel>

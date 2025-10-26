@@ -8,7 +8,7 @@ import IconWrapper from "../../../../core/IconWrapper";
 
 type Props = {
   value?: boolean;
-  onChange: (value?: boolean) => void;
+  onChange?: (value?: boolean) => void;
   disabled?: boolean;
 };
 
@@ -21,8 +21,9 @@ export default function InheritYesNoPolicyControl({
   return (
     <SegmentedControl
       value={intValue}
-      disabled={disabled}
+      readOnly={disabled}
       onChange={(v) => {
+        if (onChange === undefined) return;
         switch (v) {
           case "inherit":
             onChange(undefined);

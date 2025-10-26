@@ -12,6 +12,7 @@ type Props = {
   title: string;
   description: string;
   placeholder?: string;
+  effective?: number;
 } & PolicyInput;
 
 export default function PolicyNumberInput({
@@ -21,6 +22,7 @@ export default function PolicyNumberInput({
   placeholder,
   form,
   formKey,
+  effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
   return (
@@ -38,7 +40,12 @@ export default function PolicyNumberInput({
             placeholder={placeholder}
             {...inputProps}
           />
-          <NumberInput label="Effective" hideControls disabled />
+          <NumberInput
+            label="Effective"
+            hideControls
+            value={effective as string | number}
+            readOnly
+          />
         </Group>
       </AccordionPanel>
     </AccordionItem>

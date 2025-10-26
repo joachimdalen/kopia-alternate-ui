@@ -82,7 +82,7 @@ export default function PolicyCompressionInput({
             data={algorithmOptions}
             withCheckIcon={false}
             allowDeselect={false}
-            disabled
+            readOnly
           />
         </Group>
       </AccordionPanel>

@@ -14,6 +14,7 @@ type Props = {
   description: string;
   placeholder?: string;
   children?: React.ReactElement;
+  effective?: string;
 } & PolicyInput;
 
 export default function PolicyTextAreaInput({
@@ -41,7 +42,11 @@ export default function PolicyTextAreaInput({
               placeholder={placeholder}
               {...inputProps}
             />
-            <Textarea label="Effective" disabled />
+            <Textarea
+              label="Effective"
+              readOnly
+              defaultValue={inputProps.value}
+            />
           </Group>
           {children}
         </Stack>

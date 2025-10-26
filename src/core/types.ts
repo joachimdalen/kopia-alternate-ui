@@ -34,12 +34,10 @@ export type Sources = {
   multiUser: boolean;
   sources: SourceStatus[];
 };
+export type TimeOfDay = { hour: number; min: number };
 export type SchedulingPolicy = {
   intervalSeconds?: number;
-  timeOfDay?: {
-    hour: number;
-    min: number;
-  };
+  timeOfDay?: TimeOfDay;
   noParentTimeOfDay?: boolean;
   manual?: boolean;
   cron?: string[];
@@ -267,7 +265,7 @@ export type Policy = {
   upload?: UploadPolicy;
   noParent?: boolean;
 };
-type RetentionPolicy = {
+export type RetentionPolicy = {
   keepLatest?: number;
   keepHourly?: number;
   keepDaily?: number;
@@ -276,7 +274,7 @@ type RetentionPolicy = {
   keepAnnual?: number;
   ignoreIdenticalSnapshots?: boolean;
 };
-type FilesPolicy = {
+export type FilesPolicy = {
   ignore?: string[];
   noParentIgnore?: boolean;
   ignoreDotFiles?: string[];
@@ -285,12 +283,12 @@ type FilesPolicy = {
   maxFileSize?: number;
   oneFileSystem?: boolean;
 };
-type ErrorHandlingPolicy = {
+export type ErrorHandlingPolicy = {
   ignoreFileErrors?: boolean;
   ignoreDirectoryErrors?: boolean;
   ignoreUnknownTypes?: boolean;
 };
-type CompressionPolicy = {
+export type CompressionPolicy = {
   compressorName?: string;
   onlyCompress?: string[];
   noParentOnlyCompress?: boolean;
@@ -299,54 +297,54 @@ type CompressionPolicy = {
   minSize?: number;
   maxSize?: number;
 };
-type MetadataCompressionPolicy = {
+export type MetadataCompressionPolicy = {
   compressorName?: string;
-  onlyCompress?: string[];
-  noParentOnlyCompress?: boolean;
-  neverCompress?: string[];
-  noParentNeverCompress?: boolean;
-  minSize?: number;
-  maxSize?: number;
+  // onlyCompress?: string[];
+  // noParentOnlyCompress?: boolean;
+  // neverCompress?: string[];
+  // noParentNeverCompress?: boolean;
+  // minSize?: number;
+  // maxSize?: number;
 };
-type SplitterPolicy = {
+export type SplitterPolicy = {
   algorithm?: string;
 };
-type ActionsPolicy = {
+export type ActionsPolicy = {
   beforeFolder?: ActionCommand;
   afterFolder?: ActionCommand;
   beforeSnapshotRoot?: ActionCommand;
   afterSnapshotRoot?: ActionCommand;
 };
-type ActionCommand = {
+export type ActionCommand = {
   path?: string;
   args?: string[];
   script?: string;
   timeout?: number;
   mode?: string;
 };
-type OSSnapshotPolicy = {
+export type OSSnapshotPolicy = {
   volumeShadowCopy?: VolumeShadowCopyPolicy;
 };
-type VolumeShadowCopyPolicy = {
+export type VolumeShadowCopyPolicy = {
   enable?: number;
 };
-type LoggingPolicy = {
+export type LoggingPolicy = {
   directories?: DirLoggingPolicy;
   entries?: EntryLoggingPolicy;
 };
 
-type DirLoggingPolicy = {
+export type DirLoggingPolicy = {
   snapshotted?: number;
   ignored?: number;
 };
-type EntryLoggingPolicy = {
+export type EntryLoggingPolicy = {
   snapshotted?: number;
   ignored?: number;
   cacheHit?: number;
   cacheMiss?: number;
 };
 
-type UploadPolicy = {
+export type UploadPolicy = {
   maxParallelSnapshots?: number;
   maxParallelFileReads?: number;
   parallelUploadAboveSize?: number;
@@ -362,4 +360,103 @@ export type AlgorithmsList = {
   defaultEncryption: string;
   defaultHash: string;
   defaultSplitter: string;
+};
+export type ResolvePolicyRequest = {
+  numUpcomingSnapshotTimes: number;
+  updates: Policy;
+};
+
+export type ResolvedPolicy = {
+  effective: Policy;
+  definition: PolicyDefinition;
+  defined: Policy;
+  upcomingSnapshotTimes: string[];
+  schedulingError?: string;
+};
+
+export type PolicyDefinition = {
+  retention?: RetentionPolicyDefinition;
+  files?: FilesPolicyDefinition;
+  errorHandling?: ErrorHandlingPolicyDefinition;
+  scheduling?: SchedulingPolicyDefinition;
+  compression?: CompressionPolicyDefinition;
+  metadataCompression?: MetadataCompressionPolicyDefinition;
+  splitter?: SplitterPolicyDefinition;
+  actions?: ActionsPolicyDefinition;
+  osSnapshots?: OSSnapshotPolicyDefinition;
+  logging?: LoggingPolicyDefinition;
+  upload?: UploadPolicyDefinition;
+};
+
+export type RetentionPolicyDefinition = {
+  keepLatest?: SourceInfo;
+  keepHourly?: SourceInfo;
+  keepDaily?: SourceInfo;
+  keepWeekly?: SourceInfo;
+  keepMonthly?: SourceInfo;
+  keepAnnual?: SourceInfo;
+  ignoreIdenticalSnapshots?: SourceInfo;
+};
+type FilesPolicyDefinition = {
+  ignore?: SourceInfo;
+  noParentIgnore?: SourceInfo;
+  ignoreDotFiles?: SourceInfo;
+  noParentDotFiles?: SourceInfo;
+  ignoreCacheDirs?: SourceInfo;
+  maxFileSize?: SourceInfo;
+  oneFileSystem?: SourceInfo;
+};
+type ErrorHandlingPolicyDefinition = {
+  ignoreFileErrors?: SourceInfo;
+  ignoreDirectoryErrors?: SourceInfo;
+  ignoreUnknownTypes?: SourceInfo;
+};
+type SchedulingPolicyDefinition = {
+  intervalSeconds?: SourceInfo;
+  timeOfDay?: SourceInfo;
+  noParentTimeOfDay?: SourceInfo;
+  manual?: SourceInfo;
+  cron?: SourceInfo;
+  runMissed: SourceInfo;
+};
+type CompressionPolicyDefinition = {
+  compressorName?: SourceInfo;
+  onlyCompress?: SourceInfo;
+  noParentOnlyCompress?: SourceInfo;
+  neverCompress?: SourceInfo;
+  noParentNeverCompress?: SourceInfo;
+  minSize?: SourceInfo;
+  maxSize?: SourceInfo;
+};
+type MetadataCompressionPolicyDefinition = {
+  compressorName?: SourceInfo;
+};
+type SplitterPolicyDefinition = {
+  algorithm?: SourceInfo;
+};
+type ActionsPolicyDefinition = {
+  beforeSnapshotRoot?: SourceInfo;
+  afterSnapshotRoot?: SourceInfo;
+};
+type OSSnapshotPolicyDefinition = {
+  volumeShadowCopy?: SourceInfo;
+};
+type LoggingPolicyDefinition = {
+  directories?: DirLoggingPolicyDefinition;
+  entries?: EntryLoggingPolicyDefinition;
+};
+type DirLoggingPolicyDefinition = {
+  snapshotted?: SourceInfo;
+  ignored?: SourceInfo;
+};
+type EntryLoggingPolicyDefinition = {
+  snapshotted?: SourceInfo;
+  ignored?: SourceInfo;
+  cacheHit?: SourceInfo;
+  cacheMiss?: SourceInfo;
+};
+type UploadPolicyDefinition = {
+  maxParallelSnapshots?: SourceInfo;
+  maxParallelFileReads?: SourceInfo;
+  parallelUploadAboveSize?: SourceInfo;
 };

@@ -5,6 +5,8 @@ import type {
   DirManifest,
   PoliciesList,
   Policy,
+  ResolvedPolicy,
+  ResolvePolicyRequest,
   RestoreRequest,
   Snapshot,
   Snapshots,
@@ -87,6 +89,12 @@ function getAlgorithms(): Promise<ApiResponse<AlgorithmsList>> {
 function getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
   return clientGet("/api/v1/policy", source);
 }
+function resolvePolicy(
+  source: SourceInfo,
+  data: ResolvePolicyRequest
+): Promise<ApiResponse<ResolvedPolicy>> {
+  return clientPost("/api/v1/policy/resolve", data, source);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -102,6 +110,7 @@ const methods = {
   getPolicies,
   getAlgorithms,
   getPolicy,
+  resolvePolicy,
 };
 
 export default methods;

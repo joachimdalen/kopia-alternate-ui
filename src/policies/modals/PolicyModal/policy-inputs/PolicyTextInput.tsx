@@ -7,6 +7,7 @@ type Props = {
   title: string;
   description: string;
   placeholder?: string;
+  effective?: string;
 } & PolicyInput;
 
 export default function PolicyTextInput({
@@ -32,7 +33,7 @@ export default function PolicyTextInput({
             placeholder={placeholder}
             {...inputProps}
           />
-          <TextInput label="Effective" disabled />
+          <TextInput label="Effective" readOnly />
         </Group>
       </AccordionPanel>
     </AccordionItem>

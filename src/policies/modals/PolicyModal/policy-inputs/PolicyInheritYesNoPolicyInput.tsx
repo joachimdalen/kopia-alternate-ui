@@ -7,6 +7,7 @@ type Props = {
   id: string;
   title: string;
   description: string;
+  effective?: boolean;
 } & PolicyInput;
 
 export default function PolicyInheritYesNoPolicyInput({
@@ -15,6 +16,7 @@ export default function PolicyInheritYesNoPolicyInput({
   description,
   form,
   formKey,
+  effective,
 }: Props) {
   const inputProps = form.getInputProps(formKey);
   return (
@@ -36,11 +38,7 @@ export default function PolicyInheritYesNoPolicyInput({
             <Text size="sm" fw={500}>
               Effective
             </Text>
-            <InheritYesNoPolicyControl
-              value={false}
-              onChange={() => console.log("d")}
-              disabled
-            />
+            <InheritYesNoPolicyControl value={effective} disabled />
           </Box>
         </Group>
       </AccordionPanel>
