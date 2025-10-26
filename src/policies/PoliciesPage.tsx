@@ -13,31 +13,114 @@ import {
   IconPlus,
   IconRefresh,
 } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
+import { MenuButton } from "../core/MenuButton/MenuButton";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
-import { type ItemAction, type PolicyRef, type Snapshot } from "../core/types";
+import {
+  type ItemAction,
+  type PolicyRef,
+  type Snapshot,
+  type Sources,
+} from "../core/types";
+import { formatOwnerName } from "../utils/formatOwnerName";
+import { onlyUnique } from "../utils/onlyUnique";
 import PolicyModal from "./modals/PolicyModal/PolicyModal";
-import { getNonEmptyPolicies } from "./policiesUtil";
+import {
+  getNonEmptyPolicies,
+  isGlobalPolicy,
+  isLocalHostPolicy,
+  isLocalUserPolicy,
+} from "./policiesUtil";
+
+type PolicyFilter =
+  | "applicable-policies"
+  | "local-path-policies"
+  | "all-policies"
+  | "global-policy"
+  | "per-user-policies"
+  | "per-host-policies";
 
 function PoliciesPage() {
   const [data, setData] = useState<PolicyRef[]>([]);
+  const [sources, setSources] = useState<Sources>();
   const [action, setAction] = useState<ItemAction<PolicyRef, "edit">>();
-
+  const [filterState, setFilterState] = useState<PolicyFilter | string>(
+    "applicable-policies"
+  );
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getPolicies(),
     onReturn(resp) {
       setData(resp.policies);
     },
   });
+  const { execute: executeSources, loading: loadingSources } = useApiRequest({
+    action: () => kopiaService.getSnapshots(),
+    onReturn(resp) {
+      setSources(resp);
+    },
+  });
+
+  const uniqueOwners = useMemo(
+    () =>
+      (sources?.sources || [])
+        .map((x) => formatOwnerName(x.source))
+        .filter(onlyUnique)
+        .sort(),
+    [sources]
+  );
+
+  const localSourceName = useMemo(() => {
+    if (sources == undefined) return "";
+    return sources.localUsername + "@" + sources.localHost;
+  }, [sources]);
 
   useEffect(() => {
     execute(undefined, "loading");
+    executeSources(undefined);
   }, []);
+
+  const visibleData = useMemo(() => {
+    let dta = [...data];
+    switch (filterState) {
+      case "all-policies":
+        break;
+      case "global-policy":
+        dta = dta.filter(
+          (x) => !x.target.userName && !x.target.host && !x.target.path
+        );
+        break;
+      case "local-path-policies":
+        dta = dta.filter((x) => isLocalUserPolicy(x, localSourceName));
+        break;
+      case "applicable-policies":
+        dta = dta.filter(
+          (x) =>
+            isLocalUserPolicy(x, localSourceName) ||
+            isLocalHostPolicy(x, sources?.localHost || "") ||
+            isGlobalPolicy(x)
+        );
+        break;
+      case "per-user-policies":
+        dta = dta.filter(
+          (x) => !!x.target.userName && !!x.target.host && !x.target.path
+        );
+        break;
+      case "per-host-policies":
+        dta = dta.filter(
+          (x) => !x.target.userName && !!x.target.host && !x.target.path
+        );
+        break;
+      default:
+        dta = dta.filter((x) => formatOwnerName(x.target) === filterState);
+        break;
+    }
+    return dta;
+  }, [data, filterState, localSourceName, sources]);
 
   return (
     <Container fluid>
@@ -45,6 +128,24 @@ function PoliciesPage() {
         <RepoTitle />
         <Group justify="space-between">
           <Group>
+            <MenuButton
+              options={[
+                { label: "Applicable Policies", value: "applicable-policies" },
+                { label: "Local Path Policies", value: "local-path-policies" },
+                { label: "All Policies", value: "all-policies" },
+                { label: "", value: "divider" },
+                { label: "Global Policy", value: "global-policy" },
+                { label: "Per-User Policies", value: "per-user-policies" },
+                { label: "Per-Host Policies", value: "per-host-policies" },
+                { label: "", value: "divider" },
+                ...uniqueOwners.map((own) => ({
+                  label: own,
+                  value: own,
+                })),
+              ]}
+              onClick={setFilterState}
+              disabled={loading}
+            />
             <Button
               size="xs"
               leftSection={<IconPlus size={16} />}
@@ -70,7 +171,7 @@ function PoliciesPage() {
         <ErrorAlert error={error} />
         <DataGrid
           idAccessor="id"
-          records={data}
+          records={visibleData}
           loading={loading && loadingKey === "loading"}
           columns={[
             {

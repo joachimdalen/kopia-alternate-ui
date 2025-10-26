@@ -42,14 +42,10 @@ import NumberSelect from "../../../core/NumberSelect";
 import RelativeDate from "../../../core/RelativeDate";
 import useApiRequest from "../../../core/hooks/useApiRequest";
 import kopiaService from "../../../core/kopiaService";
-import type {
-  Policy,
-  PolicyRef,
-  ResolvedPolicy,
-  Snapshot,
-} from "../../../core/types";
+import type { PolicyRef, ResolvedPolicy, Snapshot } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
+import { getPolicyType } from "../../policiesUtil";
 import PolicyAccordionControl from "./components/PolicyAccordionControl";
 import PolicyCompressionInput from "./policy-inputs/PolicyCompressionInput";
 import PolicyInheritYesNoPolicyInput from "./policy-inputs/PolicyInheritYesNoPolicyInput";
@@ -86,7 +82,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
     loading: loadingData,
     execute: executeLoad,
   } = useApiRequest({
-    action: (data?: Policy) => kopiaService.getPolicy(policy!.target),
+    action: () => kopiaService.getPolicy(policy!.target),
     onReturn: (g) => {
       form.initialize(g);
       executeResolve(g);
@@ -124,7 +120,7 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
   }
   return (
     <Modal
-      title="Directory: root@hostname:/data"
+      title={policy ? getPolicyType(policy.target) : "New policy"}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
