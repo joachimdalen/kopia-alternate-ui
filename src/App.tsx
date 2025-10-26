@@ -1,12 +1,7 @@
-import { Box, Container } from "@mantine/core";
-import { DataTable } from "mantine-datatable";
+import { Container } from "@mantine/core";
 
 function App() {
-  return (
-    <Container fluid>
-      dd
-    </Container>
-  );
+  return <Container fluid>dd</Container>;
 }
 
 export default App;

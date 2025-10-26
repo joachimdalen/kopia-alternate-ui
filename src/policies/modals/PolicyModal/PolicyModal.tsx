@@ -65,7 +65,7 @@ const schema = Yup.object({
   description: Yup.string().max(250).label("Description"),
 });
 
-export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
+export default function PolicyModal({ policy, onCancel }: Props) {
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal =
     policy?.target.host === "" &&
@@ -115,7 +115,8 @@ export default function PolicyModal({ policy, onCancel, onUpdated }: Props) {
 
   const resolvedValue = resolved?.effective;
 
-  async function submitForm(values: PolicyForm) {
+  async function submitForm() {
+    //values: PolicyForm
     // await execute(values);
   }
   return (

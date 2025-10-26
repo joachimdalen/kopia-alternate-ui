@@ -16,13 +16,13 @@ import * as Yup from "yup";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import kopiaService from "../../core/kopiaService";
-import type { RestoreRequest } from "../../core/types";
+import type { RestoreRequest, Task } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 type Props = {
   oid: string;
   onCancel: () => void;
-  onRestoreStarted: (task: any) => void;
+  onRestoreStarted: (task: Task) => void;
 };
 
 const schema = Yup.object({

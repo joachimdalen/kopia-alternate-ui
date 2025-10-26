@@ -1,4 +1,4 @@
-const locale = "en-US";
+//const locale = "en-US";
 const base10UnitPrefixes = ["", "K", "M", "G", "T"];
 const base2UnitPrefixes = ["", "Ki", "Mi", "Gi", "Ti"];
 

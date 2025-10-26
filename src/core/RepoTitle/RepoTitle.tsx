@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useApiRequest from "../hooks/useApiRequest";
 import kopiaService from "../kopiaService";
 import type { Status } from "../types";
+
 export default function RepoTitle() {
   const [data, setData] = useState<Status>();
   const { execute } = useApiRequest({

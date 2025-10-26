@@ -79,7 +79,7 @@ function SnapshotsPage() {
     error: newSnapshotError,
     execute: newSnapshot,
     loading: startSnapshotLoading,
-    loadingKey: startSnapshotKey,
+    // loadingKey: startSnapshotKey,
   } = useApiRequest({
     action: (data?: SourceInfo) => kopiaService.startSnapshot(data!),
     onReturn() {

@@ -21,12 +21,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
-import {
-  type ItemAction,
-  type PolicyRef,
-  type Snapshot,
-  type Sources,
-} from "../core/types";
+import { type ItemAction, type PolicyRef, type Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
 import PolicyModal from "./modals/PolicyModal/PolicyModal";
@@ -58,7 +53,7 @@ function PoliciesPage() {
       setData(resp.policies);
     },
   });
-  const { execute: executeSources, loading: loadingSources } = useApiRequest({
+  const { execute: executeSources } = useApiRequest({
     action: () => kopiaService.getSnapshots(),
     onReturn(resp) {
       setSources(resp);
@@ -225,9 +220,7 @@ function PoliciesPage() {
         <PolicyModal
           policy={action.item}
           onCancel={() => setAction(undefined)}
-          onUpdated={function (snapshots: Snapshot[]): void {
-            throw new Error("Function not implemented.");
-          }}
+          onUpdated={() => console.log("")}
         />
       )}
     </Container>
