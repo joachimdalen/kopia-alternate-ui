@@ -1,0 +1,10 @@
+name: kopia-alt-ui
+services:
+  kopiaaltui:
+    build:
+      dockerfile: ./Dockerfile
+      context: ../
+    ports:
+      - 8080:80
+    environment:
+      - KAU_KOPIA_ENDPOINT=http://host.docker.internal:51515

@@ -13,6 +13,7 @@ import type {
   SourceInfo,
   Sources,
   Status,
+  Task,
   TaskList,
 } from "./types";
 function getSnapshots(): Promise<ApiResponse<Sources>> {
@@ -70,7 +71,7 @@ function getObjects(oid: string): Promise<ApiResponse<DirManifest>> {
   return clientGet(`/api/v1/objects/${oid}`);
 }
 
-function restore(data: RestoreRequest) {
+function restore(data: RestoreRequest): Promise<ApiResponse<Task>> {
   return clientPost("/api/v1/restore", data);
 }
 function getTasks(): Promise<ApiResponse<TaskList>> {

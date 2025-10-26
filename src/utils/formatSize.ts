@@ -2,7 +2,7 @@
 const base10UnitPrefixes = ["", "K", "M", "G", "T"];
 const base2UnitPrefixes = ["", "Ki", "Mi", "Gi", "Ti"];
 
-function formatNumber(f) {
+function formatNumber(f: number) {
   return Math.round(f * 10) / 10.0 + "";
 }
 

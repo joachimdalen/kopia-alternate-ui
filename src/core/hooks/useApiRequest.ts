@@ -37,7 +37,7 @@ function useApiRequest<TResponse, TRequest>({
   onReturn,
   // onValidationErrors,
   errorInfo,
-  requestErrorInfo,
+  //requestErrorInfo,
   showErrorAsNotification = false,
   returnsData = true,
 }: UseApiRequestOptions<TResponse, TRequest>): UseApiRequestReturn<TRequest> {
@@ -75,14 +75,8 @@ function useApiRequest<TResponse, TRequest>({
         return;
       } else {
         const err: ErrorInformation = {
-          title:
-            requestErrorInfo?.title ||
-            response.error?.status ||
-            "Operation failed",
-          message:
-            requestErrorInfo?.message ||
-            response.error?.message ||
-            "Failed due to an unknown error",
+          title: "Operation failed",
+          message: "Failed due to an unknown error",
         };
         processError(err);
       }

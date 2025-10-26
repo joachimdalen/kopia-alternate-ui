@@ -183,7 +183,7 @@ async function patch<TRequest, TResponse>(
   });
 }
 
-async function getBlob(path: string): Promise<ApiResponse<ArrayBuffer>> {
+async function getBlob(path: string): Promise<unknown> {
   return await requestWrapper(async () => {
     const response = await axios({
       method: "GET",
@@ -192,7 +192,7 @@ async function getBlob(path: string): Promise<ApiResponse<ArrayBuffer>> {
     });
     return {
       isError: false,
-      data: response.data,
+      data: response.data as ArrayBuffer,
       responseCode: response.status,
       contentDisposition: response.headers["content-disposition"],
       contentType: response.headers["content-type"],
