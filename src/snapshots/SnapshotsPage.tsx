@@ -12,9 +12,9 @@ import {
   IconPlus,
   IconRefresh,
 } from "@tabler/icons-react";
-import { DataTable } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
@@ -24,16 +24,15 @@ import RepoTitle from "../core/RepoTitle/RepoTitle";
 import { type SourceInfo, type Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
-const PAGE_SIZES = [10, 20, 30, 40, 50, 100];
+
 function SnapshotsPage() {
-  const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
-  const [page, setPage] = useState(1);
   const [data, setData] = useState<Sources>();
-  const [filterState, setFilterState] = useState<"all" | "local" | string>();
+  const [filterState, setFilterState] = useState<"all" | "local" | string>(
+    "all"
+  );
 
   const visibleData = useMemo(() => {
     if (data === undefined) return [];
-    if (filterState === undefined) return data.sources.slice(0, pageSize);
 
     let filterable = [...data.sources];
 
@@ -53,8 +52,8 @@ function SnapshotsPage() {
         );
     }
 
-    return filterable.slice(0, pageSize);
-  }, [data, pageSize, filterState]);
+    return filterable;
+  }, [data, filterState]);
 
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getSnapshots(),
@@ -135,15 +134,9 @@ function SnapshotsPage() {
         </Group>
         <Divider />
         <ErrorAlert error={intError} />
-        <DataTable
-          withTableBorder
-          borderRadius="sm"
-          withColumnBorders
-          striped
-          highlightOnHover
-          minHeight={250}
+        <DataGrid
           records={visibleData}
-          fetching={loading && loadingKey === "loading"}
+          loading={loading && loadingKey === "loading"}
           // define columns
           idAccessor="source.path"
           columns={[
@@ -220,14 +213,6 @@ function SnapshotsPage() {
               },
             },
           ]}
-          totalRecords={1}
-          recordsPerPage={pageSize}
-          page={page}
-          onPageChange={(p) => setPage(p)}
-          recordsPerPageOptions={PAGE_SIZES}
-          onRecordsPerPageChange={setPageSize}
-          paginationSize="sm"
-          fz="sm"
         />
       </Stack>
     </Container>

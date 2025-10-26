@@ -5,6 +5,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import BaseLayout from "./BaseLayout.tsx";
 import "./index.css";
+import PoliciesPage from "./policies/PoliciesPage.tsx";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")!).render(
           />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
           <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/policies" element={<PoliciesPage />} />
           <Route path="/" element={<Navigate to="/snapshots" />} />
         </Route>
       </Routes>

@@ -5,7 +5,7 @@ import kopiaService from "../kopiaService";
 import type { Status } from "../types";
 export default function RepoTitle() {
   const [data, setData] = useState<Status>();
-  const { error, execute, loading, loadingKey } = useApiRequest({
+  const { execute } = useApiRequest({
     action: () => kopiaService.getStatus(),
     onReturn(resp) {
       setData(resp);

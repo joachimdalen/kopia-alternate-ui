@@ -5,7 +5,7 @@ import { Header } from "./core/Header/Header";
 function BaseLayout() {
   return (
     <MantineProvider defaultColorScheme="dark">
-      <AppShell padding="md" header={{ height: 60 }}>
+      <AppShell padding="md" header={{ height: 60 }} footer={{ height: 40 }}>
         <Header />
 
         <AppShell.Main>

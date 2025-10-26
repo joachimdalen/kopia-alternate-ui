@@ -1,7 +1,10 @@
 import { clientGet, clientPost } from "./clientApiFetch";
 import type {
+  AlgorithmsList,
   ApiResponse,
   DirManifest,
+  PoliciesList,
+  Policy,
   RestoreRequest,
   Snapshot,
   Snapshots,
@@ -74,6 +77,16 @@ function getTasks(): Promise<ApiResponse<TaskList>> {
 function getStatus(): Promise<ApiResponse<Status>> {
   return clientGet("/api/v1/repo/status");
 }
+function getPolicies(): Promise<ApiResponse<PoliciesList>> {
+  return clientGet("/api/v1/policies");
+}
+
+function getAlgorithms(): Promise<ApiResponse<AlgorithmsList>> {
+  return clientGet("/api/v1/repo/algorithms");
+}
+function getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
+  return clientGet("/api/v1/policy", source);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -86,6 +99,9 @@ const methods = {
   restore,
   getTasks,
   getStatus,
+  getPolicies,
+  getAlgorithms,
+  getPolicy,
 };
 
 export default methods;

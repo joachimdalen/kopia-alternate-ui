@@ -10,7 +10,6 @@ export default function DirectoryCrumbs() {
   for (let state = location.state; state; state = state.prevState) {
     breadcrumbs.unshift(state);
   }
-  console.log(breadcrumbs, location);
   return (
     <Breadcrumbs>
       {breadcrumbs.map((state, i) => {

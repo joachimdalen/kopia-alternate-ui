@@ -35,6 +35,14 @@ export type Sources = {
   sources: SourceStatus[];
 };
 export type SchedulingPolicy = {
+  intervalSeconds?: number;
+  timeOfDay?: {
+    hour: number;
+    min: number;
+  };
+  noParentTimeOfDay?: boolean;
+  manual?: boolean;
+  cron?: string[];
   runMissed: boolean;
 };
 export type DirEntry = {
@@ -234,4 +242,124 @@ type ClientOptions = {
     concurrentReads?: number;
     concurrentWrites?: number;
   };
+};
+
+export type PoliciesList = {
+  policies: PolicyRef[];
+};
+
+export type PolicyRef = {
+  id: string;
+  target: SourceInfo;
+  policy: Policy;
+};
+export type Policy = {
+  retention?: RetentionPolicy;
+  files?: FilesPolicy;
+  errorHandling?: ErrorHandlingPolicy;
+  scheduling?: SchedulingPolicy;
+  compression?: CompressionPolicy;
+  metadataCompression?: MetadataCompressionPolicy;
+  splitter?: SplitterPolicy;
+  actions?: ActionsPolicy;
+  osSnapshots?: OSSnapshotPolicy;
+  logging?: LoggingPolicy;
+  upload?: UploadPolicy;
+  noParent?: boolean;
+};
+type RetentionPolicy = {
+  keepLatest?: number;
+  keepHourly?: number;
+  keepDaily?: number;
+  keepWeekly?: number;
+  keepMonthly?: number;
+  keepAnnual?: number;
+  ignoreIdenticalSnapshots?: boolean;
+};
+type FilesPolicy = {
+  ignore?: string[];
+  noParentIgnore?: boolean;
+  ignoreDotFiles?: string[];
+  noParentDotFiles?: boolean;
+  ignoreCacheDirs?: boolean;
+  maxFileSize?: number;
+  oneFileSystem?: boolean;
+};
+type ErrorHandlingPolicy = {
+  ignoreFileErrors?: boolean;
+  ignoreDirectoryErrors?: boolean;
+  ignoreUnknownTypes?: boolean;
+};
+type CompressionPolicy = {
+  compressorName?: string;
+  onlyCompress?: string[];
+  noParentOnlyCompress?: boolean;
+  neverCompress?: string[];
+  noParentNeverCompress?: boolean;
+  minSize?: number;
+  maxSize?: number;
+};
+type MetadataCompressionPolicy = {
+  compressorName?: string;
+  onlyCompress?: string[];
+  noParentOnlyCompress?: boolean;
+  neverCompress?: string[];
+  noParentNeverCompress?: boolean;
+  minSize?: number;
+  maxSize?: number;
+};
+type SplitterPolicy = {
+  algorithm?: string;
+};
+type ActionsPolicy = {
+  beforeFolder?: ActionCommand;
+  afterFolder?: ActionCommand;
+  beforeSnapshotRoot?: ActionCommand;
+  afterSnapshotRoot?: ActionCommand;
+};
+type ActionCommand = {
+  path?: string;
+  args?: string[];
+  script?: string;
+  timeout?: number;
+  mode?: string;
+};
+type OSSnapshotPolicy = {
+  volumeShadowCopy?: VolumeShadowCopyPolicy;
+};
+type VolumeShadowCopyPolicy = {
+  enable?: number;
+};
+type LoggingPolicy = {
+  directories?: DirLoggingPolicy;
+  entries?: EntryLoggingPolicy;
+};
+
+type DirLoggingPolicy = {
+  snapshotted?: number;
+  ignored?: number;
+};
+type EntryLoggingPolicy = {
+  snapshotted?: number;
+  ignored?: number;
+  cacheHit?: number;
+  cacheMiss?: number;
+};
+
+type UploadPolicy = {
+  maxParallelSnapshots?: number;
+  maxParallelFileReads?: number;
+  parallelUploadAboveSize?: number;
+};
+
+export type AlgorithmsList = {
+  compression: { id: string; deprecated: boolean }[];
+  ecc: { id: string; deprecated: boolean }[];
+  encryption: { id: string; deprecated: boolean }[];
+  hash: { id: string; deprecated: boolean }[];
+  splitter: { id: string; deprecated: boolean }[];
+  defaultEcc: string;
+  defaultEncryption: string;
+  defaultHash: string;
+  defaultSplitter: string;
 };
