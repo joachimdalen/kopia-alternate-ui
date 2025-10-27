@@ -1,5 +1,6 @@
-import { AppShell, AppShellFooter, MantineProvider, Text } from "@mantine/core";
+import { AppShell, MantineProvider } from "@mantine/core";
 import { Outlet } from "react-router-dom";
+import { Footer } from "./core/Footer/Footer";
 import { Header } from "./core/Header/Header";
 
 function BaseLayout() {
@@ -11,13 +12,7 @@ function BaseLayout() {
         <AppShell.Main>
           <Outlet />
         </AppShell.Main>
-        <AppShellFooter p="xs">
-          <Text fz="xs">
-            Version v0.21.1 0733cb4d2a731dbb92d927f66230694e014f4df2
-            kopia/htmlui f951773b9eeb5015c79bedacf49dee15f758bbcb built on Sat
-            Jun 7 18:14:52 UTC 2025 fv-az1788-890
-          </Text>
-        </AppShellFooter>
+        <Footer />
       </AppShell>
     </MantineProvider>
   );

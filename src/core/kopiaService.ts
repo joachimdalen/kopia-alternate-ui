@@ -15,6 +15,7 @@ import type {
   Status,
   Task,
   TaskList,
+  TasksSummary,
 } from "./types";
 function getSnapshots(): Promise<ApiResponse<Sources>> {
   return clientGet("/api/v1/sources");
@@ -90,6 +91,10 @@ function getAlgorithms(): Promise<ApiResponse<AlgorithmsList>> {
 function getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
   return clientGet("/api/v1/policy", source);
 }
+function getTasksSummary(): Promise<ApiResponse<TasksSummary>> {
+  return clientGet("/api/v1/tasks-summary");
+}
+
 function resolvePolicy(
   source: SourceInfo,
   data: ResolvePolicyRequest
@@ -112,6 +117,7 @@ const methods = {
   getAlgorithms,
   getPolicy,
   resolvePolicy,
+  getTasksSummary,
 };
 
 export default methods;

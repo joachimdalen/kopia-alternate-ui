@@ -5,9 +5,11 @@ import {
   Divider,
   Group,
   Stack,
+  Text,
 } from "@mantine/core";
 import {
   IconArchive,
+  IconClockExclamation,
   IconEye,
   IconPlus,
   IconRefresh,
@@ -17,6 +19,7 @@ import { Link } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
@@ -24,6 +27,7 @@ import RepoTitle from "../core/RepoTitle/RepoTitle";
 import { type SourceInfo, type Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
+import UploadingLoader from "./components/UploadingLoader";
 
 function SnapshotsPage() {
   const [data, setData] = useState<Sources>();
@@ -172,7 +176,13 @@ function SnapshotsPage() {
                   <RelativeDate value={item.lastSnapshot.startTime} />
                 ),
             },
-            { accessor: "nextSnapshot" },
+            {
+              accessor: "nextSnapshotTime",
+              render: (item) =>
+                item.nextSnapshotTime && (
+                  <RelativeDate value={item.nextSnapshotTime} />
+                ),
+            },
             {
               accessor: "",
               title: "",
@@ -205,6 +215,21 @@ function SnapshotsPage() {
                         </Button>
                       </Group>
                     );
+                  }
+                  case "PENDING":
+                    return (
+                      <Group gap={5}>
+                        <IconWrapper
+                          icon={IconClockExclamation}
+                          color="yellow"
+                        />
+                        <Text fz="xs" c="yellow">
+                          Pending
+                        </Text>
+                      </Group>
+                    );
+                  case "UPLOADING": {
+                    return <UploadingLoader data={item.upload} />;
                   }
 
                   default:

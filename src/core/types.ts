@@ -80,9 +80,26 @@ export type SourceStatus = {
   status: string;
   schedule: SchedulingPolicy;
   lastSnapshot?: SnapShotManifest;
-  nextSnapshot?: string;
+  nextSnapshotTime?: string;
+  upload?: UploadCounters;
+  currentTask?: string;
 };
-
+export type UploadCounters = {
+  cachedBytes: number;
+  hashedBytes: number;
+  uploadedBytes: number;
+  estimatedBytes: number;
+  cachedFiles: number;
+  hashedFiles: number;
+  excludedFiles: number;
+  excludedDirs: number;
+  errors: number;
+  ignoredErrors: number;
+  estimatedFiles: number;
+  directory: string;
+  lastErrorPath: string;
+  lastError: string;
+};
 export type Snapshot = {
   id: string;
   description: string;
@@ -459,4 +476,9 @@ type UploadPolicyDefinition = {
   maxParallelSnapshots?: SourceInfo;
   maxParallelFileReads?: SourceInfo;
   parallelUploadAboveSize?: SourceInfo;
+};
+export type TasksSummary = {
+  CANCELED: number;
+  RUNNING: number;
+  SUCCESS: number;
 };
