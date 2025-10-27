@@ -14,16 +14,21 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
-import { type ItemAction, type PolicyRef, type Sources } from "../core/types";
+import {
+  type ItemAction,
+  type PolicyRef,
+  type SourceInfo,
+  type Sources,
+} from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
+import CreatePolicyModal from "./modals/CreatePolicyModal/CreatePolicyModal";
 import PolicyModal from "./modals/PolicyModal/PolicyModal";
 import {
   getNonEmptyPolicies,
@@ -43,7 +48,10 @@ type PolicyFilter =
 function PoliciesPage() {
   const [data, setData] = useState<PolicyRef[]>([]);
   const [sources, setSources] = useState<Sources>();
-  const [action, setAction] = useState<ItemAction<PolicyRef, "edit">>();
+  const [action, setAction] =
+    useState<
+      ItemAction<{ isNew: boolean; target: SourceInfo }, "edit" | "new">
+    >();
   const [filterState, setFilterState] = useState<PolicyFilter | string>(
     "applicable-policies"
   );
@@ -122,45 +130,44 @@ function PoliciesPage() {
       <Stack>
         <RepoTitle />
         <Group justify="space-between">
+          <MenuButton
+            options={[
+              { label: "Applicable Policies", value: "applicable-policies" },
+              { label: "Local Path Policies", value: "local-path-policies" },
+              { label: "All Policies", value: "all-policies" },
+              { label: "", value: "divider" },
+              { label: "Global Policy", value: "global-policy" },
+              { label: "Per-User Policies", value: "per-user-policies" },
+              { label: "Per-Host Policies", value: "per-host-policies" },
+              { label: "", value: "divider" },
+              ...uniqueOwners.map((own) => ({
+                label: own,
+                value: own,
+              })),
+            ]}
+            onClick={setFilterState}
+            disabled={loading}
+          />
           <Group>
-            <MenuButton
-              options={[
-                { label: "Applicable Policies", value: "applicable-policies" },
-                { label: "Local Path Policies", value: "local-path-policies" },
-                { label: "All Policies", value: "all-policies" },
-                { label: "", value: "divider" },
-                { label: "Global Policy", value: "global-policy" },
-                { label: "Per-User Policies", value: "per-user-policies" },
-                { label: "Per-Host Policies", value: "per-host-policies" },
-                { label: "", value: "divider" },
-                ...uniqueOwners.map((own) => ({
-                  label: own,
-                  value: own,
-                })),
-              ]}
-              onClick={setFilterState}
-              disabled={loading}
-            />
             <Button
               size="xs"
               leftSection={<IconPlus size={16} />}
               color="green"
               disabled={loading}
-              component={Link}
-              to="/snapshots/new"
+              onClick={() => setAction({ action: "new" })}
             >
-              New Snapshot
+              New Policy
+            </Button>
+            <Button
+              size="xs"
+              leftSection={<IconRefresh size={16} />}
+              variant="light"
+              loading={loading && loadingKey === "refresh"}
+              onClick={() => execute(undefined, "refresh")}
+            >
+              Refresh
             </Button>
           </Group>
-          <Button
-            size="xs"
-            leftSection={<IconRefresh size={16} />}
-            variant="light"
-            loading={loading && loadingKey === "refresh"}
-            onClick={() => execute(undefined, "refresh")}
-          >
-            Refresh
-          </Button>
         </Group>
         <Divider />
         <ErrorAlert error={error} />
@@ -207,7 +214,15 @@ function PoliciesPage() {
                   variant="subtle"
                   leftSection={<IconPencil size={14} />}
                   color="yellow"
-                  onClick={() => setAction({ action: "edit", item: item })}
+                  onClick={() =>
+                    setAction({
+                      action: "edit",
+                      item: {
+                        isNew: false,
+                        target: item.target,
+                      },
+                    })
+                  }
                 >
                   Edit
                 </Button>
@@ -218,11 +233,25 @@ function PoliciesPage() {
       </Stack>
       {action && action.action === "edit" && (
         <PolicyModal
-          policy={action.item}
+          isNew={action.item!.isNew}
+          target={action.item!.target}
           onCancel={() => setAction(undefined)}
           onUpdated={() => console.log("")}
         />
       )}
+      {action &&
+        action.action === "new" &&
+        sources?.localHost &&
+        sources.localUsername && (
+          <CreatePolicyModal
+            localHost={sources.localHost}
+            localUserName={sources?.localUsername}
+            onCancel={() => setAction(undefined)}
+            onEdit={(target: SourceInfo, isNew: boolean) =>
+              setAction({ action: "edit", item: { target, isNew } })
+            }
+          />
+        )}
     </Container>
   );
 }

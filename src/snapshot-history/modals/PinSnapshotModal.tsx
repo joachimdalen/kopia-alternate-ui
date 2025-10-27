@@ -113,7 +113,8 @@ export default function PinSnapshotModal({
             size="xs"
             type="submit"
             form="pin-snapshot-form"
-            loading={intLoading || !form.isValid()}
+            loading={intLoading}
+            disabled={!form.isValid()}
           >
             Save
           </Button>

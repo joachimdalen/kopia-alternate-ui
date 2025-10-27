@@ -35,7 +35,7 @@ export default function PolicyTimeOfDayInput({
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as TimeOfDay[]) || [];
-  const effectiveValues = (inputProps.value as TimeOfDay[]) || effective;
+  const effectiveValues = (inputProps.value as TimeOfDay[]) || effective || [];
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl

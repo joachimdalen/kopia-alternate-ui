@@ -288,7 +288,8 @@ export default function RestoreModal({
           size="xs"
           type="submit"
           form="update-description-form"
-          loading={loading || !form.isValid()}
+          loading={loading}
+          disabled={!form.isValid()}
         >
           Begin Restore
         </Button>

@@ -15,39 +15,12 @@ async function requestWrapper<T>(
   } catch (error) {
     console.log(error);
     if (axios.isAxiosError(error)) {
-      if (error.response?.status === 404) {
-        return {
-          isError: true,
-          // error: {
-          //   status: "Not Found",
-          //   statusCode: 404,
-          //   message: "The requested resource could not be found",
-          //   correlationId: error.response?.headers["X-Correlation-Id"],
-          // },
-          responseCode: 404,
-          originResponseCode: 404,
-        };
-      }
-
-      let apiErr = error.response?.data as ApiResponse<T>;
-      console.log(apiErr);
-      if (Object.keys(apiErr ?? {}).length === 0) {
-        const errRes = error.response;
-        console.log(errRes);
-        apiErr = {
-          isError: true,
-          responseCode: errRes?.status || 500,
-          // error: {
-          //   statusCode: errRes?.status || 500,
-          //   message: errRes?.statusText || "Failed to request",
-          //   status: errRes?.statusText || "Internal server error",
-          //   correlationId: error.response?.headers["X-Correlation-Id"],
-          // },
-          originResponseCode: errRes?.status || 500,
-        };
-      }
-
-      return apiErr;
+      return {
+        isError: true,
+        responseCode: error.response?.status || 500,
+        originResponseCode: error.response?.status || 500,
+        data: error.response?.data,
+      };
     } else {
       return {
         isError: true,

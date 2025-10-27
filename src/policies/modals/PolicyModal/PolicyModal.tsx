@@ -42,7 +42,12 @@ import NumberSelect from "../../../core/NumberSelect";
 import RelativeDate from "../../../core/RelativeDate";
 import useApiRequest from "../../../core/hooks/useApiRequest";
 import kopiaService from "../../../core/kopiaService";
-import type { PolicyRef, ResolvedPolicy, Snapshot } from "../../../core/types";
+import type {
+  Policy,
+  ResolvedPolicy,
+  Snapshot,
+  SourceInfo,
+} from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { getPolicyType } from "../../policiesUtil";
@@ -56,7 +61,8 @@ import PolicyTextListInput from "./policy-inputs/PolicyTextListInput";
 import PolicyTimeOfDayInput from "./policy-inputs/PolicyTimeOfDayInput";
 import type { PolicyForm } from "./types";
 type Props = {
-  policy?: PolicyRef;
+  target: SourceInfo;
+  isNew: boolean;
   onCancel: () => void;
   onUpdated: (snapshots: Snapshot[]) => void;
 };
@@ -65,12 +71,10 @@ const schema = Yup.object({
   description: Yup.string().max(250).label("Description"),
 });
 
-export default function PolicyModal({ policy, onCancel }: Props) {
+export default function PolicyModal({ isNew, target, onCancel }: Props) {
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal =
-    policy?.target.host === "" &&
-    policy?.target.userName === "" &&
-    policy?.target.path === "";
+    target.host === "" && target.userName === "" && target.path === "";
   const form = useForm<PolicyForm>({
     mode: "controlled",
     initialValues: {},
@@ -82,7 +86,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
     loading: loadingData,
     execute: executeLoad,
   } = useApiRequest({
-    action: () => kopiaService.getPolicy(policy!.target),
+    action: () => kopiaService.getPolicy(target),
     onReturn: (g) => {
       form.initialize(g);
       executeResolve(g);
@@ -95,7 +99,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
     execute: executeResolve,
   } = useApiRequest({
     action: (data?: PolicyForm) =>
-      kopiaService.resolvePolicy(policy!.target, {
+      kopiaService.resolvePolicy(target, {
         numUpcomingSnapshotTimes: 5,
         updates: data!,
       }),
@@ -108,9 +112,13 @@ export default function PolicyModal({ policy, onCancel }: Props) {
     async function intLoad() {
       await executeLoad();
     }
-    if (policy) {
+    if (!isNew) {
       intLoad();
+    } else {
+      const np: Policy = {};
+      form.initialize(np);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const resolvedValue = resolved?.effective;
@@ -121,7 +129,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
   }
   return (
     <Modal
-      title={policy ? getPolicyType(policy.target) : "New policy"}
+      title={getPolicyType(target)}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -130,7 +138,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
       size="xl"
     >
       <form
-        id="update-description-form"
+        id="update-policy-form"
         onSubmit={form.onSubmit(submitForm)}
         className={modalClasses.container}
       >
@@ -995,7 +1003,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
           Cancel
         </Button>
         <Group>
-          {policy && !isGlobal && (
+          {!isNew && !isGlobal && (
             <Button size="xs" color="red">
               Delete
             </Button>
@@ -1003,7 +1011,7 @@ export default function PolicyModal({ policy, onCancel }: Props) {
           <Button
             size="xs"
             type="submit"
-            form="update-description-form"
+            form="update-policy-form"
             loading={false}
             disabled={!form.isValid()}
           >

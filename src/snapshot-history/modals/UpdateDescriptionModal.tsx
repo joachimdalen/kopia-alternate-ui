@@ -34,6 +34,7 @@ export default function UpdateDescriptionModal({
       description: snapshot.description || "",
     },
     validate: yupResolver(schema),
+    validateInputOnBlur: true,
   });
 
   const { error, loading, execute } = useApiRequest({
@@ -86,7 +87,8 @@ export default function UpdateDescriptionModal({
           size="xs"
           type="submit"
           form="update-description-form"
-          loading={loading || !form.isValid()}
+          loading={loading}
+          disabled={!form.isValid()}
         >
           Save
         </Button>
