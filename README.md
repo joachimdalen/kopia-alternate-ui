@@ -1,6 +1,7 @@
 # Kopia Alternate UI
 
-> [!IMPORTANT] >**Kopia Alternate UI is not affiliated with or endorsed by the Kopia developers.**
+> [!IMPORTANT]
+> Kopia Alternate UI is not affiliated with or endorsed by the Kopia developers.
 
 This project provides a dropin replacement for the original KopiaUI.
 
