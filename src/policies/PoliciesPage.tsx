@@ -7,6 +7,7 @@ import {
   Group,
   Stack,
 } from "@mantine/core";
+import { showNotification } from "@mantine/notifications";
 import {
   IconClick,
   IconPencil,
@@ -14,6 +15,7 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -48,6 +50,7 @@ type PolicyFilter =
 function PoliciesPage() {
   const [data, setData] = useState<PolicyRef[]>([]);
   const [sources, setSources] = useState<Sources>();
+  const [searchParams] = useSearchParams();
   const [action, setAction] =
     useState<
       ItemAction<{ isNew: boolean; target: SourceInfo }, "edit" | "new">
@@ -78,14 +81,46 @@ function PoliciesPage() {
   );
 
   const localSourceName = useMemo(() => {
-    if (sources == undefined) return "";
-    return sources.localUsername + "@" + sources.localHost;
+    if (sources === undefined) return "";
+    return `${sources.localUsername}@${sources.localHost}`;
   }, [sources]);
 
   useEffect(() => {
     execute(undefined, "loading");
     executeSources(undefined);
   }, []);
+
+  useEffect(() => {
+    if (searchParams === undefined || data === undefined || data.length === 0) {
+      return;
+    }
+    if (!searchParams.has("viewPolicy", "true")) return;
+
+    const host = searchParams.get("host");
+    const user = searchParams.get("userName");
+    const path = searchParams.get("path");
+    if (host && user && path) {
+      const policy = data.find(
+        (x) =>
+          x.target.host === host &&
+          x.target.userName === user &&
+          x.target.path === decodeURIComponent(path)
+      );
+
+      if (!policy) {
+        showNotification({ message: "Failed to find policy", color: "red" });
+        return;
+      }
+
+      setAction({
+        action: "edit",
+        item: {
+          isNew: false,
+          target: policy.target,
+        },
+      });
+    }
+  }, [searchParams, data]);
 
   const visibleData = useMemo(() => {
     let dta = [...data];

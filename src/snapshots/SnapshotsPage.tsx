@@ -24,7 +24,7 @@ import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
-import { type SourceInfo, type Sources } from "../core/types";
+import type { SourceInfo, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
 import UploadingLoader from "./components/UploadingLoader";
@@ -66,6 +66,7 @@ function SnapshotsPage() {
     },
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only load data on mount
   useEffect(() => {
     execute(undefined, "loading");
   }, []);
@@ -195,7 +196,14 @@ function SnapshotsPage() {
                       <Group justify="end">
                         <Button
                           component={Link}
-                          to="#"
+                          to={{
+                            pathname: "/policies",
+                            search: `userName=${item.source.userName}&host=${
+                              item.source.host
+                            }&path=${encodeURIComponent(
+                              item.source.path
+                            )}&viewPolicy=true`,
+                          }}
                           td="none"
                           size="xs"
                           leftSection={<IconEye size={14} />}
