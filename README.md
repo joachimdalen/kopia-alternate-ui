@@ -33,14 +33,15 @@ I wanted a cleaner and easier to use UI for Kopia than the offical one. There ar
 
 This section will be extended as the project reaches a more complete state, but it works fine when running it locally for noe.
 
-### Prerequisites
+Add a new `.env` file with the following values and update as fitting to your setup
 
-This is an example of how to list things you need to use the software and how to install them.
+```env
+KAU_KOPIA_ENDPOINT=http://localhost:51515
+KAU_KOPIA_USERNAME=USERNAME
+KAU_KOPIA_PASSWORD=SECRET_PASSWORD
+```
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+These values are used in `vite.config.ts` to setup a proxy that handles authentication.
 
 ## License
 
