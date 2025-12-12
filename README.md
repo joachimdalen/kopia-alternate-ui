@@ -1,31 +1,53 @@
-# Kopia Alternate UI
+<a id="readme-top"></a>
+
+<br />
+<div align="center">
+  <!-- <a href="https://github.com/joachimdalen/kopia-alternate-ui">
+    <img src="assets/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
+
+  <h1 align="center">Kopia Alternate UI</h1>
+
+  <p align="center">
+    This project provides a dropin replacement for the original KopiaUI!
+  </p>
+</div>
 
 > [!IMPORTANT]
 > Kopia Alternate UI is not affiliated with or endorsed by the Kopia developers.
 
-This project provides a dropin replacement for the original KopiaUI.
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
 
 > [!CAUTION]
 > This project is under active development, even though it might be a while between commits. There is currently a bunch of features implemented, but also a lot missing. You will have to jump between the original UI and this to do full configuration.
 
-<!-- For screenshots, please see the [screenshots](#) folder. -->
+I wanted a cleaner and easier to use UI for Kopia than the offical one. There are also some features I want to implement that is not in the official UI.
 
 |                                       |                                  |
 | ------------------------------------- | -------------------------------- |
 | ![](./screenshots/snapshots.jpeg)     | ![](./screenshots/policies.jpeg) |
 | ![](./screenshots/policy-editor.jpeg) | ![](./screenshots/tasks.jpeg)    |
 
-## Getting started
+## Getting Started
 
-Add a new `.env` file with the following values and update as fitting to your setup
+This section will be extended as the project reaches a more complete state, but it works fine when running it locally for noe.
 
-```env
-KAU_KOPIA_ENDPOINT=http://localhost:51515
-KAU_KOPIA_USERNAME=USERNAME
-KAU_KOPIA_PASSWORD=SECRET_PASSWORD
-```
+### Prerequisites
 
-These values are used in `vite.config.ts` to setup a proxy that handles authentication.
+This is an example of how to list things you need to use the software and how to install them.
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+## License
+
+Distributed under the Apache License 2.0 License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ```yml
 services:
