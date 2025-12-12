@@ -1,6 +1,5 @@
 <a id="readme-top"></a>
 
-<br />
 <div align="center">
   <!-- <a href="https://github.com/joachimdalen/kopia-alternate-ui">
     <img src="assets/logo.png" alt="Logo" width="80" height="80">
