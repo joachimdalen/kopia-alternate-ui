@@ -4,7 +4,7 @@ import {
   Burger,
   Container,
   Group,
-  Image,
+  Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link, NavLink } from "react-router";
@@ -36,7 +36,9 @@ export function Header() {
       <Container size="md" className={classes.inner}>
         <Box>
           <Link to="/">
-            <Image src="/kopia-flat.svg" h={32} fit="contain" />
+            <Text fw="bold" td="none" c="white" fz="lg">
+              Kopia UI
+            </Text>
           </Link>
         </Box>
         <Group gap={5} visibleFrom="xs">
