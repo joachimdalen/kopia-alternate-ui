@@ -24,6 +24,8 @@
 
 I wanted a cleaner and easier to use UI for Kopia than the offical one. There are also some features I want to implement that is not in the official UI.
 
+If this project helped you or you are interested in using it, please consider giving it a ⭐️! It's the only way I will be able to see the usage of this tool and how much time should be spent improving/finishing it.
+
 |                                       |                                  |
 | ------------------------------------- | -------------------------------- |
 | ![](./screenshots/snapshots.jpeg)     | ![](./screenshots/policies.jpeg) |
