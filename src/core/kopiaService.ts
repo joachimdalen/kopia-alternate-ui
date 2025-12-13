@@ -78,6 +78,21 @@ function restore(data: RestoreRequest): Promise<ApiResponse<Task>> {
 function getTasks(): Promise<ApiResponse<TaskList>> {
   return clientGet("/api/v1/tasks");
 }
+function getTask(taskId: string): Promise<ApiResponse<Task>> {
+  return clientGet(`/api/v1/tasks/${taskId}`);
+}
+function getTaskLogs(taskId: string): Promise<
+  ApiResponse<{
+    logs: {
+      level: number;
+      ts: number;
+      msg: string;
+      mod: string;
+    }[];
+  }>
+> {
+  return clientGet(`/api/v1/tasks/${taskId}/logs`);
+}
 function getStatus(): Promise<ApiResponse<Status>> {
   return clientGet("/api/v1/repo/status");
 }
@@ -118,6 +133,8 @@ const methods = {
   getPolicy,
   resolvePolicy,
   getTasksSummary,
+  getTask,
+  getTaskLogs,
 };
 
 export default methods;

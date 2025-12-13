@@ -10,7 +10,6 @@ function BaseLayout() {
       <Notifications />
       <AppShell padding="md" header={{ height: 60 }} footer={{ height: 40 }}>
         <Header />
-
         <AppShell.Main>
           <Outlet />
         </AppShell.Main>

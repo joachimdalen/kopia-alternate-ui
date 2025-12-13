@@ -1,5 +1,4 @@
 import {
-  ActionIcon,
   Anchor,
   Button,
   Center,
@@ -13,7 +12,6 @@ import {
 } from "@mantine/core";
 import { useDebouncedValue, useInputState } from "@mantine/hooks";
 import {
-  IconArrowLeft,
   IconBan,
   IconCircleXFilled,
   IconClick,
@@ -74,13 +72,7 @@ function TasksPage() {
   return (
     <Container fluid>
       <Stack>
-        <Group>
-          <ActionIcon variant="subtle" component={Link} to="/snapshots">
-            <IconArrowLeft size={24} />
-          </ActionIcon>
-          <Title order={1}>Something</Title>
-        </Group>
-
+        <Title order={1}>Something</Title>
         <Group justify="space-between" align="flex-end">
           <Group>
             <SegmentedControl
@@ -167,7 +159,7 @@ function TasksPage() {
             {
               accessor: "startTime",
               render: (item) => (
-                <Anchor component={Link} to={``} td="none">
+                <Anchor component={Link} to={`/tasks/${item.id}`} td="none">
                   <RelativeDate value={item.startTime} />
                 </Anchor>
               ),

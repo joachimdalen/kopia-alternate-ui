@@ -15,6 +15,7 @@
     "@mantine/form": "^8.3.5",
     "@mantine/hooks": "^8.3.5",
     "@mantine/notifications": "^8.3.5",
+    "@melloware/react-logviewer": "^6.3.4",
     "@tabler/icons-react": "^3.35.0",
     "axios": "^1.12.2",
     "clsx": "^2.1.1",
