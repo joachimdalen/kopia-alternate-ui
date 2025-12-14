@@ -4,7 +4,7 @@ import {
   IconCircleCheck,
   IconStopwatch,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useApiRequest from "../hooks/useApiRequest";
 import { useInterval } from "../hooks/useInterval";
 import IconWrapper from "../IconWrapper";
@@ -24,6 +24,10 @@ export function Footer() {
       setData(resp);
     },
   });
+  useEffect(() => {
+    execute();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   useInterval(() => {
     execute();
   }, 1000 * 60);
