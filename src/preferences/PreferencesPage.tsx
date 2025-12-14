@@ -16,6 +16,7 @@ import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { IconNotification, IconPalette } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { usePreferencesContext } from "../core/context/PreferencesContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
@@ -31,6 +32,7 @@ type PreferencesForm = {
 
 function PreferencesPage() {
   const { setColorScheme } = useMantineColorScheme();
+  const { reload } = usePreferencesContext();
   const [data, setData] = useState<Preferences>();
   const form = useForm<
     PreferencesForm,
@@ -70,6 +72,7 @@ function PreferencesPage() {
         message: "Preferences updated",
         color: "green",
       });
+      reload();
     },
   });
 

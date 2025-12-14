@@ -1,6 +1,7 @@
 import { LoadingOverlay } from "@mantine/core";
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -9,17 +10,20 @@ import {
 import useApiRequest from "../hooks/useApiRequest";
 import kopiaService from "../kopiaService";
 import type { Preferences } from "../types";
-
-const initialState: Preferences = {
+type ContextState = Preferences & {
+  reload: () => void;
+};
+const initialState: ContextState = {
   bytesStringBase2: true,
   defaultSnapshotViewAll: false,
   fontSize: "fs-6",
   language: "",
   pageSize: 20,
   theme: "light",
+  reload: () => {},
 };
 
-const PreferencesContext = createContext<Preferences>(initialState);
+const PreferencesContext = createContext<ContextState>(initialState);
 
 export type PreferencesContextProps = PropsWithChildren;
 export function PreferencesContextProvider({
@@ -36,8 +40,17 @@ export function PreferencesContextProvider({
     loadPreferences.execute(undefined, "loading");
   }, []);
 
+  const reloadPrefs = useCallback(() => {
+    loadPreferences.execute();
+  }, []);
+
   return (
-    <PreferencesContext.Provider value={data}>
+    <PreferencesContext.Provider
+      value={{
+        ...data,
+        reload: reloadPrefs,
+      }}
+    >
       {loadPreferences.loading ? <LoadingOverlay visible /> : children}
     </PreferencesContext.Provider>
   );
