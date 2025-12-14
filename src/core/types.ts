@@ -512,3 +512,12 @@ export type TasksSummary = {
   RUNNING: number;
   SUCCESS: number;
 };
+
+export type Preferences = {
+  bytesStringBase2: boolean;
+  defaultSnapshotViewAll: boolean;
+  theme: string;
+  fontSize: string;
+  pageSize: number;
+  language: string;
+};

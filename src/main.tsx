@@ -8,6 +8,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import BaseLayout from "./BaseLayout.tsx";
 import "./index.css";
 import PoliciesPage from "./policies/PoliciesPage.tsx";
+import PreferencesPage from "./preferences/PreferencesPage.tsx";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
@@ -28,6 +29,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/tasks" element={<TasksPage />} />
           <Route path="/tasks/:tid" element={<TaskDetailsPage />} />
           <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/preferences" element={<PreferencesPage />} />
           <Route path="/" element={<Navigate to="/snapshots" />} />
         </Route>
       </Routes>

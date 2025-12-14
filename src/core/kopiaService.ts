@@ -1,10 +1,11 @@
-import { clientGet, clientPost } from "./clientApiFetch";
+import { clientGet, clientPost, clientPut } from "./clientApiFetch";
 import type {
   AlgorithmsList,
   ApiResponse,
   DirManifest,
   PoliciesList,
   Policy,
+  Preferences,
   ResolvedPolicy,
   ResolvePolicyRequest,
   RestoreRequest,
@@ -109,12 +110,17 @@ function getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
 function getTasksSummary(): Promise<ApiResponse<TasksSummary>> {
   return clientGet("/api/v1/tasks-summary");
 }
-
 function resolvePolicy(
   source: SourceInfo,
   data: ResolvePolicyRequest
 ): Promise<ApiResponse<ResolvedPolicy>> {
   return clientPost("/api/v1/policy/resolve", data, source);
+}
+function getPreferences(): Promise<ApiResponse<Preferences>> {
+  return clientGet("/api/v1/ui-preferences");
+}
+function setPreferences(data: Preferences): Promise<ApiResponse<Preferences>> {
+  return clientPut("/api/v1/ui-preferences", data);
 }
 const methods = {
   getSnapshots,
@@ -135,6 +141,8 @@ const methods = {
   getTasksSummary,
   getTask,
   getTaskLogs,
+  getPreferences,
+  setPreferences,
 };
 
 export default methods;
