@@ -32,7 +32,7 @@ import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import RestoreModal from "./modals/RestoreModal";
 
 function SnapshotDirectory() {
-  const { pageSize: tablePageSize } = usePreferencesContext();
+  const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
   const { oid } = useParams();
   const previousOid = usePrevious(oid);
   const navigate = useNavigate();
@@ -65,13 +65,15 @@ function SnapshotDirectory() {
         <Group justify="space-between" align="flex-end">
           <Stack>
             <DirectoryCrumbs />
-            <Button
-              size="xs"
-              leftSection={<IconFileDelta size={16} />}
-              onClick={setShow.open}
-            >
-              Restore
-            </Button>
+            <div>
+              <Button
+                size="xs"
+                leftSection={<IconFileDelta size={16} />}
+                onClick={setShow.open}
+              >
+                Restore
+              </Button>
+            </div>
           </Stack>
           <Button
             size="xs"
@@ -130,7 +132,8 @@ function SnapshotDirectory() {
               accessor: "size",
               title: "Size",
               textAlign: "center",
-              render: (item) => sizeDisplayName(item.summ?.size ?? 0, false),
+              render: (item) =>
+                sizeDisplayName(item.summ?.size ?? 0, bytesStringBase2),
             },
             { accessor: "summ.files", title: "Files", textAlign: "center" },
             { accessor: "summ.dirs", title: "Dirs", textAlign: "center" },

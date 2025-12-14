@@ -41,7 +41,7 @@ import RetentionBadge from "./components/RetentionBadge";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
-  const { pageSize: tablePageSize } = usePreferencesContext();
+  const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
   const [searchParams] = useSearchParams();
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
@@ -207,7 +207,8 @@ function SnapshotHistory() {
               accessor: "summary.size",
               title: "Size",
               textAlign: "center",
-              render: (item) => sizeDisplayName(item.summary.size, false),
+              render: (item) =>
+                sizeDisplayName(item.summary.size, bytesStringBase2),
             },
             { accessor: "summary.files", title: "Files", textAlign: "center" },
             { accessor: "summary.dirs", title: "Dirs", textAlign: "center" },

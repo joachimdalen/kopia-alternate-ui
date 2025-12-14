@@ -1,3 +1,4 @@
+import { LoadingOverlay } from "@mantine/core";
 import {
   createContext,
   useContext,
@@ -37,7 +38,7 @@ export function PreferencesContextProvider({
 
   return (
     <PreferencesContext.Provider value={data}>
-      {children}
+      {loadPreferences.loading ? <LoadingOverlay visible /> : children}
     </PreferencesContext.Provider>
   );
 }

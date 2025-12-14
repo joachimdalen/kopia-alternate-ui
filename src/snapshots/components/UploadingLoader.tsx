@@ -4,9 +4,10 @@ import type { UploadCounters } from "../../core/types";
 import sizeDisplayName from "../../utils/formatSize";
 type Props = {
   data?: UploadCounters;
+  bytesStringBase2: boolean;
 };
 
-export default function UploadingLoader({ data }: Props) {
+export default function UploadingLoader({ data, bytesStringBase2 }: Props) {
   if (data === undefined)
     return (
       <Group>
@@ -15,7 +16,7 @@ export default function UploadingLoader({ data }: Props) {
       </Group>
     );
   const totalBytes = data.hashedBytes + data.cachedBytes;
-  const totalBytesString = sizeDisplayName(totalBytes, true);
+  const totalBytesString = sizeDisplayName(totalBytes, bytesStringBase2);
 
   if (!data.estimatedBytes) {
     return (
@@ -26,7 +27,10 @@ export default function UploadingLoader({ data }: Props) {
     );
   }
 
-  const estimatedBytesString = sizeDisplayName(data.estimatedBytes, true);
+  const estimatedBytesString = sizeDisplayName(
+    data.estimatedBytes,
+    bytesStringBase2
+  );
   const percent =
     Math.round((totalBytes * 1000.0) / data.estimatedBytes) / 10.0;
 

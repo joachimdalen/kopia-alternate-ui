@@ -23,8 +23,10 @@ import {
   IconRefresh,
   IconUpload,
 } from "@tabler/icons-react";
+import { usePreferencesContext } from "../../core/context/PreferencesContext";
 import IconWrapper from "../../core/IconWrapper";
 import type { Task } from "../../core/types";
+import sizeDisplayName from "../../utils/formatSize";
 
 type Props = {
   task: Task;
@@ -111,6 +113,7 @@ const iconProps: Record<
 };
 
 export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
+  const { bytesStringBase2 } = usePreferencesContext();
   const counters = Object.keys(task.counters).map((key) => {
     const counter = task.counters[key as CounterKeys];
 
@@ -118,6 +121,13 @@ export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
     const iconProp = iconProps[key as CounterKeys];
 
     if (counter.value == 0 && !showZeroCounters) return null;
+
+    let formatted = counter.value.toLocaleString();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((counter as any).units === "bytes") {
+      formatted = sizeDisplayName(counter.value, bytesStringBase2);
+    }
+
     return (
       <Paper withBorder radius="md" p="xs" key={key}>
         <Group wrap="nowrap">
@@ -134,7 +144,7 @@ export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
               {key}
             </Text>
             <Text fw={700} size="xl">
-              {counter.value}
+              {formatted}
             </Text>
           </div>
         </Group>
