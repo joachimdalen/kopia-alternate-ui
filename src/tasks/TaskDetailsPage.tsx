@@ -55,7 +55,7 @@ function TaskDetailsPage() {
         {data && <TaskSummaryDisplay task={data} />}
         <Group grow>
           <Paper withBorder radius="md" p="xs">
-            <Group>
+            <Group wrap="nowrap">
               <IconWrapper icon={IconClockPlay} size={32} color="green" />
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
@@ -70,7 +70,7 @@ function TaskDetailsPage() {
             </Group>
           </Paper>
           <Paper withBorder radius="md" p="xs">
-            <Group>
+            <Group wrap="nowrap">
               <IconWrapper icon={IconClockStop} size={32} color="blue" />
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>

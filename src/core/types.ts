@@ -175,48 +175,78 @@ export type Task = {
   progressInfo: string;
   errorMessage?: string;
   counters: {
-    "Cached Bytes": {
+    "Cached Bytes"?: {
       value: number;
       units: "bytes";
       level: string;
     };
-    "Cached Files": {
+    "Cached Files"?: {
       value: number;
       level: string;
     };
-    Errors: {
+    Errors?: {
       value: number;
       level: string;
     };
-    "Excluded Directories": {
+    "Excluded Directories"?: {
       value: number;
       level: string;
     };
-    "Excluded Files": {
+    "Excluded Files"?: {
       value: number;
       level: string;
     };
-    "Hashed Bytes": {
+    "Hashed Bytes"?: {
       value: number;
       units: "bytes";
       level: string;
     };
-    "Hashed Files": {
+    "Hashed Files"?: {
       value: number;
       level: string;
     };
-    "Processed Bytes": {
+    "Processed Bytes"?: {
       value: number;
       units: "bytes";
       level: string;
     };
-    "Processed Files": {
+    "Processed Files"?: {
       value: number;
       level: string;
     };
-    "Uploaded Bytes": {
+    "Uploaded Bytes"?: {
       value: number;
       units: "bytes";
+      level: string;
+    };
+    "Ignored Errors"?: {
+      value: number;
+      level: string;
+    };
+    "Restored Bytes"?: {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+    "Restored Directories"?: {
+      value: number;
+      level: string;
+    };
+    "Restored Files"?: {
+      value: number;
+      level: string;
+    };
+    "Restored Symlinks"?: {
+      value: number;
+      level: string;
+    };
+    "Skipped Bytes"?: {
+      value: number;
+      units: "bytes";
+      level: string;
+    };
+    "Skipped Files"?: {
+      value: number;
       level: string;
     };
   };

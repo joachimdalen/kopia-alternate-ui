@@ -16,9 +16,9 @@ export function MenuButton({
 }) {
   const [opened, setOpened] = useState(false);
   const [selected, setSelected] = useState(options[0]);
-  const items = options.map((item) =>
+  const items = options.map((item, index) =>
     item.value === "divider" ? (
-      <MenuDivider />
+      <MenuDivider key={`divider-${index}`} />
     ) : (
       <Menu.Item
         onClick={() => {

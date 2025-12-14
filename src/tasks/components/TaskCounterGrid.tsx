@@ -10,11 +10,16 @@ import {
   IconDatabasePlus,
   IconFileCode,
   IconFileDatabase,
+  IconFileMinus,
+  IconFilePlus,
+  IconFileSymlink,
   IconFileUpload,
   IconFileX,
+  IconFolderPlus,
   IconFolderX,
   IconHash,
   IconHome,
+  IconPlayerSkipForward,
   IconRefresh,
   IconUpload,
 } from "@tabler/icons-react";
@@ -75,17 +80,54 @@ const iconProps: Record<
     icon: IconUpload,
     color: "green",
   },
+  "Ignored Errors": {
+    icon: IconCircleX,
+    color: "yellow",
+  },
+  "Restored Bytes": {
+    icon: IconCircleX,
+    color: "green",
+  },
+  "Restored Directories": {
+    icon: IconFolderPlus,
+    color: "green",
+  },
+  "Restored Files": {
+    icon: IconFilePlus,
+    color: "green",
+  },
+  "Restored Symlinks": {
+    icon: IconFileSymlink,
+    color: "red",
+  },
+  "Skipped Bytes": {
+    icon: IconPlayerSkipForward,
+    color: "orange",
+  },
+  "Skipped Files": {
+    icon: IconFileMinus,
+    color: "orange",
+  },
 };
 
 export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
   const counters = Object.keys(task.counters).map((key) => {
     const counter = task.counters[key as CounterKeys];
+
+    if (counter === undefined) return null;
     const iconProp = iconProps[key as CounterKeys];
+
     if (counter.value == 0 && !showZeroCounters) return null;
     return (
-      <Paper withBorder radius="md" p="xs">
-        <Group>
-          <IconWrapper icon={iconProp.icon} size={32} color={iconProp.color} />
+      <Paper withBorder radius="md" p="xs" key={key}>
+        <Group wrap="nowrap">
+          {iconProp && (
+            <IconWrapper
+              icon={iconProp.icon}
+              size={32}
+              color={iconProp.color}
+            />
+          )}
 
           <div>
             <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
@@ -100,5 +142,7 @@ export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
     );
   });
 
-  return <SimpleGrid cols={6}>{counters}</SimpleGrid>;
+  return (
+    <SimpleGrid cols={{ base: 1, sm: 3, md: 4, lg: 6 }}>{counters}</SimpleGrid>
+  );
 }

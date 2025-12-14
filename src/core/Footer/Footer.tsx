@@ -36,7 +36,7 @@ export function Footer() {
             <Anchor href="" target="_blank" fz="sm">
               <Group gap={5}>
                 <IconWrapper icon={IconBrandGithub} size={16} />
-                <Text fz="sm">Kopia Alternative UI</Text>
+                <Text fz="sm">Kopia Alternate UI</Text>
               </Group>
             </Anchor>
           </Group>

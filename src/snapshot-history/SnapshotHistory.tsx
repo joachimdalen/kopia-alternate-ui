@@ -14,6 +14,7 @@ import {
 } from "@mantine/core";
 import {
   IconArrowLeft,
+  IconFileDatabase,
   IconFileText,
   IconPin,
   IconRefresh,
@@ -25,6 +26,7 @@ import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type {
@@ -131,6 +133,8 @@ function SnapshotHistory() {
           onSelectedRecordsChange={setSelectedRecords}
           loading={loading && loadingKey === "loading"}
           records={data?.snapshots ?? []}
+          noRecordsText="No snapshots taken"
+          noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
           columns={[
             {
               accessor: "startTime",

@@ -8,7 +8,6 @@ import {
   SegmentedControl,
   Stack,
   TextInput,
-  Title,
 } from "@mantine/core";
 import { useDebouncedValue, useInputState } from "@mantine/hooks";
 import {
@@ -19,15 +18,18 @@ import {
   IconLoader,
   IconRefresh,
   IconSearch,
+  IconSettingsAutomation,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
+import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { Task } from "../core/types";
 import { onlyUnique } from "../utils/onlyUnique";
 import TaskStatusDisplay from "./components/TaskStatusDisplay";
@@ -72,7 +74,7 @@ function TasksPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>Something</Title>
+        <RepoTitle />
         <Group justify="space-between" align="flex-end">
           <Group>
             <SegmentedControl
@@ -155,6 +157,10 @@ function TasksPage() {
         <DataGrid
           loading={loading && loadingKey === "loading"}
           records={visibleTasks}
+          noRecordsText="No tasks found"
+          noRecordsIcon={
+            <IconWrapper icon={IconSettingsAutomation} size={48} />
+          }
           columns={[
             {
               accessor: "startTime",

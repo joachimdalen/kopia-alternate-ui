@@ -10,6 +10,7 @@ import {
 import { showNotification } from "@mantine/notifications";
 import {
   IconClick,
+  IconFileCertificate,
   IconPencil,
   IconPlus,
   IconRefresh,
@@ -19,6 +20,7 @@ import { useSearchParams } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
@@ -210,6 +212,8 @@ function PoliciesPage() {
           idAccessor="id"
           records={visibleData}
           loading={loading && loadingKey === "loading"}
+          noRecordsText="No policies found"
+          noRecordsIcon={<IconWrapper icon={IconFileCertificate} size={48} />}
           columns={[
             {
               accessor: "target.username",
