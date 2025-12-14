@@ -16,7 +16,7 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -33,6 +33,7 @@ import RestoreModal from "./modals/RestoreModal";
 function SnapshotDirectory() {
   const { oid } = useParams();
   const previousOid = usePrevious(oid);
+  const navigate = useNavigate();
   const [data, setData] = useState<DirManifest>();
   const location = useLocation();
   const [show, setShow] = useDisclosure();
@@ -154,7 +155,10 @@ function SnapshotDirectory() {
       </Stack>
       {show && oid && (
         <RestoreModal
-          onRestoreStarted={() => console.log("ok")}
+          onRestoreStarted={(task) => {
+            setShow.close();
+            navigate(`/tasks/${task.id}`);
+          }}
           oid={oid}
           onCancel={setShow.close}
         />
