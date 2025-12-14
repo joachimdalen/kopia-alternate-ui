@@ -83,7 +83,7 @@ export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
     const iconProp = iconProps[key as CounterKeys];
     if (counter.value == 0 && !showZeroCounters) return null;
     return (
-      <Paper withBorder radius="md" p="xs">
+      <Paper withBorder radius="md" p="xs" key={key}>
         <Group>
           <IconWrapper icon={iconProp.icon} size={32} color={iconProp.color} />
 
