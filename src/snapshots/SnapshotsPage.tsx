@@ -11,6 +11,7 @@ import {
   IconArchive,
   IconClockExclamation,
   IconEye,
+  IconFileDatabase,
   IconPlus,
   IconRefresh,
 } from "@tabler/icons-react";
@@ -143,6 +144,8 @@ function SnapshotsPage() {
           records={visibleData}
           loading={loading && loadingKey === "loading"}
           idAccessor="source.path"
+          noRecordsText="No snapshots taken"
+          noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
           columns={[
             {
               accessor: "source.path",

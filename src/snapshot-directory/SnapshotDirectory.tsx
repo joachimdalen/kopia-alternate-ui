@@ -22,6 +22,7 @@ import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { DirManifest } from "../core/types";
@@ -88,7 +89,7 @@ function SnapshotDirectory() {
           loading={loading && loadingKey === "loading"}
           records={data?.entries ?? []}
           noRecordsText="No entries in folder"
-          noRecordsIcon={<IconFolderOpen size={48} />}
+          noRecordsIcon={<IconWrapper icon={IconFolderOpen} size={48} />}
           columns={[
             {
               accessor: "name",
