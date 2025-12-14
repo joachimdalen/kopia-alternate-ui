@@ -103,7 +103,7 @@ function TaskDetailsPage() {
         </Group>
         <Divider />
         {data && data.counters != null && (
-          <TaskCounterGrid task={data} showZeroCounters={true} />
+          <TaskCounterGrid task={data} showZeroCounters={false} />
         )}
         {data && <TaskLogs task={data} />}
       </Stack>
