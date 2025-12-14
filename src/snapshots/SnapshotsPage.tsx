@@ -17,6 +17,7 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+import { usePreferencesContext } from "../core/context/PreferencesContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -32,6 +33,7 @@ import { onlyUnique } from "../utils/onlyUnique";
 import UploadingLoader from "./components/UploadingLoader";
 
 function SnapshotsPage() {
+  const { pageSize: tablePageSize } = usePreferencesContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>(
     "all"
@@ -146,6 +148,7 @@ function SnapshotsPage() {
           idAccessor="source.path"
           noRecordsText="No snapshots taken"
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
+          pageSize={tablePageSize}
           columns={[
             {
               accessor: "source.path",

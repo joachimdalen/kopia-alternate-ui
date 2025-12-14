@@ -17,6 +17,7 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
+import { usePreferencesContext } from "../core/context/PreferencesContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -50,6 +51,7 @@ type PolicyFilter =
   | "per-host-policies";
 
 function PoliciesPage() {
+  const { pageSize: tablePageSize } = usePreferencesContext();
   const [data, setData] = useState<PolicyRef[]>([]);
   const [sources, setSources] = useState<Sources>();
   const [searchParams] = useSearchParams();
@@ -214,6 +216,7 @@ function PoliciesPage() {
           loading={loading && loadingKey === "loading"}
           noRecordsText="No policies found"
           noRecordsIcon={<IconWrapper icon={IconFileCertificate} size={48} />}
+          pageSize={tablePageSize}
           columns={[
             {
               accessor: "target.username",

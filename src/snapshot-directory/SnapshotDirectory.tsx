@@ -18,6 +18,7 @@ import {
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
+import { usePreferencesContext } from "../core/context/PreferencesContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
@@ -31,6 +32,7 @@ import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import RestoreModal from "./modals/RestoreModal";
 
 function SnapshotDirectory() {
+  const { pageSize: tablePageSize } = usePreferencesContext();
   const { oid } = useParams();
   const previousOid = usePrevious(oid);
   const navigate = useNavigate();
@@ -91,6 +93,7 @@ function SnapshotDirectory() {
           records={data?.entries ?? []}
           noRecordsText="No entries in folder"
           noRecordsIcon={<IconWrapper icon={IconFolderOpen} size={48} />}
+          pageSize={tablePageSize}
           columns={[
             {
               accessor: "name",

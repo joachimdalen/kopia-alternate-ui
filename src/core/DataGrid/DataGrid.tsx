@@ -13,6 +13,7 @@ interface Props<T> {
   noRecordsIcon?: React.ReactNode;
   idAccessor?: (keyof T | string) | ((record: T) => React.Key);
   loading?: boolean;
+  pageSize?: number;
 }
 
 const PAGE_SIZES = [10, 20, 30, 40, 50, 100];
@@ -26,18 +27,19 @@ export function DataGrid<T>({
   onSelectedRecordsChange,
   idAccessor,
   loading,
+  pageSize = PAGE_SIZES[1],
 }: Props<T>) {
-  const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
+  const [intPageSize, setPageSize] = useState(pageSize);
   const [page, setPage] = useState(1);
 
   const visibleData = useMemo(() => {
     if (records === undefined) return [];
 
-    const from = (page - 1) * pageSize;
-    const to = from + pageSize;
+    const from = (page - 1) * intPageSize;
+    const to = from + intPageSize;
 
     return records.slice(from, to);
-  }, [records, pageSize, page]);
+  }, [records, intPageSize, page]);
 
   return (
     <DataTable
@@ -53,7 +55,7 @@ export function DataGrid<T>({
       selectedRecords={selectedRecords}
       onSelectedRecordsChange={onSelectedRecordsChange}
       totalRecords={records.length}
-      recordsPerPage={pageSize}
+      recordsPerPage={intPageSize}
       page={page}
       onPageChange={(p) => setPage(p)}
       recordsPerPageOptions={PAGE_SIZES}
