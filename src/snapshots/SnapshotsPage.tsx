@@ -19,6 +19,7 @@ import { Link } from "react-router";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
+import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
@@ -71,9 +72,9 @@ function SnapshotsPage() {
     execute(undefined, "loading");
   }, []);
 
-  // useInterval(() => {
-  //   execute(undefined, "fetch");
-  // }, 10000);
+  useInterval(() => {
+    execute(undefined, "fetch");
+  }, 3000);
 
   const uniqueOwners = (data?.sources || [])
     .map((x) => formatOwnerName(x.source))
