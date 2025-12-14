@@ -101,7 +101,6 @@ function SnapshotsPage() {
         <RepoTitle />
         <Group justify="space-between">
           <Group>
-            {/* This flickers on load */}
             {data?.multiUser === true && (
               <MenuButton
                 options={[
@@ -114,14 +113,14 @@ function SnapshotsPage() {
                   })),
                 ]}
                 onClick={setFilterState}
-                disabled={loading}
+                disabled={loading && loadingKey == "loading"}
               />
             )}
             <Button
               size="xs"
               leftSection={<IconPlus size={16} />}
               color="green"
-              disabled={loading}
+              disabled={loading && loadingKey == "loading"}
               component={Link}
               to="/snapshots/new"
             >
@@ -143,7 +142,6 @@ function SnapshotsPage() {
         <DataGrid
           records={visibleData}
           loading={loading && loadingKey === "loading"}
-          // define columns
           idAccessor="source.path"
           columns={[
             {
