@@ -31,9 +31,10 @@ type Props = {
 const schema = Yup.object({
   name: Yup.string().required().label("Name"),
   minSeverity: Yup.string().required().label("Severity"),
-  endpoint: Yup.string().required().label("Endpoint"),
-  method: Yup.string().required().label("Method"),
-  format: Yup.string().required().label("Format"),
+  smtpServer: Yup.string().required().label("SMTP Server"),
+  smtpUsername: Yup.string().required().label("SMTP Username"),
+  smtpPassword: Yup.string().required().label("SMTP Password"),
+  from: Yup.string().required().label("From"),
 });
 
 type EmailForm = {

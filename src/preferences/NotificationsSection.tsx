@@ -1,9 +1,9 @@
 import { Button, Divider, Group, Menu, SimpleGrid, Stack } from "@mantine/core";
 import {
+  IconBrandPushover,
   IconChevronDown,
-  IconPackage,
-  IconSquareCheck,
-  IconUsers,
+  IconMail,
+  IconWebhook,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -66,7 +66,7 @@ function NotificationsSection() {
             </Menu.Target>
             <Menu.Dropdown>
               <Menu.Item
-                leftSection={<IconPackage size={16} stroke={1.5} />}
+                leftSection={<IconWebhook size={16} stroke={1.5} />}
                 onClick={() =>
                   setAction({ action: "new", item: { type: "webhook" } })
                 }
@@ -74,7 +74,7 @@ function NotificationsSection() {
                 Webhook
               </Menu.Item>
               <Menu.Item
-                leftSection={<IconSquareCheck size={16} stroke={1.5} />}
+                leftSection={<IconMail size={16} stroke={1.5} />}
                 onClick={() =>
                   setAction({ action: "new", item: { type: "email" } })
                 }
@@ -82,7 +82,7 @@ function NotificationsSection() {
                 Email
               </Menu.Item>
               <Menu.Item
-                leftSection={<IconUsers size={16} stroke={1.5} />}
+                leftSection={<IconBrandPushover size={16} stroke={1.5} />}
                 onClick={() =>
                   setAction({ action: "new", item: { type: "pushover" } })
                 }
