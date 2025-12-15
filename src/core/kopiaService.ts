@@ -1,4 +1,9 @@
-import { clientGet, clientPost, clientPut } from "./clientApiFetch";
+import {
+  clientDelete,
+  clientGet,
+  clientPost,
+  clientPut,
+} from "./clientApiFetch";
 import type {
   AlgorithmsList,
   ApiResponse,
@@ -134,6 +139,11 @@ function createNotificationProfile(
 ): Promise<ApiResponse<NotificationProfile>> {
   return clientPost("/api/v1/notificationProfiles", profile);
 }
+function deleteNotificationProfile(
+  profileName: string
+): Promise<ApiResponse<unknown>> {
+  return clientDelete(`/api/v1/notificationProfiles/${profileName}`);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -157,6 +167,7 @@ const methods = {
   setPreferences,
   getNotificationProfiles,
   createNotificationProfile,
+  deleteNotificationProfile,
 };
 
 export default methods;

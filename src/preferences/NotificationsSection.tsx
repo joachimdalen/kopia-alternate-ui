@@ -31,6 +31,13 @@ function NotificationsSection() {
       setData(resp.sort((a, b) => a.profile.localeCompare(b.profile)));
     },
   });
+  const deleteAction = useApiRequest({
+    action: (data?: string) => kopiaService.deleteNotificationProfile(data!),
+    showErrorAsNotification: true,
+    onReturn(_, profileName) {
+      setData((prev) => prev.filter((x) => x.profile != profileName));
+    },
+  });
   useEffect(() => {
     loadAction.execute(undefined, "loading");
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,8 +98,11 @@ function NotificationsSection() {
           {data.map((n) => (
             <NotificationCard
               key={n.profile}
+              disabled={
+                deleteAction.loading && deleteAction.loadingKey === n.profile
+              }
               data={n}
-              onDelete={() => console.log("Delete")}
+              onDelete={() => deleteAction.execute(n.profile, n.profile)}
               onEdit={() =>
                 setAction({
                   action: "edit",

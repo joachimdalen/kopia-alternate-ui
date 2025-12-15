@@ -1,5 +1,17 @@
-import { Button, Group, Modal, Select, Stack, TextInput } from "@mantine/core";
+import {
+  ActionIcon,
+  Button,
+  Fieldset,
+  Group,
+  Modal,
+  Select,
+  Stack,
+  Text,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { randomId } from "@mantine/hooks";
+import { IconTrash } from "@tabler/icons-react";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
@@ -31,10 +43,12 @@ type WebhookForm = {
   endpoint: string;
   method: string;
   format: string;
-  headers: {
-    name: string;
-    value: string;
-  }[];
+  headers: WebhookHeader[];
+};
+type WebhookHeader = {
+  id: string;
+  name: string;
+  value: string;
 };
 
 export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
@@ -51,17 +65,15 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
     } else {
       const config = profile.method.config as WebhookNotification;
 
-      let headers: {
-        name: string;
-        value: string;
-      }[] = [];
+      let headers: WebhookHeader[] = [];
       if (config.headers) {
         headers = config.headers.split("\n").map((l) => {
           const p = l.split(":");
           return {
-            name: p[0],
-            value: p[1],
-          };
+            id: randomId(),
+            name: p[0].trimEnd(),
+            value: p[1].trimStart(),
+          } satisfies WebhookHeader;
         });
       }
 
@@ -104,6 +116,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
 
   const { error, loading, execute } = useApiRequest({
     action: (data?: NotificationProfile) =>
+      // Create and update uses the same
       kopiaService.createNotificationProfile(data!),
     onReturn: (g) => {
       onSaved(g, profile === undefined);
@@ -112,6 +125,31 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
   async function submitForm(values: NotificationProfile) {
     await execute(values);
   }
+
+  const fields = form.getValues().headers.map((item, index) => (
+    <Group key={item.id} mt="xs">
+      <TextInput
+        placeholder="Name"
+        withAsterisk
+        style={{ flex: 1 }}
+        key={form.key(`headers.${index}.name`)}
+        {...form.getInputProps(`headers.${index}.name`)}
+      />
+      <TextInput
+        placeholder="Value"
+        withAsterisk
+        style={{ flex: 1 }}
+        key={form.key(`headers.${index}.value`)}
+        {...form.getInputProps(`headers.${index}.value`)}
+      />
+      <ActionIcon
+        color="red"
+        onClick={() => form.removeListItem("headers", index)}
+      >
+        <IconTrash size={16} />
+      </ActionIcon>
+    </Group>
+  ));
   return (
     <Modal
       title={
@@ -186,6 +224,31 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
               {...form.getInputProps("format")}
             />
           </Group>
+
+          <Fieldset legend="Headers">
+            {fields.length === 0 && (
+              <Text c="dimmed" ta="center">
+                No headers defined
+              </Text>
+            )}
+
+            {fields}
+            <Group justify="center" mt="md">
+              <Button
+                size="xs"
+                variant="subtle"
+                onClick={() =>
+                  form.insertListItem("headers", {
+                    name: "",
+                    value: "",
+                    id: randomId(),
+                  })
+                }
+              >
+                Add
+              </Button>
+            </Group>
+          </Fieldset>
         </Stack>
       </form>
 

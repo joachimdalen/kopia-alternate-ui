@@ -26,6 +26,7 @@ import NotificationSeverityDisplay from "./NotificationSeverityDisplay";
 
 type Props = {
   data: NotificationProfile;
+  disabled: boolean;
   onDelete: () => void;
   onDuplicate: () => void;
   onEdit: () => void;
@@ -33,6 +34,7 @@ type Props = {
 };
 function NotificationCard({
   data,
+  disabled,
   onDelete,
   onDuplicate,
   onEdit,
@@ -57,9 +59,14 @@ function NotificationCard({
             {getIcon()}
             <Text fw={500}>{data.profile}</Text>
           </Group>
-          <Menu withinPortal position="bottom-end" shadow="sm">
+          <Menu
+            withinPortal
+            position="bottom-end"
+            shadow="sm"
+            disabled={disabled}
+          >
             <MenuTarget>
-              <ActionIcon variant="subtle" color="gray">
+              <ActionIcon variant="subtle" color="gray" disabled={disabled}>
                 <IconDots size={16} />
               </ActionIcon>
             </MenuTarget>
