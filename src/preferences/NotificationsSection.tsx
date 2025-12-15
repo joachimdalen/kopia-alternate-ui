@@ -14,6 +14,7 @@ import type {
   NotificationType,
 } from "../core/types";
 import NotificationCard from "./components/NotificationCard";
+import EmailModal from "./modals/EmailModal";
 import WebhookModal from "./modals/WebhookModal";
 
 function NotificationsSection() {
@@ -120,6 +121,20 @@ function NotificationsSection() {
       </Stack>
       {action && action.item?.type === "webhook" && (
         <WebhookModal
+          onCancel={() => setAction(undefined)}
+          onSaved={(profile, isCreate) => {
+            if (isCreate) {
+              setData((prev) => [...prev, profile]);
+            } else {
+              loadAction.execute(undefined, "refresh");
+            }
+            setAction(undefined);
+          }}
+          profile={action.item.profile}
+        />
+      )}
+      {action && action.item?.type === "email" && (
+        <EmailModal
           onCancel={() => setAction(undefined)}
           onSaved={(profile, isCreate) => {
             if (isCreate) {
