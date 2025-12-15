@@ -4,8 +4,8 @@ import {
   IconAlertTriangle,
   IconCircleCheckFilled,
   IconCircleXFilled,
-  IconFile,
-  IconFileCode,
+  IconInfoCircle,
+  IconSearch,
 } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 type Props = {
@@ -17,36 +17,36 @@ export default function NotificationSeverityDisplay({ severity }: Props) {
     case -100:
       return (
         <Group gap="xs">
-          <IconWrapper icon={IconFileCode} color="gray" size={18} />
-          <Text c="red">Verbose</Text>
+          <IconWrapper icon={IconInfoCircle} color="gray" size={18} />
+          <Text>Verbose</Text>
         </Group>
       );
     case -10:
       return (
         <Group gap="xs">
           <IconWrapper icon={IconCircleCheckFilled} color="green" size={18} />
-          <Text c="red">Success</Text>
+          <Text>Success</Text>
         </Group>
       );
     case 0:
       return (
         <Group gap="xs">
-          <IconWrapper icon={IconFile} color="grape" size={18} />
-          <Text c="red">Report</Text>
+          <IconWrapper icon={IconSearch} color="grape" size={18} />
+          <Text>Report</Text>
         </Group>
       );
     case 10:
       return (
         <Group gap="xs">
           <IconWrapper icon={IconAlertTriangle} color="yellow" size={18} />
-          <Text c="red">Warning</Text>
+          <Text>Warning</Text>
         </Group>
       );
     case 20:
       return (
         <Group gap="xs">
           <IconWrapper icon={IconCircleXFilled} color="red" size={18} />
-          <Text c="red">Error</Text>
+          <Text>Error</Text>
         </Group>
       );
   }
