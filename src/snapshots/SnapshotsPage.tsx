@@ -12,6 +12,7 @@ import {
   IconClockExclamation,
   IconEye,
   IconFileDatabase,
+  IconFolderOpen,
   IconPlus,
   IconRefresh,
 } from "@tabler/icons-react";
@@ -155,19 +156,22 @@ function SnapshotsPage() {
               accessor: "source.path",
               title: "Path",
               render: (item) => (
-                <Anchor
-                  component={Link}
-                  to={{
-                    pathname: "/snapshots/single-source",
-                    search: `?userName=${item.source.userName}&host=${
-                      item.source.host
-                    }&path=${encodeURIComponent(item.source.path)}`,
-                  }}
-                  td="none"
-                  fz="sm"
-                >
-                  {item.source.path}
-                </Anchor>
+                <Group gap="5">
+                  <IconWrapper icon={IconFolderOpen} color="yellow" size={18} />
+                  <Anchor
+                    component={Link}
+                    to={{
+                      pathname: "/snapshots/single-source",
+                      search: `?userName=${item.source.userName}&host=${
+                        item.source.host
+                      }&path=${encodeURIComponent(item.source.path)}`,
+                    }}
+                    td="none"
+                    fz="sm"
+                  >
+                    {item.source.path}
+                  </Anchor>
+                </Group>
               ),
             },
             {

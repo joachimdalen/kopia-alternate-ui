@@ -6,10 +6,12 @@ import {
   Divider,
   Group,
   Stack,
+  Text,
 } from "@mantine/core";
 import { useDisclosure, usePrevious } from "@mantine/hooks";
 import {
   IconArrowLeft,
+  IconFile,
   IconFileDelta,
   IconFileDownload,
   IconFolderOpen,
@@ -29,7 +31,17 @@ import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
+import { fileIcons } from "./fileIcons";
 import RestoreModal from "./modals/RestoreModal";
+
+const getFileIcon = (name: string) => {
+  const parts = name.split(".");
+  const ext = parts[parts.length - 1];
+
+  const iconMapping = fileIcons[ext];
+  if (iconMapping === undefined) return IconFile;
+  return iconMapping;
+};
 
 function SnapshotDirectory() {
   const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
@@ -101,21 +113,35 @@ function SnapshotDirectory() {
               accessor: "name",
               render: (item) =>
                 item.obj.startsWith("k") ? (
-                  <Anchor
-                    component={Link}
-                    to={`/snapshots/dir/${item.obj}`}
-                    state={{
-                      label: item.name,
-                      oid: item.obj,
-                      prevState: location.state,
-                    }}
-                    td="none"
-                    fz="sm"
-                  >
-                    {item.name}
-                  </Anchor>
+                  <Group gap="5">
+                    <IconWrapper
+                      icon={IconFolderOpen}
+                      color="yellow"
+                      size={18}
+                    />
+                    <Anchor
+                      component={Link}
+                      to={`/snapshots/dir/${item.obj}`}
+                      state={{
+                        label: item.name,
+                        oid: item.obj,
+                        prevState: location.state,
+                      }}
+                      td="none"
+                      fz="sm"
+                    >
+                      {item.name}
+                    </Anchor>
+                  </Group>
                 ) : (
-                  item.name
+                  <Group gap="5">
+                    <IconWrapper
+                      icon={getFileIcon(item.name)}
+                      color="blue"
+                      size={18}
+                    />
+                    <Text fz="sm">{item.name}</Text>
+                  </Group>
                 ),
             },
             {
