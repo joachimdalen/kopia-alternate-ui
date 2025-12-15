@@ -15,6 +15,7 @@ import type {
 } from "../core/types";
 import NotificationCard from "./components/NotificationCard";
 import EmailModal from "./modals/EmailModal";
+import PushoverModal from "./modals/PushoverModal";
 import WebhookModal from "./modals/WebhookModal";
 
 function NotificationsSection() {
@@ -135,6 +136,20 @@ function NotificationsSection() {
       )}
       {action && action.item?.type === "email" && (
         <EmailModal
+          onCancel={() => setAction(undefined)}
+          onSaved={(profile, isCreate) => {
+            if (isCreate) {
+              setData((prev) => [...prev, profile]);
+            } else {
+              loadAction.execute(undefined, "refresh");
+            }
+            setAction(undefined);
+          }}
+          profile={action.item.profile}
+        />
+      )}
+      {action && action.item?.type === "pushover" && (
+        <PushoverModal
           onCancel={() => setAction(undefined)}
           onSaved={(profile, isCreate) => {
             if (isCreate) {
