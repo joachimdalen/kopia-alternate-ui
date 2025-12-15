@@ -521,3 +521,40 @@ export type Preferences = {
   pageSize: number;
   language: string;
 };
+export type NotificationType = "webhook" | "pushover" | "email";
+export type NotificationConfig =
+  | WebhookNotification
+  | PushOverNotification
+  | EmailNotification;
+export type NotificationProfile = {
+  profile: string;
+  method: {
+    type: NotificationType;
+    config: NotificationConfig;
+  };
+  minSeverity: number;
+};
+
+export type WebhookNotification = {
+  endpoint: string;
+  method: string;
+  format: "html" | "txt";
+  headers: string;
+};
+export type PushOverNotification = {
+  appToken: string;
+  userKey: string;
+  format: "html" | "txt";
+  endpoint?: string;
+};
+export type EmailNotification = {
+  smtpServer: string;
+  smtpPort: number;
+  smtpIdentity?: string;
+  smtpUsername: string;
+  smtpPassword: string;
+  from: string;
+  to: string;
+  cc: string;
+  format: "html" | "txt";
+};

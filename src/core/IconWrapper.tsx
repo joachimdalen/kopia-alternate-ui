@@ -17,6 +17,7 @@ export default function IconWrapper({
       height={size}
       width={size}
       color={color && `var(--mantine-color-${color}-5)`}
+      stroke={2}
     />
   );
   if (tooltip) return <Tooltip label={tooltip}>{icn}</Tooltip>;

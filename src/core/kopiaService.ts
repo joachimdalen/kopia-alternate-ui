@@ -3,6 +3,7 @@ import type {
   AlgorithmsList,
   ApiResponse,
   DirManifest,
+  NotificationProfile,
   PoliciesList,
   Policy,
   Preferences,
@@ -122,6 +123,17 @@ function getPreferences(): Promise<ApiResponse<Preferences>> {
 function setPreferences(data: Preferences): Promise<ApiResponse<Preferences>> {
   return clientPut("/api/v1/ui-preferences", data);
 }
+
+function getNotificationProfiles(): Promise<
+  ApiResponse<NotificationProfile[]>
+> {
+  return clientGet("/api/v1/notificationProfiles");
+}
+function createNotificationProfile(
+  profile: NotificationProfile
+): Promise<ApiResponse<NotificationProfile>> {
+  return clientPost("/api/v1/notificationProfiles", profile);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -143,6 +155,8 @@ const methods = {
   getTaskLogs,
   getPreferences,
   setPreferences,
+  getNotificationProfiles,
+  createNotificationProfile,
 };
 
 export default methods;

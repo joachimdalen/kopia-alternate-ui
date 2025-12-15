@@ -23,6 +23,7 @@ import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { Preferences } from "../core/types";
+import NotificationsSection from "./NotificationsSection";
 
 type PreferencesForm = {
   bytesStringBase2: string;
@@ -78,6 +79,7 @@ function PreferencesPage() {
 
   useEffect(() => {
     loadPreferences.execute(undefined, "loading");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function submitForm(values: Preferences) {
@@ -93,32 +95,32 @@ function PreferencesPage() {
         <Divider />
         <ErrorAlert error={loadPreferences.error} />
         {!loadPreferences.loading && (
-          <form onSubmit={form.onSubmit(submitForm)}>
-            <Paper withBorder>
-              <Tabs defaultValue="appearance">
-                <TabsList>
-                  <TabsTab
-                    value="appearance"
-                    leftSection={
-                      <IconWrapper icon={IconPalette} size={16} color="blue" />
-                    }
-                  >
-                    Appearance
-                  </TabsTab>
-                  <TabsTab
-                    value="notifications"
-                    leftSection={
-                      <IconWrapper
-                        icon={IconNotification}
-                        size={16}
-                        color="grape"
-                      />
-                    }
-                  >
-                    Notifications
-                  </TabsTab>
-                </TabsList>
-                <TabsPanel value="appearance" p="md">
+          <Paper withBorder>
+            <Tabs defaultValue="appearance">
+              <TabsList>
+                <TabsTab
+                  value="appearance"
+                  leftSection={
+                    <IconWrapper icon={IconPalette} size={18} color="blue" />
+                  }
+                >
+                  Appearance
+                </TabsTab>
+                <TabsTab
+                  value="notifications"
+                  leftSection={
+                    <IconWrapper
+                      icon={IconNotification}
+                      size={18}
+                      color="grape"
+                    />
+                  }
+                >
+                  Notifications
+                </TabsTab>
+              </TabsList>
+              <TabsPanel value="appearance" p="md">
+                <form onSubmit={form.onSubmit(submitForm)}>
                   <Stack>
                     <Group grow>
                       <Select
@@ -161,17 +163,19 @@ function PreferencesPage() {
                         {...form.getInputProps("pageSize")}
                       />
                     </Group>
+                    <Group justify="flex-end" p="sm">
+                      <Button type="submit" color="green">
+                        Save
+                      </Button>
+                    </Group>
                   </Stack>
-                </TabsPanel>
-                <TabsPanel value="notifications">d</TabsPanel>
-              </Tabs>
-              <Group justify="flex-end" p="sm">
-                <Button type="submit" color="green">
-                  Save
-                </Button>
-              </Group>
-            </Paper>
-          </form>
+                </form>
+              </TabsPanel>
+              <TabsPanel value="notifications">
+                <NotificationsSection />
+              </TabsPanel>
+            </Tabs>
+          </Paper>
         )}
       </Stack>
     </Container>

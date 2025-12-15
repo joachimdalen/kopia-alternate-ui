@@ -1,7 +1,7 @@
 import { Card, CardSection, Group, LoadingOverlay, Text } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
-import { formatTimestamp } from "../../core/formatTimeStamp";
+import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import kopiaService from "../../core/kopiaService";
 import type { Task } from "../../core/types";
