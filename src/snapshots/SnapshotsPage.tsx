@@ -7,6 +7,7 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import {
   IconArchive,
   IconClockExclamation,
@@ -33,8 +34,10 @@ import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
 import { onlyUnique } from "../utils/onlyUnique";
 import UploadingLoader from "./components/UploadingLoader";
+import NewSnapshotModal from "./modals/NewSnapshotModal";
 
 function SnapshotsPage() {
+  const [show, setShow] = useDisclosure();
   const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>(
@@ -126,8 +129,7 @@ function SnapshotsPage() {
               leftSection={<IconPlus size={16} />}
               color="green"
               disabled={loading && loadingKey == "loading"}
-              component={Link}
-              to="/snapshots/new"
+              onClick={setShow.open}
             >
               New Snapshot
             </Button>
@@ -272,6 +274,14 @@ function SnapshotsPage() {
           ]}
         />
       </Stack>
+      {show && (
+        <NewSnapshotModal
+          onSnapshotted={() => {
+            setShow.close();
+          }}
+          onCancel={setShow.close}
+        />
+      )}
     </Container>
   );
 }

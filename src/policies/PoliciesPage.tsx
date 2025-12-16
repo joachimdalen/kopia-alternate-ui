@@ -278,7 +278,6 @@ function PoliciesPage() {
           isNew={action.item!.isNew}
           target={action.item!.target}
           onCancel={() => setAction(undefined)}
-          onUpdated={() => console.log("")}
         />
       )}
       {action &&

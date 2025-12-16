@@ -4,10 +4,13 @@ import {
   SimpleGrid,
   Text,
   type MantineColor,
+  type StyleProp,
 } from "@mantine/core";
 import {
+  IconAsterisk,
   IconCircleX,
   IconDatabasePlus,
+  IconFile,
   IconFileCode,
   IconFileDatabase,
   IconFileMinus,
@@ -15,6 +18,7 @@ import {
   IconFileSymlink,
   IconFileUpload,
   IconFileX,
+  IconFolder,
   IconFolderPlus,
   IconFolderX,
   IconHash,
@@ -31,6 +35,7 @@ import sizeDisplayName from "../../utils/formatSize";
 type Props = {
   task: Task;
   showZeroCounters: boolean;
+  gridSize?: StyleProp<number>;
 };
 
 type CounterKeys = keyof Task["counters"];
@@ -110,9 +115,25 @@ const iconProps: Record<
     icon: IconFileMinus,
     color: "orange",
   },
+  Files: {
+    icon: IconFile,
+    color: "green",
+  },
+  Directories: {
+    icon: IconFolder,
+    color: "green",
+  },
+  Bytes: {
+    icon: IconAsterisk,
+    color: "blue",
+  },
 };
 
-export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
+export default function TaskCounterGrid({
+  task,
+  showZeroCounters,
+  gridSize,
+}: Props) {
   const { bytesStringBase2 } = usePreferencesContext();
   const counters = Object.keys(task.counters).map((key) => {
     const counter = task.counters[key as CounterKeys];
@@ -153,6 +174,8 @@ export default function TaskCounterGrid({ task, showZeroCounters }: Props) {
   });
 
   return (
-    <SimpleGrid cols={{ base: 1, sm: 3, md: 4, lg: 6 }}>{counters}</SimpleGrid>
+    <SimpleGrid cols={gridSize || { base: 1, sm: 3, md: 4, lg: 6 }}>
+      {counters}
+    </SimpleGrid>
   );
 }

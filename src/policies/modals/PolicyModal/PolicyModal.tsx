@@ -40,12 +40,7 @@ import NumberSelect from "../../../core/NumberSelect";
 import RelativeDate from "../../../core/RelativeDate";
 import useApiRequest from "../../../core/hooks/useApiRequest";
 import kopiaService from "../../../core/kopiaService";
-import type {
-  Policy,
-  ResolvedPolicy,
-  Snapshot,
-  SourceInfo,
-} from "../../../core/types";
+import type { Policy, ResolvedPolicy, SourceInfo } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { getPolicyType } from "../../policiesUtil";
@@ -62,14 +57,21 @@ type Props = {
   target: SourceInfo;
   isNew: boolean;
   onCancel: () => void;
-  onUpdated: (snapshots: Snapshot[]) => void;
+  onSubmitted?: (policy: Policy) => void;
+  saveOnSubmit?: boolean;
 };
 
 // const schema = Yup.object({
 //   description: Yup.string().max(250).label("Description"),
 // });
 
-export default function PolicyModal({ isNew, target, onCancel }: Props) {
+export default function PolicyModal({
+  isNew,
+  target,
+  onCancel,
+  onSubmitted,
+  saveOnSubmit = true,
+}: Props) {
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal =
     target.host === "" && target.userName === "" && target.path === "";
@@ -133,7 +135,13 @@ export default function PolicyModal({ isNew, target, onCancel }: Props) {
   const resolvedValue = resolved?.effective;
 
   async function submitForm(values: Policy) {
-    saveAction.execute(values);
+    if (saveOnSubmit) {
+      saveAction.execute(values);
+    } else {
+      if (onSubmitted !== undefined) {
+        onSubmitted(values);
+      }
+    }
   }
   return (
     <Modal

@@ -198,7 +198,7 @@ export type Task = {
     };
     "Hashed Bytes"?: {
       value: number;
-      units: "bytes";
+      units: string;
       level: string;
     };
     "Hashed Files"?: {
@@ -207,7 +207,7 @@ export type Task = {
     };
     "Processed Bytes"?: {
       value: number;
-      units: "bytes";
+      units: string;
       level: string;
     };
     "Processed Files"?: {
@@ -216,7 +216,7 @@ export type Task = {
     };
     "Uploaded Bytes"?: {
       value: number;
-      units: "bytes";
+      units: string;
       level: string;
     };
     "Ignored Errors"?: {
@@ -225,7 +225,7 @@ export type Task = {
     };
     "Restored Bytes"?: {
       value: number;
-      units: "bytes";
+      units: string;
       level: string;
     };
     "Restored Directories"?: {
@@ -242,16 +242,34 @@ export type Task = {
     };
     "Skipped Bytes"?: {
       value: number;
-      units: "bytes";
+      units: string;
       level: string;
     };
     "Skipped Files"?: {
       value: number;
       level: string;
     };
+    Files?: {
+      value: number;
+      level: string;
+    };
+    Directories?: {
+      value: number;
+      level: string;
+    };
+    Bytes?: {
+      value: number;
+      units: string;
+      level: string;
+    };
+    "Excluded Bytes": {
+      value: number;
+      units: string;
+      level: string;
+    };
   };
-  logLine: string[];
-  error: string;
+  logLine?: string[];
+  error?: string;
   sequenceNumber?: number;
 };
 
@@ -557,4 +575,12 @@ export type EmailNotification = {
   to: string;
   cc: string;
   format: "html" | "txt";
+};
+export type ResolvePath = {
+  source: SourceInfo;
+};
+export type EstimateSnapshotRequest = {
+  root: string;
+  maxExamplesPerBucket: number;
+  policyOverride: Policy;
 };
