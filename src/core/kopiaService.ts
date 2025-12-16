@@ -113,6 +113,12 @@ function getAlgorithms(): Promise<ApiResponse<AlgorithmsList>> {
 function getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
   return clientGet("/api/v1/policy", source);
 }
+function savePolicy(
+  policy: Policy,
+  source: SourceInfo
+): Promise<ApiResponse<Policy>> {
+  return clientPut("/api/v1/policy", policy, source);
+}
 function getTasksSummary(): Promise<ApiResponse<TasksSummary>> {
   return clientGet("/api/v1/tasks-summary");
 }
@@ -174,6 +180,7 @@ const methods = {
   createNotificationProfile,
   deleteNotificationProfile,
   testNotificationProfile,
+  savePolicy,
 };
 
 export default methods;

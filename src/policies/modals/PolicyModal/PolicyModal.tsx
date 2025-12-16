@@ -32,9 +32,7 @@ import {
   IconTestPipe,
   IconUpload,
 } from "@tabler/icons-react";
-import { yupResolver } from "mantine-form-yup-resolver";
 import { useEffect, useState } from "react";
-import * as Yup from "yup";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../../../core/FormattedDate";
 import IconWrapper from "../../../core/IconWrapper";
@@ -67,18 +65,21 @@ type Props = {
   onUpdated: (snapshots: Snapshot[]) => void;
 };
 
-const schema = Yup.object({
-  description: Yup.string().max(250).label("Description"),
-});
+// const schema = Yup.object({
+//   description: Yup.string().max(250).label("Description"),
+// });
 
 export default function PolicyModal({ isNew, target, onCancel }: Props) {
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal =
     target.host === "" && target.userName === "" && target.path === "";
-  const form = useForm<PolicyForm>({
+  const form = useForm<PolicyForm, (values: PolicyForm) => Policy>({
     mode: "controlled",
     initialValues: {},
-    validate: yupResolver(schema),
+    transformValues(values) {
+      return { ...values };
+    },
+    // validate: yupResolver(schema),
   });
 
   const {
@@ -108,6 +109,14 @@ export default function PolicyModal({ isNew, target, onCancel }: Props) {
     },
   });
 
+  const saveAction = useApiRequest({
+    action: (data?: Policy) => kopiaService.savePolicy(data!, target),
+    showErrorAsNotification: true,
+    onReturn: () => {
+      onCancel();
+    },
+  });
+
   useEffect(() => {
     async function intLoad() {
       await executeLoad();
@@ -123,9 +132,8 @@ export default function PolicyModal({ isNew, target, onCancel }: Props) {
 
   const resolvedValue = resolved?.effective;
 
-  async function submitForm() {
-    //values: PolicyForm
-    // await execute(values);
+  async function submitForm(values: Policy) {
+    saveAction.execute(values);
   }
   return (
     <Modal
@@ -142,7 +150,9 @@ export default function PolicyModal({ isNew, target, onCancel }: Props) {
         onSubmit={form.onSubmit(submitForm)}
         className={modalClasses.container}
       >
-        <LoadingOverlay visible={loadingData || loadingResolve} />
+        <LoadingOverlay
+          visible={loadingData || loadingResolve || saveAction.loading}
+        />
         <Stack w="100%">
           <ErrorAlert error={loadError || resolveError} />
           <Tabs

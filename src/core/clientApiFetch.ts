@@ -50,9 +50,10 @@ export async function clientGetFile(path: string): Promise<unknown> {
 }
 export async function clientPut<TRequest, TResponse>(
   path: string,
-  body?: TRequest
+  body?: TRequest,
+  query?: QueryParams
 ): Promise<ApiResponse<TResponse>> {
-  return await put<TRequest, TResponse>(path, body);
+  return await put<TRequest, TResponse>(path, body, query);
 }
 export async function clientGet<T>(
   path: string,
@@ -123,7 +124,8 @@ async function post<TRequest, TResponse>(
 }
 async function put<TRequest, TResponse>(
   path: string,
-  body?: TRequest
+  body?: TRequest,
+  query?: QueryParams
 ): Promise<ApiResponse<TResponse>> {
   return await requestWrapper(async () => {
     const response = await axios({
@@ -134,6 +136,7 @@ async function put<TRequest, TResponse>(
         Accept: "application/json",
       },
       data: body,
+      params: query,
     });
     return response.data;
   });
