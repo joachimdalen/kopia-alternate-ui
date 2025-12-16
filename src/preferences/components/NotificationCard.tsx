@@ -12,7 +12,6 @@ import {
 } from "@mantine/core";
 import {
   IconBrandPushover,
-  IconCopy,
   IconDots,
   IconMail,
   IconPencil,
@@ -80,14 +79,14 @@ function NotificationCard({
               >
                 Edit
               </MenuItem>
-              <MenuItem
+              {/* <MenuItem
                 leftSection={
                   <IconWrapper icon={IconCopy} color="blue" size={18} />
                 }
                 onClick={onDuplicate}
               >
                 Duplicate
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem
                 leftSection={
                   <IconWrapper icon={IconTestPipe} color="grape" size={18} />
