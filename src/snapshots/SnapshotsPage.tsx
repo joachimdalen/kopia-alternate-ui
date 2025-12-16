@@ -278,6 +278,7 @@ function SnapshotsPage() {
         <NewSnapshotModal
           onSnapshotted={() => {
             setShow.close();
+            execute(undefined, "refresh");
           }}
           onCancel={setShow.close}
         />

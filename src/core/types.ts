@@ -584,3 +584,8 @@ export type EstimateSnapshotRequest = {
   maxExamplesPerBucket: number;
   policyOverride: Policy;
 };
+export type CreateSnapshotRequest = {
+  path: string;
+  createSnapshot: boolean;
+  policy: Policy;
+};

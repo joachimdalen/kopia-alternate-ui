@@ -107,6 +107,9 @@ export default function PolicyModal({
         updates: data!,
       }),
     onReturn: (g) => {
+      if (isNew) {
+        form.initialize(g.defined);
+      }
       setResolved(g);
     },
   });
@@ -123,11 +126,15 @@ export default function PolicyModal({
     async function intLoad() {
       await executeLoad();
     }
+    async function intResolve() {
+      await executeResolve({});
+    }
     if (!isNew) {
       intLoad();
     } else {
-      const np: Policy = {};
-      form.initialize(np);
+      // const np: Policy = {};
+      // form.initialize(np);
+      intResolve();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

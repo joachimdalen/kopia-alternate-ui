@@ -15,7 +15,11 @@ import * as Yup from "yup";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import kopiaService from "../../core/kopiaService";
-import { type Policy, type SourceInfo } from "../../core/types";
+import {
+  type CreateSnapshotRequest,
+  type Policy,
+  type SourceInfo,
+} from "../../core/types";
 import PolicyModal from "../../policies/modals/PolicyModal/PolicyModal";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
@@ -74,6 +78,13 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
       setSource(g.source);
     },
   });
+  const createSnapshotAction = useApiRequest({
+    action: (data?: CreateSnapshotRequest) =>
+      kopiaService.createSnapshot(data!),
+    onReturn: () => {
+      onSnapshotted();
+    },
+  });
 
   useEffect(() => {
     if (source != undefined) {
@@ -92,7 +103,9 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
       size="md"
     >
       <Stack w="100%" className={modalClasses.container}>
-        <ErrorAlert error={undefined} />
+        <ErrorAlert
+          error={resolvePathAction.error || createSnapshotAction.error}
+        />
 
         <Group grow align="flex-end">
           <TextInput
@@ -104,7 +117,8 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
               <ActionIcon
                 size={24}
                 variant="filled"
-                disabled={!form.isValid("path")}
+                disabled={!form.isValid("path") || source !== undefined}
+                loading={resolvePathAction.loading}
                 onClick={() => resolvePathAction.execute(form.values.path)}
               >
                 <IconSearch size={14} stroke={1.5} />
@@ -132,7 +146,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           color="gray"
           variant="subtle"
           onClick={onCancel}
-          //   disabled={loading}
+          disabled={createSnapshotAction.loading || resolvePathAction.loading}
         >
           Cancel
         </Button>
@@ -141,7 +155,11 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           <Button
             size="xs"
             color="teal"
-            disabled={source === undefined || policy === undefined}
+            disabled={
+              source === undefined ||
+              policy === undefined ||
+              createSnapshotAction.loading
+            }
             onClick={showEstimationHandlers.open}
           >
             Estimate
@@ -149,6 +167,15 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           <Button
             size="xs"
             disabled={source === undefined || policy === undefined}
+            loading={createSnapshotAction.loading}
+            onClick={() => {
+              const req: CreateSnapshotRequest = {
+                createSnapshot: true,
+                path: form.values.path,
+                policy: policy!,
+              };
+              createSnapshotAction.execute(req);
+            }}
           >
             Snapshot now
           </Button>

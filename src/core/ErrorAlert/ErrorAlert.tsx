@@ -26,7 +26,7 @@ export function ErrorAlert({
       bd="2px solid var(--mantine-color-red-5)"
       {...rest}
     >
-      <Group>
+      <Group wrap="nowrap">
         <IconWrapper icon={IconAlertTriangle} color="red" size={iconSize} />
         <Stack gap="xs">
           <Text c="var(--mantine-color-red-outline)" fw="bold" fz={size}>

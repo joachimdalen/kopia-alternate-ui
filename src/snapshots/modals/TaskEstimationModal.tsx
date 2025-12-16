@@ -92,7 +92,13 @@ export default function TaskEstimationModal({
       size="lg"
     >
       <Stack w="100%" className={modalClasses.container}>
-        <ErrorAlert error={undefined} />
+        <ErrorAlert
+          error={
+            estimateAction.error ||
+            loadTaskAction.error ||
+            loadTaskLogsAction.error
+          }
+        />
         <LoadingOverlay visible={estimateAction.loading} />
         {task && (
           <>
