@@ -81,9 +81,10 @@ function useApiRequest<TResponse, TRequest>({
         onReturn(response.data!, data);
         return;
       } else {
+        const dd = response?.data as { code: string; error: string };
         const err: ErrorInformation = {
-          title: "Operation failed",
-          message: "Failed due to an unknown error",
+          title: dd.code || "Operation failed",
+          message: dd.error || "Failed due to an unknown error",
           data: response.data,
         };
         processError(err, data);

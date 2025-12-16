@@ -144,6 +144,11 @@ function deleteNotificationProfile(
 ): Promise<ApiResponse<unknown>> {
   return clientDelete(`/api/v1/notificationProfiles/${profileName}`);
 }
+function testNotificationProfile(
+  profile: NotificationProfile
+): Promise<ApiResponse<unknown>> {
+  return clientPost(`/api/v1/testNotificationProfile`, profile);
+}
 const methods = {
   getSnapshots,
   startSnapshot,
@@ -168,6 +173,7 @@ const methods = {
   getNotificationProfiles,
   createNotificationProfile,
   deleteNotificationProfile,
+  testNotificationProfile,
 };
 
 export default methods;

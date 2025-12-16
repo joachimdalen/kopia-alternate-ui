@@ -40,6 +40,13 @@ function NotificationsSection() {
       setData((prev) => prev.filter((x) => x.profile != profileName));
     },
   });
+  const testAction = useApiRequest({
+    action: (data?: NotificationProfile) =>
+      kopiaService.testNotificationProfile(data!),
+    showErrorAsNotification: true,
+    returnsData: false,
+    onReturn: () => {},
+  });
   useEffect(() => {
     loadAction.execute(undefined, "loading");
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,7 +122,7 @@ function NotificationsSection() {
                 })
               }
               onDuplicate={() => console.log("d")}
-              onTest={() => console.log("test")}
+              onTest={() => testAction.execute(n)}
             />
           ))}
         </SimpleGrid>
