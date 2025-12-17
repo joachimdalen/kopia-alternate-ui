@@ -7,7 +7,9 @@ import {
 import type {
   AlgorithmsList,
   ApiResponse,
+  CheckRepoRequest,
   CreateSnapshotRequest,
+  CurrentUser,
   DirManifest,
   EstimateSnapshotRequest,
   NotificationProfile,
@@ -173,8 +175,15 @@ function createSnapshot(
 ): Promise<ApiResponse<Task>> {
   return clientPost(`/api/v1/sources`, data);
 }
+function getCurrentUser(): Promise<ApiResponse<CurrentUser>> {
+  return clientGet("/api/v1/current-user");
+}
+function repoExists(data: CheckRepoRequest): Promise<ApiResponse<unknown>> {
+  return clientPost("/api/v1/repo/exists", data);
+}
 const methods = {
   getSnapshots,
+  getCurrentUser,
   startSnapshot,
   getSnapshot,
   estimateSnapshot,
@@ -184,6 +193,7 @@ const methods = {
   addPin,
   updatePin,
   removePin,
+  repoExists,
   restore,
   getTasks,
   getStatus,

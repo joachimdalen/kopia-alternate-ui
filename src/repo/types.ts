@@ -11,6 +11,8 @@ export type RepoConfigurationForm<T> = {
   formatVersion: string;
   eccOverheadPercent: string;
   ecc: string;
+  readonly: boolean;
+  description: string;
 };
 export type FileSystemRepoConfig = {
   path: string;

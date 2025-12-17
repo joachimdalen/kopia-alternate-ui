@@ -34,6 +34,10 @@ export type Sources = {
   multiUser: boolean;
   sources: SourceStatus[];
 };
+export type CurrentUser = {
+  hostname: string;
+  username: string;
+};
 export type TimeOfDay = { hour: number; min: number };
 export type SchedulingPolicy = {
   intervalSeconds?: number;
@@ -588,4 +592,10 @@ export type CreateSnapshotRequest = {
   path: string;
   createSnapshot: boolean;
   policy: Policy;
+};
+export type CheckRepoRequest = {
+  storage: {
+    type: string;
+    config: object;
+  };
 };

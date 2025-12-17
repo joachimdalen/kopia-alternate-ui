@@ -1,25 +1,24 @@
 import {
-  Accordion,
-  AccordionControl,
-  AccordionItem,
-  AccordionPanel,
+  Button,
   Card,
   Container,
   Group,
   Paper,
-  PasswordInput,
-  Select,
   SimpleGrid,
   Stack,
   Stepper,
   Text,
   TextInput,
-  Title,
   UnstyledButton,
 } from "@mantine/core";
 import { useForm, type UseFormReturnType } from "@mantine/form";
 import { useState } from "react";
+import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
+import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
+import kopiaService from "../core/kopiaService";
+import type { CheckRepoRequest } from "../core/types";
+import CreateRepoSection from "./CreateRepoSection";
 import { supportedProviders } from "./repoConstants";
 import AmazonS3Repo from "./sections/AmazonS3Repo";
 import AzureBlobStorageRepo from "./sections/AzureBlobStorageRepo";
@@ -48,15 +47,36 @@ import type {
 export type AllProviderConfigurations =
   | AmazonS3RepoConfig
   | FileSystemRepoConfig
+  | AzureBlobStorageRepoConfig
+  | BackblazeB2RepoConfig
+  | GoogleCloudStorageRepoConfig
+  | KopiaRepoServerRepoConfig
+  | KopiaRepoTokenRepoConfig
+  | RcloneRepoConfig
+  | SftpRepoConfig
+  | WebDavRepoConfig
   | object;
 
 function RepoPage() {
-  const [selected, setSelected] = useState<string>("");
   const [active, setActive] = useState(0);
-  const nextStep = () =>
-    setActive((current) => (current < 3 ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
+  const [confirmCreate, setConfirmCreate] = useState(false);
+
+  const checkRepoAction = useApiRequest({
+    action: (data?: CheckRepoRequest) => kopiaService.repoExists(data!),
+    onReturn() {
+      setConfirmCreate(false);
+      setActive(2);
+    },
+    handleError(data) {
+      if (data.title === "NOT_INITIALIZED") {
+        console.log("NOT_INITIALIZED");
+        setConfirmCreate(true);
+        setActive(2);
+        return false;
+      }
+      return true;
+    },
+  });
 
   const form = useForm<RepoConfigurationForm<AllProviderConfigurations>>({
     mode: "controlled",
@@ -68,11 +88,13 @@ function RepoPage() {
       password: "",
       confirmPassword: "",
       ecc: "",
-      eccOverheadPercent: "",
+      eccOverheadPercent: "0",
       encryption: "",
-      formatVersion: "",
+      formatVersion: "2",
       hash: "",
       splitter: "",
+      readonly: false,
+      description: "My Repository",
     },
   });
 
@@ -175,10 +197,30 @@ function RepoPage() {
     }
   };
 
+  const validateConfig = () => {
+    if (
+      form.values.provider === "_token" ||
+      form.values.provider === "_server"
+    ) {
+      setConfirmCreate(false);
+      setActive(2);
+      return;
+    }
+
+    const request = {
+      storage: {
+        type: form.values.provider,
+        config: form.values.providerConfig,
+      },
+    };
+    checkRepoAction.execute(request);
+  };
+
   return (
     <Container>
       <Paper withBorder p="md">
-        <Stepper active={active} onStepClick={setActive} size="xs">
+        <ErrorAlert error={checkRepoAction.error} />
+        <Stepper active={active} size="xs">
           <Stepper.Step
             label="Select Provider"
             description="Select the preferred storage type"
@@ -209,96 +251,40 @@ function RepoPage() {
             description="Configure the selected provider"
           >
             {getProvider()}
+            <Group mt="sm" justify="space-between">
+              <Button
+                onClick={() => {
+                  form.setFieldValue("provider", "");
+                  setActive(0);
+                }}
+              >
+                Back
+              </Button>
+              <Button
+                onClick={validateConfig}
+                disabled={!form.isValid("providerConfig")}
+              >
+                Next
+              </Button>
+            </Group>
           </Stepper.Step>
           <Stepper.Step
-            label="Configure repository"
-            description="Configure the repository"
+            label={confirmCreate ? "Create repository" : "Configure repository"}
+            description={
+              confirmCreate
+                ? "Create a new repository"
+                : "Configure the repository"
+            }
           >
-            <Stack>
-              <Group grow>
-                <PasswordInput
-                  label="Repository Password"
-                  withAsterisk
-                  placeholder="Enter repository password"
-                  description="Used to encrypt content of the repository"
-                  {...form.getInputProps("password")}
+            {confirmCreate && <CreateRepoSection form={form} />}
+            {!confirmCreate && (
+              <Stack>
+                <TextInput
+                  label="Connect as"
+                  defaultValue={`${form.values.username}@${form.values.password}`}
                 />
-                <PasswordInput
-                  label="Confirm Repository Password"
-                  description="Confirm the repository password"
-                  withAsterisk
-                  placeholder="Enter repository password again"
-                  {...form.getInputProps("confirmedPassword")}
-                />
-              </Group>
-              <Accordion variant="separated">
-                <AccordionItem value="advanced">
-                  <AccordionControl>Advanced Options</AccordionControl>
-                  <AccordionPanel>
-                    <Stack>
-                      <Group grow>
-                        <Select
-                          label="Encryption"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("encryption")}
-                        />
-                        <Select
-                          label="Hash Algorithm"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("hashAlgorithm")}
-                        />
-                      </Group>
-                      <Group grow>
-                        <Select
-                          label="Splitter"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("splitter")}
-                        />
-                        <Select
-                          label="Repository Format"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("repositoryFormat")}
-                        />
-                      </Group>
-                      <Group grow>
-                        <Select
-                          label="Error Correction Overhead"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("errorCorrectionOverhead")}
-                        />
-                        <Select
-                          label="Error Correction Algorithm"
-                          data={[]}
-                          allowDeselect={false}
-                          withCheckIcon={false}
-                          {...form.getInputProps("hashAlgorithm")}
-                        />
-                      </Group>
-                      <Group grow>
-                        <TextInput
-                          label="Username"
-                          description="Override this when restoring a snapshot taken by another user"
-                        />
-                        <TextInput
-                          label="Hostname"
-                          description="Override this when restoring a snapshot taken on another machine"
-                        />
-                      </Group>
-                    </Stack>
-                  </AccordionPanel>
-                </AccordionItem>
-              </Accordion>
-            </Stack>
+              </Stack>
+            )}
           </Stepper.Step>
           <Stepper.Completed>
             Completed, click back button to get to previous step
@@ -307,39 +293,6 @@ function RepoPage() {
       </Paper>
     </Container>
   );
-
-  if (selected === "") {
-    return (
-      <Container>
-        <Stack>
-          <Stack gap={0}>
-            <Title order={1}>Select Storage Type</Title>
-            <Text>
-              To connect to a repository or create one, select the preferred
-              storage type:
-            </Text>
-          </Stack>
-          <SimpleGrid cols={2}>
-            {supportedProviders.map((p) => {
-              return (
-                <UnstyledButton
-                  key={p.provider}
-                  onClick={() => setSelected(p.provider)}
-                >
-                  <Card withBorder>
-                    <Group wrap="nowrap">
-                      <IconWrapper icon={p.icon} size={36} color={p.color} />
-                      <Text>{p.description}</Text>
-                    </Group>
-                  </Card>
-                </UnstyledButton>
-              );
-            })}
-          </SimpleGrid>
-        </Stack>
-      </Container>
-    );
-  }
 }
 
 export default RepoPage;
