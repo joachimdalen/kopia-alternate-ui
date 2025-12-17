@@ -1,28 +1,17 @@
-import {
-  Container,
-  Group,
-  Paper,
-  PasswordInput,
-  Stack,
-  Title,
-} from "@mantine/core";
+import { Group, PasswordInput, Stack, Text } from "@mantine/core";
 import { IconAsterisk } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 
 function KopiaRepoTokenRepo() {
   return (
-    <Container>
-      <Stack>
-        <Group>
-          <IconWrapper icon={IconAsterisk} size={32} color="violet" />
-          <Title order={1}>Use Repository Token</Title>
-        </Group>
+    <Stack>
+      <Group>
+        <IconWrapper icon={IconAsterisk} size={32} color="violet" />
+        <Text fw="bold">Use Repository Token</Text>
+      </Group>
 
-        <Paper withBorder p="md">
-          <PasswordInput label="Token" placeholder="Paste connection token" />
-        </Paper>
-      </Stack>
-    </Container>
+      <PasswordInput label="Token" placeholder="Paste connection token" />
+    </Stack>
   );
 }
 
