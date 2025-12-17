@@ -17,6 +17,7 @@ import {
   Title,
   UnstyledButton,
 } from "@mantine/core";
+import { useForm, type UseFormReturnType } from "@mantine/form";
 import { useState } from "react";
 import IconWrapper from "../core/IconWrapper";
 import { supportedProviders } from "./repoConstants";
@@ -30,6 +31,24 @@ import KopiaRepoTokenRepo from "./sections/KopiaRepoTokenRepo";
 import RcloneRepo from "./sections/RcloneRepo";
 import SFTPServerRepo from "./sections/SFTPServerRepo";
 import WebDavRepo from "./sections/WebDavRepo";
+import type {
+  AmazonS3RepoConfig,
+  AzureBlobStorageRepoConfig,
+  BackblazeB2RepoConfig,
+  FileSystemRepoConfig,
+  GoogleCloudStorageRepoConfig,
+  KopiaRepoServerRepoConfig,
+  KopiaRepoTokenRepoConfig,
+  RcloneRepoConfig,
+  RepoConfigurationForm,
+  SftpRepoConfig,
+  WebDavRepoConfig,
+} from "./types";
+
+export type AllProviderConfigurations =
+  | AmazonS3RepoConfig
+  | FileSystemRepoConfig
+  | object;
 
 function RepoPage() {
   const [selected, setSelected] = useState<string>("");
@@ -39,28 +58,120 @@ function RepoPage() {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
 
+  const form = useForm<RepoConfigurationForm<AllProviderConfigurations>>({
+    mode: "controlled",
+    initialValues: {
+      hostname: "",
+      username: "",
+      provider: "",
+      providerConfig: {},
+      password: "",
+      confirmPassword: "",
+      ecc: "",
+      eccOverheadPercent: "",
+      encryption: "",
+      formatVersion: "",
+      hash: "",
+      splitter: "",
+    },
+  });
+
   const getProvider = () => {
-    switch (selected) {
+    switch (form.values.provider) {
       case "filesystem":
-        return <FileSystemRepo />;
+        return (
+          <FileSystemRepo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<FileSystemRepoConfig>
+              >
+            }
+          />
+        );
       case "gcs":
-        return <GoogleCloudStorageRepo />;
+        return (
+          <GoogleCloudStorageRepo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<GoogleCloudStorageRepoConfig>
+              >
+            }
+          />
+        );
       case "s3":
-        return <AmazonS3Repo />;
+        return (
+          <AmazonS3Repo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<AmazonS3RepoConfig>
+              >
+            }
+          />
+        );
       case "b2":
-        return <BackblazeB2Repo />;
+        return (
+          <BackblazeB2Repo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<BackblazeB2RepoConfig>
+              >
+            }
+          />
+        );
       case "azureBlob":
-        return <AzureBlobStorageRepo />;
+        return (
+          <AzureBlobStorageRepo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<AzureBlobStorageRepoConfig>
+              >
+            }
+          />
+        );
       case "sftp":
-        return <SFTPServerRepo />;
+        return (
+          <SFTPServerRepo
+            form={
+              form as UseFormReturnType<RepoConfigurationForm<SftpRepoConfig>>
+            }
+          />
+        );
       case "rclone":
-        return <RcloneRepo />;
+        return (
+          <RcloneRepo
+            form={
+              form as UseFormReturnType<RepoConfigurationForm<RcloneRepoConfig>>
+            }
+          />
+        );
       case "webdav":
-        return <WebDavRepo />;
+        return (
+          <WebDavRepo
+            form={
+              form as UseFormReturnType<RepoConfigurationForm<WebDavRepoConfig>>
+            }
+          />
+        );
       case "_server":
-        return <KopiaRepoServerRepo />;
+        return (
+          <KopiaRepoServerRepo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<KopiaRepoServerRepoConfig>
+              >
+            }
+          />
+        );
       case "_token":
-        return <KopiaRepoTokenRepo />;
+        return (
+          <KopiaRepoTokenRepo
+            form={
+              form as UseFormReturnType<
+                RepoConfigurationForm<KopiaRepoTokenRepoConfig>
+              >
+            }
+          />
+        );
     }
   };
 
@@ -78,7 +189,7 @@ function RepoPage() {
                   <UnstyledButton
                     key={p.provider}
                     onClick={() => {
-                      setSelected(p.provider);
+                      form.setFieldValue("provider", p.provider);
                       setActive(1);
                     }}
                   >
@@ -110,12 +221,14 @@ function RepoPage() {
                   withAsterisk
                   placeholder="Enter repository password"
                   description="Used to encrypt content of the repository"
+                  {...form.getInputProps("password")}
                 />
                 <PasswordInput
                   label="Confirm Repository Password"
                   description="Confirm the repository password"
                   withAsterisk
                   placeholder="Enter repository password again"
+                  {...form.getInputProps("confirmedPassword")}
                 />
               </Group>
               <Accordion variant="separated">
@@ -129,12 +242,14 @@ function RepoPage() {
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("encryption")}
                         />
                         <Select
                           label="Hash Algorithm"
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("hashAlgorithm")}
                         />
                       </Group>
                       <Group grow>
@@ -143,12 +258,14 @@ function RepoPage() {
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("splitter")}
                         />
                         <Select
                           label="Repository Format"
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("repositoryFormat")}
                         />
                       </Group>
                       <Group grow>
@@ -157,12 +274,14 @@ function RepoPage() {
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("errorCorrectionOverhead")}
                         />
                         <Select
                           label="Error Correction Algorithm"
                           data={[]}
                           allowDeselect={false}
                           withCheckIcon={false}
+                          {...form.getInputProps("hashAlgorithm")}
                         />
                       </Group>
                       <Group grow>

@@ -1,8 +1,12 @@
 import { Group, PasswordInput, Stack, Text } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
 import { IconAsterisk } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
-
-function KopiaRepoTokenRepo() {
+import type { KopiaRepoTokenRepoConfig, RepoConfigurationForm } from "../types";
+type Props = {
+  form: UseFormReturnType<RepoConfigurationForm<KopiaRepoTokenRepoConfig>>;
+};
+function KopiaRepoTokenRepo({ form }: Props) {
   return (
     <Stack>
       <Group>
@@ -10,7 +14,12 @@ function KopiaRepoTokenRepo() {
         <Text fw="bold">Use Repository Token</Text>
       </Group>
 
-      <PasswordInput label="Token" placeholder="Paste connection token" />
+      <PasswordInput
+        label="Token"
+        withAsterisk
+        placeholder="Paste connection token"
+        {...form.getInputProps("providerConfig.token")}
+      />
     </Stack>
   );
 }

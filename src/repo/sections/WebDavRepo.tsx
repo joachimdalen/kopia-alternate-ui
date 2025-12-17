@@ -1,8 +1,14 @@
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
 import { IconFile } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
+import type { RepoConfigurationForm, WebDavRepoConfig } from "../types";
 
-function WebDavRepo() {
+type Props = {
+  form: UseFormReturnType<RepoConfigurationForm<WebDavRepoConfig>>;
+};
+
+function WebDavRepo({ form }: Props) {
   return (
     <Stack>
       <Group>
@@ -15,10 +21,19 @@ function WebDavRepo() {
           label="WebDAV Server URL"
           placeholder="http[s]://server:port/path"
           withAsterisk
+          {...form.getInputProps("providerConfig.url")}
         />
         <Group grow>
-          <TextInput label="Username" placeholder="Enter username" />
-          <PasswordInput label="Password" placeholder="Enter password" />
+          <TextInput
+            label="Username"
+            placeholder="Enter username"
+            {...form.getInputProps("providerConfig.username")}
+          />
+          <PasswordInput
+            label="Password"
+            placeholder="Enter password"
+            {...form.getInputProps("providerConfig.password")}
+          />
         </Group>
       </Stack>
     </Stack>

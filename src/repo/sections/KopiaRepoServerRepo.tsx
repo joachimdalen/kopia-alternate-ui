@@ -1,8 +1,17 @@
 import { Group, Stack, Text, TextInput } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
 import { IconServer } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
+import type {
+  KopiaRepoServerRepoConfig,
+  RepoConfigurationForm,
+} from "../types";
 
-function KopiaRepoServerRepo() {
+type Props = {
+  form: UseFormReturnType<RepoConfigurationForm<KopiaRepoServerRepoConfig>>;
+};
+
+function KopiaRepoServerRepo({ form }: Props) {
   return (
     <Stack>
       <Group>
@@ -15,10 +24,12 @@ function KopiaRepoServerRepo() {
           label="Server address"
           placeholder="Enter server URL (https://<host>:port)"
           withAsterisk
+          {...form.getInputProps("providerConfig.url")}
         />
         <TextInput
           label="Trusted server certificate fingerprint (SHA256)"
           placeholder="Enter trusted server certificate fingerprint printed at server startup"
+          {...form.getInputProps("providerConfig.serverCertFingerprint")}
         />
       </Stack>
     </Stack>

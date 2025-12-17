@@ -1,8 +1,17 @@
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAzure } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
+import type {
+  AzureBlobStorageRepoConfig,
+  RepoConfigurationForm,
+} from "../types";
 
-function AzureBlobStorageRepo() {
+type Props = {
+  form: UseFormReturnType<RepoConfigurationForm<AzureBlobStorageRepoConfig>>;
+};
+
+function AzureBlobStorageRepo({ form }: Props) {
   return (
     <Stack>
       <Group>
@@ -16,11 +25,13 @@ function AzureBlobStorageRepo() {
             label="Container"
             placeholder="Enter container name"
             withAsterisk
+            {...form.getInputProps("providerConfig.container")}
           />
           <TextInput
             label="Storage Account"
             placeholder="Enter storage account name"
             withAsterisk
+            {...form.getInputProps("providerConfig.storageAccount")}
           />
         </Group>
 
@@ -28,22 +39,24 @@ function AzureBlobStorageRepo() {
           <TextInput
             label="Object Name Prefix"
             placeholder="Enter object name prefix (optional)"
+            {...form.getInputProps("providerConfig.prefix")}
           />
           <PasswordInput
             label="Access Key"
             placeholder="Enter secret access key"
+            {...form.getInputProps("providerConfig.storageKey")}
           />
         </Group>
         <Group grow>
           <TextInput
             label="Azure Storage Domain"
             placeholder="Enter storage domain or leave empty for default 'blob.core.windows.net'"
-            withAsterisk
+            {...form.getInputProps("providerConfig.storageDomain")}
           />
           <PasswordInput
             label="SAS Token"
             placeholder="Enter secret SAS token"
-            withAsterisk
+            {...form.getInputProps("providerConfig.sasToken")}
           />
         </Group>
       </Stack>
