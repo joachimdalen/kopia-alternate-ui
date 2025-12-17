@@ -138,12 +138,12 @@ export default function TaskEstimationModal({
           color="gray"
           variant="subtle"
           onClick={onCancel}
-          //   disabled={loading}
+          disabled={estimateAction.loading}
         >
           Cancel
         </Button>
 
-        <Button size="xs" onClick={onCancel}>
+        <Button size="xs" onClick={onCancel} disabled={estimateAction.loading}>
           Close
         </Button>
       </Group>
