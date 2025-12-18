@@ -5,7 +5,6 @@ import {
   IconStopwatch,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import { useAppContext } from "../context/AppContext";
 import useApiRequest from "../hooks/useApiRequest";
 import { useInterval } from "../hooks/useInterval";
 import IconWrapper from "../IconWrapper";
@@ -13,7 +12,6 @@ import kopiaService from "../kopiaService";
 import type { TasksSummary } from "../types";
 
 export function Footer() {
-  const { repoStatus } = useAppContext();
   const [data, setData] = useState<TasksSummary>({
     CANCELED: 0,
     RUNNING: 0,
@@ -42,7 +40,6 @@ export function Footer() {
               <Text fz="sm">Kopia Alternate UI</Text>
             </Group>
           </Anchor>
-          <Group>{repoStatus.description}</Group>
         </Group>
         <Group>
           <Tooltip label={`${data.SUCCESS} task(s) completed`}>
