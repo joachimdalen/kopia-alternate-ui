@@ -139,6 +139,9 @@ export default function TaskCounterGrid({
   gridSize,
 }: Props) {
   const { bytesStringBase2 } = useAppContext();
+
+  if (task.counters === undefined || task.counters === null) return null;
+
   const counters = Object.keys(task.counters).map((key) => {
     const counter = task.counters[key as CounterKeys];
 

@@ -36,12 +36,7 @@ export function Header() {
         {link.label}
       </a>
     ) : (
-      <NavLink
-        key={link.label}
-        to={link.link}
-        className={classes.link}
-        //   data-active={active === link.link || undefined}
-      >
+      <NavLink key={link.label} to={link.link} className={classes.link}>
         {link.label}
       </NavLink>
     )

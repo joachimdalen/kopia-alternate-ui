@@ -103,11 +103,13 @@ export default function TaskEstimationModal({
         {task && (
           <>
             <TaskStatusDisplay task={task} />
-            <TaskCounterGrid
-              task={task}
-              showZeroCounters={false}
-              gridSize={3}
-            />
+            {task.counters !== null && (
+              <TaskCounterGrid
+                task={task}
+                showZeroCounters={false}
+                gridSize={3}
+              />
+            )}
             {logs.length > 0 && (
               <Paper withBorder>
                 <LazyLog

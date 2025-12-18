@@ -21,7 +21,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -43,6 +43,7 @@ import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
   const [showAll, setShowAll] = useState(false);
@@ -81,7 +82,7 @@ function SnapshotHistory() {
     <Container fluid>
       <Stack>
         <Group>
-          <ActionIcon variant="subtle" component={Link} to="/snapshots">
+          <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
             <IconArrowLeft size={24} />
           </ActionIcon>
           <RepoTitle />

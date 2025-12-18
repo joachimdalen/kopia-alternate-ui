@@ -15,7 +15,7 @@ import {
   IconStopwatch,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
@@ -28,6 +28,7 @@ import TaskSummaryDisplay from "./components/TaskSummaryDisplay";
 
 function TaskDetailsPage() {
   const { tid } = useParams();
+  const navigate = useNavigate();
   const [data, setData] = useState<Task>();
   const taskApi = useApiRequest({
     action: () => kopiaService.getTask(tid || ""),
@@ -44,7 +45,7 @@ function TaskDetailsPage() {
     <Container fluid>
       <Stack>
         <Group>
-          <ActionIcon variant="subtle" component={Link} to="/tasks">
+          <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
             <IconArrowLeft size={24} />
           </ActionIcon>
           <Title order={1}>

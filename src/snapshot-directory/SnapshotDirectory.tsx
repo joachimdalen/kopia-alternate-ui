@@ -68,7 +68,7 @@ function SnapshotDirectory() {
     <Container fluid>
       <Stack>
         <Group>
-          <ActionIcon variant="subtle" component={Link} to="/snapshots">
+          <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
             <IconArrowLeft size={24} />
           </ActionIcon>
           <RepoTitle />
