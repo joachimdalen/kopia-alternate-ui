@@ -127,6 +127,10 @@ const iconProps: Record<
     icon: IconAsterisk,
     color: "blue",
   },
+  "Excluded Bytes": {
+    icon: IconAsterisk,
+    color: "yellow",
+  },
 };
 
 export default function TaskCounterGrid({

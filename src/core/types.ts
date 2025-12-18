@@ -1,4 +1,4 @@
-import type { AllProviderConfigurations } from "../repo/RepoPage";
+import type { AllProviderConfigurations } from "../repo/ConfigureRepoSection";
 import type { KopiaRepoServerRepoConfig } from "../repo/types";
 
 export interface ApiResponse<T> {
