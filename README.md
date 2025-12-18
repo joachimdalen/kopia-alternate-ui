@@ -28,16 +28,23 @@ I wanted a cleaner and easier to use UI for Kopia than the offical one. There ar
 
 If this project helped you or you are interested in using it, please consider giving it a ⭐️! It's the only way I will be able to see the usage of this tool and how much time should be spent improving/finishing it.
 
-Older screenshots:
-
-|                                       |                                  |
-| ------------------------------------- | -------------------------------- |
-| ![](./screenshots/snapshots.jpeg)     | ![](./screenshots/policies.jpeg) |
-| ![](./screenshots/policy-editor.jpeg) | ![](./screenshots/tasks.jpeg)    |
-
 ## Getting Started
 
-This section will be extended as the project reaches a more complete state, but it works fine when running it locally for noe.
+You can quickly get started using the Docker container.
+
+```yml
+services:
+  kopiaaltui:
+    conatiner_name: kopia-ui
+    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.0
+    ports:
+      - 8080:80
+    environment:
+      # This endpoint should be reachable by the host
+      - KAU_KOPIA_ENDPOINT=http://host.docker.internal:51515
+```
+
+## Development
 
 Add a new `.env` file with the following values and update as fitting to your setup
 
@@ -55,14 +62,4 @@ Distributed under the Apache License 2.0 License. See `LICENSE` for more informa
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ```yml
-services:
-  kopiaaltui:
-    conatiner_name: kopia-alt-ui
-    image: <github>/joachimdalen/kopia-alt-ui:v5
-    ports:
-      - 8080:80
-    environment:
-      # This endpoint should be reachable by the host
-      - KAU_KOPIA_ENDPOINT=http://host.docker.internal:51515
-``` -->
+<!--  -->
