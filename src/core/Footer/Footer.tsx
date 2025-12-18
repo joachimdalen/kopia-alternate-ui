@@ -1,9 +1,5 @@
-import { Anchor, AppShellFooter, Group, Text, Tooltip } from "@mantine/core";
-import {
-  IconBrandGithub,
-  IconCircleCheck,
-  IconStopwatch,
-} from "@tabler/icons-react";
+import { AppShellFooter, Group, Text, Tooltip } from "@mantine/core";
+import { IconCircleCheck, IconStopwatch } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import useApiRequest from "../hooks/useApiRequest";
 import { useInterval } from "../hooks/useInterval";
@@ -32,15 +28,7 @@ export function Footer() {
   }, 1000 * 60);
   return (
     <AppShellFooter p="xs">
-      <Group justify="space-between">
-        <Group>
-          <Anchor href="" target="_blank" fz="sm">
-            <Group gap={5}>
-              <IconWrapper icon={IconBrandGithub} size={16} />
-              <Text fz="sm">Kopia Alternate UI</Text>
-            </Group>
-          </Anchor>
-        </Group>
+      <Group justify="end">
         <Group>
           <Tooltip label={`${data.SUCCESS} task(s) completed`}>
             <Group gap={5}>
