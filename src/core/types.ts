@@ -617,3 +617,8 @@ export type ConnectRepoRequest = {
     config: AllProviderConfigurations;
   };
 };
+export type DeleteSnapshotRequest = {
+  source: SourceInfo;
+  snapshotManifestIds: string[];
+  deleteSourceAndPolicy: boolean;
+};

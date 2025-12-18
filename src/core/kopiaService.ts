@@ -11,6 +11,7 @@ import type {
   ConnectRepoRequest,
   CreateSnapshotRequest,
   CurrentUser,
+  DeleteSnapshotRequest,
   DirManifest,
   EstimateSnapshotRequest,
   NotificationProfile,
@@ -198,9 +199,15 @@ function updateRepoDescription(
     description,
   });
 }
+function deleteSnapshot(
+  data: DeleteSnapshotRequest
+): Promise<ApiResponse<unknown>> {
+  return clientPost(`/api/v1/snapshots/delete`, data);
+}
 const methods = {
   getSnapshots,
   getCurrentUser,
+  deleteSnapshot,
   connectRepo,
   createRepo,
   updateRepoDescription,

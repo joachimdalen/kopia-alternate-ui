@@ -12,6 +12,7 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
+import { showNotification } from "@mantine/notifications";
 import {
   IconArrowLeft,
   IconFileDatabase,
@@ -38,6 +39,7 @@ import type {
 } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
+import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
@@ -48,7 +50,7 @@ function SnapshotHistory() {
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
   const [showAll, setShowAll] = useState(false);
   const [itemAction, setItemAction] =
-    useState<ItemAction<Snapshot, "description" | "pin">>();
+    useState<ItemAction<Snapshot, "description" | "pin" | "delete">>();
   const [pinAction, setPinAction] = useState<ItemAction<string, "pin">>();
   const sourceInfo: SourceInfo = useMemo(() => {
     return {
@@ -94,6 +96,9 @@ function SnapshotHistory() {
                 size="xs"
                 leftSection={<IconTrash size={16} />}
                 color="red"
+                onClick={() => {
+                  setItemAction({ action: "delete" });
+                }}
               >
                 Delete Selected ({selectedRecords.length})
               </Button>
@@ -259,6 +264,30 @@ function SnapshotHistory() {
           onUpdated={() => {
             execute(null, "loading");
             setItemAction(undefined);
+          }}
+        />
+      )}
+      {itemAction?.action == "delete" && selectedRecords.length > 0 && (
+        <DeleteSnapshotModal
+          onCancel={() => {
+            setItemAction(undefined);
+          }}
+          source={sourceInfo}
+          snapshots={selectedRecords}
+          isAll={selectedRecords.length === data?.unfilteredCount}
+          onDeleted={(deleteAll) => {
+            if (deleteAll) {
+              navigate(-1);
+            } else {
+              execute(undefined, "refresh");
+            }
+            setItemAction(undefined);
+            showNotification({
+              title: "Snapshot(s) deleted",
+              message: "The snapshot(s) was delete successfully",
+              color: "green",
+            });
+            setSelectedRecords([]);
           }}
         />
       )}
