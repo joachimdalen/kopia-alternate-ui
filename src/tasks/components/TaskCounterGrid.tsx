@@ -27,7 +27,7 @@ import {
   IconRefresh,
   IconUpload,
 } from "@tabler/icons-react";
-import { usePreferencesContext } from "../../core/context/PreferencesContext";
+import { useAppContext } from "../../core/context/AppContext";
 import IconWrapper from "../../core/IconWrapper";
 import type { Task } from "../../core/types";
 import sizeDisplayName from "../../utils/formatSize";
@@ -127,6 +127,10 @@ const iconProps: Record<
     icon: IconAsterisk,
     color: "blue",
   },
+  "Excluded Bytes": {
+    icon: IconAsterisk,
+    color: "yellow",
+  },
 };
 
 export default function TaskCounterGrid({
@@ -134,7 +138,7 @@ export default function TaskCounterGrid({
   showZeroCounters,
   gridSize,
 }: Props) {
-  const { bytesStringBase2 } = usePreferencesContext();
+  const { bytesStringBase2 } = useAppContext();
   const counters = Object.keys(task.counters).map((key) => {
     const counter = task.counters[key as CounterKeys];
 

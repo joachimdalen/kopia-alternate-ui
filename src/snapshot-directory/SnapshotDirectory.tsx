@@ -20,7 +20,7 @@ import {
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
-import { usePreferencesContext } from "../core/context/PreferencesContext";
+import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
@@ -44,7 +44,7 @@ const getFileIcon = (name: string) => {
 };
 
 function SnapshotDirectory() {
-  const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
+  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const { oid } = useParams();
   const previousOid = usePrevious(oid);
   const navigate = useNavigate();

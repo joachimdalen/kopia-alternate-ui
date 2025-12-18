@@ -25,11 +25,17 @@
   font-weight: 500;
 
   @mixin hover {
-    background-color: var(--mantine-color-blue-8);
+    &:not[aria-disabled] {
+      background-color: var(--mantine-color-blue-8);
+    }
   }
 
   [data-mantine-color-scheme] &[aria-current="page"] {
     color: var(--mantine-color-blue-9);
     background-color: var(--mantine-color-white);
+  }
+  &[aria-disabled] {
+    color: var(--mantine-color-gray-1);
+    cursor: not-allowed;
   }
 }

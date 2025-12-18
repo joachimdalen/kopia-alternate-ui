@@ -86,7 +86,7 @@ export function checkPolicyPath(path: string) {
   // so it's either completely invalid, or a relative path
   return "Policies can not be defined for relative paths.";
 }
-export function isAbsolutePath(p) {
+export function isAbsolutePath(p: string) {
   // Unix-style path.
   if (p.startsWith("/")) {
     return true;

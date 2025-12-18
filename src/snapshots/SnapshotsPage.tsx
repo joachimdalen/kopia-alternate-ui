@@ -19,7 +19,7 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
-import { usePreferencesContext } from "../core/context/PreferencesContext";
+import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -38,7 +38,7 @@ import NewSnapshotModal from "./modals/NewSnapshotModal";
 
 function SnapshotsPage() {
   const [show, setShow] = useDisclosure();
-  const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
+  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>(
     "all"

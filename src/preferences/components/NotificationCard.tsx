@@ -35,7 +35,7 @@ function NotificationCard({
   data,
   disabled,
   onDelete,
-  onDuplicate,
+  // onDuplicate,
   onEdit,
   onTest,
 }: Props) {

@@ -30,7 +30,11 @@ function NotificationsSection() {
   const loadAction = useApiRequest({
     action: () => kopiaService.getNotificationProfiles(),
     onReturn(resp) {
-      setData(resp.sort((a, b) => a.profile.localeCompare(b.profile)));
+      if (resp === null) {
+        setData([]);
+      } else {
+        setData(resp.sort((a, b) => a.profile.localeCompare(b.profile)));
+      }
     },
   });
   const deleteAction = useApiRequest({

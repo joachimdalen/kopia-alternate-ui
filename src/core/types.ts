@@ -1,3 +1,6 @@
+import type { AllProviderConfigurations } from "../repo/ConfigureRepoSection";
+import type { KopiaRepoServerRepoConfig } from "../repo/types";
+
 export interface ApiResponse<T> {
   isError: boolean;
   data?: T;
@@ -33,6 +36,10 @@ export type Sources = {
   localHost: string;
   multiUser: boolean;
   sources: SourceStatus[];
+};
+export type CurrentUser = {
+  hostname: string;
+  username: string;
 };
 export type TimeOfDay = { hour: number; min: number };
 export type SchedulingPolicy = {
@@ -588,4 +595,25 @@ export type CreateSnapshotRequest = {
   path: string;
   createSnapshot: boolean;
   policy: Policy;
+};
+export type CheckRepoRequest = {
+  storage: {
+    type: string;
+    config: object;
+  };
+};
+export type ConnectRepoRequest = {
+  clientOptions: {
+    description: string;
+    username: string;
+    readonly: boolean;
+    hostname: string;
+  };
+  token?: string;
+  apiServer?: KopiaRepoServerRepoConfig;
+  password?: string;
+  storage?: {
+    type: string;
+    config: AllProviderConfigurations;
+  };
 };

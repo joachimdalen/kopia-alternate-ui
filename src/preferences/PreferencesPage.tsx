@@ -7,10 +7,10 @@ import {
   TabsList,
   TabsPanel,
   TabsTab,
+  Title,
 } from "@mantine/core";
 import { IconNotification, IconPalette } from "@tabler/icons-react";
 import IconWrapper from "../core/IconWrapper";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import AppearanceSection from "./AppearanceSection";
 import NotificationsSection from "./NotificationsSection";
 
@@ -18,7 +18,7 @@ function PreferencesPage() {
   return (
     <Container fluid>
       <Stack w="100%">
-        <RepoTitle />
+        <Title order={1}>Preferences</Title>
         <Divider />
         <Paper withBorder>
           <Tabs defaultValue="appearance">
