@@ -3,6 +3,7 @@ import {
   AccordionControl,
   AccordionItem,
   AccordionPanel,
+  Button,
   Group,
   PasswordInput,
   Select,
@@ -14,14 +15,15 @@ import { useEffect, useMemo, useState } from "react";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { AlgorithmsList } from "../core/types";
-import type { AllProviderConfigurations } from "./RepoPage";
+import type { AllProviderConfigurations } from "./ConfigureRepoSection";
 import type { RepoConfigurationForm } from "./types";
 
 export type Props = {
+  goBack: () => void;
   form: UseFormReturnType<RepoConfigurationForm<AllProviderConfigurations>>;
 };
 
-function CreateRepoSection({ form }: Props) {
+function CreateRepoSection({ form, goBack }: Props) {
   const [algorithms, setAlgorithms] = useState<AlgorithmsList>();
 
   const getAlgorithmsAction = useApiRequest({
@@ -40,6 +42,10 @@ function CreateRepoSection({ form }: Props) {
       form.setFieldValue("hostname", resp.hostname);
       form.setFieldValue("username", resp.username);
     },
+  });
+  const createRepoAction = useApiRequest({
+    action: (data?: object) => kopiaService.createRepo(data!),
+    onReturn() {},
   });
   useEffect(() => {
     getAlgorithmsAction.execute();
@@ -65,6 +71,37 @@ function CreateRepoSection({ form }: Props) {
     if (algorithms === undefined) return [];
     return algorithms.splitter.map((ea) => ({ label: ea.id, value: ea.id }));
   }, [algorithms]);
+
+  function createRepository() {
+    const request = {
+      storage: {
+        type: form.values.provider,
+        config: form.values.providerConfig,
+      },
+      password: form.values.password,
+      options: {
+        blockFormat: {
+          version: parseInt(form.values.formatVersion),
+          hash: form.values.hash,
+          encryption: form.values.encryption,
+          ecc: form.values.ecc,
+          eccOverheadPercent: parseInt(form.values.eccOverheadPercent),
+        },
+        objectFormat: {
+          splitter: form.values.splitter,
+        },
+      },
+      clientOptions: {
+        description: form.values.description,
+        username: form.values.username,
+        readonly: form.values.readonly,
+        hostname: form.values.hostname,
+      },
+    };
+
+    createRepoAction.execute(request);
+  }
+
   return (
     <Stack>
       <Group grow>
@@ -162,6 +199,19 @@ function CreateRepoSection({ form }: Props) {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
+      <Group mt="sm" justify="space-between">
+        <Button size="xs" onClick={goBack} disabled={createRepoAction.loading}>
+          Back
+        </Button>
+        <Button
+          size="xs"
+          color="green"
+          onClick={() => createRepository()}
+          loading={createRepoAction.loading}
+        >
+          Create repository
+        </Button>
+      </Group>
     </Stack>
   );
 }

@@ -1,3 +1,6 @@
+import type { AllProviderConfigurations } from "../repo/RepoPage";
+import type { KopiaRepoServerRepoConfig } from "../repo/types";
+
 export interface ApiResponse<T> {
   isError: boolean;
   data?: T;
@@ -597,5 +600,20 @@ export type CheckRepoRequest = {
   storage: {
     type: string;
     config: object;
+  };
+};
+export type ConnectRepoRequest = {
+  clientOptions: {
+    description: string;
+    username: string;
+    readonly: boolean;
+    hostname: string;
+  };
+  token?: string;
+  apiServer?: KopiaRepoServerRepoConfig;
+  password?: string;
+  storage?: {
+    type: string;
+    config: AllProviderConfigurations;
   };
 };

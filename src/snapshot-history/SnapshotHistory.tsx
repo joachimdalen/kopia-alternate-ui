@@ -22,7 +22,7 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router";
-import { usePreferencesContext } from "../core/context/PreferencesContext";
+import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
@@ -41,7 +41,7 @@ import RetentionBadge from "./components/RetentionBadge";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
-  const { pageSize: tablePageSize, bytesStringBase2 } = usePreferencesContext();
+  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [searchParams] = useSearchParams();
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
@@ -74,6 +74,7 @@ function SnapshotHistory() {
 
   useEffect(() => {
     execute(undefined, "loading");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAll]);
 
   return (

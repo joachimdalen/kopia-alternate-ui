@@ -8,6 +8,7 @@ import type {
   AlgorithmsList,
   ApiResponse,
   CheckRepoRequest,
+  ConnectRepoRequest,
   CreateSnapshotRequest,
   CurrentUser,
   DirManifest,
@@ -181,9 +182,29 @@ function getCurrentUser(): Promise<ApiResponse<CurrentUser>> {
 function repoExists(data: CheckRepoRequest): Promise<ApiResponse<unknown>> {
   return clientPost("/api/v1/repo/exists", data);
 }
+function connectRepo(data: ConnectRepoRequest): Promise<ApiResponse<unknown>> {
+  return clientPost("/api/v1/repo/connect", data);
+}
+function createRepo(data: object): Promise<ApiResponse<unknown>> {
+  return clientPost("/api/v1/repo/create", data);
+}
+function disconnectRepo(): Promise<ApiResponse<unknown>> {
+  return clientPost("/api/v1/repo/disconnect");
+}
+function updateRepoDescription(
+  description: string
+): Promise<ApiResponse<unknown>> {
+  return clientPost("/api/v1/repo/description", {
+    description,
+  });
+}
 const methods = {
   getSnapshots,
   getCurrentUser,
+  connectRepo,
+  createRepo,
+  updateRepoDescription,
+  disconnectRepo,
   startSnapshot,
   getSnapshot,
   estimateSnapshot,

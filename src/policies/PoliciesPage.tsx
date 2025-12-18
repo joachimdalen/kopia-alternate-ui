@@ -17,7 +17,7 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
-import { usePreferencesContext } from "../core/context/PreferencesContext";
+import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -51,7 +51,7 @@ type PolicyFilter =
   | "per-host-policies";
 
 function PoliciesPage() {
-  const { pageSize: tablePageSize } = usePreferencesContext();
+  const { pageSize: tablePageSize } = useAppContext();
   const [data, setData] = useState<PolicyRef[]>([]);
   const [sources, setSources] = useState<Sources>();
   const [searchParams] = useSearchParams();

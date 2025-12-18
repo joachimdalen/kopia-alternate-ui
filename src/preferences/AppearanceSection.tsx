@@ -9,7 +9,7 @@ import {
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useEffect, useState } from "react";
-import { usePreferencesContext } from "../core/context/PreferencesContext";
+import { useAppContext } from "../core/context/AppContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { Preferences } from "../core/types";
@@ -22,7 +22,7 @@ type PreferencesForm = {
 
 function AppearanceSection() {
   const { setColorScheme } = useMantineColorScheme();
-  const { reload } = usePreferencesContext();
+  const { reloadPreferences } = useAppContext();
   const [data, setData] = useState<Preferences>();
   const form = useForm<
     PreferencesForm,
@@ -62,7 +62,7 @@ function AppearanceSection() {
         message: "Preferences updated",
         color: "green",
       });
-      reload();
+      reloadPreferences();
     },
   });
 

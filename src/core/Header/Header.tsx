@@ -7,29 +7,45 @@ import {
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { useMemo } from "react";
 import { Link, NavLink } from "react-router";
+import { useAppContext } from "../context/AppContext";
 import classes from "./Header.module.css";
-const links = [
-  { link: "/snapshots", label: "Snapshots" },
-  { link: "/policies", label: "Policies" },
-  { link: "/tasks", label: "Tasks" },
-  { link: "/repo", label: "Repository" },
-  { link: "/preferences", label: "Preferences" },
-];
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
+  const { repoStatus } = useAppContext();
 
-  const items = links.map((link) => (
-    <NavLink
-      key={link.label}
-      to={link.link}
-      className={classes.link}
-      //   data-active={active === link.link || undefined}
-    >
-      {link.label}
-    </NavLink>
-  ));
+  const links = useMemo(() => {
+    return [
+      {
+        link: "/snapshots",
+        label: "Snapshots",
+        disabled: !repoStatus.connected,
+      },
+      { link: "/policies", label: "Policies", disabled: !repoStatus.connected },
+      { link: "/tasks", label: "Tasks" },
+      { link: "/repo", label: "Repository" },
+      { link: "/preferences", label: "Preferences" },
+    ];
+  }, [repoStatus]);
+
+  const items = links.map((link) =>
+    link.disabled ? (
+      <a key={link.label} aria-disabled className={classes.link}>
+        {link.label}
+      </a>
+    ) : (
+      <NavLink
+        key={link.label}
+        to={link.link}
+        className={classes.link}
+        //   data-active={active === link.link || undefined}
+      >
+        {link.label}
+      </NavLink>
+    )
+  );
 
   return (
     <AppShellHeader className={classes.header}>

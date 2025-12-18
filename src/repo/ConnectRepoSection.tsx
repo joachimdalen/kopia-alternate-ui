@@ -3,37 +3,32 @@ import {
   AccordionControl,
   AccordionItem,
   AccordionPanel,
+  Button,
   Checkbox,
   Group,
+  LoadingOverlay,
   PasswordInput,
   Stack,
   TextInput,
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
-import type { AlgorithmsList } from "../core/types";
-import type { AllProviderConfigurations } from "./RepoPage";
-import type { RepoConfigurationForm } from "./types";
+import type { ConnectRepoRequest } from "../core/types";
+import type { AllProviderConfigurations } from "./ConfigureRepoSection";
+import type {
+  KopiaRepoServerRepoConfig,
+  KopiaRepoTokenRepoConfig,
+  RepoConfigurationForm,
+} from "./types";
 
 export type Props = {
+  goBack: () => void;
   form: UseFormReturnType<RepoConfigurationForm<AllProviderConfigurations>>;
 };
 
-function ConnectRepoSection({ form }: Props) {
-  const [algorithms, setAlgorithms] = useState<AlgorithmsList>();
-
-  const getAlgorithmsAction = useApiRequest({
-    action: () => kopiaService.getAlgorithms(),
-    onReturn(resp) {
-      setAlgorithms(resp);
-      form.setFieldValue("ecc", resp.defaultEcc);
-      form.setFieldValue("encryption", resp.defaultEncryption);
-      form.setFieldValue("splitter", resp.defaultSplitter);
-      form.setFieldValue("hash", resp.defaultHash);
-    },
-  });
+function ConnectRepoSection({ form, goBack }: Props) {
   const getCurrentUserAction = useApiRequest({
     action: () => kopiaService.getCurrentUser(),
     onReturn(resp) {
@@ -41,35 +36,63 @@ function ConnectRepoSection({ form }: Props) {
       form.setFieldValue("username", resp.username);
     },
   });
+  const connectRepoAction = useApiRequest({
+    action: (data?: ConnectRepoRequest) => kopiaService.connectRepo(data!),
+    onReturn() {},
+  });
   useEffect(() => {
-    getAlgorithmsAction.execute();
     getCurrentUserAction.execute();
   }, []);
 
-  const encryptionOptions = useMemo(() => {
-    if (algorithms == undefined) return [];
-    return algorithms.encryption.map((ea) => ({ label: ea.id, value: ea.id }));
-  }, [algorithms]);
+  if (getCurrentUserAction.loading) {
+    return <LoadingOverlay visible />;
+  }
 
-  const hashOptions = useMemo(() => {
-    if (algorithms === undefined) return [];
-    return algorithms.hash.map((ea) => ({ label: ea.id, value: ea.id }));
-  }, [algorithms]);
+  function connectToRepository() {
+    let request: ConnectRepoRequest = {
+      clientOptions: {
+        description: form.values.description,
+        username: form.values.username,
+        readonly: form.values.readonly,
+        hostname: form.values.hostname,
+      },
+    };
+    switch (form.values.provider) {
+      case "_token": {
+        request = {
+          ...request,
+          token: (form.values.providerConfig as KopiaRepoTokenRepoConfig).token,
+        };
+        break;
+      }
+      case "_server": {
+        request = {
+          ...request,
+          apiServer: form.values.providerConfig as KopiaRepoServerRepoConfig,
+          password: form.values.password,
+        };
+        break;
+      }
+      default: {
+        request = {
+          ...request,
+          storage: {
+            type: form.values.provider,
+            config: form.values.providerConfig,
+          },
+          password: form.values.password,
+        };
+        break;
+      }
+    }
+    connectRepoAction.execute(request);
+  }
 
-  const eccOptions = useMemo(() => {
-    if (algorithms === undefined) return [];
-    return algorithms.ecc.map((ea) => ({ label: ea.id, value: ea.id }));
-  }, [algorithms]);
-
-  const splitterOptions = useMemo(() => {
-    if (algorithms === undefined) return [];
-    return algorithms.splitter.map((ea) => ({ label: ea.id, value: ea.id }));
-  }, [algorithms]);
   return (
     <Stack>
       <TextInput
         label="Connect as"
-        defaultValue={`${form.values.username}@${form.values.password}`}
+        defaultValue={`${form.values.username}@${form.values.hostname}`}
       />
       {form.values.provider !== "_token" &&
         form.values.provider !== "_server" && (
@@ -120,6 +143,19 @@ function ConnectRepoSection({ form }: Props) {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
+      <Group mt="sm" justify="space-between">
+        <Button size="xs" onClick={goBack} disabled={connectRepoAction.loading}>
+          Back
+        </Button>
+        <Button
+          size="xs"
+          color="green"
+          onClick={() => connectToRepository()}
+          loading={connectRepoAction.loading}
+        >
+          Connect to repository
+        </Button>
+      </Group>
     </Stack>
   );
 }
