@@ -19,12 +19,16 @@
 
 ## About The Project
 
+![](./screenshots/screenshot.png)
+
 > [!CAUTION]
 > This project is under active development, even though it might be a while between commits. There is currently a bunch of features implemented, but also a lot missing. You will have to jump between the original UI and this to do full configuration.
 
-I wanted a cleaner and easier to use UI for Kopia than the offical one. There are also some features I want to implement that is not in the official UI.
+I wanted a cleaner and easier to use UI for Kopia than the offical one. There are also some features I want to implement that is not in the official UI, such as multi server interaction, improved statistics and more.
 
 If this project helped you or you are interested in using it, please consider giving it a ⭐️! It's the only way I will be able to see the usage of this tool and how much time should be spent improving/finishing it.
+
+Older screenshots:
 
 |                                       |                                  |
 | ------------------------------------- | -------------------------------- |
