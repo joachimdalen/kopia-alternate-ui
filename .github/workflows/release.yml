@@ -1,0 +1,38 @@
+name: 🚀 Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    name: Push Docker image
+    runs-on: ubuntu-latest
+    environment: prod
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - name: Parse version from tags
+        id: get_version
+        run: |
+          VERSION_FROM_TAG=$(echo "${{ github.ref_name }}" | awk -F'.' '{print $1"."$2}')
+          echo "image_version=$VERSION_FROM_TAG" >> "$GITHUB_OUTPUT"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435
+      - name: Log in to GHCR
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker images
+        id: push
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ steps.get_version.outputs.image_version }}
