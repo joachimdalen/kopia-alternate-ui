@@ -24,7 +24,7 @@ jobs:
       - name: Parse version from tags
         id: get_version
         run: |
-          VERSION_FROM_TAG=$(echo "${{ github.event == 'workflow_dispatch' ? inputs.version : github.ref_name  }}" | awk -F'.' '{print $1"."$2}')
+          VERSION_FROM_TAG=$(echo "${{ github.event.inputs.version }}" | awk -F'.' '{print $1"."$2}')
           echo "image_version=$VERSION_FROM_TAG" >> "$GITHUB_OUTPUT"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435
