@@ -7,6 +7,7 @@ import {
   Group,
   Stack,
   Text,
+  Title,
 } from "@mantine/core";
 import { useDisclosure, usePrevious } from "@mantine/hooks";
 import {
@@ -27,7 +28,6 @@ import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
@@ -73,7 +73,7 @@ function SnapshotDirectory() {
               <IconArrowLeft size={24} />
             </ActionIcon>
             <Stack gap={0}>
-              <RepoTitle />
+              <Title order={1}>Snapshot: {oid}</Title>
               <DirectoryCrumbs />
             </Stack>
           </Group>

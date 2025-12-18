@@ -10,6 +10,7 @@ import {
   Group,
   Stack,
   Text,
+  Title,
   Tooltip,
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
@@ -30,7 +31,6 @@ import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type {
   ItemAction,
   Snapshot,
@@ -88,7 +88,7 @@ function SnapshotHistory() {
             <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
               <IconArrowLeft size={24} />
             </ActionIcon>
-            <RepoTitle />
+            <Title order={1}>Snapshots: {sourceInfo.path}</Title>
           </Group>
           <Group>
             {selectedRecords.length > 0 && (

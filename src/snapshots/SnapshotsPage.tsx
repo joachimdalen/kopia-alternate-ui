@@ -6,6 +6,7 @@ import {
   Group,
   Stack,
   Text,
+  Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -27,7 +28,6 @@ import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { SourceInfo, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
@@ -105,7 +105,7 @@ function SnapshotsPage() {
   return (
     <Container fluid>
       <Stack>
-        <RepoTitle />
+        <Title order={1}>Snapshots</Title>
         <Group justify="space-between">
           {data?.multiUser === true && (
             <MenuButton

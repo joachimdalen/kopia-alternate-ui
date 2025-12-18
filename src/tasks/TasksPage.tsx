@@ -8,6 +8,7 @@ import {
   SegmentedControl,
   Stack,
   TextInput,
+  Title,
 } from "@mantine/core";
 import { useDebouncedValue, useInputState } from "@mantine/hooks";
 import {
@@ -30,7 +31,6 @@ import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { Task } from "../core/types";
 import { onlyUnique } from "../utils/onlyUnique";
 import TaskStatusDisplay from "./components/TaskStatusDisplay";
@@ -76,7 +76,7 @@ function TasksPage() {
   return (
     <Container fluid>
       <Stack>
-        <RepoTitle />
+        <Title order={1}>Tasks</Title>
         <Group justify="space-between" align="flex-end">
           <Group>
             <SegmentedControl
