@@ -13,6 +13,7 @@ import {
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect } from "react";
+import { useAppContext } from "../core/context/AppContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { ConnectRepoRequest } from "../core/types";
@@ -29,6 +30,7 @@ export type Props = {
 };
 
 function ConnectRepoSection({ form, goBack }: Props) {
+  const { reloadStatus } = useAppContext();
   const getCurrentUserAction = useApiRequest({
     action: () => kopiaService.getCurrentUser(),
     onReturn(resp) {
@@ -38,7 +40,9 @@ function ConnectRepoSection({ form, goBack }: Props) {
   });
   const connectRepoAction = useApiRequest({
     action: (data?: ConnectRepoRequest) => kopiaService.connectRepo(data!),
-    onReturn() {},
+    onReturn() {
+      reloadStatus();
+    },
   });
   useEffect(() => {
     getCurrentUserAction.execute();

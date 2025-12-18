@@ -295,9 +295,6 @@ function ConfigureRepoSection() {
               />
             )}
           </Stepper.Step>
-          <Stepper.Completed>
-            Completed, click back button to get to previous step
-          </Stepper.Completed>
         </Stepper>
       </Paper>
     </Container>

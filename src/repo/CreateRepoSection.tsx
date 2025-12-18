@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect, useMemo, useState } from "react";
+import { useAppContext } from "../core/context/AppContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { AlgorithmsList } from "../core/types";
@@ -25,7 +26,7 @@ export type Props = {
 
 function CreateRepoSection({ form, goBack }: Props) {
   const [algorithms, setAlgorithms] = useState<AlgorithmsList>();
-
+  const { reloadStatus } = useAppContext();
   const getAlgorithmsAction = useApiRequest({
     action: () => kopiaService.getAlgorithms(),
     onReturn(resp) {
@@ -45,7 +46,9 @@ function CreateRepoSection({ form, goBack }: Props) {
   });
   const createRepoAction = useApiRequest({
     action: (data?: object) => kopiaService.createRepo(data!),
-    onReturn() {},
+    onReturn() {
+      reloadStatus();
+    },
   });
   useEffect(() => {
     getAlgorithmsAction.execute();
