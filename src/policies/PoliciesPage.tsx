@@ -13,10 +13,10 @@ import {
   IconFileCertificate,
   IconPencil,
   IconPlus,
-  IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
+import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -198,11 +198,9 @@ function PoliciesPage() {
               New Policy
             </Button>
             <Button
-              size="xs"
-              leftSection={<IconRefresh size={16} />}
-              variant="light"
               loading={loading && loadingKey === "refresh"}
               onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
             >
               Refresh
             </Button>
@@ -232,6 +230,8 @@ function PoliciesPage() {
             },
             {
               accessor: "defined",
+              visibleMediaQuery: (theme) =>
+                `(min-width: ${theme.breakpoints.md})`,
               render: (item) => (
                 <Group gap="xs">
                   {getNonEmptyPolicies(item).map((x) => (

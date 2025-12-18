@@ -16,12 +16,12 @@ import {
   IconClick,
   IconList,
   IconLoader,
-  IconRefresh,
   IconSearch,
   IconSettingsAutomation,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -142,11 +142,9 @@ function TasksPage() {
               onChange={setQuery}
             />
             <Button
-              size="xs"
-              leftSection={<IconRefresh size={16} />}
-              variant="light"
               loading={loading && loadingKey === "refresh"}
               onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
             >
               Refresh
             </Button>
@@ -178,7 +176,11 @@ function TasksPage() {
               render: (item) => <TaskStatusDisplay task={item} />,
             },
             { accessor: "kind" },
-            { accessor: "description" },
+            {
+              accessor: "description",
+              visibleMediaQuery: (theme) =>
+                `(min-width: ${theme.breakpoints.md})`,
+            },
             {
               accessor: "actions",
               title: (

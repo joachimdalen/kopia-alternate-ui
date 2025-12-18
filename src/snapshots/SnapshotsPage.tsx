@@ -14,11 +14,10 @@ import {
   IconEye,
   IconFileDatabase,
   IconFolderOpen,
-  IconPlus,
-  IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+import { newActionProps, refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -108,41 +107,37 @@ function SnapshotsPage() {
       <Stack>
         <RepoTitle />
         <Group justify="space-between">
+          {data?.multiUser === true && (
+            <MenuButton
+              options={[
+                { label: "All Snapshots", value: "all" },
+                { label: "Local Snapshots", value: "local" },
+                { label: "", value: "divider" },
+                ...uniqueOwners.map((own) => ({
+                  label: own,
+                  value: own,
+                })),
+              ]}
+              onClick={setFilterState}
+              disabled={loading && loadingKey == "loading"}
+            />
+          )}
           <Group>
-            {data?.multiUser === true && (
-              <MenuButton
-                options={[
-                  { label: "All Snapshots", value: "all" },
-                  { label: "Local Snapshots", value: "local" },
-                  { label: "", value: "divider" },
-                  ...uniqueOwners.map((own) => ({
-                    label: own,
-                    value: own,
-                  })),
-                ]}
-                onClick={setFilterState}
-                disabled={loading && loadingKey == "loading"}
-              />
-            )}
             <Button
-              size="xs"
-              leftSection={<IconPlus size={16} />}
-              color="green"
               disabled={loading && loadingKey == "loading"}
               onClick={setShow.open}
+              {...newActionProps}
             >
               New Snapshot
             </Button>
+            <Button
+              loading={loading && loadingKey === "refresh"}
+              onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
+            >
+              Refresh
+            </Button>
           </Group>
-          <Button
-            size="xs"
-            leftSection={<IconRefresh size={16} />}
-            variant="light"
-            loading={loading && loadingKey === "refresh"}
-            onClick={() => execute(undefined, "refresh")}
-          >
-            Refresh
-          </Button>
         </Group>
         <Divider />
         <ErrorAlert error={intError} />
@@ -178,11 +173,15 @@ function SnapshotsPage() {
             },
             {
               accessor: "owner",
+              visibleMediaQuery: (theme) =>
+                `(min-width: ${theme.breakpoints.md})`,
               render: (item) => `${item.source.userName}@${item.source.host}`,
             },
             {
               accessor: "lastSnapshot.rootEntry.summ.size",
               title: "Size",
+              visibleMediaQuery: (theme) =>
+                `(min-width: ${theme.breakpoints.md})`,
               render: (item) =>
                 item.lastSnapshot?.rootEntry?.summ?.size &&
                 sizeDisplayName(
@@ -209,6 +208,8 @@ function SnapshotsPage() {
               accessor: "",
               title: "",
               width: 300,
+              visibleMediaQuery: (theme) =>
+                `(min-width: ${theme.breakpoints.sm})`,
               render: (item) => {
                 switch (item.status) {
                   case "IDLE":

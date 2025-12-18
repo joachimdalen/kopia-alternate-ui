@@ -17,11 +17,11 @@ import {
   IconFileDatabase,
   IconFileText,
   IconPin,
-  IconRefresh,
   IconTrash,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
+import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -81,13 +81,13 @@ function SnapshotHistory() {
   return (
     <Container fluid>
       <Stack>
-        <Group>
-          <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
-            <IconArrowLeft size={24} />
-          </ActionIcon>
-          <RepoTitle />
-        </Group>
         <Group justify="space-between">
+          <Group>
+            <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
+              <IconArrowLeft size={24} />
+            </ActionIcon>
+            <RepoTitle />
+          </Group>
           <Group>
             {selectedRecords.length > 0 && (
               <Button
@@ -98,17 +98,16 @@ function SnapshotHistory() {
                 Delete Selected ({selectedRecords.length})
               </Button>
             )}
+            <Button
+              loading={loading && loadingKey === "refresh"}
+              onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
+            >
+              Refresh
+            </Button>
           </Group>
-          <Button
-            size="xs"
-            leftSection={<IconRefresh size={16} />}
-            variant="light"
-            loading={loading && loadingKey === "refresh"}
-            onClick={() => execute(undefined, "refresh")}
-          >
-            Refresh
-          </Button>
         </Group>
+
         <Divider />
         <Group justify="space-between">
           <Text fz="sm">

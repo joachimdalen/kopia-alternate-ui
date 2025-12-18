@@ -15,11 +15,11 @@ import {
   IconFileDelta,
   IconFileDownload,
   IconFolderOpen,
-  IconRefresh,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
+import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
@@ -67,40 +67,37 @@ function SnapshotDirectory() {
   return (
     <Container fluid>
       <Stack>
-        <Group>
-          <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
-            <IconArrowLeft size={24} />
-          </ActionIcon>
-          <RepoTitle />
-        </Group>
+        <Group justify="space-between">
+          <Group>
+            <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
+              <IconArrowLeft size={24} />
+            </ActionIcon>
+            <Stack gap={0}>
+              <RepoTitle />
+              <DirectoryCrumbs />
+            </Stack>
+          </Group>
 
-        <Group justify="space-between" align="flex-end">
-          <Stack>
-            <DirectoryCrumbs />
-            <div>
-              <Button
-                size="xs"
-                leftSection={<IconFileDelta size={16} />}
-                onClick={setShow.open}
-              >
-                Restore
-              </Button>
-            </div>
-          </Stack>
-          <Button
-            size="xs"
-            leftSection={<IconRefresh size={16} />}
-            variant="light"
-            loading={loading && loadingKey === "refresh"}
-            onClick={() => execute(undefined, "refresh")}
-          >
-            Refresh
-          </Button>
+          <Group>
+            <Button
+              size="xs"
+              color="indigo"
+              leftSection={<IconFileDelta size={16} />}
+              onClick={setShow.open}
+            >
+              Restore
+            </Button>
+            <Button
+              loading={loading && loadingKey === "refresh"}
+              onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
+            >
+              Refresh
+            </Button>
+          </Group>
         </Group>
         <Divider />
-
         <ErrorAlert error={error} />
-
         <DataGrid
           idAccessor="obj"
           loading={loading && loadingKey === "loading"}
