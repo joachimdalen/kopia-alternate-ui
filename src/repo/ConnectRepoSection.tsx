@@ -14,6 +14,7 @@ import {
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect } from "react";
 import { useAppContext } from "../core/context/AppContext";
+import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { ConnectRepoRequest } from "../core/types";
@@ -94,6 +95,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
 
   return (
     <Stack>
+      <ErrorAlert error={connectRepoAction.error} />
       <TextInput
         label="Connect as"
         defaultValue={`${form.values.username}@${form.values.hostname}`}
