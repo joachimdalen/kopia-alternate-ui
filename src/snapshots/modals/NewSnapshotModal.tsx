@@ -12,9 +12,9 @@ import { IconFileCode, IconSearch } from "@tabler/icons-react";
 import { yupResolver } from "mantine-form-yup-resolver";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import {
   type CreateSnapshotRequest,
   type Policy,
@@ -39,6 +39,7 @@ type NewSnapshotForm = {
 };
 
 export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [showEditor, setShowEditor] = useDisclosure(false);
   const [showEstimation, showEstimationHandlers] = useDisclosure(false);
   const [isExisting, setIsExisting] = useState<boolean>(false);

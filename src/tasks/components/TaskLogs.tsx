@@ -1,9 +1,9 @@
 import { Card, CardSection, Group, LoadingOverlay, Text } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import type { Task } from "../../core/types";
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
 };
 
 export default function TaskLogs({ task }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<
     {
       level: number;

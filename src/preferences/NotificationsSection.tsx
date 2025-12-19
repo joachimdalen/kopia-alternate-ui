@@ -15,9 +15,9 @@ import {
   IconWebhook,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import type {
   ItemAction,
   NotificationProfile,
@@ -29,6 +29,7 @@ import PushoverModal from "./modals/PushoverModal";
 import WebhookModal from "./modals/WebhookModal";
 
 function NotificationsSection() {
+  const { kopiaService } = useServerInstanceContext();
   const [action, setAction] =
     useState<
       ItemAction<

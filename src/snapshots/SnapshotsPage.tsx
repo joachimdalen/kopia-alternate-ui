@@ -20,12 +20,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { newActionProps, refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
 import type { SourceInfo, Sources } from "../core/types";
@@ -36,6 +36,7 @@ import UploadingLoader from "./components/UploadingLoader";
 import NewSnapshotModal from "./modals/NewSnapshotModal";
 
 function SnapshotsPage() {
+  const { kopiaService } = useServerInstanceContext();
   const [show, setShow] = useDisclosure();
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [data, setData] = useState<Sources>();
@@ -106,7 +107,7 @@ function SnapshotsPage() {
     <Container fluid>
       <Stack>
         <Title order={1}>Snapshots</Title>
-        <Group justify="space-between">
+        <Group justify={data?.multiUser === false ? "end" : "space-between"}>
           {data?.multiUser === true && (
             <MenuButton
               options={[
@@ -137,6 +138,14 @@ function SnapshotsPage() {
             >
               Refresh
             </Button>
+            {/* <Button
+              loading={loading && loadingKey === "refresh"}
+              onClick={() => execute(undefined, "refresh")}
+              {...refreshButtonProps}
+              color="grape"
+            >
+              Sync
+            </Button> */}
           </Group>
         </Group>
         <Divider />

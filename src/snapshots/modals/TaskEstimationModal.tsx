@@ -8,11 +8,11 @@ import {
 } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import { useInterval } from "../../core/hooks/useInterval";
-import kopiaService from "../../core/kopiaService";
 import {
   type EstimateSnapshotRequest,
   type Policy,
@@ -35,6 +35,7 @@ export default function TaskEstimationModal({
   source,
   onCancel,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [task, setTask] = useState<Task>();
   const [logs, setLogs] = useState<
     {

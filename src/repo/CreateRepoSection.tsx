@@ -13,9 +13,9 @@ import {
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect, useMemo, useState } from "react";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
-import kopiaService from "../core/kopiaService";
 import type { AlgorithmsList } from "../core/types";
 import type { AllProviderConfigurations } from "./ConfigureRepoSection";
 import type { RepoConfigurationForm } from "./types";
@@ -26,6 +26,7 @@ export type Props = {
 };
 
 function CreateRepoSection({ form, goBack }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [algorithms, setAlgorithms] = useState<AlgorithmsList>();
   const { reloadStatus } = useAppContext();
   const getAlgorithmsAction = useApiRequest({

@@ -16,11 +16,11 @@ import {
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import TimeDuration from "../core/TimeDuration";
 import type { Task } from "../core/types";
 import TaskCounterGrid from "./components/TaskCounterGrid";
@@ -28,6 +28,7 @@ import TaskLogs from "./components/TaskLogs";
 import TaskSummaryDisplay from "./components/TaskSummaryDisplay";
 
 function TaskDetailsPage() {
+  const { kopiaService } = useServerInstanceContext();
   const { tid } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState<Task>();

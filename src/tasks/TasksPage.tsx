@@ -24,11 +24,11 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
 import type { Task } from "../core/types";
@@ -39,6 +39,7 @@ import TaskStatusDisplay from "./components/TaskStatusDisplay";
 type StatusFilter = "all" | "running" | "failed";
 
 function TasksPage() {
+  const { kopiaService } = useServerInstanceContext();
   const { pageSize: tablePageSize } = useAppContext();
   const [data, setData] = useState<Task[]>();
   const [kindFilter, setKindFilter] = useState<string>("all");

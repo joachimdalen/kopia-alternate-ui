@@ -1,8 +1,8 @@
 import { Button, Checkbox, Group, Modal, Stack, Text } from "@mantine/core";
 import { useInputState } from "@mantine/hooks";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import {
   type DeleteSnapshotRequest,
   type Snapshot,
@@ -26,6 +26,7 @@ export default function DeleteSnapshotModal({
   snapshots,
   source,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [deleteAll, setDeleteAll] = useInputState(false);
   const deleteSnapshotAction = useApiRequest({
     action: (data?: DeleteSnapshotRequest) =>

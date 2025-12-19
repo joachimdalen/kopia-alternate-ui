@@ -2,9 +2,9 @@ import { Button, Group, Modal, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import type { Snapshot } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
@@ -29,6 +29,7 @@ export default function PinSnapshotModal({
   onCancel,
   onUpdated,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const form = useForm<PinSnapshotForm>({
     mode: "controlled",
     initialValues: {

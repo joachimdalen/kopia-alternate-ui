@@ -11,10 +11,10 @@ import {
 } from "@mantine/core";
 import { useForm, type UseFormReturnType } from "@mantine/form";
 import { useState } from "react";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import type { CheckRepoRequest } from "../core/types";
 import ConnectRepoSection from "./ConnectRepoSection";
 import CreateRepoSection from "./CreateRepoSection";
@@ -57,6 +57,7 @@ export type AllProviderConfigurations =
   | object;
 
 function ConfigureRepoSection() {
+  const { kopiaService } = useServerInstanceContext();
   const [active, setActive] = useState(0);
   const [confirmCreate, setConfirmCreate] = useState(false);
 

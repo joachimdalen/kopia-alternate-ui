@@ -8,8 +8,9 @@ import {
   type PropsWithChildren,
 } from "react";
 import useApiRequest from "../hooks/useApiRequest";
-import kopiaService from "../kopiaService";
+//import kopiaService from "../kopiaService";
 import type { Preferences, Status } from "../types";
+import { useServerInstanceContext } from "./ServerInstanceContext";
 type ContextState = Preferences & {
   reloadPreferences: () => void;
   reloadStatus: () => void;
@@ -34,9 +35,11 @@ const AppContext = createContext<ContextState>(initialState);
 
 export type AppContextProps = PropsWithChildren;
 export function AppContextProvider({ children }: AppContextProps) {
+  const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();
   const loadPreferences = useApiRequest({
+    showErrorAsNotification: true,
     action: () => kopiaService.getPreferences(),
     onReturn(resp) {
       setData({
@@ -55,18 +58,23 @@ export function AppContextProvider({ children }: AppContextProps) {
       setStatus(resp);
     },
   });
+
   useEffect(() => {
+    console.log("RELOADING");
     loadPreferences.execute(undefined, "loading");
     loadStatus.execute(undefined, "loading");
-  }, []);
+  }, [kopiaService]);
 
   const reloadPrefs = useCallback(() => {
     loadPreferences.execute();
-  }, []);
+  }, [kopiaService]);
 
   const reloadStatus = useCallback(() => {
     loadStatus.execute();
-  }, []);
+  }, [kopiaService]);
+
+  const loading =
+    loadPreferences.loading || loadStatus.loadingKey === "loading";
 
   return (
     <AppContext.Provider
@@ -82,7 +90,7 @@ export function AppContextProvider({ children }: AppContextProps) {
           } as Status),
       }}
     >
-      {loadPreferences.loading ? <LoadingOverlay visible /> : children}
+      {loading ? <LoadingOverlay visible /> : children}
     </AppContext.Provider>
   );
 }

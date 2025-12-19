@@ -25,12 +25,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import type {
   ItemAction,
   Snapshot,
@@ -43,8 +43,10 @@ import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
+  const { kopiaService } = useServerInstanceContext();
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [searchParams] = useSearchParams();
+
   const navigate = useNavigate();
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);

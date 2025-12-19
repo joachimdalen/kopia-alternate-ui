@@ -14,9 +14,9 @@ import { randomId } from "@mantine/hooks";
 import { IconTrash } from "@tabler/icons-react";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import type {
   NotificationProfile,
   WebhookNotification,
@@ -52,6 +52,7 @@ type WebhookHeader = {
 };
 
 export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const getForm = () => {
     if (profile === undefined) {
       return {

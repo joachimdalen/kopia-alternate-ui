@@ -5,9 +5,9 @@ import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 
 import { yupResolver } from "mantine-form-yup-resolver";
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
 import type { Snapshot } from "../../core/types";
 type Props = {
   snapshot: Snapshot;
@@ -28,6 +28,7 @@ export default function UpdateDescriptionModal({
   onCancel,
   onUpdated,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const form = useForm<SetDescriptionForm>({
     mode: "controlled",
     initialValues: {

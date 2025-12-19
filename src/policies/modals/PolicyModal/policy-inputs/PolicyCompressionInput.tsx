@@ -1,7 +1,7 @@
 import { AccordionItem, AccordionPanel, Group, Select } from "@mantine/core";
 import { useEffect, useMemo, useState } from "react";
+import { useServerInstanceContext } from "../../../../core/context/ServerInstanceContext";
 import useApiRequest from "../../../../core/hooks/useApiRequest";
-import kopiaService from "../../../../core/kopiaService";
 import type { AlgorithmsList } from "../../../../core/types";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
@@ -20,6 +20,7 @@ export default function PolicyCompressionInput({
   formKey,
   effective,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
   const [data, setData] = useState<AlgorithmsList>();

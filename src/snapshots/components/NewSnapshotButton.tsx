@@ -1,9 +1,8 @@
 import { Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
-import type { SourceInfo } from "../../core/types";
-
+import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import kopiaService from "../../core/kopiaService";
+import type { SourceInfo } from "../../core/types";
 type Props = {
   disabled?: boolean;
   sourceInfo: SourceInfo;
@@ -15,6 +14,7 @@ export default function NewSnapshotButton({
   sourceInfo,
   onSnapshot,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const { execute, loading } = useApiRequest({
     action: () => kopiaService.startSnapshot(sourceInfo),
     onReturn() {

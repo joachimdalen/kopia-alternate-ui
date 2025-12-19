@@ -10,8 +10,8 @@ import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
-import kopiaService from "../core/kopiaService";
 import type { Preferences } from "../core/types";
 
 type PreferencesForm = {
@@ -21,6 +21,7 @@ type PreferencesForm = {
 };
 
 function AppearanceSection() {
+  const { kopiaService } = useServerInstanceContext();
   const { setColorScheme } = useMantineColorScheme();
   const { reloadPreferences } = useAppContext();
   const [data, setData] = useState<Preferences>();

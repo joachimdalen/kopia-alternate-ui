@@ -537,6 +537,7 @@ export type TasksSummary = {
   CANCELED: number;
   RUNNING: number;
   SUCCESS: number;
+  FAILED: number;
 };
 
 export type Preferences = {

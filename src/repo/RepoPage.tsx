@@ -12,11 +12,12 @@ import {
 } from "@mantine/core";
 import { useField } from "@mantine/form";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
-import kopiaService from "../core/kopiaService";
 import ConfigureRepoSection from "./ConfigureRepoSection";
 
 function RepoPage() {
+  const { kopiaService } = useServerInstanceContext();
   const { reloadStatus, repoStatus } = useAppContext();
 
   const disconnectRepoAction = useApiRequest({
@@ -84,31 +85,31 @@ function RepoPage() {
                 <Text fz="xs" c="dimmed">
                   Config File
                 </Text>
-                <Text fz="sm">{repoStatus.configFile}</Text>
+                <Text fz="sm">{repoStatus.configFile || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
                   Provider
                 </Text>
-                <Text fz="sm">{repoStatus.storage}</Text>
+                <Text fz="sm">{repoStatus.storage || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
                   Encryption Algorithm
                 </Text>
-                <Text fz="sm">{repoStatus.encryption}</Text>
+                <Text fz="sm">{repoStatus.encryption || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
                   Hash Algorithm
                 </Text>
-                <Text fz="sm">{repoStatus.hash}</Text>
+                <Text fz="sm">{repoStatus.hash || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
                   Splitter Algorithm
                 </Text>
-                <Text fz="sm">{repoStatus.splitter}</Text>
+                <Text fz="sm">{repoStatus.splitter || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">

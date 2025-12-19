@@ -12,10 +12,10 @@ import {
 import { useForm } from "@mantine/form";
 import { useState } from "react";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
+import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
 import useApiRequest, {
   type ErrorInformation,
 } from "../../../core/hooks/useApiRequest";
-import kopiaService from "../../../core/kopiaService";
 import { type Policy, type SourceInfo } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
@@ -38,6 +38,7 @@ export default function CreatePolicyModal({
   onCancel,
   onEdit,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const form = useForm<Form>({
     mode: "controlled",
     initialValues: {

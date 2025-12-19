@@ -38,8 +38,8 @@ import FormattedDate from "../../../core/FormattedDate";
 import IconWrapper from "../../../core/IconWrapper";
 import NumberSelect from "../../../core/NumberSelect";
 import RelativeDate from "../../../core/RelativeDate";
+import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
 import useApiRequest from "../../../core/hooks/useApiRequest";
-import kopiaService from "../../../core/kopiaService";
 import type { Policy, ResolvedPolicy, SourceInfo } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
@@ -72,6 +72,7 @@ export default function PolicyModal({
   onSubmitted,
   saveOnSubmit = true,
 }: Props) {
+  const { kopiaService } = useServerInstanceContext();
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal =
     target.host === "" && target.userName === "" && target.path === "";

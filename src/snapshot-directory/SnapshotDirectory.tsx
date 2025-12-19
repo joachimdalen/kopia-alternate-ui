@@ -29,12 +29,12 @@ import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
+import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import kopiaService from "../core/kopiaService";
 import type { DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
@@ -51,6 +51,7 @@ const getFileIcon = (name: string) => {
 };
 
 function SnapshotDirectory() {
+  const { kopiaService } = useServerInstanceContext();
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const { oid } = useParams();
   const previousOid = usePrevious(oid);
