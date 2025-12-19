@@ -124,7 +124,7 @@ function NotificationsSection() {
           </Stack>
         )}
         {data.length > 0 && (
-          <SimpleGrid cols={{ base: 1, sm: 3, xl: 4 }}>
+          <SimpleGrid cols={{ base: 1, sm: 2, xl: 2 }}>
             {data.map((n) => (
               <NotificationCard
                 key={n.profile}
@@ -152,12 +152,8 @@ function NotificationsSection() {
       {action && action.item?.type === "webhook" && (
         <WebhookModal
           onCancel={() => setAction(undefined)}
-          onSaved={(profile, isCreate) => {
-            if (isCreate) {
-              setData((prev) => [...prev, profile]);
-            } else {
-              loadAction.execute(undefined, "refresh");
-            }
+          onSaved={() => {
+            loadAction.execute(undefined, "refresh");
             setAction(undefined);
           }}
           profile={action.item.profile}

@@ -26,7 +26,7 @@ import modalBaseStyles from "../../styles/modalStyles";
 type Props = {
   profile?: NotificationProfile;
   onCancel: () => void;
-  onSaved: (profile: NotificationProfile, isCreate: boolean) => void;
+  onSaved: () => void;
 };
 
 const schema = Yup.object({
@@ -118,8 +118,8 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
     action: (data?: NotificationProfile) =>
       // Create and update uses the same
       kopiaService.createNotificationProfile(data!),
-    onReturn: (g) => {
-      onSaved(g, profile === undefined);
+    onReturn: () => {
+      onSaved();
     },
   });
   async function submitForm(values: NotificationProfile) {
