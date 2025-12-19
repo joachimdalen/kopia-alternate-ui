@@ -185,7 +185,7 @@ function SnapshotDirectory() {
             {
               accessor: "size",
               title: "Size",
-              textAlign: "center",
+              textAlign: "right",
               render: (item) =>
                 sizeDisplayName(
                   item.type === "d" ? item.summ?.size || 0 : item.size || 0,
