@@ -1,4 +1,4 @@
-import { Group, Loader, Text } from "@mantine/core";
+import { Group, Loader, Text, Tooltip } from "@mantine/core";
 import type { Task } from "../../core/types";
 
 import {
@@ -37,10 +37,12 @@ export default function TaskStatusDisplay({ task }: Props) {
       return (
         <Group gap="xs">
           <IconCircleXFilled color="var(--mantine-color-red-5)" />
-          <Text fz="sm">
-            Failed after{" "}
-            <TimeDuration from={task.startTime} to={task.endTime!} />
-          </Text>
+          <Tooltip label={task.errorMessage || "No error message given"}>
+            <Text fz="sm">
+              Failed after{" "}
+              <TimeDuration from={task.startTime} to={task.endTime!} />
+            </Text>
+          </Tooltip>
         </Group>
       );
     case "CANCELED":

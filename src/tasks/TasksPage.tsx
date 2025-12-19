@@ -33,6 +33,7 @@ import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
 import type { Task } from "../core/types";
 import { onlyUnique } from "../utils/onlyUnique";
+import TaskKindDisplay from "./components/TaskKindDisplay";
 import TaskStatusDisplay from "./components/TaskStatusDisplay";
 
 type StatusFilter = "all" | "running" | "failed";
@@ -126,7 +127,10 @@ function TasksPage() {
                 ...(data || [])
                   .map((x) => x.kind)
                   .filter(onlyUnique)
-                  .map((x) => ({ label: x, value: x })),
+                  .map((x) => ({
+                    label: <TaskKindDisplay kind={x} />,
+                    value: x,
+                  })),
               ]}
               onClick={setKindFilter}
               disabled={loading}
@@ -134,7 +138,6 @@ function TasksPage() {
           </Group>
           <Group>
             <TextInput
-              radius="xl"
               size="sm"
               placeholder="Search tasks"
               leftSection={<IconSearch size={18} stroke={1.5} />}
@@ -164,6 +167,11 @@ function TasksPage() {
           pageSize={tablePageSize}
           columns={[
             {
+              accessor: "id",
+              title: "Task ID",
+              width: 75,
+            },
+            {
               accessor: "startTime",
               render: (item) => (
                 <Anchor component={Link} to={`/tasks/${item.id}`} td="none">
@@ -175,7 +183,10 @@ function TasksPage() {
               accessor: "status",
               render: (item) => <TaskStatusDisplay task={item} />,
             },
-            { accessor: "kind" },
+            {
+              accessor: "kind",
+              render: (item) => <TaskKindDisplay kind={item.kind} />,
+            },
             {
               accessor: "description",
               visibleMediaQuery: (theme) =>
