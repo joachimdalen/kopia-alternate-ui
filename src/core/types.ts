@@ -56,6 +56,7 @@ export type DirEntry = {
   mode: string;
   mtime: string;
   obj: string;
+  size?: number;
   summ?: DirectorySummary;
 };
 export type DirectorySummary = {

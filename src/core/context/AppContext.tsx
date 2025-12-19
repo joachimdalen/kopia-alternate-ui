@@ -39,7 +39,14 @@ export function AppContextProvider({ children }: AppContextProps) {
   const loadPreferences = useApiRequest({
     action: () => kopiaService.getPreferences(),
     onReturn(resp) {
-      setData(resp);
+      setData({
+        bytesStringBase2: resp.bytesStringBase2,
+        defaultSnapshotViewAll: resp.defaultSnapshotViewAll,
+        language: resp.language,
+        fontSize: resp.fontSize,
+        pageSize: resp.pageSize === 0 ? 20 : resp.pageSize,
+        theme: resp.theme === "" ? "light" : "dark",
+      });
     },
   });
   const loadStatus = useApiRequest({

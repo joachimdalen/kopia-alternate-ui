@@ -7,16 +7,24 @@ import {
   Group,
   Stack,
   Text,
+  TextInput,
+  Title,
 } from "@mantine/core";
-import { useDisclosure, usePrevious } from "@mantine/hooks";
+import {
+  useDebouncedValue,
+  useDisclosure,
+  useInputState,
+  usePrevious,
+} from "@mantine/hooks";
 import {
   IconArrowLeft,
   IconFile,
   IconFileDelta,
   IconFileDownload,
   IconFolderOpen,
+  IconSearch,
 } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 import { refreshButtonProps } from "../core/commonButtons";
@@ -27,7 +35,6 @@ import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import type { DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
@@ -51,6 +58,8 @@ function SnapshotDirectory() {
   const [data, setData] = useState<DirManifest>();
   const location = useLocation();
   const [show, setShow] = useDisclosure();
+  const [query, setQuery] = useInputState("");
+  const [debouncedQuery] = useDebouncedValue(query, 200);
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getObjects(oid as string),
     onReturn(resp) {
@@ -64,6 +73,16 @@ function SnapshotDirectory() {
     }
   }, [oid]);
 
+  const visibleItems = useMemo(() => {
+    let items = [...(data?.entries || [])];
+
+    if (debouncedQuery !== "") {
+      items = items.filter((x) => x.name.indexOf(debouncedQuery) !== -1);
+    }
+
+    return items;
+  }, [data, debouncedQuery]);
+
   return (
     <Container fluid>
       <Stack>
@@ -73,12 +92,20 @@ function SnapshotDirectory() {
               <IconArrowLeft size={24} />
             </ActionIcon>
             <Stack gap={0}>
-              <RepoTitle />
+              <Title order={1}>Snapshot: {oid}</Title>
               <DirectoryCrumbs />
             </Stack>
           </Group>
 
           <Group>
+            <TextInput
+              radius="xl"
+              size="sm"
+              placeholder="Search files or folder (current level)"
+              leftSection={<IconSearch size={18} stroke={1.5} />}
+              value={query}
+              onChange={setQuery}
+            />
             <Button
               size="xs"
               color="indigo"
@@ -101,8 +128,12 @@ function SnapshotDirectory() {
         <DataGrid
           idAccessor="obj"
           loading={loading && loadingKey === "loading"}
-          records={data?.entries ?? []}
-          noRecordsText="No entries in folder"
+          records={visibleItems}
+          noRecordsText={
+            debouncedQuery !== ""
+              ? "No entires matching your search"
+              : "No entries in folder"
+          }
           noRecordsIcon={<IconWrapper icon={IconFolderOpen} size={48} />}
           pageSize={tablePageSize}
           columns={[
@@ -154,9 +185,12 @@ function SnapshotDirectory() {
             {
               accessor: "size",
               title: "Size",
-              textAlign: "center",
+              textAlign: "right",
               render: (item) =>
-                sizeDisplayName(item.summ?.size ?? 0, bytesStringBase2),
+                sizeDisplayName(
+                  item.type === "d" ? item.summ?.size || 0 : item.size || 0,
+                  bytesStringBase2
+                ),
             },
             { accessor: "summ.files", title: "Files", textAlign: "center" },
             { accessor: "summ.dirs", title: "Dirs", textAlign: "center" },

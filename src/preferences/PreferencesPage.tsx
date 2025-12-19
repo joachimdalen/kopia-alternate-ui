@@ -16,7 +16,7 @@ import NotificationsSection from "./NotificationsSection";
 
 function PreferencesPage() {
   return (
-    <Container fluid>
+    <Container>
       <Stack w="100%">
         <Title order={1}>Preferences</Title>
         <Divider />

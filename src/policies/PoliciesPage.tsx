@@ -6,6 +6,7 @@ import {
   Divider,
   Group,
   Stack,
+  Title,
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import {
@@ -24,7 +25,6 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import { MenuButton } from "../core/MenuButton/MenuButton";
-import RepoTitle from "../core/RepoTitle/RepoTitle";
 import {
   type ItemAction,
   type PolicyRef,
@@ -167,7 +167,7 @@ function PoliciesPage() {
   return (
     <Container fluid>
       <Stack>
-        <RepoTitle />
+        <Title order={1}>Policies</Title>
         <Group justify="space-between">
           <MenuButton
             options={[

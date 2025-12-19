@@ -9,7 +9,7 @@ export function MenuButton({
   disabled,
   prefix,
 }: {
-  options: { label: string; value: string }[];
+  options: { label: string | React.ReactNode; value: string }[];
   onClick: (selected: string) => void;
   disabled?: boolean;
   prefix?: string;
@@ -25,7 +25,7 @@ export function MenuButton({
           setSelected(item);
           onClick(item.value);
         }}
-        key={item.label}
+        key={item.value}
       >
         {item.label}
       </Menu.Item>

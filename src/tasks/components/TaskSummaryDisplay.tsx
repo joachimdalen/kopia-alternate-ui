@@ -1,4 +1,4 @@
-import { Alert, Group, Loader, Text } from "@mantine/core";
+import { Alert, Group, Loader, Stack, Text } from "@mantine/core";
 import {
   IconBan,
   IconCircleCheckFilled,
@@ -42,10 +42,13 @@ export default function TaskSummaryDisplay({ task }: Props) {
         <Alert color="red" title="Task failed">
           <Group gap="xs">
             <IconCircleXFilled color="var(--mantine-color-red-5)" />
-            <Text fz="sm">
-              Failed after{" "}
-              <TimeDuration from={task.startTime} to={task.endTime!} />
-            </Text>
+            <Stack gap="xs">
+              <Text fz="sm">
+                Failed after{" "}
+                <TimeDuration from={task.startTime} to={task.endTime!} />
+              </Text>
+              {task.errorMessage && <Text fz="sm">{task.errorMessage}</Text>}
+            </Stack>
           </Group>
         </Alert>
       );

@@ -13,6 +13,7 @@ import {
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect, useMemo, useState } from "react";
 import { useAppContext } from "../core/context/AppContext";
+import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import kopiaService from "../core/kopiaService";
 import type { AlgorithmsList } from "../core/types";
@@ -107,6 +108,7 @@ function CreateRepoSection({ form, goBack }: Props) {
 
   return (
     <Stack>
+      <ErrorAlert error={createRepoAction.error} />
       <Group grow>
         <PasswordInput
           label="Repository Password"

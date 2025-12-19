@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
+import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import TimeDuration from "../core/TimeDuration";
@@ -36,6 +37,13 @@ function TaskDetailsPage() {
       setData(resp);
     },
   });
+
+  useInterval(
+    () => {
+      taskApi.execute(undefined, "refresh");
+    },
+    data?.status === "RUNNING" ? 1000 : null
+  );
 
   useEffect(() => {
     taskApi.execute(undefined, "loading");
@@ -65,7 +73,7 @@ function TaskDetailsPage() {
                 <Text fw={700} size="xl">
                   {data?.startTime
                     ? new Date(data.startTime).toLocaleString()
-                    : ""}
+                    : "-"}
                 </Text>
               </div>
             </Group>
@@ -80,7 +88,7 @@ function TaskDetailsPage() {
                 <Text fw={700} size="xl">
                   {data?.endTime
                     ? new Date(data?.endTime).toLocaleString()
-                    : ""}
+                    : "-"}
                 </Text>
               </div>
             </Group>
@@ -88,14 +96,16 @@ function TaskDetailsPage() {
           <Paper withBorder radius="md" p="xs">
             <Group>
               <IconWrapper icon={IconStopwatch} size={32} color="teal" />
-
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
                   Duration
                 </Text>
                 <Text fw={700} size="xl">
-                  {data?.startTime && data.endTime && (
-                    <TimeDuration from={data.startTime} to={data.endTime!} />
+                  {data?.startTime && (
+                    <TimeDuration
+                      from={data.startTime}
+                      to={data.endTime ?? new Date().toString()}
+                    />
                   )}
                 </Text>
               </div>
