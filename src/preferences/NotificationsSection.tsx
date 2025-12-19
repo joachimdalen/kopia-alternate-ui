@@ -1,12 +1,22 @@
-import { Button, Divider, Group, Menu, SimpleGrid, Stack } from "@mantine/core";
+import {
+  Button,
+  Divider,
+  Group,
+  Menu,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@mantine/core";
 import {
   IconBrandPushover,
   IconChevronDown,
   IconMail,
+  IconNotification,
   IconWebhook,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import useApiRequest from "../core/hooks/useApiRequest";
+import IconWrapper from "../core/IconWrapper";
 import kopiaService from "../core/kopiaService";
 import type {
   ItemAction,
@@ -107,29 +117,37 @@ function NotificationsSection() {
         <Divider />
       </Stack>
       <Stack p="md">
-        <SimpleGrid cols={{ base: 1, sm: 3, xl: 4 }}>
-          {data.map((n) => (
-            <NotificationCard
-              key={n.profile}
-              disabled={
-                deleteAction.loading && deleteAction.loadingKey === n.profile
-              }
-              data={n}
-              onDelete={() => deleteAction.execute(n.profile, n.profile)}
-              onEdit={() =>
-                setAction({
-                  action: "edit",
-                  item: {
-                    type: n.method.type,
-                    profile: n,
-                  },
-                })
-              }
-              onDuplicate={() => console.log("d")}
-              onTest={() => testAction.execute(n)}
-            />
-          ))}
-        </SimpleGrid>
+        {data.length === 0 && (
+          <Stack align="center" w="100%">
+            <IconWrapper icon={IconNotification} size={50} />
+            <Text>No notifications defined</Text>
+          </Stack>
+        )}
+        {data.length > 0 && (
+          <SimpleGrid cols={{ base: 1, sm: 3, xl: 4 }}>
+            {data.map((n) => (
+              <NotificationCard
+                key={n.profile}
+                disabled={
+                  deleteAction.loading && deleteAction.loadingKey === n.profile
+                }
+                data={n}
+                onDelete={() => deleteAction.execute(n.profile, n.profile)}
+                onEdit={() =>
+                  setAction({
+                    action: "edit",
+                    item: {
+                      type: n.method.type,
+                      profile: n,
+                    },
+                  })
+                }
+                onDuplicate={() => console.log("d")}
+                onTest={() => testAction.execute(n)}
+              />
+            ))}
+          </SimpleGrid>
+        )}
       </Stack>
       {action && action.item?.type === "webhook" && (
         <WebhookModal
