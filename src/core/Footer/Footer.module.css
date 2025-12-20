@@ -1,0 +1,37 @@
+.serverSelect {
+  padding: 0 5px;
+  @mixin hover {
+    background-color: var(--mantine-color-gray-1);
+    border-radius: var(--popover-radius, var(--mantine-radius-default));
+    @mixin dark {
+      background-color: var(--mantine-color-dark-9);
+    }
+  }
+}
+.serverButton {
+  padding: calc(var(--mantine-spacing-xs) / 1.5) var(--mantine-spacing-sm);
+}
+
+.serverButton:not(:disabled) {
+  @mixin hover {
+    background-color: var(--mantine-color-gray-1);
+    border-radius: var(--popover-radius, var(--mantine-radius-default));
+    @mixin dark {
+      background-color: var(--mantine-color-dark-9);
+    }
+  }
+}
+.serverButton:disabled {
+  color: var(--mantine-color-disabled-color);
+  @mixin dark {
+    color: var(--mantine-color-white);
+  }
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.current {
+  background-color: var(--mantine-color-gray-1);
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+  }
+}

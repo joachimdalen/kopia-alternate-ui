@@ -100,7 +100,6 @@ function SnapshotDirectory() {
 
           <Group>
             <TextInput
-              radius="xl"
               size="sm"
               placeholder="Search files or folder (current level)"
               leftSection={<IconSearch size={18} stroke={1.5} />}
