@@ -30,7 +30,7 @@ RUN mkdir -p /app/config
 COPY --from=build /app/dist /app/www
 
 # Copy nginx config template
-COPY docker/nginx.conf /etc/nginx/templates/default.conf.template
+#COPY docker/nginx.conf /etc/nginx/templates/default.conf.template
 
 # Set correct ownership and permissions
 RUN chown -R webuser:webuser /app/www && \

@@ -48,7 +48,7 @@ export default defineConfig(() =>
             secure: false,
             bypass: (_, response) => {
               response?.appendHeader("Content-Type", "application/json");
-              response?.write(fs.readFileSync("./docker/servers.json"));
+              response?.write(fs.readFileSync("./.dev/servers.json"));
               response?.end();
             },
           },
