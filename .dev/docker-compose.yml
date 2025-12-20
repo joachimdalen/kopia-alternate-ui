@@ -69,3 +69,12 @@ services:
       - ./secondary-data/repo:/repository
       # Mount path for browsing mounted snapshots
       - ./secondary-data/temp:/tmp:shared
+  # kopiaaltui:
+  #   build:
+  #     dockerfile: ./Dockerfile
+  #     context: ../
+  #   ports:
+  #     - 8080:80
+  #   volumes:
+  #     - ../docker/instances.json:/app/config/instances.json:ro
+  #     - ../docker/nginx.conf:/etc/nginx/templates/default.conf.template:ro

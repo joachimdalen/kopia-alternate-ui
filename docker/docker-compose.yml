@@ -6,5 +6,6 @@ services:
       context: ../
     ports:
       - 8080:80
-    environment:
-      - KAU_KOPIA_ENDPOINT=http://host.docker.internal:51515
+    volumes:
+      - ./docker/instances.json:/app/config/instances.json
+      - ./docker/nginx.conf:/etc/nginx/templates/default.conf.template

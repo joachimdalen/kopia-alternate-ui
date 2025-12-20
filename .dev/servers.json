@@ -1,0 +1,12 @@
+[
+  {
+    "id": "master",
+    "name": "repo-docker-prod-01",
+    "default": true
+  },
+  {
+    "id": "slave",
+    "name": "repo-docker-prod-02",
+    "default": false
+  }
+]
