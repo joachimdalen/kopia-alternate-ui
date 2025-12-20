@@ -1,5 +1,6 @@
 import {
   Anchor,
+  Badge,
   Button,
   Container,
   Divider,
@@ -15,6 +16,7 @@ import {
   IconEye,
   IconFileDatabase,
   IconFolderOpen,
+  IconRefreshAlert,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
@@ -100,7 +102,12 @@ function SnapshotsPage() {
       execute(undefined, "refresh");
     },
   });
-
+  const syncAction = useApiRequest({
+    action: () => kopiaService.syncRepo(),
+    onReturn() {
+      execute(undefined, "refresh");
+    },
+  });
   const intError = error || newSnapshotError;
 
   return (
@@ -138,14 +145,15 @@ function SnapshotsPage() {
             >
               Refresh
             </Button>
-            {/* <Button
-              loading={loading && loadingKey === "refresh"}
-              onClick={() => execute(undefined, "refresh")}
+            <Button
+              loading={syncAction.loading}
+              onClick={() => syncAction.execute()}
               {...refreshButtonProps}
+              leftSection={<IconRefreshAlert size={16} />}
               color="grape"
             >
               Sync
-            </Button> */}
+            </Button>
           </Group>
         </Group>
         <Divider />
@@ -184,7 +192,23 @@ function SnapshotsPage() {
               accessor: "owner",
               visibleMediaQuery: (theme) =>
                 `(min-width: ${theme.breakpoints.md})`,
-              render: (item) => `${item.source.userName}@${item.source.host}`,
+              render: (item) =>
+                item.status === "REMOTE" ? (
+                  <Group gap="xs" align="center">
+                    <Text fz="sm">{`${item.source.userName}@${item.source.host}`}</Text>
+                    <Badge
+                      size="sm"
+                      radius={5}
+                      tt="none"
+                      variant="light"
+                      color="grape"
+                    >
+                      Remote
+                    </Badge>
+                  </Group>
+                ) : (
+                  `${item.source.userName}@${item.source.host}`
+                ),
             },
             {
               accessor: "lastSnapshot.rootEntry.summ.size",
@@ -222,9 +246,22 @@ function SnapshotsPage() {
               render: (item) => {
                 switch (item.status) {
                   case "IDLE":
-                  case "PAUSED": {
+                  case "PAUSED":
+                  case "REMOTE": {
                     return (
                       <Group justify="end">
+                        {item.status !== "REMOTE" && (
+                          <Button
+                            size="xs"
+                            leftSection={<IconArchive size={14} />}
+                            variant="subtle"
+                            color="green"
+                            loading={startSnapshotLoading}
+                            onClick={() => newSnapshot(item.source)}
+                          >
+                            Snapshot Now
+                          </Button>
+                        )}
                         <Button
                           component={Link}
                           to={{
@@ -241,16 +278,6 @@ function SnapshotsPage() {
                           variant="subtle"
                         >
                           Policy
-                        </Button>
-                        <Button
-                          size="xs"
-                          leftSection={<IconArchive size={14} />}
-                          variant="subtle"
-                          color="green"
-                          loading={startSnapshotLoading}
-                          onClick={() => newSnapshot(item.source)}
-                        >
-                          Snapshot Now
                         </Button>
                       </Group>
                     );
@@ -275,7 +302,6 @@ function SnapshotsPage() {
                       />
                     );
                   }
-
                   default:
                     return item.status;
                 }

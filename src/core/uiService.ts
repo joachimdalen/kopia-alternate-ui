@@ -4,6 +4,7 @@ import type { ApiResponse } from "./types";
 export type Instance = {
   id: string;
   name: string;
+  default: boolean;
 };
 
 function getInstances(): Promise<ApiResponse<Instance[]>> {

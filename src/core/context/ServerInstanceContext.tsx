@@ -1,4 +1,5 @@
 import { LoadingOverlay } from "@mantine/core";
+import { useSessionStorage } from "@mantine/hooks";
 import {
   createContext,
   useCallback,
@@ -9,8 +10,14 @@ import {
   type PropsWithChildren,
 } from "react";
 import useApiRequest from "../hooks/useApiRequest";
-import { KopiaService, type IKopiaService } from "../kopiaService2";
+import {
+  KopiaService,
+  type IKopiaService,
+  type KopiaAuth,
+} from "../kopiaService";
+import SkeletonLayout from "../SkeletonLayout";
 import uiService, { type Instance } from "../uiService";
+import LoginModal from "./LoginModal";
 type ContextState = {
   servers: Instance[];
   currentServer?: Instance;
@@ -31,12 +38,35 @@ export function ServerInstanceContextProvider({
 }: ServerInstanceContextProps) {
   const [instances, setInstances] = useState<Instance[]>([]);
   const [currentInstance, setCurrentInstance] = useState<Instance>();
-
+  const [loginRequired, setLoginRequired] = useState(false);
+  const [loginInfo, setLoginInfo] = useSessionStorage<
+    Record<string, KopiaAuth>
+  >({
+    key: "kopia-alt-ui-auth",
+    defaultValue: {},
+  });
   const getInstances = useApiRequest({
     action: () => uiService.getInstances(),
     onReturn(resp) {
       setInstances(resp);
-      setCurrentInstance(resp[0]);
+      const primary = resp.find((x) => x.default);
+      setCurrentInstance(primary || resp[0]);
+    },
+  });
+  const loginAction = useApiRequest({
+    action: (auth?: { instance: string; username: string; password: string }) =>
+      kopiaInstance.login(auth!.username, auth!.password),
+    onReturn(_, req) {
+      setLoginRequired(false);
+      if (req) {
+        setLoginInfo({
+          ...loginInfo,
+          [req.instance]: {
+            username: req.username,
+            password: req.password,
+          },
+        });
+      }
     },
   });
   useEffect(() => {
@@ -48,9 +78,20 @@ export function ServerInstanceContextProvider({
   }, []);
 
   const kopiaInstance = useMemo(() => {
-    console.log("CHANGING INSTANCE");
-    return new KopiaService(currentInstance?.id || "main");
-  }, [currentInstance]);
+    if (currentInstance === undefined) {
+      return {} as IKopiaService;
+    }
+
+    const loginForInstance = loginInfo[currentInstance.id];
+
+    return new KopiaService(
+      currentInstance?.id || "main",
+      () => {
+        setLoginRequired(true);
+      },
+      loginForInstance
+    );
+  }, [currentInstance, loginInfo]);
 
   const loading = getInstances.loading;
 
@@ -63,7 +104,26 @@ export function ServerInstanceContextProvider({
         kopiaService: kopiaInstance,
       }}
     >
-      {loading ? <LoadingOverlay visible /> : children}
+      {loginRequired && currentInstance && (
+        <SkeletonLayout>
+          <LoginModal
+            onCancel={() => console.log()}
+            onLogin={(username, password) => {
+              loginAction.execute({
+                instance: currentInstance.id,
+                username,
+                password,
+              });
+            }}
+            instance={currentInstance}
+          />
+        </SkeletonLayout>
+      )}
+      {loginRequired ? null : loading || currentInstance === undefined ? (
+        <LoadingOverlay visible />
+      ) : (
+        children
+      )}
     </ServerInstanceContext.Provider>
   );
 }

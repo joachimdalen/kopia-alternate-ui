@@ -1,0 +1,71 @@
+name: kopiaui-dev
+services:
+  kopia-primary:
+    image: kopia/kopia:latest
+    hostname: kopia-primary
+    container_name: kopia-primary
+    ports:
+      - 51515:51515
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      #- --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=USER_ONE
+      - --server-password=PASSWORD_ONE
+      #- --tls-generate-cert
+      - --tls-cert-file=/app/config/my.cert
+      - --tls-key-file=/app/config/my.key
+      - --server-control-username=CONTROL_ADMIN
+      - --server-control-password=PASSWORD_HERE
+    environment:
+      # Set repository password
+      KOPIA_PASSWORD: "PASSWORD_ONE"
+    volumes:
+      # Mount local folders needed by kopia
+      - ./primary-data/config:/app/config
+      - ./primary-data/cache:/app/cache
+      - ./primary-data/logs:/app/logs
+      # Mount local folders to snapshot
+      - ./primary-data/demo-data:/data:ro
+      # Mount repository location
+      - ./primary-data/repo:/repository
+      # Mount path for browsing mounted snapshots
+      - ./primary-data/temp:/tmp:shared
+
+  kopia-secondary:
+    image: kopia/kopia:latest
+    hostname: kopia-secondary
+    container_name: kopia-secondary
+    #restart: unless-stopped
+    ports:
+      - 51525:51515
+    # Setup the server that provides the web gui
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      #- --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=USER_TWO
+      - --server-password=PASSWORD_TWO
+      #- --tls-generate-cert
+      - --tls-cert-file=/app/config/my.cert
+      - --tls-key-file=/app/config/my.key
+      - --server-control-username=CONTROL_ADMIN
+      - --server-control-password=PASSWORD_HERE
+    environment:
+      # Set repository password
+      KOPIA_PASSWORD: "PASSWORD_TWO"
+    volumes:
+      # Mount local folders needed by kopia
+      - ./secondary-data/config:/app/config
+      - ./secondary-data/cache:/app/cache
+      - ./secondary-data/logs:/app/logs
+      # Mount local folders to snapshot
+      - ./secondary-data/demo-data:/data:ro
+      # Mount repository location
+      - ./secondary-data/repo:/repository
+      # Mount path for browsing mounted snapshots
+      - ./secondary-data/temp:/tmp:shared

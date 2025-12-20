@@ -50,8 +50,9 @@ function AppearanceSection() {
       setData(resp);
       form.initialize({
         bytesStringBase2: resp.bytesStringBase2.toString(),
-        pageSize: resp.pageSize.toString(),
-        theme: resp.theme.toString(),
+        pageSize:
+          resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
+        theme: resp.theme.toString() || "light",
       });
     },
   });

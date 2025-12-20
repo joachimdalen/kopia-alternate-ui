@@ -39,8 +39,8 @@
     cursor: not-allowed;
   }
   @mixin hover {
-    &:not[aria-disabled] {
-      background-color: var(--mantine-color-blue-8);
+    &:not(aria-disabled) {
+      background-color: #143468;
     }
   }
 }
