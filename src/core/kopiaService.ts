@@ -33,7 +33,7 @@ export type KopiaAuth = {
 };
 export interface IKopiaService {
   getSnapshots(): Promise<ApiResponse<Sources>>;
-  startSnapshot(sourceInfo: SourceInfo): any;
+  startSnapshot(sourceInfo: SourceInfo): Promise<ApiResponse<Task>>;
   getSnapshot(query: {
     [key: string]: string;
   }): Promise<ApiResponse<Snapshots>>;
@@ -122,7 +122,7 @@ export class KopiaService implements IKopiaService {
     return this.get(`/api/${this.instance}/v1/sources`);
   }
 
-  public startSnapshot(sourceInfo: SourceInfo) {
+  public startSnapshot(sourceInfo: SourceInfo): Promise<ApiResponse<Task>> {
     return this.post(
       `/api/${this.instance}/v1/sources/upload`,
       undefined,
