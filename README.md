@@ -103,7 +103,10 @@ Passthrough authentication uses the regular authentication popup that comes with
 
 #### Option 2: Integrated authentication
 
-This application offers a simple credential management feature that you can use at your own risk. When a server responds with a `401` status code - a login window will appear. These credentials are stored in the browser session under the key `kopia-alt-ui-auth` in clear text. When switching between instances we lookup credentials in this storage and apply it to the request.
+This application offers a simple credential management feature that you can use at your own risk. When a server responds with a `401` status code - a login window will appear.
+
+> [!CAUTION]
+> These credentials are stored in the browser session under the key `kopia-alt-ui-auth` in clear text. When switching between instances we lookup credentials in this storage and apply it to the request.
 
 **NOTE:** Remember to remove the `WWW-Authenticate` in your Nginx configuration for this feature to work properly.
 
