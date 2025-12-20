@@ -60,7 +60,6 @@ export function AppContextProvider({ children }: AppContextProps) {
   });
 
   useEffect(() => {
-    console.log("RELOADING");
     loadPreferences.execute(undefined, "loading");
     loadStatus.execute(undefined, "loading");
   }, [kopiaService]);

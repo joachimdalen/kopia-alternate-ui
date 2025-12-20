@@ -30,7 +30,7 @@ If this project helped you or you are interested in using it, please consider gi
 
 ## Getting Started
 
-### Configure instances
+### Configure
 
 The support for multiple servers must currently be configured manually. We have an issue []() to have this happen automatically when the container start, and that feature will be implemented later on.
 
@@ -55,16 +55,31 @@ The support for multiple servers must currently be configured manually. We have 
 - `name`: The display name used in the dropdown in the UI
 - `default`: When `true`, will be the default selected instances in the UI
 
-2. Update the default `nginx.conf` file with new locations for your instances. During this step you will also need to decide how you want to authenticate aginst the servers. Please see [Authenticating to servers](#authenticating-to-servers) for more information.
+2. Use the [example `nginx.conf`](./docker/nginx.conf) as a reference and add new location blocks for your instances (You can remove the example `primary` and `secondary` blocks). During this step you will also need to decide how you want to authenticate aginst the servers. Please see [Authenticating to servers](#authenticating-to-servers) for more information.
 
 ```nginx
-location /api/[SERVER-ID] {
-  rewrite ^/api/[SERVER-ID]/(.*) /api/$1 break;
-  proxy_pass https://[DOCKER-CONTAINEr]:51515;
+location /api/[INSTANCE-ID] {
+  rewrite ^/api/[INSTANCE-ID]/(.*) /api/$1 break;
+  proxy_pass https://[DOCKER-CONTAINER]:51515;
+
+  # --- AUTH OPTION TWO ---
   proxy_hide_header WWW-Authenticate;
+  # --- AUTH OPTION TWO END ---
+
+  # --- AUTH OPTION THREE ---
+  proxy_hide_header WWW-Authenticate;
+  proxy_set_header Authorization "Basic ${INSTANCE_AUTH}";
+  proxy_pass_header Authorization;
+  # --- AUTH OPTION THREE END ---
+
   expires -1;
 }
 ```
+
+> [!IMPORTANT]
+> Currently the container is using a Nginx templating feature. This means you will have to re-create the container for changes to apply. An update will come later that will ensure you can only restart the container for changes to take effect.
+
+3. Mount the `instances.json` file and your custom `nginx.conf` file to the container
 
 ```yml
 services:
@@ -80,17 +95,51 @@ services:
 
 ### Authenticating to servers
 
+Authentication is supported using three different methods
+
+#### Option 1: Passthrough
+
+Passthrough authentication uses the regular authentication popup that comes with KopiaUI. This can lead to you having to authenticate multiple times and often.
+
+#### Option 2: Integrated authentication
+
+This application offers a simple credential management feature that you can use at your own risk. When a server responds with a `401` status code - a login window will appear. These credentials are stored in the browser session under the key `kopia-alt-ui-auth` in clear text. When switching between instances we lookup credentials in this storage and apply it to the request.
+
+**NOTE:** Remember to remove the `WWW-Authenticate` in your Nginx configuration for this feature to work properly.
+
+#### Option 3: Nginx authentication
+
+The third option is to allow Nginx to handle the authentication. This means that all requests will be authenticated by default and anyone with access to UI will have the same access as the user.
+
+To add this option:
+
+1. `base64` encode your username and password
+
+   ```sh
+   echo -n "USERNAME:PASSWORD" | base64 # Outputs: VVNFUk5BTUU6UEFTU1dPUkQ=
+   ```
+
+2. Pass the encoded value to your container
+3. Use the username and password in your `nginx.conf` file like shown in the example configuration above
+
 ## Development
 
-Add a new `.env` file with the following values and update as fitting to your setup
+The development setup requires a few instances of Kopia to run. These can be configured using the [docker-compose.yml](./.dev/docker-compose.yml) file.
 
-```env
-KAU_KOPIA_ENDPOINT=http://localhost:51515
-KAU_KOPIA_USERNAME=USERNAME
-KAU_KOPIA_PASSWORD=SECRET_PASSWORD
-```
+1. Uncomment the `--tls-generate-cert` argument
+2. Run `docker compose up`
+3. Copy the value of `SERVER CERT SHA256` that is outputted from `kopia-primary`, you will need this later
+4. Comment out the `--tls-generate-cert` argument again as Kopia will fail to start later if this is defined
+5. Execute the command `kopia server user add root@kopia-secondary` in the `kopia-primary` container. Make a note of the password you set for this user.
+6. Start the application using `npm dev`
+7. Login using `USER_ONE` and `PASSWORD_ONE` when prompted for credentials for `repo-docker-prod-01 / primary`
+8. Add a new `filesystem` repo targeting `/repository` and use the password `PASSWORD_ONE`
+9. Switch to the `repo-docker-prod-02 / slave` instance and login using the credentials `USER_TWO` and `PASSWORD_TWO`
+10. Add a new `Kopia Repository Server` repository.
+    - Use the url `https://kopia-primary:51515` and the `SERVER CERT SHA256` value from step 3.
+    - Use the password for the user created in step 5
 
-These values are used in `vite.config.ts` to setup a proxy that handles authentication.
+You can now start using the application and configure backups as needed.
 
 ## License
 

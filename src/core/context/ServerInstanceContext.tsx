@@ -45,8 +45,8 @@ export function ServerInstanceContextProvider({
     Record<string, KopiaAuth>
   >({
     key: "kopia-alt-ui-auth",
-    defaultValue: {},
   });
+
   const getInstances = useApiRequest({
     action: () => uiService.getInstances(),
     onReturn(resp) {

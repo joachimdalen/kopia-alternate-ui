@@ -1,6 +1,6 @@
 [
   {
-    "id": "master",
+    "id": "primary",
     "name": "repo-docker-prod-01",
     "default": true
   }
