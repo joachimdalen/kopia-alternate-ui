@@ -22,11 +22,13 @@ type ContextState = {
   servers: Instance[];
   currentServer?: Instance;
   setServer: (server: Instance) => void;
+  logoutFromServer: (id: string) => void;
   kopiaService: IKopiaService;
 };
 const initialState: ContextState = {
   servers: [],
   setServer: () => {},
+  logoutFromServer: () => {},
   kopiaService: {} as IKopiaService,
 };
 
@@ -77,6 +79,17 @@ export function ServerInstanceContextProvider({
     setCurrentInstance(server);
   }, []);
 
+  const logoutFromServer = useCallback(
+    (id: string) => {
+      const newLoginInfo = {
+        ...loginInfo,
+      };
+      delete newLoginInfo[id];
+      setLoginInfo(newLoginInfo);
+    },
+    [loginInfo, setLoginInfo]
+  );
+
   const kopiaInstance = useMemo(() => {
     if (currentInstance === undefined) {
       return {} as IKopiaService;
@@ -101,13 +114,13 @@ export function ServerInstanceContextProvider({
         servers: instances,
         currentServer: currentInstance,
         setServer,
+        logoutFromServer,
         kopiaService: kopiaInstance,
       }}
     >
       {loginRequired && currentInstance && (
         <SkeletonLayout>
           <LoginModal
-            onCancel={() => console.log()}
             onLogin={(username, password) => {
               loginAction.execute({
                 instance: currentInstance.id,

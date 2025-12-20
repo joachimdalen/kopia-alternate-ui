@@ -13,7 +13,6 @@ import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 import type { Instance } from "../uiService";
 type Props = {
-  onCancel: () => void;
   onLogin: (username: string, password: string) => void;
   instance?: Instance;
 };
@@ -28,7 +27,7 @@ type LoginForm = {
   password: string;
 };
 
-export default function LoginModal({ onCancel, instance, onLogin }: Props) {
+export default function LoginModal({ instance, onLogin }: Props) {
   const form = useForm<LoginForm>({
     mode: "controlled",
     initialValues: {
@@ -46,11 +45,12 @@ export default function LoginModal({ onCancel, instance, onLogin }: Props) {
   return (
     <Modal
       title={`Login to ${instance?.name}`}
-      onClose={onCancel}
+      onClose={() => console.log()}
       opened
       styles={modalBaseStyles}
       className={modalClasses.modalWrapper}
       closeOnClickOutside={false}
+      withCloseButton={false}
     >
       <form
         id="login-form"
@@ -73,10 +73,14 @@ export default function LoginModal({ onCancel, instance, onLogin }: Props) {
         </Stack>
       </form>
 
-      <Group className={modalClasses.footer}>
-        <Button size="xs" color="gray" variant="subtle" onClick={onCancel}>
-          Cancel
-        </Button>
+      <Group
+        className={modalClasses.footer}
+        styles={{
+          root: {
+            justifyContent: "flex-end",
+          },
+        }}
+      >
         <Button
           size="xs"
           type="submit"
