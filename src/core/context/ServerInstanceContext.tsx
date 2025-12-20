@@ -95,7 +95,8 @@ export function ServerInstanceContextProvider({
       return {} as IKopiaService;
     }
 
-    const loginForInstance = loginInfo[currentInstance.id];
+    const loginForInstance =
+      loginInfo === undefined ? undefined : loginInfo[currentInstance.id];
 
     return new KopiaService(
       currentInstance?.id || "main",
@@ -121,6 +122,7 @@ export function ServerInstanceContextProvider({
       {loginRequired && currentInstance && (
         <SkeletonLayout>
           <LoginModal
+            error={loginAction.error}
             onLogin={(username, password) => {
               loginAction.execute({
                 instance: currentInstance.id,

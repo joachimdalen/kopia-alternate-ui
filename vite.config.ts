@@ -9,7 +9,7 @@ export default defineConfig(() =>
       plugins: [react()],
       server: {
         proxy: {
-          "/api/master": {
+          "/api/primary": {
             target: "https://localhost:51515",
             changeOrigin: true,
             secure: false,
@@ -23,10 +23,10 @@ export default defineConfig(() =>
               });
             },
             rewrite(path) {
-              return path.replace("master/", "");
+              return path.replace("primary/", "");
             },
           },
-          "/api/slave": {
+          "/api/secondary": {
             target: "https://localhost:51525",
             changeOrigin: true,
             secure: false,
@@ -40,7 +40,7 @@ export default defineConfig(() =>
               });
             },
             rewrite(path) {
-              return path.replace("slave/", "");
+              return path.replace("secondary/", "");
             },
           },
           "/instances": {

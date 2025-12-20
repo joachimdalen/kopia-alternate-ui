@@ -8,7 +8,6 @@ import {
   type PropsWithChildren,
 } from "react";
 import useApiRequest from "../hooks/useApiRequest";
-//import kopiaService from "../kopiaService";
 import type { Preferences, Status } from "../types";
 import { useServerInstanceContext } from "./ServerInstanceContext";
 type ContextState = Preferences & {

@@ -83,10 +83,14 @@ function useApiRequest<TResponse, TRequest>({
       } else {
         const dd = response?.data as { code: string; error: string };
         const err: ErrorInformation = {
-          title: dd.code || "Operation failed",
+          title:
+            response.responseCode === 401
+              ? "401 Unauthorized"
+              : dd.code || "Operation failed",
           message: dd.error || "Failed due to an unknown error",
           data: response.data,
         };
+
         processError(err, data);
       }
     } catch (error: unknown) {

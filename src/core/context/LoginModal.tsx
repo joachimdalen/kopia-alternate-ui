@@ -11,8 +11,11 @@ import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+import { ErrorAlert } from "../ErrorAlert/ErrorAlert";
+import type { ErrorInformation } from "../hooks/useApiRequest";
 import type { Instance } from "../uiService";
 type Props = {
+  error?: ErrorInformation;
   onLogin: (username: string, password: string) => void;
   instance?: Instance;
 };
@@ -27,7 +30,7 @@ type LoginForm = {
   password: string;
 };
 
-export default function LoginModal({ instance, onLogin }: Props) {
+export default function LoginModal({ instance, onLogin, error }: Props) {
   const form = useForm<LoginForm>({
     mode: "controlled",
     initialValues: {
@@ -58,6 +61,7 @@ export default function LoginModal({ instance, onLogin }: Props) {
         className={modalClasses.container}
       >
         <Stack w="100%">
+          <ErrorAlert error={error} />
           <TextInput
             label="Username"
             withAsterisk
