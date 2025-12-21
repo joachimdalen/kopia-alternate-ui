@@ -1,6 +1,6 @@
 "use client";
 
-import type { DataTableColumn } from "mantine-datatable";
+import type { DataTableColumn, DataTableSortStatus } from "mantine-datatable";
 import { DataTable } from "mantine-datatable";
 import { useMemo, useState } from "react";
 
@@ -9,6 +9,8 @@ interface Props<T> {
   columns: DataTableColumn<T>[];
   onSelectedRecordsChange?: (selectedRecords: T[]) => void;
   selectedRecords?: T[];
+  sortStatus?: DataTableSortStatus<T>;
+  onSortStatusChange?: (sortStatus: DataTableSortStatus<T>) => void;
   noRecordsText?: string;
   noRecordsIcon?: React.ReactNode;
   idAccessor?: (keyof T | string) | ((record: T) => React.Key);
@@ -25,6 +27,8 @@ export function DataGrid<T>({
   noRecordsText,
   noRecordsIcon,
   onSelectedRecordsChange,
+  sortStatus,
+  onSortStatusChange,
   idAccessor,
   loading,
   pageSize = PAGE_SIZES[1],
@@ -64,6 +68,9 @@ export function DataGrid<T>({
       noRecordsText={noRecordsText}
       noRecordsIcon={noRecordsIcon}
       fetching={loading}
+      onSortStatusChange={onSortStatusChange}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      sortStatus={sortStatus as any}
     />
   );
 }

@@ -18,6 +18,8 @@ import {
   IconFolderOpen,
   IconRefreshAlert,
 } from "@tabler/icons-react";
+import sortBy from "lodash.sortby";
+import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { newActionProps, refreshButtonProps } from "../core/commonButtons";
@@ -30,7 +32,7 @@ import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
-import type { SourceInfo, Sources } from "../core/types";
+import type { SourceInfo, Sources, SourceStatus } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
 import { onlyUnique } from "../utils/onlyUnique";
@@ -45,6 +47,12 @@ function SnapshotsPage() {
   const [filterState, setFilterState] = useState<"all" | "local" | string>(
     "all"
   );
+  const [sortStatus, setSortStatus] = useState<
+    DataTableSortStatus<SourceStatus>
+  >({
+    columnAccessor: "source.path",
+    direction: "asc",
+  });
 
   const visibleData = useMemo(() => {
     if (data === undefined) return [];
@@ -67,8 +75,12 @@ function SnapshotsPage() {
         );
     }
 
-    return filterable;
-  }, [data, filterState]);
+    const entries = sortBy(
+      filterable,
+      sortStatus.columnAccessor
+    ) as SourceStatus[];
+    return sortStatus.direction === "desc" ? entries.reverse() : entries;
+  }, [data, filterState, sortStatus]);
 
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getSnapshots(),
@@ -165,10 +177,13 @@ function SnapshotsPage() {
           noRecordsText="No snapshots taken"
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
           pageSize={tablePageSize}
+          sortStatus={sortStatus}
+          onSortStatusChange={setSortStatus}
           columns={[
             {
               accessor: "source.path",
               title: "Path",
+              sortable: true,
               render: (item) => (
                 <Group gap="5">
                   <IconWrapper icon={IconFolderOpen} color="yellow" size={18} />
@@ -190,6 +205,7 @@ function SnapshotsPage() {
             },
             {
               accessor: "owner",
+              sortable: true,
               visibleMediaQuery: (theme) =>
                 `(min-width: ${theme.breakpoints.md})`,
               render: (item) =>
@@ -212,6 +228,7 @@ function SnapshotsPage() {
             },
             {
               accessor: "lastSnapshot.rootEntry.summ.size",
+              sortable: true,
               title: "Size",
               visibleMediaQuery: (theme) =>
                 `(min-width: ${theme.breakpoints.md})`,
@@ -224,6 +241,7 @@ function SnapshotsPage() {
             },
             {
               accessor: "lastSnapshot.startTime",
+              sortable: true,
               title: "Last Snapshot",
               render: (item) =>
                 item.lastSnapshot && (
