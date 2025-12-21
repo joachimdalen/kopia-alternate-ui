@@ -9,7 +9,6 @@ import {
   LoadingOverlay,
   Modal,
   ScrollAreaAutosize,
-  Select,
   Stack,
   Switch,
   Table,
@@ -36,7 +35,6 @@ import { useEffect, useState } from "react";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../../../core/FormattedDate";
 import IconWrapper from "../../../core/IconWrapper";
-import NumberSelect from "../../../core/NumberSelect";
 import RelativeDate from "../../../core/RelativeDate";
 import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
 import useApiRequest from "../../../core/hooks/useApiRequest";
@@ -49,6 +47,8 @@ import PolicyCompressionInput from "./policy-inputs/PolicyCompressionInput";
 import PolicyInheritYesNoPolicyInput from "./policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyLogDetailsInput from "./policy-inputs/PolicyLogDetailsInput";
 import PolicyNumberInput from "./policy-inputs/PolicyNumberInput";
+import PolicyNumberSelect from "./policy-inputs/PolicyNumberSelect";
+import PolicySelect from "./policy-inputs/PolicySelect";
 import PolicyTextInput from "./policy-inputs/PolicyTextInput";
 import PolicyTextListInput from "./policy-inputs/PolicyTextListInput";
 import PolicyTimeOfDayInput from "./policy-inputs/PolicyTimeOfDayInput";
@@ -494,54 +494,25 @@ export default function PolicyModal({
             <TabsPanel value="scheduling" px="xs">
               <ScrollAreaAutosize mah={600} scrollbarSize={4}>
                 <Accordion variant="contained">
-                  <AccordionItem value="snapshot-frequency">
-                    <PolicyAccordionControl
-                      title="Snapshot Frequency"
-                      description="How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
-                      isConfigured={
-                        form.values.scheduling?.intervalSeconds !== undefined
-                      }
-                    />
-                    <AccordionPanel>
-                      <Group grow>
-                        <NumberSelect
-                          label="Defined"
-                          description="This policy"
-                          data={[
-                            { label: "None", value: "" },
-                            { label: "Every 10 Minutes", value: "600" },
-                            { label: "Every 15 Minutes", value: "900" },
-                            { label: "Every 20 Minutes", value: "1200" },
-                            { label: "Every 30 Minutes", value: "1800" },
-                            { label: "Every hour", value: "3600" },
-                            { label: "Every 3 hours", value: "10800" },
-                            { label: "Every 6 hours", value: "21600" },
-                            { label: "Every 12 hours", value: "43200" },
-                          ]}
-                          withCheckIcon={false}
-                          {...form.getInputProps("scheduling.intervalSeconds")}
-                        />
-                        <NumberSelect
-                          description="Defined in global policy"
-                          label="Effective"
-                          data={[
-                            { label: "None", value: "" },
-                            { label: "Every 10 Minutes", value: "600" },
-                            { label: "Every 15 Minutes", value: "900" },
-                            { label: "Every 20 Minutes", value: "1200" },
-                            { label: "Every 30 Minutes", value: "1800" },
-                            { label: "Every hour", value: "3600" },
-                            { label: "Every 3 hours", value: "10800" },
-                            { label: "Every 6 hours", value: "21600" },
-                            { label: "Every 12 hours", value: "43200" },
-                          ]}
-                          withCheckIcon={false}
-                          disabled
-                          value={resolvedValue?.scheduling?.intervalSeconds}
-                        />
-                      </Group>
-                    </AccordionPanel>
-                  </AccordionItem>
+                  <PolicyNumberSelect
+                    id="snapshot-frequency"
+                    title="Snapshot Frequency"
+                    description="How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
+                    placeholder="Select Snapshot Frequency"
+                    data={[
+                      { label: "None", value: "" },
+                      { label: "Every 10 Minutes", value: "600" },
+                      { label: "Every 15 Minutes", value: "900" },
+                      { label: "Every 20 Minutes", value: "1200" },
+                      { label: "Every 30 Minutes", value: "1800" },
+                      { label: "Every hour", value: "3600" },
+                      { label: "Every 3 hours", value: "10800" },
+                      { label: "Every 6 hours", value: "21600" },
+                      { label: "Every 12 hours", value: "43200" },
+                    ]}
+                    form={form}
+                    formKey="scheduling.intervalSeconds"
+                  />
                   <PolicyTimeOfDayInput
                     id="time-of-day"
                     title="Time Of Day"
@@ -678,55 +649,21 @@ export default function PolicyModal({
                       resolvedValue?.actions?.beforeSnapshotRoot?.timeout
                     }
                   />
-                  <AccordionItem value="before-command-mode">
-                    <PolicyAccordionControl
-                      title="Command Mode - Before"
-                      description=" Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
-                      isConfigured={
-                        form.values.actions?.beforeSnapshotRoot?.mode !==
-                        undefined
-                      }
-                    />
-                    <AccordionPanel>
-                      <Group grow>
-                        <Select
-                          label="Defined"
-                          description="This policy"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          {...form.getInputProps(
-                            "actions.beforeSnapshotRoot.mode"
-                          )}
-                        />
-                        <Select
-                          description="Defined in global policy"
-                          label="Effective"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          disabled
-                          value={
-                            resolvedValue?.actions?.beforeSnapshotRoot?.mode
-                          }
-                        />
-                      </Group>
-                    </AccordionPanel>
-                  </AccordionItem>
+                  <PolicySelect
+                    id="before-command-mode"
+                    title="Command Mode - Before"
+                    description=" Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    data={[
+                      { label: "Must Succeed", value: "essential" },
+                      { label: "Ignore failures", value: "optional" },
+                      {
+                        label: "Run asynchronously, ignore failures",
+                        value: "async",
+                      },
+                    ]}
+                    form={form}
+                    formKey="actions.beforeSnapshotRoot.mode"
+                  />
                   <PolicyTextInput
                     id="after-snapshot"
                     title="After Snapshot"
@@ -747,55 +684,21 @@ export default function PolicyModal({
                       resolvedValue?.actions?.afterSnapshotRoot?.timeout
                     }
                   />
-                  <AccordionItem value="after-command-mode">
-                    <PolicyAccordionControl
-                      title="Command Mode - After"
-                      description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
-                      isConfigured={
-                        form.values.actions?.afterSnapshotRoot?.mode !==
-                        undefined
-                      }
-                    />
-                    <AccordionPanel>
-                      <Group grow>
-                        <Select
-                          label="Defined"
-                          description="This policy"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          {...form.getInputProps(
-                            "actions.afterSnapshotRoot.mode"
-                          )}
-                        />
-                        <Select
-                          description="Defined in global policy"
-                          label="Effective"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          disabled
-                          value={
-                            resolvedValue?.actions?.afterSnapshotRoot?.mode
-                          }
-                        />
-                      </Group>
-                    </AccordionPanel>
-                  </AccordionItem>
+                  <PolicySelect
+                    id="after-command-mode"
+                    title="Command Mode - After"
+                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    data={[
+                      { label: "Must Succeed", value: "essential" },
+                      { label: "Ignore failures", value: "optional" },
+                      {
+                        label: "Run asynchronously, ignore failures",
+                        value: "async",
+                      },
+                    ]}
+                    form={form}
+                    formKey="actions.afterSnapshotRoot.mode"
+                  />
                 </Accordion>
               </ScrollAreaAutosize>
             </TabsPanel>
@@ -818,50 +721,21 @@ export default function PolicyModal({
                     formKey="actions.beforeFolder.timeout"
                     effective={resolvedValue?.actions?.beforeFolder?.timeout}
                   />
-                  <AccordionItem value="before-command-mode">
-                    <PolicyAccordionControl
-                      title="Command Mode - Before"
-                      description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
-                      isConfigured={
-                        form.values.actions?.beforeFolder?.mode !== undefined
-                      }
-                    />
-                    <AccordionPanel>
-                      <Group grow>
-                        <Select
-                          label="Defined"
-                          description="This policy"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          {...form.getInputProps("actions.beforeFolder.mode")}
-                        />
-                        <Select
-                          description="Defined in global policy"
-                          label="Effective"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          disabled
-                          value={resolvedValue?.actions?.beforeFolder?.mode}
-                        />
-                      </Group>
-                    </AccordionPanel>
-                  </AccordionItem>
+                  <PolicySelect
+                    id="before-command-mode"
+                    title="Command Mode - Before"
+                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    data={[
+                      { label: "Must Succeed", value: "essential" },
+                      { label: "Ignore failures", value: "optional" },
+                      {
+                        label: "Run asynchronously, ignore failures",
+                        value: "async",
+                      },
+                    ]}
+                    form={form}
+                    formKey="actions.beforeFolder.mode"
+                  />
                   <PolicyTextInput
                     id="after-folder"
                     title="After Folder"
@@ -878,51 +752,21 @@ export default function PolicyModal({
                     formKey="actions.afterFolder.timeout"
                     effective={resolvedValue?.actions?.afterFolder?.timeout}
                   />
-                  <AccordionItem value="after-command-mode">
-                    <PolicyAccordionControl
-                      title="Command Mode - After"
-                      description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
-                      isConfigured={
-                        form.values.actions?.afterFolder?.mode !== undefined
-                      }
-                    />
-
-                    <AccordionPanel>
-                      <Group grow>
-                        <Select
-                          label="Defined"
-                          description="This policy"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          {...form.getInputProps("actions.afterFolder.mode")}
-                        />
-                        <Select
-                          description="Defined in global policy"
-                          label="Effective"
-                          data={[
-                            { label: "Must Succeed", value: "essential" },
-                            { label: "Ignore failures", value: "optional" },
-                            {
-                              label: "Run asynchronously, ignore failures",
-                              value: "async",
-                            },
-                          ]}
-                          withCheckIcon={false}
-                          allowDeselect={false}
-                          disabled
-                          value={resolvedValue?.actions?.afterFolder?.mode}
-                        />
-                      </Group>
-                    </AccordionPanel>
-                  </AccordionItem>
+                  <PolicySelect
+                    id="after-command-mode"
+                    title="Command Mode - After"
+                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    data={[
+                      { label: "Must Succeed", value: "essential" },
+                      { label: "Ignore failures", value: "optional" },
+                      {
+                        label: "Run asynchronously, ignore failures",
+                        value: "async",
+                      },
+                    ]}
+                    form={form}
+                    formKey="actions.afterFolder.mode"
+                  />
                 </Accordion>
               </ScrollAreaAutosize>
             </TabsPanel>
