@@ -31,6 +31,7 @@ import {
   IconTestPipe,
   IconUpload,
 } from "@tabler/icons-react";
+import merge from "lodash.merge";
 import { useEffect, useState } from "react";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../../../core/FormattedDate";
@@ -65,6 +66,26 @@ type Props = {
 //   description: Yup.string().max(250).label("Description"),
 // });
 
+const defaultPolicyStructure: Policy = {
+  actions: {
+    afterFolder: {},
+    afterSnapshotRoot: {},
+    beforeFolder: {},
+    beforeSnapshotRoot: {},
+  },
+  osSnapshots: {
+    volumeShadowCopy: {},
+  },
+  logging: {
+    directories: {},
+    entries: {},
+  },
+};
+
+function mergePolicy(current: Policy) {
+  return merge(defaultPolicyStructure, current);
+}
+
 export default function PolicyModal({
   isNew,
   target,
@@ -84,6 +105,7 @@ export default function PolicyModal({
     },
     // validate: yupResolver(schema),
   });
+  console.log(form.values);
 
   const {
     error: loadError,
@@ -92,7 +114,7 @@ export default function PolicyModal({
   } = useApiRequest({
     action: () => kopiaService.getPolicy(target),
     onReturn: (g) => {
-      form.initialize(g);
+      form.initialize(mergePolicy(g));
       executeResolve(g);
     },
   });
@@ -108,8 +130,9 @@ export default function PolicyModal({
         updates: data!,
       }),
     onReturn: (g) => {
+      console.log(g);
       if (isNew) {
-        form.initialize(g.defined);
+        form.initialize(mergePolicy(g.defined));
       }
       setResolved(g);
     },
