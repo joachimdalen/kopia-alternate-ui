@@ -279,6 +279,10 @@ function PoliciesPage() {
           isNew={action.item!.isNew}
           target={action.item!.target}
           onCancel={() => setAction(undefined)}
+          onDeleted={() => {
+            setAction(undefined);
+            execute(undefined, "refresh");
+          }}
         />
       )}
       {action &&

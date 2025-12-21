@@ -1,4 +1,5 @@
 import { AppShell, createTheme, MantineProvider } from "@mantine/core";
+import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./core/Footer/Footer";
@@ -12,22 +13,24 @@ function BaseLayout() {
   });
   return (
     <MantineProvider defaultColorScheme="dark" theme={theme}>
-      <ServerInstanceContextProvider>
-        <AppContextProvider>
-          <Notifications position="top-right" />
-          <AppShell
-            padding="md"
-            header={{ height: 60 }}
-            footer={{ height: 40 }}
-          >
-            <Header />
-            <AppShell.Main>
-              <Outlet />
-            </AppShell.Main>
-            <Footer />
-          </AppShell>
-        </AppContextProvider>
-      </ServerInstanceContextProvider>
+      <ModalsProvider>
+        <ServerInstanceContextProvider>
+          <AppContextProvider>
+            <Notifications position="top-right" />
+            <AppShell
+              padding="md"
+              header={{ height: 60 }}
+              footer={{ height: 40 }}
+            >
+              <Header />
+              <AppShell.Main>
+                <Outlet />
+              </AppShell.Main>
+              <Footer />
+            </AppShell>
+          </AppContextProvider>
+        </ServerInstanceContextProvider>
+      </ModalsProvider>
     </MantineProvider>
   );
 }

@@ -67,7 +67,7 @@ export interface IKopiaService {
   getAlgorithms(): Promise<ApiResponse<AlgorithmsList>>;
   getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>>;
   savePolicy(policy: Policy, source: SourceInfo): Promise<ApiResponse<Policy>>;
-
+  deletePolicy(sourceInfo: SourceInfo): Promise<ApiResponse<unknown>>;
   getTasksSummary(): Promise<ApiResponse<TasksSummary>>;
   resolvePolicy(
     source: SourceInfo,
@@ -225,6 +225,9 @@ export class KopiaService implements IKopiaService {
     source: SourceInfo
   ): Promise<ApiResponse<Policy>> {
     return this.put(`/api/${this.instance}/v1/policy`, policy, source);
+  }
+  public deletePolicy(source: SourceInfo): Promise<ApiResponse<unknown>> {
+    return this.delete(`/api/${this.instance}/v1/policy`, source);
   }
   public getTasksSummary(): Promise<ApiResponse<TasksSummary>> {
     return this.get(`/api/${this.instance}/v1/tasks-summary`);

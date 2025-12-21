@@ -14,6 +14,7 @@
     "@mantine/dates": "^8.3.5",
     "@mantine/form": "^8.3.5",
     "@mantine/hooks": "^8.3.5",
+    "@mantine/modals": "^8.3.10",
     "@mantine/notifications": "^8.3.5",
     "@melloware/react-logviewer": "^6.3.4",
     "@tabler/icons-react": "^3.35.0",

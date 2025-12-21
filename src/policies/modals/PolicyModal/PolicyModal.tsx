@@ -43,6 +43,7 @@ import type { Policy, ResolvedPolicy, SourceInfo } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { getPolicyType } from "../../policiesUtil";
+import DeletePolicyButton from "./components/DeletePolicyButton";
 import PolicyAccordionControl from "./components/PolicyAccordionControl";
 import PolicyCompressionInput from "./policy-inputs/PolicyCompressionInput";
 import PolicyInheritYesNoPolicyInput from "./policy-inputs/PolicyInheritYesNoPolicyInput";
@@ -58,6 +59,7 @@ type Props = {
   target: SourceInfo;
   isNew: boolean;
   onCancel: () => void;
+  onDeleted?: () => void;
   onSubmitted?: (policy: Policy) => void;
   saveOnSubmit?: boolean;
 };
@@ -91,6 +93,7 @@ export default function PolicyModal({
   target,
   onCancel,
   onSubmitted,
+  onDeleted,
   saveOnSubmit = true,
 }: Props) {
   const { kopiaService } = useServerInstanceContext();
@@ -105,7 +108,6 @@ export default function PolicyModal({
     },
     // validate: yupResolver(schema),
   });
-  console.log(form.values);
 
   const {
     error: loadError,
@@ -130,7 +132,6 @@ export default function PolicyModal({
         updates: data!,
       }),
     onReturn: (g) => {
-      console.log(g);
       if (isNew) {
         form.initialize(mergePolicy(g.defined));
       }
@@ -896,10 +897,8 @@ export default function PolicyModal({
           Cancel
         </Button>
         <Group>
-          {!isNew && !isGlobal && (
-            <Button size="xs" color="red">
-              Delete
-            </Button>
+          {!isNew && !isGlobal && onDeleted && (
+            <DeletePolicyButton sourceInfo={target} onDeleted={onDeleted} />
           )}
           <Button
             size="xs"
