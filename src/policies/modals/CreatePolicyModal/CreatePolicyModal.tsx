@@ -65,7 +65,6 @@ export default function CreatePolicyModal({
       if (g.data != undefined) {
         const intd = g.data as { code: string; error: string };
         if (intd.code === "NOT_FOUND") {
-          console.log("indt", intd);
           onEdit(
             {
               userName: localUserName,

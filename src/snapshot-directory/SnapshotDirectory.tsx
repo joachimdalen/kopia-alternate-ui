@@ -24,6 +24,8 @@ import {
   IconFolderOpen,
   IconSearch,
 } from "@tabler/icons-react";
+import sortBy from "lodash.sortby";
+import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
@@ -35,12 +37,11 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import type { DirManifest } from "../core/types";
+import type { DirEntry, DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import { fileIcons } from "./fileIcons";
 import RestoreModal from "./modals/RestoreModal";
-
 const getFileIcon = (name: string) => {
   const parts = name.split(".");
   const ext = parts[parts.length - 1];
@@ -61,6 +62,12 @@ function SnapshotDirectory() {
   const [show, setShow] = useDisclosure();
   const [query, setQuery] = useInputState("");
   const [debouncedQuery] = useDebouncedValue(query, 200);
+
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<DirEntry>>({
+    columnAccessor: "name",
+    direction: "asc",
+  });
+
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getObjects(oid as string),
     onReturn(resp) {
@@ -81,8 +88,9 @@ function SnapshotDirectory() {
       items = items.filter((x) => x.name.indexOf(debouncedQuery) !== -1);
     }
 
-    return items;
-  }, [data, debouncedQuery]);
+    const entries = sortBy(items, sortStatus.columnAccessor) as DirEntry[];
+    return sortStatus.direction === "desc" ? entries.reverse() : entries;
+  }, [data, debouncedQuery, sortStatus]);
 
   return (
     <Container fluid>
@@ -139,6 +147,7 @@ function SnapshotDirectory() {
           columns={[
             {
               accessor: "name",
+              sortable: true,
               render: (item) =>
                 item.obj.startsWith("k") ? (
                   <Group gap="5">
@@ -173,7 +182,10 @@ function SnapshotDirectory() {
                 ),
             },
             {
-              accessor: "lastModification",
+              accessor: "mtime",
+              sortable: true,
+              sortKey: "mtime",
+              title: "Last Modification",
               render: (item) => (
                 <FormattedDate
                   value={item.mtime}
@@ -192,8 +204,18 @@ function SnapshotDirectory() {
                   bytesStringBase2
                 ),
             },
-            { accessor: "summ.files", title: "Files", textAlign: "center" },
-            { accessor: "summ.dirs", title: "Dirs", textAlign: "center" },
+            {
+              accessor: "summ.files",
+              sortable: true,
+              title: "Files",
+              textAlign: "center",
+            },
+            {
+              accessor: "summ.dirs",
+              sortable: true,
+              title: "Dirs",
+              textAlign: "center",
+            },
             {
               accessor: "",
               width: 200,
@@ -214,6 +236,8 @@ function SnapshotDirectory() {
                 ),
             },
           ]}
+          sortStatus={sortStatus}
+          onSortStatusChange={setSortStatus}
         />
       </Stack>
       {show && oid && (

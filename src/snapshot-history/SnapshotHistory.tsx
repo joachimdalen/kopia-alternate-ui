@@ -21,6 +21,8 @@ import {
   IconPin,
   IconTrash,
 } from "@tabler/icons-react";
+import sortBy from "lodash.sortby";
+import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { refreshButtonProps } from "../core/commonButtons";
@@ -61,6 +63,18 @@ function SnapshotHistory() {
       path: searchParams.get("path") as string,
     };
   }, [searchParams]);
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Snapshot>>({
+    columnAccessor: "startTime",
+    direction: "desc",
+  });
+
+  const visibleData = useMemo(() => {
+    if (data?.snapshots === undefined) return [];
+
+    const filterable = [...data.snapshots];
+    const entries = sortBy(filterable, sortStatus.columnAccessor) as Snapshot[];
+    return sortStatus.direction === "desc" ? entries.reverse() : entries;
+  }, [data, sortStatus]);
 
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () =>
@@ -142,13 +156,16 @@ function SnapshotHistory() {
           selectedRecords={selectedRecords}
           onSelectedRecordsChange={setSelectedRecords}
           loading={loading && loadingKey === "loading"}
-          records={data?.snapshots ?? []}
+          records={visibleData}
           noRecordsText="No snapshots taken"
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
           pageSize={tablePageSize}
+          sortStatus={sortStatus}
+          onSortStatusChange={setSortStatus}
           columns={[
             {
               accessor: "startTime",
+              sortable: true,
               render: (item) => (
                 <Anchor
                   component={Link}
@@ -214,12 +231,23 @@ function SnapshotHistory() {
             {
               accessor: "summary.size",
               title: "Size",
+              sortable: true,
               textAlign: "center",
               render: (item) =>
                 sizeDisplayName(item.summary.size, bytesStringBase2),
             },
-            { accessor: "summary.files", title: "Files", textAlign: "center" },
-            { accessor: "summary.dirs", title: "Dirs", textAlign: "center" },
+            {
+              accessor: "summary.files",
+              title: "Files",
+              sortable: true,
+              textAlign: "center",
+            },
+            {
+              accessor: "summary.dirs",
+              title: "Dirs",
+              sortable: true,
+              textAlign: "center",
+            },
             {
               accessor: "",
               title: "",

@@ -22,6 +22,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.18",
     "lodash.merge": "^4.6.2",
+    "lodash.sortby": "^4.7.0",
     "mantine-datatable": "^8.2.0",
     "mantine-form-yup-resolver": "^2.0.0",
     "react": "^19.1.1",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/lodash.merge": "^4.6.9",
+    "@types/lodash.sortby": "^4.7.9",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
