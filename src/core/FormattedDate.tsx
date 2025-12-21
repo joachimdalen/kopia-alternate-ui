@@ -1,12 +1,19 @@
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-dayjs.extend(relativeTime);
+import localFormat from "dayjs/plugin/localizedFormat";
+import { useAppContext } from "./context/AppContext";
+import formatsByLocale from "./dates/formatsByLocale";
+dayjs.extend(localFormat);
 
 type Props = {
   value: string;
-  format?: string;
 };
 
-export default function FormattedDate({ value, format = "YYYY-MM-DD" }: Props) {
-  return dayjs(value).format(format).toString();
+export default function FormattedDate({ value }: Props) {
+  const { locale } = useAppContext();
+  let currentFormat = formatsByLocale[locale];
+  if (currentFormat === undefined) {
+    currentFormat = formatsByLocale["en"];
+  }
+
+  return dayjs(value).locale(currentFormat).format("L LTS").toString();
 }

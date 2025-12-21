@@ -174,10 +174,7 @@ function SnapshotHistory() {
                   td="none"
                   fz="sm"
                 >
-                  <FormattedDate
-                    value={item.startTime}
-                    format="YYYY-MM-DD h:mm:ss A"
-                  />
+                  <FormattedDate value={item.startTime} />
                 </Anchor>
               ),
             },

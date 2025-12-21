@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
+import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
@@ -72,9 +73,11 @@ function TaskDetailsPage() {
                   Started
                 </Text>
                 <Text fw={700} size="xl">
-                  {data?.startTime
-                    ? new Date(data.startTime).toLocaleString()
-                    : "-"}
+                  {data?.startTime ? (
+                    <FormattedDate value={data.startTime} />
+                  ) : (
+                    "-"
+                  )}
                 </Text>
               </div>
             </Group>
@@ -87,9 +90,7 @@ function TaskDetailsPage() {
                   Finished
                 </Text>
                 <Text fw={700} size="xl">
-                  {data?.endTime
-                    ? new Date(data?.endTime).toLocaleString()
-                    : "-"}
+                  {data?.endTime ? <FormattedDate value={data.endTime} /> : "-"}
                 </Text>
               </div>
             </Group>

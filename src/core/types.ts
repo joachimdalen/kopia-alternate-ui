@@ -547,6 +547,7 @@ export type Preferences = {
   fontSize: string;
   pageSize: number;
   language: string;
+  locale: string;
 };
 export type NotificationType = "webhook" | "pushover" | "email";
 export type NotificationConfig =

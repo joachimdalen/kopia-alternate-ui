@@ -20,6 +20,7 @@ const initialState: ContextState = {
   defaultSnapshotViewAll: false,
   fontSize: "fs-6",
   language: "",
+  locale: "en",
   pageSize: 20,
   theme: "light",
   reloadPreferences: () => {},
@@ -48,6 +49,7 @@ export function AppContextProvider({ children }: AppContextProps) {
         fontSize: resp.fontSize,
         pageSize: resp.pageSize === 0 ? 20 : resp.pageSize,
         theme: resp.theme === "" ? "light" : "dark",
+        locale: resp.locale || "en",
       });
     },
   });

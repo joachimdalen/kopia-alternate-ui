@@ -186,12 +186,7 @@ function SnapshotDirectory() {
               sortable: true,
               sortKey: "mtime",
               title: "Last Modification",
-              render: (item) => (
-                <FormattedDate
-                  value={item.mtime}
-                  format="YYYY-MM-DD h:mm:ss A"
-                />
-              ),
+              render: (item) => <FormattedDate value={item.mtime} />,
             },
 
             {

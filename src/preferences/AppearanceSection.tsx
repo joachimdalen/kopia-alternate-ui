@@ -18,6 +18,7 @@ type PreferencesForm = {
   bytesStringBase2: string;
   theme: string;
   pageSize: string;
+  locale: string;
 };
 
 function AppearanceSection() {
@@ -39,6 +40,7 @@ function AppearanceSection() {
         defaultSnapshotViewAll: data!.defaultSnapshotViewAll,
         fontSize: data!.fontSize,
         language: data!.language,
+        locale: values!.locale,
       };
       return pref;
     },
@@ -53,6 +55,7 @@ function AppearanceSection() {
         pageSize:
           resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
         theme: resp.theme.toString() || "light",
+        locale: resp.locale || "en",
       });
     },
   });
@@ -123,6 +126,17 @@ function AppearanceSection() {
             allowDeselect={false}
             withCheckIcon={false}
             {...form.getInputProps("pageSize")}
+          />
+          <Select
+            label="Locale"
+            data={[
+              { label: "English", value: "en" },
+              { label: "Norsk - Bokmål", value: "nb" },
+              { label: "Norsk - Nynorsk", value: "nn" },
+            ]}
+            allowDeselect={false}
+            withCheckIcon={false}
+            {...form.getInputProps("locale")}
           />
         </Group>
         <Group justify="flex-end" p="sm">
