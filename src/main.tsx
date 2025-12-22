@@ -15,6 +15,7 @@ import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
 import TaskDetailsPage from "./tasks/TaskDetailsPage.tsx";
 import TasksPage from "./tasks/TasksPage.tsx";
+import SnapshotMountsPage from "./snapshot-mounts/SnapshotMountsPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")!).render(
             element={<SnapshotHistory />}
           />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
+          <Route path="/mounts" element={<SnapshotMountsPage />} />
           <Route path="/tasks" element={<TasksPage />} />
           <Route path="/tasks/:tid" element={<TaskDetailsPage />} />
           <Route path="/policies" element={<PoliciesPage />} />

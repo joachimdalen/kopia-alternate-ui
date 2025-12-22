@@ -13,6 +13,7 @@ import {
   IconClipboardCheck,
   IconDatabase,
   IconFileCertificate,
+  IconFolderBolt,
   IconPackage,
   IconSettings,
 } from "@tabler/icons-react";
@@ -31,6 +32,12 @@ export function SkeletonHeader() {
         label: "Snapshots",
         disabled: true,
         icon: IconPackage,
+      },
+       {
+        link: "/mounts",
+        label: "Mounts",
+        disabled: true,
+        icon: IconFolderBolt,
       },
       {
         link: "/policies",

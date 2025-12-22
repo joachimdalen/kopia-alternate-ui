@@ -634,3 +634,7 @@ export type MountedSnapshot = {
 export type MountSnapshotRequest = {
   root: string;
 }
+
+export type MountsResponse = {
+  items: MountedSnapshot[]
+}

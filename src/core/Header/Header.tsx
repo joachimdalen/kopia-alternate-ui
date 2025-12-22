@@ -13,6 +13,7 @@ import {
   IconClipboardCheck,
   IconDatabase,
   IconFileCertificate,
+  IconFolderBolt,
   IconPackage,
   IconSettings,
 } from "@tabler/icons-react";
@@ -33,6 +34,12 @@ export function Header() {
         label: "Snapshots",
         disabled: !repoStatus.connected,
         icon: IconPackage,
+      },
+      {
+        link: "/mounts",
+        label: "Mounts",
+        disabled: !repoStatus.connected,
+        icon: IconFolderBolt,
       },
       {
         link: "/policies",
@@ -69,7 +76,7 @@ export function Header() {
         </Group>
       </Anchor>
     ) : (
-      <NavLink key={link.label} to={link.link} className={classes.link}>
+      <NavLink key={link.label} to={link.link} className={classes.link} >
         <Group gap={5}>
           <IconWrapper icon={link.icon} size={14} />
           {link.label}
