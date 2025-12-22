@@ -625,3 +625,12 @@ export type DeleteSnapshotRequest = {
   snapshotManifestIds: string[];
   deleteSourceAndPolicy: boolean;
 };
+
+export type MountedSnapshot = {
+  path: string;
+  root: string;
+}
+
+export type MountSnapshotRequest = {
+  root: string;
+}

@@ -9,6 +9,8 @@ import type {
   DeleteSnapshotRequest,
   DirManifest,
   EstimateSnapshotRequest,
+  MountedSnapshot,
+  MountSnapshotRequest,
   NotificationProfile,
   PoliciesList,
   Policy,
@@ -98,6 +100,9 @@ export interface IKopiaService {
   deleteSnapshot(data: DeleteSnapshotRequest): Promise<ApiResponse<unknown>>;
   syncRepo(): Promise<ApiResponse<unknown>>;
   login(username: string, password: string): Promise<ApiResponse<Status>>;
+  mountSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>>;
+  getMountedSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>>;
+  unMountSnapshot(root: string): Promise<ApiResponse<unknown>>;
 }
 
 export class KopiaService implements IKopiaService {
@@ -314,6 +319,20 @@ export class KopiaService implements IKopiaService {
   }
   public syncRepo(): Promise<ApiResponse<unknown>> {
     return this.post(`/api/${this.instance}/v1/repo/sync`);
+  }
+
+  public mountSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>> {
+    const req: MountSnapshotRequest = {
+      root,
+    }
+    return this.post(`/api/${this.instance}/v1/mounts`, req);
+  }
+
+  public getMountedSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>> {
+    return this.get(`/api/${this.instance}/v1/mounts/${root}`);
+  }
+  public unMountSnapshot(root: string): Promise<ApiResponse<unknown>> {
+    return this.delete(`/api/${this.instance}/v1/mounts/${root}`);
   }
 
   // Privates

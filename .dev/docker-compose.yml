@@ -6,6 +6,12 @@ services:
     container_name: kopia-primary
     ports:
       - 51515:51515
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    devices:
+      - /dev/fuse:/dev/fuse:rwm
     command:
       - server
       - start
@@ -50,14 +56,14 @@ services:
       - --address=0.0.0.0:51515
       - --server-username=USER_TWO
       - --server-password=PASSWORD_TWO
-      #- --tls-generate-cert
+   #   - --tls-generate-cert
       - --tls-cert-file=/app/config/my.cert
       - --tls-key-file=/app/config/my.key
       - --server-control-username=CONTROL_ADMIN
       - --server-control-password=PASSWORD_HERE
     environment:
       # Set repository password
-      KOPIA_PASSWORD: "PASSWORD_TWO"
+      KOPIA_PASSWORD: "PASSWORD_THREE"
     volumes:
       # Mount local folders needed by kopia
       - ./secondary-data/config:/app/config

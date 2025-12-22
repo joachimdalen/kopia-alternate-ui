@@ -1,14 +1,17 @@
 import {
   ActionIcon,
+  Alert,
   Anchor,
   Button,
   Container,
+  CopyButton,
   Divider,
   Group,
   Stack,
   Text,
   TextInput,
   Title,
+  Tooltip,
 } from "@mantine/core";
 import {
   useDebouncedValue,
@@ -18,10 +21,15 @@ import {
 } from "@mantine/hooks";
 import {
   IconArrowLeft,
+  IconCheck,
+  IconCopy,
   IconFile,
   IconFileDelta,
   IconFileDownload,
+  IconFolderBolt,
+  IconFolderMinus,
   IconFolderOpen,
+  IconFolderShare,
   IconSearch,
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -37,11 +45,12 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import type { DirEntry, DirManifest } from "../core/types";
+import { type MountedSnapshot, type DirEntry, type DirManifest } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import { fileIcons } from "./fileIcons";
 import RestoreModal from "./modals/RestoreModal";
+import MountButton from "./components/MountButton";
 const getFileIcon = (name: string) => {
   const parts = name.split(".");
   const ext = parts[parts.length - 1];
@@ -58,6 +67,7 @@ function SnapshotDirectory() {
   const previousOid = usePrevious(oid);
   const navigate = useNavigate();
   const [data, setData] = useState<DirManifest>();
+  const [mount, setMount] = useState<MountedSnapshot>();
   const location = useLocation();
   const [show, setShow] = useDisclosure();
   const [query, setQuery] = useInputState("");
@@ -75,9 +85,17 @@ function SnapshotDirectory() {
     },
   });
 
+  const getMountAction = useApiRequest({
+    action: (oid?: string) => kopiaService.getMountedSnapshot(oid!),
+    onReturn(mnt) {
+      setMount(mnt)
+    }
+  });
+
   useEffect(() => {
     if (previousOid != oid) {
       execute(undefined, "loading");
+      getMountAction.execute(oid);
     }
   }, [oid]);
 
@@ -122,6 +140,7 @@ function SnapshotDirectory() {
             >
               Restore
             </Button>
+            {oid && <MountButton mount={mount} rootID={oid} onMounted={(mnt) => setMount(mnt)} />}
             <Button
               loading={loading && loadingKey === "refresh"}
               onClick={() => execute(undefined, "refresh")}
@@ -133,6 +152,18 @@ function SnapshotDirectory() {
         </Group>
         <Divider />
         <ErrorAlert error={error} />
+        {mount && <Alert title="Snapshot Mounted" color="grape">
+          Snapshot is mounted at the following path:
+          <TextInput readOnly defaultValue={mount.path} rightSection={<CopyButton value={mount.path} timeout={2000}>
+            {({ copied, copy }) => (
+              <Tooltip label={copied ? 'Copied' : 'Copy'} withArrow position="right">
+                <ActionIcon color={copied ? 'teal' : 'gray'} variant="subtle" onClick={copy}>
+                  {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                </ActionIcon>
+              </Tooltip>
+            )}
+          </CopyButton>} />
+        </Alert>}
         <DataGrid
           idAccessor="obj"
           loading={loading && loadingKey === "loading"}
@@ -218,9 +249,8 @@ function SnapshotDirectory() {
                 !item.obj.startsWith("k") && (
                   <Button
                     component="a"
-                    href={`/api/v1/objects/${
-                      item.obj
-                    }?fname=${encodeURIComponent(item.name)}`}
+                    href={`/api/v1/objects/${item.obj
+                      }?fname=${encodeURIComponent(item.name)}`}
                     td="none"
                     size="xs"
                     leftSection={<IconFileDownload size={14} />}
