@@ -1,6 +1,5 @@
-import { Anchor, Breadcrumbs, Button, Group, Tooltip } from "@mantine/core";
-import { IconFolderBolt, IconFolderMinus, IconInfoCircleFilled } from "@tabler/icons-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "@mantine/core";
+import { IconFolderBolt, IconFolderMinus } from "@tabler/icons-react";
 import type { MountedSnapshot } from "../../core/types";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import useApiRequest from "../../core/hooks/useApiRequest";

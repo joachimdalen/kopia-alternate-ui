@@ -1,7 +1,6 @@
 import {
   Anchor,
   Button,
-  Center,
   Container,
   Divider,
   Group,
@@ -10,11 +9,8 @@ import {
 } from "@mantine/core";
 import {
   IconClick,
-  IconFileDatabase,
   IconFolderBolt,
   IconFolderMinus,
-  IconFolderOpen,
-  IconPencil,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useAppContext } from "../core/context/AppContext";
@@ -29,7 +25,7 @@ import { showNotification } from "@mantine/notifications";
 
 function SnapshotMountsPage() {
   const { kopiaService } = useServerInstanceContext();
-  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
+  const { pageSize: tablePageSize } = useAppContext();
   const [data, setData] = useState<MountedSnapshot[]>([]);
 
   const loadMountsAction = useApiRequest({

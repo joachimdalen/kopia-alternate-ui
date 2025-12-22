@@ -26,10 +26,7 @@ import {
   IconFile,
   IconFileDelta,
   IconFileDownload,
-  IconFolderBolt,
-  IconFolderMinus,
   IconFolderOpen,
-  IconFolderShare,
   IconSearch,
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
