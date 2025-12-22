@@ -1,7 +1,6 @@
 .header {
   height: 56px;
   margin-bottom: 120px;
-  //background-color: #2a7fff;
   background-color: #0e1d33;
   border-bottom: 1px solid
     light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
@@ -29,8 +28,6 @@
   font-weight: 500;
 
   [data-mantine-color-scheme] &[aria-current="page"] {
-    //color: var(--mantine-color-blue-9);
-    //background-color: var(--mantine-color-white);
     color: white;
     background-color: #040d1b;
   }

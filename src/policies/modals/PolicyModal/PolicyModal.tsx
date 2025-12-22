@@ -609,7 +609,6 @@ export default function PolicyModal({
                                   <Table.Td>
                                     <FormattedDate
                                       value={t}
-                                      format="YY-MM-DD h:mm A"
                                     />
                                   </Table.Td>
                                   <Table.Td>
