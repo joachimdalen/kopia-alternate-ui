@@ -85,7 +85,7 @@ location /api/[INSTANCE-ID] {
 services:
   kopiaaltui:
     conatiner_name: kopia-ui
-    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.0
+    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.1
     ports:
       - 8080:80
     volumes:
