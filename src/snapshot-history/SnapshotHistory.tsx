@@ -46,13 +46,13 @@ import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
 function SnapshotHistory() {
   const { kopiaService } = useServerInstanceContext();
-  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
+  const { pageSize: tablePageSize, bytesStringBase2, defaultSnapshotViewAll } = useAppContext();
   const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(defaultSnapshotViewAll);
   const [itemAction, setItemAction] =
     useState<ItemAction<Snapshot, "description" | "pin" | "delete">>();
   const [pinAction, setPinAction] = useState<ItemAction<string, "pin">>();

@@ -1,5 +1,6 @@
 import {
   Button,
+  Checkbox,
   Group,
   Loader,
   Select,
@@ -20,6 +21,7 @@ type PreferencesForm = {
   theme: string;
   pageSize: string;
   locale: string;
+  defaultSnapshotViewAll: boolean;
 };
 
 function AppearanceSection() {
@@ -38,7 +40,7 @@ function AppearanceSection() {
         bytesStringBase2: values.bytesStringBase2 === "true",
         pageSize: parseInt(values.pageSize),
         theme: values.theme,
-        defaultSnapshotViewAll: data!.defaultSnapshotViewAll,
+        defaultSnapshotViewAll: values.defaultSnapshotViewAll,
         fontSize: data!.fontSize,
         language: data!.language,
         locale: values!.locale,
@@ -57,6 +59,7 @@ function AppearanceSection() {
           resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
         theme: parseColorScheme(resp.theme),
         locale: resp.locale || "en",
+        defaultSnapshotViewAll: resp.defaultSnapshotViewAll
       });
     },
   });
@@ -140,6 +143,9 @@ function AppearanceSection() {
             {...form.getInputProps("locale")}
           />
         </Group>
+        <Checkbox label="Show all snapshots by default"
+          {...form.getInputProps("defaultSnapshotViewAll", { type: "checkbox" })}
+        />
         <Group justify="flex-end" p="sm">
           <Button type="submit" color="green">
             Save
