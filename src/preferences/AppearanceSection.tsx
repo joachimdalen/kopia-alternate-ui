@@ -13,6 +13,7 @@ import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { Preferences } from "../core/types";
+import { parseColorScheme } from "../utils/parseColorScheme";
 
 type PreferencesForm = {
   bytesStringBase2: string;
@@ -54,7 +55,7 @@ function AppearanceSection() {
         bytesStringBase2: resp.bytesStringBase2.toString(),
         pageSize:
           resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
-        theme: resp.theme.toString() || "light",
+        theme: parseColorScheme(resp.theme),
         locale: resp.locale || "en",
       });
     },

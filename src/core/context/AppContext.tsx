@@ -1,4 +1,4 @@
-import { LoadingOverlay } from "@mantine/core";
+import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
 import {
   createContext,
   useCallback,
@@ -7,6 +7,7 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
+import { parseColorScheme } from "../../utils/parseColorScheme";
 import useApiRequest from "../hooks/useApiRequest";
 import type { Preferences, Status } from "../types";
 import { useServerInstanceContext } from "./ServerInstanceContext";
@@ -23,8 +24,8 @@ const initialState: ContextState = {
   locale: "en",
   pageSize: 20,
   theme: "light",
-  reloadPreferences: () => {},
-  reloadStatus: () => {},
+  reloadPreferences: () => { },
+  reloadStatus: () => { },
   repoStatus: {
     connected: false,
     description: "Unknown",
@@ -38,19 +39,24 @@ export function AppContextProvider({ children }: AppContextProps) {
   const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();
+  const { setColorScheme, colorScheme } = useMantineColorScheme();
   const loadPreferences = useApiRequest({
     showErrorAsNotification: true,
     action: () => kopiaService.getPreferences(),
     onReturn(resp) {
+      const theme = parseColorScheme(resp.theme);
       setData({
         bytesStringBase2: resp.bytesStringBase2,
         defaultSnapshotViewAll: resp.defaultSnapshotViewAll,
         language: resp.language,
         fontSize: resp.fontSize,
         pageSize: resp.pageSize === 0 ? 20 : resp.pageSize,
-        theme: resp.theme === "" ? "light" : "dark",
+        theme: theme,
         locale: resp.locale || "en",
       });
+      if (colorScheme !== theme) {
+        setColorScheme(theme);
+      }
     },
   });
   const loadStatus = useApiRequest({
