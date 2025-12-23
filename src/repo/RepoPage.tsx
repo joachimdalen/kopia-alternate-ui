@@ -11,6 +11,9 @@ import {
   Title,
 } from "@mantine/core";
 import { useField } from "@mantine/form";
+import { modals } from "@mantine/modals";
+import { showNotification } from "@mantine/notifications";
+import { IconCircleCheck } from "@tabler/icons-react";
 import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -21,14 +24,27 @@ function RepoPage() {
   const { reloadStatus, repoStatus } = useAppContext();
 
   const disconnectRepoAction = useApiRequest({
+    showErrorAsNotification: true,
     action: () => kopiaService.disconnectRepo(),
     onReturn() {
+      showNotification({
+        title: "Repository disconnected",
+        message: "The repository was successfully disconnected",
+        color: "green",
+        icon: <IconCircleCheck size={16} />
+      });
       reloadStatus();
     },
   });
   const updateDescriptionAction = useApiRequest({
     action: (data?: string) => kopiaService.updateRepoDescription(data!),
     onReturn() {
+      showNotification({
+        title: "Description updated",
+        message: "The repository description was successfully updated",
+        color: "green",
+        icon: <IconCircleCheck size={16} />
+      });
       reloadStatus();
     },
   });
@@ -38,6 +54,19 @@ function RepoPage() {
     validate: (value) =>
       value.trim().length < 2 ? "Value is too short" : null,
   });
+
+  const openDisconnectConfirmation = () =>
+    modals.openConfirmModal({
+      title: "Disconnect repository?",
+      children: (
+        <Text size="sm">Are you sure you want to disconnect from this repository?</Text>
+      ),
+      labels: { confirm: "Disconnect", cancel: "Cancel" },
+      confirmProps: { color: "red", size: "xs" },
+      cancelProps: { size: "xs" },
+      onConfirm: () => disconnectRepoAction.execute(),
+    });
+
   if (repoStatus.connected) {
     return (
       <Container>
@@ -48,10 +77,8 @@ function RepoPage() {
               <Button
                 color="red"
                 variant="light"
-                onClick={() => {
-                  disconnectRepoAction.execute();
-                  reloadStatus();
-                }}
+                onClick={openDisconnectConfirmation}
+                loading={disconnectRepoAction.loading}
                 disabled={disconnectRepoAction.loading}
               >
                 Disconnect
@@ -69,7 +96,7 @@ function RepoPage() {
               />
               <Button
                 disabled={
-                  field.getValue() === "" || disconnectRepoAction.loading
+                  field.getValue() === "" || disconnectRepoAction.loading || field.getValue() === repoStatus.description
                 }
                 onClick={() =>
                   updateDescriptionAction.execute(field.getValue())
@@ -127,7 +154,7 @@ function RepoPage() {
                 </Text>
                 <Text fz="sm">
                   {repoStatus.eccOverheadPercent === 0 ||
-                  !repoStatus.eccOverheadPercent
+                    !repoStatus.eccOverheadPercent
                     ? "Disabled"
                     : `${repoStatus.eccOverheadPercent}%`}
                 </Text>
