@@ -1,12 +1,11 @@
 import {
-  Badge,
   Button,
   Center,
   Container,
   Divider,
   Group,
   Stack,
-  Title,
+  Title
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import {
@@ -33,6 +32,7 @@ import {
 } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
+import PolicyFeatureBadge from "./components/PolicyFeatureBadge";
 import CreatePolicyModal from "./modals/CreatePolicyModal/CreatePolicyModal";
 import PolicyModal from "./modals/PolicyModal/PolicyModal";
 import {
@@ -235,10 +235,8 @@ function PoliciesPage() {
                 `(min-width: ${theme.breakpoints.md})`,
               render: (item) => (
                 <Group gap="xs">
-                  {getNonEmptyPolicies(item).map((x) => (
-                    <Badge tt="none" key={x}>
-                      {x}
-                    </Badge>
+                  {getNonEmptyPolicies(item).sort().map((x) => (
+                    <PolicyFeatureBadge policyFeature={x} key={x} />
                   ))}
                 </Group>
               ),
