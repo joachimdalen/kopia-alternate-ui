@@ -1,5 +1,6 @@
 "use client";
 
+import { t } from "@lingui/core/macro";
 import type { DataTableColumn, DataTableSortStatus } from "mantine-datatable";
 import { DataTable } from "mantine-datatable";
 import { useMemo, useState } from "react";
@@ -71,6 +72,7 @@ export function DataGrid<T>({
       onSortStatusChange={onSortStatusChange}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       sortStatus={sortStatus as any}
+      recordsPerPageLabel={t`Records per page`}
     />
   );
 }

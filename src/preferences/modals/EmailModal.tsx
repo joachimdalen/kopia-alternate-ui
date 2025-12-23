@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   ActionIcon,
   Button,
@@ -175,8 +177,8 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
     <Modal
       title={
         profile === undefined
-          ? "Create email notification"
-          : "Edit email notification"
+          ? t`Create email notification`
+          : t`Edit email notification`
       }
       onClose={onCancel}
       opened
@@ -194,16 +196,16 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           <ErrorAlert error={error} />
 
           <TextInput
-            label="Name"
-            description="Unique name for this notification profile"
+            label={t`Name`}
+            description={t`Unique name for this notification profile`}
             placeholder="email-1"
             withAsterisk
             disabled={profile !== undefined}
             {...form.getInputProps("name")}
           />
           <Select
-            label="Minimum Severity"
-            description="Minimum severity required to use this notification profile"
+            label={t`Minimum Severity`}
+            description={t`Minimum severity required to use this notification profile`}
             data={[
               { label: "Verbose", value: "-100" },
               { label: "Success", value: "-10" },
@@ -218,13 +220,13 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           />
           <Group grow>
             <TextInput
-              label="SMTP Server"
-              placeholder="SMTP server DNS name, e.g. smtp.gmail.com"
+              label={t`SMTP Server`}
+              placeholder={t`SMTP server DNS name, e.g. smtp.gmail.com`}
               withAsterisk
               {...form.getInputProps("smtpServer")}
             />
             <NumberInput
-              label="SMTP Port"
+              label={t`SMTP Port`}
               withAsterisk
               hideControls
               {...form.getInputProps("smtpPort")}
@@ -232,25 +234,25 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           </Group>
           <Group grow>
             <TextInput
-              label="SMTP Username"
-              placeholder="SMTP server username, typically the email address"
+              label={t`SMTP Username`}
+              placeholder={t`SMTP server username, typically the email address`}
               withAsterisk
               {...form.getInputProps("smtpUsername")}
             />
             <PasswordInput
-              label="SMTP server password"
+              label={t`SMTP server password`}
               withAsterisk
               {...form.getInputProps("smtpPassword")}
             />
           </Group>
           <TextInput
-            label="Mail From"
-            placeholder="sender email address"
+            label={t`Mail From`}
+            placeholder={t`sender email address`}
             withAsterisk
             {...form.getInputProps("from")}
           />
           <Select
-            label="Notification Format"
+            label={t`Notification Format`}
             data={[
               { label: "Plain Text Format", value: "txt" },
               { label: "HTML Format", value: "html" },
@@ -263,7 +265,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           <Fieldset legend="To">
             {toFields.length === 0 && (
               <Text c="dimmed" ta="center">
-                No recepients defined
+                <Trans>No recepients defined</Trans>
               </Text>
             )}
 
@@ -279,14 +281,14 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
                   })
                 }
               >
-                Add
+                <Trans>Add</Trans>
               </Button>
             </Group>
           </Fieldset>
           <Fieldset legend="Cc">
             {ccFields.length === 0 && (
               <Text c="dimmed" ta="center">
-                No recepients defined
+                <Trans>No recepients defined</Trans>
               </Text>
             )}
 
@@ -302,7 +304,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
                   })
                 }
               >
-                Add
+                <Trans>Add</Trans>
               </Button>
             </Group>
           </Fieldset>
@@ -317,7 +319,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -326,7 +328,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           loading={loading}
           disabled={!form.isValid()}
         >
-          {profile === undefined ? "Create" : "Save"}
+          {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>
     </Modal>

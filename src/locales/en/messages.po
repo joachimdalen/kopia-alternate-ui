@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-12-23 16:50+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. placeholder {0}: data.SUCCESS
+#: src/core/Footer/Footer.tsx:44
+msgid "{0} task(s) completed"
+msgstr "{0} task(s) completed"
+
+#. placeholder {0}: data.FAILED
+#: src/core/Footer/Footer.tsx:51
+msgid "{0} task(s) failed"
+msgstr "{0} task(s) failed"
+
+#. placeholder {0}: data.RUNNING
+#: src/core/Footer/Footer.tsx:59
+msgid "{0} task(s) in progress"
+msgstr "{0} task(s) in progress"
+
+#: src/preferences/modals/EmailModal.tsx:284
+#: src/preferences/modals/EmailModal.tsx:307
+msgid "Add"
+msgstr "Add"
+
+#: src/snapshots/SnapshotsPage.tsx:145
+msgid "All Snapshots"
+msgstr "All Snapshots"
+
+#: src/preferences/modals/EmailModal.tsx:322
+#: src/snapshots/modals/NewSnapshotModal.tsx:154
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/snapshots/modals/NewSnapshotModal.tsx:141
+msgid "Change policy parameters"
+msgstr "Change policy parameters"
+
+#: src/core/Footer/ConnectionInfo.tsx:58
+msgid "Connected to"
+msgstr "Connected to"
+
+#: src/preferences/modals/EmailModal.tsx:331
+msgid "Create"
+msgstr "Create"
+
+#: src/preferences/modals/EmailModal.tsx:180
+msgid "Create email notification"
+msgstr "Create email notification"
+
+#: src/preferences/components/NotificationCard.tsx:106
+msgid "Delete"
+msgstr "Delete"
+
+#: src/preferences/components/NotificationCard.tsx:81
+msgid "Edit"
+msgstr "Edit"
+
+#: src/preferences/modals/EmailModal.tsx:181
+msgid "Edit email notification"
+msgstr "Edit email notification"
+
+#: src/snapshots/modals/NewSnapshotModal.tsx:168
+msgid "Estimate"
+msgstr "Estimate"
+
+#: src/snapshots/SnapshotsPage.tsx:257
+msgid "Last Snapshot"
+msgstr "Last Snapshot"
+
+#: src/snapshots/SnapshotsPage.tsx:146
+msgid "Local Snapshots"
+msgstr "Local Snapshots"
+
+#: src/core/context/LoginModal.tsx:96
+msgid "Login"
+msgstr "Login"
+
+#. placeholder {0}: instance?.name || ""
+#: src/core/context/LoginModal.tsx:52
+msgid "Login to {0}"
+msgstr "Login to {0}"
+
+#: src/preferences/modals/EmailModal.tsx:249
+msgid "Mail From"
+msgstr "Mail From"
+
+#: src/preferences/components/NotificationCard.tsx:115
+#: src/preferences/modals/EmailModal.tsx:207
+msgid "Minimum Severity"
+msgstr "Minimum Severity"
+
+#: src/preferences/modals/EmailModal.tsx:208
+msgid "Minimum severity required to use this notification profile"
+msgstr "Minimum severity required to use this notification profile"
+
+#: src/core/Header/Header.tsx:41
+msgid "Mounts"
+msgstr "Mounts"
+
+#: src/preferences/modals/EmailModal.tsx:199
+msgid "Name"
+msgstr "Name"
+
+#: src/snapshots/modals/NewSnapshotModal.tsx:100
+msgctxt "modal-title"
+msgid "New snapshot"
+msgstr "New snapshot"
+
+#: src/snapshots/SnapshotsPage.tsx:163
+msgid "New Snapshot"
+msgstr "New Snapshot"
+
+#: src/snapshots/SnapshotsPage.tsx:265
+msgid "Next snapshot"
+msgstr "Next snapshot"
+
+#: src/preferences/modals/EmailModal.tsx:268
+#: src/preferences/modals/EmailModal.tsx:291
+msgid "No recepients defined"
+msgstr "No recepients defined"
+
+#: src/preferences/modals/EmailModal.tsx:255
+msgid "Notification Format"
+msgstr "Notification Format"
+
+#: src/snapshots/SnapshotsPage.tsx:219
+msgid "Owner"
+msgstr "Owner"
+
+#: src/core/context/LoginModal.tsx:74
+#: src/core/context/LoginModal.tsx:75
+msgid "Password"
+msgstr "Password"
+
+#: src/snapshots/SnapshotsPage.tsx:197
+msgid "Path"
+msgstr "Path"
+
+#: src/snapshots/modals/NewSnapshotModal.tsx:115
+msgid "Path to snapshot"
+msgstr "Path to snapshot"
+
+#: src/snapshots/SnapshotsPage.tsx:323
+msgid "Pending"
+msgstr "Pending"
+
+#: src/core/Header/Header.tsx:47
+msgid "Policies"
+msgstr "Policies"
+
+#: src/core/Header/Header.tsx:53
+msgid "Preferences"
+msgstr "Preferences"
+
+#: src/core/DataGrid/DataGrid.tsx:75
+msgid "Records per page"
+msgstr "Records per page"
+
+#: src/snapshots/SnapshotsPage.tsx:170
+msgid "Refresh"
+msgstr "Refresh"
+
+#: src/snapshots/SnapshotsPage.tsx:234
+msgid "Remote"
+msgstr "Remote"
+
+#: src/core/Header/Header.tsx:52
+msgid "Repository"
+msgstr "Repository"
+
+#: src/preferences/modals/EmailModal.tsx:331
+msgid "Save"
+msgstr "Save"
+
+#: src/preferences/components/NotificationCard.tsx:97
+msgid "Send test notification"
+msgstr "Send test notification"
+
+#: src/preferences/modals/EmailModal.tsx:250
+msgid "sender email address"
+msgstr "sender email address"
+
+#: src/core/Footer/ConnectionInfo.tsx:38
+#: src/core/Footer/ConnectionInfo.tsx:52
+msgid "Server"
+msgstr "Server"
+
+#: src/core/Footer/ConnectionInfo.tsx:86
+msgid "SERVERS"
+msgstr "SERVERS"
+
+#: src/snapshots/SnapshotsPage.tsx:244
+msgid "Size"
+msgstr "Size"
+
+#: src/preferences/modals/EmailModal.tsx:229
+msgid "SMTP Port"
+msgstr "SMTP Port"
+
+#: src/preferences/modals/EmailModal.tsx:223
+msgid "SMTP Server"
+msgstr "SMTP Server"
+
+#: src/preferences/modals/EmailModal.tsx:224
+msgid "SMTP server DNS name, e.g. smtp.gmail.com"
+msgstr "SMTP server DNS name, e.g. smtp.gmail.com"
+
+#: src/preferences/modals/EmailModal.tsx:243
+msgid "SMTP server password"
+msgstr "SMTP server password"
+
+#: src/preferences/modals/EmailModal.tsx:238
+msgid "SMTP server username, typically the email address"
+msgstr "SMTP server username, typically the email address"
+
+#: src/preferences/modals/EmailModal.tsx:237
+msgid "SMTP Username"
+msgstr "SMTP Username"
+
+#: src/snapshots/modals/NewSnapshotModal.tsx:183
+msgid "Snapshot now"
+msgstr "Snapshot now"
+
+#: src/snapshots/SnapshotsPage.tsx:293
+msgid "Snapshot Now"
+msgstr "Snapshot Now"
+
+#: src/core/Header/Header.tsx:35
+#: src/snapshots/SnapshotsPage.tsx:139
+msgid "Snapshots"
+msgstr "Snapshots"
+
+#: src/snapshots/SnapshotsPage.tsx:179
+msgid "Sync"
+msgstr "Sync"
+
+#: src/core/Header/Header.tsx:51
+msgid "Tasks"
+msgstr "Tasks"
+
+#: src/preferences/modals/EmailModal.tsx:200
+msgid "Unique name for this notification profile"
+msgstr "Unique name for this notification profile"
+
+#: src/core/context/LoginModal.tsx:68
+#: src/core/context/LoginModal.tsx:70
+msgid "Username"
+msgstr "Username"
+
+#: src/snapshots/SnapshotsPage.tsx:310
+msgid "View Policy"
+msgstr "View Policy"

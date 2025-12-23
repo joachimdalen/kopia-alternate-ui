@@ -1,3 +1,4 @@
+import { useLingui } from "@lingui/react/macro";
 import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
 import {
   createContext,
@@ -36,6 +37,7 @@ const AppContext = createContext<ContextState>(initialState);
 
 export type AppContextProps = PropsWithChildren;
 export function AppContextProvider({ children }: AppContextProps) {
+  const { i18n, t } = useLingui();
   const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();
@@ -57,6 +59,7 @@ export function AppContextProvider({ children }: AppContextProps) {
       if (colorScheme !== theme) {
         setColorScheme(theme);
       }
+      i18n.activate(resp.locale || "en");
     },
   });
   const loadStatus = useApiRequest({

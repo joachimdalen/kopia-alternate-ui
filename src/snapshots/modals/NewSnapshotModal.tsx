@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Button,
@@ -95,7 +97,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
 
   return (
     <Modal
-      title="New snapshot"
+      title={<Trans context="modal-title">New snapshot</Trans>}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -110,7 +112,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
 
         <Group grow align="flex-end">
           <TextInput
-            label="Path to snapshot"
+            label={t`Path to snapshot`}
             withAsterisk
             placeholder="/some/path/here"
             disabled={source !== undefined}
@@ -136,7 +138,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
             leftSection={<IconFileCode size={18} />}
             onClick={setShowEditor.open}
           >
-            Change policy parameters
+            <Trans>Change policy parameters</Trans>
           </Button>
         )}
       </Stack>
@@ -149,7 +151,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           onClick={onCancel}
           disabled={createSnapshotAction.loading || resolvePathAction.loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
 
         <Group>
@@ -163,7 +165,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
             }
             onClick={showEstimationHandlers.open}
           >
-            Estimate
+            <Trans>Estimate</Trans>
           </Button>
           <Button
             size="xs"
@@ -178,7 +180,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
               createSnapshotAction.execute(req);
             }}
           >
-            Snapshot now
+            <Trans>Snapshot now</Trans>
           </Button>
         </Group>
       </Group>

@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { AppShellFooter, Group, Text, Tooltip } from "@mantine/core";
 import {
   IconCircleCheck,
@@ -40,14 +41,14 @@ export function Footer() {
           <ConnectionInfo />
         </Group>
         <Group>
-          <Tooltip label={`${data.SUCCESS} task(s) completed`}>
+          <Tooltip label={t`${data.SUCCESS} task(s) completed`}>
             <Group gap={5}>
               <IconWrapper icon={IconCircleCheck} color="green" size={16} />
               <Text fz="sm">{data.SUCCESS}</Text>
             </Group>
           </Tooltip>
           {data.FAILED && (
-            <Tooltip label={`${data.FAILED} task(s) failed`}>
+            <Tooltip label={t`${data.FAILED} task(s) failed`}>
               <Group gap={5}>
                 <IconWrapper icon={IconCircleX} color="red" size={16} />
                 <Text fz="sm">{data.FAILED}</Text>
@@ -55,7 +56,7 @@ export function Footer() {
             </Tooltip>
           )}
 
-          <Tooltip label={`${data.RUNNING} task(s) in progress`}>
+          <Tooltip label={t`${data.RUNNING} task(s) in progress`}>
             <Group gap={5}>
               <IconWrapper icon={IconStopwatch} color="teal" size={18} />
               <Text fz="sm">{data.RUNNING}</Text>

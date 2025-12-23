@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Divider,
@@ -34,7 +35,7 @@ export function ConnectionInfo() {
             color={repoStatus.connected ? "green" : "red"}
           >
             <Text ml="xs" fz="xs" p="2">
-              Server :{" "}
+              <Trans>Server</Trans> :{" "}
               <Text fw="bold" fz="xs" span>
                 {currentServer?.name}
               </Text>
@@ -48,13 +49,13 @@ export function ConnectionInfo() {
             <Group justify="space-between">
               <Stack gap={0}>
                 <Text ml="xs" fz="xs">
-                  Server :{" "}
+                  <Trans>Server</Trans> :{" "}
                   <Text fw="bold" fz="xs" span>
                     {currentServer?.name}
                   </Text>
                 </Text>
                 <Text ml="xs" fz="xs">
-                  Connected to :{" "}
+                  <Trans>Connected to</Trans> :{" "}
                   <Text fw="bold" fz="xs" span>
                     {repoStatus.description}
                   </Text>
@@ -82,7 +83,7 @@ export function ConnectionInfo() {
               <Divider />
               <Stack px="xs" gap="0">
                 <Text c="dimmed" fz="10" mb="5">
-                  SERVERS
+                  <Trans>SERVERS</Trans>
                 </Text>
                 {servers.map((s) => (
                   <UnstyledButton

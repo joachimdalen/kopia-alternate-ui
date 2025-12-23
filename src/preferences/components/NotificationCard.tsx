@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Card,
@@ -77,7 +78,7 @@ function NotificationCard({
                 }
                 onClick={onEdit}
               >
-                Edit
+                <Trans>Edit</Trans>
               </MenuItem>
               {/* <MenuItem
                 leftSection={
@@ -93,7 +94,7 @@ function NotificationCard({
                 }
                 onClick={onTest}
               >
-                Send test notification
+                <Trans>Send test notification</Trans>
               </MenuItem>
               <MenuItem
                 leftSection={
@@ -102,7 +103,7 @@ function NotificationCard({
                 color="red"
                 onClick={onDelete}
               >
-                Delete
+                <Trans>Delete</Trans>
               </MenuItem>
             </MenuDropdown>
           </Menu>
@@ -111,7 +112,7 @@ function NotificationCard({
       <CardSection p="xs">
         <Stack gap="0">
           <Text fw="bold" c="dimmed" fz="xs">
-            Minimum Severity
+            <Trans>Minimum Severity</Trans>
           </Text>
           <NotificationSeverityDisplay severity={data.minSeverity} />
         </Stack>

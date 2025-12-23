@@ -12,10 +12,10 @@ import PreferencesPage from "./preferences/PreferencesPage.tsx";
 import RepoPage from "./repo/RepoPage.tsx";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
+import SnapshotMountsPage from "./snapshot-mounts/SnapshotMountsPage.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
 import TaskDetailsPage from "./tasks/TaskDetailsPage.tsx";
 import TasksPage from "./tasks/TasksPage.tsx";
-import SnapshotMountsPage from "./snapshot-mounts/SnapshotMountsPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
