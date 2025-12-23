@@ -64,28 +64,22 @@ type Props = {
   saveOnSubmit?: boolean;
 };
 
-// const schema = Yup.object({
-//   description: Yup.string().max(250).label("Description"),
-// });
-
-const defaultPolicyStructure: Policy = {
-  actions: {
-    afterFolder: {},
-    afterSnapshotRoot: {},
-    beforeFolder: {},
-    beforeSnapshotRoot: {},
-  },
-  osSnapshots: {
-    volumeShadowCopy: {},
-  },
-  logging: {
-    directories: {},
-    entries: {},
-  },
-};
-
 function mergePolicy(current: Policy) {
-  return merge(defaultPolicyStructure, current);
+  return merge({
+    actions: {
+      afterFolder: {},
+      afterSnapshotRoot: {},
+      beforeFolder: {},
+      beforeSnapshotRoot: {},
+    },
+    osSnapshots: {
+      volumeShadowCopy: {},
+    },
+    logging: {
+      directories: {},
+      entries: {},
+    },
+  } satisfies Policy, current);
 }
 
 export default function PolicyModal({
