@@ -10,8 +10,10 @@ import {
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { showNotification } from "@mantine/notifications";
 import {
   IconArchive,
+  IconCircleCheck,
   IconClockExclamation,
   IconEye,
   IconFileDatabase,
@@ -116,8 +118,15 @@ function SnapshotsPage() {
   });
   const syncAction = useApiRequest({
     action: () => kopiaService.syncRepo(),
+    showErrorAsNotification: true,
     onReturn() {
       execute(undefined, "refresh");
+      showNotification({
+        title: "Repository synchronized",
+        message: "The repository was synchronized successfully",
+        color: "green",
+        icon: <IconCircleCheck size={16} />
+      });
     },
   });
   const intError = error || newSnapshotError;
@@ -191,9 +200,8 @@ function SnapshotsPage() {
                     component={Link}
                     to={{
                       pathname: "/snapshots/single-source",
-                      search: `?userName=${item.source.userName}&host=${
-                        item.source.host
-                      }&path=${encodeURIComponent(item.source.path)}`,
+                      search: `?userName=${item.source.userName}&host=${item.source.host
+                        }&path=${encodeURIComponent(item.source.path)}`,
                     }}
                     td="none"
                     fz="sm"
@@ -284,11 +292,10 @@ function SnapshotsPage() {
                           component={Link}
                           to={{
                             pathname: "/policies",
-                            search: `userName=${item.source.userName}&host=${
-                              item.source.host
-                            }&path=${encodeURIComponent(
-                              item.source.path
-                            )}&viewPolicy=true`,
+                            search: `userName=${item.source.userName}&host=${item.source.host
+                              }&path=${encodeURIComponent(
+                                item.source.path
+                              )}&viewPolicy=true`,
                           }}
                           td="none"
                           size="xs"
