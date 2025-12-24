@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, TextInput } from "@mantine/core";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
@@ -31,11 +32,11 @@ export default function PolicyTextInput({
       <AccordionPanel>
         <Group grow>
           <TextInput
-            label="Defined"
+            label={t`Defined`}
             placeholder={placeholder}
             {...inputProps}
           />
-          <TextInput label="Effective" readOnly value={effectiveValue} />
+          <TextInput label={t`Effective`} readOnly value={effectiveValue} />
         </Group>
       </AccordionPanel>
     </AccordionItem>

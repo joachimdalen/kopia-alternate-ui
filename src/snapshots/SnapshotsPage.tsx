@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
   Anchor,
@@ -123,8 +124,8 @@ function SnapshotsPage() {
     onReturn() {
       execute(undefined, "refresh");
       showNotification({
-        title: "Repository synchronized",
-        message: "The repository was synchronized successfully",
+        title: t`Repository synchronized`,
+        message: t`The repository was synchronized successfully`,
         color: "green",
         icon: <IconCircleCheck size={16} />
       });

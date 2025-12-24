@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group } from "@mantine/core";
 import NumberSelect from "../../../../core/NumberSelect";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
@@ -44,16 +45,16 @@ export default function PolicyLogDetailsInput({
       <AccordionPanel>
         <Group grow>
           <NumberSelect
-            label="Defined"
-            description="This policy"
+            label={t`Defined`}
+            description={t`This policy`}
             data={logDetailsOptions}
             withCheckIcon={false}
             defaultIfNotSet=""
             {...inputProps}
           />
           <NumberSelect
-            description="Defined in global policy"
-            label="Effective"
+            description={t`Defined in global policy`}
+            label={t`Effective`}
             data={logDetailsOptions}
             withCheckIcon={false}
             readOnly

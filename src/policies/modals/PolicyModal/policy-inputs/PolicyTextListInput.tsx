@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   AccordionItem,
   AccordionPanel,
@@ -55,7 +57,7 @@ export default function PolicyTextListInput({
           )}
           <Group grow align="start">
             <Stack>
-              <InputWrapper label="Defined">
+              <InputWrapper label={t`Defined`}>
                 <List listStyleType="none" style={{ paddingInlineStart: 0 }}>
                   {items.length > 0 ? (
                     items.map((x) => (
@@ -64,7 +66,7 @@ export default function PolicyTextListInput({
                       </ListItem>
                     ))
                   ) : (
-                    <ListItem fz="xs">Not defined</ListItem>
+                    <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
                   )}
                 </List>
               </InputWrapper>
@@ -75,10 +77,10 @@ export default function PolicyTextListInput({
                   openHandlers.open();
                 }}
               >
-                Edit items
+                <Trans>Edit items</Trans>
               </Anchor>
             </Stack>
-            <InputWrapper label="Effective">
+            <InputWrapper label={t`Effective`}>
               <List listStyleType="none" style={{ paddingInlineStart: 0 }}>
                 {effectiveValues.length > 0 ? (
                   effectiveValues.map((x) => (
@@ -87,7 +89,7 @@ export default function PolicyTextListInput({
                     </ListItem>
                   ))
                 ) : (
-                  <ListItem fz="xs">Not defined</ListItem>
+                  <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
                 )}
               </List>
             </InputWrapper>

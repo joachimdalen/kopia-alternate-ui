@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import {
   AccordionItem,
   AccordionPanel,
@@ -40,16 +41,16 @@ export default function PolicySelect({
       <AccordionPanel>
         <Group grow>
           <Select
-            label="Defined"
-            description="This policy"
+            label={t`Defined`}
+            description={t`This policy`}
             placeholder={placeholder}
             data={data}
             withCheckIcon={false}
             {...inputProps}
           />
           <Select
-            description="Defined in global policy"
-            label="Effective"
+            description={t`Defined in global policy`}
+            label={t`Effective`}
             data={data}
             withCheckIcon={false}
             disabled

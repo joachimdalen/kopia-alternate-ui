@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Alert,
   Anchor,
@@ -21,6 +23,7 @@ import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { formatOwnerName } from "../../../utils/formatOwnerName";
 import { checkPolicyPath } from "../../policiesUtil";
+
 type Props = {
   localUserName: string;
   localHost: string;
@@ -84,7 +87,7 @@ export default function CreatePolicyModal({
   }
   return (
     <Modal
-      title="Create policy"
+      title={t`Create policy`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -124,15 +127,15 @@ export default function CreatePolicyModal({
                     );
                   }}
                 >
-                  Edit existing policy
+                  <Trans>Edit existing policy</Trans>
                 </Anchor>
               </Text>
             </Alert>
           )}
           <TextInput
-            label="Path"
+            label={t`Path`}
             withAsterisk
-            description="Directory to create policy for"
+            description={t`Directory to create policy for`}
             disabled={policy !== undefined}
             {...form.getInputProps("path")}
           />
@@ -147,7 +150,7 @@ export default function CreatePolicyModal({
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -156,7 +159,7 @@ export default function CreatePolicyModal({
           loading={loading}
           disabled={!form.isValid()}
         >
-          Create
+          <Trans>Create</Trans>
         </Button>
       </Group>
     </Modal>

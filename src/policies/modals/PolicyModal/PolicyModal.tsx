@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Accordion,
   AccordionItem,
@@ -55,6 +57,7 @@ import PolicyTextInput from "./policy-inputs/PolicyTextInput";
 import PolicyTextListInput from "./policy-inputs/PolicyTextListInput";
 import PolicyTimeOfDayInput from "./policy-inputs/PolicyTimeOfDayInput";
 import type { PolicyForm } from "./types";
+
 type Props = {
   target: SourceInfo;
   isNew: boolean;
@@ -202,7 +205,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconCalendarX} size={18} color="teal" />
                 }
               >
-                Snapshot Retention
+                <Trans>Snapshot Retention</Trans>
               </TabsTab>
               <TabsTab
                 value="files"
@@ -210,7 +213,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconFolderOpen} size={18} color="yellow" />
                 }
               >
-                Files
+                <Trans>Files</Trans>
               </TabsTab>
               <TabsTab
                 value="error-handling"
@@ -218,7 +221,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconAlertTriangle} size={18} color="red" />
                 }
               >
-                Error Handling
+                <Trans>Error Handling</Trans>
               </TabsTab>
               <TabsTab
                 value="compression"
@@ -226,7 +229,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconFileZip} size={18} color="grape" />
                 }
               >
-                Compression
+                <Trans>Compression</Trans>
               </TabsTab>
               <TabsTab
                 value="scheduling"
@@ -234,7 +237,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconClock} size={18} color="green" />
                 }
               >
-                Scheduling
+                <Trans>Scheduling</Trans>
               </TabsTab>
               <TabsTab
                 value="upload"
@@ -242,7 +245,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconUpload} size={18} color="blue" />
                 }
               >
-                Upload
+                <Trans>Upload</Trans>
               </TabsTab>
               <TabsTab
                 value="snapshot-actions"
@@ -254,7 +257,7 @@ export default function PolicyModal({
                   />
                 }
               >
-                Snapshot Actions
+                <Trans>Snapshot Actions</Trans>
               </TabsTab>
               <TabsTab
                 value="folder-actions"
@@ -262,7 +265,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconFolderCog} size={18} color="pink" />
                 }
               >
-                Folder Actions
+                <Trans>Folder Actions</Trans>
               </TabsTab>
               <TabsTab
                 value="logging"
@@ -270,7 +273,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconFileText} size={18} color="violet" />
                 }
               >
-                Logging
+                <Trans>Logging</Trans>
               </TabsTab>
               <TabsTab
                 value="other"
@@ -278,7 +281,7 @@ export default function PolicyModal({
                   <IconWrapper icon={IconTestPipe} size={18} color="lime" />
                 }
               >
-                Other
+                <Trans>Other</Trans>
               </TabsTab>
             </TabsList>
             <TabsPanel value="snapshot-retention" px="xs">
@@ -286,62 +289,62 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyNumberInput
                     id="latest-snapshots"
-                    title="Latest Snapshots"
-                    description="Number of the most recent snapshots to retain per source"
-                    placeholder="# of latest snapshots"
+                    title={t`Latest Snapshots`}
+                    description={t`Number of the most recent snapshots to retain per source`}
+                    placeholder={t`# of latest snapshots`}
                     form={form}
                     formKey="retention.keepLatest"
                     effective={resolvedValue?.retention?.keepLatest}
                   />
                   <PolicyNumberInput
                     id="hourly"
-                    title="Hourly"
-                    description="How many hourly snapshots to retain per source. The latest snapshot from each hour will be retained"
-                    placeholder="# of hourly snapshots"
+                    title={t`Hourly`}
+                    description={t`How many hourly snapshots to retain per source. The latest snapshot from each hour will be retained`}
+                    placeholder={t`# of hourly snapshots`}
                     form={form}
                     formKey="retention.keepHourly"
                     effective={resolvedValue?.retention?.keepHourly}
                   />
                   <PolicyNumberInput
                     id="daily"
-                    title="Daily"
-                    description="How many daily snapshots to retain per source. The latest snapshot from each day will be retained"
-                    placeholder="# of daily snapshots"
+                    title={t`Daily`}
+                    description={t`How many daily snapshots to retain per source. The latest snapshot from each day will be retained`}
+                    placeholder={t`# of daily snapshots`}
                     form={form}
                     formKey="retention.keepDaily"
                     effective={resolvedValue?.retention?.keepDaily}
                   />
                   <PolicyNumberInput
                     id="weekly"
-                    title="Weekly"
-                    description="How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
-                    placeholder="# of weekly snapshots"
+                    title={t`Weekly`}
+                    description={t`How many weekly snapshots to retain per source. The latest snapshot from each week will be retained`}
+                    placeholder={t`# of weekly snapshots`}
                     form={form}
                     formKey="retention.keepWeekly"
                     effective={resolvedValue?.retention?.keepWeekly}
                   />
                   <PolicyNumberInput
                     id="monthly"
-                    title="Monthly"
-                    description="How many monthly snapshots to retain per source. The latest snapshot from each calendar month will be retained"
-                    placeholder="# of monthly snapshots"
+                    title={t`Monthly`}
+                    description={t`How many monthly snapshots to retain per source. The latest snapshot from each calendar month will be retained`}
+                    placeholder={t`# of monthly snapshots`}
                     form={form}
                     formKey="retention.keepMonthly"
                     effective={resolvedValue?.retention?.keepMonthly}
                   />
                   <PolicyNumberInput
                     id="annual"
-                    title="Annual"
-                    description="How many annual snapshots to retain per source. The latest snapshot from each calendar year will be retained"
-                    placeholder="# of annual snapshots"
+                    title={t`Annual`}
+                    description={t`How many annual snapshots to retain per source. The latest snapshot from each calendar year will be retained`}
+                    placeholder={t`# of annual snapshots`}
                     form={form}
                     formKey="retention.keepAnnual"
                     effective={resolvedValue?.retention?.keepAnnual}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-idential-snapshots"
-                    title="Ignore Identical Snapshots"
-                    description="Do NOT save a snapshot when no files have been changed"
+                    title={t`Ignore Identical Snapshots`}
+                    description={t`Do NOT save a snapshot when no files have been changed`}
                     form={form}
                     formKey="retention.ignoreIdenticalSnapshots"
                     effective={
@@ -356,8 +359,8 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyTextListInput
                     id="ignore-files"
-                    title="Ignore Files"
-                    description="List of file and directory names to ignore."
+                    title={t`Ignore Files`}
+                    description={t`List of file and directory names to ignore.`}
                     form={form}
                     formKey="files.ignore"
                     placeholder="e.g. /file.txt"
@@ -376,8 +379,8 @@ export default function PolicyModal({
                     effective={resolvedValue?.files?.ignore}
                   >
                     <Switch
-                      label="Ignore Rules From Parent Directories"
-                      description="When set, ignore rules from the parent directory are ignored"
+                      label={t`Ignore Rules From Parent Directories`}
+                      description={t`When set, ignore rules from the parent directory are ignored`}
                       {...form.getInputProps("files.noParentIgnore", {
                         type: "checkbox",
                       })}
@@ -385,23 +388,23 @@ export default function PolicyModal({
                   </PolicyTextListInput>
                   <PolicyTextListInput
                     id="ignore-rule-files"
-                    title="Ignore Rule Files"
-                    description="List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
+                    title={t`Ignore Rule Files`}
+                    description={t`List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)`}
                     form={form}
                     formKey="files.ignoreDotFiles"
                     effective={resolvedValue?.files?.ignoreDotFiles}
                   >
                     <Switch
-                      label="Ignore Rule Files From Parent Directories"
-                      description="When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored"
+                      label={t`Ignore Rule Files From Parent Directories`}
+                      description={t`When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored`}
                       {...form.getInputProps("files.noParentDotFiles")}
                     />
                   </PolicyTextListInput>
 
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-well-known-cache-dirs"
-                    title="Ignore Well-Known Cache Directories"
-                    description="Ignore directories containing CACHEDIR.TAG and similar"
+                    title={t`Ignore Well-Known Cache Directories`}
+                    description={t`Ignore directories containing CACHEDIR.TAG and similar`}
                     form={form}
                     formKey="files.ignoreCacheDirs"
                     effective={resolvedValue?.files?.ignoreCacheDirs}
@@ -409,16 +412,16 @@ export default function PolicyModal({
 
                   <PolicyNumberInput
                     id="ignore-files-larger-than"
-                    title="Ignore Files larger than"
-                    description="When set, the files larger than the specified size are ignored (specified in bytes)"
+                    title={t`Ignore Files larger than`}
+                    description={t`When set, the files larger than the specified size are ignored (specified in bytes)`}
                     form={form}
                     formKey="files.maxFileSize"
                     effective={resolvedValue?.files?.maxFileSize}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="scan-only-one-fs"
-                    title="Scan only one filesystem"
-                    description="Do not cross filesystem boundaries when creating a snapshot"
+                    title={t`Scan only one filesystem`}
+                    description={t`Do not cross filesystem boundaries when creating a snapshot`}
                     form={form}
                     formKey="files.oneFileSystem"
                     effective={resolvedValue?.files?.oneFileSystem}
@@ -431,8 +434,8 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-dir-errors"
-                    title="Ignore Directory Errors"
-                    description="Treat directory read errors as non-fatal."
+                    title={t`Ignore Directory Errors`}
+                    description={t`Treat directory read errors as non-fatal`}
                     form={form}
                     formKey="errorHandling.ignoreDirectoryErrors"
                     effective={
@@ -441,16 +444,16 @@ export default function PolicyModal({
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-file-errors"
-                    title="Ignore File Errors"
-                    description="Treat file errors as non-fatal."
+                    title={t`Ignore File Errors`}
+                    description={t`Treat file errors as non-fatal`}
                     form={form}
                     formKey="errorHandling.ignoreFileErrors"
                     effective={resolvedValue?.errorHandling?.ignoreFileErrors}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-unknown-dir-entries"
-                    title="Ignore Unknown Directory Entries"
-                    description="Treat unrecognized/unsupported directory entries as non-fatal errors."
+                    title={t`Ignore Unknown Directory Entries`}
+                    description={t`Treat unrecognized/unsupported directory entries as non-fatal errors.`}
                     form={form}
                     formKey="errorHandling.ignoreUnknownTypes"
                     effective={resolvedValue?.errorHandling?.ignoreUnknownTypes}
@@ -463,8 +466,8 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyCompressionInput
                     id="compression-alg"
-                    title="Compression Algorithm"
-                    description="Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
+                    title={t`Compression Algorithm`}
+                    description={t`Specify compression algorithm to use when snapshotting files in this directory and subdirectories`}
                     form={form}
                     formKey="compression.compressorName"
                     effective={resolvedValue?.compression?.compressorName}
@@ -472,26 +475,26 @@ export default function PolicyModal({
 
                   <PolicyNumberInput
                     id="minimum-file-size"
-                    title="Minimum File Size"
-                    description="Files that are smaller than the provided value will not be compressed"
-                    placeholder="Minimum file size in bytes"
+                    title={t`Minimum File Size`}
+                    description={t`Files that are smaller than the provided value will not be compressed`}
+                    placeholder={t`Minimum file size in bytes`}
                     form={form}
                     formKey="compression.minSize"
                     effective={resolvedValue?.compression?.minSize}
                   />
                   <PolicyNumberInput
                     id="max-file-size"
-                    title="Max File Size"
-                    description="Files whose size exceeds the provided value will not be compressed"
-                    placeholder="Maximum file size in bytes"
+                    title={t`Max File Size`}
+                    description={t`Files whose size exceeds the provided value will not be compressed`}
+                    placeholder={t`Maximum file size in bytes`}
                     form={form}
                     formKey="compression.maxSize"
                     effective={resolvedValue?.compression?.maxSize}
                   />
                   <PolicyTextListInput
                     id="only-compress-ext"
-                    title="Only Compress Extensions"
-                    description="Only compress files with the following file extensions (one extension per line)"
+                    title={t`Only Compress Extensions`}
+                    description={t`Only compress files with the following file extensions (one extension per line)`}
                     placeholder="e.g. .txt"
                     form={form}
                     formKey="compression.onlyCompress"
@@ -499,8 +502,8 @@ export default function PolicyModal({
                   />
                   <PolicyTextListInput
                     id="never-compress-ext"
-                    title="Never Compress Extensions"
-                    description="Never compress the following file extensions (one extension per line)"
+                    title={t`Never Compress Extensions`}
+                    description={t`Never compress the following file extensions (one extension per line)`}
                     placeholder="e.g. .mp4"
                     form={form}
                     formKey="compression.neverCompress"
@@ -514,27 +517,27 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyNumberSelect
                     id="snapshot-frequency"
-                    title="Snapshot Frequency"
-                    description="How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
-                    placeholder="Select Snapshot Frequency"
+                    title={t`Snapshot Frequency`}
+                    description={t`How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)`}
+                    placeholder={t`Select Snapshot Frequency`}
                     data={[
-                      { label: "None", value: "" },
-                      { label: "Every 10 Minutes", value: "600" },
-                      { label: "Every 15 Minutes", value: "900" },
-                      { label: "Every 20 Minutes", value: "1200" },
-                      { label: "Every 30 Minutes", value: "1800" },
-                      { label: "Every hour", value: "3600" },
-                      { label: "Every 3 hours", value: "10800" },
-                      { label: "Every 6 hours", value: "21600" },
-                      { label: "Every 12 hours", value: "43200" },
+                      { label: t`None`, value: "" },
+                      { label: t`Every 10 Minutes`, value: "600" },
+                      { label: t`Every 15 Minutes`, value: "900" },
+                      { label: t`Every 20 Minutes`, value: "1200" },
+                      { label: t`Every 30 Minutes`, value: "1800" },
+                      { label: t`Every hour`, value: "3600" },
+                      { label: t`Every 3 hours`, value: "10800" },
+                      { label: t`Every 6 hours`, value: "21600" },
+                      { label: t`Every 12 hours`, value: "43200" },
                     ]}
                     form={form}
                     formKey="scheduling.intervalSeconds"
                   />
                   <PolicyTimeOfDayInput
                     id="time-of-day"
-                    title="Time Of Day"
-                    description="Create snapshots at the specified times of day (24hr format)"
+                    title={t`Time Of Day`}
+                    description={t`Create snapshots at the specified times of day (24hr format)`}
                     // placeholder="e.g. 17:00"
                     form={form}
                     formKey="scheduling.timeOfDay"
@@ -543,8 +546,8 @@ export default function PolicyModal({
 
                   <PolicyTextListInput
                     id="cron-expression"
-                    title="Cron Expressions"
-                    description="Snapshot schedules using UNIX crontab syntax:"
+                    title={t`Cron Expressions`}
+                    description={t`Snapshot schedules using UNIX crontab syntax:`}
                     placeholder="minute hour day month weekday #comment"
                     form={form}
                     formKey="scheduling.cron"
@@ -564,24 +567,24 @@ export default function PolicyModal({
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="run-missed-snapshots-on-startup"
-                    title="Run Missed Snapshots on Startup"
-                    description="Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
+                    title={t`Run Missed Snapshots on Startup`}
+                    description={t`Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)`}
                     form={form}
                     formKey="scheduling.runMissed"
                     effective={resolvedValue?.scheduling?.runMissed}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="manual-snapshots-only"
-                    title="Manual Snapshots Only"
-                    description="Only create snapshots manually (disables scheduled snapshots)"
+                    title={t`Manual Snapshots Only`}
+                    description={t`Only create snapshots manually (disables scheduled snapshots)`}
                     form={form}
                     formKey="scheduling.manual"
                     effective={resolvedValue?.scheduling?.manual}
                   />
                   <AccordionItem value="before-command-mode">
                     <PolicyAccordionControl
-                      title="Upcoming Snapshots"
-                      description="Times of upcoming snapshots calculated based on policy parameters"
+                      title={t`Upcoming Snapshots`}
+                      description={t`Times of upcoming snapshots calculated based on policy parameters`}
                       isConfigured={
                         resolved?.upcomingSnapshotTimes?.length !== undefined &&
                         resolved?.upcomingSnapshotTimes?.length > 0
@@ -592,8 +595,8 @@ export default function PolicyModal({
                         <Table fz="xs" withTableBorder striped>
                           <Table.Thead>
                             <Table.Tr>
-                              <Table.Th>Timestamp</Table.Th>
-                              <Table.Th>From now</Table.Th>
+                              <Table.Th><Trans>Timestamp</Trans></Table.Th>
+                              <Table.Th><Trans>From now</Trans></Table.Th>
                             </Table.Tr>
                           </Table.Thead>
                           <Table.Tbody>
@@ -624,18 +627,18 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyNumberInput
                     id="maximum-parallel-snapshots"
-                    title="Maximum Parallel Snapshots"
-                    description="Maximum number of snapshots that can be uploaded simultaneously"
-                    placeholder="must be specified using global, user, or host policy"
+                    title={t`Maximum Parallel Snapshots`}
+                    description={t`Maximum number of snapshots that can be uploaded simultaneously`}
+                    placeholder={t`must be specified using global, user, or host policy`}
                     form={form}
                     formKey="upload.maxParallelSnapshots"
                     effective={resolvedValue?.upload?.maxParallelSnapshots}
                   />
                   <PolicyNumberInput
                     id="maximum-parallel-file-reads"
-                    title="Maximum Parallel File Reads"
-                    description="Maximum number of files that will be read in parallel (defaults to the number of logical processors)"
-                    placeholder="max number of parallel file reads"
+                    title={t`Maximum Parallel File Reads`}
+                    description={t`Maximum number of files that will be read in parallel (defaults to the number of logical processors)`}
+                    placeholder={t`max number of parallel file reads`}
                     form={form}
                     formKey="upload.maxParallelFileReads"
                     effective={resolvedValue?.upload?.maxParallelFileReads}
@@ -648,8 +651,8 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyTextInput
                     id="before-snapshot"
-                    title="Before Snapshot"
-                    description="Script to run before snapshot"
+                    title={t`Before Snapshot`}
+                    description={t`Script to run before snapshot`}
                     form={form}
                     formKey="actions.beforeSnapshotRoot.script"
                     effective={
@@ -658,8 +661,8 @@ export default function PolicyModal({
                   />
                   <PolicyNumberInput
                     id="before-timeout"
-                    title="Timeout - Before"
-                    description="Timeout in seconds before Kopia kills the process"
+                    title={t`Timeout - Before`}
+                    description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.beforeSnapshotRoot.timeout"
                     effective={
@@ -668,13 +671,13 @@ export default function PolicyModal({
                   />
                   <PolicySelect
                     id="before-command-mode"
-                    title="Command Mode - Before"
-                    description=" Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    title={t`Command Mode - Before`}
+                    description={t`Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)`}
                     data={[
-                      { label: "Must Succeed", value: "essential" },
-                      { label: "Ignore failures", value: "optional" },
+                      { label: t`Must Succeed`, value: "essential" },
+                      { label: t`Ignore failures`, value: "optional" },
                       {
-                        label: "Run asynchronously, ignore failures",
+                        label: t`Run asynchronously, ignore failures`,
                         value: "async",
                       },
                     ]}
@@ -683,8 +686,8 @@ export default function PolicyModal({
                   />
                   <PolicyTextInput
                     id="after-snapshot"
-                    title="After Snapshot"
-                    description="Script to run after snapshot"
+                    title={t`After Snapshot`}
+                    description={t`Script to run after snapshot`}
                     form={form}
                     formKey="actions.afterSnapshotRoot.script"
                     effective={
@@ -693,8 +696,8 @@ export default function PolicyModal({
                   />
                   <PolicyNumberInput
                     id="after-timeout"
-                    title="Timeout - After"
-                    description="Timeout in seconds before Kopia kills the process"
+                    title={t`Timeout - After`}
+                    description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.afterSnapshotRoot.timeout"
                     effective={
@@ -703,13 +706,13 @@ export default function PolicyModal({
                   />
                   <PolicySelect
                     id="after-command-mode"
-                    title="Command Mode - After"
-                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    title={t`Command Mode - After`}
+                    description={t`Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)`}
                     data={[
-                      { label: "Must Succeed", value: "essential" },
-                      { label: "Ignore failures", value: "optional" },
+                      { label: t`Must Succeed`, value: "essential" },
+                      { label: t`Ignore failures`, value: "optional" },
                       {
-                        label: "Run asynchronously, ignore failures",
+                        label: t`Run asynchronously, ignore failures`,
                         value: "async",
                       },
                     ]}
@@ -724,29 +727,29 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyTextInput
                     id="before-folder"
-                    title="Before Folder"
-                    description="Script to run before folder"
+                    title={t`Before Folder`}
+                    description={t`Script to run before folder`}
                     form={form}
                     formKey="actions.beforeFolder.script"
                     effective={resolvedValue?.actions?.beforeFolder?.script}
                   />
                   <PolicyNumberInput
                     id="before-timeout"
-                    title="Timeout - Before"
-                    description="Timeout in seconds before Kopia kills the process"
+                    title={t`Timeout - Before`}
+                    description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.beforeFolder.timeout"
                     effective={resolvedValue?.actions?.beforeFolder?.timeout}
                   />
                   <PolicySelect
                     id="before-command-mode"
-                    title="Command Mode - Before"
-                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    title={t`Command Mode - Before`}
+                    description={t`Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)`}
                     data={[
-                      { label: "Must Succeed", value: "essential" },
-                      { label: "Ignore failures", value: "optional" },
+                      { label: t`Must Succeed`, value: "essential" },
+                      { label: t`Ignore failures`, value: "optional" },
                       {
-                        label: "Run asynchronously, ignore failures",
+                        label: t`Run asynchronously, ignore failures`,
                         value: "async",
                       },
                     ]}
@@ -755,29 +758,29 @@ export default function PolicyModal({
                   />
                   <PolicyTextInput
                     id="after-folder"
-                    title="After Folder"
-                    description="Script to run after folder"
+                    title={t`After Folder`}
+                    description={t`Script to run after folder`}
                     form={form}
                     formKey="actions.afterFolder.script"
                     effective={resolvedValue?.actions?.afterFolder?.script}
                   />
                   <PolicyNumberInput
                     id="after-timeout"
-                    title="Timeout - After"
-                    description="Timeout in seconds before Kopia kills the process"
+                    title={t`Timeout - After`}
+                    description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.afterFolder.timeout"
                     effective={resolvedValue?.actions?.afterFolder?.timeout}
                   />
                   <PolicySelect
                     id="after-command-mode"
-                    title="Command Mode - After"
-                    description="Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
+                    title={t`Command Mode - After`}
+                    description={t`Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)`}
                     data={[
-                      { label: "Must Succeed", value: "essential" },
-                      { label: "Ignore failures", value: "optional" },
+                      { label: t`Must Succeed`, value: "essential" },
+                      { label: t`Ignore failures`, value: "optional" },
                       {
-                        label: "Run asynchronously, ignore failures",
+                        label: t`Run asynchronously, ignore failures`,
                         value: "async",
                       },
                     ]}
@@ -792,48 +795,48 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <PolicyLogDetailsInput
                     id="directory-snapshotted"
-                    title="Directory Snapshotted"
-                    description="Log verbosity when a directory is snapshotted"
+                    title={t`Directory Snapshotted`}
+                    description={t`Log verbosity when a directory is snapshotted`}
                     form={form}
                     formKey="logging.directories.snapshotted"
                     effective={resolvedValue?.logging?.directories?.snapshotted}
                   />
                   <PolicyLogDetailsInput
                     id="directory-ignored"
-                    title="Directory Ignored"
-                    description="Log verbosity when a directory is ignored"
+                    title={t`Directory Ignored`}
+                    description={t`Log verbosity when a directory is ignored`}
                     form={form}
                     formKey="logging.directories.ignored"
                     effective={resolvedValue?.logging?.directories?.ignored}
                   />
                   <PolicyLogDetailsInput
                     id="file-snapshotted"
-                    title="File Snapshotted"
-                    description="Log verbosity when a file, symbolic link, etc. is snapshotted"
+                    title={t`File Snapshotted`}
+                    description={t`Log verbosity when a file, symbolic link, etc. is snapshotted`}
                     form={form}
                     formKey="logging.entries.snapshotted"
                     effective={resolvedValue?.logging?.entries?.snapshotted}
                   />
                   <PolicyLogDetailsInput
                     id="file-ignored"
-                    title="File Ignored"
-                    description="Log verbosity when a file, symbolic link, etc. is ignored"
+                    title={t`File Ignored`}
+                    description={t`Log verbosity when a file, symbolic link, etc. is ignored`}
                     form={form}
                     formKey="logging.entries.ignored"
                     effective={resolvedValue?.logging?.entries?.ignored}
                   />
                   <PolicyLogDetailsInput
                     id="cache-hit"
-                    title="Cache Hit"
-                    description="Log verbosity when a cache is used instead of uploading the file"
+                    title={t`Cache Hit`}
+                    description={t`Log verbosity when a cache is used instead of uploading the file`}
                     form={form}
                     formKey="logging.entries.cacheHit"
                     effective={resolvedValue?.logging?.entries?.cacheHit}
                   />
                   <PolicyLogDetailsInput
                     id="cache-miss"
-                    title="Cache Miss"
-                    description="Log verbosity when a cache cannot be used and a file must be hashed"
+                    title={t`Cache Miss`}
+                    description={t`Log verbosity when a cache cannot be used and a file must be hashed`}
                     form={form}
                     formKey="logging.entries.cacheMiss"
                     effective={resolvedValue?.logging?.entries?.cacheMiss}
@@ -846,13 +849,13 @@ export default function PolicyModal({
                 <Accordion variant="contained">
                   <AccordionItem value="disable-parent-policy-eval">
                     <PolicyAccordionControl
-                      title="Disable Parent Policy Evaluation"
-                      description="Prevents any parent policies from affecting this directory and its subdirectories"
+                      title={t`Disable Parent Policy Evaluation`}
+                      description={t`Prevents any parent policies from affecting this directory and its subdirectories`}
                       isConfigured={form.values.noParent !== undefined}
                     />
                     <AccordionPanel>
                       <Switch
-                        label="Disable Parent Policy"
+                        label={t`Disable Parent Policy`}
                         {...form.getInputProps("noParent", {
                           type: "checkbox",
                         })}
@@ -861,8 +864,8 @@ export default function PolicyModal({
                   </AccordionItem>
                   <AccordionItem value="json-policy">
                     <PolicyAccordionControl
-                      title="JSON Representation"
-                      description="This is the internal representation of a policy"
+                      title={t`JSON Representation`}
+                      description={t`This is the internal representation of a policy`}
                       isConfigured={true}
                     />
                     <AccordionPanel>
@@ -887,7 +890,7 @@ export default function PolicyModal({
           onClick={onCancel}
           disabled={false}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Group>
           {!isNew && !isGlobal && onDeleted && (
@@ -900,7 +903,7 @@ export default function PolicyModal({
             loading={false}
             disabled={!form.isValid()}
           >
-            Save
+            <Trans>Save</Trans>
           </Button>
         </Group>
       </Group>

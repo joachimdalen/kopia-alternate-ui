@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { AccordionItem, AccordionPanel, Box, Group, Text } from "@mantine/core";
 import InheritYesNoPolicyControl from "../components/InheritYesNoPolicyControl";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
@@ -31,13 +32,13 @@ export default function PolicyInheritYesNoPolicyInput({
         <Group grow>
           <Box>
             <Text size="sm" fw={500}>
-              Defined
+              <Trans>Defined</Trans>
             </Text>
             <InheritYesNoPolicyControl {...inputProps} />
           </Box>
           <Box>
             <Text size="sm" fw={500}>
-              Effective
+              <Trans>Effective</Trans>
             </Text>
             <InheritYesNoPolicyControl value={effectiveValue} disabled />
           </Box>

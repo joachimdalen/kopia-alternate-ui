@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { Center, SegmentedControl } from "@mantine/core";
 import {
   IconCircleCheckFilled,
@@ -41,7 +42,8 @@ export default function InheritYesNoPolicyControl({
           label: (
             <Center style={{ gap: 10 }}>
               <IconWrapper icon={IconHierarchy} color="yellow" size={16} />
-              <span>Inherit</span>
+              <span>
+                <Trans>Inherit</Trans></span>
             </Center>
           ),
           value: "inherit",
@@ -54,7 +56,7 @@ export default function InheritYesNoPolicyControl({
                 color="green"
                 size={16}
               />
-              <span>Yes</span>
+              <span><Trans>Yes</Trans></span>
             </Center>
           ),
           value: "yes",
@@ -63,7 +65,7 @@ export default function InheritYesNoPolicyControl({
           label: (
             <Center style={{ gap: 10 }}>
               <IconWrapper icon={IconCircleXFilled} color="red" size={16} />
-              <span>No</span>
+              <span><Trans>No</Trans></span>
             </Center>
           ),
           value: "no",

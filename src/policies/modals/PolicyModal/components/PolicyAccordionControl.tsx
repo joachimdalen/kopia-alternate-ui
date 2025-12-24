@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { AccordionControl, Group, Stack, Text } from "@mantine/core";
 import { IconBan, IconCircleCheckFilled } from "@tabler/icons-react";
 import IconWrapper from "../../../../core/IconWrapper";
@@ -26,14 +27,14 @@ export default function PolicyAccordionControl({
                 size={18}
               />
               <Text fz="xs" c="green">
-                Configured
+                <Trans>Configured</Trans>
               </Text>
             </Group>
           ) : (
             <Group gap={2} justify="end" mr="md">
               <IconWrapper icon={IconBan} color="gray" size={18} />
               <Text fz="xs" c="gray">
-                Not configured
+                <Trans>Not configured</Trans>
               </Text>
             </Group>
           )}

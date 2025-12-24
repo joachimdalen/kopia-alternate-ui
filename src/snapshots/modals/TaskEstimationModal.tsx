@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Group,
@@ -84,7 +86,7 @@ export default function TaskEstimationModal({
 
   return (
     <Modal
-      title="Estimate snapshot"
+      title={t`Estimate snapshot`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -143,11 +145,11 @@ export default function TaskEstimationModal({
           onClick={onCancel}
           disabled={estimateAction.loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
 
         <Button size="xs" onClick={onCancel} disabled={estimateAction.loading}>
-          Close
+          <Trans>Close</Trans>
         </Button>
       </Group>
     </Modal>

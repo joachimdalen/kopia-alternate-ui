@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, Select } from "@mantine/core";
 import { useEffect, useMemo, useState } from "react";
 import { useServerInstanceContext } from "../../../../core/context/ServerInstanceContext";
@@ -5,6 +6,7 @@ import useApiRequest from "../../../../core/hooks/useApiRequest";
 import type { AlgorithmsList } from "../../../../core/types";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
+
 type Props = {
   id: string;
   title: string;
@@ -38,9 +40,9 @@ export default function PolicyCompressionInput({
     if (data == undefined) return [];
     const grouped = [
       {
-        group: "Active",
+        group: t`Active`,
         items: [
-          { label: "None", value: "none" },
+          { label: t`None`, value: "none" },
           ...data.compression
             .filter((x) => !x.deprecated)
             .map((x) => ({
@@ -50,7 +52,7 @@ export default function PolicyCompressionInput({
         ],
       },
       {
-        group: "Deprecated",
+        group: t`Deprecated`,
         items: data.compression
           .filter((x) => x.deprecated)
           .map((x) => ({
@@ -71,18 +73,18 @@ export default function PolicyCompressionInput({
       <AccordionPanel>
         <Group grow>
           <Select
-            label="Defined"
-            description="This policy"
+            label={t`Defined`}
+            description={t`This policy`}
             data={algorithmOptions}
-            placeholder="Select compression algorithm"
+            placeholder={t`Select compression algorithm`}
             defaultValue=""
             withCheckIcon={false}
             allowDeselect={false}
             {...inputProps}
           />
           <Select
-            description="Defined in global policy"
-            label="Effective"
+            description={t`Defined in global policy`}
+            label={t`Effective`}
             data={algorithmOptions}
             withCheckIcon={false}
             allowDeselect={false}
