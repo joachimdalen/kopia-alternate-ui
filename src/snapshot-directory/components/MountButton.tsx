@@ -1,8 +1,9 @@
+import { Trans } from "@lingui/react/macro";
 import { Button } from "@mantine/core";
 import { IconFolderBolt, IconFolderMinus } from "@tabler/icons-react";
-import type { MountedSnapshot } from "../../core/types";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import useApiRequest from "../../core/hooks/useApiRequest";
+import type { MountedSnapshot } from "../../core/types";
 
 type Props = {
   mount?: MountedSnapshot;
@@ -35,7 +36,7 @@ export default function MountButton({ mount, rootID, onMounted }: Props) {
     onClick={() => mountAction.execute(rootID)}
     loading={mountAction.loading}
   >
-    Mount
+    <Trans>Mount</Trans>
   </Button> : <Button
     size="xs"
     color="red"
@@ -43,7 +44,7 @@ export default function MountButton({ mount, rootID, onMounted }: Props) {
     onClick={() => unMountAction.execute(rootID)}
     loading={unMountAction.loading}
   >
-    Unmount
+    <Trans>Unmount</Trans>
   </Button>
 }
 

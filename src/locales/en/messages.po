@@ -28,6 +28,18 @@ msgstr "{0} task(s) failed"
 msgid "{0} task(s) in progress"
 msgstr "{0} task(s) in progress"
 
+#: src/core/Footer/Footer.tsx:52
+#~ msgid "{FAILED} task(s) failed"
+#~ msgstr "{FAILED} task(s) failed"
+
+#: src/core/Footer/Footer.tsx:60
+#~ msgid "{RUNNING} task(s) in progress"
+#~ msgstr "{RUNNING} task(s) in progress"
+
+#: src/core/Footer/Footer.tsx:45
+#~ msgid "{SUCCESS} task(s) completed"
+#~ msgstr "{SUCCESS} task(s) completed"
+
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
 #: src/preferences/modals/WebhookModal.tsx:252
@@ -47,6 +59,10 @@ msgstr "All Snapshots"
 msgid "Appearance"
 msgstr "Appearance"
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:297
+msgid "Begin Restore"
+msgstr "Begin Restore"
+
 #: src/preferences/AppearanceSection.tsx:107
 msgid "Byte representation"
 msgstr "Byte representation"
@@ -54,6 +70,7 @@ msgstr "Byte representation"
 #: src/preferences/modals/EmailModal.tsx:322
 #: src/preferences/modals/PushoverModal.tsx:192
 #: src/preferences/modals/WebhookModal.tsx:267
+#: src/snapshot-directory/modals/RestoreModal.tsx:288
 #: src/snapshots/modals/NewSnapshotModal.tsx:154
 msgid "Cancel"
 msgstr "Cancel"
@@ -75,6 +92,10 @@ msgstr "Change policy parameters"
 #: src/core/Footer/ConnectionInfo.tsx:58
 msgid "Connected to"
 msgstr "Connected to"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:183
+msgid "Continue on Errors"
+msgstr "Continue on Errors"
 
 #: src/preferences/modals/EmailModal.tsx:331
 #: src/preferences/modals/PushoverModal.tsx:201
@@ -109,6 +130,30 @@ msgstr "Delete"
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:162
+msgid "Destination"
+msgstr "Destination"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:206
+msgid "Directory Options"
+msgstr "Directory Options"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:243
+msgid "Dirs"
+msgstr "Dirs"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:270
+msgid "Disable ZIP compression"
+msgstr "Disable ZIP compression"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:271
+msgid "Do not compress when restoring to a ZIP file (faster)."
+msgstr "Do not compress when restoring to a ZIP file (faster)."
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:260
+msgid "Download"
+msgstr "Download"
 
 #: src/tasks/TaskDetailsPage.tsx:104
 msgid "Duration"
@@ -147,6 +192,10 @@ msgstr "Failed"
 msgid "Failed after"
 msgstr "Failed after"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:237
+msgid "Files"
+msgstr "Files"
+
 #: src/tasks/TaskDetailsPage.tsx:91
 msgid "Finished"
 msgstr "Finished"
@@ -155,6 +204,10 @@ msgstr "Finished"
 #: src/tasks/components/TaskSummaryDisplay.tsx:35
 msgid "Finished in"
 msgstr "Finished in"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:175
+msgid "General Options"
+msgstr "General Options"
 
 #: src/preferences/modals/EmailModal.tsx:258
 #: src/preferences/modals/PushoverModal.tsx:174
@@ -170,6 +223,10 @@ msgstr "HTTP Method"
 #: src/tasks/TasksPage.tsx:193
 msgid "Kind"
 msgstr "Kind"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:220
+msgid "Last Modification"
+msgstr "Last Modification"
 
 #: src/snapshots/SnapshotsPage.tsx:257
 msgid "Last Snapshot"
@@ -187,14 +244,17 @@ msgstr "Local Snapshots"
 msgid "Locale"
 msgstr "Locale"
 
-#: src/core/context/LoginModal.tsx:96
+#: src/core/context/LoginModal.tsx:98
 msgid "Login"
 msgstr "Login"
 
-#. placeholder {0}: instance?.name || ""
 #: src/core/context/LoginModal.tsx:52
-msgid "Login to {0}"
-msgstr "Login to {0}"
+#~ msgid "Login to {0}"
+#~ msgstr "Login to {0}"
+
+#: src/core/context/LoginModal.tsx:54
+msgid "Login to {instanceName}"
+msgstr "Login to {instanceName}"
 
 #: src/tasks/components/TaskLogs.tsx:40
 msgid "Logs"
@@ -203,6 +263,10 @@ msgstr "Logs"
 #: src/preferences/modals/EmailModal.tsx:249
 msgid "Mail From"
 msgstr "Mail From"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:197
+msgid "Minimal File Size For Shallow Restore"
+msgstr "Minimal File Size For Shallow Restore"
 
 #: src/preferences/components/NotificationCard.tsx:115
 #: src/preferences/modals/EmailModal.tsx:207
@@ -217,6 +281,10 @@ msgstr "Minimum Severity"
 msgid "Minimum severity required to use this notification profile"
 msgstr "Minimum severity required to use this notification profile"
 
+#: src/snapshot-directory/components/MountButton.tsx:39
+msgid "Mount"
+msgstr "Mount"
+
 #: src/core/Header/Header.tsx:41
 msgid "Mounts"
 msgstr "Mounts"
@@ -224,6 +292,7 @@ msgstr "Mounts"
 #: src/preferences/modals/EmailModal.tsx:199
 #: src/preferences/modals/PushoverModal.tsx:132
 #: src/preferences/modals/WebhookModal.tsx:180
+#: src/snapshot-directory/SnapshotDirectory.tsx:181
 msgid "Name"
 msgstr "Name"
 
@@ -239,6 +308,14 @@ msgstr "New Snapshot"
 #: src/snapshots/SnapshotsPage.tsx:265
 msgid "Next snapshot"
 msgstr "Next snapshot"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
+msgid "No entires matching your search"
+msgstr "No entires matching your search"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:174
+msgid "No entries in folder"
+msgstr "No entries in folder"
 
 #: src/preferences/modals/WebhookModal.tsx:235
 msgid "No headers defined"
@@ -262,12 +339,24 @@ msgstr "Notification Format"
 msgid "Notifications"
 msgstr "Notifications"
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:237
+msgid "Overwrite Directories"
+msgstr "Overwrite Directories"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:230
+msgid "Overwrite Files"
+msgstr "Overwrite Files"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:244
+msgid "Overwrite Symbolic Links"
+msgstr "Overwrite Symbolic Links"
+
 #: src/snapshots/SnapshotsPage.tsx:219
 msgid "Owner"
 msgstr "Owner"
 
-#: src/core/context/LoginModal.tsx:74
-#: src/core/context/LoginModal.tsx:75
+#: src/core/context/LoginModal.tsx:76
+#: src/core/context/LoginModal.tsx:77
 msgid "Password"
 msgstr "Password"
 
@@ -318,6 +407,7 @@ msgstr "Recipient User Key or Group Key"
 msgid "Records per page"
 msgstr "Records per page"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:149
 #: src/snapshots/SnapshotsPage.tsx:170
 #: src/tasks/TasksPage.tsx:155
 msgid "Refresh"
@@ -330,6 +420,26 @@ msgstr "Remote"
 #: src/core/Header/Header.tsx:52
 msgid "Repository"
 msgstr "Repository"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:141
+msgid "Restore"
+msgstr "Restore"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:223
+msgid "Restore File Modification Time"
+msgstr "Restore File Modification Time"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:209
+msgid "Restore File Ownership"
+msgstr "Restore File Ownership"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:216
+msgid "Restore File Permissions"
+msgstr "Restore File Permissions"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:136
+msgid "Restore files and directories"
+msgstr "Restore files and directories"
 
 #: src/tasks/TasksPage.tsx:106
 msgid "Running"
@@ -346,6 +456,10 @@ msgstr "Running for"
 #: src/preferences/modals/WebhookModal.tsx:276
 msgid "Save"
 msgstr "Save"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:130
+msgid "Search files or folder (current level)"
+msgstr "Search files or folder (current level)"
 
 #: src/tasks/TasksPage.tsx:145
 msgid "Search tasks"
@@ -368,13 +482,22 @@ msgstr "Server"
 msgid "SERVERS"
 msgstr "SERVERS"
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:192
+msgid "Shallow Restore At Depth"
+msgstr "Shallow Restore At Depth"
+
 #: src/preferences/AppearanceSection.tsx:147
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:226
 #: src/snapshots/SnapshotsPage.tsx:244
 msgid "Size"
 msgstr "Size"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:178
+msgid "Skip previously restored files and symlinks"
+msgstr "Skip previously restored files and symlinks"
 
 #: src/preferences/modals/EmailModal.tsx:229
 msgid "SMTP Port"
@@ -399,6 +522,14 @@ msgstr "SMTP server username, typically the email address"
 #: src/preferences/modals/EmailModal.tsx:237
 msgid "SMTP Username"
 msgstr "SMTP Username"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:122
+msgid "Snapshot"
+msgstr "Snapshot"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:156
+msgid "Snapshot is mounted at the following path"
+msgstr "Snapshot is mounted at the following path"
 
 #: src/snapshots/modals/NewSnapshotModal.tsx:183
 msgid "Snapshot now"
@@ -442,11 +573,20 @@ msgstr "Tasks"
 msgid "Theme"
 msgstr "Theme"
 
+#: src/preferences/modals/EmailModal.tsx:265
+msgctxt "email-to"
+msgid "To"
+msgstr "To"
+
 #: src/preferences/modals/EmailModal.tsx:200
 #: src/preferences/modals/PushoverModal.tsx:133
 #: src/preferences/modals/WebhookModal.tsx:181
 msgid "Unique name for this notification profile"
 msgstr "Unique name for this notification profile"
+
+#: src/snapshot-directory/components/MountButton.tsx:47
+msgid "Unmount"
+msgstr "Unmount"
 
 #: src/preferences/AppearanceSection.tsx:71
 msgid "Updated"
@@ -456,8 +596,8 @@ msgstr "Updated"
 msgid "URL Endpoint"
 msgstr "URL Endpoint"
 
-#: src/core/context/LoginModal.tsx:68
 #: src/core/context/LoginModal.tsx:70
+#: src/core/context/LoginModal.tsx:72
 msgid "Username"
 msgstr "Username"
 
@@ -468,3 +608,23 @@ msgstr "View Policy"
 #: src/preferences/NotificationsSection.tsx:98
 msgid "Webhook"
 msgstr "Webhook"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:184
+msgid "When a restore error occurs, attempt to continue instead of failing fast"
+msgstr "When a restore error occurs, attempt to continue instead of failing fast"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:251
+msgid "Write files atomically"
+msgstr "Write files atomically"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:258
+msgid "Write Sparse Files"
+msgstr "Write Sparse Files"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:163
+msgid "You can also restore to a .zip or .tar file by providing the appropriate extension"
+msgstr "You can also restore to a .zip or .tar file by providing the appropriate extension"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:268
+msgid "Zip options"
+msgstr "Zip options"

@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Fieldset,
@@ -131,7 +133,7 @@ export default function RestoreModal({
   }
   return (
     <Modal
-      title="Restore files and directories"
+      title={t`Restore files and directories`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -140,7 +142,7 @@ export default function RestoreModal({
       size="lg"
     >
       <form
-        id="update-description-form"
+        id="restore-dir-form"
         onSubmit={form.onSubmit(submitForm)}
         className={modalClasses.container}
       >
@@ -157,9 +159,9 @@ export default function RestoreModal({
           />
 
           <TextInput
-            label="Destination"
-            description="You can also restore to a .zip or .tar file by providing the appropriate extension."
-            placeholder="Enter destination path"
+            label={t`Destination`}
+            description={t`You can also restore to a .zip or .tar file by providing the appropriate extension`}
+            placeholder="/my-data/path"
             rightSection={
               form.values.type !== "directory" && (
                 <Text span mr="5">
@@ -170,16 +172,16 @@ export default function RestoreModal({
             withAsterisk
             {...form.getInputProps("destination")}
           />
-          <Fieldset legend="General Options">
+          <Fieldset legend={t`General Options`}>
             <Stack>
               <Switch
-                label="Skip previously restored files and symlinks"
+                label={t`Skip previously restored files and symlinks`}
                 color="green"
                 {...form.getInputProps("incremental", { type: "checkbox" })}
               />
               <Switch
-                label="Continue on Errors"
-                description="When a restore error occurs, attempt to continue instead of failing fast."
+                label={t`Continue on Errors`}
+                description={t`When a restore error occurs, attempt to continue instead of failing fast`}
                 color="green"
                 {...form.getInputProps("continueOnErrors", {
                   type: "checkbox",
@@ -187,12 +189,12 @@ export default function RestoreModal({
               />
               <Group wrap="nowrap" grow>
                 <NumberInput
-                  label="Shallow Restore At Depth"
+                  label={t`Shallow Restore At Depth`}
                   min={0}
                   {...form.getInputProps("restoreDirEntryAtDepth")}
                 />
                 <NumberInput
-                  label="Minimal File Size For Shallow Restore"
+                  label={t`Minimal File Size For Shallow Restore`}
                   min={0}
                   {...form.getInputProps("minSizeForPlaceholder")}
                 />
@@ -201,59 +203,59 @@ export default function RestoreModal({
           </Fieldset>
 
           {form.values.type === "directory" && (
-            <Fieldset legend="Directory Options">
+            <Fieldset legend={t`Directory Options`}>
               <Stack>
                 <Switch
-                  label="Restore File Ownership"
+                  label={t`Restore File Ownership`}
                   color="green"
                   {...form.getInputProps("restoreOwnership", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Restore File Permissions"
+                  label={t`Restore File Permissions`}
                   color="green"
                   {...form.getInputProps("restorePermissions", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Restore File Modification Time"
+                  label={t`Restore File Modification Time`}
                   color="green"
                   {...form.getInputProps("restoreModTimes", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Overwrite Files"
+                  label={t`Overwrite Files`}
                   color="green"
                   {...form.getInputProps("overwriteFiles", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Overwrite Directories"
+                  label={t`Overwrite Directories`}
                   color="green"
                   {...form.getInputProps("overwriteDirectories", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Overwrite Symbolic Links"
+                  label={t`Overwrite Symbolic Links`}
                   color="green"
                   {...form.getInputProps("overwriteSymlinks", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Write files atomically"
+                  label={t`Write files atomically`}
                   color="green"
                   {...form.getInputProps("writeFilesAtomically", {
                     type: "checkbox",
                   })}
                 />
                 <Switch
-                  label="Write Sparse Files"
+                  label={t`Write Sparse Files`}
                   color="green"
                   {...form.getInputProps("writeSparseFiles", {
                     type: "checkbox",
@@ -263,10 +265,10 @@ export default function RestoreModal({
             </Fieldset>
           )}
           {form.values.type === "zip" && (
-            <Fieldset legend="Zip options">
+            <Fieldset legend={t`Zip options`}>
               <Switch
-                label="Disable ZIP compression"
-                description="Do not compress when restoring to a ZIP file (faster)."
+                label={t`Disable ZIP compression`}
+                description={t`Do not compress when restoring to a ZIP file (faster).`}
                 color="green"
                 {...form.getInputProps("uncompressedZip", { type: "checkbox" })}
               />
@@ -283,16 +285,16 @@ export default function RestoreModal({
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
           type="submit"
-          form="update-description-form"
+          form="restore-dir-form"
           loading={loading}
           disabled={!form.isValid()}
         >
-          Begin Restore
+          <Trans>Begin Restore</Trans>
         </Button>
       </Group>
     </Modal>

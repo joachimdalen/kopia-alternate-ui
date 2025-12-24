@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Alert,
@@ -42,12 +44,13 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import { type MountedSnapshot, type DirEntry, type DirManifest } from "../core/types";
+import { type DirEntry, type DirManifest, type MountedSnapshot } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
+import MountButton from "./components/MountButton";
 import { fileIcons } from "./fileIcons";
 import RestoreModal from "./modals/RestoreModal";
-import MountButton from "./components/MountButton";
+
 const getFileIcon = (name: string) => {
   const parts = name.split(".");
   const ext = parts[parts.length - 1];
@@ -116,7 +119,7 @@ function SnapshotDirectory() {
               <IconArrowLeft size={24} />
             </ActionIcon>
             <Stack gap={0}>
-              <Title order={1}>Snapshot: {oid}</Title>
+              <Title order={1}><Trans>Snapshot</Trans>: {oid}</Title>
               <DirectoryCrumbs />
             </Stack>
           </Group>
@@ -124,7 +127,7 @@ function SnapshotDirectory() {
           <Group>
             <TextInput
               size="sm"
-              placeholder="Search files or folder (current level)"
+              placeholder={t`Search files or folder (current level)`}
               leftSection={<IconSearch size={18} stroke={1.5} />}
               value={query}
               onChange={setQuery}
@@ -135,7 +138,7 @@ function SnapshotDirectory() {
               leftSection={<IconFileDelta size={16} />}
               onClick={setShow.open}
             >
-              Restore
+              <Trans>Restore</Trans>
             </Button>
             {oid && <MountButton mount={mount} rootID={oid} onMounted={(mnt) => setMount(mnt)} />}
             <Button
@@ -143,14 +146,14 @@ function SnapshotDirectory() {
               onClick={() => execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
-              Refresh
+              <Trans>Refresh</Trans>
             </Button>
           </Group>
         </Group>
         <Divider />
         <ErrorAlert error={error} />
         {mount && <Alert title="Snapshot Mounted" color="grape">
-          Snapshot is mounted at the following path:
+          <Trans>Snapshot is mounted at the following path</Trans>:
           <TextInput readOnly defaultValue={mount.path} rightSection={<CopyButton value={mount.path} timeout={2000}>
             {({ copied, copy }) => (
               <Tooltip label={copied ? 'Copied' : 'Copy'} withArrow position="right">
@@ -167,14 +170,15 @@ function SnapshotDirectory() {
           records={visibleItems}
           noRecordsText={
             debouncedQuery !== ""
-              ? "No entires matching your search"
-              : "No entries in folder"
+              ? t`No entires matching your search`
+              : t`No entries in folder`
           }
           noRecordsIcon={<IconWrapper icon={IconFolderOpen} size={48} />}
           pageSize={tablePageSize}
           columns={[
             {
               accessor: "name",
+              title: t`Name`,
               sortable: true,
               render: (item) =>
                 item.obj.startsWith("k") ? (
@@ -213,13 +217,13 @@ function SnapshotDirectory() {
               accessor: "mtime",
               sortable: true,
               sortKey: "mtime",
-              title: "Last Modification",
+              title: t`Last Modification`,
               render: (item) => <FormattedDate value={item.mtime} />,
             },
 
             {
               accessor: "size",
-              title: "Size",
+              title: t`Size`,
               textAlign: "right",
               render: (item) =>
                 sizeDisplayName(
@@ -230,13 +234,13 @@ function SnapshotDirectory() {
             {
               accessor: "summ.files",
               sortable: true,
-              title: "Files",
+              title: t`Files`,
               textAlign: "center",
             },
             {
               accessor: "summ.dirs",
               sortable: true,
-              title: "Dirs",
+              title: t`Dirs`,
               textAlign: "center",
             },
             {
@@ -253,7 +257,7 @@ function SnapshotDirectory() {
                     leftSection={<IconFileDownload size={14} />}
                     variant="subtle"
                   >
-                    Download
+                    <Trans>Download</Trans>
                   </Button>
                 ),
             },

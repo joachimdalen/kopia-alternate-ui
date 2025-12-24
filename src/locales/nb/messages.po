@@ -28,6 +28,18 @@ msgstr "{0} oppgave(r) feilet"
 msgid "{0} task(s) in progress"
 msgstr "{0} oppgave(r) kjørende"
 
+#: src/core/Footer/Footer.tsx:52
+#~ msgid "{FAILED} task(s) failed"
+#~ msgstr ""
+
+#: src/core/Footer/Footer.tsx:60
+#~ msgid "{RUNNING} task(s) in progress"
+#~ msgstr "{RUNNING} oppgave(r) kjørende"
+
+#: src/core/Footer/Footer.tsx:45
+#~ msgid "{SUCCESS} task(s) completed"
+#~ msgstr "{SUCCESS} oppgave(r) fullført"
+
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
 #: src/preferences/modals/WebhookModal.tsx:252
@@ -47,6 +59,10 @@ msgstr "Alle øyeblikksbilder"
 msgid "Appearance"
 msgstr "Utseende"
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:297
+msgid "Begin Restore"
+msgstr "Start gjenoppretting"
+
 #: src/preferences/AppearanceSection.tsx:107
 msgid "Byte representation"
 msgstr "Byte representasjon"
@@ -54,6 +70,7 @@ msgstr "Byte representasjon"
 #: src/preferences/modals/EmailModal.tsx:322
 #: src/preferences/modals/PushoverModal.tsx:192
 #: src/preferences/modals/WebhookModal.tsx:267
+#: src/snapshot-directory/modals/RestoreModal.tsx:288
 #: src/snapshots/modals/NewSnapshotModal.tsx:154
 msgid "Cancel"
 msgstr "Avbryt"
@@ -75,6 +92,10 @@ msgstr "Endre policy parametere"
 #: src/core/Footer/ConnectionInfo.tsx:58
 msgid "Connected to"
 msgstr "Koblet til"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:183
+msgid "Continue on Errors"
+msgstr ""
 
 #: src/preferences/modals/EmailModal.tsx:331
 #: src/preferences/modals/PushoverModal.tsx:201
@@ -109,6 +130,30 @@ msgstr "Slett"
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:162
+msgid "Destination"
+msgstr "Destinasjon"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:206
+msgid "Directory Options"
+msgstr ""
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:243
+msgid "Dirs"
+msgstr "Mapper"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:270
+msgid "Disable ZIP compression"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:271
+msgid "Do not compress when restoring to a ZIP file (faster)."
+msgstr ""
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:260
+msgid "Download"
+msgstr "Last ned"
 
 #: src/tasks/TaskDetailsPage.tsx:104
 msgid "Duration"
@@ -147,6 +192,10 @@ msgstr "Feilet"
 msgid "Failed after"
 msgstr "Feilet etter"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:237
+msgid "Files"
+msgstr "Filer"
+
 #: src/tasks/TaskDetailsPage.tsx:91
 msgid "Finished"
 msgstr "Fullført"
@@ -155,6 +204,10 @@ msgstr "Fullført"
 #: src/tasks/components/TaskSummaryDisplay.tsx:35
 msgid "Finished in"
 msgstr "Fullført på"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:175
+msgid "General Options"
+msgstr ""
 
 #: src/preferences/modals/EmailModal.tsx:258
 #: src/preferences/modals/PushoverModal.tsx:174
@@ -170,6 +223,10 @@ msgstr "HTTP Metode"
 #: src/tasks/TasksPage.tsx:193
 msgid "Kind"
 msgstr "Type"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:220
+msgid "Last Modification"
+msgstr "Sist Endret"
 
 #: src/snapshots/SnapshotsPage.tsx:257
 msgid "Last Snapshot"
@@ -187,13 +244,16 @@ msgstr "Lokale øyeblikksbilder"
 msgid "Locale"
 msgstr ""
 
-#: src/core/context/LoginModal.tsx:96
+#: src/core/context/LoginModal.tsx:98
 msgid "Login"
 msgstr "Log inn"
 
-#. placeholder {0}: instance?.name || ""
 #: src/core/context/LoginModal.tsx:52
-msgid "Login to {0}"
+#~ msgid "Login to {0}"
+#~ msgstr ""
+
+#: src/core/context/LoginModal.tsx:54
+msgid "Login to {instanceName}"
 msgstr ""
 
 #: src/tasks/components/TaskLogs.tsx:40
@@ -203,6 +263,10 @@ msgstr "Logger"
 #: src/preferences/modals/EmailModal.tsx:249
 msgid "Mail From"
 msgstr "Avsender"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:197
+msgid "Minimal File Size For Shallow Restore"
+msgstr ""
 
 #: src/preferences/components/NotificationCard.tsx:115
 #: src/preferences/modals/EmailModal.tsx:207
@@ -217,6 +281,10 @@ msgstr ""
 msgid "Minimum severity required to use this notification profile"
 msgstr ""
 
+#: src/snapshot-directory/components/MountButton.tsx:39
+msgid "Mount"
+msgstr ""
+
 #: src/core/Header/Header.tsx:41
 msgid "Mounts"
 msgstr ""
@@ -224,6 +292,7 @@ msgstr ""
 #: src/preferences/modals/EmailModal.tsx:199
 #: src/preferences/modals/PushoverModal.tsx:132
 #: src/preferences/modals/WebhookModal.tsx:180
+#: src/snapshot-directory/SnapshotDirectory.tsx:181
 msgid "Name"
 msgstr "Navn"
 
@@ -239,6 +308,14 @@ msgstr "Nytt øyeblikksbilde"
 #: src/snapshots/SnapshotsPage.tsx:265
 msgid "Next snapshot"
 msgstr "Neste øyeblikksbilde"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
+msgid "No entires matching your search"
+msgstr "Ingen oppføringer samsvarer med søket ditt"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:174
+msgid "No entries in folder"
+msgstr "Ingen oppføringer i mappen"
 
 #: src/preferences/modals/WebhookModal.tsx:235
 msgid "No headers defined"
@@ -262,12 +339,24 @@ msgstr "Notifikasjons Format"
 msgid "Notifications"
 msgstr "Notifikasjoner"
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:237
+msgid "Overwrite Directories"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:230
+msgid "Overwrite Files"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:244
+msgid "Overwrite Symbolic Links"
+msgstr ""
+
 #: src/snapshots/SnapshotsPage.tsx:219
 msgid "Owner"
 msgstr "Eier"
 
-#: src/core/context/LoginModal.tsx:74
-#: src/core/context/LoginModal.tsx:75
+#: src/core/context/LoginModal.tsx:76
+#: src/core/context/LoginModal.tsx:77
 msgid "Password"
 msgstr "Passord"
 
@@ -318,6 +407,7 @@ msgstr ""
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:149
 #: src/snapshots/SnapshotsPage.tsx:170
 #: src/tasks/TasksPage.tsx:155
 msgid "Refresh"
@@ -330,6 +420,26 @@ msgstr "Ekstern"
 #: src/core/Header/Header.tsx:52
 msgid "Repository"
 msgstr "Depot"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:141
+msgid "Restore"
+msgstr "Gjenopprett"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:223
+msgid "Restore File Modification Time"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:209
+msgid "Restore File Ownership"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:216
+msgid "Restore File Permissions"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:136
+msgid "Restore files and directories"
+msgstr "Gjenopprett filer og mapper"
 
 #: src/tasks/TasksPage.tsx:106
 msgid "Running"
@@ -346,6 +456,10 @@ msgstr "Kjørende for"
 #: src/preferences/modals/WebhookModal.tsx:276
 msgid "Save"
 msgstr "Lagre"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:130
+msgid "Search files or folder (current level)"
+msgstr "Søk etter filer eller mapper (nåværende nivå)"
 
 #: src/tasks/TasksPage.tsx:145
 msgid "Search tasks"
@@ -368,13 +482,22 @@ msgstr ""
 msgid "SERVERS"
 msgstr ""
 
+#: src/snapshot-directory/modals/RestoreModal.tsx:192
+msgid "Shallow Restore At Depth"
+msgstr ""
+
 #: src/preferences/AppearanceSection.tsx:147
 msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
+#: src/snapshot-directory/SnapshotDirectory.tsx:226
 #: src/snapshots/SnapshotsPage.tsx:244
 msgid "Size"
 msgstr "Størrelse"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:178
+msgid "Skip previously restored files and symlinks"
+msgstr ""
 
 #: src/preferences/modals/EmailModal.tsx:229
 msgid "SMTP Port"
@@ -399,6 +522,14 @@ msgstr ""
 #: src/preferences/modals/EmailModal.tsx:237
 msgid "SMTP Username"
 msgstr "SMTP Brukernavn"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:122
+msgid "Snapshot"
+msgstr "Øyeblikksbilde"
+
+#: src/snapshot-directory/SnapshotDirectory.tsx:156
+msgid "Snapshot is mounted at the following path"
+msgstr "Øyeblikksbilde er montert under følgende sti"
 
 #: src/snapshots/modals/NewSnapshotModal.tsx:183
 msgid "Snapshot now"
@@ -442,11 +573,20 @@ msgstr "Oppgaver"
 msgid "Theme"
 msgstr "Tema"
 
+#: src/preferences/modals/EmailModal.tsx:265
+msgctxt "email-to"
+msgid "To"
+msgstr "Til"
+
 #: src/preferences/modals/EmailModal.tsx:200
 #: src/preferences/modals/PushoverModal.tsx:133
 #: src/preferences/modals/WebhookModal.tsx:181
 msgid "Unique name for this notification profile"
 msgstr "Unikt navn for denne notifikasjons profilen"
+
+#: src/snapshot-directory/components/MountButton.tsx:47
+msgid "Unmount"
+msgstr ""
 
 #: src/preferences/AppearanceSection.tsx:71
 msgid "Updated"
@@ -456,8 +596,8 @@ msgstr "Oppdatert"
 msgid "URL Endpoint"
 msgstr "URL Endepunkt"
 
-#: src/core/context/LoginModal.tsx:68
 #: src/core/context/LoginModal.tsx:70
+#: src/core/context/LoginModal.tsx:72
 msgid "Username"
 msgstr "Brukernavn"
 
@@ -468,3 +608,23 @@ msgstr "Vis policy"
 #: src/preferences/NotificationsSection.tsx:98
 msgid "Webhook"
 msgstr "Webhook"
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:184
+msgid "When a restore error occurs, attempt to continue instead of failing fast"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:251
+msgid "Write files atomically"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:258
+msgid "Write Sparse Files"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:163
+msgid "You can also restore to a .zip or .tar file by providing the appropriate extension"
+msgstr ""
+
+#: src/snapshot-directory/modals/RestoreModal.tsx:268
+msgid "Zip options"
+msgstr ""
