@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, PasswordInput, Stack, Text } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconAsterisk } from "@tabler/icons-react";
@@ -11,13 +13,13 @@ function KopiaRepoTokenRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconAsterisk} size={32} color="violet" />
-        <Text fw="bold">Use Repository Token</Text>
+        <Text fw="bold"><Trans>Use Repository Token</Trans></Text>
       </Group>
 
       <PasswordInput
-        label="Token"
+        label={t`Token`}
         withAsterisk
-        placeholder="Paste connection token"
+        placeholder={ t`Paste connection token`}
         {...form.getInputProps("providerConfig.token")}
       />
     </Stack>

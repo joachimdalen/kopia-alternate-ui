@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAzure } from "@tabler/icons-react";
@@ -16,20 +18,20 @@ function AzureBlobStorageRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconBrandAzure} size={32} color="blue" />
-        <Text fw="bold">Azure Blob Storage</Text>
+        <Text fw="bold"><Trans>Azure Blob Storage</Trans></Text>
       </Group>
 
       <Stack>
         <Group grow>
           <TextInput
-            label="Container"
-            placeholder="Enter container name"
+            label={t`Container`}
+            placeholder={t`Enter container name`}
             withAsterisk
             {...form.getInputProps("providerConfig.container")}
           />
           <TextInput
-            label="Storage Account"
-            placeholder="Enter storage account name"
+            label={t`Storage Account`}
+            placeholder={t`Enter storage account name`}
             withAsterisk
             {...form.getInputProps("providerConfig.storageAccount")}
           />
@@ -37,25 +39,25 @@ function AzureBlobStorageRepo({ form }: Props) {
 
         <Group grow>
           <TextInput
-            label="Object Name Prefix"
-            placeholder="Enter object name prefix (optional)"
+            label={t`Object Name Prefix`}
+            placeholder={t`Enter object name prefix (optional)`}
             {...form.getInputProps("providerConfig.prefix")}
           />
           <PasswordInput
-            label="Access Key"
-            placeholder="Enter secret access key"
+            label={t`Access Key`}
+            placeholder={t`Enter secret access key`}
             {...form.getInputProps("providerConfig.storageKey")}
           />
         </Group>
         <Group grow>
           <TextInput
-            label="Azure Storage Domain"
+            label={t`Azure Storage Domain`}
             placeholder="Enter storage domain or leave empty for default 'blob.core.windows.net'"
             {...form.getInputProps("providerConfig.storageDomain")}
           />
           <PasswordInput
-            label="SAS Token"
-            placeholder="Enter secret SAS token"
+            label={t`SAS Token`}
+            placeholder={t`Enter secret SAS token`}
             {...form.getInputProps("providerConfig.sasToken")}
           />
         </Group>

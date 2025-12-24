@@ -42,15 +42,23 @@ msgstr "# fra hver time"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:294
 msgid "# of latest snapshots"
-msgstr ""
+msgstr "# av siste øyeblikksbilder"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:330
 msgid "# of monthly snapshots"
-msgstr ""
+msgstr "# av månedlige øyeblikksbilder"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:321
 msgid "# of weekly snapshots"
-msgstr ""
+msgstr "# av ukentlige øyeblikksbilder"
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:47
+msgid "Access Key"
+msgstr "Tilgangsnøkkel"
+
+#: src/repo/sections/AmazonS3Repo.tsx:70
+msgid "Access Key ID"
+msgstr "Tilgangsnøkkel ID"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:43
 msgid "Active"
@@ -66,12 +74,12 @@ msgstr "Legg til"
 
 #: src/snapshot-history/SnapshotHistory.tsx:222
 msgid "Add pin to prevent snapshot deletion"
-msgstr ""
+msgstr "Legg til nål for å forhindre sletting av øyeblikksbilde"
 
 #: src/repo/ConnectRepoSection.tsx:131
 #: src/repo/CreateRepoSection.tsx:133
 msgid "Advanced Options"
-msgstr ""
+msgstr "Avanserte valg"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:761
 msgid "After Folder"
@@ -94,6 +102,10 @@ msgstr ""
 msgid "All Snapshots"
 msgstr "Alle øyeblikksbilder"
 
+#: src/repo/sections/AmazonS3Repo.tsx:24
+msgid "Amazon S3 or Compatible Storage"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:337
 msgid "Annual"
 msgstr "Årlige"
@@ -114,6 +126,14 @@ msgstr ""
 msgid "Are you sure you want to disconnect from this repository?"
 msgstr ""
 
+#: src/repo/sections/AzureBlobStorageRepo.tsx:21
+msgid "Azure Blob Storage"
+msgstr ""
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:54
+msgid "Azure Storage Domain"
+msgstr ""
+
 #: src/repo/ConfigureRepoSection.tsx:265
 #: src/repo/ConnectRepoSection.tsx:157
 #: src/repo/CreateRepoSection.tsx:212
@@ -131,6 +151,10 @@ msgstr ""
 #: src/snapshot-directory/modals/RestoreModal.tsx:297
 msgid "Begin Restore"
 msgstr "Start gjenoppretting"
+
+#: src/repo/sections/AmazonS3Repo.tsx:30
+msgid "Bucket"
+msgstr ""
 
 #: src/preferences/AppearanceSection.tsx:110
 msgid "Byte representation"
@@ -248,6 +272,10 @@ msgstr ""
 #: src/core/Footer/ConnectionInfo.tsx:58
 msgid "Connected to"
 msgstr "Koblet til"
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:27
+msgid "Container"
+msgstr ""
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:183
 msgid "Continue on Errors"
@@ -418,6 +446,10 @@ msgstr ""
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr ""
 
+#: src/repo/sections/AmazonS3Repo.tsx:50
+msgid "Do not verify TLS certificate"
+msgstr ""
+
 #. placeholder {0}: snapshots.length
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:68
 msgid "Do you want to delete the selected <0>{0} snapshots</0>?"
@@ -488,6 +520,23 @@ msgstr ""
 msgid "Endpoint"
 msgstr "Endepunkt"
 
+#: src/repo/sections/AmazonS3Repo.tsx:71
+msgid "Enter access key ID"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:31
+msgid "Enter bucket name"
+msgstr ""
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:28
+msgid "Enter container name"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:64
+#: src/repo/sections/AzureBlobStorageRepo.tsx:43
+msgid "Enter object name prefix (optional)"
+msgstr ""
+
 #: src/repo/ConnectRepoSection.tsx:120
 msgid "Enter password to connect to server"
 msgstr ""
@@ -499,6 +548,31 @@ msgstr ""
 
 #: src/repo/CreateRepoSection.tsx:127
 msgid "Enter repository password again"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:77
+#: src/repo/sections/AzureBlobStorageRepo.tsx:48
+msgid "Enter secret access key"
+msgstr ""
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:60
+msgid "Enter secret SAS token"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:37
+msgid "Enter server address (e.g., s3.amazonaws.com)"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:84
+msgid "Enter session token (optional)"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:59
+msgid "Enter specific region (e.g., us-west-1) or leave empty"
+msgstr ""
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:34
+msgid "Enter storage account name"
 msgstr ""
 
 #: src/repo/CreateRepoSection.tsx:186
@@ -1043,6 +1117,11 @@ msgstr "Notifikasjoner"
 msgid "Number of the most recent snapshots to retain per source"
 msgstr ""
 
+#: src/repo/sections/AmazonS3Repo.tsx:63
+#: src/repo/sections/AzureBlobStorageRepo.tsx:42
+msgid "Object Name Prefix"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:496
 msgid "Only Compress Extensions"
 msgstr ""
@@ -1057,6 +1136,10 @@ msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:284
 msgid "Other"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:58
+msgid "Override Region"
 msgstr ""
 
 #: src/repo/ConnectRepoSection.tsx:142
@@ -1250,6 +1333,10 @@ msgstr "Kjørende"
 msgid "Running for"
 msgstr "Kjørende for"
 
+#: src/repo/sections/AzureBlobStorageRepo.tsx:59
+msgid "SAS Token"
+msgstr ""
+
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:142
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:906
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:151
@@ -1294,6 +1381,10 @@ msgstr "Søk etter filer eller mapper (nåværende nivå)"
 msgid "Search tasks"
 msgstr "Søk etter oppgaver"
 
+#: src/repo/sections/AmazonS3Repo.tsx:76
+msgid "Secret Access Key"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:79
 msgid "Select compression algorithm"
 msgstr ""
@@ -1323,12 +1414,20 @@ msgstr "Avsender epost adresse"
 msgid "Server"
 msgstr ""
 
+#: src/repo/sections/AmazonS3Repo.tsx:36
+msgid "Server Endpoint"
+msgstr ""
+
 #: src/repo/ConnectRepoSection.tsx:118
 msgid "Server Password"
 msgstr ""
 
 #: src/core/Footer/ConnectionInfo.tsx:86
 msgid "SERVERS"
+msgstr ""
+
+#: src/repo/sections/AmazonS3Repo.tsx:83
+msgid "Session token"
 msgstr ""
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:192
@@ -1447,6 +1546,10 @@ msgstr "Staret"
 #: src/tasks/TasksPage.tsx:188
 msgid "Status"
 msgstr "Status"
+
+#: src/repo/sections/AzureBlobStorageRepo.tsx:33
+msgid "Storage Account"
+msgstr ""
 
 #: src/snapshots/SnapshotsPage.tsx:180
 msgid "Sync"
@@ -1586,6 +1689,10 @@ msgstr ""
 #: src/preferences/modals/WebhookModal.tsx:203
 msgid "URL Endpoint"
 msgstr "URL Endepunkt"
+
+#: src/repo/sections/AmazonS3Repo.tsx:44
+msgid "Use HTTP connection (insecure)"
+msgstr ""
 
 #: src/repo/ConnectRepoSection.tsx:112
 #: src/repo/CreateRepoSection.tsx:120
