@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { Card, CardSection, Group, LoadingOverlay, Text } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
@@ -35,7 +36,9 @@ export default function TaskLogs({ task }: Props) {
     <Card withBorder shadow="sm" radius="md">
       <CardSection withBorder inheritPadding py="xs">
         <Group justify="space-between">
-          <Text fw={500}>Logs</Text>
+          <Text fw={500}>
+            <Trans>Logs</Trans>
+          </Text>
         </Group>
       </CardSection>
       <CardSection mih={500}>

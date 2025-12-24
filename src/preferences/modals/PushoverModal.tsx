@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Group,
@@ -19,6 +21,7 @@ import type {
 } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+
 type Props = {
   profile?: NotificationProfile;
   onCancel: () => void;
@@ -107,8 +110,8 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
     <Modal
       title={
         profile === undefined
-          ? "Create pushover notification"
-          : "Edit pushover notification"
+          ? t`Create pushover notification`
+          : t`Edit pushover notification`
       }
       onClose={onCancel}
       opened
@@ -126,16 +129,16 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
           <ErrorAlert error={error} />
 
           <TextInput
-            label="Name"
-            description="Unique name for this notification profile"
-            placeholder="email-1"
+            label={t`Name`}
+            description={t`Unique name for this notification profile`}
+            placeholder="pushover-1"
             withAsterisk
             disabled={profile !== undefined}
             {...form.getInputProps("name")}
           />
           <Select
-            label="Minimum Severity"
-            description="Minimum severity required to use this notification profile"
+            label={t`Minimum Severity`}
+            description={t`Minimum severity required to use this notification profile`}
             data={[
               { label: "Verbose", value: "-100" },
               { label: "Success", value: "-10" },
@@ -150,25 +153,25 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
           />
 
           <PasswordInput
-            label="Pushover App Token"
+            label={t`Pushover App Token`}
             withAsterisk
             {...form.getInputProps("appToken")}
           />
           <TextInput
-            label="Recipient User Key or Group Key"
+            label={t`Recipient User Key or Group Key`}
             withAsterisk
             {...form.getInputProps("userKey")}
           />
           <TextInput
-            label="Endpoint"
+            label={t`Endpoint`}
             withAsterisk
             {...form.getInputProps("endpoint")}
           />
           <Select
-            label="Notification Format"
+            label={`Notification Format`}
             data={[
-              { label: "Plain Text Format", value: "txt" },
-              { label: "HTML Format", value: "html" },
+              { label: t`Plain Text Format`, value: "txt" },
+              { label: t`HTML Format`, value: "html" },
             ]}
             withAsterisk
             allowDeselect={false}
@@ -186,7 +189,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -195,7 +198,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
           loading={loading}
           disabled={!form.isValid()}
         >
-          {profile === undefined ? "Create" : "Save"}
+          {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>
     </Modal>

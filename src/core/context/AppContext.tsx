@@ -37,7 +37,7 @@ const AppContext = createContext<ContextState>(initialState);
 
 export type AppContextProps = PropsWithChildren;
 export function AppContextProvider({ children }: AppContextProps) {
-  const { i18n, t } = useLingui();
+  const { i18n } = useLingui();
   const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();

@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Container,
@@ -70,7 +71,7 @@ function TaskDetailsPage() {
               <IconWrapper icon={IconClockPlay} size={32} color="green" />
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
-                  Started
+                  <Trans>Started</Trans>
                 </Text>
                 <Text fw={700} size="xl">
                   {data?.startTime ? (
@@ -87,7 +88,7 @@ function TaskDetailsPage() {
               <IconWrapper icon={IconClockStop} size={32} color="blue" />
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
-                  Finished
+                  <Trans>Finished</Trans>
                 </Text>
                 <Text fw={700} size="xl">
                   {data?.endTime ? <FormattedDate value={data.endTime} /> : "-"}
@@ -100,7 +101,7 @@ function TaskDetailsPage() {
               <IconWrapper icon={IconStopwatch} size={32} color="teal" />
               <div>
                 <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
-                  Duration
+                  <Trans>Duration</Trans>
                 </Text>
                 <Text fw={700} size="xl">
                   {data?.startTime && (

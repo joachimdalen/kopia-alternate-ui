@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import {
   Container,
   Divider,
@@ -18,7 +19,7 @@ function PreferencesPage() {
   return (
     <Container>
       <Stack w="100%">
-        <Title order={1}>Preferences</Title>
+        <Title order={1}><Trans>Preferences</Trans></Title>
         <Divider />
         <Paper withBorder>
           <Tabs defaultValue="appearance">
@@ -29,7 +30,7 @@ function PreferencesPage() {
                   <IconWrapper icon={IconPalette} size={18} color="blue" />
                 }
               >
-                Appearance
+                <Trans>Appearance</Trans>
               </TabsTab>
               <TabsTab
                 value="notifications"
@@ -41,7 +42,7 @@ function PreferencesPage() {
                   />
                 }
               >
-                Notifications
+                <Trans>Notifications</Trans>
               </TabsTab>
             </TabsList>
             <TabsPanel value="appearance" p="md">

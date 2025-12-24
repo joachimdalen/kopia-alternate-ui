@@ -9,7 +9,7 @@ import { Header } from "./core/Header/Header";
 import { AppContextProvider } from "./core/context/AppContext";
 import { ServerInstanceContextProvider } from "./core/context/ServerInstanceContext";
 
-export async function dynamicActivate() {
+async function dynamicActivate() {
   const { messages: enMessages } = await import("./locales/en/messages.po");
   const { messages: nbMessages } = await import("./locales/nb/messages.po");
 
@@ -23,7 +23,7 @@ export async function dynamicActivate() {
 }
 
 
-   dynamicActivate();
+dynamicActivate();
 
 function BaseLayout() {
   const theme = createTheme({

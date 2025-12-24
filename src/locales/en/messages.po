@@ -30,17 +30,43 @@ msgstr "{0} task(s) in progress"
 
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
+#: src/preferences/modals/WebhookModal.tsx:252
 msgid "Add"
 msgstr "Add"
+
+#: src/tasks/TasksPage.tsx:94
+#: src/tasks/TasksPage.tsx:128
+msgid "All"
+msgstr "All"
 
 #: src/snapshots/SnapshotsPage.tsx:145
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
+#: src/preferences/PreferencesPage.tsx:33
+msgid "Appearance"
+msgstr "Appearance"
+
+#: src/preferences/AppearanceSection.tsx:107
+msgid "Byte representation"
+msgstr "Byte representation"
+
 #: src/preferences/modals/EmailModal.tsx:322
+#: src/preferences/modals/PushoverModal.tsx:192
+#: src/preferences/modals/WebhookModal.tsx:267
 #: src/snapshots/modals/NewSnapshotModal.tsx:154
 msgid "Cancel"
 msgstr "Cancel"
+
+#: src/tasks/TasksPage.tsx:218
+msgctxt "cance-operation"
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:54
+#: src/tasks/components/TaskSummaryDisplay.tsx:62
+msgid "Canceled after"
+msgstr "Canceled after"
 
 #: src/snapshots/modals/NewSnapshotModal.tsx:141
 msgid "Change policy parameters"
@@ -51,6 +77,8 @@ msgid "Connected to"
 msgstr "Connected to"
 
 #: src/preferences/modals/EmailModal.tsx:331
+#: src/preferences/modals/PushoverModal.tsx:201
+#: src/preferences/modals/WebhookModal.tsx:276
 msgid "Create"
 msgstr "Create"
 
@@ -58,9 +86,33 @@ msgstr "Create"
 msgid "Create email notification"
 msgstr "Create email notification"
 
+#: src/preferences/NotificationsSection.tsx:88
+msgid "Create new"
+msgstr "Create new"
+
+#: src/preferences/modals/PushoverModal.tsx:113
+msgid "Create pushover notification"
+msgstr "Create pushover notification"
+
+#: src/preferences/AppearanceSection.tsx:100
+msgid "Dark"
+msgstr "Dark"
+
+#: src/preferences/AppearanceSection.tsx:122
+msgid "Default page size"
+msgstr "Default page size"
+
 #: src/preferences/components/NotificationCard.tsx:106
 msgid "Delete"
 msgstr "Delete"
+
+#: src/tasks/TasksPage.tsx:198
+msgid "Description"
+msgstr "Description"
+
+#: src/tasks/TaskDetailsPage.tsx:104
+msgid "Duration"
+msgstr "Duration"
 
 #: src/preferences/components/NotificationCard.tsx:81
 msgid "Edit"
@@ -70,17 +122,70 @@ msgstr "Edit"
 msgid "Edit email notification"
 msgstr "Edit email notification"
 
+#: src/preferences/modals/PushoverModal.tsx:114
+msgid "Edit pushover notification"
+msgstr "Edit pushover notification"
+
+#: src/preferences/NotificationsSection.tsx:106
+msgid "Email"
+msgstr "Email"
+
+#: src/preferences/modals/PushoverModal.tsx:166
+msgid "Endpoint"
+msgstr "Endpoint"
+
 #: src/snapshots/modals/NewSnapshotModal.tsx:168
 msgid "Estimate"
 msgstr "Estimate"
+
+#: src/tasks/TasksPage.tsx:118
+msgid "Failed"
+msgstr "Failed"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:43
+#: src/tasks/components/TaskSummaryDisplay.tsx:48
+msgid "Failed after"
+msgstr "Failed after"
+
+#: src/tasks/TaskDetailsPage.tsx:91
+msgid "Finished"
+msgstr "Finished"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:32
+#: src/tasks/components/TaskSummaryDisplay.tsx:35
+msgid "Finished in"
+msgstr "Finished in"
+
+#: src/preferences/modals/EmailModal.tsx:258
+#: src/preferences/modals/PushoverModal.tsx:174
+#: src/preferences/modals/WebhookModal.tsx:223
+msgid "HTML Format"
+msgstr "HTML Format"
+
+#: src/preferences/modals/WebhookModal.tsx:209
+msgid "HTTP Method"
+msgstr "HTTP Method"
+
+#: src/tasks/TasksPage.tsx:126
+#: src/tasks/TasksPage.tsx:193
+msgid "Kind"
+msgstr "Kind"
 
 #: src/snapshots/SnapshotsPage.tsx:257
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
+#: src/preferences/AppearanceSection.tsx:99
+msgid "Light"
+msgstr "Light"
+
 #: src/snapshots/SnapshotsPage.tsx:146
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
+
+#: src/preferences/AppearanceSection.tsx:136
+msgid "Locale"
+msgstr "Locale"
 
 #: src/core/context/LoginModal.tsx:96
 msgid "Login"
@@ -91,16 +196,24 @@ msgstr "Login"
 msgid "Login to {0}"
 msgstr "Login to {0}"
 
+#: src/tasks/components/TaskLogs.tsx:40
+msgid "Logs"
+msgstr "Logs"
+
 #: src/preferences/modals/EmailModal.tsx:249
 msgid "Mail From"
 msgstr "Mail From"
 
 #: src/preferences/components/NotificationCard.tsx:115
 #: src/preferences/modals/EmailModal.tsx:207
+#: src/preferences/modals/PushoverModal.tsx:140
+#: src/preferences/modals/WebhookModal.tsx:188
 msgid "Minimum Severity"
 msgstr "Minimum Severity"
 
 #: src/preferences/modals/EmailModal.tsx:208
+#: src/preferences/modals/PushoverModal.tsx:141
+#: src/preferences/modals/WebhookModal.tsx:189
 msgid "Minimum severity required to use this notification profile"
 msgstr "Minimum severity required to use this notification profile"
 
@@ -109,6 +222,8 @@ msgid "Mounts"
 msgstr "Mounts"
 
 #: src/preferences/modals/EmailModal.tsx:199
+#: src/preferences/modals/PushoverModal.tsx:132
+#: src/preferences/modals/WebhookModal.tsx:180
 msgid "Name"
 msgstr "Name"
 
@@ -125,14 +240,27 @@ msgstr "New Snapshot"
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
+#: src/preferences/modals/WebhookModal.tsx:235
+msgid "No headers defined"
+msgstr "No headers defined"
+
+#: src/preferences/NotificationsSection.tsx:125
+msgid "No notifications defined"
+msgstr "No notifications defined"
+
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
 msgid "No recepients defined"
 msgstr "No recepients defined"
 
 #: src/preferences/modals/EmailModal.tsx:255
+#: src/preferences/modals/WebhookModal.tsx:220
 msgid "Notification Format"
 msgstr "Notification Format"
+
+#: src/preferences/PreferencesPage.tsx:45
+msgid "Notifications"
+msgstr "Notifications"
 
 #: src/snapshots/SnapshotsPage.tsx:219
 msgid "Owner"
@@ -155,19 +283,43 @@ msgstr "Path to snapshot"
 msgid "Pending"
 msgstr "Pending"
 
+#: src/preferences/modals/EmailModal.tsx:257
+#: src/preferences/modals/PushoverModal.tsx:173
+#: src/preferences/modals/WebhookModal.tsx:222
+msgid "Plain Text Format"
+msgstr "Plain Text Format"
+
 #: src/core/Header/Header.tsx:47
 msgid "Policies"
 msgstr "Policies"
 
 #: src/core/Header/Header.tsx:53
+#: src/preferences/PreferencesPage.tsx:22
 msgid "Preferences"
 msgstr "Preferences"
+
+#: src/preferences/AppearanceSection.tsx:72
+msgid "Preferences updated"
+msgstr "Preferences updated"
+
+#: src/preferences/NotificationsSection.tsx:114
+msgid "Pushover"
+msgstr "Pushover"
+
+#: src/preferences/modals/PushoverModal.tsx:156
+msgid "Pushover App Token"
+msgstr "Pushover App Token"
+
+#: src/preferences/modals/PushoverModal.tsx:161
+msgid "Recipient User Key or Group Key"
+msgstr "Recipient User Key or Group Key"
 
 #: src/core/DataGrid/DataGrid.tsx:75
 msgid "Records per page"
 msgstr "Records per page"
 
 #: src/snapshots/SnapshotsPage.tsx:170
+#: src/tasks/TasksPage.tsx:155
 msgid "Refresh"
 msgstr "Refresh"
 
@@ -179,9 +331,25 @@ msgstr "Remote"
 msgid "Repository"
 msgstr "Repository"
 
+#: src/tasks/TasksPage.tsx:106
+msgid "Running"
+msgstr "Running"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:22
+#: src/tasks/components/TaskSummaryDisplay.tsx:23
+msgid "Running for"
+msgstr "Running for"
+
+#: src/preferences/AppearanceSection.tsx:152
 #: src/preferences/modals/EmailModal.tsx:331
+#: src/preferences/modals/PushoverModal.tsx:201
+#: src/preferences/modals/WebhookModal.tsx:276
 msgid "Save"
 msgstr "Save"
+
+#: src/tasks/TasksPage.tsx:145
+msgid "Search tasks"
+msgstr "Search tasks"
 
 #: src/preferences/components/NotificationCard.tsx:97
 msgid "Send test notification"
@@ -199,6 +367,10 @@ msgstr "Server"
 #: src/core/Footer/ConnectionInfo.tsx:86
 msgid "SERVERS"
 msgstr "SERVERS"
+
+#: src/preferences/AppearanceSection.tsx:147
+msgid "Show all snapshots by default"
+msgstr "Show all snapshots by default"
 
 #: src/snapshots/SnapshotsPage.tsx:244
 msgid "Size"
@@ -241,17 +413,48 @@ msgstr "Snapshot Now"
 msgid "Snapshots"
 msgstr "Snapshots"
 
+#: src/tasks/TasksPage.tsx:179
+msgid "Start Time"
+msgstr "Start Time"
+
+#: src/tasks/TaskDetailsPage.tsx:74
+msgid "Started"
+msgstr "Started"
+
+#: src/tasks/TasksPage.tsx:188
+msgid "Status"
+msgstr "Status"
+
 #: src/snapshots/SnapshotsPage.tsx:179
 msgid "Sync"
 msgstr "Sync"
 
+#: src/tasks/TasksPage.tsx:174
+msgid "Task ID"
+msgstr "Task ID"
+
 #: src/core/Header/Header.tsx:51
+#: src/tasks/TasksPage.tsx:83
 msgid "Tasks"
 msgstr "Tasks"
 
+#: src/preferences/AppearanceSection.tsx:97
+msgid "Theme"
+msgstr "Theme"
+
 #: src/preferences/modals/EmailModal.tsx:200
+#: src/preferences/modals/PushoverModal.tsx:133
+#: src/preferences/modals/WebhookModal.tsx:181
 msgid "Unique name for this notification profile"
 msgstr "Unique name for this notification profile"
+
+#: src/preferences/AppearanceSection.tsx:71
+msgid "Updated"
+msgstr "Updated"
+
+#: src/preferences/modals/WebhookModal.tsx:203
+msgid "URL Endpoint"
+msgstr "URL Endpoint"
 
 #: src/core/context/LoginModal.tsx:68
 #: src/core/context/LoginModal.tsx:70
@@ -261,3 +464,7 @@ msgstr "Username"
 #: src/snapshots/SnapshotsPage.tsx:310
 msgid "View Policy"
 msgstr "View Policy"
+
+#: src/preferences/NotificationsSection.tsx:98
+msgid "Webhook"
+msgstr "Webhook"

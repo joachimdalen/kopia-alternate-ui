@@ -1,6 +1,7 @@
 import { Group, Loader, Text, Tooltip } from "@mantine/core";
 import type { Task } from "../../core/types";
 
+import { Trans } from "@lingui/react/macro";
 import {
   IconBan,
   IconCircleCheckFilled,
@@ -18,7 +19,7 @@ export default function TaskStatusDisplay({ task }: Props) {
         <Group gap="xs">
           <Loader type="dots" size="xs" />
           <Text fz="sm">
-            Running for{" "}
+            <Trans>Running for</Trans>{" "}
             <TimeDuration from={task.startTime} to={task.endTime!} />
           </Text>
         </Group>
@@ -28,7 +29,7 @@ export default function TaskStatusDisplay({ task }: Props) {
         <Group gap="xs">
           <IconCircleCheckFilled color="var(--mantine-color-green-5)" />
           <Text fz="sm">
-            Finished in{" "}
+            <Trans>Finished in</Trans>{" "}
             <TimeDuration from={task.startTime} to={task.endTime!} />
           </Text>
         </Group>
@@ -39,7 +40,7 @@ export default function TaskStatusDisplay({ task }: Props) {
           <IconCircleXFilled color="var(--mantine-color-red-5)" />
           <Tooltip label={task.errorMessage || "No error message given"}>
             <Text fz="sm">
-              Failed after{" "}
+              <Trans>Failed after</Trans>{" "}
               <TimeDuration from={task.startTime} to={task.endTime!} />
             </Text>
           </Tooltip>
@@ -50,7 +51,7 @@ export default function TaskStatusDisplay({ task }: Props) {
         <Group gap="xs">
           <IconBan color="var(--mantine-color-yellow-5)" />
           <Text fz="sm">
-            Canceled after{" "}
+            <Trans>Canceled after</Trans>{" "}
             <TimeDuration from={task.startTime} to={task.endTime!} />
           </Text>
         </Group>

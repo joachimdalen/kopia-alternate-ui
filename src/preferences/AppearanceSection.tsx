@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   Button,
   Checkbox,
@@ -15,7 +17,6 @@ import { useServerInstanceContext } from "../core/context/ServerInstanceContext"
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { Preferences } from "../core/types";
 import { parseColorScheme } from "../utils/parseColorScheme";
-
 type PreferencesForm = {
   bytesStringBase2: string;
   theme: string;
@@ -67,8 +68,8 @@ function AppearanceSection() {
     action: (prefs?: Preferences) => kopiaService.setPreferences(prefs!),
     onReturn() {
       showNotification({
-        title: "Updated",
-        message: "Preferences updated",
+        title: t`Updated`,
+        message: t`Preferences updated`,
         color: "green",
       });
       reloadPreferences();
@@ -93,17 +94,17 @@ function AppearanceSection() {
       <Stack>
         <Group grow>
           <Select
-            label="Theme"
+            label={t`Theme`}
             data={[
-              { label: "Light", value: "light" },
-              { label: "Dark", value: "dark" },
+              { label: t`Light`, value: "light" },
+              { label: t`Dark`, value: "dark" },
             ]}
             allowDeselect={false}
             withCheckIcon={false}
             {...form.getInputProps("theme")}
           />
           <Select
-            label="Byte representation"
+            label={t`Byte representation`}
             data={[
               {
                 label: "Base-2 (KiB, MiB, GiB, TiB)",
@@ -118,7 +119,7 @@ function AppearanceSection() {
         </Group>
         <Group grow>
           <Select
-            label="Default page size"
+            label={t`Default page size`}
             data={[
               { label: "10", value: "10" },
               { label: "20", value: "20" },
@@ -132,7 +133,7 @@ function AppearanceSection() {
             {...form.getInputProps("pageSize")}
           />
           <Select
-            label="Locale"
+            label={t`Locale`}
             data={[
               { label: "English", value: "en" },
               { label: "Norsk - Bokmål", value: "nb" },
@@ -143,12 +144,12 @@ function AppearanceSection() {
             {...form.getInputProps("locale")}
           />
         </Group>
-        <Checkbox label="Show all snapshots by default"
+        <Checkbox label={t`Show all snapshots by default`}
           {...form.getInputProps("defaultSnapshotViewAll", { type: "checkbox" })}
         />
         <Group justify="flex-end" p="sm">
           <Button type="submit" color="green">
-            Save
+            <Trans>Save</Trans>
           </Button>
         </Group>
       </Stack>

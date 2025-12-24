@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Divider,
@@ -60,7 +61,7 @@ function NotificationsSection() {
       kopiaService.testNotificationProfile(data!),
     showErrorAsNotification: true,
     returnsData: false,
-    onReturn: () => {},
+    onReturn: () => { },
   });
   useEffect(() => {
     loadAction.execute(undefined, "loading");
@@ -84,7 +85,7 @@ function NotificationsSection() {
                 variant="subtle"
                 color="green"
               >
-                Create new
+                <Trans>Create new</Trans>
               </Button>
             </Menu.Target>
             <Menu.Dropdown>
@@ -94,7 +95,7 @@ function NotificationsSection() {
                   setAction({ action: "new", item: { type: "webhook" } })
                 }
               >
-                Webhook
+                <Trans>Webhook</Trans>
               </Menu.Item>
               <Menu.Item
                 leftSection={<IconMail size={16} stroke={1.5} />}
@@ -102,7 +103,7 @@ function NotificationsSection() {
                   setAction({ action: "new", item: { type: "email" } })
                 }
               >
-                Email
+                <Trans>Email</Trans>
               </Menu.Item>
               <Menu.Item
                 leftSection={<IconBrandPushover size={16} stroke={1.5} />}
@@ -110,7 +111,7 @@ function NotificationsSection() {
                   setAction({ action: "new", item: { type: "pushover" } })
                 }
               >
-                Pushover
+                <Trans>Pushover</Trans>
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
@@ -121,7 +122,7 @@ function NotificationsSection() {
         {data.length === 0 && (
           <Stack align="center" w="100%">
             <IconWrapper icon={IconNotification} size={50} />
-            <Text>No notifications defined</Text>
+            <Text><Trans>No notifications defined</Trans></Text>
           </Stack>
         )}
         {data.length > 0 && (

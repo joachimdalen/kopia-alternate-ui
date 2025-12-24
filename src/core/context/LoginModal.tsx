@@ -47,9 +47,11 @@ export default function LoginModal({ instance, onLogin, error }: Props) {
     onLogin(values.username, values.password);
   }
 
+  const instanceName = instance?.name || "Unknown";
+
   return (
     <Modal
-      title={t`Login to ${instance?.name || ""}`}
+      title={t`Login to ${instanceName}`}
       onClose={() => console.log()}
       opened
       styles={modalBaseStyles}

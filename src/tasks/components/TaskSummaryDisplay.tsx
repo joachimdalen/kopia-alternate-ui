@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro";
 import { Alert, Group, Loader, Stack, Text } from "@mantine/core";
 import {
   IconBan,
@@ -19,7 +20,7 @@ export default function TaskSummaryDisplay({ task }: Props) {
           <Group gap="xs">
             <Loader type="dots" size="xs" />
             <Text fz="sm">
-              Running for{" "}
+              <Trans>Running for</Trans>{" "}
               <TimeDuration from={task.startTime} to={task.endTime!} />
             </Text>
           </Group>
@@ -31,7 +32,7 @@ export default function TaskSummaryDisplay({ task }: Props) {
           <Group gap="xs">
             <IconCircleCheckFilled color="var(--mantine-color-green-5)" />
             <Text fz="sm">
-              Finished in{" "}
+              <Trans>Finished in</Trans>{" "}
               <TimeDuration from={task.startTime} to={task.endTime!} />
             </Text>
           </Group>
@@ -44,7 +45,7 @@ export default function TaskSummaryDisplay({ task }: Props) {
             <IconCircleXFilled color="var(--mantine-color-red-5)" />
             <Stack gap="xs">
               <Text fz="sm">
-                Failed after{" "}
+                <Trans>Failed after</Trans>{" "}
                 <TimeDuration from={task.startTime} to={task.endTime!} />
               </Text>
               {task.errorMessage && <Text fz="sm">{task.errorMessage}</Text>}
@@ -58,7 +59,7 @@ export default function TaskSummaryDisplay({ task }: Props) {
           <Group gap="xs">
             <IconBan color="var(--mantine-color-yellow-5)" />
             <Text fz="sm">
-              Canceled after{" "}
+              <Trans>Canceled after</Trans>{" "}
               <TimeDuration from={task.startTime} to={task.endTime!} />
             </Text>
           </Group>

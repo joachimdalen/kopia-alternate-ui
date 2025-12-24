@@ -254,15 +254,15 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           <Select
             label={t`Notification Format`}
             data={[
-              { label: "Plain Text Format", value: "txt" },
-              { label: "HTML Format", value: "html" },
+              { label: t`Plain Text Format`, value: "txt" },
+              { label: t`HTML Format`, value: "html" },
             ]}
             withAsterisk
             allowDeselect={false}
             withCheckIcon={false}
             {...form.getInputProps("format")}
           />
-          <Fieldset legend="To">
+          <Fieldset legend={<Trans context="email-to">To</Trans>}>
             {toFields.length === 0 && (
               <Text c="dimmed" ta="center">
                 <Trans>No recepients defined</Trans>

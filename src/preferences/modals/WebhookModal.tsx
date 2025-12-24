@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import {
   ActionIcon,
   Button,
@@ -23,6 +25,7 @@ import type {
 } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+
 type Props = {
   profile?: NotificationProfile;
   onCancel: () => void;
@@ -174,16 +177,16 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           <ErrorAlert error={error} />
 
           <TextInput
-            label="Name"
-            description="Unique name for this notification profile"
+            label={t`Name`}
+            description={t`Unique name for this notification profile`}
             placeholder="webhook-1"
             withAsterisk
             disabled={profile !== undefined}
             {...form.getInputProps("name")}
           />
           <Select
-            label="Minimum Severity"
-            description="Minimum severity required to use this notification profile"
+            label={t`Minimum Severity`}
+            description={t`Minimum severity required to use this notification profile`}
             data={[
               { label: "Verbose", value: "-100" },
               { label: "Success", value: "-10" },
@@ -197,13 +200,13 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
             {...form.getInputProps("minSeverity")}
           />
           <TextInput
-            label="URL Endpoint"
+            label={t`URL Endpoint`}
             withAsterisk
             {...form.getInputProps("endpoint")}
           />
           <Group grow>
             <Select
-              label="HTTP Method"
+              label={t`HTTP Method`}
               data={[
                 { label: "POST", value: "POST" },
                 { label: "PUT", value: "PUT" },
@@ -214,10 +217,10 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
               {...form.getInputProps("method")}
             />
             <Select
-              label="Notification Format"
+              label={t`Notification Format`}
               data={[
-                { label: "Plain Text Format", value: "txt" },
-                { label: "HTML Format", value: "html" },
+                { label: t`Plain Text Format`, value: "txt" },
+                { label: t`HTML Format`, value: "html" },
               ]}
               withAsterisk
               allowDeselect={false}
@@ -229,7 +232,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           <Fieldset legend="Headers">
             {fields.length === 0 && (
               <Text c="dimmed" ta="center">
-                No headers defined
+                <Trans>No headers defined</Trans>
               </Text>
             )}
 
@@ -246,7 +249,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
                   })
                 }
               >
-                Add
+                <Trans>Add</Trans>
               </Button>
             </Group>
           </Fieldset>
@@ -261,7 +264,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -270,7 +273,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           loading={loading}
           disabled={!form.isValid()}
         >
-          {profile === undefined ? "Create" : "Save"}
+          {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>
     </Modal>

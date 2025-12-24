@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from "@lingui/react/macro";
 import {
   Anchor,
   Button,
@@ -78,7 +80,7 @@ function TasksPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>Tasks</Title>
+        <Title order={1}><Trans>Tasks</Trans></Title>
         <Group justify="space-between" align="flex-end">
           <Group>
             <SegmentedControl
@@ -89,7 +91,7 @@ function TasksPage() {
                   label: (
                     <Center style={{ gap: 10 }}>
                       <IconList size={16} />
-                      <span>All</span>
+                      <span><Trans>All</Trans></span>
                     </Center>
                   ),
                   value: "all",
@@ -101,7 +103,7 @@ function TasksPage() {
                         size={16}
                         color="var(--mantine-color-blue-5)"
                       />
-                      <span>Running</span>
+                      <span><Trans>Running</Trans></span>
                     </Center>
                   ),
                   value: "running",
@@ -113,7 +115,7 @@ function TasksPage() {
                         color="var(--mantine-color-red-5)"
                         size={16}
                       />
-                      <span>Failed</span>
+                      <span><Trans>Failed</Trans></span>
                     </Center>
                   ),
                   value: "failed",
@@ -121,9 +123,9 @@ function TasksPage() {
               ]}
             />
             <MenuButton
-              prefix="Kind:"
+              prefix={t`Kind` + ":"}
               options={[
-                { label: "All", value: "all" },
+                { label: t`All`, value: "all" },
                 { label: "divider", value: "divider" },
                 ...(data || [])
                   .map((x) => x.kind)
@@ -140,7 +142,7 @@ function TasksPage() {
           <Group>
             <TextInput
               size="sm"
-              placeholder="Search tasks"
+              placeholder={t`Search tasks`}
               leftSection={<IconSearch size={18} stroke={1.5} />}
               value={query}
               onChange={setQuery}
@@ -150,7 +152,7 @@ function TasksPage() {
               onClick={() => execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
-              Refresh
+              <Trans>Refresh</Trans>
             </Button>
           </Group>
         </Group>
@@ -169,11 +171,12 @@ function TasksPage() {
           columns={[
             {
               accessor: "id",
-              title: "Task ID",
+              title: t`Task ID`,
               width: 75,
             },
             {
               accessor: "startTime",
+              title: t`Start Time`,
               render: (item) => (
                 <Anchor component={Link} to={`/tasks/${item.id}`} td="none">
                   <RelativeDate value={item.startTime} />
@@ -182,14 +185,17 @@ function TasksPage() {
             },
             {
               accessor: "status",
+              title: t`Status`,
               render: (item) => <TaskStatusDisplay task={item} />,
             },
             {
               accessor: "kind",
+              title: t`Kind`,
               render: (item) => <TaskKindDisplay kind={item.kind} />,
             },
             {
               accessor: "description",
+              title: t`Description`,
               visibleMediaQuery: (theme) =>
                 `(min-width: ${theme.breakpoints.md})`,
             },
@@ -209,7 +215,7 @@ function TasksPage() {
                     leftSection={<IconBan size={14} />}
                     color="red"
                   >
-                    Cancel
+                    <Trans context="cance-operation">Cancel</Trans>
                   </Button>
                 ),
             },
