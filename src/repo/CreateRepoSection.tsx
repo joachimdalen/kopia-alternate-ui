@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Accordion,
   AccordionControl,
@@ -112,35 +114,35 @@ function CreateRepoSection({ form, goBack }: Props) {
       <ErrorAlert error={createRepoAction.error} />
       <Group grow>
         <PasswordInput
-          label="Repository Password"
+          label={t`Repository Password`}
           withAsterisk
-          placeholder="Enter repository password"
-          description="Used to encrypt content of the repository"
+          placeholder={t`Enter repository password`}
+          description={t`Used to encrypt content of the repository`}
           {...form.getInputProps("password")}
         />
         <PasswordInput
-          label="Confirm Repository Password"
-          description="Confirm the repository password"
+          label={t`Confirm Repository Password`}
+          description={t`Confirm the repository password`}
           withAsterisk
-          placeholder="Enter repository password again"
+          placeholder={t`Enter repository password again`}
           {...form.getInputProps("confirmedPassword")}
         />
       </Group>
       <Accordion variant="separated">
         <AccordionItem value="advanced">
-          <AccordionControl>Advanced Options</AccordionControl>
+          <AccordionControl><Trans>Advanced Options</Trans></AccordionControl>
           <AccordionPanel>
             <Stack>
               <Group grow>
                 <Select
-                  label="Encryption"
+                  label={t`Encryption`}
                   data={encryptionOptions}
                   allowDeselect={false}
                   withCheckIcon={false}
                   {...form.getInputProps("encryption")}
                 />
                 <Select
-                  label="Hash Algorithm"
+                  label={t`Hash Algorithm`}
                   data={hashOptions}
                   allowDeselect={false}
                   withCheckIcon={false}
@@ -149,17 +151,17 @@ function CreateRepoSection({ form, goBack }: Props) {
               </Group>
               <Group grow>
                 <Select
-                  label="Splitter"
+                  label={t`Splitter`}
                   data={splitterOptions}
                   allowDeselect={false}
                   withCheckIcon={false}
                   {...form.getInputProps("splitter")}
                 />
                 <Select
-                  label="Repository Format"
+                  label={t`Repository Format`}
                   data={[
-                    { label: "Latest format", value: "2" },
-                    { label: "Legacy format compatible with v0.8", value: "1" },
+                    { label: t`Latest format`, value: "2" },
+                    { label: t`Legacy format compatible with v0.8`, value: "1" },
                   ]}
                   allowDeselect={false}
                   withCheckIcon={false}
@@ -168,9 +170,9 @@ function CreateRepoSection({ form, goBack }: Props) {
               </Group>
               <Group grow>
                 <Select
-                  label="Error Correction Overhead"
+                  label={t`Error Correction Overhead`}
                   data={[
-                    { label: "Disabled", value: "0" },
+                    { label: t`Disabled`, value: "0" },
                     { label: "1%", value: "1" },
                     { label: "2%", value: "2" },
                     { label: "5%", value: "5" },
@@ -181,7 +183,7 @@ function CreateRepoSection({ form, goBack }: Props) {
                   {...form.getInputProps("eccOverheadPercent")}
                 />
                 <Select
-                  label="Error Correction Algorithm"
+                  label={t`Error Correction Algorithm`}
                   disabled={form.values.eccOverheadPercent === "0"}
                   data={eccOptions}
                   allowDeselect={false}
@@ -191,13 +193,13 @@ function CreateRepoSection({ form, goBack }: Props) {
               </Group>
               <Group grow>
                 <TextInput
-                  label="Username"
-                  description="Override this when restoring a snapshot taken by another user"
+                  label={t`Username`}
+                  description={t`Override this when restoring a snapshot taken by another user`}
                   {...form.getInputProps("username")}
                 />
                 <TextInput
                   label="Hostname"
-                  description="Override this when restoring a snapshot taken on another machine"
+                  description={t`Override this when restoring a snapshot taken on another machine`}
                   {...form.getInputProps("hostname")}
                 />
               </Group>
@@ -207,7 +209,7 @@ function CreateRepoSection({ form, goBack }: Props) {
       </Accordion>
       <Group mt="sm" justify="space-between">
         <Button size="xs" onClick={goBack} disabled={createRepoAction.loading}>
-          Back
+          <Trans>Back</Trans>
         </Button>
         <Button
           size="xs"
@@ -215,7 +217,7 @@ function CreateRepoSection({ form, goBack }: Props) {
           onClick={() => createRepository()}
           loading={createRepoAction.loading}
         >
-          Create repository
+          <Trans>Create repository</Trans>
         </Button>
       </Group>
     </Stack>

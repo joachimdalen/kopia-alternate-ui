@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Center,
@@ -113,7 +115,7 @@ function PoliciesPage() {
       );
 
       if (!policy) {
-        showNotification({ message: "Failed to find policy", color: "red" });
+        showNotification({ message: t`Failed to find policy`, color: "red" });
         return;
       }
 
@@ -168,17 +170,17 @@ function PoliciesPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>Policies</Title>
+        <Title order={1}><Trans>Policies</Trans></Title>
         <Group justify="space-between">
           <MenuButton
             options={[
-              { label: "Applicable Policies", value: "applicable-policies" },
-              { label: "Local Path Policies", value: "local-path-policies" },
-              { label: "All Policies", value: "all-policies" },
+              { label: t`Applicable Policies`, value: "applicable-policies" },
+              { label: t`Local Path Policies`, value: "local-path-policies" },
+              { label: t`All Policies`, value: "all-policies" },
               { label: "", value: "divider" },
-              { label: "Global Policy", value: "global-policy" },
-              { label: "Per-User Policies", value: "per-user-policies" },
-              { label: "Per-Host Policies", value: "per-host-policies" },
+              { label: t`Global Policy`, value: "global-policy" },
+              { label: t`Per-User Policies`, value: "per-user-policies" },
+              { label: t`Per-Host Policies`, value: "per-host-policies" },
               { label: "", value: "divider" },
               ...uniqueOwners.map((own) => ({
                 label: own,
@@ -196,14 +198,14 @@ function PoliciesPage() {
               disabled={loading}
               onClick={() => setAction({ action: "new" })}
             >
-              New Policy
+              <Trans>New Policy</Trans>
             </Button>
             <Button
               loading={loading && loadingKey === "refresh"}
               onClick={() => execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
-              Refresh
+              <Trans>Refresh</Trans>
             </Button>
           </Group>
         </Group>
@@ -213,24 +215,28 @@ function PoliciesPage() {
           idAccessor="id"
           records={visibleData}
           loading={loading && loadingKey === "loading"}
-          noRecordsText="No policies found"
+          noRecordsText={t`No policies found`}
           noRecordsIcon={<IconWrapper icon={IconFileCertificate} size={48} />}
           pageSize={tablePageSize}
           columns={[
             {
               accessor: "target.username",
+              title: t`Username`,
               render: (item) => item.target.userName || "*",
             },
             {
               accessor: "target.host",
+              title: t`Host`,
               render: (item) => item.target.host || "*",
             },
             {
               accessor: "target.path",
+              title: t`Path`,
               render: (item) => item.target.path || "*",
             },
             {
               accessor: "defined",
+              title: t`Defined`,
               visibleMediaQuery: (theme) =>
                 `(min-width: ${theme.breakpoints.md})`,
               render: (item) => (
@@ -265,7 +271,7 @@ function PoliciesPage() {
                     })
                   }
                 >
-                  Edit
+                  <Trans>Edit</Trans>
                 </Button>
               ),
             },

@@ -57,6 +57,7 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:123
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
 #: src/preferences/modals/WebhookModal.tsx:252
@@ -65,6 +66,11 @@ msgstr "Legg til"
 
 #: src/snapshot-history/SnapshotHistory.tsx:222
 msgid "Add pin to prevent snapshot deletion"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:131
+#: src/repo/CreateRepoSection.tsx:133
+msgid "Advanced Options"
 msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:761
@@ -80,6 +86,10 @@ msgstr "Etter øyeblikksbilde"
 msgid "All"
 msgstr "Alle"
 
+#: src/policies/PoliciesPage.tsx:179
+msgid "All Policies"
+msgstr ""
+
 #: src/snapshots/SnapshotsPage.tsx:146
 msgid "All Snapshots"
 msgstr "Alle øyeblikksbilder"
@@ -92,8 +102,22 @@ msgstr "Årlige"
 msgid "Appearance"
 msgstr "Utseende"
 
+#: src/policies/PoliciesPage.tsx:177
+msgid "Applicable Policies"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:29
 msgid "Are you sure you want to delete this policy?"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:64
+msgid "Are you sure you want to disconnect from this repository?"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:265
+#: src/repo/ConnectRepoSection.tsx:157
+#: src/repo/CreateRepoSection.tsx:212
+msgid "Back"
 msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:730
@@ -108,7 +132,7 @@ msgstr ""
 msgid "Begin Restore"
 msgstr "Start gjenoppretting"
 
-#: src/preferences/AppearanceSection.tsx:107
+#: src/preferences/AppearanceSection.tsx:110
 msgid "Byte representation"
 msgstr "Byte representasjon"
 
@@ -123,9 +147,11 @@ msgstr ""
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:153
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:134
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:893
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:143
 #: src/preferences/modals/EmailModal.tsx:322
 #: src/preferences/modals/PushoverModal.tsx:192
 #: src/preferences/modals/WebhookModal.tsx:267
+#: src/repo/RepoPage.tsx:66
 #: src/snapshot-directory/modals/RestoreModal.tsx:288
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:93
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:101
@@ -171,8 +197,52 @@ msgstr ""
 msgid "Compression Algorithm"
 msgstr ""
 
+#: src/repo/RepoPage.tsx:115
+msgid "Config file"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:253
+msgid "Configure Provider"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:277
+msgid "Configure repository"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:281
+msgid "Configure the repository"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:254
+msgid "Configure the selected provider"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/components/PolicyAccordionControl.tsx:30
 msgid "Configured"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:124
+msgid "Confirm Repository Password"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:125
+msgid "Confirm the repository password"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:103
+msgid "Connect as"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:135
+msgid "Connect in read-only mode"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:165
+msgid "Connect to repository"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:180
+msgid "Connected as"
 msgstr ""
 
 #: src/core/Footer/ConnectionInfo.tsx:58
@@ -190,6 +260,10 @@ msgstr ""
 msgid "Create"
 msgstr "Opprett"
 
+#: src/repo/ConfigureRepoSection.tsx:280
+msgid "Create a new repository"
+msgstr ""
+
 #: src/preferences/modals/EmailModal.tsx:180
 msgid "Create email notification"
 msgstr "Opprett epost notifikasjon"
@@ -206,6 +280,11 @@ msgstr ""
 msgid "Create pushover notification"
 msgstr "Opprett pushover notifikasjon"
 
+#: src/repo/ConfigureRepoSection.tsx:277
+#: src/repo/CreateRepoSection.tsx:220
+msgid "Create repository"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:540
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr ""
@@ -218,11 +297,11 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
-#: src/preferences/AppearanceSection.tsx:100
+#: src/preferences/AppearanceSection.tsx:103
 msgid "Dark"
 msgstr "Mørkt"
 
-#: src/preferences/AppearanceSection.tsx:122
+#: src/preferences/AppearanceSection.tsx:125
 msgid "Default page size"
 msgstr "Standard side størrelse"
 
@@ -235,6 +314,7 @@ msgstr "Standard side størrelse"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:35
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:60
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:52
+#: src/policies/PoliciesPage.tsx:239
 msgid "Defined"
 msgstr ""
 
@@ -264,11 +344,16 @@ msgstr ""
 msgid "Deprecated"
 msgstr ""
 
+#: src/repo/RepoPage.tsx:92
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:71
 #: src/snapshot-history/SnapshotHistory.tsx:187
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
+
+#: src/repo/RepoPage.tsx:45
+msgid "Description updated"
+msgstr ""
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:162
 msgid "Destination"
@@ -305,7 +390,21 @@ msgstr ""
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:270
 msgid "Disable ZIP compression"
-msgstr ""
+msgstr "Deaktiver ZIP kompresjon"
+
+#: src/repo/CreateRepoSection.tsx:175
+#: src/repo/RepoPage.tsx:160
+msgid "Disabled"
+msgstr "Deaktivert"
+
+#: src/repo/RepoPage.tsx:66
+#: src/repo/RepoPage.tsx:86
+msgid "Disconnect"
+msgstr "Koble fra"
+
+#: src/repo/RepoPage.tsx:62
+msgid "Disconnect repository?"
+msgstr "Koble fra depot?"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:271
 msgid "Do not compress when restoring to a ZIP file (faster)."
@@ -336,6 +435,7 @@ msgstr "Last ned"
 msgid "Duration"
 msgstr "Varighet"
 
+#: src/policies/PoliciesPage.tsx:274
 #: src/preferences/components/NotificationCard.tsx:81
 msgid "Edit"
 msgstr "Rediger"
@@ -376,9 +476,40 @@ msgstr ""
 msgid "Email"
 msgstr "E-post"
 
+#: src/repo/CreateRepoSection.tsx:138
+msgid "Encryption"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:127
+msgid "Encryption Algorithm"
+msgstr ""
+
 #: src/preferences/modals/PushoverModal.tsx:166
 msgid "Endpoint"
 msgstr "Endepunkt"
+
+#: src/repo/ConnectRepoSection.tsx:120
+msgid "Enter password to connect to server"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:111
+#: src/repo/CreateRepoSection.tsx:119
+msgid "Enter repository password"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:127
+msgid "Enter repository password again"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:186
+#: src/repo/RepoPage.tsx:166
+msgid "Error Correction Algorithm"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:173
+#: src/repo/RepoPage.tsx:155
+msgid "Error Correction Overhead"
+msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:224
 msgid "Error Handling"
@@ -401,35 +532,35 @@ msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:525
 msgid "Every 10 Minutes"
-msgstr ""
+msgstr "Hvert 10 minutt"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:532
 msgid "Every 12 hours"
-msgstr ""
+msgstr "Hver 12 time"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:526
 msgid "Every 15 Minutes"
-msgstr ""
+msgstr "Hvert 15 minutt"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:527
 msgid "Every 20 Minutes"
-msgstr ""
+msgstr "Hvert 20 minutt"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:530
 msgid "Every 3 hours"
-msgstr ""
+msgstr "Hver 3 tide"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:528
 msgid "Every 30 Minutes"
-msgstr ""
+msgstr "Hvert 30 minutt"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:531
 msgid "Every 6 hours"
-msgstr ""
+msgstr "Hver 6 time"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:529
 msgid "Every hour"
-msgstr ""
+msgstr "Hver time"
 
 #: src/tasks/TasksPage.tsx:118
 msgid "Failed"
@@ -439,6 +570,10 @@ msgstr "Feilet"
 #: src/tasks/components/TaskSummaryDisplay.tsx:48
 msgid "Failed after"
 msgstr "Feilet etter"
+
+#: src/policies/PoliciesPage.tsx:118
+msgid "Failed to find policy"
+msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:822
 msgid "File Ignored"
@@ -481,6 +616,27 @@ msgstr ""
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:175
 msgid "General Options"
+msgstr ""
+
+#: src/policies/PoliciesPage.tsx:181
+msgid "Global Policy"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:145
+#: src/repo/RepoPage.tsx:133
+msgid "Hash Algorithm"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:126
+msgid "Helps to distinguish between multiple connected repositories"
+msgstr ""
+
+#: src/policies/PoliciesPage.tsx:229
+msgid "Host"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:146
+msgid "Hostname"
 msgstr ""
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:301
@@ -580,6 +736,10 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: src/repo/RepoPage.tsx:172
+msgid "Internal Compression"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:867
 msgid "JSON Representation"
 msgstr ""
@@ -597,6 +757,11 @@ msgstr "Sist Endret"
 msgid "Last Snapshot"
 msgstr "Siste øyeblikksbilde"
 
+#: src/repo/CreateRepoSection.tsx:163
+#: src/repo/RepoPage.tsx:150
+msgid "Latest format"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:292
 msgid "Latest Snapshots"
 msgstr ""
@@ -605,7 +770,12 @@ msgstr ""
 msgid "Leave empty to remove description"
 msgstr ""
 
-#: src/preferences/AppearanceSection.tsx:99
+#: src/repo/CreateRepoSection.tsx:164
+#: src/repo/RepoPage.tsx:149
+msgid "Legacy format compatible with v0.8"
+msgstr ""
+
+#: src/preferences/AppearanceSection.tsx:102
 msgid "Light"
 msgstr "Lyst"
 
@@ -617,11 +787,15 @@ msgstr ""
 msgid "List of file and directory names to ignore."
 msgstr ""
 
+#: src/policies/PoliciesPage.tsx:178
+msgid "Local Path Policies"
+msgstr ""
+
 #: src/snapshots/SnapshotsPage.tsx:147
 msgid "Local Snapshots"
 msgstr "Lokale øyeblikksbilder"
 
-#: src/preferences/AppearanceSection.tsx:136
+#: src/preferences/AppearanceSection.tsx:139
 msgid "Locale"
 msgstr ""
 
@@ -776,6 +950,10 @@ msgstr ""
 msgid "Never compress the following file extensions (one extension per line)"
 msgstr ""
 
+#: src/policies/PoliciesPage.tsx:201
+msgid "New Policy"
+msgstr ""
+
 #: src/snapshots/modals/NewSnapshotModal.tsx:100
 msgctxt "modal-title"
 msgid "New snapshot"
@@ -786,11 +964,16 @@ msgstr "Ta nytt øyeblikksbilde"
 msgid "New Snapshot"
 msgstr "Nytt øyeblikksbilde"
 
+#: src/repo/ConfigureRepoSection.tsx:272
+msgid "Next"
+msgstr ""
+
 #: src/snapshots/SnapshotsPage.tsx:266
 msgid "Next snapshot"
 msgstr "Neste øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:68
+#: src/repo/RepoPage.tsx:175
 msgid "No"
 msgstr ""
 
@@ -813,6 +996,10 @@ msgstr "Ingen headers definert"
 #: src/preferences/NotificationsSection.tsx:125
 msgid "No notifications defined"
 msgstr "Ingen notifikasjoner opprettet"
+
+#: src/policies/PoliciesPage.tsx:218
+msgid "No policies found"
+msgstr ""
 
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
@@ -872,6 +1059,16 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
+#: src/repo/ConnectRepoSection.tsx:142
+#: src/repo/CreateRepoSection.tsx:197
+msgid "Override this when restoring a snapshot taken by another user"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:147
+#: src/repo/CreateRepoSection.tsx:202
+msgid "Override this when restoring a snapshot taken on another machine"
+msgstr ""
+
 #: src/snapshot-directory/modals/RestoreModal.tsx:237
 msgid "Overwrite Directories"
 msgstr ""
@@ -894,6 +1091,7 @@ msgid "Password"
 msgstr "Passord"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:136
+#: src/policies/PoliciesPage.tsx:234
 #: src/snapshots/SnapshotsPage.tsx:198
 msgid "Path"
 msgstr "Sti"
@@ -906,6 +1104,14 @@ msgstr "Sti til øyeblikksbilde"
 msgid "Pending"
 msgstr "Venter"
 
+#: src/policies/PoliciesPage.tsx:183
+msgid "Per-Host Policies"
+msgstr ""
+
+#: src/policies/PoliciesPage.tsx:182
+msgid "Per-User Policies"
+msgstr ""
+
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:70
 msgid "Pin Snapshot"
 msgstr ""
@@ -917,6 +1123,7 @@ msgid "Plain Text Format"
 msgstr ""
 
 #: src/core/Header/Header.tsx:47
+#: src/policies/PoliciesPage.tsx:173
 msgid "Policies"
 msgstr ""
 
@@ -925,12 +1132,16 @@ msgstr ""
 msgid "Preferences"
 msgstr "Preferanser"
 
-#: src/preferences/AppearanceSection.tsx:72
+#: src/preferences/AppearanceSection.tsx:74
 msgid "Preferences updated"
 msgstr "Preferanser oppdatert"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:853
 msgid "Prevents any parent policies from affecting this directory and its subdirectories"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:121
+msgid "Provider"
 msgstr ""
 
 #: src/preferences/NotificationsSection.tsx:114
@@ -941,6 +1152,10 @@ msgstr "Pushover"
 msgid "Pushover App Token"
 msgstr "Pushover App Token"
 
+#: src/repo/ConnectRepoSection.tsx:136
+msgid "Read-only mode prevents any changes to the repository"
+msgstr ""
+
 #: src/preferences/modals/PushoverModal.tsx:161
 msgid "Recipient User Key or Group Key"
 msgstr ""
@@ -949,12 +1164,13 @@ msgstr ""
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
+#: src/policies/PoliciesPage.tsx:208
 #: src/snapshot-directory/SnapshotDirectory.tsx:149
 #: src/snapshot-history/SnapshotHistory.tsx:130
 #: src/snapshots/SnapshotsPage.tsx:171
 #: src/tasks/TasksPage.tsx:155
 msgid "Refresh"
-msgstr "Forfriske"
+msgstr "Oppdater"
 
 #: src/snapshots/SnapshotsPage.tsx:235
 msgid "Remote"
@@ -963,6 +1179,24 @@ msgstr "Ekstern"
 #: src/core/Header/Header.tsx:52
 msgid "Repository"
 msgstr "Depot"
+
+#: src/repo/ConnectRepoSection.tsx:125
+msgid "Repository Description"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:33
+msgid "Repository disconnected"
+msgstr ""
+
+#: src/repo/CreateRepoSection.tsx:161
+#: src/repo/RepoPage.tsx:145
+msgid "Repository Format"
+msgstr ""
+
+#: src/repo/ConnectRepoSection.tsx:109
+#: src/repo/CreateRepoSection.tsx:117
+msgid "Repository Password"
+msgstr ""
 
 #: src/snapshots/SnapshotsPage.tsx:127
 msgid "Repository synchronized"
@@ -1018,7 +1252,8 @@ msgstr "Kjørende for"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:142
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:906
-#: src/preferences/AppearanceSection.tsx:152
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:151
+#: src/preferences/AppearanceSection.tsx:158
 #: src/preferences/modals/EmailModal.tsx:331
 #: src/preferences/modals/PushoverModal.tsx:201
 #: src/preferences/modals/WebhookModal.tsx:276
@@ -1063,8 +1298,16 @@ msgstr "Søk etter oppgaver"
 msgid "Select compression algorithm"
 msgstr ""
 
+#: src/repo/ConfigureRepoSection.tsx:227
+msgid "Select Provider"
+msgstr ""
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:522
 msgid "Select Snapshot Frequency"
+msgstr ""
+
+#: src/repo/ConfigureRepoSection.tsx:228
+msgid "Select the preferred storage type"
 msgstr ""
 
 #: src/preferences/components/NotificationCard.tsx:97
@@ -1080,6 +1323,10 @@ msgstr "Avsender epost adresse"
 msgid "Server"
 msgstr ""
 
+#: src/repo/ConnectRepoSection.tsx:118
+msgid "Server Password"
+msgstr ""
+
 #: src/core/Footer/ConnectionInfo.tsx:86
 msgid "SERVERS"
 msgstr ""
@@ -1088,7 +1335,7 @@ msgstr ""
 msgid "Shallow Restore At Depth"
 msgstr ""
 
-#: src/preferences/AppearanceSection.tsx:147
+#: src/preferences/AppearanceSection.tsx:153
 msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
@@ -1180,6 +1427,14 @@ msgstr "Øyeblikksbilder"
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 msgstr ""
 
+#: src/repo/CreateRepoSection.tsx:154
+msgid "Splitter"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:139
+msgid "Splitter Algorithm"
+msgstr ""
+
 #: src/snapshot-history/SnapshotHistory.tsx:171
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
@@ -1206,6 +1461,14 @@ msgstr "Oppgave ID"
 msgid "Tasks"
 msgstr "Oppgaver"
 
+#: src/repo/RepoPage.tsx:46
+msgid "The repository description was successfully updated"
+msgstr ""
+
+#: src/repo/RepoPage.tsx:34
+msgid "The repository was successfully disconnected"
+msgstr ""
+
 #: src/snapshots/SnapshotsPage.tsx:128
 msgid "The repository was synchronized successfully"
 msgstr ""
@@ -1218,7 +1481,7 @@ msgstr ""
 msgid "The snapshout was unmounted from the host"
 msgstr ""
 
-#: src/preferences/AppearanceSection.tsx:97
+#: src/preferences/AppearanceSection.tsx:100
 msgid "Theme"
 msgstr "Tema"
 
@@ -1294,16 +1557,21 @@ msgstr ""
 msgid "Upcoming Snapshots"
 msgstr ""
 
+#: src/repo/RepoPage.tsx:108
+msgid "Update"
+msgstr "Oppdater"
+
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:55
 #: src/snapshot-history/SnapshotHistory.tsx:273
 msgid "Update description"
-msgstr ""
+msgstr "Oppdater beskrivelse"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:79
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:90
 msgid "Update items"
 msgstr ""
 
-#: src/preferences/AppearanceSection.tsx:71
+#: src/preferences/AppearanceSection.tsx:73
 msgid "Updated"
 msgstr "Oppdatert"
 
@@ -1319,8 +1587,16 @@ msgstr ""
 msgid "URL Endpoint"
 msgstr "URL Endepunkt"
 
+#: src/repo/ConnectRepoSection.tsx:112
+#: src/repo/CreateRepoSection.tsx:120
+msgid "Used to encrypt content of the repository"
+msgstr ""
+
 #: src/core/context/LoginModal.tsx:70
 #: src/core/context/LoginModal.tsx:72
+#: src/policies/PoliciesPage.tsx:224
+#: src/repo/ConnectRepoSection.tsx:141
+#: src/repo/CreateRepoSection.tsx:196
 msgid "Username"
 msgstr "Brukernavn"
 
@@ -1365,6 +1641,7 @@ msgid "Write Sparse Files"
 msgstr ""
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:59
+#: src/repo/RepoPage.tsx:175
 msgid "Yes"
 msgstr ""
 

@@ -57,6 +57,7 @@ msgid "Active"
 msgstr "Active"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:123
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
 #: src/preferences/modals/WebhookModal.tsx:252
@@ -66,6 +67,11 @@ msgstr "Add"
 #: src/snapshot-history/SnapshotHistory.tsx:222
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
+
+#: src/repo/ConnectRepoSection.tsx:131
+#: src/repo/CreateRepoSection.tsx:133
+msgid "Advanced Options"
+msgstr "Advanced Options"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:761
 msgid "After Folder"
@@ -80,6 +86,10 @@ msgstr "After Snapshot"
 msgid "All"
 msgstr "All"
 
+#: src/policies/PoliciesPage.tsx:179
+msgid "All Policies"
+msgstr "All Policies"
+
 #: src/snapshots/SnapshotsPage.tsx:146
 msgid "All Snapshots"
 msgstr "All Snapshots"
@@ -92,9 +102,23 @@ msgstr "Annual"
 msgid "Appearance"
 msgstr "Appearance"
 
+#: src/policies/PoliciesPage.tsx:177
+msgid "Applicable Policies"
+msgstr "Applicable Policies"
+
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:29
 msgid "Are you sure you want to delete this policy?"
 msgstr "Are you sure you want to delete this policy?"
+
+#: src/repo/RepoPage.tsx:64
+msgid "Are you sure you want to disconnect from this repository?"
+msgstr "Are you sure you want to disconnect from this repository?"
+
+#: src/repo/ConfigureRepoSection.tsx:265
+#: src/repo/ConnectRepoSection.tsx:157
+#: src/repo/CreateRepoSection.tsx:212
+msgid "Back"
+msgstr "Back"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:730
 msgid "Before Folder"
@@ -108,7 +132,7 @@ msgstr "Before Snapshot"
 msgid "Begin Restore"
 msgstr "Begin Restore"
 
-#: src/preferences/AppearanceSection.tsx:107
+#: src/preferences/AppearanceSection.tsx:110
 msgid "Byte representation"
 msgstr "Byte representation"
 
@@ -123,9 +147,11 @@ msgstr "Cache Miss"
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:153
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:134
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:893
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:143
 #: src/preferences/modals/EmailModal.tsx:322
 #: src/preferences/modals/PushoverModal.tsx:192
 #: src/preferences/modals/WebhookModal.tsx:267
+#: src/repo/RepoPage.tsx:66
 #: src/snapshot-directory/modals/RestoreModal.tsx:288
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:93
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:101
@@ -171,9 +197,53 @@ msgstr "Compression"
 msgid "Compression Algorithm"
 msgstr "Compression Algorithm"
 
+#: src/repo/RepoPage.tsx:115
+msgid "Config file"
+msgstr "Config file"
+
+#: src/repo/ConfigureRepoSection.tsx:253
+msgid "Configure Provider"
+msgstr "Configure Provider"
+
+#: src/repo/ConfigureRepoSection.tsx:277
+msgid "Configure repository"
+msgstr "Configure repository"
+
+#: src/repo/ConfigureRepoSection.tsx:281
+msgid "Configure the repository"
+msgstr "Configure the repository"
+
+#: src/repo/ConfigureRepoSection.tsx:254
+msgid "Configure the selected provider"
+msgstr "Configure the selected provider"
+
 #: src/policies/modals/PolicyModal/components/PolicyAccordionControl.tsx:30
 msgid "Configured"
 msgstr "Configured"
+
+#: src/repo/CreateRepoSection.tsx:124
+msgid "Confirm Repository Password"
+msgstr "Confirm Repository Password"
+
+#: src/repo/CreateRepoSection.tsx:125
+msgid "Confirm the repository password"
+msgstr "Confirm the repository password"
+
+#: src/repo/ConnectRepoSection.tsx:103
+msgid "Connect as"
+msgstr "Connect as"
+
+#: src/repo/ConnectRepoSection.tsx:135
+msgid "Connect in read-only mode"
+msgstr "Connect in read-only mode"
+
+#: src/repo/ConnectRepoSection.tsx:165
+msgid "Connect to repository"
+msgstr "Connect to repository"
+
+#: src/repo/RepoPage.tsx:180
+msgid "Connected as"
+msgstr "Connected as"
 
 #: src/core/Footer/ConnectionInfo.tsx:58
 msgid "Connected to"
@@ -189,6 +259,10 @@ msgstr "Continue on Errors"
 #: src/preferences/modals/WebhookModal.tsx:276
 msgid "Create"
 msgstr "Create"
+
+#: src/repo/ConfigureRepoSection.tsx:280
+msgid "Create a new repository"
+msgstr "Create a new repository"
 
 #: src/preferences/modals/EmailModal.tsx:180
 msgid "Create email notification"
@@ -206,6 +280,11 @@ msgstr "Create policy"
 msgid "Create pushover notification"
 msgstr "Create pushover notification"
 
+#: src/repo/ConfigureRepoSection.tsx:277
+#: src/repo/CreateRepoSection.tsx:220
+msgid "Create repository"
+msgstr "Create repository"
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:540
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
@@ -218,11 +297,11 @@ msgstr "Cron Expressions"
 msgid "Daily"
 msgstr "Daily"
 
-#: src/preferences/AppearanceSection.tsx:100
+#: src/preferences/AppearanceSection.tsx:103
 msgid "Dark"
 msgstr "Dark"
 
-#: src/preferences/AppearanceSection.tsx:122
+#: src/preferences/AppearanceSection.tsx:125
 msgid "Default page size"
 msgstr "Default page size"
 
@@ -235,6 +314,7 @@ msgstr "Default page size"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:35
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:60
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:52
+#: src/policies/PoliciesPage.tsx:239
 msgid "Defined"
 msgstr "Defined"
 
@@ -264,11 +344,16 @@ msgstr "Delete Selected"
 msgid "Deprecated"
 msgstr "Deprecated"
 
+#: src/repo/RepoPage.tsx:92
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:71
 #: src/snapshot-history/SnapshotHistory.tsx:187
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
+
+#: src/repo/RepoPage.tsx:45
+msgid "Description updated"
+msgstr "Description updated"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:162
 msgid "Destination"
@@ -307,6 +392,20 @@ msgstr "Disable Parent Policy Evaluation"
 msgid "Disable ZIP compression"
 msgstr "Disable ZIP compression"
 
+#: src/repo/CreateRepoSection.tsx:175
+#: src/repo/RepoPage.tsx:160
+msgid "Disabled"
+msgstr "Disabled"
+
+#: src/repo/RepoPage.tsx:66
+#: src/repo/RepoPage.tsx:86
+msgid "Disconnect"
+msgstr "Disconnect"
+
+#: src/repo/RepoPage.tsx:62
+msgid "Disconnect repository?"
+msgstr "Disconnect repository?"
+
 #: src/snapshot-directory/modals/RestoreModal.tsx:271
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Do not compress when restoring to a ZIP file (faster)."
@@ -336,6 +435,7 @@ msgstr "Download"
 msgid "Duration"
 msgstr "Duration"
 
+#: src/policies/PoliciesPage.tsx:274
 #: src/preferences/components/NotificationCard.tsx:81
 msgid "Edit"
 msgstr "Edit"
@@ -376,9 +476,40 @@ msgstr "Effective"
 msgid "Email"
 msgstr "Email"
 
+#: src/repo/CreateRepoSection.tsx:138
+msgid "Encryption"
+msgstr "Encryption"
+
+#: src/repo/RepoPage.tsx:127
+msgid "Encryption Algorithm"
+msgstr "Encryption Algorithm"
+
 #: src/preferences/modals/PushoverModal.tsx:166
 msgid "Endpoint"
 msgstr "Endpoint"
+
+#: src/repo/ConnectRepoSection.tsx:120
+msgid "Enter password to connect to server"
+msgstr "Enter password to connect to server"
+
+#: src/repo/ConnectRepoSection.tsx:111
+#: src/repo/CreateRepoSection.tsx:119
+msgid "Enter repository password"
+msgstr "Enter repository password"
+
+#: src/repo/CreateRepoSection.tsx:127
+msgid "Enter repository password again"
+msgstr "Enter repository password again"
+
+#: src/repo/CreateRepoSection.tsx:186
+#: src/repo/RepoPage.tsx:166
+msgid "Error Correction Algorithm"
+msgstr "Error Correction Algorithm"
+
+#: src/repo/CreateRepoSection.tsx:173
+#: src/repo/RepoPage.tsx:155
+msgid "Error Correction Overhead"
+msgstr "Error Correction Overhead"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:224
 msgid "Error Handling"
@@ -440,6 +571,10 @@ msgstr "Failed"
 msgid "Failed after"
 msgstr "Failed after"
 
+#: src/policies/PoliciesPage.tsx:118
+msgid "Failed to find policy"
+msgstr "Failed to find policy"
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:822
 msgid "File Ignored"
 msgstr "File Ignored"
@@ -482,6 +617,27 @@ msgstr "From now"
 #: src/snapshot-directory/modals/RestoreModal.tsx:175
 msgid "General Options"
 msgstr "General Options"
+
+#: src/policies/PoliciesPage.tsx:181
+msgid "Global Policy"
+msgstr "Global Policy"
+
+#: src/repo/CreateRepoSection.tsx:145
+#: src/repo/RepoPage.tsx:133
+msgid "Hash Algorithm"
+msgstr "Hash Algorithm"
+
+#: src/repo/ConnectRepoSection.tsx:126
+msgid "Helps to distinguish between multiple connected repositories"
+msgstr "Helps to distinguish between multiple connected repositories"
+
+#: src/policies/PoliciesPage.tsx:229
+msgid "Host"
+msgstr "Host"
+
+#: src/repo/ConnectRepoSection.tsx:146
+msgid "Hostname"
+msgstr "Hostname"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:301
 msgid "Hourly"
@@ -580,6 +736,10 @@ msgstr "Immediately run any missed snapshots when kopia starts (only relevant fo
 msgid "Inherit"
 msgstr "Inherit"
 
+#: src/repo/RepoPage.tsx:172
+msgid "Internal Compression"
+msgstr "Internal Compression"
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:867
 msgid "JSON Representation"
 msgstr "JSON Representation"
@@ -597,6 +757,11 @@ msgstr "Last Modification"
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
+#: src/repo/CreateRepoSection.tsx:163
+#: src/repo/RepoPage.tsx:150
+msgid "Latest format"
+msgstr "Latest format"
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:292
 msgid "Latest Snapshots"
 msgstr "Latest Snapshots"
@@ -605,7 +770,12 @@ msgstr "Latest Snapshots"
 msgid "Leave empty to remove description"
 msgstr "Leave empty to remove description"
 
-#: src/preferences/AppearanceSection.tsx:99
+#: src/repo/CreateRepoSection.tsx:164
+#: src/repo/RepoPage.tsx:149
+msgid "Legacy format compatible with v0.8"
+msgstr "Legacy format compatible with v0.8"
+
+#: src/preferences/AppearanceSection.tsx:102
 msgid "Light"
 msgstr "Light"
 
@@ -617,11 +787,15 @@ msgstr "List of additional files containing ignore rules (each file configures i
 msgid "List of file and directory names to ignore."
 msgstr "List of file and directory names to ignore."
 
+#: src/policies/PoliciesPage.tsx:178
+msgid "Local Path Policies"
+msgstr "Local Path Policies"
+
 #: src/snapshots/SnapshotsPage.tsx:147
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
-#: src/preferences/AppearanceSection.tsx:136
+#: src/preferences/AppearanceSection.tsx:139
 msgid "Locale"
 msgstr "Locale"
 
@@ -776,6 +950,10 @@ msgstr "Never Compress Extensions"
 msgid "Never compress the following file extensions (one extension per line)"
 msgstr "Never compress the following file extensions (one extension per line)"
 
+#: src/policies/PoliciesPage.tsx:201
+msgid "New Policy"
+msgstr "New Policy"
+
 #: src/snapshots/modals/NewSnapshotModal.tsx:100
 msgctxt "modal-title"
 msgid "New snapshot"
@@ -786,11 +964,16 @@ msgstr "New snapshot"
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
+#: src/repo/ConfigureRepoSection.tsx:272
+msgid "Next"
+msgstr "Next"
+
 #: src/snapshots/SnapshotsPage.tsx:266
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:68
+#: src/repo/RepoPage.tsx:175
 msgid "No"
 msgstr "No"
 
@@ -813,6 +996,10 @@ msgstr "No headers defined"
 #: src/preferences/NotificationsSection.tsx:125
 msgid "No notifications defined"
 msgstr "No notifications defined"
+
+#: src/policies/PoliciesPage.tsx:218
+msgid "No policies found"
+msgstr "No policies found"
 
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
@@ -872,6 +1059,16 @@ msgstr "Only create snapshots manually (disables scheduled snapshots)"
 msgid "Other"
 msgstr "Other"
 
+#: src/repo/ConnectRepoSection.tsx:142
+#: src/repo/CreateRepoSection.tsx:197
+msgid "Override this when restoring a snapshot taken by another user"
+msgstr "Override this when restoring a snapshot taken by another user"
+
+#: src/repo/ConnectRepoSection.tsx:147
+#: src/repo/CreateRepoSection.tsx:202
+msgid "Override this when restoring a snapshot taken on another machine"
+msgstr "Override this when restoring a snapshot taken on another machine"
+
 #: src/snapshot-directory/modals/RestoreModal.tsx:237
 msgid "Overwrite Directories"
 msgstr "Overwrite Directories"
@@ -894,6 +1091,7 @@ msgid "Password"
 msgstr "Password"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:136
+#: src/policies/PoliciesPage.tsx:234
 #: src/snapshots/SnapshotsPage.tsx:198
 msgid "Path"
 msgstr "Path"
@@ -906,6 +1104,14 @@ msgstr "Path to snapshot"
 msgid "Pending"
 msgstr "Pending"
 
+#: src/policies/PoliciesPage.tsx:183
+msgid "Per-Host Policies"
+msgstr "Per-Host Policies"
+
+#: src/policies/PoliciesPage.tsx:182
+msgid "Per-User Policies"
+msgstr "Per-User Policies"
+
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:70
 msgid "Pin Snapshot"
 msgstr "Pin Snapshot"
@@ -917,6 +1123,7 @@ msgid "Plain Text Format"
 msgstr "Plain Text Format"
 
 #: src/core/Header/Header.tsx:47
+#: src/policies/PoliciesPage.tsx:173
 msgid "Policies"
 msgstr "Policies"
 
@@ -925,13 +1132,17 @@ msgstr "Policies"
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/preferences/AppearanceSection.tsx:72
+#: src/preferences/AppearanceSection.tsx:74
 msgid "Preferences updated"
 msgstr "Preferences updated"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:853
 msgid "Prevents any parent policies from affecting this directory and its subdirectories"
 msgstr "Prevents any parent policies from affecting this directory and its subdirectories"
+
+#: src/repo/RepoPage.tsx:121
+msgid "Provider"
+msgstr "Provider"
 
 #: src/preferences/NotificationsSection.tsx:114
 msgid "Pushover"
@@ -941,6 +1152,10 @@ msgstr "Pushover"
 msgid "Pushover App Token"
 msgstr "Pushover App Token"
 
+#: src/repo/ConnectRepoSection.tsx:136
+msgid "Read-only mode prevents any changes to the repository"
+msgstr "Read-only mode prevents any changes to the repository"
+
 #: src/preferences/modals/PushoverModal.tsx:161
 msgid "Recipient User Key or Group Key"
 msgstr "Recipient User Key or Group Key"
@@ -949,6 +1164,7 @@ msgstr "Recipient User Key or Group Key"
 msgid "Records per page"
 msgstr "Records per page"
 
+#: src/policies/PoliciesPage.tsx:208
 #: src/snapshot-directory/SnapshotDirectory.tsx:149
 #: src/snapshot-history/SnapshotHistory.tsx:130
 #: src/snapshots/SnapshotsPage.tsx:171
@@ -963,6 +1179,24 @@ msgstr "Remote"
 #: src/core/Header/Header.tsx:52
 msgid "Repository"
 msgstr "Repository"
+
+#: src/repo/ConnectRepoSection.tsx:125
+msgid "Repository Description"
+msgstr "Repository Description"
+
+#: src/repo/RepoPage.tsx:33
+msgid "Repository disconnected"
+msgstr "Repository disconnected"
+
+#: src/repo/CreateRepoSection.tsx:161
+#: src/repo/RepoPage.tsx:145
+msgid "Repository Format"
+msgstr "Repository Format"
+
+#: src/repo/ConnectRepoSection.tsx:109
+#: src/repo/CreateRepoSection.tsx:117
+msgid "Repository Password"
+msgstr "Repository Password"
 
 #: src/snapshots/SnapshotsPage.tsx:127
 msgid "Repository synchronized"
@@ -1018,7 +1252,8 @@ msgstr "Running for"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:142
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:906
-#: src/preferences/AppearanceSection.tsx:152
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:151
+#: src/preferences/AppearanceSection.tsx:158
 #: src/preferences/modals/EmailModal.tsx:331
 #: src/preferences/modals/PushoverModal.tsx:201
 #: src/preferences/modals/WebhookModal.tsx:276
@@ -1063,9 +1298,17 @@ msgstr "Search tasks"
 msgid "Select compression algorithm"
 msgstr "Select compression algorithm"
 
+#: src/repo/ConfigureRepoSection.tsx:227
+msgid "Select Provider"
+msgstr "Select Provider"
+
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:522
 msgid "Select Snapshot Frequency"
 msgstr "Select Snapshot Frequency"
+
+#: src/repo/ConfigureRepoSection.tsx:228
+msgid "Select the preferred storage type"
+msgstr "Select the preferred storage type"
 
 #: src/preferences/components/NotificationCard.tsx:97
 msgid "Send test notification"
@@ -1080,6 +1323,10 @@ msgstr "sender email address"
 msgid "Server"
 msgstr "Server"
 
+#: src/repo/ConnectRepoSection.tsx:118
+msgid "Server Password"
+msgstr "Server Password"
+
 #: src/core/Footer/ConnectionInfo.tsx:86
 msgid "SERVERS"
 msgstr "SERVERS"
@@ -1088,7 +1335,7 @@ msgstr "SERVERS"
 msgid "Shallow Restore At Depth"
 msgstr "Shallow Restore At Depth"
 
-#: src/preferences/AppearanceSection.tsx:147
+#: src/preferences/AppearanceSection.tsx:153
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
@@ -1180,6 +1427,14 @@ msgstr "Snapshots"
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 msgstr "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 
+#: src/repo/CreateRepoSection.tsx:154
+msgid "Splitter"
+msgstr "Splitter"
+
+#: src/repo/RepoPage.tsx:139
+msgid "Splitter Algorithm"
+msgstr "Splitter Algorithm"
+
 #: src/snapshot-history/SnapshotHistory.tsx:171
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
@@ -1206,6 +1461,14 @@ msgstr "Task ID"
 msgid "Tasks"
 msgstr "Tasks"
 
+#: src/repo/RepoPage.tsx:46
+msgid "The repository description was successfully updated"
+msgstr "The repository description was successfully updated"
+
+#: src/repo/RepoPage.tsx:34
+msgid "The repository was successfully disconnected"
+msgstr "The repository was successfully disconnected"
+
 #: src/snapshots/SnapshotsPage.tsx:128
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
@@ -1218,7 +1481,7 @@ msgstr "The snapshot(s) was delete successfully"
 msgid "The snapshout was unmounted from the host"
 msgstr "The snapshout was unmounted from the host"
 
-#: src/preferences/AppearanceSection.tsx:97
+#: src/preferences/AppearanceSection.tsx:100
 msgid "Theme"
 msgstr "Theme"
 
@@ -1294,16 +1557,21 @@ msgstr "Unmount"
 msgid "Upcoming Snapshots"
 msgstr "Upcoming Snapshots"
 
+#: src/repo/RepoPage.tsx:108
+msgid "Update"
+msgstr "Update"
+
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:55
 #: src/snapshot-history/SnapshotHistory.tsx:273
 msgid "Update description"
 msgstr "Update description"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:79
+#: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:90
 msgid "Update items"
 msgstr "Update items"
 
-#: src/preferences/AppearanceSection.tsx:71
+#: src/preferences/AppearanceSection.tsx:73
 msgid "Updated"
 msgstr "Updated"
 
@@ -1319,8 +1587,16 @@ msgstr "Uploading"
 msgid "URL Endpoint"
 msgstr "URL Endpoint"
 
+#: src/repo/ConnectRepoSection.tsx:112
+#: src/repo/CreateRepoSection.tsx:120
+msgid "Used to encrypt content of the repository"
+msgstr "Used to encrypt content of the repository"
+
 #: src/core/context/LoginModal.tsx:70
 #: src/core/context/LoginModal.tsx:72
+#: src/policies/PoliciesPage.tsx:224
+#: src/repo/ConnectRepoSection.tsx:141
+#: src/repo/CreateRepoSection.tsx:196
 msgid "Username"
 msgstr "Username"
 
@@ -1365,6 +1641,7 @@ msgid "Write Sparse Files"
 msgstr "Write Sparse Files"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:59
+#: src/repo/RepoPage.tsx:175
 msgid "Yes"
 msgstr "Yes"
 

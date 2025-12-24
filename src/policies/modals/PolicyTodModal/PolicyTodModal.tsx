@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Anchor,
@@ -85,7 +87,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
 
   return (
     <Modal
-      title="Update items"
+      title={t`Update items`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -118,7 +120,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
             >
               <Group gap={2}>
                 <IconWrapper icon={IconPlus} size={16} />
-                <Text fz="sm">Add</Text>
+                <Text fz="sm"><Trans>Add</Trans></Text>
               </Group>
             </Anchor>
           </Group>
@@ -138,7 +140,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
           onClick={onCancel}
           disabled={false}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -146,7 +148,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
           form="add-items-form"
           disabled={!form.isValid()}
         >
-          Save
+          <Trans>Save</Trans>
         </Button>
       </Group>
     </Modal>

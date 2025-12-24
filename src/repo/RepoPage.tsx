@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Container,
@@ -28,8 +30,8 @@ function RepoPage() {
     action: () => kopiaService.disconnectRepo(),
     onReturn() {
       showNotification({
-        title: "Repository disconnected",
-        message: "The repository was successfully disconnected",
+        title: t`Repository disconnected`,
+        message: t`The repository was successfully disconnected`,
         color: "green",
         icon: <IconCircleCheck size={16} />
       });
@@ -40,8 +42,8 @@ function RepoPage() {
     action: (data?: string) => kopiaService.updateRepoDescription(data!),
     onReturn() {
       showNotification({
-        title: "Description updated",
-        message: "The repository description was successfully updated",
+        title: t`Description updated`,
+        message: t`The repository description was successfully updated`,
         color: "green",
         icon: <IconCircleCheck size={16} />
       });
@@ -57,11 +59,11 @@ function RepoPage() {
 
   const openDisconnectConfirmation = () =>
     modals.openConfirmModal({
-      title: "Disconnect repository?",
+      title: t`Disconnect repository?`,
       children: (
-        <Text size="sm">Are you sure you want to disconnect from this repository?</Text>
+        <Text size="sm"><Trans>Are you sure you want to disconnect from this repository?</Trans></Text>
       ),
-      labels: { confirm: "Disconnect", cancel: "Cancel" },
+      labels: { confirm: t`Disconnect`, cancel: t`Cancel` },
       confirmProps: { color: "red", size: "xs" },
       cancelProps: { size: "xs" },
       onConfirm: () => disconnectRepoAction.execute(),
@@ -81,13 +83,13 @@ function RepoPage() {
                 loading={disconnectRepoAction.loading}
                 disabled={disconnectRepoAction.loading}
               >
-                Disconnect
+                <Trans>Disconnect</Trans>
               </Button>
             </Group>
             <Group align="flex-end">
               <TextInput
                 flex={1}
-                label="Description"
+                label={t`Description`}
                 disabled={
                   updateDescriptionAction.loading ||
                   disconnectRepoAction.loading
@@ -103,79 +105,79 @@ function RepoPage() {
                 }
                 loading={updateDescriptionAction.loading}
               >
-                Update
+                <Trans>Update</Trans>
               </Button>
             </Group>
             <Divider />
             <SimpleGrid cols={2}>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Config File
+                  <Trans>Config file</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.configFile || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Provider
+                  <Trans>Provider</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.storage || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Encryption Algorithm
+                  <Trans>Encryption Algorithm</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.encryption || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Hash Algorithm
+                  <Trans>Hash Algorithm</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.hash || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Splitter Algorithm
+                  <Trans>Splitter Algorithm</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.splitter || "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Repository Format
+                  <Trans>Repository Format</Trans>
                 </Text>
                 <Text fz="sm">
                   {repoStatus.formatVersion === "1"
-                    ? "Legacy format compatible with v0.8"
-                    : "Latest format"}
+                    ? t`Legacy format compatible with v0.8`
+                    : t`Latest format`}
                 </Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Error Correction Overhead
+                  <Trans>Error Correction Overhead</Trans>
                 </Text>
                 <Text fz="sm">
                   {repoStatus.eccOverheadPercent === 0 ||
                     !repoStatus.eccOverheadPercent
-                    ? "Disabled"
+                    ? t`Disabled`
                     : `${repoStatus.eccOverheadPercent}%`}
                 </Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Error Correction Algorithm
+                  <Trans>Error Correction Algorithm</Trans>
                 </Text>
                 <Text fz="sm">{repoStatus.ecc ? repoStatus.ecc : "-"}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Internal Compression
+                  <Trans>Internal Compression</Trans>
                 </Text>
                 <Text fz="sm">
-                  {repoStatus.supportsContentCompression ? "Yes" : "No"}
+                  {repoStatus.supportsContentCompression ? t`Yes` : t`No`}
                 </Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">
-                  Connected as
+                  <Trans>Connected as</Trans>
                 </Text>
                 <Text fz="sm">{`${repoStatus.username}@${repoStatus.hostname}`}</Text>
               </Stack>

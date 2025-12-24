@@ -7,6 +7,7 @@ import {
   Loader,
   Select,
   Stack,
+  Text,
   useMantineColorScheme,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
@@ -17,6 +18,7 @@ import { useServerInstanceContext } from "../core/context/ServerInstanceContext"
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { Preferences } from "../core/types";
 import { parseColorScheme } from "../utils/parseColorScheme";
+import supportedLocales from './locales';
 type PreferencesForm = {
   bytesStringBase2: string;
   theme: string;
@@ -89,6 +91,7 @@ function AppearanceSection() {
     return <Loader />;
   }
 
+
   return (
     <form onSubmit={form.onSubmit(submitForm)}>
       <Stack>
@@ -134,13 +137,16 @@ function AppearanceSection() {
           />
           <Select
             label={t`Locale`}
-            data={[
-              { label: "English", value: "en" },
-              { label: "Norsk - Bokmål", value: "nb" },
-              { label: "Norsk - Nynorsk", value: "nn" },
-            ]}
+            data={Object.keys(supportedLocales).map(x => ({ label: supportedLocales[x].name, value: x }))}
             allowDeselect={false}
             withCheckIcon={false}
+            renderOption={(o) => {
+              const { flag: Flag } = supportedLocales[o.option.value];
+              return <Group wrap="nowrap">
+                <Flag style={{ height: 16, width: 24 }} />
+                <Text fz="sm">{o.option.label}</Text>
+              </Group>
+            }}
             {...form.getInputProps("locale")}
           />
         </Group>

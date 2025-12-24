@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Accordion,
   AccordionControl,
@@ -98,51 +100,51 @@ function ConnectRepoSection({ form, goBack }: Props) {
     <Stack>
       <ErrorAlert error={connectRepoAction.error} />
       <TextInput
-        label="Connect as"
+        label={t`Connect as`}
         defaultValue={`${form.values.username}@${form.values.hostname}`}
       />
       {form.values.provider !== "_token" &&
         form.values.provider !== "_server" && (
           <PasswordInput
-            label="Repository Password"
+            label={t`Repository Password`}
             withAsterisk
-            placeholder="Enter repository password"
-            description="Used to encrypt content of the repository"
+            placeholder={t`Enter repository password`}
+            description={t`Used to encrypt content of the repository`}
             {...form.getInputProps("password")}
           />
         )}
       {form.values.provider === "_server" && (
         <PasswordInput
-          label="Server Password"
+          label={t`Server Password`}
           withAsterisk
-          placeholder="Enter password to connect to server"
+          placeholder={t`Enter password to connect to server`}
           {...form.getInputProps("password")}
         />
       )}
       <TextInput
-        label="Repository Description"
-        description="Helps to distinguish between multiple connected repositories"
+        label={t`Repository Description`}
+        description={t`Helps to distinguish between multiple connected repositories`}
         {...form.getInputProps("description")}
       />
       <Accordion variant="separated">
         <AccordionItem value="advanced">
-          <AccordionControl>Advanced Options</AccordionControl>
+          <AccordionControl><Trans>Advanced Options</Trans></AccordionControl>
           <AccordionPanel>
             <Stack>
               <Checkbox
-                label="Connect in read-only mode"
-                description="Read-only mode prevents any changes to the repository."
+                label={t`Connect in read-only mode`}
+                description={t`Read-only mode prevents any changes to the repository`}
                 {...form.getInputProps("readonly", { type: "checkbox" })}
               />
               <Group grow>
                 <TextInput
-                  label="Username"
-                  description="Override this when restoring a snapshot taken by another user"
+                  label={t`Username`}
+                  description={t`Override this when restoring a snapshot taken by another user`}
                   {...form.getInputProps("username")}
                 />
                 <TextInput
-                  label="Hostname"
-                  description="Override this when restoring a snapshot taken on another machine"
+                  label={t`Hostname`}
+                  description={t`Override this when restoring a snapshot taken on another machine`}
                   {...form.getInputProps("hostname")}
                 />
               </Group>
@@ -152,7 +154,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
       </Accordion>
       <Group mt="sm" justify="space-between">
         <Button size="xs" onClick={goBack} disabled={connectRepoAction.loading}>
-          Back
+          <Trans>Back</Trans>
         </Button>
         <Button
           size="xs"
@@ -160,7 +162,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
           onClick={() => connectToRepository()}
           loading={connectRepoAction.loading}
         >
-          Connect to repository
+          <Trans>Connect to repository</Trans>
         </Button>
       </Group>
     </Stack>

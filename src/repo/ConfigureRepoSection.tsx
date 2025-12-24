@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Button,
   Card,
@@ -222,8 +224,8 @@ function ConfigureRepoSection() {
         <ErrorAlert error={checkRepoAction.error} />
         <Stepper active={active} size="xs">
           <Stepper.Step
-            label="Select Provider"
-            description="Select the preferred storage type"
+            label={t`Select Provider`}
+            description={t`Select the preferred storage type`}
           >
             <SimpleGrid cols={2}>
               {supportedProviders.map((p) => {
@@ -248,8 +250,8 @@ function ConfigureRepoSection() {
             </SimpleGrid>
           </Stepper.Step>
           <Stepper.Step
-            label="Configure Provider"
-            description="Configure the selected provider"
+            label={t`Configure Provider`}
+            description={t`Configure the selected provider`}
           >
             {getProvider()}
             <Group mt="sm" justify="space-between">
@@ -260,23 +262,23 @@ function ConfigureRepoSection() {
                 }}
                 size="xs"
               >
-                Back
+                <Trans>Back</Trans>
               </Button>
               <Button
                 size="xs"
                 onClick={validateConfig}
                 disabled={!form.isValid("providerConfig")}
               >
-                Next
+                <Trans>Next</Trans>
               </Button>
             </Group>
           </Stepper.Step>
           <Stepper.Step
-            label={confirmCreate ? "Create repository" : "Configure repository"}
+            label={confirmCreate ? t`Create repository` : t`Configure repository`}
             description={
               confirmCreate
-                ? "Create a new repository"
-                : "Configure the repository"
+                ? t`Create a new repository`
+                : t`Configure the repository`
             }
           >
             {confirmCreate && (
