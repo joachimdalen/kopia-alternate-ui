@@ -1,7 +1,8 @@
+import { Trans } from "@lingui/react/macro";
 import { Group, Loader, Progress, Stack, Text } from "@mantine/core";
 import type { UploadCounters } from "../../core/types";
-
 import sizeDisplayName from "../../utils/formatSize";
+
 type Props = {
   data?: UploadCounters;
   bytesStringBase2: boolean;
@@ -12,7 +13,9 @@ export default function UploadingLoader({ data, bytesStringBase2 }: Props) {
     return (
       <Group>
         <Loader size="xs" type="dots" />
-        <Text fz="xs">Uploading</Text>
+        <Text fz="xs">
+          <Trans>Uploading</Trans>
+        </Text>
       </Group>
     );
   const totalBytes = data.hashedBytes + data.cachedBytes;

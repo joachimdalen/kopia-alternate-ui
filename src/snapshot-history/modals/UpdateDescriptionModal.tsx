@@ -1,14 +1,16 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Button, Group, Modal, Stack, Textarea } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import * as Yup from "yup";
-import modalClasses from "../../styles/modals.module.css";
-import modalBaseStyles from "../../styles/modalStyles";
-
 import { yupResolver } from "mantine-form-yup-resolver";
+import * as Yup from "yup";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import type { Snapshot } from "../../core/types";
+import modalClasses from "../../styles/modals.module.css";
+import modalBaseStyles from "../../styles/modalStyles";
+
 type Props = {
   snapshot: Snapshot;
   onCancel: () => void;
@@ -50,7 +52,7 @@ export default function UpdateDescriptionModal({
   }
   return (
     <Modal
-      title="Update description"
+      title={t`Update description`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -66,8 +68,8 @@ export default function UpdateDescriptionModal({
           <ErrorAlert error={error} />
 
           <Textarea
-            label="Description"
-            description="Leave empty to remove description"
+            label={t`Description`}
+            description={t`Leave empty to remove description`}
             withAsterisk
             {...form.getInputProps("description")}
           />
@@ -82,7 +84,7 @@ export default function UpdateDescriptionModal({
           onClick={onCancel}
           disabled={loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Button
           size="xs"
@@ -91,7 +93,7 @@ export default function UpdateDescriptionModal({
           loading={loading}
           disabled={!form.isValid()}
         >
-          Save
+          <Trans>Save</Trans>
         </Button>
       </Group>
     </Modal>

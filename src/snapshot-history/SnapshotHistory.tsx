@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Anchor,
@@ -44,6 +46,7 @@ import RetentionBadge from "./components/RetentionBadge";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
+
 function SnapshotHistory() {
   const { kopiaService } = useServerInstanceContext();
   const { pageSize: tablePageSize, bytesStringBase2, defaultSnapshotViewAll } = useAppContext();
@@ -81,9 +84,9 @@ function SnapshotHistory() {
       kopiaService.getSnapshot(
         showAll
           ? {
-              ...sourceInfo,
-              all: "1",
-            }
+            ...sourceInfo,
+            all: "1",
+          }
           : sourceInfo
       ),
     onReturn(resp) {
@@ -104,7 +107,7 @@ function SnapshotHistory() {
             <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
               <IconArrowLeft size={24} />
             </ActionIcon>
-            <Title order={1}>Snapshots: {sourceInfo.path}</Title>
+            <Title order={1}><Trans>Snapshots</Trans>: {sourceInfo.path}</Title>
           </Group>
           <Group>
             {selectedRecords.length > 0 && (
@@ -116,7 +119,7 @@ function SnapshotHistory() {
                   setItemAction({ action: "delete" });
                 }}
               >
-                Delete Selected ({selectedRecords.length})
+                <Trans>Delete Selected</Trans> ({selectedRecords.length})
               </Button>
             )}
             <Button
@@ -124,7 +127,7 @@ function SnapshotHistory() {
               onClick={() => execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
-              Refresh
+              <Trans>Refresh</Trans>
             </Button>
           </Group>
         </Group>
@@ -157,7 +160,7 @@ function SnapshotHistory() {
           onSelectedRecordsChange={setSelectedRecords}
           loading={loading && loadingKey === "loading"}
           records={visibleData}
-          noRecordsText="No snapshots taken"
+          noRecordsText={t`No snapshots taken`}
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
           pageSize={tablePageSize}
           sortStatus={sortStatus}
@@ -165,6 +168,7 @@ function SnapshotHistory() {
           columns={[
             {
               accessor: "startTime",
+              title: t`Start Time`,
               sortable: true,
               render: (item) => (
                 <Anchor
@@ -180,14 +184,16 @@ function SnapshotHistory() {
             },
             {
               accessor: "description",
+              title: t`Description`,
             },
             {
               accessor: "rootID",
-              title: "Root",
+              title: t`Root`,
               render: (item) => <Code>{item.rootID}</Code>,
             },
             {
               accessor: "retention",
+              title: t`Retention`,
               width: 600,
               render: (item) => {
                 return (
@@ -213,7 +219,7 @@ function SnapshotHistory() {
                         </Badge>
                       ))}
                     </Group>
-                    <Tooltip label="Add pin to prevent snapshot deletion">
+                    <Tooltip label={t`Add pin to prevent snapshot deletion`}>
                       <ActionIcon
                         variant="subtle"
                         onClick={() => setItemAction({ item, action: "pin" })}
@@ -227,7 +233,7 @@ function SnapshotHistory() {
             },
             {
               accessor: "summary.size",
-              title: "Size",
+              title: t`Size`,
               sortable: true,
               textAlign: "center",
               render: (item) =>
@@ -235,13 +241,13 @@ function SnapshotHistory() {
             },
             {
               accessor: "summary.files",
-              title: "Files",
+              title: t`Files`,
               sortable: true,
               textAlign: "center",
             },
             {
               accessor: "summary.dirs",
-              title: "Dirs",
+              title: t`Dirs`,
               sortable: true,
               textAlign: "center",
             },
@@ -264,7 +270,7 @@ function SnapshotHistory() {
                         })
                       }
                     >
-                      Update description
+                      <Trans>Update description</Trans>
                     </Button>
                   </Group>
                 );
@@ -310,8 +316,8 @@ function SnapshotHistory() {
             }
             setItemAction(undefined);
             showNotification({
-              title: "Snapshot(s) deleted",
-              message: "The snapshot(s) was delete successfully",
+              title: t`Snapshot(s) deleted`,
+              message: t`The snapshot(s) was delete successfully`,
               color: "green",
             });
             setSelectedRecords([]);

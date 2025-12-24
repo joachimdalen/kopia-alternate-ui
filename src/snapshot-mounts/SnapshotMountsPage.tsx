@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Anchor,
   Button,
@@ -7,12 +9,14 @@ import {
   Stack,
   Title,
 } from "@mantine/core";
+import { showNotification } from "@mantine/notifications";
 import {
   IconClick,
   IconFolderBolt,
   IconFolderMinus,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
@@ -20,8 +24,6 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import type { MountedSnapshot } from "../core/types";
-import { Link } from "react-router";
-import { showNotification } from "@mantine/notifications";
 
 function SnapshotMountsPage() {
   const { kopiaService } = useServerInstanceContext();
@@ -41,8 +43,8 @@ function SnapshotMountsPage() {
     onReturn() {
       loadMountsAction.execute(undefined, "refresh");
       showNotification({
-        title: "Snapshot unmounted",
-        message: "The snapshout was unmounted from the host",
+        title: t`Snapshot unmounted`,
+        message: t`The snapshout was unmounted from the host`,
         color: "green"
       })
     }
@@ -57,7 +59,9 @@ function SnapshotMountsPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>Mounted Snapshots</Title>
+        <Title order={1}>
+          <Trans>Mounted Snapshots</Trans>
+        </Title>
 
         <Divider />
         <ErrorAlert error={loadMountsAction.error} />
@@ -65,14 +69,14 @@ function SnapshotMountsPage() {
           records={data}
           loading={loadMountsAction.loading && loadMountsAction.loadingKey === "loading"}
           idAccessor="path"
-          noRecordsText="No snapshots mounted"
+          noRecordsText={t`No snapshots mounted`}
           noRecordsIcon={<IconWrapper icon={IconFolderBolt} size={48} />}
           pageSize={tablePageSize}
 
           columns={[
             {
               accessor: "root",
-              title: "Snapshot ID",
+              title: t`Snapshot ID`,
               width: "25%",
               render: (item) => (
                 <Anchor
@@ -87,7 +91,7 @@ function SnapshotMountsPage() {
             },
             {
               accessor: "path",
-              title: "Mounted at",
+              title: t`Mounted at`,
             },
             {
               accessor: "actions",
@@ -107,7 +111,7 @@ function SnapshotMountsPage() {
                     loading={unMountAction.loading && unMountAction.loadingKey === item.root}
 
                   >
-                    Unmount
+                    <Trans>Unmount</Trans>
                   </Button>
                 </Group>
               ),

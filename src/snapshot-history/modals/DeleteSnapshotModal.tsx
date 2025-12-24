@@ -1,3 +1,5 @@
+import { t } from '@lingui/core/macro';
+import { Trans } from "@lingui/react/macro";
 import { Button, Checkbox, Group, Modal, Stack, Text } from "@mantine/core";
 import { useInputState } from "@mantine/hooks";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
@@ -58,19 +60,21 @@ export default function DeleteSnapshotModal({
       <Stack w="100%" className={modalClasses.container}>
         <ErrorAlert error={deleteSnapshotAction.error} />
         {snapshots.length === 1 ? (
-          <Text fz="sm">Do you want to delete the selected snapshot?</Text>
+          <Text fz="sm">
+            <Trans>Do you want to delete the selected snapshot?</Trans>
+          </Text>
         ) : (
           <Text fz="sm">
-            Do you want to delete the selected{" "}
-            <Text span fw="bold" fz="sm">
-              {snapshots.length} snapshots
-            </Text>
-            ?
+            <Trans>Do you want to delete the selected{" "}
+              <Text span fw="bold" fz="sm">
+                {snapshots.length} snapshots
+              </Text>
+              ?</Trans>
           </Text>
         )}
         {isAll && (
           <Checkbox
-            label="Wipe all snapshots and the policy for this source"
+            label={t`Wipe all snapshots and the policy for this source`}
             checked={deleteAll}
             onChange={setDeleteAll}
             size="xs"
@@ -86,7 +90,7 @@ export default function DeleteSnapshotModal({
           onClick={onCancel}
           disabled={deleteSnapshotAction.loading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
 
         <Button
@@ -95,7 +99,7 @@ export default function DeleteSnapshotModal({
           onClick={() => deleteSnapshots()}
           loading={deleteSnapshotAction.loading}
         >
-          Delete
+          <Trans>Delete</Trans>
         </Button>
       </Group>
     </Modal>

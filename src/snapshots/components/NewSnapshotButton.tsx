@@ -1,8 +1,10 @@
+import { Trans } from "@lingui/react/macro";
 import { Button } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import type { SourceInfo } from "../../core/types";
+
 type Props = {
   disabled?: boolean;
   sourceInfo: SourceInfo;
@@ -32,7 +34,7 @@ export default function NewSnapshotButton({
       loading={loading}
       onClick={() => execute()}
     >
-      New Snapshot
+      <Trans>New Snapshot</Trans>
     </Button>
   );
 }

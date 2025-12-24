@@ -28,23 +28,15 @@ msgstr "{0} task(s) failed"
 msgid "{0} task(s) in progress"
 msgstr "{0} task(s) in progress"
 
-#: src/core/Footer/Footer.tsx:52
-#~ msgid "{FAILED} task(s) failed"
-#~ msgstr "{FAILED} task(s) failed"
-
-#: src/core/Footer/Footer.tsx:60
-#~ msgid "{RUNNING} task(s) in progress"
-#~ msgstr "{RUNNING} task(s) in progress"
-
-#: src/core/Footer/Footer.tsx:45
-#~ msgid "{SUCCESS} task(s) completed"
-#~ msgstr "{SUCCESS} task(s) completed"
-
 #: src/preferences/modals/EmailModal.tsx:284
 #: src/preferences/modals/EmailModal.tsx:307
 #: src/preferences/modals/WebhookModal.tsx:252
 msgid "Add"
 msgstr "Add"
+
+#: src/snapshot-history/SnapshotHistory.tsx:222
+msgid "Add pin to prevent snapshot deletion"
+msgstr "Add pin to prevent snapshot deletion"
 
 #: src/tasks/TasksPage.tsx:94
 #: src/tasks/TasksPage.tsx:128
@@ -71,6 +63,9 @@ msgstr "Byte representation"
 #: src/preferences/modals/PushoverModal.tsx:192
 #: src/preferences/modals/WebhookModal.tsx:267
 #: src/snapshot-directory/modals/RestoreModal.tsx:288
+#: src/snapshot-history/modals/DeleteSnapshotModal.tsx:93
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:101
+#: src/snapshot-history/modals/UpdateDescriptionModal.tsx:87
 #: src/snapshots/modals/NewSnapshotModal.tsx:154
 msgid "Cancel"
 msgstr "Cancel"
@@ -124,9 +119,17 @@ msgid "Default page size"
 msgstr "Default page size"
 
 #: src/preferences/components/NotificationCard.tsx:106
+#: src/snapshot-history/modals/DeleteSnapshotModal.tsx:102
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:112
 msgid "Delete"
 msgstr "Delete"
 
+#: src/snapshot-history/SnapshotHistory.tsx:122
+msgid "Delete Selected"
+msgstr "Delete Selected"
+
+#: src/snapshot-history/modals/UpdateDescriptionModal.tsx:71
+#: src/snapshot-history/SnapshotHistory.tsx:187
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
@@ -140,6 +143,7 @@ msgid "Directory Options"
 msgstr "Directory Options"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:243
+#: src/snapshot-history/SnapshotHistory.tsx:250
 msgid "Dirs"
 msgstr "Dirs"
 
@@ -150,6 +154,15 @@ msgstr "Disable ZIP compression"
 #: src/snapshot-directory/modals/RestoreModal.tsx:271
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Do not compress when restoring to a ZIP file (faster)."
+
+#. placeholder {0}: snapshots.length
+#: src/snapshot-history/modals/DeleteSnapshotModal.tsx:68
+msgid "Do you want to delete the selected <0>{0} snapshots</0>?"
+msgstr "Do you want to delete the selected <0>{0} snapshots</0>?"
+
+#: src/snapshot-history/modals/DeleteSnapshotModal.tsx:64
+msgid "Do you want to delete the selected snapshot?"
+msgstr "Do you want to delete the selected snapshot?"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:260
 msgid "Download"
@@ -193,6 +206,7 @@ msgid "Failed after"
 msgstr "Failed after"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:237
+#: src/snapshot-history/SnapshotHistory.tsx:244
 msgid "Files"
 msgstr "Files"
 
@@ -232,6 +246,10 @@ msgstr "Last Modification"
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
+#: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
+msgid "Leave empty to remove description"
+msgstr "Leave empty to remove description"
+
 #: src/preferences/AppearanceSection.tsx:99
 msgid "Light"
 msgstr "Light"
@@ -247,10 +265,6 @@ msgstr "Locale"
 #: src/core/context/LoginModal.tsx:98
 msgid "Login"
 msgstr "Login"
-
-#: src/core/context/LoginModal.tsx:52
-#~ msgid "Login to {0}"
-#~ msgstr "Login to {0}"
 
 #: src/core/context/LoginModal.tsx:54
 msgid "Login to {instanceName}"
@@ -285,6 +299,14 @@ msgstr "Minimum severity required to use this notification profile"
 msgid "Mount"
 msgstr "Mount"
 
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:94
+msgid "Mounted at"
+msgstr "Mounted at"
+
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:63
+msgid "Mounted Snapshots"
+msgstr "Mounted Snapshots"
+
 #: src/core/Header/Header.tsx:41
 msgid "Mounts"
 msgstr "Mounts"
@@ -296,11 +318,16 @@ msgstr "Mounts"
 msgid "Name"
 msgstr "Name"
 
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:86
+msgid "Name of the pin"
+msgstr "Name of the pin"
+
 #: src/snapshots/modals/NewSnapshotModal.tsx:100
 msgctxt "modal-title"
 msgid "New snapshot"
 msgstr "New snapshot"
 
+#: src/snapshots/components/NewSnapshotButton.tsx:37
 #: src/snapshots/SnapshotsPage.tsx:163
 msgid "New Snapshot"
 msgstr "New Snapshot"
@@ -329,6 +356,14 @@ msgstr "No notifications defined"
 #: src/preferences/modals/EmailModal.tsx:291
 msgid "No recepients defined"
 msgstr "No recepients defined"
+
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:72
+msgid "No snapshots mounted"
+msgstr "No snapshots mounted"
+
+#: src/snapshot-history/SnapshotHistory.tsx:163
+msgid "No snapshots taken"
+msgstr "No snapshots taken"
 
 #: src/preferences/modals/EmailModal.tsx:255
 #: src/preferences/modals/WebhookModal.tsx:220
@@ -372,6 +407,10 @@ msgstr "Path to snapshot"
 msgid "Pending"
 msgstr "Pending"
 
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:70
+msgid "Pin Snapshot"
+msgstr "Pin Snapshot"
+
 #: src/preferences/modals/EmailModal.tsx:257
 #: src/preferences/modals/PushoverModal.tsx:173
 #: src/preferences/modals/WebhookModal.tsx:222
@@ -408,6 +447,7 @@ msgid "Records per page"
 msgstr "Records per page"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:149
+#: src/snapshot-history/SnapshotHistory.tsx:130
 #: src/snapshots/SnapshotsPage.tsx:170
 #: src/tasks/TasksPage.tsx:155
 msgid "Refresh"
@@ -441,6 +481,14 @@ msgstr "Restore File Permissions"
 msgid "Restore files and directories"
 msgstr "Restore files and directories"
 
+#: src/snapshot-history/SnapshotHistory.tsx:196
+msgid "Retention"
+msgstr "Retention"
+
+#: src/snapshot-history/SnapshotHistory.tsx:191
+msgid "Root"
+msgstr "Root"
+
 #: src/tasks/TasksPage.tsx:106
 msgid "Running"
 msgstr "Running"
@@ -454,6 +502,8 @@ msgstr "Running for"
 #: src/preferences/modals/EmailModal.tsx:331
 #: src/preferences/modals/PushoverModal.tsx:201
 #: src/preferences/modals/WebhookModal.tsx:276
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:122
+#: src/snapshot-history/modals/UpdateDescriptionModal.tsx:96
 msgid "Save"
 msgstr "Save"
 
@@ -491,6 +541,7 @@ msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:226
+#: src/snapshot-history/SnapshotHistory.tsx:236
 #: src/snapshots/SnapshotsPage.tsx:244
 msgid "Size"
 msgstr "Size"
@@ -527,6 +578,10 @@ msgstr "SMTP Username"
 msgid "Snapshot"
 msgstr "Snapshot"
 
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:79
+msgid "Snapshot ID"
+msgstr "Snapshot ID"
+
 #: src/snapshot-directory/SnapshotDirectory.tsx:156
 msgid "Snapshot is mounted at the following path"
 msgstr "Snapshot is mounted at the following path"
@@ -539,11 +594,21 @@ msgstr "Snapshot now"
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:46
+msgid "Snapshot unmounted"
+msgstr "Snapshot unmounted"
+
+#: src/snapshot-history/SnapshotHistory.tsx:319
+msgid "Snapshot(s) deleted"
+msgstr "Snapshot(s) deleted"
+
 #: src/core/Header/Header.tsx:35
+#: src/snapshot-history/SnapshotHistory.tsx:110
 #: src/snapshots/SnapshotsPage.tsx:139
 msgid "Snapshots"
 msgstr "Snapshots"
 
+#: src/snapshot-history/SnapshotHistory.tsx:171
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start Time"
@@ -569,6 +634,14 @@ msgstr "Task ID"
 msgid "Tasks"
 msgstr "Tasks"
 
+#: src/snapshot-history/SnapshotHistory.tsx:320
+msgid "The snapshot(s) was delete successfully"
+msgstr "The snapshot(s) was delete successfully"
+
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:47
+msgid "The snapshout was unmounted from the host"
+msgstr "The snapshout was unmounted from the host"
+
 #: src/preferences/AppearanceSection.tsx:97
 msgid "Theme"
 msgstr "Theme"
@@ -585,12 +658,22 @@ msgid "Unique name for this notification profile"
 msgstr "Unique name for this notification profile"
 
 #: src/snapshot-directory/components/MountButton.tsx:47
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:114
 msgid "Unmount"
 msgstr "Unmount"
+
+#: src/snapshot-history/modals/UpdateDescriptionModal.tsx:55
+#: src/snapshot-history/SnapshotHistory.tsx:273
+msgid "Update description"
+msgstr "Update description"
 
 #: src/preferences/AppearanceSection.tsx:71
 msgid "Updated"
 msgstr "Updated"
+
+#: src/snapshots/components/UploadingLoader.tsx:17
+msgid "Uploading"
+msgstr "Uploading"
 
 #: src/preferences/modals/WebhookModal.tsx:203
 msgid "URL Endpoint"
@@ -612,6 +695,10 @@ msgstr "Webhook"
 #: src/snapshot-directory/modals/RestoreModal.tsx:184
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "When a restore error occurs, attempt to continue instead of failing fast"
+
+#: src/snapshot-history/modals/DeleteSnapshotModal.tsx:77
+msgid "Wipe all snapshots and the policy for this source"
+msgstr "Wipe all snapshots and the policy for this source"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:251
 msgid "Write files atomically"

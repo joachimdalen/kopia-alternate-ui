@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Button, Group, Modal, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
@@ -65,7 +67,7 @@ export default function PinSnapshotModal({
   const intError = error || deleteError;
   return (
     <Modal
-      title="Pin Snapshot"
+      title={t`Pin Snapshot`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -81,7 +83,7 @@ export default function PinSnapshotModal({
           <ErrorAlert error={intError} />
 
           <TextInput
-            label="Name of the pin"
+            label={t`Name of the pin`}
             withAsterisk
             {...form.getInputProps("name")}
           />
@@ -96,7 +98,7 @@ export default function PinSnapshotModal({
           onClick={onCancel}
           disabled={intLoading}
         >
-          Cancel
+          <Trans>Cancel</Trans>
         </Button>
         <Group>
           {pin && (
@@ -107,7 +109,7 @@ export default function PinSnapshotModal({
               loading={intLoading}
               onClick={() => deletePin()}
             >
-              Delete
+              <Trans>Delete</Trans>
             </Button>
           )}
           <Button
@@ -117,7 +119,7 @@ export default function PinSnapshotModal({
             loading={intLoading}
             disabled={!form.isValid()}
           >
-            Save
+            <Trans>Save</Trans>
           </Button>
         </Group>
       </Group>
