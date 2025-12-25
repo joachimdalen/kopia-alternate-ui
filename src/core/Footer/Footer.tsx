@@ -34,6 +34,11 @@ export function Footer() {
   useInterval(() => {
     execute();
   }, 1000 * 60);
+
+  const successTaskCount = data.SUCCESS;
+  const failedTaskCount = data.FAILED;
+  const inProgressTaskCount = data.RUNNING;
+
   return (
     <AppShellFooter p="xs">
       <Group justify="space-between">
@@ -41,25 +46,24 @@ export function Footer() {
           <ConnectionInfo />
         </Group>
         <Group>
-          <Tooltip label={t`${data.SUCCESS} task(s) completed`}>
+          <Tooltip label={t`${successTaskCount} task(s) completed`}>
             <Group gap={5}>
               <IconWrapper icon={IconCircleCheck} color="green" size={16} />
-              <Text fz="sm">{data.SUCCESS}</Text>
+              <Text fz="sm">{successTaskCount}</Text>
             </Group>
           </Tooltip>
           {data.FAILED && (
-            <Tooltip label={t`${data.FAILED} task(s) failed`}>
+            <Tooltip label={t`${failedTaskCount} task(s) failed`}>
               <Group gap={5}>
                 <IconWrapper icon={IconCircleX} color="red" size={16} />
-                <Text fz="sm">{data.FAILED}</Text>
+                <Text fz="sm">{failedTaskCount}</Text>
               </Group>
             </Tooltip>
           )}
-
-          <Tooltip label={t`${data.RUNNING} task(s) in progress`}>
+          <Tooltip label={t`${inProgressTaskCount} task(s) in progress`}>
             <Group gap={5}>
               <IconWrapper icon={IconStopwatch} color="teal" size={18} />
-              <Text fz="sm">{data.RUNNING}</Text>
+              <Text fz="sm">{inProgressTaskCount}</Text>
             </Group>
           </Tooltip>
         </Group>

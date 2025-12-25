@@ -13,20 +13,17 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#. placeholder {0}: data.SUCCESS
-#: src/core/Footer/Footer.tsx:44
-msgid "{0} task(s) completed"
-msgstr "{0} oppgave(r) fullført"
+#: src/core/Footer/Footer.tsx:56
+msgid "{failedTaskCount} task(s) failed"
+msgstr "{failedTaskCount} oppgave(r) feilet"
 
-#. placeholder {0}: data.FAILED
-#: src/core/Footer/Footer.tsx:51
-msgid "{0} task(s) failed"
-msgstr "{0} oppgave(r) feilet"
+#: src/core/Footer/Footer.tsx:63
+msgid "{inProgressTaskCount} task(s) in progress"
+msgstr "{inProgressTaskCount} oppgave(r) kjørende"
 
-#. placeholder {0}: data.RUNNING
-#: src/core/Footer/Footer.tsx:59
-msgid "{0} task(s) in progress"
-msgstr "{0} oppgave(r) kjørende"
+#: src/core/Footer/Footer.tsx:49
+msgid "{successTaskCount} task(s) completed"
+msgstr "{successTaskCount} oppgave(r) fullført"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:339
 msgid "# of annual snapshots"

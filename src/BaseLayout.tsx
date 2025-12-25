@@ -3,32 +3,22 @@ import { I18nProvider } from "@lingui/react";
 import { AppShell, createTheme, MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./core/Footer/Footer";
 import { Header } from "./core/Header/Header";
 import { AppContextProvider } from "./core/context/AppContext";
 import { ServerInstanceContextProvider } from "./core/context/ServerInstanceContext";
-
-async function dynamicActivate() {
-  const { messages: enMessages } = await import("./locales/en/messages.po");
-  const { messages: nbMessages } = await import("./locales/nb/messages.po");
-
-
-  console.log(nbMessages);
-  i18n.load({
-    en: enMessages,
-    nb: nbMessages
-  });
-  i18n.activate("nb");
-}
-
-
-dynamicActivate();
+import { dynamicActivate } from "./i18n";
 
 function BaseLayout() {
   const theme = createTheme({
     fontFamily: '"Nunito", sans-serif;',
   });
+
+  useEffect(() => {
+    dynamicActivate();
+  }, []);
 
   return (
     <I18nProvider i18n={i18n}>
