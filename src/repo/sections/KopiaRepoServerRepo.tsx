@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconServer } from "@tabler/icons-react";
@@ -17,7 +18,7 @@ function KopiaRepoServerRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconServer} size={32} color="lime" />
-        <Text fw="bold">Kopia Repository Server</Text>
+        <Text fw="bold"><Trans>Kopia Repository Server</Trans></Text>
       </Group>
 
       <Stack>

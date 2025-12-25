@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconFile } from "@tabler/icons-react";
@@ -13,25 +15,25 @@ function WebDavRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconFile} size={32} color="indigo" />
-        <Text fw="bold">WebDAV Server</Text>
+        <Text fw="bold"><Trans>WebDAV Server</Trans></Text>
       </Group>
 
       <Stack>
         <TextInput
-          label="WebDAV Server URL"
+          label={t`WebDAV Server URL`}
           placeholder="http[s]://server:port/path"
           withAsterisk
           {...form.getInputProps("providerConfig.url")}
         />
         <Group grow>
           <TextInput
-            label="Username"
-            placeholder="Enter username"
+            label={t`Username`}
+            placeholder={t`Username`}
             {...form.getInputProps("providerConfig.username")}
           />
           <PasswordInput
-            label="Password"
-            placeholder="Enter password"
+            label={t`Password`}
+            placeholder={t`Password`}
             {...form.getInputProps("providerConfig.password")}
           />
         </Group>

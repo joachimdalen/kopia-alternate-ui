@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import {
   Anchor,
   AppShellHeader,
@@ -29,37 +30,37 @@ export function SkeletonHeader() {
     return [
       {
         link: "/snapshots",
-        label: "Snapshots",
+        label: t`Snapshots`,
         disabled: true,
         icon: IconPackage,
       },
-       {
+      {
         link: "/mounts",
-        label: "Mounts",
+        label: t`Mounts`,
         disabled: true,
         icon: IconFolderBolt,
       },
       {
         link: "/policies",
-        label: "Policies",
+        label: t`Policies`,
         disabled: true,
         icon: IconFileCertificate,
       },
       {
         link: "/tasks",
-        label: "Tasks",
+        label: t`Tasks`,
         icon: IconClipboardCheck,
         disabled: true,
       },
       {
         link: "/repo",
-        label: "Repository",
+        label: t`Repository`,
         icon: IconDatabase,
         disabled: true,
       },
       {
         link: "/preferences",
-        label: "Preferences",
+        label: t`Preferences`,
         icon: IconSettings,
         disabled: true,
       },

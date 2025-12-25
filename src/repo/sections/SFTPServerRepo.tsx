@@ -1,3 +1,5 @@
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   Checkbox,
   Group,
@@ -22,20 +24,20 @@ function SFTPServerRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconServer2} size={32} color="orange" />
-        <Text fw="bold">SFTP Server</Text>
+        <Text fw="bold"><Trans>SFTP Server</Trans></Text>
       </Group>
 
       <Stack>
         <Group grow>
           <TextInput
-            label="Host"
-            placeholder="SSH host name (e.g., example.com)"
+            label={t`Host`}
+            placeholder={t`SSH host name (e.g., example.com)`}
             withAsterisk
             {...form.getInputProps("providerConfig.host")}
           />
           <NumberInput
-            label="Port"
-            placeholder="Port number (e.g., 22)"
+            label={t`Port`}
+            placeholder={t`Port number (e.g., 22)`}
             withAsterisk
             hideControls
             {...form.getInputProps("providerConfig.port")}
@@ -43,22 +45,22 @@ function SFTPServerRepo({ form }: Props) {
         </Group>
         <Group grow>
           <TextInput
-            label="User"
-            placeholder="Username"
+            label={t`User`}
+            placeholder={t`Username`}
             withAsterisk
             {...form.getInputProps("providerConfig.username")}
           />
           {!form.values.providerConfig.externalSSH && (
             <PasswordInput
-              label="Password"
-              placeholder="Password"
+              label={t`Password`}
+              placeholder={t`Password`}
               {...form.getInputProps("providerConfig.password")}
             />
           )}
         </Group>
         <TextInput
-          label="Path"
-          placeholder="Enter remote path to repository, e.g., '/mnt/data/repository'"
+          label={t`Path`}
+          placeholder={t`Enter remote path to repository, e.g., '/mnt/data/repository'`}
           withAsterisk
           {...form.getInputProps("providerConfig.path")}
         />
@@ -67,26 +69,26 @@ function SFTPServerRepo({ form }: Props) {
           <>
             <Group grow>
               <TextInput
-                label="Path to key file"
-                placeholder="Enter path to the key file"
+                label={t`Path to key file`}
+                placeholder={t`Enter path to the key file`}
                 {...form.getInputProps("providerConfig.keyfile")}
               />
               <TextInput
-                label="Path to known_hosts File"
-                placeholder="Enter path to the known_hosts file"
+                label={t`Path to known_hosts File`}
+                placeholder={t`Enter path to the known_hosts file`}
                 {...form.getInputProps("providerConfig.knownhostsFile")}
               />
             </Group>
             <Group grow>
               <Textarea
-                label="Key Data"
-                placeholder="Paste contents of the key file"
+                label={t`Key Data`}
+                placeholder={t`Paste contents of the key file`}
                 rows={5}
                 {...form.getInputProps("providerConfig.keyData")}
               />
               <Textarea
-                label="Known Hosts Data"
-                placeholder="Paste contents of the known_hosts file"
+                label={t`Known Hosts Data`}
+                placeholder={t`Paste contents of the known_hosts file`}
                 rows={5}
                 {...form.getInputProps("providerConfig.knownHostsData")}
               />
@@ -94,8 +96,8 @@ function SFTPServerRepo({ form }: Props) {
           </>
         )}
         <Checkbox
-          label="Launch external password-less SSH command"
-          description="By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
+          label={t`Launch external password-less SSH command`}
+          description={t`By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client.`}
           {...form.getInputProps("providerConfig.externalSSH", {
             type: "checkbox",
           })}
@@ -103,13 +105,13 @@ function SFTPServerRepo({ form }: Props) {
         {form.values.providerConfig.externalSSH && (
           <Group grow>
             <TextInput
-              label="SSH Command"
-              placeholder="Enter passwordless SSH command to execute (typically 'ssh'"
+              label={t`SSH Command`}
+              placeholder={t`Enter passwordless SSH command to execute (typically 'ssh')`}
               {...form.getInputProps("providerConfig.sshCommand")}
             />
             <TextInput
-              label="SSH Arguments"
-              placeholder="Enter SSH command arguments ('user@host -s sftp' will be appended automatically)"
+              label={t`SSH Arguments`}
+              placeholder={t`Enter SSH command arguments ('user@host -s sftp' will be appended automatically)`}
               {...form.getInputProps("providerConfig.sshArguments")}
             />
           </Group>

@@ -71,7 +71,7 @@ export default function PolicyTimeOfDayInput({
                   openHandlers.open();
                 }}
               >
-                <Trans>Edit items </Trans>
+                <Trans>Edit items</Trans>
               </Anchor>
             </Stack>
             <InputWrapper label={t`Effective`}>

@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, JsonInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandGoogleDrive } from "@tabler/icons-react";
@@ -16,7 +17,7 @@ function GoogleCloudStorageRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconBrandGoogleDrive} size={24} color="yellow" />
-        <Text fw="bold">Google Cloud Storage</Text>
+        <Text fw="bold"><Trans>Google Cloud Storage</Trans></Text>
       </Group>
 
       <Stack>

@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconInfoCircle } from "@tabler/icons-react";
@@ -14,7 +15,7 @@ function BackblazeB2Repo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconInfoCircle} size={32} color="red" />
-        <Text fw="bold">Backblaze B2</Text>
+        <Text fw="bold"><Trans>Backblaze B2</Trans></Text>
       </Group>
 
       <Stack>
