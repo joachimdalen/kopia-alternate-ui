@@ -1,5 +1,18 @@
 import { Badge, type MantineColor } from "@mantine/core";
-import { IconArchive, IconArrowsSplit, IconCircleX, IconDeviceLaptop, IconFile, IconFileCode, IconFileText, IconQuestionMark, IconStopwatch, IconTerminal, IconUpload, IconZip, type IconClock } from "@tabler/icons-react";
+import {
+  IconAlertTriangle,
+  IconArrowsSplit,
+  IconCalendarX,
+  IconClock,
+  IconDeviceLaptop,
+  IconFileCode,
+  IconFileText,
+  IconFileZip,
+  IconFolderCog,
+  IconFolderOpen,
+  IconQuestionMark,
+  IconUpload
+} from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 
 type Props = {
@@ -14,42 +27,42 @@ const policyFeatures: {
   }
 } = {
   "retention": {
-    color: "grape",
-    icon: IconArchive,
+    color: "teal",
+    icon: IconCalendarX,
     displayName: "Retention"
   },
   "files": {
-    icon: IconFile,
-    color: "cyan",
+    icon: IconFolderOpen,
+    color: "yellow",
     displayName: "Files"
   },
   "errorHandling": {
-    icon: IconCircleX,
+    icon: IconAlertTriangle,
     color: "red",
     displayName: "Error Handling"
   },
   "scheduling": {
-    icon: IconStopwatch,
-    color: "teal",
+    icon: IconClock,
+    color: "green",
     displayName: "Scheduling"
   },
   "compression": {
-    icon: IconZip,
-    color: "yellow",
+    icon: IconFileZip,
+    color: "grape",
     displayName: "Compression"
   },
   "metadataCompression": {
     icon: IconFileCode,
-    color: "grape",
+    color: "gray",
     displayName: "Metadata Compression"
   },
   "splitter": {
     icon: IconArrowsSplit,
-    color: "indigo",
+    color: "lime",
     displayName: "Splitter"
   },
   "actions": {
-    icon: IconTerminal,
+    icon: IconFolderCog,
     color: "lime",
     displayName: "Actions"
   },
@@ -60,12 +73,12 @@ const policyFeatures: {
   },
   "logging": {
     icon: IconFileText,
-    color: "pink",
+    color: "violet",
     displayName: "Logging"
   },
   "upload": {
     icon: IconUpload,
-    color: "violet",
+    color: "blue",
     displayName: "Upload"
   },
 }
