@@ -87,11 +87,13 @@ location /api/[INSTANCE-ID] {
 
 3. Mount the `instances.json` file and your custom `nginx.conf` file to the container
 
+> See the releases page for the latest version
+
 ```yml
 services:
   kopiaaltui:
     conatiner_name: kopia-ui
-    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.1
+    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.2
     ports:
       - 8080:80
     volumes:
