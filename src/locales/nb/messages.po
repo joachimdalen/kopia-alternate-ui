@@ -1101,7 +1101,7 @@ msgstr "Monterte øyeblikksbilder"
 #: src/core/Header/Header.tsx:41
 #: src/core/Header/SkeletonHeader.tsx:39
 msgid "Mounts"
-msgstr "Montering"
+msgstr "Monteringer"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:632
 msgid "must be specified using global, user, or host policy"
@@ -1191,7 +1191,7 @@ msgstr "Ingen mottakere definert"
 
 #: src/snapshot-mounts/SnapshotMountsPage.tsx:72
 msgid "No snapshots mounted"
-msgstr "Ingen Øyeblikksbilder montert"
+msgstr "Ingen øyeblikksbilder montert"
 
 #: src/snapshot-history/SnapshotHistory.tsx:163
 msgid "No snapshots taken"
@@ -1649,7 +1649,7 @@ msgstr "Øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:260
 msgid "Snapshot Actions"
-msgstr "Handlinger for øyeblikksbilde"
+msgstr "Handlinger"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:520
 msgid "Snapshot Frequency"
@@ -1673,7 +1673,7 @@ msgstr "Øyeblikksbilde nå"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:208
 msgid "Snapshot Retention"
-msgstr "Oppbevaring av øyeblikksbilder"
+msgstr "Oppbevaring"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:550
 msgid "Snapshot schedules using UNIX crontab syntax:"

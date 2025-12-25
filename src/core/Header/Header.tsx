@@ -88,7 +88,7 @@ export function Header() {
 
   return (
     <AppShellHeader className={classes.header}>
-      <Container size="md" className={classes.inner}>
+      <Container size="md" fluid className={classes.inner}>
         <Box>
           <Link to="/" className={classes.title}>
             <Text fw="bold" c="white" fz="lg">

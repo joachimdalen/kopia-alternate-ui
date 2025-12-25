@@ -142,8 +142,8 @@ function AppearanceSection() {
             withCheckIcon={false}
             renderOption={(o) => {
               const { flag: Flag } = supportedLocales[o.option.value];
-              return <Group wrap="nowrap">
-                <Flag style={{ height: 16, width: 24 }} />
+              return <Group wrap="nowrap" gap={4}>
+                <Flag style={{ height: 12, width: 20 }} />
                 <Text fz="sm">{o.option.label}</Text>
               </Group>
             }}
