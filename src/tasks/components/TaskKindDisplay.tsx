@@ -1,7 +1,7 @@
 import { Group, Text } from "@mantine/core";
-
 import { IconClockCheck, IconDatabase, IconDatabaseCog, IconRestore, IconTool } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
+
 type Props = {
   kind: string;
 };

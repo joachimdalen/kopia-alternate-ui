@@ -21,15 +21,15 @@ export default function TaskLogs({ task }: Props) {
       mod: string;
     }[]
   >([]);
-  const taskApi = useApiRequest({
-    action: () => kopiaService.getTaskLogs(task.id),
+  const taskAction = useApiRequest({
+    action: (taskId?: string) => kopiaService.getTaskLogs(taskId!),
     onReturn(resp) {
       setData(resp.logs);
     }
   });
 
   useEffect(() => {
-    taskApi.execute(undefined, "loading");
+    taskAction.execute(task.id, "loading");
   }, [task]);
 
   return (
@@ -42,7 +42,7 @@ export default function TaskLogs({ task }: Props) {
         </Group>
       </CardSection>
       <CardSection mih={500}>
-        <LoadingOverlay visible={taskApi.loading} />
+        <LoadingOverlay visible={taskAction.loading} />
         {data.length > 0 && (
           <LazyLog
             caseInsensitive

@@ -1,4 +1,4 @@
-import { Group, Paper, SimpleGrid, Text, type MantineColor, type StyleProp } from "@mantine/core";
+import { Group, type MantineColor, Paper, SimpleGrid, type StyleProp, Text } from "@mantine/core";
 import {
   IconAsterisk,
   IconCircleX,
@@ -140,7 +140,8 @@ export default function TaskCounterGrid({ task, showZeroCounters, gridSize }: Pr
     if (counter.value == 0 && !showZeroCounters) return null;
 
     let formatted = counter.value.toLocaleString();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+    // biome-ignore lint/suspicious/noExplicitAny: counter is multitype
     if ((counter as any).units === "bytes") {
       formatted = sizeDisplayName(counter.value, bytesStringBase2);
     }

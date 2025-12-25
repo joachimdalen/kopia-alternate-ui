@@ -1,12 +1,13 @@
 import { LoadingOverlay } from "@mantine/core";
 import { useSessionStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from "react";
+import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import useApiRequest from "../hooks/useApiRequest";
-import { KopiaService, type IKopiaService, type KopiaAuth } from "../kopiaService";
+import { type IKopiaService, type KopiaAuth, KopiaService } from "../kopiaService";
 import SkeletonLayout from "../SkeletonLayout";
 import uiService, { type Instance } from "../uiService";
 import LoginModal from "./LoginModal";
+
 type ContextState = {
   servers: Instance[];
   currentServer?: Instance;
@@ -14,9 +15,12 @@ type ContextState = {
   logoutFromServer: (id: string) => void;
   kopiaService: IKopiaService;
 };
+
 const initialState: ContextState = {
   servers: [],
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   setServer: () => {},
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   logoutFromServer: () => {},
   kopiaService: {} as IKopiaService
 };

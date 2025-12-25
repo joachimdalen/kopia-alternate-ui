@@ -12,7 +12,7 @@ function isEmptyObject(obj: object) {
 function isEmpty(obj: unknown) {
   for (const key in obj as object) {
     if (Object.prototype.hasOwnProperty.call(obj, key))
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: object can be any object
       return isEmptyObject((obj as any)[key]);
   }
   return true;

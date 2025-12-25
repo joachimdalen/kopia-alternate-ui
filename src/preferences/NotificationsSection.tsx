@@ -1,6 +1,15 @@
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Button, Divider, Group, Menu, SimpleGrid, Stack, Text } from "@mantine/core";
-import { IconBrandPushover, IconChevronDown, IconMail, IconNotification, IconWebhook } from "@tabler/icons-react";
+import { showNotification } from "@mantine/notifications";
+import {
+  IconBrandPushover,
+  IconChevronDown,
+  IconCircleCheck,
+  IconMail,
+  IconNotification,
+  IconWebhook
+} from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
@@ -37,7 +46,14 @@ function NotificationsSection() {
     action: (data?: NotificationProfile) => kopiaService.testNotificationProfile(data!),
     showErrorAsNotification: true,
     returnsData: false,
-    onReturn: () => {}
+    onReturn: () => {
+      showNotification({
+        title: t`Test notification sent`,
+        message: t`A test notification was send using the defined profile`,
+        color: "green",
+        icon: <IconCircleCheck size={16} />
+      });
+    }
   });
   useEffect(() => {
     loadAction.execute(undefined, "loading");

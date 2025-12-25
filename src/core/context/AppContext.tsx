@@ -1,10 +1,11 @@
 import { useLingui } from "@lingui/react/macro";
 import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
-import { createContext, useCallback, useContext, useEffect, useState, type PropsWithChildren } from "react";
+import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useState } from "react";
 import { parseColorScheme } from "../../utils/parseColorScheme";
 import useApiRequest from "../hooks/useApiRequest";
 import type { Preferences, Status } from "../types";
 import { useServerInstanceContext } from "./ServerInstanceContext";
+
 type ContextState = Preferences & {
   reloadPreferences: () => void;
   reloadStatus: () => void;
@@ -18,7 +19,9 @@ const initialState: ContextState = {
   locale: "en",
   pageSize: 20,
   theme: "light",
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   reloadPreferences: () => {},
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   reloadStatus: () => {},
   repoStatus: {
     connected: false,
