@@ -1,23 +1,11 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Alert,
-  Anchor,
-  Button,
-  Code,
-  Group,
-  Modal,
-  Stack,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { Alert, Anchor, Button, Code, Group, Modal, Stack, Text, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useState } from "react";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
 import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
-import useApiRequest, {
-  type ErrorInformation,
-} from "../../../core/hooks/useApiRequest";
+import useApiRequest, { type ErrorInformation } from "../../../core/hooks/useApiRequest";
 import { type Policy, type SourceInfo } from "../../../core/types";
 import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
@@ -35,22 +23,17 @@ type Form = {
   path: string;
 };
 
-export default function CreatePolicyModal({
-  localHost,
-  localUserName,
-  onCancel,
-  onEdit,
-}: Props) {
+export default function CreatePolicyModal({ localHost, localUserName, onCancel, onEdit }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const form = useForm<Form>({
     mode: "controlled",
     initialValues: {
-      path: "",
+      path: ""
     },
     validate: {
-      path: (value) => checkPolicyPath(value),
+      path: (value) => checkPolicyPath(value)
     },
-    validateInputOnBlur: true,
+    validateInputOnBlur: true
   });
   const [policy, setPolicy] = useState<Policy>();
 
@@ -59,7 +42,7 @@ export default function CreatePolicyModal({
       kopiaService.getPolicy({
         host: localHost,
         userName: localUserName,
-        path: data!.path,
+        path: data!.path
       }),
     onReturn: (g) => {
       setPolicy(g);
@@ -72,7 +55,7 @@ export default function CreatePolicyModal({
             {
               userName: localUserName,
               host: localHost,
-              path: d!.path!,
+              path: d!.path!
             },
             true
           );
@@ -80,7 +63,7 @@ export default function CreatePolicyModal({
         }
       }
       return true;
-    },
+    }
   });
   async function submitForm(values: Form) {
     await execute(values);
@@ -94,11 +77,7 @@ export default function CreatePolicyModal({
       className={modalClasses.modalWrapper}
       closeOnClickOutside={false}
     >
-      <form
-        id="create-policy-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="create-policy-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
           {policy && (
@@ -109,7 +88,7 @@ export default function CreatePolicyModal({
                   {formatOwnerName({
                     host: localHost,
                     userName: localUserName,
-                    path: "",
+                    path: ""
                   })}
                   :{form.values.path}
                 </Code>{" "}
@@ -121,7 +100,7 @@ export default function CreatePolicyModal({
                       {
                         userName: localUserName,
                         host: localHost,
-                        path: form.values.path!,
+                        path: form.values.path!
                       },
                       false
                     );
@@ -143,22 +122,10 @@ export default function CreatePolicyModal({
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="create-policy-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="create-policy-form" loading={loading} disabled={!form.isValid()}>
           <Trans>Create</Trans>
         </Button>
       </Group>

@@ -1,13 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Group,
-  LoadingOverlay,
-  Modal,
-  Paper,
-  Stack,
-} from "@mantine/core";
+import { Button, Group, LoadingOverlay, Modal, Paper, Stack } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
@@ -15,12 +8,7 @@ import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import { useInterval } from "../../core/hooks/useInterval";
-import {
-  type EstimateSnapshotRequest,
-  type Policy,
-  type SourceInfo,
-  type Task,
-} from "../../core/types";
+import { type EstimateSnapshotRequest, type Policy, type SourceInfo, type Task } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 import TaskCounterGrid from "../../tasks/components/TaskCounterGrid";
@@ -32,11 +20,7 @@ type Props = {
   onCancel: () => void;
 };
 
-export default function TaskEstimationModal({
-  policy,
-  source,
-  onCancel,
-}: Props) {
+export default function TaskEstimationModal({ policy, source, onCancel }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const [task, setTask] = useState<Task>();
   const [logs, setLogs] = useState<
@@ -48,23 +32,22 @@ export default function TaskEstimationModal({
     }[]
   >([]);
   const estimateAction = useApiRequest({
-    action: (data?: EstimateSnapshotRequest) =>
-      kopiaService.estimateSnapshot(data!),
+    action: (data?: EstimateSnapshotRequest) => kopiaService.estimateSnapshot(data!),
     onReturn: (t) => {
       setTask(t);
-    },
+    }
   });
   const loadTaskAction = useApiRequest({
     action: (data?: string) => kopiaService.getTask(data!),
     onReturn: (t) => {
       setTask(t);
-    },
+    }
   });
   const loadTaskLogsAction = useApiRequest({
     action: (data?: string) => kopiaService.getTaskLogs(data!),
     onReturn: (t) => {
       setLogs(t.logs);
-    },
+    }
   });
 
   // TODO: move hook locally
@@ -79,7 +62,7 @@ export default function TaskEstimationModal({
     const req: EstimateSnapshotRequest = {
       root: source.path,
       maxExamplesPerBucket: 10,
-      policyOverride: policy,
+      policyOverride: policy
     };
     estimateAction.execute(req);
   }, []);
@@ -95,24 +78,12 @@ export default function TaskEstimationModal({
       size="lg"
     >
       <Stack w="100%" className={modalClasses.container}>
-        <ErrorAlert
-          error={
-            estimateAction.error ||
-            loadTaskAction.error ||
-            loadTaskLogsAction.error
-          }
-        />
+        <ErrorAlert error={estimateAction.error || loadTaskAction.error || loadTaskLogsAction.error} />
         <LoadingOverlay visible={estimateAction.loading} />
         {task && (
           <>
             <TaskStatusDisplay task={task} />
-            {task.counters !== null && (
-              <TaskCounterGrid
-                task={task}
-                showZeroCounters={false}
-                gridSize={3}
-              />
-            )}
+            {task.counters !== null && <TaskCounterGrid task={task} showZeroCounters={false} gridSize={3} />}
             {logs.length > 0 && (
               <Paper withBorder>
                 <LazyLog
@@ -138,13 +109,7 @@ export default function TaskEstimationModal({
       </Stack>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={estimateAction.loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={estimateAction.loading}>
           <Trans>Cancel</Trans>
         </Button>
 

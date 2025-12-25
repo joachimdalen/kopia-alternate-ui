@@ -11,18 +11,14 @@ type Props = {
   onSnapshot: () => void;
 };
 
-export default function NewSnapshotButton({
-  disabled,
-  sourceInfo,
-  onSnapshot,
-}: Props) {
+export default function NewSnapshotButton({ disabled, sourceInfo, onSnapshot }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const { execute, loading } = useApiRequest({
     action: () => kopiaService.startSnapshot(sourceInfo),
     onReturn() {
       onSnapshot();
     },
-    showErrorAsNotification: true,
+    showErrorAsNotification: true
   });
 
   return (

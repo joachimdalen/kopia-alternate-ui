@@ -15,7 +15,9 @@ function BackblazeB2Repo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconInfoCircle} size={32} color="red" />
-        <Text fw="bold"><Trans>Backblaze B2</Trans></Text>
+        <Text fw="bold">
+          <Trans>Backblaze B2</Trans>
+        </Text>
       </Group>
 
       <Stack>

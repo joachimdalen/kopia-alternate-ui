@@ -9,7 +9,7 @@ import {
   Stack,
   Text,
   Tooltip,
-  UnstyledButton,
+  UnstyledButton
 } from "@mantine/core";
 import { IconLockAccessOff } from "@tabler/icons-react";
 import { useAppContext } from "../context/AppContext";
@@ -18,15 +18,10 @@ import classes from "./Footer.module.css";
 
 export function ConnectionInfo() {
   const { repoStatus } = useAppContext();
-  const { servers, currentServer, setServer, logoutFromServer } =
-    useServerInstanceContext();
+  const { servers, currentServer, setServer, logoutFromServer } = useServerInstanceContext();
 
   return (
-    <Popover
-      position="top"
-      clickOutsideEvents={["mouseup", "touchend"]}
-      width={300}
-    >
+    <Popover position="top" clickOutsideEvents={["mouseup", "touchend"]} width={300}>
       <Popover.Target>
         <UnstyledButton className={classes.serverSelect}>
           <Indicator

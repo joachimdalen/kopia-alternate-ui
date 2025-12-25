@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
   Button,
@@ -10,7 +10,7 @@ import {
   Stack,
   Switch,
   Text,
-  TextInput,
+  TextInput
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
@@ -28,7 +28,7 @@ type Props = {
 };
 
 const schema = Yup.object({
-  description: Yup.string().max(250).label("Description"),
+  description: Yup.string().max(250).label("Description")
 });
 
 type RestoreForm = {
@@ -51,11 +51,7 @@ type RestoreForm = {
   destination?: string;
 };
 
-export default function RestoreModal({
-  oid,
-  onCancel,
-  onRestoreStarted,
-}: Props) {
+export default function RestoreModal({ oid, onCancel, onRestoreStarted }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const form = useForm<RestoreForm, (values: RestoreForm) => RestoreRequest>({
     mode: "controlled",
@@ -76,7 +72,7 @@ export default function RestoreModal({
       writeSparseFiles: false,
       restoreDirEntryAtDepth: 1000,
       minSizeForPlaceholder: 0,
-      restoreTask: "",
+      restoreTask: ""
     },
     validate: yupResolver(schema),
     transformValues(values: RestoreForm): RestoreRequest {
@@ -86,21 +82,21 @@ export default function RestoreModal({
           incremental: values.incremental,
           ignoreErrors: values.continueOnErrors,
           restoreDirEntryAtDepth: values.restoreDirEntryAtDepth,
-          minSizeForPlaceholder: values.minSizeForPlaceholder,
-        },
+          minSizeForPlaceholder: values.minSizeForPlaceholder
+        }
       };
       if (values.type === "zip") {
         return {
           ...base,
           zipFile: values.destination!,
-          uncompressedZip: values.uncompressedZip,
+          uncompressedZip: values.uncompressedZip
         };
       }
 
       if (values.type === "tar") {
         return {
           ...base,
-          tarFile: values.destination!,
+          tarFile: values.destination!
         };
       }
 
@@ -116,17 +112,17 @@ export default function RestoreModal({
           overwriteDirectories: values.overwriteDirectories,
           overwriteSymlinks: values.overwriteSymlinks,
           writeFilesAtomically: values.writeFilesAtomically,
-          writeSparseFiles: values.writeSparseFiles,
-        },
+          writeSparseFiles: values.writeSparseFiles
+        }
       };
-    },
+    }
   });
 
   const { error, loading, execute } = useApiRequest({
     action: (data?: RestoreRequest) => kopiaService.restore(data!),
     onReturn: (g) => {
       onRestoreStarted(g);
-    },
+    }
   });
   async function submitForm(values: RestoreRequest) {
     await execute(values);
@@ -141,11 +137,7 @@ export default function RestoreModal({
       closeOnClickOutside={false}
       size="lg"
     >
-      <form
-        id="restore-dir-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="restore-dir-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
           <SegmentedControl
@@ -153,7 +145,7 @@ export default function RestoreModal({
             data={[
               { label: "Directory", value: "directory" },
               { label: "Zip File", value: "zip" },
-              { label: "Tar File", value: "tar" },
+              { label: "Tar File", value: "tar" }
             ]}
             {...form.getInputProps("type")}
           />
@@ -184,7 +176,7 @@ export default function RestoreModal({
                 description={t`When a restore error occurs, attempt to continue instead of failing fast`}
                 color="green"
                 {...form.getInputProps("continueOnErrors", {
-                  type: "checkbox",
+                  type: "checkbox"
                 })}
               />
               <Group wrap="nowrap" grow>
@@ -209,56 +201,56 @@ export default function RestoreModal({
                   label={t`Restore File Ownership`}
                   color="green"
                   {...form.getInputProps("restoreOwnership", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Restore File Permissions`}
                   color="green"
                   {...form.getInputProps("restorePermissions", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Restore File Modification Time`}
                   color="green"
                   {...form.getInputProps("restoreModTimes", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Overwrite Files`}
                   color="green"
                   {...form.getInputProps("overwriteFiles", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Overwrite Directories`}
                   color="green"
                   {...form.getInputProps("overwriteDirectories", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Overwrite Symbolic Links`}
                   color="green"
                   {...form.getInputProps("overwriteSymlinks", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Write files atomically`}
                   color="green"
                   {...form.getInputProps("writeFilesAtomically", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
                 <Switch
                   label={t`Write Sparse Files`}
                   color="green"
                   {...form.getInputProps("writeSparseFiles", {
-                    type: "checkbox",
+                    type: "checkbox"
                   })}
                 />
               </Stack>
@@ -278,22 +270,10 @@ export default function RestoreModal({
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="restore-dir-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="restore-dir-form" loading={loading} disabled={!form.isValid()}>
           <Trans>Begin Restore</Trans>
         </Button>
       </Group>

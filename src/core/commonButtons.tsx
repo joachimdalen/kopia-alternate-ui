@@ -5,10 +5,10 @@ export const refreshButtonProps: ButtonProps = {
   size: "xs",
   color: "blue",
   variant: "outline",
-  leftSection: <IconRefresh size={16} />,
+  leftSection: <IconRefresh size={16} />
 };
 export const newActionProps: ButtonProps = {
   size: "xs",
   color: "green",
-  leftSection: <IconPlus size={16} />,
+  leftSection: <IconPlus size={16} />
 };

@@ -23,10 +23,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<BaseLayout />}>
           <Route path="/snapshots" element={<SnapshotsPage />} />
-          <Route
-            path="/snapshots/single-source"
-            element={<SnapshotHistory />}
-          />
+          <Route path="/snapshots/single-source" element={<SnapshotHistory />} />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
           <Route path="/mounts" element={<SnapshotMountsPage />} />
           <Route path="/tasks" element={<TasksPage />} />

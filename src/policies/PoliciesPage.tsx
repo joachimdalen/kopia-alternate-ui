@@ -1,21 +1,8 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Center,
-  Container,
-  Divider,
-  Group,
-  Stack,
-  Title
-} from "@mantine/core";
+import { Button, Center, Container, Divider, Group, Stack, Title } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import {
-  IconClick,
-  IconFileCertificate,
-  IconPencil,
-  IconPlus,
-} from "@tabler/icons-react";
+import { IconClick, IconFileCertificate, IconPencil, IconPlus } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
 import { refreshButtonProps } from "../core/commonButtons";
@@ -26,23 +13,13 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import { MenuButton } from "../core/MenuButton/MenuButton";
-import {
-  type ItemAction,
-  type PolicyRef,
-  type SourceInfo,
-  type Sources,
-} from "../core/types";
+import { type ItemAction, type PolicyRef, type SourceInfo, type Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import { onlyUnique } from "../utils/onlyUnique";
 import PolicyFeatureBadge from "./components/PolicyFeatureBadge";
 import CreatePolicyModal from "./modals/CreatePolicyModal/CreatePolicyModal";
 import PolicyModal from "./modals/PolicyModal/PolicyModal";
-import {
-  getNonEmptyPolicies,
-  isGlobalPolicy,
-  isLocalHostPolicy,
-  isLocalUserPolicy,
-} from "./policiesUtil";
+import { getNonEmptyPolicies, isGlobalPolicy, isLocalHostPolicy, isLocalUserPolicy } from "./policiesUtil";
 
 type PolicyFilter =
   | "applicable-policies"
@@ -58,24 +35,19 @@ function PoliciesPage() {
   const [data, setData] = useState<PolicyRef[]>([]);
   const [sources, setSources] = useState<Sources>();
   const [searchParams] = useSearchParams();
-  const [action, setAction] =
-    useState<
-      ItemAction<{ isNew: boolean; target: SourceInfo }, "edit" | "new">
-    >();
-  const [filterState, setFilterState] = useState<PolicyFilter | string>(
-    "applicable-policies"
-  );
+  const [action, setAction] = useState<ItemAction<{ isNew: boolean; target: SourceInfo }, "edit" | "new">>();
+  const [filterState, setFilterState] = useState<PolicyFilter | string>("applicable-policies");
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getPolicies(),
     onReturn(resp) {
       setData(resp.policies);
-    },
+    }
   });
   const { execute: executeSources } = useApiRequest({
     action: () => kopiaService.getSnapshots(),
     onReturn(resp) {
       setSources(resp);
-    },
+    }
   });
 
   const uniqueOwners = useMemo(
@@ -108,10 +80,7 @@ function PoliciesPage() {
     const path = searchParams.get("path");
     if (host && user && path) {
       const policy = data.find(
-        (x) =>
-          x.target.host === host &&
-          x.target.userName === user &&
-          x.target.path === decodeURIComponent(path)
+        (x) => x.target.host === host && x.target.userName === user && x.target.path === decodeURIComponent(path)
       );
 
       if (!policy) {
@@ -123,8 +92,8 @@ function PoliciesPage() {
         action: "edit",
         item: {
           isNew: false,
-          target: policy.target,
-        },
+          target: policy.target
+        }
       });
     }
   }, [searchParams, data]);
@@ -135,9 +104,7 @@ function PoliciesPage() {
       case "all-policies":
         break;
       case "global-policy":
-        dta = dta.filter(
-          (x) => !x.target.userName && !x.target.host && !x.target.path
-        );
+        dta = dta.filter((x) => !x.target.userName && !x.target.host && !x.target.path);
         break;
       case "local-path-policies":
         dta = dta.filter((x) => isLocalUserPolicy(x, localSourceName));
@@ -145,20 +112,14 @@ function PoliciesPage() {
       case "applicable-policies":
         dta = dta.filter(
           (x) =>
-            isLocalUserPolicy(x, localSourceName) ||
-            isLocalHostPolicy(x, sources?.localHost || "") ||
-            isGlobalPolicy(x)
+            isLocalUserPolicy(x, localSourceName) || isLocalHostPolicy(x, sources?.localHost || "") || isGlobalPolicy(x)
         );
         break;
       case "per-user-policies":
-        dta = dta.filter(
-          (x) => !!x.target.userName && !!x.target.host && !x.target.path
-        );
+        dta = dta.filter((x) => !!x.target.userName && !!x.target.host && !x.target.path);
         break;
       case "per-host-policies":
-        dta = dta.filter(
-          (x) => !x.target.userName && !!x.target.host && !x.target.path
-        );
+        dta = dta.filter((x) => !x.target.userName && !!x.target.host && !x.target.path);
         break;
       default:
         dta = dta.filter((x) => formatOwnerName(x.target) === filterState);
@@ -170,7 +131,9 @@ function PoliciesPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}><Trans>Policies</Trans></Title>
+        <Title order={1}>
+          <Trans>Policies</Trans>
+        </Title>
         <Group justify="space-between">
           <MenuButton
             options={[
@@ -184,8 +147,8 @@ function PoliciesPage() {
               { label: "", value: "divider" },
               ...uniqueOwners.map((own) => ({
                 label: own,
-                value: own,
-              })),
+                value: own
+              }))
             ]}
             onClick={setFilterState}
             disabled={loading}
@@ -222,30 +185,31 @@ function PoliciesPage() {
             {
               accessor: "target.username",
               title: t`Username`,
-              render: (item) => item.target.userName || "*",
+              render: (item) => item.target.userName || "*"
             },
             {
               accessor: "target.host",
               title: t`Host`,
-              render: (item) => item.target.host || "*",
+              render: (item) => item.target.host || "*"
             },
             {
               accessor: "target.path",
               title: t`Path`,
-              render: (item) => item.target.path || "*",
+              render: (item) => item.target.path || "*"
             },
             {
               accessor: "defined",
               title: t`Defined`,
-              visibleMediaQuery: (theme) =>
-                `(min-width: ${theme.breakpoints.md})`,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
               render: (item) => (
                 <Group gap="xs">
-                  {getNonEmptyPolicies(item).sort().map((x) => (
-                    <PolicyFeatureBadge policyFeature={x} key={x} />
-                  ))}
+                  {getNonEmptyPolicies(item)
+                    .sort()
+                    .map((x) => (
+                      <PolicyFeatureBadge policyFeature={x} key={x} />
+                    ))}
                 </Group>
-              ),
+              )
             },
             {
               accessor: "actions",
@@ -266,15 +230,15 @@ function PoliciesPage() {
                       action: "edit",
                       item: {
                         isNew: false,
-                        target: item.target,
-                      },
+                        target: item.target
+                      }
                     })
                   }
                 >
                   <Trans>Edit</Trans>
                 </Button>
-              ),
-            },
+              )
+            }
           ]}
         />
       </Stack>
@@ -289,19 +253,14 @@ function PoliciesPage() {
           }}
         />
       )}
-      {action &&
-        action.action === "new" &&
-        sources?.localHost &&
-        sources.localUsername && (
-          <CreatePolicyModal
-            localHost={sources.localHost}
-            localUserName={sources?.localUsername}
-            onCancel={() => setAction(undefined)}
-            onEdit={(target: SourceInfo, isNew: boolean) =>
-              setAction({ action: "edit", item: { target, isNew } })
-            }
-          />
-        )}
+      {action && action.action === "new" && sources?.localHost && sources.localUsername && (
+        <CreatePolicyModal
+          localHost={sources.localHost}
+          localUserName={sources?.localUsername}
+          onCancel={() => setAction(undefined)}
+          onEdit={(target: SourceInfo, isNew: boolean) => setAction({ action: "edit", item: { target, isNew } })}
+        />
+      )}
     </Container>
   );
 }

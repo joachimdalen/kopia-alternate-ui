@@ -13,7 +13,7 @@ import { dynamicActivate } from "./i18n";
 
 function BaseLayout() {
   const theme = createTheme({
-    fontFamily: '"Nunito", sans-serif;',
+    fontFamily: '"Nunito", sans-serif;'
   });
 
   useEffect(() => {
@@ -27,11 +27,7 @@ function BaseLayout() {
           <ServerInstanceContextProvider>
             <AppContextProvider>
               <Notifications position="top-right" />
-              <AppShell
-                padding="md"
-                header={{ height: 60 }}
-                footer={{ height: 40 }}
-              >
+              <AppShell padding="md" header={{ height: 60 }} footer={{ height: 40 }}>
                 <Header />
                 <AppShell.Main>
                   <Outlet />

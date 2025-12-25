@@ -1,11 +1,4 @@
-import {
-  Group,
-  Paper,
-  SimpleGrid,
-  Text,
-  type MantineColor,
-  type StyleProp,
-} from "@mantine/core";
+import { Group, Paper, SimpleGrid, Text, type MantineColor, type StyleProp } from "@mantine/core";
 import {
   IconAsterisk,
   IconCircleX,
@@ -25,7 +18,7 @@ import {
   IconHome,
   IconPlayerSkipForward,
   IconRefresh,
-  IconUpload,
+  IconUpload
 } from "@tabler/icons-react";
 import { useAppContext } from "../../core/context/AppContext";
 import IconWrapper from "../../core/IconWrapper";
@@ -49,95 +42,91 @@ const iconProps: Record<
 > = {
   "Cached Bytes": {
     icon: IconDatabasePlus,
-    color: "blue",
+    color: "blue"
   },
   "Cached Files": {
     icon: IconFileDatabase,
-    color: "blue",
+    color: "blue"
   },
   Errors: {
     icon: IconCircleX,
-    color: "red",
+    color: "red"
   },
   "Excluded Directories": {
     icon: IconFolderX,
-    color: "yellow",
+    color: "yellow"
   },
   "Excluded Files": {
     icon: IconFileX,
-    color: "yellow",
+    color: "yellow"
   },
   "Hashed Bytes": {
     icon: IconHash,
-    color: "blue",
+    color: "blue"
   },
   "Hashed Files": {
     icon: IconFileCode,
-    color: "blue",
+    color: "blue"
   },
   "Processed Bytes": {
     icon: IconRefresh,
-    color: "green",
+    color: "green"
   },
   "Processed Files": {
     icon: IconFileUpload,
-    color: "green",
+    color: "green"
   },
   "Uploaded Bytes": {
     icon: IconUpload,
-    color: "green",
+    color: "green"
   },
   "Ignored Errors": {
     icon: IconCircleX,
-    color: "yellow",
+    color: "yellow"
   },
   "Restored Bytes": {
     icon: IconCircleX,
-    color: "green",
+    color: "green"
   },
   "Restored Directories": {
     icon: IconFolderPlus,
-    color: "green",
+    color: "green"
   },
   "Restored Files": {
     icon: IconFilePlus,
-    color: "green",
+    color: "green"
   },
   "Restored Symlinks": {
     icon: IconFileSymlink,
-    color: "red",
+    color: "red"
   },
   "Skipped Bytes": {
     icon: IconPlayerSkipForward,
-    color: "orange",
+    color: "orange"
   },
   "Skipped Files": {
     icon: IconFileMinus,
-    color: "orange",
+    color: "orange"
   },
   Files: {
     icon: IconFile,
-    color: "green",
+    color: "green"
   },
   Directories: {
     icon: IconFolder,
-    color: "green",
+    color: "green"
   },
   Bytes: {
     icon: IconAsterisk,
-    color: "blue",
+    color: "blue"
   },
   "Excluded Bytes": {
     icon: IconAsterisk,
-    color: "yellow",
-  },
+    color: "yellow"
+  }
 };
 
-export default function TaskCounterGrid({
-  task,
-  showZeroCounters,
-  gridSize,
-}: Props) {
+export default function TaskCounterGrid({ task, showZeroCounters, gridSize }: Props) {
   const { bytesStringBase2 } = useAppContext();
 
   if (task.counters === undefined || task.counters === null) return null;
@@ -159,13 +148,7 @@ export default function TaskCounterGrid({
     return (
       <Paper withBorder radius="md" p="xs" key={key}>
         <Group wrap="nowrap">
-          {iconProp && (
-            <IconWrapper
-              icon={iconProp.icon}
-              size={32}
-              color={iconProp.color}
-            />
-          )}
+          {iconProp && <IconWrapper icon={iconProp.icon} size={32} color={iconProp.color} />}
 
           <div>
             <Text c="dimmed" size="xs" tt="uppercase" fw={700}>
@@ -180,9 +163,5 @@ export default function TaskCounterGrid({
     );
   });
 
-  return (
-    <SimpleGrid cols={gridSize || { base: 1, sm: 3, md: 4, lg: 6 }}>
-      {counters}
-    </SimpleGrid>
-  );
+  return <SimpleGrid cols={gridSize || { base: 1, sm: 3, md: 4, lg: 6 }}>{counters}</SimpleGrid>;
 }

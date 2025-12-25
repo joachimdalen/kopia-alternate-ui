@@ -1,15 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Checkbox,
-  Group,
-  NumberInput,
-  PasswordInput,
-  Stack,
-  Text,
-  Textarea,
-  TextInput,
-} from "@mantine/core";
+import { Checkbox, Group, NumberInput, PasswordInput, Stack, Text, Textarea, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconServer2 } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
@@ -24,7 +15,9 @@ function SFTPServerRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconServer2} size={32} color="orange" />
-        <Text fw="bold"><Trans>SFTP Server</Trans></Text>
+        <Text fw="bold">
+          <Trans>SFTP Server</Trans>
+        </Text>
       </Group>
 
       <Stack>
@@ -99,7 +92,7 @@ function SFTPServerRepo({ form }: Props) {
           label={t`Launch external password-less SSH command`}
           description={t`By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client.`}
           {...form.getInputProps("providerConfig.externalSSH", {
-            type: "checkbox",
+            type: "checkbox"
           })}
         />
         {form.values.providerConfig.externalSSH && (

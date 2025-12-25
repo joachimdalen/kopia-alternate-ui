@@ -1,13 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Group,
-  Modal,
-  PasswordInput,
-  Stack,
-  TextInput,
-} from "@mantine/core";
+import { Button, Group, Modal, PasswordInput, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
@@ -24,7 +17,7 @@ type Props = {
 
 const schema = Yup.object({
   username: Yup.string().required().label("Username"),
-  password: Yup.string().required().label("Password"),
+  password: Yup.string().required().label("Password")
 });
 
 type LoginForm = {
@@ -37,10 +30,10 @@ export default function LoginModal({ instance, onLogin, error }: Props) {
     mode: "controlled",
     initialValues: {
       username: "",
-      password: "",
+      password: ""
     },
     validate: yupResolver(schema),
-    validateInputOnBlur: true,
+    validateInputOnBlur: true
   });
 
   async function submitForm(values: LoginForm) {
@@ -59,11 +52,7 @@ export default function LoginModal({ instance, onLogin, error }: Props) {
       closeOnClickOutside={false}
       withCloseButton={false}
     >
-      <form
-        id="login-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="login-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
           <TextInput
@@ -85,16 +74,11 @@ export default function LoginModal({ instance, onLogin, error }: Props) {
         className={modalClasses.footer}
         styles={{
           root: {
-            justifyContent: "flex-end",
-          },
+            justifyContent: "flex-end"
+          }
         }}
       >
-        <Button
-          size="xs"
-          type="submit"
-          form="login-form"
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="login-form" disabled={!form.isValid()}>
           <Trans>Login</Trans>
         </Button>
       </Group>

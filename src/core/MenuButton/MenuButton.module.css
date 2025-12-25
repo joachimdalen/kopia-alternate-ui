@@ -5,26 +5,16 @@
   align-items: center;
   padding: calc(var(--mantine-spacing-xs) / 2) var(--mantine-spacing-xs);
   border-radius: var(--mantine-radius-md);
-  border: 1px solid
-    light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
   transition: background-color 150ms ease;
-  background-color: light-dark(
-    var(--mantine-color-white),
-    var(--mantine-color-dark-6)
-  );
+  background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-6));
 
   &[data-expanded] {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-5)
-    );
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
   }
 
   @mixin hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-5)
-    );
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
   }
 }
 

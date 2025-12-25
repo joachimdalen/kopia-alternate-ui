@@ -1,20 +1,8 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Anchor,
-  Button,
-  Container,
-  Divider,
-  Group,
-  Stack,
-  Title,
-} from "@mantine/core";
+import { Anchor, Button, Container, Divider, Group, Stack, Title } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import {
-  IconClick,
-  IconFolderBolt,
-  IconFolderMinus,
-} from "@tabler/icons-react";
+import { IconClick, IconFolderBolt, IconFolderMinus } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useAppContext } from "../core/context/AppContext";
@@ -34,7 +22,7 @@ function SnapshotMountsPage() {
     action: () => kopiaService.getMountedSnapshots(),
     onReturn(resp) {
       setData(resp.items);
-    },
+    }
   });
 
   const unMountAction = useApiRequest({
@@ -46,7 +34,7 @@ function SnapshotMountsPage() {
         title: t`Snapshot unmounted`,
         message: t`The snapshout was unmounted from the host`,
         color: "green"
-      })
+      });
     }
   });
 
@@ -54,7 +42,6 @@ function SnapshotMountsPage() {
   useEffect(() => {
     loadMountsAction.execute(undefined, "loading");
   }, []);
-
 
   return (
     <Container fluid>
@@ -72,32 +59,24 @@ function SnapshotMountsPage() {
           noRecordsText={t`No snapshots mounted`}
           noRecordsIcon={<IconWrapper icon={IconFolderBolt} size={48} />}
           pageSize={tablePageSize}
-
           columns={[
             {
               accessor: "root",
               title: t`Snapshot ID`,
               width: "25%",
               render: (item) => (
-                <Anchor
-                  component={Link}
-                  to={`/snapshots/dir/${item.root}`}
-                  td="none"
-                  fz="sm"
-                >
+                <Anchor component={Link} to={`/snapshots/dir/${item.root}`} td="none" fz="sm">
                   {item.root}
                 </Anchor>
-              ),
+              )
             },
             {
               accessor: "path",
-              title: t`Mounted at`,
+              title: t`Mounted at`
             },
             {
               accessor: "actions",
-              title: (
-                <IconClick size={16} />
-              ),
+              title: <IconClick size={16} />,
               textAlign: "right",
               width: "25%",
               render: (item) => (
@@ -109,17 +88,15 @@ function SnapshotMountsPage() {
                     color="red"
                     onClick={() => unMountAction.execute(item.root, item.root)}
                     loading={unMountAction.loading && unMountAction.loadingKey === item.root}
-
                   >
                     <Trans>Unmount</Trans>
                   </Button>
                 </Group>
-              ),
-            },
+              )
+            }
           ]}
         />
       </Stack>
-
     </Container>
   );
 }

@@ -14,7 +14,9 @@ function RcloneRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconRefresh} size={32} color="grape" />
-        <Text fw="bold"><Trans>Rclone Remote</Trans></Text>
+        <Text fw="bold">
+          <Trans>Rclone Remote</Trans>
+        </Text>
       </Group>
 
       <Stack>

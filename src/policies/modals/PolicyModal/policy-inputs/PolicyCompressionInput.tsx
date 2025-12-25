@@ -14,14 +14,7 @@ type Props = {
   effective?: string;
 } & PolicyInput;
 
-export default function PolicyCompressionInput({
-  id,
-  title,
-  description,
-  form,
-  formKey,
-  effective,
-}: Props) {
+export default function PolicyCompressionInput({ id, title, description, form, formKey, effective }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
@@ -30,7 +23,7 @@ export default function PolicyCompressionInput({
     action: () => kopiaService.getAlgorithms(),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
   useEffect(() => {
     execute();
@@ -47,9 +40,9 @@ export default function PolicyCompressionInput({
             .filter((x) => !x.deprecated)
             .map((x) => ({
               label: x.id.replace(/-/g, " "),
-              value: x.id,
-            })),
-        ],
+              value: x.id
+            }))
+        ]
       },
       {
         group: t`Deprecated`,
@@ -57,19 +50,15 @@ export default function PolicyCompressionInput({
           .filter((x) => x.deprecated)
           .map((x) => ({
             label: x.id.replace(/-/g, " "),
-            value: x.id,
-          })),
-      },
+            value: x.id
+          }))
+      }
     ];
     return grouped;
   }, [data]);
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value !== undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
       <AccordionPanel>
         <Group grow>
           <Select

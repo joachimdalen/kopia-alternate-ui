@@ -19,29 +19,25 @@ export default function DeletePolicyButton({ sourceInfo, onDeleted }: Props) {
     onReturn() {
       onDeleted();
     },
-    showErrorAsNotification: true,
+    showErrorAsNotification: true
   });
 
   const openModal = () =>
     modals.openConfirmModal({
       title: t`Delete policy`,
       children: (
-        <Text size="sm"><Trans>Are you sure you want to delete this policy?</Trans></Text>
+        <Text size="sm">
+          <Trans>Are you sure you want to delete this policy?</Trans>
+        </Text>
       ),
       labels: { confirm: t`Delete policy`, cancel: t`No don't delete it` },
       confirmProps: { color: "red", size: "xs" },
       cancelProps: { size: "xs" },
-      onConfirm: () => execute(),
+      onConfirm: () => execute()
     });
 
   return (
-    <Button
-      size="xs"
-      leftSection={<IconTrash size={16} />}
-      color="red"
-      loading={loading}
-      onClick={openModal}
-    >
+    <Button size="xs" leftSection={<IconTrash size={16} />} color="red" loading={loading} onClick={openModal}>
       <Trans>Delete</Trans>
     </Button>
   );

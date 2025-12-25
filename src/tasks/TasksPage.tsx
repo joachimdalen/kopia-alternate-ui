@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
   Anchor,
@@ -10,7 +10,7 @@ import {
   SegmentedControl,
   Stack,
   TextInput,
-  Title,
+  Title
 } from "@mantine/core";
 import { useDebouncedValue, useInputState } from "@mantine/hooks";
 import {
@@ -20,7 +20,7 @@ import {
   IconList,
   IconLoader,
   IconSearch,
-  IconSettingsAutomation,
+  IconSettingsAutomation
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
@@ -52,7 +52,7 @@ function TasksPage() {
     action: () => kopiaService.getTasks(),
     onReturn(resp) {
       setData(resp.tasks);
-    },
+    }
   });
 
   useEffect(() => {
@@ -80,7 +80,9 @@ function TasksPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}><Trans>Tasks</Trans></Title>
+        <Title order={1}>
+          <Trans>Tasks</Trans>
+        </Title>
         <Group justify="space-between" align="flex-end">
           <Group>
             <SegmentedControl
@@ -91,35 +93,35 @@ function TasksPage() {
                   label: (
                     <Center style={{ gap: 10 }}>
                       <IconList size={16} />
-                      <span><Trans>All</Trans></span>
+                      <span>
+                        <Trans>All</Trans>
+                      </span>
                     </Center>
                   ),
-                  value: "all",
+                  value: "all"
                 },
                 {
                   label: (
                     <Center style={{ gap: 10 }}>
-                      <IconLoader
-                        size={16}
-                        color="var(--mantine-color-blue-5)"
-                      />
-                      <span><Trans>Running</Trans></span>
+                      <IconLoader size={16} color="var(--mantine-color-blue-5)" />
+                      <span>
+                        <Trans>Running</Trans>
+                      </span>
                     </Center>
                   ),
-                  value: "running",
+                  value: "running"
                 },
                 {
                   label: (
                     <Center style={{ gap: 10 }}>
-                      <IconCircleXFilled
-                        color="var(--mantine-color-red-5)"
-                        size={16}
-                      />
-                      <span><Trans>Failed</Trans></span>
+                      <IconCircleXFilled color="var(--mantine-color-red-5)" size={16} />
+                      <span>
+                        <Trans>Failed</Trans>
+                      </span>
                     </Center>
                   ),
-                  value: "failed",
-                },
+                  value: "failed"
+                }
               ]}
             />
             <MenuButton
@@ -132,8 +134,8 @@ function TasksPage() {
                   .filter(onlyUnique)
                   .map((x) => ({
                     label: <TaskKindDisplay kind={x} />,
-                    value: x,
-                  })),
+                    value: x
+                  }))
               ]}
               onClick={setKindFilter}
               disabled={loading}
@@ -164,15 +166,13 @@ function TasksPage() {
           loading={loading && loadingKey === "loading"}
           records={visibleTasks}
           noRecordsText="No tasks found"
-          noRecordsIcon={
-            <IconWrapper icon={IconSettingsAutomation} size={48} />
-          }
+          noRecordsIcon={<IconWrapper icon={IconSettingsAutomation} size={48} />}
           pageSize={tablePageSize}
           columns={[
             {
               accessor: "id",
               title: t`Task ID`,
-              width: 75,
+              width: 75
             },
             {
               accessor: "startTime",
@@ -181,23 +181,22 @@ function TasksPage() {
                 <Anchor component={Link} to={`/tasks/${item.id}`} td="none">
                   <RelativeDate value={item.startTime} />
                 </Anchor>
-              ),
+              )
             },
             {
               accessor: "status",
               title: t`Status`,
-              render: (item) => <TaskStatusDisplay task={item} />,
+              render: (item) => <TaskStatusDisplay task={item} />
             },
             {
               accessor: "kind",
               title: t`Kind`,
-              render: (item) => <TaskKindDisplay kind={item.kind} />,
+              render: (item) => <TaskKindDisplay kind={item.kind} />
             },
             {
               accessor: "description",
               title: t`Description`,
-              visibleMediaQuery: (theme) =>
-                `(min-width: ${theme.breakpoints.md})`,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`
             },
             {
               accessor: "actions",
@@ -209,16 +208,11 @@ function TasksPage() {
               width: "0%", // 👈 use minimal width
               render: (item) =>
                 item.status === "RUNNING" && (
-                  <Button
-                    size="xs"
-                    variant="subtle"
-                    leftSection={<IconBan size={14} />}
-                    color="red"
-                  >
+                  <Button size="xs" variant="subtle" leftSection={<IconBan size={14} />} color="red">
                     <Trans context="cance-operation">Cancel</Trans>
                   </Button>
-                ),
-            },
+                )
+            }
           ]}
         />
       </Stack>

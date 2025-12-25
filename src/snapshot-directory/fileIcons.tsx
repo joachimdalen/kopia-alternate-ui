@@ -18,7 +18,7 @@ import {
   IconFileTypeXml,
   IconFileTypeZip,
   IconMarkdown,
-  type IconHome,
+  type IconHome
 } from "@tabler/icons-react";
 
 export const fileIcons: Record<string, typeof IconHome> = {
@@ -47,5 +47,5 @@ export const fileIcons: Record<string, typeof IconHome> = {
   xls: IconFileTypeXls,
   xlsx: IconFileTypeXls,
   ts: IconFileTypeTs,
-  tsx: IconFileTypeTsx,
+  tsx: IconFileTypeTsx
 };

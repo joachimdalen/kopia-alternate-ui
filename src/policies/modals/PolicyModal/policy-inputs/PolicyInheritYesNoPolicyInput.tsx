@@ -11,23 +11,12 @@ type Props = {
   effective?: boolean;
 } & PolicyInput;
 
-export default function PolicyInheritYesNoPolicyInput({
-  id,
-  title,
-  description,
-  form,
-  formKey,
-  effective,
-}: Props) {
+export default function PolicyInheritYesNoPolicyInput({ id, title, description, form, formKey, effective }: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value !== undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
       <AccordionPanel>
         <Group grow>
           <Box>

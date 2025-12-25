@@ -1,24 +1,13 @@
-import { t } from '@lingui/core/macro';
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Group,
-  Modal,
-  PasswordInput,
-  Select,
-  Stack,
-  TextInput,
-} from "@mantine/core";
+import { Button, Group, Modal, PasswordInput, Select, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import type {
-  NotificationProfile,
-  PushOverNotification,
-} from "../../core/types";
+import type { NotificationProfile, PushOverNotification } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 
@@ -32,7 +21,7 @@ const schema = Yup.object({
   name: Yup.string().required().label("Name"),
   minSeverity: Yup.string().required().label("Severity"),
   appToken: Yup.string().required().label("App Token"),
-  userKey: Yup.string().required().label("User key"),
+  userKey: Yup.string().required().label("User key")
 });
 
 type PushoverForm = {
@@ -54,7 +43,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
         format: "txt",
         appToken: "",
         userKey: "",
-        endpoint: undefined,
+        endpoint: undefined
       } satisfies PushoverForm;
     } else {
       const config = profile.method.config as PushOverNotification;
@@ -65,14 +54,11 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
         minSeverity: profile.minSeverity.toString(),
         appToken: config.appToken,
         userKey: config.userKey,
-        endpoint: config.endpoint,
+        endpoint: config.endpoint
       } satisfies PushoverForm;
     }
   };
-  const form = useForm<
-    PushoverForm,
-    (values: PushoverForm) => NotificationProfile
-  >({
+  const form = useForm<PushoverForm, (values: PushoverForm) => NotificationProfile>({
     mode: "controlled",
     initialValues: getForm(),
     validate: yupResolver(schema),
@@ -86,12 +72,12 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
             appToken: values.appToken,
             userKey: values.userKey,
             endpoint: values.endpoint,
-            format: values.format,
-          } as PushOverNotification,
-        },
+            format: values.format
+          } as PushOverNotification
+        }
       };
       return base;
-    },
+    }
   });
 
   const { error, loading, execute } = useApiRequest({
@@ -100,7 +86,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
       kopiaService.createNotificationProfile(data!),
     onReturn: (g) => {
       onSaved(g, profile === undefined);
-    },
+    }
   });
   async function submitForm(values: NotificationProfile) {
     await execute(values);
@@ -108,11 +94,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
 
   return (
     <Modal
-      title={
-        profile === undefined
-          ? t`Create pushover notification`
-          : t`Edit pushover notification`
-      }
+      title={profile === undefined ? t`Create pushover notification` : t`Edit pushover notification`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -120,11 +102,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
       closeOnClickOutside={false}
       size="lg"
     >
-      <form
-        id="pushover-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="pushover-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
 
@@ -144,7 +122,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
               { label: "Success", value: "-10" },
               { label: "Report", value: "0" },
               { label: "Warning", value: "10" },
-              { label: "Error", value: "20" },
+              { label: "Error", value: "20" }
             ]}
             withAsterisk
             allowDeselect={false}
@@ -152,26 +130,14 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
             {...form.getInputProps("minSeverity")}
           />
 
-          <PasswordInput
-            label={t`Pushover App Token`}
-            withAsterisk
-            {...form.getInputProps("appToken")}
-          />
-          <TextInput
-            label={t`Recipient User Key or Group Key`}
-            withAsterisk
-            {...form.getInputProps("userKey")}
-          />
-          <TextInput
-            label={t`Endpoint`}
-            withAsterisk
-            {...form.getInputProps("endpoint")}
-          />
+          <PasswordInput label={t`Pushover App Token`} withAsterisk {...form.getInputProps("appToken")} />
+          <TextInput label={t`Recipient User Key or Group Key`} withAsterisk {...form.getInputProps("userKey")} />
+          <TextInput label={t`Endpoint`} withAsterisk {...form.getInputProps("endpoint")} />
           <Select
             label={`Notification Format`}
             data={[
               { label: t`Plain Text Format`, value: "txt" },
-              { label: t`HTML Format`, value: "html" },
+              { label: t`HTML Format`, value: "html" }
             ]}
             withAsterisk
             allowDeselect={false}
@@ -182,22 +148,10 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="pushover-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="pushover-form" loading={loading} disabled={!form.isValid()}>
           {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>

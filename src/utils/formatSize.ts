@@ -6,12 +6,7 @@ function formatNumber(f: number) {
   return Math.round(f * 10) / 10.0 + "";
 }
 
-function toDecimalUnitString(
-  f: number,
-  thousand: number,
-  prefixes: string[],
-  suffix: string
-) {
+function toDecimalUnitString(f: number, thousand: number, prefixes: string[], suffix: string) {
   for (let i = 0; i < prefixes.length; i++) {
     if (f < 0.9 * thousand) {
       return formatNumber(f) + " " + prefixes[i] + suffix;
@@ -22,10 +17,7 @@ function toDecimalUnitString(
   return formatNumber(f) + " " + prefixes[prefixes.length - 1] + suffix;
 }
 
-export default function sizeDisplayName(
-  size: number,
-  bytesStringBase2: boolean
-) {
+export default function sizeDisplayName(size: number, bytesStringBase2: boolean) {
   if (size === undefined) {
     return "";
   }

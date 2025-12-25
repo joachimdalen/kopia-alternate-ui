@@ -39,7 +39,7 @@ function useApiRequest<TResponse, TRequest>({
   onReturn,
   handleError,
   errorInfo,
-  showErrorAsNotification = false,
+  showErrorAsNotification = false
 }: UseApiRequestOptions<TResponse, TRequest>): UseApiRequestReturn<TRequest> {
   const [loading, setLoading] = useState<LoadingProps>({ isLoading: false });
   const [error, setError] = useState<ErrorInformation | undefined>();
@@ -49,7 +49,7 @@ function useApiRequest<TResponse, TRequest>({
       showNotification({
         title: err.title,
         message: err.message,
-        color: "red",
+        color: "red"
       });
       return;
     }
@@ -83,12 +83,9 @@ function useApiRequest<TResponse, TRequest>({
       } else {
         const dd = response?.data as { code: string; error: string };
         const err: ErrorInformation = {
-          title:
-            response.responseCode === 401
-              ? "401 Unauthorized"
-              : dd.code || "Operation failed",
+          title: response.responseCode === 401 ? "401 Unauthorized" : dd.code || "Operation failed",
           message: dd.error || "Failed due to an unknown error",
-          data: response.data,
+          data: response.data
         };
 
         processError(err, data);
@@ -97,7 +94,7 @@ function useApiRequest<TResponse, TRequest>({
       console.error(error);
       const err: ErrorInformation = {
         title: errorInfo?.title ?? "Operation failed",
-        message: errorInfo?.message ?? "Failed due to an unknown error",
+        message: errorInfo?.message ?? "Failed due to an unknown error"
       };
       processError(err, data);
     } finally {
@@ -109,7 +106,7 @@ function useApiRequest<TResponse, TRequest>({
     error,
     loading: loading.isLoading,
     loadingKey: loading.key,
-    execute,
+    execute
   };
 }
 

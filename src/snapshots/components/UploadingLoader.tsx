@@ -30,12 +30,8 @@ export default function UploadingLoader({ data, bytesStringBase2 }: Props) {
     );
   }
 
-  const estimatedBytesString = sizeDisplayName(
-    data.estimatedBytes,
-    bytesStringBase2
-  );
-  const percent =
-    Math.round((totalBytes * 1000.0) / data.estimatedBytes) / 10.0;
+  const estimatedBytesString = sizeDisplayName(data.estimatedBytes, bytesStringBase2);
+  const percent = Math.round((totalBytes * 1000.0) / data.estimatedBytes) / 10.0;
 
   return (
     <Stack gap={5}>

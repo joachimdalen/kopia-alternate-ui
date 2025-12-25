@@ -1,13 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Button,
-  Group,
-  Modal,
-  Stack,
-  TextInput,
-} from "@mantine/core";
+import { ActionIcon, Button, Group, Modal, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { IconFileCode, IconSearch } from "@tabler/icons-react";
@@ -17,11 +10,7 @@ import * as Yup from "yup";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import {
-  type CreateSnapshotRequest,
-  type Policy,
-  type SourceInfo,
-} from "../../core/types";
+import { type CreateSnapshotRequest, type Policy, type SourceInfo } from "../../core/types";
 import PolicyModal from "../../policies/modals/PolicyModal/PolicyModal";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
@@ -33,7 +22,7 @@ type Props = {
 };
 
 const schema = Yup.object({
-  path: Yup.string().required().label("Path"),
+  path: Yup.string().required().label("Path")
 });
 
 type NewSnapshotForm = {
@@ -50,9 +39,9 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
   const form = useForm<NewSnapshotForm>({
     mode: "controlled",
     initialValues: {
-      path: "",
+      path: ""
     },
-    validate: yupResolver(schema),
+    validate: yupResolver(schema)
   });
 
   const getPolicyAction = useApiRequest({
@@ -60,33 +49,32 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
     onReturn: (p) => {
       setIsExisting(true);
       setPolicy(p);
-    },
+    }
   });
 
   const resolvePolicyAction = useApiRequest({
     action: (data?: SourceInfo) =>
       kopiaService.resolvePolicy(data!, {
         numUpcomingSnapshotTimes: 5,
-        updates: {},
+        updates: {}
       }),
     onReturn: (g) => {
       setPolicy(g.defined);
       getPolicyAction.execute(source);
-    },
+    }
   });
 
   const resolvePathAction = useApiRequest({
     action: (data?: string) => kopiaService.resolvePath(data!),
     onReturn: (g) => {
       setSource(g.source);
-    },
+    }
   });
   const createSnapshotAction = useApiRequest({
-    action: (data?: CreateSnapshotRequest) =>
-      kopiaService.createSnapshot(data!),
+    action: (data?: CreateSnapshotRequest) => kopiaService.createSnapshot(data!),
     onReturn: () => {
       onSnapshotted();
-    },
+    }
   });
 
   useEffect(() => {
@@ -106,9 +94,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
       size="md"
     >
       <Stack w="100%" className={modalClasses.container}>
-        <ErrorAlert
-          error={resolvePathAction.error || createSnapshotAction.error}
-        />
+        <ErrorAlert error={resolvePathAction.error || createSnapshotAction.error} />
 
         <Group grow align="flex-end">
           <TextInput
@@ -131,13 +117,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           />
         </Group>
         {source && (
-          <Button
-            mt="xs"
-            size="xs"
-            color="grape"
-            leftSection={<IconFileCode size={18} />}
-            onClick={setShowEditor.open}
-          >
+          <Button mt="xs" size="xs" color="grape" leftSection={<IconFileCode size={18} />} onClick={setShowEditor.open}>
             <Trans>Change policy parameters</Trans>
           </Button>
         )}
@@ -158,11 +138,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
           <Button
             size="xs"
             color="teal"
-            disabled={
-              source === undefined ||
-              policy === undefined ||
-              createSnapshotAction.loading
-            }
+            disabled={source === undefined || policy === undefined || createSnapshotAction.loading}
             onClick={showEstimationHandlers.open}
           >
             <Trans>Estimate</Trans>
@@ -175,7 +151,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
               const req: CreateSnapshotRequest = {
                 createSnapshot: true,
                 path: form.values.path,
-                policy: policy!,
+                policy: policy!
               };
               createSnapshotAction.execute(req);
             }}
@@ -197,11 +173,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
         />
       )}
       {showEstimation && source && policy && (
-        <TaskEstimationModal
-          policy={policy}
-          source={source}
-          onCancel={showEstimationHandlers.close}
-        />
+        <TaskEstimationModal policy={policy} source={source} onCancel={showEstimationHandlers.close} />
       )}
     </Modal>
   );

@@ -5,7 +5,7 @@ import {
   IconCircleCheckFilled,
   IconCircleXFilled,
   IconInfoCircle,
-  IconSearch,
+  IconSearch
 } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 type Props = {

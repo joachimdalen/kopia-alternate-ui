@@ -1,15 +1,6 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
-import {
-  Button,
-  Checkbox,
-  Group,
-  Loader,
-  Select,
-  Stack,
-  Text,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
+import { Button, Checkbox, Group, Loader, Select, Stack, Text, useMantineColorScheme } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useEffect, useState } from "react";
@@ -18,7 +9,7 @@ import { useServerInstanceContext } from "../core/context/ServerInstanceContext"
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { Preferences } from "../core/types";
 import { parseColorScheme } from "../utils/parseColorScheme";
-import supportedLocales from './locales';
+import supportedLocales from "./locales";
 type PreferencesForm = {
   bytesStringBase2: string;
   theme: string;
@@ -32,10 +23,7 @@ function AppearanceSection() {
   const { setColorScheme } = useMantineColorScheme();
   const { reloadPreferences } = useAppContext();
   const [data, setData] = useState<Preferences>();
-  const form = useForm<
-    PreferencesForm,
-    (values: PreferencesForm) => Preferences
-  >({
+  const form = useForm<PreferencesForm, (values: PreferencesForm) => Preferences>({
     mode: "controlled",
     validateInputOnBlur: true,
     transformValues: (values) => {
@@ -46,10 +34,10 @@ function AppearanceSection() {
         defaultSnapshotViewAll: values.defaultSnapshotViewAll,
         fontSize: data!.fontSize,
         language: data!.language,
-        locale: values!.locale,
+        locale: values!.locale
       };
       return pref;
-    },
+    }
   });
 
   const loadPreferences = useApiRequest({
@@ -58,13 +46,12 @@ function AppearanceSection() {
       setData(resp);
       form.initialize({
         bytesStringBase2: resp.bytesStringBase2.toString(),
-        pageSize:
-          resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
+        pageSize: resp.pageSize.toString() === "0" ? "20" : resp.pageSize.toString(),
         theme: parseColorScheme(resp.theme),
         locale: resp.locale || "en",
         defaultSnapshotViewAll: resp.defaultSnapshotViewAll
       });
-    },
+    }
   });
   const setPreferences = useApiRequest<Preferences, Preferences>({
     action: (prefs?: Preferences) => kopiaService.setPreferences(prefs!),
@@ -72,10 +59,10 @@ function AppearanceSection() {
       showNotification({
         title: t`Updated`,
         message: t`Preferences updated`,
-        color: "green",
+        color: "green"
       });
       reloadPreferences();
-    },
+    }
   });
 
   useEffect(() => {
@@ -91,7 +78,6 @@ function AppearanceSection() {
     return <Loader />;
   }
 
-
   return (
     <form onSubmit={form.onSubmit(submitForm)}>
       <Stack>
@@ -100,7 +86,7 @@ function AppearanceSection() {
             label={t`Theme`}
             data={[
               { label: t`Light`, value: "light" },
-              { label: t`Dark`, value: "dark" },
+              { label: t`Dark`, value: "dark" }
             ]}
             allowDeselect={false}
             withCheckIcon={false}
@@ -111,9 +97,9 @@ function AppearanceSection() {
             data={[
               {
                 label: "Base-2 (KiB, MiB, GiB, TiB)",
-                value: "true",
+                value: "true"
               },
-              { label: "Base-10 (KB, MB, GB, TB)", value: "false" },
+              { label: "Base-10 (KB, MB, GB, TB)", value: "false" }
             ]}
             allowDeselect={false}
             withCheckIcon={false}
@@ -129,7 +115,7 @@ function AppearanceSection() {
               { label: "30", value: "30" },
               { label: "40", value: "40" },
               { label: "50", value: "50" },
-              { label: "100", value: "100" },
+              { label: "100", value: "100" }
             ]}
             allowDeselect={false}
             withCheckIcon={false}
@@ -137,21 +123,29 @@ function AppearanceSection() {
           />
           <Select
             label={t`Locale`}
-            data={Object.keys(supportedLocales).map(x => ({ label: supportedLocales[x].name, value: x }))}
+            data={Object.keys(supportedLocales).map((x) => ({
+              label: supportedLocales[x].name,
+              value: x
+            }))}
             allowDeselect={false}
             withCheckIcon={false}
             renderOption={(o) => {
               const { flag: Flag } = supportedLocales[o.option.value];
-              return <Group wrap="nowrap" gap={4}>
-                <Flag style={{ height: 12, width: 20 }} />
-                <Text fz="sm">{o.option.label}</Text>
-              </Group>
+              return (
+                <Group wrap="nowrap" gap={4}>
+                  <Flag style={{ height: 12, width: 20 }} />
+                  <Text fz="sm">{o.option.label}</Text>
+                </Group>
+              );
             }}
             {...form.getInputProps("locale")}
           />
         </Group>
-        <Checkbox label={t`Show all snapshots by default`}
-          {...form.getInputProps("defaultSnapshotViewAll", { type: "checkbox" })}
+        <Checkbox
+          label={t`Show all snapshots by default`}
+          {...form.getInputProps("defaultSnapshotViewAll", {
+            type: "checkbox"
+          })}
         />
         <Group justify="flex-end" p="sm">
           <Button type="submit" color="green">

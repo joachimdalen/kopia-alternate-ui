@@ -21,74 +21,74 @@ type Props = {
 
 const policyFeatures: {
   [key: string]: {
-    color: MantineColor,
-    icon: typeof IconClock,
+    color: MantineColor;
+    icon: typeof IconClock;
     displayName: string;
-  }
+  };
 } = {
-  "retention": {
+  retention: {
     color: "teal",
     icon: IconCalendarX,
     displayName: "Retention"
   },
-  "files": {
+  files: {
     icon: IconFolderOpen,
     color: "yellow",
     displayName: "Files"
   },
-  "errorHandling": {
+  errorHandling: {
     icon: IconAlertTriangle,
     color: "red",
     displayName: "Error Handling"
   },
-  "scheduling": {
+  scheduling: {
     icon: IconClock,
     color: "green",
     displayName: "Scheduling"
   },
-  "compression": {
+  compression: {
     icon: IconFileZip,
     color: "grape",
     displayName: "Compression"
   },
-  "metadataCompression": {
+  metadataCompression: {
     icon: IconFileCode,
     color: "gray",
     displayName: "Metadata Compression"
   },
-  "splitter": {
+  splitter: {
     icon: IconArrowsSplit,
     color: "lime",
     displayName: "Splitter"
   },
-  "actions": {
+  actions: {
     icon: IconFolderCog,
     color: "lime",
     displayName: "Actions"
   },
-  "osSnapshots": {
+  osSnapshots: {
     icon: IconDeviceLaptop,
     color: "orange",
     displayName: "OS Snapshots"
   },
-  "logging": {
+  logging: {
     icon: IconFileText,
     color: "violet",
     displayName: "Logging"
   },
-  "upload": {
+  upload: {
     icon: IconUpload,
     color: "blue",
     displayName: "Upload"
-  },
-}
+  }
+};
 
 export default function PolicyFeatureBadge({ policyFeature }: Props) {
   const feature = policyFeatures[policyFeature] || {
     icon: IconQuestionMark,
     color: "blue",
     displayName: policyFeature
-  }
+  };
 
   return (
     <Badge tt="none" color={feature.color} radius={5} leftSection={<IconWrapper icon={feature.icon} />}>

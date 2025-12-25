@@ -1,13 +1,6 @@
 import { useLingui } from "@lingui/react/macro";
 import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-  type PropsWithChildren,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type PropsWithChildren } from "react";
 import { parseColorScheme } from "../../utils/parseColorScheme";
 import useApiRequest from "../hooks/useApiRequest";
 import type { Preferences, Status } from "../types";
@@ -25,12 +18,12 @@ const initialState: ContextState = {
   locale: "en",
   pageSize: 20,
   theme: "light",
-  reloadPreferences: () => { },
-  reloadStatus: () => { },
+  reloadPreferences: () => {},
+  reloadStatus: () => {},
   repoStatus: {
     connected: false,
-    description: "Unknown",
-  } as Status,
+    description: "Unknown"
+  } as Status
 };
 
 const AppContext = createContext<ContextState>(initialState);
@@ -54,19 +47,19 @@ export function AppContextProvider({ children }: AppContextProps) {
         fontSize: resp.fontSize,
         pageSize: resp.pageSize === 0 ? 20 : resp.pageSize,
         theme: theme,
-        locale: resp.locale || "en",
+        locale: resp.locale || "en"
       });
       if (colorScheme !== theme) {
         setColorScheme(theme);
       }
       i18n.activate(resp.locale || "en");
-    },
+    }
   });
   const loadStatus = useApiRequest({
     action: () => kopiaService.getStatus(),
     onReturn(resp) {
       setStatus(resp);
-    },
+    }
   });
 
   useEffect(() => {
@@ -82,8 +75,7 @@ export function AppContextProvider({ children }: AppContextProps) {
     loadStatus.execute();
   }, [kopiaService]);
 
-  const loading =
-    loadPreferences.loading || loadStatus.loadingKey === "loading";
+  const loading = loadPreferences.loading || loadStatus.loadingKey === "loading";
 
   return (
     <AppContext.Provider
@@ -95,8 +87,8 @@ export function AppContextProvider({ children }: AppContextProps) {
           status ??
           ({
             connected: false,
-            description: "Unknown",
-          } as Status),
+            description: "Unknown"
+          } as Status)
       }}
     >
       {loading ? <LoadingOverlay visible /> : children}

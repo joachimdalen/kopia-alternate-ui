@@ -1,10 +1,5 @@
 import { t } from "@lingui/core/macro";
-import {
-  AccordionItem,
-  AccordionPanel,
-  Group,
-  type ComboboxData,
-} from "@mantine/core";
+import { AccordionItem, AccordionPanel, Group, type ComboboxData } from "@mantine/core";
 import NumberSelect from "../../../../core/NumberSelect";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
@@ -26,18 +21,14 @@ export default function PolicyNumberSelect({
   form,
   formKey,
   effective,
-  data,
+  data
 }: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
 
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value != undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value != undefined} />
       <AccordionPanel>
         <Group grow>
           <NumberSelect

@@ -9,11 +9,7 @@ type Props = {
   isConfigured: boolean;
 };
 
-export default function PolicyAccordionControl({
-  title,
-  description,
-  isConfigured,
-}: Props) {
+export default function PolicyAccordionControl({ title, description, isConfigured }: Props) {
   return (
     <AccordionControl>
       <Stack gap={0}>
@@ -21,11 +17,7 @@ export default function PolicyAccordionControl({
           <Text fz="sm">{title}</Text>
           {isConfigured ? (
             <Group gap={2} justify="end" mr="md">
-              <IconWrapper
-                icon={IconCircleCheckFilled}
-                color="green"
-                size={18}
-              />
+              <IconWrapper icon={IconCircleCheckFilled} color="green" size={18} />
               <Text fz="xs" c="green">
                 <Trans>Configured</Trans>
               </Text>

@@ -10,7 +10,7 @@ import {
   IconInfoCircle,
   IconRefresh,
   IconServer,
-  IconServer2,
+  IconServer2
 } from "@tabler/icons-react";
 import * as yup from "yup";
 export const supportedProviders: {
@@ -23,98 +23,98 @@ export const supportedProviders: {
     provider: "filesystem",
     description: "Local Directory or NAS",
     icon: IconFolderOpen,
-    color: "orange",
+    color: "orange"
   },
   {
     provider: "gcs",
     description: "Google Cloud Storage",
     icon: IconBrandGoogleDrive,
-    color: "yellow",
+    color: "yellow"
   },
   {
     provider: "s3",
     description: "Amazon S3 or Compatible Storage",
     icon: IconBrandAmazon,
-    color: "orange",
+    color: "orange"
   },
   {
     provider: "b2",
     description: "Backblaze B2",
     icon: IconInfoCircle,
-    color: "red",
+    color: "red"
   },
   {
     provider: "azureBlob",
     description: "Azure Blob Storage",
     icon: IconBrandAzure,
-    color: "blue",
+    color: "blue"
   },
   {
     provider: "sftp",
     description: "SFTP Server",
     icon: IconServer2,
-    color: "teal",
+    color: "teal"
   },
   {
     provider: "rclone",
     description: "Rclone Remote",
     icon: IconRefresh,
-    color: "grape",
+    color: "grape"
   },
   {
     provider: "webdav",
     description: "WebDAV Server",
     icon: IconFolder,
-    color: "indigo",
+    color: "indigo"
   },
   {
     provider: "_server",
     description: "Kopia Repository Server",
     icon: IconServer,
-    color: "lime",
+    color: "lime"
   },
   {
     provider: "_token",
     description: "Use Repository Token",
     icon: IconAsterisk,
-    color: "violet",
-  },
+    color: "violet"
+  }
 ];
 export const fileSystemSchema = yup.object({
-  path: yup.string().required().label("Path"),
+  path: yup.string().required().label("Path")
 });
 export const amazonS3Schema = yup.object({
   bucket: yup.string().required().label("Path"),
   endpoint: yup.string().required().label("Endpoint"),
   accessKeyID: yup.string().required().label("Access Key ID"),
-  secretAccessKey: yup.string().required().label("Secret Access Key"),
+  secretAccessKey: yup.string().required().label("Secret Access Key")
 });
 export const azureBlobSchema = yup.object({
   container: yup.string().required().label("Container"),
-  storageAccount: yup.string().required().label("Storage Account"),
+  storageAccount: yup.string().required().label("Storage Account")
 });
 export const backblazeSchema = yup.object({
   bucket: yup.string().required().label("Bucket"),
   keyId: yup.string().required().label("Key ID"),
-  key: yup.string().required().label("Key"),
+  key: yup.string().required().label("Key")
 });
 export const googleCloudSchema = yup.object({
-  bucket: yup.string().required().label("Bucket"),
+  bucket: yup.string().required().label("Bucket")
 });
 export const kopiaRepoServerSchema = yup.object({
-  url: yup.string().required().label("URL"),
+  url: yup.string().required().label("URL")
 });
 export const kopiaRepoTokenSchema = yup.object({
-  token: yup.string().required().label("Token"),
+  token: yup.string().required().label("Token")
 });
 export const rcloneSchema = yup.object({
-  remotePath: yup.string().required().label("Remote path"),
+  remotePath: yup.string().required().label("Remote path")
 });
 export const sftpSchema = yup.object({
   host: yup.string().required().label("Host"),
   port: yup.number().required().label("Port"),
   username: yup.string().required().label("Username"),
-  path: yup.string().required().label("Path"),
+  path: yup.string().required().label("Path")
 
   // TODO: validate oneof "password", "keyfile", "keyData"
   // TODO: validate oneof "knownHostsFile", "knownHostsData"

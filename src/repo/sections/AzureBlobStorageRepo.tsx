@@ -4,10 +4,7 @@ import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAzure } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
-import type {
-  AzureBlobStorageRepoConfig,
-  RepoConfigurationForm,
-} from "../types";
+import type { AzureBlobStorageRepoConfig, RepoConfigurationForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<AzureBlobStorageRepoConfig>>;
@@ -18,7 +15,9 @@ function AzureBlobStorageRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconBrandAzure} size={32} color="blue" />
-        <Text fw="bold"><Trans>Azure Blob Storage</Trans></Text>
+        <Text fw="bold">
+          <Trans>Azure Blob Storage</Trans>
+        </Text>
       </Group>
 
       <Stack>

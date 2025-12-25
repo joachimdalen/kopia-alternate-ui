@@ -1,5 +1,5 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
   Button,
@@ -11,7 +11,7 @@ import {
   Select,
   Stack,
   Text,
-  TextInput,
+  TextInput
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
@@ -36,7 +36,7 @@ const schema = Yup.object({
   smtpServer: Yup.string().required().label("SMTP Server"),
   smtpUsername: Yup.string().required().label("SMTP Username"),
   smtpPassword: Yup.string().required().label("SMTP Password"),
-  from: Yup.string().required().label("From"),
+  from: Yup.string().required().label("From")
 });
 
 type EmailForm = {
@@ -73,7 +73,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
         from: "",
         to: [],
         cc: [],
-        format: "txt",
+        format: "txt"
       };
     } else {
       const config = profile.method.config as EmailNotification;
@@ -92,16 +92,16 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
           config.to?.split(",").map((v) => {
             return {
               id: randomId(),
-              value: v,
+              value: v
             };
           }) || [],
         cc:
           config.cc?.split(",").map((v) => {
             return {
               id: randomId(),
-              value: v,
+              value: v
             };
-          }) || [],
+          }) || []
       };
     }
   };
@@ -124,12 +124,12 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
             cc: values.cc.map((x) => x.value).join(","),
             to: values.to.map((x) => x.value).join(","),
             format: values.format,
-            from: values.from,
-          } as EmailNotification,
-        },
+            from: values.from
+          } as EmailNotification
+        }
       };
       return base;
-    },
+    }
   });
 
   const { error, loading, execute } = useApiRequest({
@@ -138,7 +138,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
       kopiaService.createNotificationProfile(data!),
     onReturn: (g) => {
       onSaved(g, profile === undefined);
-    },
+    }
   });
   async function submitForm(values: NotificationProfile) {
     await execute(values);
@@ -175,11 +175,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
 
   return (
     <Modal
-      title={
-        profile === undefined
-          ? t`Create email notification`
-          : t`Edit email notification`
-      }
+      title={profile === undefined ? t`Create email notification` : t`Edit email notification`}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -187,11 +183,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
       closeOnClickOutside={false}
       size="lg"
     >
-      <form
-        id="email-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="email-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
 
@@ -211,7 +203,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
               { label: "Success", value: "-10" },
               { label: "Report", value: "0" },
               { label: "Warning", value: "10" },
-              { label: "Error", value: "20" },
+              { label: "Error", value: "20" }
             ]}
             withAsterisk
             allowDeselect={false}
@@ -225,12 +217,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
               withAsterisk
               {...form.getInputProps("smtpServer")}
             />
-            <NumberInput
-              label={t`SMTP Port`}
-              withAsterisk
-              hideControls
-              {...form.getInputProps("smtpPort")}
-            />
+            <NumberInput label={t`SMTP Port`} withAsterisk hideControls {...form.getInputProps("smtpPort")} />
           </Group>
           <Group grow>
             <TextInput
@@ -239,11 +226,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
               withAsterisk
               {...form.getInputProps("smtpUsername")}
             />
-            <PasswordInput
-              label={t`SMTP server password`}
-              withAsterisk
-              {...form.getInputProps("smtpPassword")}
-            />
+            <PasswordInput label={t`SMTP server password`} withAsterisk {...form.getInputProps("smtpPassword")} />
           </Group>
           <TextInput
             label={t`Mail From`}
@@ -255,7 +238,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
             label={t`Notification Format`}
             data={[
               { label: t`Plain Text Format`, value: "txt" },
-              { label: t`HTML Format`, value: "html" },
+              { label: t`HTML Format`, value: "html" }
             ]}
             withAsterisk
             allowDeselect={false}
@@ -277,7 +260,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
                 onClick={() =>
                   form.insertListItem("to", {
                     value: "",
-                    id: randomId(),
+                    id: randomId()
                   })
                 }
               >
@@ -300,7 +283,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
                 onClick={() =>
                   form.insertListItem("cc", {
                     value: "",
-                    id: randomId(),
+                    id: randomId()
                   })
                 }
               >
@@ -312,22 +295,10 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="webhook-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="webhook-form" loading={loading} disabled={!form.isValid()}>
           {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>

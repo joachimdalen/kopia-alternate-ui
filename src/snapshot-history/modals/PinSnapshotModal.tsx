@@ -18,26 +18,21 @@ type Props = {
 };
 
 const schema = Yup.object({
-  name: Yup.string().max(250).label("Name"),
+  name: Yup.string().max(250).label("Name")
 });
 
 type PinSnapshotForm = {
   name: string;
 };
 
-export default function PinSnapshotModal({
-  snapshot,
-  pin,
-  onCancel,
-  onUpdated,
-}: Props) {
+export default function PinSnapshotModal({ snapshot, pin, onCancel, onUpdated }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const form = useForm<PinSnapshotForm>({
     mode: "controlled",
     initialValues: {
-      name: pin || "do-not-delete",
+      name: pin || "do-not-delete"
     },
-    validate: yupResolver(schema),
+    validate: yupResolver(schema)
   });
 
   const { error, loading, execute } = useApiRequest({
@@ -47,18 +42,18 @@ export default function PinSnapshotModal({
         : kopiaService.updatePin(snapshot.id, pin, data!.name!),
     onReturn: (g) => {
       onUpdated(g);
-    },
+    }
   });
 
   const {
     error: deleteError,
     loading: deleteLoading,
-    execute: deletePin,
+    execute: deletePin
   } = useApiRequest({
     action: () => kopiaService.removePin(snapshot.id, pin!),
     onReturn: (g) => {
       onUpdated(g);
-    },
+    }
   });
   async function submitForm(values: PinSnapshotForm) {
     await execute(values);
@@ -74,51 +69,25 @@ export default function PinSnapshotModal({
       className={modalClasses.modalWrapper}
       closeOnClickOutside={false}
     >
-      <form
-        id="pin-snapshot-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="pin-snapshot-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={intError} />
 
-          <TextInput
-            label={t`Name of the pin`}
-            withAsterisk
-            {...form.getInputProps("name")}
-          />
+          <TextInput label={t`Name of the pin`} withAsterisk {...form.getInputProps("name")} />
         </Stack>
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={intLoading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={intLoading}>
           <Trans>Cancel</Trans>
         </Button>
         <Group>
           {pin && (
-            <Button
-              size="xs"
-              type="submit"
-              color="red"
-              loading={intLoading}
-              onClick={() => deletePin()}
-            >
+            <Button size="xs" type="submit" color="red" loading={intLoading} onClick={() => deletePin()}>
               <Trans>Delete</Trans>
             </Button>
           )}
-          <Button
-            size="xs"
-            type="submit"
-            form="pin-snapshot-form"
-            loading={intLoading}
-            disabled={!form.isValid()}
-          >
+          <Button size="xs" type="submit" form="pin-snapshot-form" loading={intLoading} disabled={!form.isValid()}>
             <Trans>Save</Trans>
           </Button>
         </Group>

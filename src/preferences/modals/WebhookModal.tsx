@@ -1,16 +1,6 @@
-import { t } from '@lingui/core/macro';
-import { Trans } from '@lingui/react/macro';
-import {
-  ActionIcon,
-  Button,
-  Fieldset,
-  Group,
-  Modal,
-  Select,
-  Stack,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
+import { ActionIcon, Button, Fieldset, Group, Modal, Select, Stack, Text, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
 import { IconTrash } from "@tabler/icons-react";
@@ -19,10 +9,7 @@ import * as Yup from "yup";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import type {
-  NotificationProfile,
-  WebhookNotification,
-} from "../../core/types";
+import type { NotificationProfile, WebhookNotification } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 
@@ -37,7 +24,7 @@ const schema = Yup.object({
   minSeverity: Yup.string().required().label("Severity"),
   endpoint: Yup.string().required().label("Endpoint"),
   method: Yup.string().required().label("Method"),
-  format: Yup.string().required().label("Format"),
+  format: Yup.string().required().label("Format")
 });
 
 type WebhookForm = {
@@ -64,7 +51,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
         endpoint: "",
         format: "txt",
         method: "POST",
-        headers: [],
+        headers: []
       };
     } else {
       const config = profile.method.config as WebhookNotification;
@@ -76,7 +63,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           return {
             id: randomId(),
             name: p[0].trimEnd(),
-            value: p[1].trimStart(),
+            value: p[1].trimStart()
           } satisfies WebhookHeader;
         });
       }
@@ -87,14 +74,11 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
         method: config.method,
         format: profile.method.config.format,
         minSeverity: profile.minSeverity.toString(),
-        headers: headers,
+        headers: headers
       };
     }
   };
-  const form = useForm<
-    WebhookForm,
-    (values: WebhookForm) => NotificationProfile
-  >({
+  const form = useForm<WebhookForm, (values: WebhookForm) => NotificationProfile>({
     mode: "controlled",
     initialValues: getForm(),
     validate: yupResolver(schema),
@@ -107,15 +91,13 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
           config: {
             endpoint: values.endpoint,
             format: values.format,
-            headers: values.headers
-              .map((h) => `${h.name}: ${h.value}`)
-              .join("\n"),
-            method: values.method,
-          } as WebhookNotification,
-        },
+            headers: values.headers.map((h) => `${h.name}: ${h.value}`).join("\n"),
+            method: values.method
+          } as WebhookNotification
+        }
       };
       return base;
-    },
+    }
   });
 
   const { error, loading, execute } = useApiRequest({
@@ -124,7 +106,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
       kopiaService.createNotificationProfile(data!),
     onReturn: () => {
       onSaved();
-    },
+    }
   });
   async function submitForm(values: NotificationProfile) {
     await execute(values);
@@ -146,21 +128,14 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
         key={form.key(`headers.${index}.value`)}
         {...form.getInputProps(`headers.${index}.value`)}
       />
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("headers", index)}
-      >
+      <ActionIcon color="red" onClick={() => form.removeListItem("headers", index)}>
         <IconTrash size={16} />
       </ActionIcon>
     </Group>
   ));
   return (
     <Modal
-      title={
-        profile === undefined
-          ? "Create webhook notification"
-          : "Edit webhook notification"
-      }
+      title={profile === undefined ? "Create webhook notification" : "Edit webhook notification"}
       onClose={onCancel}
       opened
       styles={modalBaseStyles}
@@ -168,11 +143,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
       closeOnClickOutside={false}
       size="lg"
     >
-      <form
-        id="webhook-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="webhook-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
 
@@ -192,24 +163,20 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
               { label: "Success", value: "-10" },
               { label: "Report", value: "0" },
               { label: "Warning", value: "10" },
-              { label: "Error", value: "20" },
+              { label: "Error", value: "20" }
             ]}
             withAsterisk
             allowDeselect={false}
             withCheckIcon={false}
             {...form.getInputProps("minSeverity")}
           />
-          <TextInput
-            label={t`URL Endpoint`}
-            withAsterisk
-            {...form.getInputProps("endpoint")}
-          />
+          <TextInput label={t`URL Endpoint`} withAsterisk {...form.getInputProps("endpoint")} />
           <Group grow>
             <Select
               label={t`HTTP Method`}
               data={[
                 { label: "POST", value: "POST" },
-                { label: "PUT", value: "PUT" },
+                { label: "PUT", value: "PUT" }
               ]}
               withAsterisk
               allowDeselect={false}
@@ -220,7 +187,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
               label={t`Notification Format`}
               data={[
                 { label: t`Plain Text Format`, value: "txt" },
-                { label: t`HTML Format`, value: "html" },
+                { label: t`HTML Format`, value: "html" }
               ]}
               withAsterisk
               allowDeselect={false}
@@ -245,7 +212,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
                   form.insertListItem("headers", {
                     name: "",
                     value: "",
-                    id: randomId(),
+                    id: randomId()
                   })
                 }
               >
@@ -257,22 +224,10 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="webhook-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="webhook-form" loading={loading} disabled={!form.isValid()}>
           {profile === undefined ? t`Create` : t`Save`}
         </Button>
       </Group>

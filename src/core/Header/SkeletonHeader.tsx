@@ -1,13 +1,5 @@
 import { t } from "@lingui/core/macro";
-import {
-  Anchor,
-  AppShellHeader,
-  Box,
-  Burger,
-  Container,
-  Group,
-  Text,
-} from "@mantine/core";
+import { Anchor, AppShellHeader, Box, Burger, Container, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconBrandGithub,
@@ -16,7 +8,7 @@ import {
   IconFileCertificate,
   IconFolderBolt,
   IconPackage,
-  IconSettings,
+  IconSettings
 } from "@tabler/icons-react";
 import { useMemo } from "react";
 import { Link, NavLink } from "react-router";
@@ -32,43 +24,43 @@ export function SkeletonHeader() {
         link: "/snapshots",
         label: t`Snapshots`,
         disabled: true,
-        icon: IconPackage,
+        icon: IconPackage
       },
       {
         link: "/mounts",
         label: t`Mounts`,
         disabled: true,
-        icon: IconFolderBolt,
+        icon: IconFolderBolt
       },
       {
         link: "/policies",
         label: t`Policies`,
         disabled: true,
-        icon: IconFileCertificate,
+        icon: IconFileCertificate
       },
       {
         link: "/tasks",
         label: t`Tasks`,
         icon: IconClipboardCheck,
-        disabled: true,
+        disabled: true
       },
       {
         link: "/repo",
         label: t`Repository`,
         icon: IconDatabase,
-        disabled: true,
+        disabled: true
       },
       {
         link: "/preferences",
         label: t`Preferences`,
         icon: IconSettings,
-        disabled: true,
+        disabled: true
       },
       {
         link: "ext:https://github.com/joachimdalen/kopia-alternate-ui",
         label: "GitHub",
-        icon: IconBrandGithub,
-      },
+        icon: IconBrandGithub
+      }
     ];
   }, []);
 
@@ -78,12 +70,7 @@ export function SkeletonHeader() {
         {link.label}
       </a>
     ) : link.link.startsWith("ext:") ? (
-      <Anchor
-        key={link.label}
-        href={link.link.replace("ext:", "")}
-        className={classes.link}
-        target="_blank"
-      >
+      <Anchor key={link.label} href={link.link.replace("ext:", "")} className={classes.link} target="_blank">
         <Group gap={5}>
           <IconWrapper icon={link.icon} size={14} />
           {link.label}

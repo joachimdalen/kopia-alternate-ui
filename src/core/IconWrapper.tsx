@@ -5,21 +5,14 @@ export default function IconWrapper({
   icon: Icon,
   size = 14,
   color,
-  tooltip,
+  tooltip
 }: {
   icon: typeof IconHome2;
   color?: MantineColor;
   size?: number;
   tooltip?: string;
 }) {
-  const icn = (
-    <Icon
-      height={size}
-      width={size}
-      color={color && `var(--mantine-color-${color}-5)`}
-      stroke={2}
-    />
-  );
+  const icn = <Icon height={size} width={size} color={color && `var(--mantine-color-${color}-5)`} stroke={2} />;
   if (tooltip) return <Tooltip label={tooltip}>{icn}</Tooltip>;
   return icn;
 }

@@ -25,7 +25,7 @@ export default function TaskLogs({ task }: Props) {
     action: () => kopiaService.getTaskLogs(task.id),
     onReturn(resp) {
       setData(resp.logs);
-    },
+    }
   });
 
   useEffect(() => {

@@ -13,13 +13,15 @@ function KopiaRepoTokenRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconAsterisk} size={32} color="violet" />
-        <Text fw="bold"><Trans>Use Repository Token</Trans></Text>
+        <Text fw="bold">
+          <Trans>Use Repository Token</Trans>
+        </Text>
       </Group>
 
       <PasswordInput
         label={t`Token`}
         withAsterisk
-        placeholder={ t`Paste connection token`}
+        placeholder={t`Paste connection token`}
         {...form.getInputProps("providerConfig.token")}
       />
     </Stack>

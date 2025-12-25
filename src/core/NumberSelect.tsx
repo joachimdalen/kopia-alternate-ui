@@ -6,17 +6,8 @@ interface Props extends Omit<SelectProps, "value" | "onChange"> {
   defaultIfNotSet?: string;
 }
 
-export default function NumberSelect({
-  value,
-  onChange,
-  defaultIfNotSet,
-  ...rest
-}: Props) {
+export default function NumberSelect({ value, onChange, defaultIfNotSet, ...rest }: Props) {
   return (
-    <Select
-      {...rest}
-      value={value?.toString() || defaultIfNotSet}
-      onChange={(it) => onChange?.(Number(it) || 0)}
-    />
+    <Select {...rest} value={value?.toString() || defaultIfNotSet} onChange={(it) => onChange?.(Number(it) || 0)} />
   );
 }

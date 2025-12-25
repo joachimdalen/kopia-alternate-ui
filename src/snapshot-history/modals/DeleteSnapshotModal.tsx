@@ -1,15 +1,11 @@
-import { t } from '@lingui/core/macro';
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Button, Checkbox, Group, Modal, Stack, Text } from "@mantine/core";
 import { useInputState } from "@mantine/hooks";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import {
-  type DeleteSnapshotRequest,
-  type Snapshot,
-  type SourceInfo,
-} from "../../core/types";
+import { type DeleteSnapshotRequest, type Snapshot, type SourceInfo } from "../../core/types";
 import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
 
@@ -21,28 +17,21 @@ type Props = {
   onDeleted: (deleteAll: boolean) => void;
 };
 
-export default function DeleteSnapshotModal({
-  onCancel,
-  onDeleted,
-  isAll,
-  snapshots,
-  source,
-}: Props) {
+export default function DeleteSnapshotModal({ onCancel, onDeleted, isAll, snapshots, source }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const [deleteAll, setDeleteAll] = useInputState(false);
   const deleteSnapshotAction = useApiRequest({
-    action: (data?: DeleteSnapshotRequest) =>
-      kopiaService.deleteSnapshot(data!),
+    action: (data?: DeleteSnapshotRequest) => kopiaService.deleteSnapshot(data!),
     onReturn: () => {
       onDeleted(deleteAll);
-    },
+    }
   });
 
   function deleteSnapshots() {
     const req: DeleteSnapshotRequest = {
       source,
       snapshotManifestIds: snapshots.map((x) => x.id),
-      deleteSourceAndPolicy: deleteAll,
+      deleteSourceAndPolicy: deleteAll
     };
     deleteSnapshotAction.execute(req);
   }
@@ -65,11 +54,13 @@ export default function DeleteSnapshotModal({
           </Text>
         ) : (
           <Text fz="sm">
-            <Trans>Do you want to delete the selected{" "}
+            <Trans>
+              Do you want to delete the selected{" "}
               <Text span fw="bold" fz="sm">
                 {snapshots.length} snapshots
               </Text>
-              ?</Trans>
+              ?
+            </Trans>
           </Text>
         )}
         {isAll && (
@@ -83,22 +74,11 @@ export default function DeleteSnapshotModal({
       </Stack>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={deleteSnapshotAction.loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={deleteSnapshotAction.loading}>
           <Trans>Cancel</Trans>
         </Button>
 
-        <Button
-          size="xs"
-          color="red"
-          onClick={() => deleteSnapshots()}
-          loading={deleteSnapshotAction.loading}
-        >
+        <Button size="xs" color="red" onClick={() => deleteSnapshots()} loading={deleteSnapshotAction.loading}>
           <Trans>Delete</Trans>
         </Button>
       </Group>

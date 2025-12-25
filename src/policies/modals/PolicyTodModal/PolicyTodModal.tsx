@@ -1,14 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Anchor,
-  Button,
-  Group,
-  Modal,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { ActionIcon, Anchor, Button, Group, Modal, Stack, Text } from "@mantine/core";
 import { TimePicker } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
@@ -29,9 +21,9 @@ type Props = {
 const schema = Yup.object({
   items: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string().trim().required("Value is required"),
+      value: Yup.string().trim().required("Value is required")
     })
-  ),
+  )
 });
 
 type ItemsForm = {
@@ -44,8 +36,8 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
     initialValues: {
       items: items.map((x) => ({
         id: randomId(),
-        value: `${x.hour}:${x.min}`,
-      })),
+        value: `${x.hour}:${x.min}`
+      }))
     },
     validateInputOnBlur: true,
     validate: yupResolver(schema),
@@ -54,11 +46,11 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
         const todParts = x.value.split(":");
         const tod: TimeOfDay = {
           hour: parseInt(todParts[0]),
-          min: parseInt(todParts[1]),
+          min: parseInt(todParts[1])
         };
         return tod;
       });
-    },
+    }
   });
 
   function submitForm(values: TimeOfDay[]) {
@@ -76,10 +68,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
         {...form.getInputProps(`items.${index}.value`)}
       />
 
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("items", index)}
-      >
+      <ActionIcon color="red" onClick={() => form.removeListItem("items", index)}>
         <IconTrash size={16} />
       </ActionIcon>
     </Group>
@@ -95,11 +84,7 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
       closeOnClickOutside={false}
       size="sm"
     >
-      <form
-        id="add-items-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="add-items-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%" gap="0">
           {fields}
           {form.errors.items && (
@@ -113,14 +98,16 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
               onClick={() => {
                 form.insertListItem("items", {
                   value: "",
-                  id: randomId(),
+                  id: randomId()
                 });
                 form.clearFieldError("items");
               }}
             >
               <Group gap={2}>
                 <IconWrapper icon={IconPlus} size={16} />
-                <Text fz="sm"><Trans>Add</Trans></Text>
+                <Text fz="sm">
+                  <Trans>Add</Trans>
+                </Text>
               </Group>
             </Anchor>
           </Group>
@@ -133,21 +120,10 @@ export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={false}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={false}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="add-items-form"
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="add-items-form" disabled={!form.isValid()}>
           <Trans>Save</Trans>
         </Button>
       </Group>

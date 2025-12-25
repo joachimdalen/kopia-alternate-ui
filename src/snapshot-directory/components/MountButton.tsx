@@ -9,10 +9,9 @@ type Props = {
   mount?: MountedSnapshot;
   rootID: string;
   onMounted: (mnt?: MountedSnapshot) => void;
-}
+};
 
 export default function MountButton({ mount, rootID, onMounted }: Props) {
-
   const { kopiaService } = useServerInstanceContext();
 
   const mountAction = useApiRequest({
@@ -29,22 +28,25 @@ export default function MountButton({ mount, rootID, onMounted }: Props) {
       onMounted(undefined);
     }
   });
-  return mount === undefined ? <Button
-    size="xs"
-    color="grape"
-    leftSection={<IconFolderBolt size={16} />}
-    onClick={() => mountAction.execute(rootID)}
-    loading={mountAction.loading}
-  >
-    <Trans>Mount</Trans>
-  </Button> : <Button
-    size="xs"
-    color="red"
-    leftSection={<IconFolderMinus size={16} />}
-    onClick={() => unMountAction.execute(rootID)}
-    loading={unMountAction.loading}
-  >
-    <Trans>Unmount</Trans>
-  </Button>
+  return mount === undefined ? (
+    <Button
+      size="xs"
+      color="grape"
+      leftSection={<IconFolderBolt size={16} />}
+      onClick={() => mountAction.execute(rootID)}
+      loading={mountAction.loading}
+    >
+      <Trans>Mount</Trans>
+    </Button>
+  ) : (
+    <Button
+      size="xs"
+      color="red"
+      leftSection={<IconFolderMinus size={16} />}
+      onClick={() => unMountAction.execute(rootID)}
+      loading={unMountAction.loading}
+    >
+      <Trans>Unmount</Trans>
+    </Button>
+  );
 }
-

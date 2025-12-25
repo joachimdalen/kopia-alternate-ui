@@ -11,7 +11,7 @@ import {
   LoadingOverlay,
   PasswordInput,
   Stack,
-  TextInput,
+  TextInput
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect } from "react";
@@ -21,11 +21,7 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { ConnectRepoRequest } from "../core/types";
 import type { AllProviderConfigurations } from "./ConfigureRepoSection";
-import type {
-  KopiaRepoServerRepoConfig,
-  KopiaRepoTokenRepoConfig,
-  RepoConfigurationForm,
-} from "./types";
+import type { KopiaRepoServerRepoConfig, KopiaRepoTokenRepoConfig, RepoConfigurationForm } from "./types";
 
 export type Props = {
   goBack: () => void;
@@ -40,13 +36,13 @@ function ConnectRepoSection({ form, goBack }: Props) {
     onReturn(resp) {
       form.setFieldValue("hostname", resp.hostname);
       form.setFieldValue("username", resp.username);
-    },
+    }
   });
   const connectRepoAction = useApiRequest({
     action: (data?: ConnectRepoRequest) => kopiaService.connectRepo(data!),
     onReturn() {
       reloadStatus();
-    },
+    }
   });
   useEffect(() => {
     getCurrentUserAction.execute();
@@ -62,14 +58,14 @@ function ConnectRepoSection({ form, goBack }: Props) {
         description: form.values.description,
         username: form.values.username,
         readonly: form.values.readonly,
-        hostname: form.values.hostname,
-      },
+        hostname: form.values.hostname
+      }
     };
     switch (form.values.provider) {
       case "_token": {
         request = {
           ...request,
-          token: (form.values.providerConfig as KopiaRepoTokenRepoConfig).token,
+          token: (form.values.providerConfig as KopiaRepoTokenRepoConfig).token
         };
         break;
       }
@@ -77,7 +73,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
         request = {
           ...request,
           apiServer: form.values.providerConfig as KopiaRepoServerRepoConfig,
-          password: form.values.password,
+          password: form.values.password
         };
         break;
       }
@@ -86,9 +82,9 @@ function ConnectRepoSection({ form, goBack }: Props) {
           ...request,
           storage: {
             type: form.values.provider,
-            config: form.values.providerConfig,
+            config: form.values.providerConfig
           },
-          password: form.values.password,
+          password: form.values.password
         };
         break;
       }
@@ -99,20 +95,16 @@ function ConnectRepoSection({ form, goBack }: Props) {
   return (
     <Stack>
       <ErrorAlert error={connectRepoAction.error} />
-      <TextInput
-        label={t`Connect as`}
-        defaultValue={`${form.values.username}@${form.values.hostname}`}
-      />
-      {form.values.provider !== "_token" &&
-        form.values.provider !== "_server" && (
-          <PasswordInput
-            label={t`Repository Password`}
-            withAsterisk
-            placeholder={t`Enter repository password`}
-            description={t`Used to encrypt content of the repository`}
-            {...form.getInputProps("password")}
-          />
-        )}
+      <TextInput label={t`Connect as`} defaultValue={`${form.values.username}@${form.values.hostname}`} />
+      {form.values.provider !== "_token" && form.values.provider !== "_server" && (
+        <PasswordInput
+          label={t`Repository Password`}
+          withAsterisk
+          placeholder={t`Enter repository password`}
+          description={t`Used to encrypt content of the repository`}
+          {...form.getInputProps("password")}
+        />
+      )}
       {form.values.provider === "_server" && (
         <PasswordInput
           label={t`Server Password`}
@@ -128,7 +120,9 @@ function ConnectRepoSection({ form, goBack }: Props) {
       />
       <Accordion variant="separated">
         <AccordionItem value="advanced">
-          <AccordionControl><Trans>Advanced Options</Trans></AccordionControl>
+          <AccordionControl>
+            <Trans>Advanced Options</Trans>
+          </AccordionControl>
           <AccordionPanel>
             <Stack>
               <Checkbox
@@ -156,12 +150,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
         <Button size="xs" onClick={goBack} disabled={connectRepoAction.loading}>
           <Trans>Back</Trans>
         </Button>
-        <Button
-          size="xs"
-          color="green"
-          onClick={() => connectToRepository()}
-          loading={connectRepoAction.loading}
-        >
+        <Button size="xs" color="green" onClick={() => connectToRepository()} loading={connectRepoAction.loading}>
           <Trans>Connect to repository</Trans>
         </Button>
       </Group>

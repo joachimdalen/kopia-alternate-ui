@@ -5,7 +5,7 @@ import nnLocale from "dayjs/locale/nn";
 const formats: Record<string, ILocale> = {
   en: enLocale,
   nb: nbLocale,
-  nn: nnLocale,
+  nn: nnLocale
 };
 
 export default formats;

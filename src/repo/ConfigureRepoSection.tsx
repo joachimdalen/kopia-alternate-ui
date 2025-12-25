@@ -1,16 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Card,
-  Container,
-  Group,
-  Paper,
-  SimpleGrid,
-  Stepper,
-  Text,
-  UnstyledButton,
-} from "@mantine/core";
+import { Button, Card, Container, Group, Paper, SimpleGrid, Stepper, Text, UnstyledButton } from "@mantine/core";
 import { useForm, type UseFormReturnType } from "@mantine/form";
 import { useState } from "react";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
@@ -42,7 +32,7 @@ import type {
   RcloneRepoConfig,
   RepoConfigurationForm,
   SftpRepoConfig,
-  WebDavRepoConfig,
+  WebDavRepoConfig
 } from "./types";
 
 export type AllProviderConfigurations =
@@ -77,7 +67,7 @@ function ConfigureRepoSection() {
         return false;
       }
       return true;
-    },
+    }
   });
 
   const form = useForm<RepoConfigurationForm<AllProviderConfigurations>>({
@@ -96,114 +86,45 @@ function ConfigureRepoSection() {
       hash: "",
       splitter: "",
       readonly: false,
-      description: "My Repository",
-    },
+      description: "My Repository"
+    }
   });
 
   const getProvider = () => {
     switch (form.values.provider) {
       case "filesystem":
-        return (
-          <FileSystemRepo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<FileSystemRepoConfig>
-              >
-            }
-          />
-        );
+        return <FileSystemRepo form={form as UseFormReturnType<RepoConfigurationForm<FileSystemRepoConfig>>} />;
       case "gcs":
         return (
           <GoogleCloudStorageRepo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<GoogleCloudStorageRepoConfig>
-              >
-            }
+            form={form as UseFormReturnType<RepoConfigurationForm<GoogleCloudStorageRepoConfig>>}
           />
         );
       case "s3":
-        return (
-          <AmazonS3Repo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<AmazonS3RepoConfig>
-              >
-            }
-          />
-        );
+        return <AmazonS3Repo form={form as UseFormReturnType<RepoConfigurationForm<AmazonS3RepoConfig>>} />;
       case "b2":
-        return (
-          <BackblazeB2Repo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<BackblazeB2RepoConfig>
-              >
-            }
-          />
-        );
+        return <BackblazeB2Repo form={form as UseFormReturnType<RepoConfigurationForm<BackblazeB2RepoConfig>>} />;
       case "azureBlob":
         return (
-          <AzureBlobStorageRepo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<AzureBlobStorageRepoConfig>
-              >
-            }
-          />
+          <AzureBlobStorageRepo form={form as UseFormReturnType<RepoConfigurationForm<AzureBlobStorageRepoConfig>>} />
         );
       case "sftp":
-        return (
-          <SFTPServerRepo
-            form={
-              form as UseFormReturnType<RepoConfigurationForm<SftpRepoConfig>>
-            }
-          />
-        );
+        return <SFTPServerRepo form={form as UseFormReturnType<RepoConfigurationForm<SftpRepoConfig>>} />;
       case "rclone":
-        return (
-          <RcloneRepo
-            form={
-              form as UseFormReturnType<RepoConfigurationForm<RcloneRepoConfig>>
-            }
-          />
-        );
+        return <RcloneRepo form={form as UseFormReturnType<RepoConfigurationForm<RcloneRepoConfig>>} />;
       case "webdav":
-        return (
-          <WebDavRepo
-            form={
-              form as UseFormReturnType<RepoConfigurationForm<WebDavRepoConfig>>
-            }
-          />
-        );
+        return <WebDavRepo form={form as UseFormReturnType<RepoConfigurationForm<WebDavRepoConfig>>} />;
       case "_server":
         return (
-          <KopiaRepoServerRepo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<KopiaRepoServerRepoConfig>
-              >
-            }
-          />
+          <KopiaRepoServerRepo form={form as UseFormReturnType<RepoConfigurationForm<KopiaRepoServerRepoConfig>>} />
         );
       case "_token":
-        return (
-          <KopiaRepoTokenRepo
-            form={
-              form as UseFormReturnType<
-                RepoConfigurationForm<KopiaRepoTokenRepoConfig>
-              >
-            }
-          />
-        );
+        return <KopiaRepoTokenRepo form={form as UseFormReturnType<RepoConfigurationForm<KopiaRepoTokenRepoConfig>>} />;
     }
   };
 
   const validateConfig = () => {
-    if (
-      form.values.provider === "_token" ||
-      form.values.provider === "_server"
-    ) {
+    if (form.values.provider === "_token" || form.values.provider === "_server") {
       setConfirmCreate(false);
       setActive(2);
       return;
@@ -212,8 +133,8 @@ function ConfigureRepoSection() {
     const request = {
       storage: {
         type: form.values.provider,
-        config: form.values.providerConfig,
-      },
+        config: form.values.providerConfig
+      }
     };
     checkRepoAction.execute(request);
   };
@@ -223,10 +144,7 @@ function ConfigureRepoSection() {
       <Paper withBorder p="md" pos="relative">
         <ErrorAlert error={checkRepoAction.error} />
         <Stepper active={active} size="xs">
-          <Stepper.Step
-            label={t`Select Provider`}
-            description={t`Select the preferred storage type`}
-          >
+          <Stepper.Step label={t`Select Provider`} description={t`Select the preferred storage type`}>
             <SimpleGrid cols={2}>
               {supportedProviders.map((p) => {
                 return (
@@ -249,10 +167,7 @@ function ConfigureRepoSection() {
               })}
             </SimpleGrid>
           </Stepper.Step>
-          <Stepper.Step
-            label={t`Configure Provider`}
-            description={t`Configure the selected provider`}
-          >
+          <Stepper.Step label={t`Configure Provider`} description={t`Configure the selected provider`}>
             {getProvider()}
             <Group mt="sm" justify="space-between">
               <Button
@@ -264,22 +179,14 @@ function ConfigureRepoSection() {
               >
                 <Trans>Back</Trans>
               </Button>
-              <Button
-                size="xs"
-                onClick={validateConfig}
-                disabled={!form.isValid("providerConfig")}
-              >
+              <Button size="xs" onClick={validateConfig} disabled={!form.isValid("providerConfig")}>
                 <Trans>Next</Trans>
               </Button>
             </Group>
           </Stepper.Step>
           <Stepper.Step
             label={confirmCreate ? t`Create repository` : t`Configure repository`}
-            description={
-              confirmCreate
-                ? t`Create a new repository`
-                : t`Configure the repository`
-            }
+            description={confirmCreate ? t`Create a new repository` : t`Configure the repository`}
           >
             {confirmCreate && (
               <CreateRepoSection

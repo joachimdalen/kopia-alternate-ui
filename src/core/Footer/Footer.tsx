@@ -1,10 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { AppShellFooter, Group, Text, Tooltip } from "@mantine/core";
-import {
-  IconCircleCheck,
-  IconCircleX,
-  IconStopwatch,
-} from "@tabler/icons-react";
+import { IconCircleCheck, IconCircleX, IconStopwatch } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../context/ServerInstanceContext";
 import useApiRequest from "../hooks/useApiRequest";
@@ -19,13 +15,13 @@ export function Footer() {
     CANCELED: 0,
     RUNNING: 0,
     SUCCESS: 0,
-    FAILED: 0,
+    FAILED: 0
   });
   const { execute } = useApiRequest({
     action: () => kopiaService.getTasksSummary(),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
   useEffect(() => {
     execute();

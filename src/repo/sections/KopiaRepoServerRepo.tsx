@@ -4,10 +4,7 @@ import { Group, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconServer } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
-import type {
-  KopiaRepoServerRepoConfig,
-  RepoConfigurationForm,
-} from "../types";
+import type { KopiaRepoServerRepoConfig, RepoConfigurationForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<KopiaRepoServerRepoConfig>>;
@@ -18,7 +15,9 @@ function KopiaRepoServerRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconServer} size={32} color="lime" />
-        <Text fw="bold"><Trans>Kopia Repository Server</Trans></Text>
+        <Text fw="bold">
+          <Trans>Kopia Repository Server</Trans>
+        </Text>
       </Group>
 
       <Stack>

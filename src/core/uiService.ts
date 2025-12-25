@@ -11,7 +11,7 @@ function getInstances(): Promise<ApiResponse<Instance[]>> {
   return clientGet("/instances");
 }
 const methods = {
-  getInstances,
+  getInstances
 };
 
 export default methods;

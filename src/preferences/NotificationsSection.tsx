@@ -1,29 +1,11 @@
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Divider,
-  Group,
-  Menu,
-  SimpleGrid,
-  Stack,
-  Text,
-} from "@mantine/core";
-import {
-  IconBrandPushover,
-  IconChevronDown,
-  IconMail,
-  IconNotification,
-  IconWebhook,
-} from "@tabler/icons-react";
+import { Button, Divider, Group, Menu, SimpleGrid, Stack, Text } from "@mantine/core";
+import { IconBrandPushover, IconChevronDown, IconMail, IconNotification, IconWebhook } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import type {
-  ItemAction,
-  NotificationProfile,
-  NotificationType,
-} from "../core/types";
+import type { ItemAction, NotificationProfile, NotificationType } from "../core/types";
 import NotificationCard from "./components/NotificationCard";
 import EmailModal from "./modals/EmailModal";
 import PushoverModal from "./modals/PushoverModal";
@@ -32,12 +14,7 @@ import WebhookModal from "./modals/WebhookModal";
 function NotificationsSection() {
   const { kopiaService } = useServerInstanceContext();
   const [action, setAction] =
-    useState<
-      ItemAction<
-        { type: NotificationType; profile?: NotificationProfile },
-        "edit" | "new"
-      >
-    >();
+    useState<ItemAction<{ type: NotificationType; profile?: NotificationProfile }, "edit" | "new">>();
   const [data, setData] = useState<NotificationProfile[]>([]);
   const loadAction = useApiRequest({
     action: () => kopiaService.getNotificationProfiles(),
@@ -47,21 +24,20 @@ function NotificationsSection() {
       } else {
         setData(resp.sort((a, b) => a.profile.localeCompare(b.profile)));
       }
-    },
+    }
   });
   const deleteAction = useApiRequest({
     action: (data?: string) => kopiaService.deleteNotificationProfile(data!),
     showErrorAsNotification: true,
     onReturn(_, profileName) {
       setData((prev) => prev.filter((x) => x.profile != profileName));
-    },
+    }
   });
   const testAction = useApiRequest({
-    action: (data?: NotificationProfile) =>
-      kopiaService.testNotificationProfile(data!),
+    action: (data?: NotificationProfile) => kopiaService.testNotificationProfile(data!),
     showErrorAsNotification: true,
     returnsData: false,
-    onReturn: () => { },
+    onReturn: () => {}
   });
   useEffect(() => {
     loadAction.execute(undefined, "loading");
@@ -72,44 +48,28 @@ function NotificationsSection() {
     <Stack gap={0}>
       <Stack gap={0}>
         <Group>
-          <Menu
-            transitionProps={{ transition: "pop-top-right" }}
-            position="top-end"
-            withinPortal
-            radius="md"
-          >
+          <Menu transitionProps={{ transition: "pop-top-right" }} position="top-end" withinPortal radius="md">
             <Menu.Target>
-              <Button
-                rightSection={<IconChevronDown size={18} stroke={1.5} />}
-                pr={12}
-                variant="subtle"
-                color="green"
-              >
+              <Button rightSection={<IconChevronDown size={18} stroke={1.5} />} pr={12} variant="subtle" color="green">
                 <Trans>Create new</Trans>
               </Button>
             </Menu.Target>
             <Menu.Dropdown>
               <Menu.Item
                 leftSection={<IconWebhook size={16} stroke={1.5} />}
-                onClick={() =>
-                  setAction({ action: "new", item: { type: "webhook" } })
-                }
+                onClick={() => setAction({ action: "new", item: { type: "webhook" } })}
               >
                 <Trans>Webhook</Trans>
               </Menu.Item>
               <Menu.Item
                 leftSection={<IconMail size={16} stroke={1.5} />}
-                onClick={() =>
-                  setAction({ action: "new", item: { type: "email" } })
-                }
+                onClick={() => setAction({ action: "new", item: { type: "email" } })}
               >
                 <Trans>Email</Trans>
               </Menu.Item>
               <Menu.Item
                 leftSection={<IconBrandPushover size={16} stroke={1.5} />}
-                onClick={() =>
-                  setAction({ action: "new", item: { type: "pushover" } })
-                }
+                onClick={() => setAction({ action: "new", item: { type: "pushover" } })}
               >
                 <Trans>Pushover</Trans>
               </Menu.Item>
@@ -122,7 +82,9 @@ function NotificationsSection() {
         {data.length === 0 && (
           <Stack align="center" w="100%">
             <IconWrapper icon={IconNotification} size={50} />
-            <Text><Trans>No notifications defined</Trans></Text>
+            <Text>
+              <Trans>No notifications defined</Trans>
+            </Text>
           </Stack>
         )}
         {data.length > 0 && (
@@ -130,9 +92,7 @@ function NotificationsSection() {
             {data.map((n) => (
               <NotificationCard
                 key={n.profile}
-                disabled={
-                  deleteAction.loading && deleteAction.loadingKey === n.profile
-                }
+                disabled={deleteAction.loading && deleteAction.loadingKey === n.profile}
                 data={n}
                 onDelete={() => deleteAction.execute(n.profile, n.profile)}
                 onEdit={() =>
@@ -140,8 +100,8 @@ function NotificationsSection() {
                     action: "edit",
                     item: {
                       type: n.method.type,
-                      profile: n,
-                    },
+                      profile: n
+                    }
                   })
                 }
                 onDuplicate={() => console.log("d")}

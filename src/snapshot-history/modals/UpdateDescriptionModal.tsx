@@ -18,34 +18,29 @@ type Props = {
 };
 
 const schema = Yup.object({
-  description: Yup.string().max(250).label("Description"),
+  description: Yup.string().max(250).label("Description")
 });
 
 type SetDescriptionForm = {
   description: string;
 };
 
-export default function UpdateDescriptionModal({
-  snapshot,
-  onCancel,
-  onUpdated,
-}: Props) {
+export default function UpdateDescriptionModal({ snapshot, onCancel, onUpdated }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const form = useForm<SetDescriptionForm>({
     mode: "controlled",
     initialValues: {
-      description: snapshot.description || "",
+      description: snapshot.description || ""
     },
     validate: yupResolver(schema),
-    validateInputOnBlur: true,
+    validateInputOnBlur: true
   });
 
   const { error, loading, execute } = useApiRequest({
-    action: (data?: SetDescriptionForm) =>
-      kopiaService.updateDescription([snapshot.id], data!.description!),
+    action: (data?: SetDescriptionForm) => kopiaService.updateDescription([snapshot.id], data!.description!),
     onReturn: (g) => {
       onUpdated(g);
-    },
+    }
   });
   async function submitForm(values: SetDescriptionForm) {
     await execute(values);
@@ -59,11 +54,7 @@ export default function UpdateDescriptionModal({
       className={modalClasses.modalWrapper}
       closeOnClickOutside={false}
     >
-      <form
-        id="update-description-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="update-description-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%">
           <ErrorAlert error={error} />
 
@@ -77,22 +68,10 @@ export default function UpdateDescriptionModal({
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={loading}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={loading}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="update-description-form"
-          loading={loading}
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="update-description-form" loading={loading} disabled={!form.isValid()}>
           <Trans>Save</Trans>
         </Button>
       </Group>

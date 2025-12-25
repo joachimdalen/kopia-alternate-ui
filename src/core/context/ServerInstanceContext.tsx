@@ -1,21 +1,9 @@
 import { LoadingOverlay } from "@mantine/core";
 import { useSessionStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type PropsWithChildren,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from "react";
 import useApiRequest from "../hooks/useApiRequest";
-import {
-  KopiaService,
-  type IKopiaService,
-  type KopiaAuth,
-} from "../kopiaService";
+import { KopiaService, type IKopiaService, type KopiaAuth } from "../kopiaService";
 import SkeletonLayout from "../SkeletonLayout";
 import uiService, { type Instance } from "../uiService";
 import LoginModal from "./LoginModal";
@@ -30,22 +18,18 @@ const initialState: ContextState = {
   servers: [],
   setServer: () => {},
   logoutFromServer: () => {},
-  kopiaService: {} as IKopiaService,
+  kopiaService: {} as IKopiaService
 };
 
 const ServerInstanceContext = createContext<ContextState>(initialState);
 
 export type ServerInstanceContextProps = PropsWithChildren;
-export function ServerInstanceContextProvider({
-  children,
-}: ServerInstanceContextProps) {
+export function ServerInstanceContextProvider({ children }: ServerInstanceContextProps) {
   const [instances, setInstances] = useState<Instance[]>([]);
   const [currentInstance, setCurrentInstance] = useState<Instance>();
   const [loginRequired, setLoginRequired] = useState(false);
-  const [loginInfo, setLoginInfo] = useSessionStorage<
-    Record<string, KopiaAuth>
-  >({
-    key: "kopia-alt-ui-auth",
+  const [loginInfo, setLoginInfo] = useSessionStorage<Record<string, KopiaAuth>>({
+    key: "kopia-alt-ui-auth"
   });
 
   const getInstances = useApiRequest({
@@ -54,7 +38,7 @@ export function ServerInstanceContextProvider({
       setInstances(resp);
       const primary = resp.find((x) => x.default);
       setCurrentInstance(primary || resp[0]);
-    },
+    }
   });
   const loginAction = useApiRequest({
     action: (auth?: { instance: string; username: string; password: string }) =>
@@ -67,11 +51,11 @@ export function ServerInstanceContextProvider({
           ...loginInfo,
           [req.instance]: {
             username: req.username,
-            password: req.password,
-          },
+            password: req.password
+          }
         });
       }
-    },
+    }
   });
   useEffect(() => {
     getInstances.execute(undefined, "loading");
@@ -84,7 +68,7 @@ export function ServerInstanceContextProvider({
   const logoutFromServer = useCallback(
     (id: string) => {
       const newLoginInfo = {
-        ...loginInfo,
+        ...loginInfo
       };
       delete newLoginInfo[id];
       setLoginInfo(newLoginInfo);
@@ -97,8 +81,7 @@ export function ServerInstanceContextProvider({
       return {} as IKopiaService;
     }
 
-    const loginForInstance =
-      loginInfo === undefined ? undefined : loginInfo[currentInstance.id];
+    const loginForInstance = loginInfo === undefined ? undefined : loginInfo[currentInstance.id];
 
     return new KopiaService(
       currentInstance?.id || "main",
@@ -118,7 +101,7 @@ export function ServerInstanceContextProvider({
         currentServer: currentInstance,
         setServer,
         logoutFromServer,
-        kopiaService: kopiaInstance,
+        kopiaService: kopiaInstance
       }}
     >
       {loginRequired && currentInstance && (
@@ -129,18 +112,14 @@ export function ServerInstanceContextProvider({
               loginAction.execute({
                 instance: currentInstance.id,
                 username,
-                password,
+                password
               });
             }}
             instance={currentInstance}
           />
         </SkeletonLayout>
       )}
-      {loginRequired ? null : loading || currentInstance === undefined ? (
-        <LoadingOverlay visible />
-      ) : (
-        children
-      )}
+      {loginRequired ? null : loading || currentInstance === undefined ? <LoadingOverlay visible /> : children}
     </ServerInstanceContext.Provider>
   );
 }
@@ -149,9 +128,7 @@ export function ServerInstanceContextProvider({
 export function useServerInstanceContext() {
   const context = useContext(ServerInstanceContext);
   if (context === undefined) {
-    throw new Error(
-      "useServerInstanceContext must be used within a ServerInstanceContextProvider"
-    );
+    throw new Error("useServerInstanceContext must be used within a ServerInstanceContextProvider");
   }
   return context;
 }

@@ -32,7 +32,7 @@ export function DataGrid<T>({
   onSortStatusChange,
   idAccessor,
   loading,
-  pageSize = PAGE_SIZES[1],
+  pageSize = PAGE_SIZES[1]
 }: Props<T>) {
   const [intPageSize, setPageSize] = useState(pageSize);
   const [page, setPage] = useState(1);

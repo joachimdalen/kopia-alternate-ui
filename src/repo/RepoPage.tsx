@@ -1,17 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Button,
-  Container,
-  Divider,
-  Group,
-  Paper,
-  SimpleGrid,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from "@mantine/core";
+import { Button, Container, Divider, Group, Paper, SimpleGrid, Stack, Text, TextInput, Title } from "@mantine/core";
 import { useField } from "@mantine/form";
 import { modals } from "@mantine/modals";
 import { showNotification } from "@mantine/notifications";
@@ -36,7 +25,7 @@ function RepoPage() {
         icon: <IconCircleCheck size={16} />
       });
       reloadStatus();
-    },
+    }
   });
   const updateDescriptionAction = useApiRequest({
     action: (data?: string) => kopiaService.updateRepoDescription(data!),
@@ -48,25 +37,26 @@ function RepoPage() {
         icon: <IconCircleCheck size={16} />
       });
       reloadStatus();
-    },
+    }
   });
   const field = useField({
     initialValue: repoStatus.description || "",
     validateOnBlur: true,
-    validate: (value) =>
-      value.trim().length < 2 ? "Value is too short" : null,
+    validate: (value) => (value.trim().length < 2 ? "Value is too short" : null)
   });
 
   const openDisconnectConfirmation = () =>
     modals.openConfirmModal({
       title: t`Disconnect repository?`,
       children: (
-        <Text size="sm"><Trans>Are you sure you want to disconnect from this repository?</Trans></Text>
+        <Text size="sm">
+          <Trans>Are you sure you want to disconnect from this repository?</Trans>
+        </Text>
       ),
       labels: { confirm: t`Disconnect`, cancel: t`Cancel` },
       confirmProps: { color: "red", size: "xs" },
       cancelProps: { size: "xs" },
-      onConfirm: () => disconnectRepoAction.execute(),
+      onConfirm: () => disconnectRepoAction.execute()
     });
 
   if (repoStatus.connected) {
@@ -90,19 +80,14 @@ function RepoPage() {
               <TextInput
                 flex={1}
                 label={t`Description`}
-                disabled={
-                  updateDescriptionAction.loading ||
-                  disconnectRepoAction.loading
-                }
+                disabled={updateDescriptionAction.loading || disconnectRepoAction.loading}
                 {...field.getInputProps()}
               />
               <Button
                 disabled={
                   field.getValue() === "" || disconnectRepoAction.loading || field.getValue() === repoStatus.description
                 }
-                onClick={() =>
-                  updateDescriptionAction.execute(field.getValue())
-                }
+                onClick={() => updateDescriptionAction.execute(field.getValue())}
                 loading={updateDescriptionAction.loading}
               >
                 <Trans>Update</Trans>
@@ -145,9 +130,7 @@ function RepoPage() {
                   <Trans>Repository Format</Trans>
                 </Text>
                 <Text fz="sm">
-                  {repoStatus.formatVersion === "1"
-                    ? t`Legacy format compatible with v0.8`
-                    : t`Latest format`}
+                  {repoStatus.formatVersion === "1" ? t`Legacy format compatible with v0.8` : t`Latest format`}
                 </Text>
               </Stack>
               <Stack gap={0}>
@@ -155,8 +138,7 @@ function RepoPage() {
                   <Trans>Error Correction Overhead</Trans>
                 </Text>
                 <Text fz="sm">
-                  {repoStatus.eccOverheadPercent === 0 ||
-                    !repoStatus.eccOverheadPercent
+                  {repoStatus.eccOverheadPercent === 0 || !repoStatus.eccOverheadPercent
                     ? t`Disabled`
                     : `${repoStatus.eccOverheadPercent}%`}
                 </Text>
@@ -171,9 +153,7 @@ function RepoPage() {
                 <Text fz="xs" c="dimmed">
                   <Trans>Internal Compression</Trans>
                 </Text>
-                <Text fz="sm">
-                  {repoStatus.supportsContentCompression ? t`Yes` : t`No`}
-                </Text>
+                <Text fz="sm">{repoStatus.supportsContentCompression ? t`Yes` : t`No`}</Text>
               </Stack>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">

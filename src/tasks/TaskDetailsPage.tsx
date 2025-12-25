@@ -1,20 +1,6 @@
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Container,
-  Divider,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
-import {
-  IconArrowLeft,
-  IconClockPlay,
-  IconClockStop,
-  IconStopwatch,
-} from "@tabler/icons-react";
+import { ActionIcon, Container, Divider, Group, Paper, Stack, Text, Title } from "@mantine/core";
+import { IconArrowLeft, IconClockPlay, IconClockStop, IconStopwatch } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
@@ -38,7 +24,7 @@ function TaskDetailsPage() {
     action: () => kopiaService.getTask(tid || ""),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
 
   useInterval(
@@ -74,11 +60,7 @@ function TaskDetailsPage() {
                   <Trans>Started</Trans>
                 </Text>
                 <Text fw={700} size="xl">
-                  {data?.startTime ? (
-                    <FormattedDate value={data.startTime} />
-                  ) : (
-                    "-"
-                  )}
+                  {data?.startTime ? <FormattedDate value={data.startTime} /> : "-"}
                 </Text>
               </div>
             </Group>
@@ -104,21 +86,14 @@ function TaskDetailsPage() {
                   <Trans>Duration</Trans>
                 </Text>
                 <Text fw={700} size="xl">
-                  {data?.startTime && (
-                    <TimeDuration
-                      from={data.startTime}
-                      to={data.endTime ?? new Date().toString()}
-                    />
-                  )}
+                  {data?.startTime && <TimeDuration from={data.startTime} to={data.endTime ?? new Date().toString()} />}
                 </Text>
               </div>
             </Group>
           </Paper>
         </Group>
         <Divider />
-        {data && data.counters != null && (
-          <TaskCounterGrid task={data} showZeroCounters={false} />
-        )}
+        {data && data.counters != null && <TaskCounterGrid task={data} showZeroCounters={false} />}
         {data && <TaskLogs task={data} />}
       </Stack>
     </Container>

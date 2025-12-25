@@ -10,7 +10,7 @@ import {
   InputWrapper,
   List,
   ListItem,
-  Stack,
+  Stack
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconInfoCircle } from "@tabler/icons-react";
@@ -28,26 +28,14 @@ type Props = {
   infoNode?: React.ReactNode;
 } & PolicyInput;
 
-export default function PolicyTextListInput({
-  id,
-  title,
-  description,
-  children,
-  form,
-  formKey,
-  infoNode,
-}: Props) {
+export default function PolicyTextListInput({ id, title, description, children, form, formKey, infoNode }: Props) {
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as string[]) || [];
   const effectiveValues = (inputProps.value as string[]) || [];
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value !== undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
       <AccordionPanel>
         <Stack>
           {infoNode && (
@@ -66,7 +54,9 @@ export default function PolicyTextListInput({
                       </ListItem>
                     ))
                   ) : (
-                    <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
+                    <ListItem fz="xs">
+                      <Trans>Not defined</Trans>
+                    </ListItem>
                   )}
                 </List>
               </InputWrapper>
@@ -89,7 +79,9 @@ export default function PolicyTextListInput({
                     </ListItem>
                   ))
                 ) : (
-                  <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
+                  <ListItem fz="xs">
+                    <Trans>Not defined</Trans>
+                  </ListItem>
                 )}
               </List>
             </InputWrapper>

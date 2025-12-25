@@ -4,10 +4,7 @@ import { Group, JsonInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandGoogleDrive } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
-import type {
-  GoogleCloudStorageRepoConfig,
-  RepoConfigurationForm,
-} from "../types";
+import type { GoogleCloudStorageRepoConfig, RepoConfigurationForm } from "../types";
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<GoogleCloudStorageRepoConfig>>;
 };
@@ -17,7 +14,9 @@ function GoogleCloudStorageRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconBrandGoogleDrive} size={24} color="yellow" />
-        <Text fw="bold"><Trans>Google Cloud Storage</Trans></Text>
+        <Text fw="bold">
+          <Trans>Google Cloud Storage</Trans>
+        </Text>
       </Group>
 
       <Stack>

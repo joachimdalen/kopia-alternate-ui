@@ -7,7 +7,7 @@ export function MenuButton({
   options,
   onClick,
   disabled,
-  prefix,
+  prefix
 }: {
   options: { label: string | React.ReactNode; value: string }[];
   onClick: (selected: string) => void;
@@ -42,16 +42,8 @@ export function MenuButton({
       disabled={disabled}
     >
       <Menu.Target>
-        <UnstyledButton
-          className={classes.control}
-          data-expanded={opened || undefined}
-          size="xs"
-        >
-          <span className={classes.label}>
-            {prefix === undefined
-              ? selected.label
-              : `${prefix} ${selected.label}`}
-          </span>
+        <UnstyledButton className={classes.control} data-expanded={opened || undefined} size="xs">
+          <span className={classes.label}>{prefix === undefined ? selected.label : `${prefix} ${selected.label}`}</span>
           <IconChevronDown size={16} className={classes.icon} stroke={1.5} />
         </UnstyledButton>
       </Menu.Target>

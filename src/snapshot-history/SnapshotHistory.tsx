@@ -13,16 +13,10 @@ import {
   Stack,
   Text,
   Title,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import {
-  IconArrowLeft,
-  IconFileDatabase,
-  IconFileText,
-  IconPin,
-  IconTrash,
-} from "@tabler/icons-react";
+import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
@@ -35,12 +29,7 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
 import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
-import type {
-  ItemAction,
-  Snapshot,
-  Snapshots,
-  SourceInfo,
-} from "../core/types";
+import type { ItemAction, Snapshot, Snapshots, SourceInfo } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
@@ -56,19 +45,18 @@ function SnapshotHistory() {
   const [data, setData] = useState<Snapshots>();
   const [selectedRecords, setSelectedRecords] = useState<Snapshot[]>([]);
   const [showAll, setShowAll] = useState(defaultSnapshotViewAll);
-  const [itemAction, setItemAction] =
-    useState<ItemAction<Snapshot, "description" | "pin" | "delete">>();
+  const [itemAction, setItemAction] = useState<ItemAction<Snapshot, "description" | "pin" | "delete">>();
   const [pinAction, setPinAction] = useState<ItemAction<string, "pin">>();
   const sourceInfo: SourceInfo = useMemo(() => {
     return {
       host: searchParams.get("host") as string,
       userName: searchParams.get("userName") as string,
-      path: searchParams.get("path") as string,
+      path: searchParams.get("path") as string
     };
   }, [searchParams]);
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Snapshot>>({
     columnAccessor: "startTime",
-    direction: "desc",
+    direction: "desc"
   });
 
   const visibleData = useMemo(() => {
@@ -84,14 +72,14 @@ function SnapshotHistory() {
       kopiaService.getSnapshot(
         showAll
           ? {
-            ...sourceInfo,
-            all: "1",
-          }
+              ...sourceInfo,
+              all: "1"
+            }
           : sourceInfo
       ),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
 
   useEffect(() => {
@@ -107,7 +95,9 @@ function SnapshotHistory() {
             <ActionIcon variant="subtle" onClick={() => navigate(-1)}>
               <IconArrowLeft size={24} />
             </ActionIcon>
-            <Title order={1}><Trans>Snapshots</Trans>: {sourceInfo.path}</Title>
+            <Title order={1}>
+              <Trans>Snapshots</Trans>: {sourceInfo.path}
+            </Title>
           </Group>
           <Group>
             {selectedRecords.length > 0 && (
@@ -180,16 +170,16 @@ function SnapshotHistory() {
                 >
                   <FormattedDate value={item.startTime} />
                 </Anchor>
-              ),
+              )
             },
             {
               accessor: "description",
-              title: t`Description`,
+              title: t`Description`
             },
             {
               accessor: "rootID",
               title: t`Root`,
-              render: (item) => <Code>{item.rootID}</Code>,
+              render: (item) => <Code>{item.rootID}</Code>
             },
             {
               accessor: "retention",
@@ -210,7 +200,7 @@ function SnapshotHistory() {
                           onClick={() => {
                             setPinAction({
                               item: p,
-                              action: "pin",
+                              action: "pin"
                             });
                             setItemAction({ item: item, action: "pin" });
                           }}
@@ -220,36 +210,32 @@ function SnapshotHistory() {
                       ))}
                     </Group>
                     <Tooltip label={t`Add pin to prevent snapshot deletion`}>
-                      <ActionIcon
-                        variant="subtle"
-                        onClick={() => setItemAction({ item, action: "pin" })}
-                      >
+                      <ActionIcon variant="subtle" onClick={() => setItemAction({ item, action: "pin" })}>
                         <IconPin size={16} />
                       </ActionIcon>
                     </Tooltip>
                   </Group>
                 );
-              },
+              }
             },
             {
               accessor: "summary.size",
               title: t`Size`,
               sortable: true,
               textAlign: "center",
-              render: (item) =>
-                sizeDisplayName(item.summary.size, bytesStringBase2),
+              render: (item) => sizeDisplayName(item.summary.size, bytesStringBase2)
             },
             {
               accessor: "summary.files",
               title: t`Files`,
               sortable: true,
-              textAlign: "center",
+              textAlign: "center"
             },
             {
               accessor: "summary.dirs",
               title: t`Dirs`,
               sortable: true,
-              textAlign: "center",
+              textAlign: "center"
             },
             {
               accessor: "",
@@ -266,7 +252,7 @@ function SnapshotHistory() {
                       onClick={() =>
                         setItemAction({
                           item,
-                          action: "description",
+                          action: "description"
                         })
                       }
                     >
@@ -274,8 +260,8 @@ function SnapshotHistory() {
                     </Button>
                   </Group>
                 );
-              },
-            },
+              }
+            }
           ]}
         />
       </Stack>
@@ -318,7 +304,7 @@ function SnapshotHistory() {
             showNotification({
               title: t`Snapshot(s) deleted`,
               message: t`The snapshot(s) was delete successfully`,
-              color: "green",
+              color: "green"
             });
             setSelectedRecords([]);
           }}

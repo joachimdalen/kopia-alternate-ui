@@ -15,7 +15,9 @@ function WebDavRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconFile} size={32} color="indigo" />
-        <Text fw="bold"><Trans>WebDAV Server</Trans></Text>
+        <Text fw="bold">
+          <Trans>WebDAV Server</Trans>
+        </Text>
       </Group>
 
       <Stack>
@@ -26,11 +28,7 @@ function WebDavRepo({ form }: Props) {
           {...form.getInputProps("providerConfig.url")}
         />
         <Group grow>
-          <TextInput
-            label={t`Username`}
-            placeholder={t`Username`}
-            {...form.getInputProps("providerConfig.username")}
-          />
+          <TextInput label={t`Username`} placeholder={t`Username`} {...form.getInputProps("providerConfig.username")} />
           <PasswordInput
             label={t`Password`}
             placeholder={t`Password`}

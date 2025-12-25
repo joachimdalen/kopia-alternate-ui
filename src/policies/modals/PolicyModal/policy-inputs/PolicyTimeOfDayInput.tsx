@@ -1,16 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  AccordionItem,
-  AccordionPanel,
-  Anchor,
-  Code,
-  Group,
-  InputWrapper,
-  List,
-  ListItem,
-  Stack,
-} from "@mantine/core";
+import { AccordionItem, AccordionPanel, Anchor, Code, Group, InputWrapper, List, ListItem, Stack } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import type { TimeOfDay } from "../../../../core/types";
 import PolicyTodModal from "../../PolicyTodModal/PolicyTodModal";
@@ -25,26 +15,14 @@ type Props = {
   effective?: TimeOfDay[];
 } & PolicyInput;
 
-export default function PolicyTimeOfDayInput({
-  id,
-  title,
-  description,
-  children,
-  form,
-  formKey,
-  effective,
-}: Props) {
+export default function PolicyTimeOfDayInput({ id, title, description, children, form, formKey, effective }: Props) {
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as TimeOfDay[]) || [];
   const effectiveValues = (inputProps.value as TimeOfDay[]) || effective || [];
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value !== undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
       <AccordionPanel>
         <Stack>
           <Group grow align="start">
@@ -54,13 +32,13 @@ export default function PolicyTimeOfDayInput({
                   {items.length > 0 ? (
                     items.map((x) => (
                       <ListItem>
-                        <Code>{`${x.hour.toString().padStart(2, "0")}:${x.min
-                          .toString()
-                          .padStart(2, "0")}`}</Code>
+                        <Code>{`${x.hour.toString().padStart(2, "0")}:${x.min.toString().padStart(2, "0")}`}</Code>
                       </ListItem>
                     ))
                   ) : (
-                    <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
+                    <ListItem fz="xs">
+                      <Trans>Not defined</Trans>
+                    </ListItem>
                   )}
                 </List>
               </InputWrapper>
@@ -79,13 +57,13 @@ export default function PolicyTimeOfDayInput({
                 {effectiveValues.length > 0 ? (
                   effectiveValues.map((x) => (
                     <ListItem>
-                      <Code>{`${x.hour.toString().padStart(2, "0")}:${x.min
-                        .toString()
-                        .padStart(2, "0")}`}</Code>
+                      <Code>{`${x.hour.toString().padStart(2, "0")}:${x.min.toString().padStart(2, "0")}`}</Code>
                     </ListItem>
                   ))
                 ) : (
-                  <ListItem fz="xs"><Trans>Not defined</Trans></ListItem>
+                  <ListItem fz="xs">
+                    <Trans>Not defined</Trans>
+                  </ListItem>
                 )}
               </List>
             </InputWrapper>

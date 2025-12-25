@@ -1,13 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Checkbox,
-  Group,
-  PasswordInput,
-  Stack,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { Checkbox, Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAmazon } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
@@ -21,7 +14,9 @@ function AmazonS3Repo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconBrandAmazon} size={32} color="orange" />
-        <Text fw="bold"><Trans>Amazon S3 or Compatible Storage</Trans></Text>
+        <Text fw="bold">
+          <Trans>Amazon S3 or Compatible Storage</Trans>
+        </Text>
       </Group>
 
       <Stack>
@@ -43,13 +38,13 @@ function AmazonS3Repo({ form }: Props) {
           <Checkbox
             label={t`Use HTTP connection (insecure)`}
             {...form.getInputProps("providerConfig.doNotUseTLS", {
-              type: "checkbox",
+              type: "checkbox"
             })}
           />
           <Checkbox
             label={t`Do not verify TLS certificate`}
             {...form.getInputProps("providerConfig.doNotVerifyTLS", {
-              type: "checkbox",
+              type: "checkbox"
             })}
           />
         </Group>

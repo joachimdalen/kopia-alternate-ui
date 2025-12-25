@@ -27,7 +27,7 @@ import type {
   Status,
   Task,
   TaskList,
-  TasksSummary,
+  TasksSummary
 } from "./types";
 type QueryParams = { [key: string]: string | boolean | number };
 export type KopiaAuth = {
@@ -37,19 +37,10 @@ export type KopiaAuth = {
 export interface IKopiaService {
   getSnapshots(): Promise<ApiResponse<Sources>>;
   startSnapshot(sourceInfo: SourceInfo): Promise<ApiResponse<Task>>;
-  getSnapshot(query: {
-    [key: string]: string;
-  }): Promise<ApiResponse<Snapshots>>;
-  updateDescription(
-    snapshotIds: string[],
-    description: string
-  ): Promise<ApiResponse<Snapshot[]>>;
+  getSnapshot(query: { [key: string]: string }): Promise<ApiResponse<Snapshots>>;
+  updateDescription(snapshotIds: string[], description: string): Promise<ApiResponse<Snapshot[]>>;
   addPin(snapshotId: string, pin: string): Promise<ApiResponse<Snapshot[]>>;
-  updatePin(
-    snapshotId: string,
-    currentPin: string,
-    pin: string
-  ): Promise<ApiResponse<Snapshot[]>>;
+  updatePin(snapshotId: string, currentPin: string, pin: string): Promise<ApiResponse<Snapshot[]>>;
   removePin(snapshotId: string, pin: string): Promise<ApiResponse<Snapshot[]>>;
   getObjects(oid: string): Promise<ApiResponse<DirManifest>>;
   restore(data: RestoreRequest): Promise<ApiResponse<Task>>;
@@ -72,21 +63,14 @@ export interface IKopiaService {
   savePolicy(policy: Policy, source: SourceInfo): Promise<ApiResponse<Policy>>;
   deletePolicy(sourceInfo: SourceInfo): Promise<ApiResponse<unknown>>;
   getTasksSummary(): Promise<ApiResponse<TasksSummary>>;
-  resolvePolicy(
-    source: SourceInfo,
-    data: ResolvePolicyRequest
-  ): Promise<ApiResponse<ResolvedPolicy>>;
+  resolvePolicy(source: SourceInfo, data: ResolvePolicyRequest): Promise<ApiResponse<ResolvedPolicy>>;
   getPreferences(): Promise<ApiResponse<Preferences>>;
   setPreferences(data: Preferences): Promise<ApiResponse<Preferences>>;
   getNotificationProfiles(): Promise<ApiResponse<NotificationProfile[]>>;
-  createNotificationProfile(
-    profile: NotificationProfile
-  ): Promise<ApiResponse<NotificationProfile>>;
+  createNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<NotificationProfile>>;
 
   deleteNotificationProfile(profileName: string): Promise<ApiResponse<unknown>>;
-  testNotificationProfile(
-    profile: NotificationProfile
-  ): Promise<ApiResponse<unknown>>;
+  testNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<unknown>>;
 
   resolvePath(path: string): Promise<ApiResponse<ResolvePath>>;
   estimateSnapshot(data: EstimateSnapshotRequest): Promise<ApiResponse<Task>>;
@@ -112,13 +96,9 @@ export class KopiaService implements IKopiaService {
   private onAuthRequired: () => void;
   private defaultHeaders: Record<string, string> = {
     "Content-type": "application/json",
-    Accept: "application/json",
+    Accept: "application/json"
   };
-  constructor(
-    instance: string,
-    onAuthRequired: () => void,
-    authInfo?: KopiaAuth
-  ) {
+  constructor(instance: string, onAuthRequired: () => void, authInfo?: KopiaAuth) {
     this.instance = instance;
     this.onAuthRequired = onAuthRequired;
     this.authInfo = authInfo;
@@ -129,54 +109,35 @@ export class KopiaService implements IKopiaService {
   }
 
   public startSnapshot(sourceInfo: SourceInfo): Promise<ApiResponse<Task>> {
-    return this.post(
-      `/api/${this.instance}/v1/sources/upload`,
-      undefined,
-      sourceInfo
-    );
+    return this.post(`/api/${this.instance}/v1/sources/upload`, undefined, sourceInfo);
   }
-  public getSnapshot(query: {
-    [key: string]: string;
-  }): Promise<ApiResponse<Snapshots>> {
+  public getSnapshot(query: { [key: string]: string }): Promise<ApiResponse<Snapshots>> {
     return this.get(`/api/${this.instance}/v1/snapshots`, query);
   }
-  public updateDescription(
-    snapshotIds: string[],
-    description: string
-  ): Promise<ApiResponse<Snapshot[]>> {
+  public updateDescription(snapshotIds: string[], description: string): Promise<ApiResponse<Snapshot[]>> {
     return this.post(`/api/${this.instance}/v1/snapshots/edit`, {
       description,
-      snapshots: snapshotIds,
+      snapshots: snapshotIds
     });
   }
-  public addPin(
-    snapshotId: string,
-    pin: string
-  ): Promise<ApiResponse<Snapshot[]>> {
+  public addPin(snapshotId: string, pin: string): Promise<ApiResponse<Snapshot[]>> {
     return this.post(`/api/${this.instance}/v1/snapshots/edit`, {
       addPins: [pin],
       removePins: [],
-      snapshots: [snapshotId],
+      snapshots: [snapshotId]
     });
   }
-  public updatePin(
-    snapshotId: string,
-    currentPin: string,
-    pin: string
-  ): Promise<ApiResponse<Snapshot[]>> {
+  public updatePin(snapshotId: string, currentPin: string, pin: string): Promise<ApiResponse<Snapshot[]>> {
     return this.post(`/api/${this.instance}/v1/snapshots/edit`, {
       addPins: [pin],
       removePins: [currentPin],
-      snapshots: [snapshotId],
+      snapshots: [snapshotId]
     });
   }
-  public removePin(
-    snapshotId: string,
-    pin: string
-  ): Promise<ApiResponse<Snapshot[]>> {
+  public removePin(snapshotId: string, pin: string): Promise<ApiResponse<Snapshot[]>> {
     return this.post(`/api/${this.instance}/v1/snapshots/edit`, {
       removePins: [pin],
-      snapshots: [snapshotId],
+      snapshots: [snapshotId]
     });
   }
   public getObjects(oid: string): Promise<ApiResponse<DirManifest>> {
@@ -207,13 +168,10 @@ export class KopiaService implements IKopiaService {
   public getStatus(): Promise<ApiResponse<Status>> {
     return this.get(`/api/${this.instance}/v1/repo/status`);
   }
-  public login(
-    username: string,
-    password: string
-  ): Promise<ApiResponse<Status>> {
+  public login(username: string, password: string): Promise<ApiResponse<Status>> {
     return this.get(`/api/${this.instance}/v1/repo/status`, undefined, {
       username,
-      password,
+      password
     });
   }
   public getPolicies(): Promise<ApiResponse<PoliciesList>> {
@@ -226,10 +184,7 @@ export class KopiaService implements IKopiaService {
   public getPolicy(source: SourceInfo): Promise<ApiResponse<Policy>> {
     return this.get(`/api/${this.instance}/v1/policy`, source);
   }
-  public savePolicy(
-    policy: Policy,
-    source: SourceInfo
-  ): Promise<ApiResponse<Policy>> {
+  public savePolicy(policy: Policy, source: SourceInfo): Promise<ApiResponse<Policy>> {
     return this.put(`/api/${this.instance}/v1/policy`, policy, source);
   }
   public deletePolicy(source: SourceInfo): Promise<ApiResponse<unknown>> {
@@ -238,10 +193,7 @@ export class KopiaService implements IKopiaService {
   public getTasksSummary(): Promise<ApiResponse<TasksSummary>> {
     return this.get(`/api/${this.instance}/v1/tasks-summary`);
   }
-  public resolvePolicy(
-    source: SourceInfo,
-    data: ResolvePolicyRequest
-  ): Promise<ApiResponse<ResolvedPolicy>> {
+  public resolvePolicy(source: SourceInfo, data: ResolvePolicyRequest): Promise<ApiResponse<ResolvedPolicy>> {
     return this.post(`/api/${this.instance}/v1/policy/resolve`, data, source);
   }
   public getPreferences(): Promise<ApiResponse<Preferences>> {
@@ -251,44 +203,27 @@ export class KopiaService implements IKopiaService {
     return this.put(`/api/${this.instance}/v1/ui-preferences`, data);
   }
 
-  public getNotificationProfiles(): Promise<
-    ApiResponse<NotificationProfile[]>
-  > {
+  public getNotificationProfiles(): Promise<ApiResponse<NotificationProfile[]>> {
     return this.get(`/api/${this.instance}/v1/notificationProfiles`);
   }
-  public createNotificationProfile(
-    profile: NotificationProfile
-  ): Promise<ApiResponse<NotificationProfile>> {
+  public createNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<NotificationProfile>> {
     return this.post(`/api/${this.instance}/v1/notificationProfiles`, profile);
   }
-  public deleteNotificationProfile(
-    profileName: string
-  ): Promise<ApiResponse<unknown>> {
-    return this.delete(
-      `/api/${this.instance}/v1/notificationProfiles/${profileName}`
-    );
+  public deleteNotificationProfile(profileName: string): Promise<ApiResponse<unknown>> {
+    return this.delete(`/api/${this.instance}/v1/notificationProfiles/${profileName}`);
   }
-  public testNotificationProfile(
-    profile: NotificationProfile
-  ): Promise<ApiResponse<unknown>> {
-    return this.post(
-      `/api/${this.instance}/v1/testNotificationProfile`,
-      profile
-    );
+  public testNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<unknown>> {
+    return this.post(`/api/${this.instance}/v1/testNotificationProfile`, profile);
   }
   public resolvePath(path: string): Promise<ApiResponse<ResolvePath>> {
     return this.post(`/api/${this.instance}/v1/paths/resolve`, {
-      path,
+      path
     });
   }
-  public estimateSnapshot(
-    data: EstimateSnapshotRequest
-  ): Promise<ApiResponse<Task>> {
+  public estimateSnapshot(data: EstimateSnapshotRequest): Promise<ApiResponse<Task>> {
     return this.post(`/api/${this.instance}/v1/estimate`, data);
   }
-  public createSnapshot(
-    data: CreateSnapshotRequest
-  ): Promise<ApiResponse<Task>> {
+  public createSnapshot(data: CreateSnapshotRequest): Promise<ApiResponse<Task>> {
     return this.post(`/api/${this.instance}/v1/sources`, data);
   }
   public getCurrentUser(): Promise<ApiResponse<CurrentUser>> {
@@ -306,16 +241,12 @@ export class KopiaService implements IKopiaService {
   public disconnectRepo(): Promise<ApiResponse<unknown>> {
     return this.post(`/api/${this.instance}/v1/repo/disconnect`);
   }
-  public updateRepoDescription(
-    description: string
-  ): Promise<ApiResponse<unknown>> {
+  public updateRepoDescription(description: string): Promise<ApiResponse<unknown>> {
     return this.post(`/api/${this.instance}/v1/repo/description`, {
-      description,
+      description
     });
   }
-  public deleteSnapshot(
-    data: DeleteSnapshotRequest
-  ): Promise<ApiResponse<unknown>> {
+  public deleteSnapshot(data: DeleteSnapshotRequest): Promise<ApiResponse<unknown>> {
     return this.post(`/api/${this.instance}/v1/snapshots/delete`, data);
   }
   public syncRepo(): Promise<ApiResponse<unknown>> {
@@ -324,8 +255,8 @@ export class KopiaService implements IKopiaService {
 
   public mountSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>> {
     const req: MountSnapshotRequest = {
-      root,
-    }
+      root
+    };
     return this.post(`/api/${this.instance}/v1/mounts`, req);
   }
 
@@ -340,15 +271,13 @@ export class KopiaService implements IKopiaService {
   }
 
   // Privates
-  private async requestWrapper<T>(
-    requestFunc: () => Promise<T>
-  ): Promise<ApiResponse<T>> {
+  private async requestWrapper<T>(requestFunc: () => Promise<T>): Promise<ApiResponse<T>> {
     try {
       const response = await requestFunc();
       return {
         isError: false,
         data: response,
-        responseCode: 200,
+        responseCode: 200
       };
     } catch (error) {
       console.log(error);
@@ -360,13 +289,13 @@ export class KopiaService implements IKopiaService {
           isError: true,
           responseCode: error.response?.status || 500,
           originResponseCode: error.response?.status || 500,
-          data: error.response?.data,
+          data: error.response?.data
         };
       } else {
         return {
           isError: true,
           responseCode: 500,
-          originResponseCode: 500,
+          originResponseCode: 500
         };
       }
     }
@@ -381,10 +310,10 @@ export class KopiaService implements IKopiaService {
         method: "GET",
         url: path,
         headers: {
-          ...this.defaultHeaders,
+          ...this.defaultHeaders
         },
         auth: auth || this.authInfo,
-        params: query,
+        params: query
       });
       return response.data;
     });
@@ -401,7 +330,7 @@ export class KopiaService implements IKopiaService {
         headers: this.defaultHeaders,
         data: body,
         params: query,
-        auth: this.authInfo,
+        auth: this.authInfo
       });
       return response.data;
     });
@@ -419,22 +348,19 @@ export class KopiaService implements IKopiaService {
         headers: this.defaultHeaders,
         data: body,
         params: query,
-        auth: this.authInfo,
+        auth: this.authInfo
       });
       return response.data;
     });
   }
-  private async delete<T>(
-    path: string,
-    params?: QueryParams
-  ): Promise<ApiResponse<T>> {
+  private async delete<T>(path: string, params?: QueryParams): Promise<ApiResponse<T>> {
     return await this.requestWrapper(async () => {
       const response = await axios({
         method: "DELETE",
         url: path,
         headers: this.defaultHeaders,
         params,
-        auth: this.authInfo,
+        auth: this.authInfo
       });
       return response.data;
     });

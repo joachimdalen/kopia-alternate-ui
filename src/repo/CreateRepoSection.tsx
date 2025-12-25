@@ -10,7 +10,7 @@ import {
   PasswordInput,
   Select,
   Stack,
-  TextInput,
+  TextInput
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import { useEffect, useMemo, useState } from "react";
@@ -39,20 +39,20 @@ function CreateRepoSection({ form, goBack }: Props) {
       form.setFieldValue("encryption", resp.defaultEncryption);
       form.setFieldValue("splitter", resp.defaultSplitter);
       form.setFieldValue("hash", resp.defaultHash);
-    },
+    }
   });
   const getCurrentUserAction = useApiRequest({
     action: () => kopiaService.getCurrentUser(),
     onReturn(resp) {
       form.setFieldValue("hostname", resp.hostname);
       form.setFieldValue("username", resp.username);
-    },
+    }
   });
   const createRepoAction = useApiRequest({
     action: (data?: object) => kopiaService.createRepo(data!),
     onReturn() {
       reloadStatus();
-    },
+    }
   });
   useEffect(() => {
     getAlgorithmsAction.execute();
@@ -83,7 +83,7 @@ function CreateRepoSection({ form, goBack }: Props) {
     const request = {
       storage: {
         type: form.values.provider,
-        config: form.values.providerConfig,
+        config: form.values.providerConfig
       },
       password: form.values.password,
       options: {
@@ -92,18 +92,18 @@ function CreateRepoSection({ form, goBack }: Props) {
           hash: form.values.hash,
           encryption: form.values.encryption,
           ecc: form.values.ecc,
-          eccOverheadPercent: parseInt(form.values.eccOverheadPercent),
+          eccOverheadPercent: parseInt(form.values.eccOverheadPercent)
         },
         objectFormat: {
-          splitter: form.values.splitter,
-        },
+          splitter: form.values.splitter
+        }
       },
       clientOptions: {
         description: form.values.description,
         username: form.values.username,
         readonly: form.values.readonly,
-        hostname: form.values.hostname,
-      },
+        hostname: form.values.hostname
+      }
     };
 
     createRepoAction.execute(request);
@@ -130,7 +130,9 @@ function CreateRepoSection({ form, goBack }: Props) {
       </Group>
       <Accordion variant="separated">
         <AccordionItem value="advanced">
-          <AccordionControl><Trans>Advanced Options</Trans></AccordionControl>
+          <AccordionControl>
+            <Trans>Advanced Options</Trans>
+          </AccordionControl>
           <AccordionPanel>
             <Stack>
               <Group grow>
@@ -161,7 +163,10 @@ function CreateRepoSection({ form, goBack }: Props) {
                   label={t`Repository Format`}
                   data={[
                     { label: t`Latest format`, value: "2" },
-                    { label: t`Legacy format compatible with v0.8`, value: "1" },
+                    {
+                      label: t`Legacy format compatible with v0.8`,
+                      value: "1"
+                    }
                   ]}
                   allowDeselect={false}
                   withCheckIcon={false}
@@ -176,7 +181,7 @@ function CreateRepoSection({ form, goBack }: Props) {
                     { label: "1%", value: "1" },
                     { label: "2%", value: "2" },
                     { label: "5%", value: "5" },
-                    { label: "10%", value: "10" },
+                    { label: "10%", value: "10" }
                   ]}
                   allowDeselect={false}
                   withCheckIcon={false}
@@ -211,12 +216,7 @@ function CreateRepoSection({ form, goBack }: Props) {
         <Button size="xs" onClick={goBack} disabled={createRepoAction.loading}>
           <Trans>Back</Trans>
         </Button>
-        <Button
-          size="xs"
-          color="green"
-          onClick={() => createRepository()}
-          loading={createRepoAction.loading}
-        >
+        <Button size="xs" color="green" onClick={() => createRepository()} loading={createRepoAction.loading}>
           <Trans>Create repository</Trans>
         </Button>
       </Group>

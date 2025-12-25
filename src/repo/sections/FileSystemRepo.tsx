@@ -15,7 +15,9 @@ function FileSystemRepo({ form }: Props) {
     <Stack>
       <Group>
         <IconWrapper icon={IconFolderOpen} size={24} color="orange" />
-        <Text fw="bold"><Trans>Local Directory or NAS</Trans></Text>
+        <Text fw="bold">
+          <Trans>Local Directory or NAS</Trans>
+        </Text>
       </Group>
       <TextInput
         label={t`Directory Path`}

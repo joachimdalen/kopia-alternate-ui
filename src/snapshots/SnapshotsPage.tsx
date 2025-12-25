@@ -1,16 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  Anchor,
-  Badge,
-  Button,
-  Container,
-  Divider,
-  Group,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Anchor, Badge, Button, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import {
@@ -20,7 +10,7 @@ import {
   IconEye,
   IconFileDatabase,
   IconFolderOpen,
-  IconRefreshAlert,
+  IconRefreshAlert
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
@@ -48,14 +38,10 @@ function SnapshotsPage() {
   const [show, setShow] = useDisclosure();
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [data, setData] = useState<Sources>();
-  const [filterState, setFilterState] = useState<"all" | "local" | string>(
-    "all"
-  );
-  const [sortStatus, setSortStatus] = useState<
-    DataTableSortStatus<SourceStatus>
-  >({
+  const [filterState, setFilterState] = useState<"all" | "local" | string>("all");
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<SourceStatus>>({
     columnAccessor: "source.path",
-    direction: "asc",
+    direction: "asc"
   });
 
   const visibleData = useMemo(() => {
@@ -67,22 +53,13 @@ function SnapshotsPage() {
       case "all":
         break;
       case "local":
-        filterable = filterable.filter(
-          (x) =>
-            formatOwnerName(x.source) ===
-            data.localUsername + "@" + data.localHost
-        );
+        filterable = filterable.filter((x) => formatOwnerName(x.source) === data.localUsername + "@" + data.localHost);
         break;
       default:
-        filterable = filterable.filter(
-          (x) => formatOwnerName(x.source) === filterState
-        );
+        filterable = filterable.filter((x) => formatOwnerName(x.source) === filterState);
     }
 
-    const entries = sortBy(
-      filterable,
-      sortStatus.columnAccessor
-    ) as SourceStatus[];
+    const entries = sortBy(filterable, sortStatus.columnAccessor) as SourceStatus[];
     return sortStatus.direction === "desc" ? entries.reverse() : entries;
   }, [data, filterState, sortStatus]);
 
@@ -90,7 +67,7 @@ function SnapshotsPage() {
     action: () => kopiaService.getSnapshots(),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only load data on mount
@@ -110,13 +87,13 @@ function SnapshotsPage() {
   const {
     error: newSnapshotError,
     execute: newSnapshot,
-    loading: startSnapshotLoading,
+    loading: startSnapshotLoading
     // loadingKey: startSnapshotKey,
   } = useApiRequest({
     action: (data?: SourceInfo) => kopiaService.startSnapshot(data!),
     onReturn() {
       execute(undefined, "refresh");
-    },
+    }
   });
   const syncAction = useApiRequest({
     action: () => kopiaService.syncRepo(),
@@ -129,7 +106,7 @@ function SnapshotsPage() {
         color: "green",
         icon: <IconCircleCheck size={16} />
       });
-    },
+    }
   });
   const intError = error || newSnapshotError;
 
@@ -148,19 +125,15 @@ function SnapshotsPage() {
                 { label: "", value: "divider" },
                 ...uniqueOwners.map((own) => ({
                   label: own,
-                  value: own,
-                })),
+                  value: own
+                }))
               ]}
               onClick={setFilterState}
               disabled={loading && loadingKey == "loading"}
             />
           )}
           <Group>
-            <Button
-              disabled={loading && loadingKey == "loading"}
-              onClick={setShow.open}
-              {...newActionProps}
-            >
+            <Button disabled={loading && loadingKey == "loading"} onClick={setShow.open} {...newActionProps}>
               <Trans>New Snapshot</Trans>
             </Button>
             <Button
@@ -204,8 +177,7 @@ function SnapshotsPage() {
                     component={Link}
                     to={{
                       pathname: "/snapshots/single-source",
-                      search: `?userName=${item.source.userName}&host=${item.source.host
-                        }&path=${encodeURIComponent(item.source.path)}`,
+                      search: `?userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}`
                     }}
                     td="none"
                     fz="sm"
@@ -213,68 +185,50 @@ function SnapshotsPage() {
                     {item.source.path}
                   </Anchor>
                 </Group>
-              ),
+              )
             },
             {
               accessor: "owner",
               title: <Trans>Owner</Trans>,
               sortable: true,
-              visibleMediaQuery: (theme) =>
-                `(min-width: ${theme.breakpoints.md})`,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
               render: (item) =>
                 item.status === "REMOTE" ? (
                   <Group gap="xs" align="center">
                     <Text fz="sm">{`${item.source.userName}@${item.source.host}`}</Text>
-                    <Badge
-                      size="sm"
-                      radius={5}
-                      tt="none"
-                      variant="light"
-                      color="grape"
-                    >
+                    <Badge size="sm" radius={5} tt="none" variant="light" color="grape">
                       <Trans>Remote</Trans>
                     </Badge>
                   </Group>
                 ) : (
                   `${item.source.userName}@${item.source.host}`
-                ),
+                )
             },
             {
               accessor: "lastSnapshot.rootEntry.summ.size",
               sortable: true,
               title: <Trans>Size</Trans>,
-              visibleMediaQuery: (theme) =>
-                `(min-width: ${theme.breakpoints.md})`,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
               render: (item) =>
                 item.lastSnapshot?.rootEntry?.summ?.size &&
-                sizeDisplayName(
-                  item.lastSnapshot.rootEntry.summ.size,
-                  bytesStringBase2
-                ),
+                sizeDisplayName(item.lastSnapshot.rootEntry.summ.size, bytesStringBase2)
             },
             {
               accessor: "lastSnapshot.startTime",
               sortable: true,
               title: <Trans>Last Snapshot</Trans>,
-              render: (item) =>
-                item.lastSnapshot && (
-                  <RelativeDate value={item.lastSnapshot.startTime} />
-                ),
+              render: (item) => item.lastSnapshot && <RelativeDate value={item.lastSnapshot.startTime} />
             },
             {
               accessor: "nextSnapshotTime",
               title: <Trans>Next snapshot</Trans>,
-              render: (item) =>
-                item.nextSnapshotTime && (
-                  <RelativeDate value={item.nextSnapshotTime} />
-                ),
+              render: (item) => item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />
             },
             {
               accessor: "",
               title: "",
               width: 300,
-              visibleMediaQuery: (theme) =>
-                `(min-width: ${theme.breakpoints.sm})`,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.sm})`,
               render: (item) => {
                 switch (item.status) {
                   case "IDLE":
@@ -298,10 +252,7 @@ function SnapshotsPage() {
                           component={Link}
                           to={{
                             pathname: "/policies",
-                            search: `userName=${item.source.userName}&host=${item.source.host
-                              }&path=${encodeURIComponent(
-                                item.source.path
-                              )}&viewPolicy=true`,
+                            search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
                           }}
                           td="none"
                           size="xs"
@@ -316,28 +267,20 @@ function SnapshotsPage() {
                   case "PENDING":
                     return (
                       <Group gap={5}>
-                        <IconWrapper
-                          icon={IconClockExclamation}
-                          color="yellow"
-                        />
+                        <IconWrapper icon={IconClockExclamation} color="yellow" />
                         <Text fz="xs" c="yellow">
                           <Trans>Pending</Trans>
                         </Text>
                       </Group>
                     );
                   case "UPLOADING": {
-                    return (
-                      <UploadingLoader
-                        data={item.upload}
-                        bytesStringBase2={bytesStringBase2}
-                      />
-                    );
+                    return <UploadingLoader data={item.upload} bytesStringBase2={bytesStringBase2} />;
                   }
                   default:
                     return item.status;
                 }
-              },
-            },
+              }
+            }
           ]}
         />
       </Stack>

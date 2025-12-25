@@ -1,15 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Anchor,
-  Button,
-  Group,
-  Modal,
-  Stack,
-  Text,
-  TextInput,
-} from "@mantine/core";
+import { ActionIcon, Anchor, Button, Group, Modal, Stack, Text, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { randomId } from "@mantine/hooks";
 import { IconPlus, IconTrash } from "@tabler/icons-react";
@@ -28,9 +19,9 @@ type Props = {
 const schema = Yup.object({
   items: Yup.array().of(
     Yup.object().shape({
-      value: Yup.string().trim().required("Value is required"),
+      value: Yup.string().trim().required("Value is required")
     })
-  ),
+  )
 });
 
 type ItemsForm = {
@@ -41,13 +32,13 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
   const form = useForm<ItemsForm, (values: ItemsForm) => string[]>({
     mode: "controlled",
     initialValues: {
-      items: items.map((x) => ({ id: randomId(), value: x })),
+      items: items.map((x) => ({ id: randomId(), value: x }))
     },
     validateInputOnBlur: true,
     validate: yupResolver(schema),
     transformValues: (values) => {
       return values.items.map((x) => x.value);
-    },
+    }
   });
 
   function submitForm(values: string[]) {
@@ -65,10 +56,7 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
         {...form.getInputProps(`items.${index}.value`)}
       />
 
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("items", index)}
-      >
+      <ActionIcon color="red" onClick={() => form.removeListItem("items", index)}>
         <IconTrash size={16} />
       </ActionIcon>
     </Group>
@@ -84,11 +72,7 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
       closeOnClickOutside={false}
       size="sm"
     >
-      <form
-        id="add-items-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
+      <form id="add-items-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
         <Stack w="100%" gap="0">
           {fields}
           {form.errors.items && (
@@ -102,7 +86,7 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
               onClick={() => {
                 form.insertListItem("items", {
                   value: "",
-                  id: randomId(),
+                  id: randomId()
                 });
                 form.clearFieldError("items");
               }}
@@ -124,21 +108,10 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={false}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={false}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          size="xs"
-          type="submit"
-          form="add-items-form"
-          disabled={!form.isValid()}
-        >
+        <Button size="xs" type="submit" form="add-items-form" disabled={!form.isValid()}>
           <Trans>Save</Trans>
         </Button>
       </Group>

@@ -550,10 +550,7 @@ export type Preferences = {
   locale: string;
 };
 export type NotificationType = "webhook" | "pushover" | "email";
-export type NotificationConfig =
-  | WebhookNotification
-  | PushOverNotification
-  | EmailNotification;
+export type NotificationConfig = WebhookNotification | PushOverNotification | EmailNotification;
 export type NotificationProfile = {
   profile: string;
   method: {
@@ -629,12 +626,12 @@ export type DeleteSnapshotRequest = {
 export type MountedSnapshot = {
   path: string;
   root: string;
-}
+};
 
 export type MountSnapshotRequest = {
   root: string;
-}
+};
 
 export type MountsResponse = {
-  items: MountedSnapshot[]
-}
+  items: MountedSnapshot[];
+};

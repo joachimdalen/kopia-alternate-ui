@@ -11,31 +11,15 @@ type Props = {
   effective?: string;
 } & PolicyInput;
 
-export default function PolicyTextInput({
-  id,
-  title,
-  description,
-  placeholder,
-  form,
-  formKey,
-  effective,
-}: Props) {
+export default function PolicyTextInput({ id, title, description, placeholder, form, formKey, effective }: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl
-        title={title}
-        description={description}
-        isConfigured={inputProps.value != undefined}
-      />
+      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value != undefined} />
       <AccordionPanel>
         <Group grow>
-          <TextInput
-            label={t`Defined`}
-            placeholder={placeholder}
-            {...inputProps}
-          />
+          <TextInput label={t`Defined`} placeholder={placeholder} {...inputProps} />
           <TextInput label={t`Effective`} readOnly value={effectiveValue} />
         </Group>
       </AccordionPanel>

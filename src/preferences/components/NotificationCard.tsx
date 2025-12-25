@@ -9,7 +9,7 @@ import {
   MenuItem,
   MenuTarget,
   Stack,
-  Text,
+  Text
 } from "@mantine/core";
 import {
   IconBrandPushover,
@@ -18,7 +18,7 @@ import {
   IconPencil,
   IconTestPipe,
   IconTrash,
-  IconWebhook,
+  IconWebhook
 } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 import type { NotificationProfile } from "../../core/types";
@@ -38,7 +38,7 @@ function NotificationCard({
   onDelete,
   // onDuplicate,
   onEdit,
-  onTest,
+  onTest
 }: Props) {
   const getIcon = () => {
     switch (data.method.type) {
@@ -59,12 +59,7 @@ function NotificationCard({
             {getIcon()}
             <Text fw={500}>{data.profile}</Text>
           </Group>
-          <Menu
-            withinPortal
-            position="bottom-end"
-            shadow="sm"
-            disabled={disabled}
-          >
+          <Menu withinPortal position="bottom-end" shadow="sm" disabled={disabled}>
             <MenuTarget>
               <ActionIcon variant="subtle" color="gray" disabled={disabled}>
                 <IconDots size={16} />
@@ -72,12 +67,7 @@ function NotificationCard({
             </MenuTarget>
 
             <MenuDropdown>
-              <MenuItem
-                leftSection={
-                  <IconWrapper icon={IconPencil} color="yellow" size={18} />
-                }
-                onClick={onEdit}
-              >
+              <MenuItem leftSection={<IconWrapper icon={IconPencil} color="yellow" size={18} />} onClick={onEdit}>
                 <Trans>Edit</Trans>
               </MenuItem>
               {/* <MenuItem
@@ -88,18 +78,11 @@ function NotificationCard({
               >
                 Duplicate
               </MenuItem> */}
-              <MenuItem
-                leftSection={
-                  <IconWrapper icon={IconTestPipe} color="grape" size={18} />
-                }
-                onClick={onTest}
-              >
+              <MenuItem leftSection={<IconWrapper icon={IconTestPipe} color="grape" size={18} />} onClick={onTest}>
                 <Trans>Send test notification</Trans>
               </MenuItem>
               <MenuItem
-                leftSection={
-                  <IconWrapper icon={IconTrash} color="red" size={18} />
-                }
+                leftSection={<IconWrapper icon={IconTrash} color="red" size={18} />}
                 color="red"
                 onClick={onDelete}
               >

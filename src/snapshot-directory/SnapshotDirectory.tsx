@@ -1,4 +1,4 @@
-import { t } from '@lingui/core/macro';
+import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
   ActionIcon,
@@ -13,14 +13,9 @@ import {
   Text,
   TextInput,
   Title,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
-import {
-  useDebouncedValue,
-  useDisclosure,
-  useInputState,
-  usePrevious,
-} from "@mantine/hooks";
+import { useDebouncedValue, useDisclosure, useInputState, usePrevious } from "@mantine/hooks";
 import {
   IconArrowLeft,
   IconCheck,
@@ -29,7 +24,7 @@ import {
   IconFileDelta,
   IconFileDownload,
   IconFolderOpen,
-  IconSearch,
+  IconSearch
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
@@ -75,20 +70,20 @@ function SnapshotDirectory() {
 
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<DirEntry>>({
     columnAccessor: "name",
-    direction: "asc",
+    direction: "asc"
   });
 
   const { error, execute, loading, loadingKey } = useApiRequest({
     action: () => kopiaService.getObjects(oid as string),
     onReturn(resp) {
       setData(resp);
-    },
+    }
   });
 
   const getMountAction = useApiRequest({
     action: (oid?: string) => kopiaService.getMountedSnapshot(oid!),
     onReturn(mnt) {
-      setMount(mnt)
+      setMount(mnt);
     }
   });
 
@@ -119,7 +114,9 @@ function SnapshotDirectory() {
               <IconArrowLeft size={24} />
             </ActionIcon>
             <Stack gap={0}>
-              <Title order={1}><Trans>Snapshot</Trans>: {oid}</Title>
+              <Title order={1}>
+                <Trans>Snapshot</Trans>: {oid}
+              </Title>
               <DirectoryCrumbs />
             </Stack>
           </Group>
@@ -132,12 +129,7 @@ function SnapshotDirectory() {
               value={query}
               onChange={setQuery}
             />
-            <Button
-              size="xs"
-              color="indigo"
-              leftSection={<IconFileDelta size={16} />}
-              onClick={setShow.open}
-            >
+            <Button size="xs" color="indigo" leftSection={<IconFileDelta size={16} />} onClick={setShow.open}>
               <Trans>Restore</Trans>
             </Button>
             {oid && <MountButton mount={mount} rootID={oid} onMounted={(mnt) => setMount(mnt)} />}
@@ -152,27 +144,31 @@ function SnapshotDirectory() {
         </Group>
         <Divider />
         <ErrorAlert error={error} />
-        {mount && <Alert title="Snapshot Mounted" color="grape">
-          <Trans>Snapshot is mounted at the following path</Trans>:
-          <TextInput readOnly defaultValue={mount.path} rightSection={<CopyButton value={mount.path} timeout={2000}>
-            {({ copied, copy }) => (
-              <Tooltip label={copied ? 'Copied' : 'Copy'} withArrow position="right">
-                <ActionIcon color={copied ? 'teal' : 'gray'} variant="subtle" onClick={copy}>
-                  {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
-                </ActionIcon>
-              </Tooltip>
-            )}
-          </CopyButton>} />
-        </Alert>}
+        {mount && (
+          <Alert title="Snapshot Mounted" color="grape">
+            <Trans>Snapshot is mounted at the following path</Trans>:
+            <TextInput
+              readOnly
+              defaultValue={mount.path}
+              rightSection={
+                <CopyButton value={mount.path} timeout={2000}>
+                  {({ copied, copy }) => (
+                    <Tooltip label={copied ? "Copied" : "Copy"} withArrow position="right">
+                      <ActionIcon color={copied ? "teal" : "gray"} variant="subtle" onClick={copy}>
+                        {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                      </ActionIcon>
+                    </Tooltip>
+                  )}
+                </CopyButton>
+              }
+            />
+          </Alert>
+        )}
         <DataGrid
           idAccessor="obj"
           loading={loading && loadingKey === "loading"}
           records={visibleItems}
-          noRecordsText={
-            debouncedQuery !== ""
-              ? t`No entires matching your search`
-              : t`No entries in folder`
-          }
+          noRecordsText={debouncedQuery !== "" ? t`No entires matching your search` : t`No entries in folder`}
           noRecordsIcon={<IconWrapper icon={IconFolderOpen} size={48} />}
           pageSize={tablePageSize}
           columns={[
@@ -183,18 +179,14 @@ function SnapshotDirectory() {
               render: (item) =>
                 item.obj.startsWith("k") ? (
                   <Group gap="5">
-                    <IconWrapper
-                      icon={IconFolderOpen}
-                      color="yellow"
-                      size={18}
-                    />
+                    <IconWrapper icon={IconFolderOpen} color="yellow" size={18} />
                     <Anchor
                       component={Link}
                       to={`/snapshots/dir/${item.obj}`}
                       state={{
                         label: item.name,
                         oid: item.obj,
-                        prevState: location.state,
+                        prevState: location.state
                       }}
                       td="none"
                       fz="sm"
@@ -204,21 +196,17 @@ function SnapshotDirectory() {
                   </Group>
                 ) : (
                   <Group gap="5">
-                    <IconWrapper
-                      icon={getFileIcon(item.name)}
-                      color="blue"
-                      size={18}
-                    />
+                    <IconWrapper icon={getFileIcon(item.name)} color="blue" size={18} />
                     <Text fz="sm">{item.name}</Text>
                   </Group>
-                ),
+                )
             },
             {
               accessor: "mtime",
               sortable: true,
               sortKey: "mtime",
               title: t`Last Modification`,
-              render: (item) => <FormattedDate value={item.mtime} />,
+              render: (item) => <FormattedDate value={item.mtime} />
             },
 
             {
@@ -226,22 +214,19 @@ function SnapshotDirectory() {
               title: t`Size`,
               textAlign: "right",
               render: (item) =>
-                sizeDisplayName(
-                  item.type === "d" ? item.summ?.size || 0 : item.size || 0,
-                  bytesStringBase2
-                ),
+                sizeDisplayName(item.type === "d" ? item.summ?.size || 0 : item.size || 0, bytesStringBase2)
             },
             {
               accessor: "summ.files",
               sortable: true,
               title: t`Files`,
-              textAlign: "center",
+              textAlign: "center"
             },
             {
               accessor: "summ.dirs",
               sortable: true,
               title: t`Dirs`,
-              textAlign: "center",
+              textAlign: "center"
             },
             {
               accessor: "",
@@ -250,8 +235,7 @@ function SnapshotDirectory() {
                 !item.obj.startsWith("k") && (
                   <Button
                     component="a"
-                    href={`/api/v1/objects/${item.obj
-                      }?fname=${encodeURIComponent(item.name)}`}
+                    href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}
                     td="none"
                     size="xs"
                     leftSection={<IconFileDownload size={14} />}
@@ -259,8 +243,8 @@ function SnapshotDirectory() {
                   >
                     <Trans>Download</Trans>
                   </Button>
-                ),
-            },
+                )
+            }
           ]}
           sortStatus={sortStatus}
           onSortStatusChange={setSortStatus}

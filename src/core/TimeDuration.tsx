@@ -8,11 +8,7 @@ type Props = {
   format?: string;
 };
 
-export default function TimeDuration({
-  from,
-  to,
-  format = "H[h] m[m] s[s] SSS[ms]",
-}: Props) {
+export default function TimeDuration({ from, to, format = "H[h] m[m] s[s] SSS[ms]" }: Props) {
   const startDate = dayjs(from);
   const endDate = dayjs(to);
   const durDiff = dayjs.duration(endDate.diff(startDate));

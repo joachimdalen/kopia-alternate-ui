@@ -18,7 +18,7 @@ import {
   TabsList,
   TabsPanel,
   TabsTab,
-  Text,
+  Text
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
@@ -31,7 +31,7 @@ import {
   IconFolderOpen,
   IconSettingsCog,
   IconTestPipe,
-  IconUpload,
+  IconUpload
 } from "@tabler/icons-react";
 import merge from "lodash.merge";
 import { useEffect, useState } from "react";
@@ -68,72 +68,67 @@ type Props = {
 };
 
 function mergePolicy(current: Policy) {
-  return merge({
-    actions: {
-      afterFolder: {},
-      afterSnapshotRoot: {},
-      beforeFolder: {},
-      beforeSnapshotRoot: {},
-    },
-    osSnapshots: {
-      volumeShadowCopy: {},
-    },
-    logging: {
-      directories: {},
-      entries: {},
-    },
-  } satisfies Policy, current);
+  return merge(
+    {
+      actions: {
+        afterFolder: {},
+        afterSnapshotRoot: {},
+        beforeFolder: {},
+        beforeSnapshotRoot: {}
+      },
+      osSnapshots: {
+        volumeShadowCopy: {}
+      },
+      logging: {
+        directories: {},
+        entries: {}
+      }
+    } satisfies Policy,
+    current
+  );
 }
 
-export default function PolicyModal({
-  isNew,
-  target,
-  onCancel,
-  onSubmitted,
-  onDeleted,
-  saveOnSubmit = true,
-}: Props) {
+export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDeleted, saveOnSubmit = true }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const [resolved, setResolved] = useState<ResolvedPolicy>();
-  const isGlobal =
-    target.host === "" && target.userName === "" && target.path === "";
+  const isGlobal = target.host === "" && target.userName === "" && target.path === "";
   const form = useForm<PolicyForm, (values: PolicyForm) => Policy>({
     mode: "controlled",
     initialValues: {},
     transformValues(values) {
       return { ...values };
-    },
+    }
     // validate: yupResolver(schema),
   });
 
   const {
     error: loadError,
     loading: loadingData,
-    execute: executeLoad,
+    execute: executeLoad
   } = useApiRequest({
     action: () => kopiaService.getPolicy(target),
     onReturn: (g) => {
       form.initialize(mergePolicy(g));
       executeResolve(g);
-    },
+    }
   });
 
   const {
     error: resolveError,
     loading: loadingResolve,
-    execute: executeResolve,
+    execute: executeResolve
   } = useApiRequest({
     action: (data?: PolicyForm) =>
       kopiaService.resolvePolicy(target, {
         numUpcomingSnapshotTimes: 5,
-        updates: data!,
+        updates: data!
       }),
     onReturn: (g) => {
       if (isNew) {
         form.initialize(mergePolicy(g.defined));
       }
       setResolved(g);
-    },
+    }
   });
 
   const saveAction = useApiRequest({
@@ -141,7 +136,7 @@ export default function PolicyModal({
     showErrorAsNotification: true,
     onReturn: () => {
       onCancel();
-    },
+    }
   });
 
   useEffect(() => {
@@ -182,14 +177,8 @@ export default function PolicyModal({
       closeOnClickOutside={false}
       size="xl"
     >
-      <form
-        id="update-policy-form"
-        onSubmit={form.onSubmit(submitForm)}
-        className={modalClasses.container}
-      >
-        <LoadingOverlay
-          visible={loadingData || loadingResolve || saveAction.loading}
-        />
+      <form id="update-policy-form" onSubmit={form.onSubmit(submitForm)} className={modalClasses.container}>
+        <LoadingOverlay visible={loadingData || loadingResolve || saveAction.loading} />
         <Stack w="100%">
           <ErrorAlert error={loadError || resolveError} />
           <Tabs
@@ -201,86 +190,41 @@ export default function PolicyModal({
             <TabsList ta="left">
               <TabsTab
                 value="snapshot-retention"
-                leftSection={
-                  <IconWrapper icon={IconCalendarX} size={18} color="teal" />
-                }
+                leftSection={<IconWrapper icon={IconCalendarX} size={18} color="teal" />}
               >
                 <Trans>Snapshot Retention</Trans>
               </TabsTab>
-              <TabsTab
-                value="files"
-                leftSection={
-                  <IconWrapper icon={IconFolderOpen} size={18} color="yellow" />
-                }
-              >
+              <TabsTab value="files" leftSection={<IconWrapper icon={IconFolderOpen} size={18} color="yellow" />}>
                 <Trans>Files</Trans>
               </TabsTab>
               <TabsTab
                 value="error-handling"
-                leftSection={
-                  <IconWrapper icon={IconAlertTriangle} size={18} color="red" />
-                }
+                leftSection={<IconWrapper icon={IconAlertTriangle} size={18} color="red" />}
               >
                 <Trans>Error Handling</Trans>
               </TabsTab>
-              <TabsTab
-                value="compression"
-                leftSection={
-                  <IconWrapper icon={IconFileZip} size={18} color="grape" />
-                }
-              >
+              <TabsTab value="compression" leftSection={<IconWrapper icon={IconFileZip} size={18} color="grape" />}>
                 <Trans>Compression</Trans>
               </TabsTab>
-              <TabsTab
-                value="scheduling"
-                leftSection={
-                  <IconWrapper icon={IconClock} size={18} color="green" />
-                }
-              >
+              <TabsTab value="scheduling" leftSection={<IconWrapper icon={IconClock} size={18} color="green" />}>
                 <Trans>Scheduling</Trans>
               </TabsTab>
-              <TabsTab
-                value="upload"
-                leftSection={
-                  <IconWrapper icon={IconUpload} size={18} color="blue" />
-                }
-              >
+              <TabsTab value="upload" leftSection={<IconWrapper icon={IconUpload} size={18} color="blue" />}>
                 <Trans>Upload</Trans>
               </TabsTab>
               <TabsTab
                 value="snapshot-actions"
-                leftSection={
-                  <IconWrapper
-                    icon={IconSettingsCog}
-                    size={18}
-                    color="indigo"
-                  />
-                }
+                leftSection={<IconWrapper icon={IconSettingsCog} size={18} color="indigo" />}
               >
                 <Trans>Snapshot Actions</Trans>
               </TabsTab>
-              <TabsTab
-                value="folder-actions"
-                leftSection={
-                  <IconWrapper icon={IconFolderCog} size={18} color="pink" />
-                }
-              >
+              <TabsTab value="folder-actions" leftSection={<IconWrapper icon={IconFolderCog} size={18} color="pink" />}>
                 <Trans>Folder Actions</Trans>
               </TabsTab>
-              <TabsTab
-                value="logging"
-                leftSection={
-                  <IconWrapper icon={IconFileText} size={18} color="violet" />
-                }
-              >
+              <TabsTab value="logging" leftSection={<IconWrapper icon={IconFileText} size={18} color="violet" />}>
                 <Trans>Logging</Trans>
               </TabsTab>
-              <TabsTab
-                value="other"
-                leftSection={
-                  <IconWrapper icon={IconTestPipe} size={18} color="lime" />
-                }
-              >
+              <TabsTab value="other" leftSection={<IconWrapper icon={IconTestPipe} size={18} color="lime" />}>
                 <Trans>Other</Trans>
               </TabsTab>
             </TabsList>
@@ -347,9 +291,7 @@ export default function PolicyModal({
                     description={t`Do NOT save a snapshot when no files have been changed`}
                     form={form}
                     formKey="retention.ignoreIdenticalSnapshots"
-                    effective={
-                      resolvedValue?.retention?.ignoreIdenticalSnapshots
-                    }
+                    effective={resolvedValue?.retention?.ignoreIdenticalSnapshots}
                   />
                 </Accordion>
               </ScrollAreaAutosize>
@@ -367,11 +309,7 @@ export default function PolicyModal({
                     infoNode={
                       <Text fz="xs">
                         See{" "}
-                        <Anchor
-                          fz="xs"
-                          href="https://kopia.io/docs/advanced/kopiaignore/"
-                          target="_blank"
-                        >
+                        <Anchor fz="xs" href="https://kopia.io/docs/advanced/kopiaignore/" target="_blank">
                           documentation on ignoring files.
                         </Anchor>
                       </Text>
@@ -382,7 +320,7 @@ export default function PolicyModal({
                       label={t`Ignore Rules From Parent Directories`}
                       description={t`When set, ignore rules from the parent directory are ignored`}
                       {...form.getInputProps("files.noParentIgnore", {
-                        type: "checkbox",
+                        type: "checkbox"
                       })}
                     />
                   </PolicyTextListInput>
@@ -438,9 +376,7 @@ export default function PolicyModal({
                     description={t`Treat directory read errors as non-fatal`}
                     form={form}
                     formKey="errorHandling.ignoreDirectoryErrors"
-                    effective={
-                      resolvedValue?.errorHandling?.ignoreDirectoryErrors
-                    }
+                    effective={resolvedValue?.errorHandling?.ignoreDirectoryErrors}
                   />
                   <PolicyInheritYesNoPolicyInput
                     id="ignore-file-errors"
@@ -529,7 +465,7 @@ export default function PolicyModal({
                       { label: t`Every hour`, value: "3600" },
                       { label: t`Every 3 hours`, value: "10800" },
                       { label: t`Every 6 hours`, value: "21600" },
-                      { label: t`Every 12 hours`, value: "43200" },
+                      { label: t`Every 12 hours`, value: "43200" }
                     ]}
                     form={form}
                     formKey="scheduling.intervalSeconds"
@@ -554,11 +490,7 @@ export default function PolicyModal({
                     infoNode={
                       <Text fz="xs">
                         See{" "}
-                        <Anchor
-                          fz="xs"
-                          href="https://github.com/hashicorp/cronexpr#implementation"
-                          target="_blank"
-                        >
+                        <Anchor fz="xs" href="https://github.com/hashicorp/cronexpr#implementation" target="_blank">
                           supported format details.
                         </Anchor>
                       </Text>
@@ -595,8 +527,12 @@ export default function PolicyModal({
                         <Table fz="xs" withTableBorder striped>
                           <Table.Thead>
                             <Table.Tr>
-                              <Table.Th><Trans>Timestamp</Trans></Table.Th>
-                              <Table.Th><Trans>From now</Trans></Table.Th>
+                              <Table.Th>
+                                <Trans>Timestamp</Trans>
+                              </Table.Th>
+                              <Table.Th>
+                                <Trans>From now</Trans>
+                              </Table.Th>
                             </Table.Tr>
                           </Table.Thead>
                           <Table.Tbody>
@@ -604,9 +540,7 @@ export default function PolicyModal({
                               return (
                                 <Table.Tr key={t}>
                                   <Table.Td>
-                                    <FormattedDate
-                                      value={t}
-                                    />
+                                    <FormattedDate value={t} />
                                   </Table.Td>
                                   <Table.Td>
                                     <RelativeDate value={t} />
@@ -655,9 +589,7 @@ export default function PolicyModal({
                     description={t`Script to run before snapshot`}
                     form={form}
                     formKey="actions.beforeSnapshotRoot.script"
-                    effective={
-                      resolvedValue?.actions?.beforeSnapshotRoot?.script
-                    }
+                    effective={resolvedValue?.actions?.beforeSnapshotRoot?.script}
                   />
                   <PolicyNumberInput
                     id="before-timeout"
@@ -665,9 +597,7 @@ export default function PolicyModal({
                     description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.beforeSnapshotRoot.timeout"
-                    effective={
-                      resolvedValue?.actions?.beforeSnapshotRoot?.timeout
-                    }
+                    effective={resolvedValue?.actions?.beforeSnapshotRoot?.timeout}
                   />
                   <PolicySelect
                     id="before-command-mode"
@@ -678,8 +608,8 @@ export default function PolicyModal({
                       { label: t`Ignore failures`, value: "optional" },
                       {
                         label: t`Run asynchronously, ignore failures`,
-                        value: "async",
-                      },
+                        value: "async"
+                      }
                     ]}
                     form={form}
                     formKey="actions.beforeSnapshotRoot.mode"
@@ -690,9 +620,7 @@ export default function PolicyModal({
                     description={t`Script to run after snapshot`}
                     form={form}
                     formKey="actions.afterSnapshotRoot.script"
-                    effective={
-                      resolvedValue?.actions?.afterSnapshotRoot?.script
-                    }
+                    effective={resolvedValue?.actions?.afterSnapshotRoot?.script}
                   />
                   <PolicyNumberInput
                     id="after-timeout"
@@ -700,9 +628,7 @@ export default function PolicyModal({
                     description={t`Timeout in seconds before Kopia kills the process`}
                     form={form}
                     formKey="actions.afterSnapshotRoot.timeout"
-                    effective={
-                      resolvedValue?.actions?.afterSnapshotRoot?.timeout
-                    }
+                    effective={resolvedValue?.actions?.afterSnapshotRoot?.timeout}
                   />
                   <PolicySelect
                     id="after-command-mode"
@@ -713,8 +639,8 @@ export default function PolicyModal({
                       { label: t`Ignore failures`, value: "optional" },
                       {
                         label: t`Run asynchronously, ignore failures`,
-                        value: "async",
-                      },
+                        value: "async"
+                      }
                     ]}
                     form={form}
                     formKey="actions.afterSnapshotRoot.mode"
@@ -750,8 +676,8 @@ export default function PolicyModal({
                       { label: t`Ignore failures`, value: "optional" },
                       {
                         label: t`Run asynchronously, ignore failures`,
-                        value: "async",
-                      },
+                        value: "async"
+                      }
                     ]}
                     form={form}
                     formKey="actions.beforeFolder.mode"
@@ -781,8 +707,8 @@ export default function PolicyModal({
                       { label: t`Ignore failures`, value: "optional" },
                       {
                         label: t`Run asynchronously, ignore failures`,
-                        value: "async",
-                      },
+                        value: "async"
+                      }
                     ]}
                     form={form}
                     formKey="actions.afterFolder.mode"
@@ -857,7 +783,7 @@ export default function PolicyModal({
                       <Switch
                         label={t`Disable Parent Policy`}
                         {...form.getInputProps("noParent", {
-                          type: "checkbox",
+                          type: "checkbox"
                         })}
                       />
                     </AccordionPanel>
@@ -869,10 +795,7 @@ export default function PolicyModal({
                       isConfigured={true}
                     />
                     <AccordionPanel>
-                      <JsonInput
-                        rows={10}
-                        value={JSON.stringify(form.values, null, 2)}
-                      />
+                      <JsonInput rows={10} value={JSON.stringify(form.values, null, 2)} />
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
@@ -883,26 +806,12 @@ export default function PolicyModal({
       </form>
 
       <Group className={modalClasses.footer}>
-        <Button
-          size="xs"
-          color="gray"
-          variant="subtle"
-          onClick={onCancel}
-          disabled={false}
-        >
+        <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={false}>
           <Trans>Cancel</Trans>
         </Button>
         <Group>
-          {!isNew && !isGlobal && onDeleted && (
-            <DeletePolicyButton sourceInfo={target} onDeleted={onDeleted} />
-          )}
-          <Button
-            size="xs"
-            type="submit"
-            form="update-policy-form"
-            loading={false}
-            disabled={!form.isValid()}
-          >
+          {!isNew && !isGlobal && onDeleted && <DeletePolicyButton sourceInfo={target} onDeleted={onDeleted} />}
+          <Button size="xs" type="submit" form="update-policy-form" loading={false} disabled={!form.isValid()}>
             <Trans>Save</Trans>
           </Button>
         </Group>

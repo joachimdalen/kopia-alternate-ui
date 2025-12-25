@@ -9,23 +9,13 @@ type Props = {
   iconSize?: number;
   size?: MantineSize;
 } & Pick<MantineStyleProps, "my" | "mx" | "mt" | "mb">;
-export function ErrorAlert({
-  error,
-  iconSize = 40,
-  size = "sm",
-  ...rest
-}: Props) {
+export function ErrorAlert({ error, iconSize = 40, size = "sm", ...rest }: Props) {
   if (error === null || error === undefined) {
     return null;
   }
 
   return (
-    <Alert
-      variant="light"
-      color="red"
-      bd="2px solid var(--mantine-color-red-5)"
-      {...rest}
-    >
+    <Alert variant="light" color="red" bd="2px solid var(--mantine-color-red-5)" {...rest}>
       <Group wrap="nowrap">
         <IconWrapper icon={IconAlertTriangle} color="red" size={iconSize} />
         <Stack gap="xs">
