@@ -49,6 +49,10 @@ msgstr "# av månedlige øyeblikksbilder"
 msgid "# of weekly snapshots"
 msgstr "# av ukentlige øyeblikksbilder"
 
+#: src/preferences/NotificationsSection.tsx:52
+msgid "A test notification was send using the defined profile"
+msgstr "En test notifikasjon ble sent med den valgte konfigurasjonen"
+
 #: src/repo/sections/AzureBlobStorageRepo.tsx:46
 msgid "Access Key"
 msgstr "Tilgangsnøkkel"
@@ -303,7 +307,7 @@ msgstr "Opprett nytt oppbevaringssted"
 msgid "Create email notification"
 msgstr "Opprett epost notifikasjon"
 
-#: src/preferences/NotificationsSection.tsx:54
+#: src/preferences/NotificationsSection.tsx:70
 msgid "Create new"
 msgstr "Opprett ny"
 
@@ -520,7 +524,7 @@ msgstr "Rediger pushover notifikasjon"
 msgid "Effective"
 msgstr "Effektiv"
 
-#: src/preferences/NotificationsSection.tsx:68
+#: src/preferences/NotificationsSection.tsx:84
 msgid "Email"
 msgstr "E-post"
 
@@ -1173,7 +1177,7 @@ msgstr "Ingen oppføringer i mappen"
 msgid "No headers defined"
 msgstr "Ingen headers definert"
 
-#: src/preferences/NotificationsSection.tsx:86
+#: src/preferences/NotificationsSection.tsx:102
 msgid "No notifications defined"
 msgstr "Ingen notifikasjoner opprettet"
 
@@ -1374,7 +1378,7 @@ msgstr "Forhindrer at overordnede strategier påvirker denne katalogen og dens u
 msgid "Provider"
 msgstr "Tilbyder"
 
-#: src/preferences/NotificationsSection.tsx:74
+#: src/preferences/NotificationsSection.tsx:90
 msgid "Pushover"
 msgstr "Pushover"
 
@@ -1746,6 +1750,10 @@ msgstr "Oppgave ID"
 msgid "Tasks"
 msgstr "Oppgaver"
 
+#: src/preferences/NotificationsSection.tsx:51
+msgid "Test notification sent"
+msgstr "Test notifikasjon sendt"
+
 #: src/repo/RepoPage.tsx:35
 msgid "The repository description was successfully updated"
 msgstr "Beskrivelsen av oppbevaringsstedet ble oppdatert"
@@ -1920,7 +1928,7 @@ msgstr "WebDAV Server"
 msgid "WebDAV Server URL"
 msgstr "WebDAV Server URL"
 
-#: src/preferences/NotificationsSection.tsx:62
+#: src/preferences/NotificationsSection.tsx:78
 msgid "Webhook"
 msgstr "Webhook"
 

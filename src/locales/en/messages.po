@@ -49,6 +49,10 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
+#: src/preferences/NotificationsSection.tsx:52
+msgid "A test notification was send using the defined profile"
+msgstr "A test notification was send using the defined profile"
+
 #: src/repo/sections/AzureBlobStorageRepo.tsx:46
 msgid "Access Key"
 msgstr "Access Key"
@@ -303,7 +307,7 @@ msgstr "Create a new repository"
 msgid "Create email notification"
 msgstr "Create email notification"
 
-#: src/preferences/NotificationsSection.tsx:54
+#: src/preferences/NotificationsSection.tsx:70
 msgid "Create new"
 msgstr "Create new"
 
@@ -520,7 +524,7 @@ msgstr "Edit pushover notification"
 msgid "Effective"
 msgstr "Effective"
 
-#: src/preferences/NotificationsSection.tsx:68
+#: src/preferences/NotificationsSection.tsx:84
 msgid "Email"
 msgstr "Email"
 
@@ -1173,7 +1177,7 @@ msgstr "No entries in folder"
 msgid "No headers defined"
 msgstr "No headers defined"
 
-#: src/preferences/NotificationsSection.tsx:86
+#: src/preferences/NotificationsSection.tsx:102
 msgid "No notifications defined"
 msgstr "No notifications defined"
 
@@ -1374,7 +1378,7 @@ msgstr "Prevents any parent policies from affecting this directory and its subdi
 msgid "Provider"
 msgstr "Provider"
 
-#: src/preferences/NotificationsSection.tsx:74
+#: src/preferences/NotificationsSection.tsx:90
 msgid "Pushover"
 msgstr "Pushover"
 
@@ -1746,6 +1750,10 @@ msgstr "Task ID"
 msgid "Tasks"
 msgstr "Tasks"
 
+#: src/preferences/NotificationsSection.tsx:51
+msgid "Test notification sent"
+msgstr "Test notification sent"
+
 #: src/repo/RepoPage.tsx:35
 msgid "The repository description was successfully updated"
 msgstr "The repository description was successfully updated"
@@ -1920,7 +1928,7 @@ msgstr "WebDAV Server"
 msgid "WebDAV Server URL"
 msgstr "WebDAV Server URL"
 
-#: src/preferences/NotificationsSection.tsx:62
+#: src/preferences/NotificationsSection.tsx:78
 msgid "Webhook"
 msgstr "Webhook"
 
