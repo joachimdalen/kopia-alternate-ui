@@ -26,7 +26,13 @@
 
 I wanted a cleaner and easier to use UI for Kopia than the offical one. There are also some features I want to implement that is not in the official UI, such as multi server interaction, improved statistics and more.
 
-If this project helped you or you are interested in using it, please consider giving it a ⭐️! It's the only way I will be able to see the usage of this tool and how much time should be spent improving/finishing it.
+>If this project helped you or you are interested in using it, please consider giving it a ⭐️! It's the only way I will be able to see the usage of this tool and how much time should be spent improving/finishing it.
+
+## Features
+
+- 🎨 Clean UI
+- 🇳🇴 Localized (Currently supports English and Norwegain)
+- 🖥️ Multi repository server support
 
 ## Getting Started
 
