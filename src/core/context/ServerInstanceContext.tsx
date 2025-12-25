@@ -1,5 +1,6 @@
 import { LoadingOverlay } from "@mantine/core";
 import { useSessionStorage } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 import {
   createContext,
   useCallback,
@@ -60,6 +61,7 @@ export function ServerInstanceContextProvider({
       kopiaInstance.login(auth!.username, auth!.password),
     onReturn(_, req) {
       setLoginRequired(false);
+      notifications.clean();
       if (req) {
         setLoginInfo({
           ...loginInfo,
