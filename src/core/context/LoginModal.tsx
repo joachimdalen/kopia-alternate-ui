@@ -4,11 +4,12 @@ import { Button, Group, Modal, PasswordInput, Stack, TextInput } from "@mantine/
 import { useForm } from "@mantine/form";
 import { yupResolver } from "mantine-form-yup-resolver";
 import * as Yup from "yup";
-import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+import modalClasses from "../../styles/modals.module.css";
 import { ErrorAlert } from "../ErrorAlert/ErrorAlert";
 import type { ErrorInformation } from "../hooks/useApiRequest";
 import type { Instance } from "../uiService";
+
 type Props = {
   error?: ErrorInformation;
   onLogin: (username: string, password: string) => void;

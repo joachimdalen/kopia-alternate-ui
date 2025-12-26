@@ -1,5 +1,3 @@
-"use client";
-
 import { t } from "@lingui/core/macro";
 import type { DataTableColumn, DataTableSortStatus } from "mantine-datatable";
 import { DataTable } from "mantine-datatable";

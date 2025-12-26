@@ -1,9 +1,9 @@
-import { Group, Loader, Text, Tooltip } from "@mantine/core";
-import type { Task } from "../../core/types";
-
 import { Trans } from "@lingui/react/macro";
+import { Group, Loader, Text, Tooltip } from "@mantine/core";
 import { IconBan, IconCircleCheckFilled, IconCircleXFilled } from "@tabler/icons-react";
 import TimeDuration from "../../core/TimeDuration";
+import type { Task } from "../../core/types";
+
 type Props = {
   task: Task;
 };

@@ -12,8 +12,8 @@ import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import { type CreateSnapshotRequest, type Policy, type SourceInfo } from "../../core/types";
 import PolicyModal from "../../policies/modals/PolicyModal/PolicyModal";
-import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+import modalClasses from "../../styles/modals.module.css";
 import TaskEstimationModal from "./TaskEstimationModal";
 
 type Props = {

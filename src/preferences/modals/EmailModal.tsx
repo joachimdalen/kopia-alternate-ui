@@ -22,8 +22,9 @@ import { useServerInstanceContext } from "../../core/context/ServerInstanceConte
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import type { EmailNotification, NotificationProfile } from "../../core/types";
-import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+import modalClasses from "../../styles/modals.module.css";
+
 type Props = {
   profile?: NotificationProfile;
   onCancel: () => void;

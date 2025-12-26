@@ -9,8 +9,8 @@ import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import { useInterval } from "../../core/hooks/useInterval";
 import { type EstimateSnapshotRequest, type Policy, type SourceInfo, type Task } from "../../core/types";
-import modalClasses from "../../styles/modals.module.css";
 import modalBaseStyles from "../../styles/modalStyles";
+import modalClasses from "../../styles/modals.module.css";
 import TaskCounterGrid from "../../tasks/components/TaskCounterGrid";
 import TaskStatusDisplay from "../../tasks/components/TaskStatusDisplay";
 

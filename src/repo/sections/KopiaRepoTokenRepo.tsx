@@ -5,6 +5,7 @@ import type { UseFormReturnType } from "@mantine/form";
 import { IconAsterisk } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 import type { KopiaRepoTokenRepoConfig, RepoConfigurationForm } from "../types";
+
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<KopiaRepoTokenRepoConfig>>;
 };

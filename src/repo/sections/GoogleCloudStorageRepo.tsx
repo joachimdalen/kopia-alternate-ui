@@ -5,6 +5,7 @@ import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandGoogleDrive } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 import type { GoogleCloudStorageRepoConfig, RepoConfigurationForm } from "../types";
+
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<GoogleCloudStorageRepoConfig>>;
 };

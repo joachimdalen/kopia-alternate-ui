@@ -5,10 +5,10 @@ import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Footer } from "./core/Footer/Footer";
-import { Header } from "./core/Header/Header";
 import { AppContextProvider } from "./core/context/AppContext";
 import { ServerInstanceContextProvider } from "./core/context/ServerInstanceContext";
+import { Footer } from "./core/Footer/Footer";
+import { Header } from "./core/Header/Header";
 import { dynamicActivate } from "./i18n";
 
 function BaseLayout() {

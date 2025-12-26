@@ -1,5 +1,5 @@
 import { t } from "@lingui/core/macro";
-import { AccordionItem, AccordionPanel, Group, Select, type ComboboxData } from "@mantine/core";
+import { AccordionItem, AccordionPanel, type ComboboxData, Group, Select } from "@mantine/core";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
 

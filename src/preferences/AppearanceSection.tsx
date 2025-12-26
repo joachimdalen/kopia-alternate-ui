@@ -10,6 +10,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import type { Preferences } from "../core/types";
 import { parseColorScheme } from "../utils/parseColorScheme";
 import supportedLocales from "./locales";
+
 type PreferencesForm = {
   bytesStringBase2: string;
   theme: string;

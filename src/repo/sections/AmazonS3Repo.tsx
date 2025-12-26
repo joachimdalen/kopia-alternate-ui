@@ -5,6 +5,7 @@ import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAmazon } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
 import type { AmazonS3RepoConfig, RepoConfigurationForm } from "../types";
+
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<AmazonS3RepoConfig>>;
 };

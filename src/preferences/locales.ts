@@ -1,4 +1,5 @@
-import { NO, US, type FlagComponent } from "country-flag-icons/react/3x2";
+import { type FlagComponent, NO, US } from "country-flag-icons/react/3x2";
+
 const supportedLocales: Record<string, { name: string; cc: string; flag: FlagComponent }> = {
   en: {
     name: "English",

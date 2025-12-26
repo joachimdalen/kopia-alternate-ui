@@ -29,6 +29,7 @@ import type {
   TaskList,
   TasksSummary
 } from "./types";
+
 type QueryParams = { [key: string]: string | boolean | number };
 export type KopiaAuth = {
   username: string;

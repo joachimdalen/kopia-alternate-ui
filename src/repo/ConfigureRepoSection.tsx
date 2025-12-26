@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Button, Card, Container, Group, Paper, SimpleGrid, Stepper, Text, UnstyledButton } from "@mantine/core";
-import { useForm, type UseFormReturnType } from "@mantine/form";
+import { type UseFormReturnType, useForm } from "@mantine/form";
 import { useState } from "react";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";

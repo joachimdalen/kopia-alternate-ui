@@ -17,8 +17,8 @@ import {
   IconFileTypeXls,
   IconFileTypeXml,
   IconFileTypeZip,
-  IconMarkdown,
-  type IconHome
+  type IconHome,
+  IconMarkdown
 } from "@tabler/icons-react";
 
 export const fileIcons: Record<string, typeof IconHome> = {

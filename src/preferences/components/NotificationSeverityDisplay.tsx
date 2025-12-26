@@ -1,5 +1,4 @@
 import { Group, Text } from "@mantine/core";
-
 import {
   IconAlertTriangle,
   IconCircleCheckFilled,
@@ -8,6 +7,7 @@ import {
   IconSearch
 } from "@tabler/icons-react";
 import IconWrapper from "../../core/IconWrapper";
+
 type Props = {
   severity: number;
 };

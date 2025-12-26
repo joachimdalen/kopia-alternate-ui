@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, NumberInput } from "@mantine/core";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
+
 type Props = {
   id: string;
   title: string;

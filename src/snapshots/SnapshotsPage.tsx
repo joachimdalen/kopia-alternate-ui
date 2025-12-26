@@ -26,7 +26,7 @@ import { useInterval } from "../core/hooks/useInterval";
 import IconWrapper from "../core/IconWrapper";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
-import type { SourceInfo, Sources, SourceStatus } from "../core/types";
+import type { SourceInfo, SourceStatus, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
 import { onlyUnique } from "../utils/onlyUnique";
