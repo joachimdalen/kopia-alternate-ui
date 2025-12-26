@@ -57,7 +57,7 @@ msgstr "En test notifikasjon ble sent med den valgte konfigurasjonen"
 msgid "Access Key"
 msgstr "Tilgangsnøkkel"
 
-#: src/repo/sections/AmazonS3Repo.tsx:65
+#: src/repo/sections/AmazonS3Repo.tsx:66
 msgid "Access Key ID"
 msgstr "Tilgangsnøkkel ID"
 
@@ -67,8 +67,8 @@ msgstr "Aktiv"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:97
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:109
-#: src/preferences/modals/EmailModal.tsx:267
-#: src/preferences/modals/EmailModal.tsx:290
+#: src/preferences/modals/EmailModal.tsx:268
+#: src/preferences/modals/EmailModal.tsx:291
 #: src/preferences/modals/WebhookModal.tsx:219
 msgid "Add"
 msgstr "Legg til"
@@ -103,7 +103,7 @@ msgstr "Alle strategier"
 msgid "All Snapshots"
 msgstr "Alle øyeblikksbilder"
 
-#: src/repo/sections/AmazonS3Repo.tsx:18
+#: src/repo/sections/AmazonS3Repo.tsx:19
 msgid "Amazon S3 or Compatible Storage"
 msgstr "Amazon S3 eller kompatibel lagring"
 
@@ -153,13 +153,13 @@ msgstr "Før Mappe"
 msgid "Before Snapshot"
 msgstr "Før Øyeblikksbilde"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:277
+#: src/snapshot-directory/modals/RestoreModal.tsx:278
 msgid "Begin Restore"
 msgstr "Start gjenoppretting"
 
-#: src/repo/sections/AmazonS3Repo.tsx:25
+#: src/repo/sections/AmazonS3Repo.tsx:26
 #: src/repo/sections/BackblazeB2Repo.tsx:26
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:25
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
 msgid "Bucket"
 msgstr "Bøtte"
 
@@ -167,7 +167,7 @@ msgstr "Bøtte"
 msgid "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 msgstr "Som standard kobler Kopia seg til serveren ved hjelp av en intern SSH-klient som støtter begrensede alternativer. Alternativt kan den starte en ekstern passordløs SSH-kommando, som støtter flere alternativer, men er generelt mindre effektiv enn den innebygde klienten."
 
-#: src/preferences/AppearanceSection.tsx:96
+#: src/preferences/AppearanceSection.tsx:97
 msgid "Byte representation"
 msgstr "Byte representasjon"
 
@@ -183,13 +183,13 @@ msgstr "Hurtigbufferbom"
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:229
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
-#: src/preferences/modals/EmailModal.tsx:299
+#: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
 #: src/preferences/modals/WebhookModal.tsx:228
 #: src/repo/RepoPage.tsx:56
-#: src/snapshot-directory/modals/RestoreModal.tsx:274
+#: src/snapshot-directory/modals/RestoreModal.tsx:275
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:78
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:82
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:83
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
 #: src/snapshots/modals/NewSnapshotModal.tsx:134
 #: src/snapshots/modals/TaskEstimationModal.tsx:113
@@ -288,12 +288,12 @@ msgstr "Koblet til"
 msgid "Container"
 msgstr "Container"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:175
+#: src/snapshot-directory/modals/RestoreModal.tsx:176
 msgid "Continue on Errors"
 msgstr "Fortsett ved feil"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:129
-#: src/preferences/modals/EmailModal.tsx:302
+#: src/preferences/modals/EmailModal.tsx:303
 #: src/preferences/modals/PushoverModal.tsx:155
 #: src/preferences/modals/WebhookModal.tsx:231
 msgid "Create"
@@ -303,7 +303,7 @@ msgstr "Opprett"
 msgid "Create a new repository"
 msgstr "Opprett nytt oppbevaringssted"
 
-#: src/preferences/modals/EmailModal.tsx:178
+#: src/preferences/modals/EmailModal.tsx:179
 msgid "Create email notification"
 msgstr "Opprett epost notifikasjon"
 
@@ -328,11 +328,11 @@ msgstr "Opprett oppbevaringssted"
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Lag øyeblikksbilder på de angitte tidspunktene på dagen (24-timers format)"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:37
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
 msgid "Credentials File"
 msgstr "Legitimasjonsfil"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:42
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
 msgid "Credentials JSON"
 msgstr "Legitimasjons-JSON"
 
@@ -344,18 +344,18 @@ msgstr "Cron-uttrykk"
 msgid "Daily"
 msgstr "Daglig"
 
-#: src/preferences/AppearanceSection.tsx:89
+#: src/preferences/AppearanceSection.tsx:90
 msgid "Dark"
 msgstr "Mørkt"
 
-#: src/preferences/AppearanceSection.tsx:111
+#: src/preferences/AppearanceSection.tsx:112
 msgid "Default page size"
 msgstr "Standard side størrelse"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:65
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:24
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:21
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:35
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:25
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:22
@@ -374,7 +374,7 @@ msgstr "Definert i global strategi"
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:82
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:87
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:88
 msgid "Delete"
 msgstr "Slett"
 
@@ -402,7 +402,7 @@ msgstr "Beskrivelse"
 msgid "Description updated"
 msgstr "Beskrivelse oppdatert"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:154
+#: src/snapshot-directory/modals/RestoreModal.tsx:155
 msgid "Destination"
 msgstr "Destinasjon"
 
@@ -410,7 +410,7 @@ msgstr "Destinasjon"
 msgid "Directory Ignored"
 msgstr "Mappe ignorert"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:198
+#: src/snapshot-directory/modals/RestoreModal.tsx:199
 msgid "Directory Options"
 msgstr "Mappealternativer"
 
@@ -439,7 +439,7 @@ msgstr "Deaktiver overordnet strategi"
 msgid "Disable Parent Policy Evaluation"
 msgstr "Deaktiver overordnet strategi evaluering"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:262
+#: src/snapshot-directory/modals/RestoreModal.tsx:263
 msgid "Disable ZIP compression"
 msgstr "Deaktiver ZIP kompresjon"
 
@@ -457,7 +457,7 @@ msgstr "Koble fra"
 msgid "Disconnect repository?"
 msgstr "Koble fra oppbevaringsstedet?"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:263
+#: src/snapshot-directory/modals/RestoreModal.tsx:264
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Ikke komprimer når du gjenoppretter til en ZIP-fil (raskere)."
 
@@ -469,7 +469,7 @@ msgstr "Ikke kryss filsystemgrenser når du lager et øyeblikksbilde"
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr "IKKE lagre et øyeblikksbilde når ingen filer er endret"
 
-#: src/repo/sections/AmazonS3Repo.tsx:45
+#: src/repo/sections/AmazonS3Repo.tsx:46
 msgid "Do not verify TLS certificate"
 msgstr "Ikke bekreft TLS-sertifikatet"
 
@@ -495,7 +495,7 @@ msgstr "Varighet"
 msgid "Edit"
 msgstr "Rediger"
 
-#: src/preferences/modals/EmailModal.tsx:178
+#: src/preferences/modals/EmailModal.tsx:179
 msgid "Edit email notification"
 msgstr "Rediger e-post notifikasjon"
 
@@ -515,7 +515,7 @@ msgstr "Rediger pushover notifikasjon"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:76
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:30
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:46
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:23
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:44
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:34
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:23
@@ -544,7 +544,7 @@ msgstr "Endepunkt"
 msgid "Enter <name-of-rclone-remote>:<path>"
 msgstr "Skriv inn <name-of-rclone-remote>:<path>"
 
-#: src/repo/sections/AmazonS3Repo.tsx:66
+#: src/repo/sections/AmazonS3Repo.tsx:67
 msgid "Enter access key ID"
 msgstr "Skriv inn tilgangs nøkkel ID"
 
@@ -556,9 +556,9 @@ msgstr "Skriv inn applikasjons eller konto nøkkel"
 msgid "Enter application or account key ID"
 msgstr "Skriv inn applikasjons eller konto nøkkel ID"
 
-#: src/repo/sections/AmazonS3Repo.tsx:26
+#: src/repo/sections/AmazonS3Repo.tsx:27
 #: src/repo/sections/BackblazeB2Repo.tsx:27
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:27
 msgid "Enter bucket name"
 msgstr "Skriv inn bøtte navn"
 
@@ -570,14 +570,14 @@ msgstr "Skriv inn container name"
 msgid "Enter directory path where you want to store repository files"
 msgstr "Skriv inn katalogstien der du vil lagre filene"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:39
 msgid "Enter name of credentials JSON file"
 msgstr "Skriv inn navnet på JSON-filen med påloggingsinformasjon"
 
-#: src/repo/sections/AmazonS3Repo.tsx:59
+#: src/repo/sections/AmazonS3Repo.tsx:60
 #: src/repo/sections/AzureBlobStorageRepo.tsx:42
 #: src/repo/sections/BackblazeB2Repo.tsx:33
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:33
 msgid "Enter object name prefix (optional)"
 msgstr "Skriv inn prefiks for objektnavn (valgfritt)"
 
@@ -614,7 +614,7 @@ msgstr "Skriv inn passordet for oppbevaringsstedet"
 msgid "Enter repository password again"
 msgstr "Skriv inn passordet for oppbevaringsstedet på nytt"
 
-#: src/repo/sections/AmazonS3Repo.tsx:72
+#: src/repo/sections/AmazonS3Repo.tsx:73
 #: src/repo/sections/AzureBlobStorageRepo.tsx:47
 msgid "Enter secret access key"
 msgstr "Skriv inn hemmelig tilgangsnøkkel"
@@ -623,7 +623,7 @@ msgstr "Skriv inn hemmelig tilgangsnøkkel"
 msgid "Enter secret SAS token"
 msgstr "Skriv inn hemmelig SAS-token"
 
-#: src/repo/sections/AmazonS3Repo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:33
 msgid "Enter server address (e.g., s3.amazonaws.com)"
 msgstr "Skriv inn serveradressen (f.eks. s3.amazonaws.com)"
 
@@ -631,11 +631,11 @@ msgstr "Skriv inn serveradressen (f.eks. s3.amazonaws.com)"
 msgid "Enter server URL (https://<host>:port)"
 msgstr "Skriv inn server-URL (https://<vert>:port)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:79
+#: src/repo/sections/AmazonS3Repo.tsx:80
 msgid "Enter session token (optional)"
 msgstr "Skriv inn økttoken (valgfritt)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:54
+#: src/repo/sections/AmazonS3Repo.tsx:55
 msgid "Enter specific region (e.g., us-west-1) or leave empty"
 msgstr "Skriv inn en spesifikk region (f.eks. us-west-1) eller la feltet stå tomt"
 
@@ -764,7 +764,7 @@ msgstr "Mappehandlinger"
 msgid "From now"
 msgstr "Fra nå"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:167
+#: src/snapshot-directory/modals/RestoreModal.tsx:168
 msgid "General Options"
 msgstr "Generelle alternativer"
 
@@ -772,7 +772,7 @@ msgstr "Generelle alternativer"
 msgid "Global Policy"
 msgstr "Global strategi"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:18
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:19
 msgid "Google Cloud Storage"
 msgstr "Google Cloud Lagring"
 
@@ -822,7 +822,7 @@ msgstr "Hvor mange månedlige øyeblikksbilder som skal beholdes per kilde. Det 
 msgid "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 msgstr "Hvor mange ukentlige øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hver uke vil bli beholdt."
 
-#: src/preferences/modals/EmailModal.tsx:241
+#: src/preferences/modals/EmailModal.tsx:242
 #: src/preferences/modals/PushoverModal.tsx:140
 #: src/preferences/modals/WebhookModal.tsx:190
 msgid "HTML Format"
@@ -954,7 +954,7 @@ msgstr "La stå tomt for å fjerne beskrivelsen"
 msgid "Legacy format compatible with v0.8"
 msgstr "Eldre format kompatibelt med v0.8"
 
-#: src/preferences/AppearanceSection.tsx:88
+#: src/preferences/AppearanceSection.tsx:89
 msgid "Light"
 msgstr "Lyst"
 
@@ -978,7 +978,7 @@ msgstr "Lokale sti strategier"
 msgid "Local Snapshots"
 msgstr "Lokale øyeblikksbilder"
 
-#: src/preferences/AppearanceSection.tsx:125
+#: src/preferences/AppearanceSection.tsx:126
 msgid "Locale"
 msgstr "Lokalitet"
 
@@ -1010,11 +1010,11 @@ msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. blir tatt øyeblikksbi
 msgid "Logging"
 msgstr "Logging"
 
-#: src/core/context/LoginModal.tsx:82
+#: src/core/context/LoginModal.tsx:83
 msgid "Login"
 msgstr "Logg inn"
 
-#: src/core/context/LoginModal.tsx:47
+#: src/core/context/LoginModal.tsx:48
 msgid "Login to {instanceName}"
 msgstr "Logg inn på {instanceName}"
 
@@ -1022,7 +1022,7 @@ msgstr "Logg inn på {instanceName}"
 msgid "Logs"
 msgstr "Logger"
 
-#: src/preferences/modals/EmailModal.tsx:232
+#: src/preferences/modals/EmailModal.tsx:233
 msgid "Mail From"
 msgstr "Avsender"
 
@@ -1058,7 +1058,7 @@ msgstr "Maksimalt antall parallelle fillesninger"
 msgid "Maximum Parallel Snapshots"
 msgstr "Maksimalt antall parallelle øyeblikksbilder"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:189
+#: src/snapshot-directory/modals/RestoreModal.tsx:190
 msgid "Minimal File Size For Shallow Restore"
 msgstr "Minimal filstørrelse for overfladisk gjenoppretting"
 
@@ -1071,13 +1071,13 @@ msgid "Minimum file size in bytes"
 msgstr "Minimum filstørrelse i byte"
 
 #: src/preferences/components/NotificationCard.tsx:98
-#: src/preferences/modals/EmailModal.tsx:199
+#: src/preferences/modals/EmailModal.tsx:200
 #: src/preferences/modals/PushoverModal.tsx:118
 #: src/preferences/modals/WebhookModal.tsx:159
 msgid "Minimum Severity"
 msgstr "Minimum alvorlighetsgrad"
 
-#: src/preferences/modals/EmailModal.tsx:200
+#: src/preferences/modals/EmailModal.tsx:201
 #: src/preferences/modals/PushoverModal.tsx:119
 #: src/preferences/modals/WebhookModal.tsx:160
 msgid "Minimum severity required to use this notification profile"
@@ -1115,14 +1115,14 @@ msgstr "må spesifiseres ved hjelp av global, bruker- eller vertsstrategier"
 msgid "Must Succeed"
 msgstr "Må lykkes"
 
-#: src/preferences/modals/EmailModal.tsx:191
+#: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
 #: src/snapshot-directory/SnapshotDirectory.tsx:177
 msgid "Name"
 msgstr "Navn"
 
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:76
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:77
 msgid "Name of the pin"
 msgstr "Navn på pin"
 
@@ -1185,8 +1185,8 @@ msgstr "Ingen notifikasjoner opprettet"
 msgid "No policies found"
 msgstr "Ingen strategier funnet"
 
-#: src/preferences/modals/EmailModal.tsx:251
-#: src/preferences/modals/EmailModal.tsx:274
+#: src/preferences/modals/EmailModal.tsx:252
+#: src/preferences/modals/EmailModal.tsx:275
 msgid "No recepients defined"
 msgstr "Ingen mottakere definert"
 
@@ -1214,7 +1214,7 @@ msgstr "Ikke konfigurerert"
 msgid "Not defined"
 msgstr "Ikke definert"
 
-#: src/preferences/modals/EmailModal.tsx:238
+#: src/preferences/modals/EmailModal.tsx:239
 #: src/preferences/modals/WebhookModal.tsx:187
 msgid "Notification Format"
 msgstr "Notifikasjons Format"
@@ -1227,10 +1227,10 @@ msgstr "Notifikasjoner"
 msgid "Number of the most recent snapshots to retain per source"
 msgstr "Antall nyeste øyeblikksbilder som skal beholdes per kilde"
 
-#: src/repo/sections/AmazonS3Repo.tsx:58
+#: src/repo/sections/AmazonS3Repo.tsx:59
 #: src/repo/sections/AzureBlobStorageRepo.tsx:41
 #: src/repo/sections/BackblazeB2Repo.tsx:32
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:31
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
 msgid "Object Name Prefix"
 msgstr "Prefiks for objektnavn"
 
@@ -1250,7 +1250,7 @@ msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilde
 msgid "Other"
 msgstr "Annet"
 
-#: src/repo/sections/AmazonS3Repo.tsx:53
+#: src/repo/sections/AmazonS3Repo.tsx:54
 msgid "Override Region"
 msgstr "Overstyr region"
 
@@ -1264,15 +1264,15 @@ msgstr "Overstyr dette når du gjenoppretter et øyeblikksbilde tatt av en annen
 msgid "Override this when restoring a snapshot taken on another machine"
 msgstr "Overstyr dette når du gjenoppretter et øyeblikksbilde tatt på en annen maskin"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:229
+#: src/snapshot-directory/modals/RestoreModal.tsx:230
 msgid "Overwrite Directories"
 msgstr "Overskriv mapper"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:222
+#: src/snapshot-directory/modals/RestoreModal.tsx:223
 msgid "Overwrite Files"
 msgstr "Overskriv filer"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:236
+#: src/snapshot-directory/modals/RestoreModal.tsx:237
 msgid "Overwrite Symbolic Links"
 msgstr "Overskriv symbolske lenker"
 
@@ -1280,8 +1280,8 @@ msgstr "Overskriv symbolske lenker"
 msgid "Owner"
 msgstr "Eier"
 
-#: src/core/context/LoginModal.tsx:65
 #: src/core/context/LoginModal.tsx:66
+#: src/core/context/LoginModal.tsx:67
 #: src/repo/sections/SFTPServerRepo.tsx:48
 #: src/repo/sections/SFTPServerRepo.tsx:49
 #: src/repo/sections/WebDavRepo.tsx:33
@@ -1289,7 +1289,7 @@ msgstr "Eier"
 msgid "Password"
 msgstr "Passord"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:24
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:25
 msgid "Paste connection token"
 msgstr "Lim inn tilkoblingstoken"
 
@@ -1301,7 +1301,7 @@ msgstr "Lim inn innholdet i nøkkelfilen"
 msgid "Paste contents of the known_hosts file"
 msgstr "Lim inn innholdet i known_hosts-filen"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:44
 msgid "Paste JSON credentials here"
 msgstr "Lim inn JSON-legitimasjon her"
 
@@ -1336,11 +1336,11 @@ msgstr "Stategier per vert"
 msgid "Per-User Policies"
 msgstr "Strategier per bruker"
 
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:65
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:66
 msgid "Pin Snapshot"
 msgstr "Fest Øyeblikksbilde"
 
-#: src/preferences/modals/EmailModal.tsx:240
+#: src/preferences/modals/EmailModal.tsx:241
 #: src/preferences/modals/PushoverModal.tsx:139
 #: src/preferences/modals/WebhookModal.tsx:189
 msgid "Plain Text Format"
@@ -1366,7 +1366,7 @@ msgstr "Port nummer (e.g., 22)"
 msgid "Preferences"
 msgstr "Preferanser"
 
-#: src/preferences/AppearanceSection.tsx:61
+#: src/preferences/AppearanceSection.tsx:62
 msgid "Preferences updated"
 msgstr "Preferanser oppdatert"
 
@@ -1406,7 +1406,7 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:75
+#: src/core/DataGrid/DataGrid.tsx:73
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
@@ -1453,19 +1453,19 @@ msgstr "Oppbevaringssted synkronisert"
 msgid "Restore"
 msgstr "Gjenopprett"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:215
+#: src/snapshot-directory/modals/RestoreModal.tsx:216
 msgid "Restore File Modification Time"
 msgstr "Gjenopprett filendringstid"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:201
+#: src/snapshot-directory/modals/RestoreModal.tsx:202
 msgid "Restore File Ownership"
 msgstr "Gjenopprett fileierksap"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:208
+#: src/snapshot-directory/modals/RestoreModal.tsx:209
 msgid "Restore File Permissions"
 msgstr "Gjenopprett filtillatelser"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:132
+#: src/snapshot-directory/modals/RestoreModal.tsx:133
 msgid "Restore files and directories"
 msgstr "Gjenopprett filer og mapper"
 
@@ -1504,11 +1504,11 @@ msgstr "SAS Token"
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
-#: src/preferences/AppearanceSection.tsx:152
-#: src/preferences/modals/EmailModal.tsx:302
+#: src/preferences/AppearanceSection.tsx:153
+#: src/preferences/modals/EmailModal.tsx:303
 #: src/preferences/modals/PushoverModal.tsx:155
 #: src/preferences/modals/WebhookModal.tsx:231
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:91
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:92
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:75
 msgid "Save"
 msgstr "Lagre"
@@ -1545,7 +1545,7 @@ msgstr "Søk etter filer eller mapper (nåværende nivå)"
 msgid "Search tasks"
 msgstr "Søk etter oppgaver"
 
-#: src/repo/sections/AmazonS3Repo.tsx:71
+#: src/repo/sections/AmazonS3Repo.tsx:72
 msgid "Secret Access Key"
 msgstr "Hemmelig tilgangsnøkkel"
 
@@ -1569,7 +1569,7 @@ msgstr "Velg ønsket lagringstype"
 msgid "Send test notification"
 msgstr "Send test notifikasjon"
 
-#: src/preferences/modals/EmailModal.tsx:233
+#: src/preferences/modals/EmailModal.tsx:234
 msgid "sender email address"
 msgstr "Avsender epost adresse"
 
@@ -1582,7 +1582,7 @@ msgstr "Server"
 msgid "Server address"
 msgstr "Server adresse"
 
-#: src/repo/sections/AmazonS3Repo.tsx:31
+#: src/repo/sections/AmazonS3Repo.tsx:32
 msgid "Server Endpoint"
 msgstr "Server endepunkt"
 
@@ -1594,7 +1594,7 @@ msgstr "Server Passord"
 msgid "SERVERS"
 msgstr "SERVERE"
 
-#: src/repo/sections/AmazonS3Repo.tsx:78
+#: src/repo/sections/AmazonS3Repo.tsx:79
 msgid "Session token"
 msgstr "Økttoken"
 
@@ -1602,11 +1602,11 @@ msgstr "Økttoken"
 msgid "SFTP Server"
 msgstr "SFTP Server"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:184
+#: src/snapshot-directory/modals/RestoreModal.tsx:185
 msgid "Shallow Restore At Depth"
 msgstr "Grunngjenoppretting i dybden"
 
-#: src/preferences/AppearanceSection.tsx:145
+#: src/preferences/AppearanceSection.tsx:146
 msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
@@ -1616,31 +1616,31 @@ msgstr "Vis alle øyeblikksbilder som standard"
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:170
+#: src/snapshot-directory/modals/RestoreModal.tsx:171
 msgid "Skip previously restored files and symlinks"
 msgstr "Hopp over tidligere gjenopprettede filer og symbolske lenker"
 
-#: src/preferences/modals/EmailModal.tsx:220
+#: src/preferences/modals/EmailModal.tsx:221
 msgid "SMTP Port"
 msgstr "SMT Port"
 
-#: src/preferences/modals/EmailModal.tsx:215
+#: src/preferences/modals/EmailModal.tsx:216
 msgid "SMTP Server"
 msgstr "SMTP Server"
 
-#: src/preferences/modals/EmailModal.tsx:216
+#: src/preferences/modals/EmailModal.tsx:217
 msgid "SMTP server DNS name, e.g. smtp.gmail.com"
 msgstr "SMTP-serverens DNS-navn, f.eks. smtp.gmail.com"
 
-#: src/preferences/modals/EmailModal.tsx:229
+#: src/preferences/modals/EmailModal.tsx:230
 msgid "SMTP server password"
 msgstr "SMTP server passord"
 
-#: src/preferences/modals/EmailModal.tsx:225
+#: src/preferences/modals/EmailModal.tsx:226
 msgid "SMTP server username, typically the email address"
 msgstr "Brukernavn for SMTP-serveren, vanligvis e-postadressen"
 
-#: src/preferences/modals/EmailModal.tsx:224
+#: src/preferences/modals/EmailModal.tsx:225
 msgid "SMTP Username"
 msgstr "SMTP Brukernavn"
 
@@ -1774,7 +1774,7 @@ msgstr "øyeblikksbilde(ne) ble slettet"
 msgid "The snapshout was unmounted from the host"
 msgstr "Øyeblikksbildet ble demontert fra tjeneren"
 
-#: src/preferences/AppearanceSection.tsx:86
+#: src/preferences/AppearanceSection.tsx:87
 msgid "Theme"
 msgstr "Tema"
 
@@ -1818,12 +1818,12 @@ msgstr "Tidspunkter for kommende øyeblikksbilder beregnet basert på strategi p
 msgid "Timestamp"
 msgstr "Tidsstempel"
 
-#: src/preferences/modals/EmailModal.tsx:248
+#: src/preferences/modals/EmailModal.tsx:249
 msgctxt "email-to"
 msgid "To"
 msgstr "Til"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:22
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:23
 msgid "Token"
 msgstr "Token"
 
@@ -1843,7 +1843,7 @@ msgstr "Behandle ugjenkjente/ikke-støttede mappeoppføringer som ikke-fatale fe
 msgid "Trusted server certificate fingerprint (SHA256)"
 msgstr "Fingeravtrykk for sertifikat for klarert server (SHA256)"
 
-#: src/preferences/modals/EmailModal.tsx:192
+#: src/preferences/modals/EmailModal.tsx:193
 #: src/preferences/modals/PushoverModal.tsx:111
 #: src/preferences/modals/WebhookModal.tsx:152
 msgid "Unique name for this notification profile"
@@ -1872,7 +1872,7 @@ msgstr "Oppdater beskrivelse"
 msgid "Update items"
 msgstr "Oppdater oppføringer"
 
-#: src/preferences/AppearanceSection.tsx:60
+#: src/preferences/AppearanceSection.tsx:61
 msgid "Updated"
 msgstr "Oppdatert"
 
@@ -1888,11 +1888,11 @@ msgstr "Opplasting"
 msgid "URL Endpoint"
 msgstr "URL Endepunkt"
 
-#: src/repo/sections/AmazonS3Repo.tsx:39
+#: src/repo/sections/AmazonS3Repo.tsx:40
 msgid "Use HTTP connection (insecure)"
 msgstr "Bruk HTTP-tilkobling (usikker)"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:17
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:18
 msgid "Use Repository Token"
 msgstr "Bruk oppbevaringssted token"
 
@@ -1905,8 +1905,8 @@ msgstr "Brukes til å kryptere innholdet i oppbevaringsstedet"
 msgid "User"
 msgstr "Bruker"
 
-#: src/core/context/LoginModal.tsx:59
-#: src/core/context/LoginModal.tsx:61
+#: src/core/context/LoginModal.tsx:60
+#: src/core/context/LoginModal.tsx:62
 #: src/policies/PoliciesPage.tsx:187
 #: src/repo/ConnectRepoSection.tsx:135
 #: src/repo/CreateRepoSection.tsx:201
@@ -1936,7 +1936,7 @@ msgstr "Webhook"
 msgid "Weekly"
 msgstr "Ukentlig"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:176
+#: src/snapshot-directory/modals/RestoreModal.tsx:177
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "Når det oppstår en gjenopprettingsfeil, prøv å fortsette i stedet for å mislykkes raskt"
 
@@ -1956,11 +1956,11 @@ msgstr "Når den er satt, ignoreres filene som spesifiserer ignoreringsregler (.
 msgid "Wipe all snapshots and the policy for this source"
 msgstr "Slett alle øyeblikksbilder og strategien for denne kilden"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:243
+#: src/snapshot-directory/modals/RestoreModal.tsx:244
 msgid "Write files atomically"
 msgstr "Skriv filer atomisk"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:250
+#: src/snapshot-directory/modals/RestoreModal.tsx:251
 msgid "Write Sparse Files"
 msgstr "Skriv sparsomme filer"
 
@@ -1969,10 +1969,10 @@ msgstr "Skriv sparsomme filer"
 msgid "Yes"
 msgstr "Ja"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:155
+#: src/snapshot-directory/modals/RestoreModal.tsx:156
 msgid "You can also restore to a .zip or .tar file by providing the appropriate extension"
 msgstr "Du kan også gjenopprette til en .zip- eller .tar-fil ved å oppgi riktig filtypenavn"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:260
+#: src/snapshot-directory/modals/RestoreModal.tsx:261
 msgid "Zip options"
 msgstr "ZIP Valg"

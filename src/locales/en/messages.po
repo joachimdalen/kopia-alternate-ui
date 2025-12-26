@@ -57,7 +57,7 @@ msgstr "A test notification was send using the defined profile"
 msgid "Access Key"
 msgstr "Access Key"
 
-#: src/repo/sections/AmazonS3Repo.tsx:65
+#: src/repo/sections/AmazonS3Repo.tsx:66
 msgid "Access Key ID"
 msgstr "Access Key ID"
 
@@ -67,8 +67,8 @@ msgstr "Active"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:97
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:109
-#: src/preferences/modals/EmailModal.tsx:267
-#: src/preferences/modals/EmailModal.tsx:290
+#: src/preferences/modals/EmailModal.tsx:268
+#: src/preferences/modals/EmailModal.tsx:291
 #: src/preferences/modals/WebhookModal.tsx:219
 msgid "Add"
 msgstr "Add"
@@ -103,7 +103,7 @@ msgstr "All Policies"
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
-#: src/repo/sections/AmazonS3Repo.tsx:18
+#: src/repo/sections/AmazonS3Repo.tsx:19
 msgid "Amazon S3 or Compatible Storage"
 msgstr "Amazon S3 or Compatible Storage"
 
@@ -153,13 +153,13 @@ msgstr "Before Folder"
 msgid "Before Snapshot"
 msgstr "Before Snapshot"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:277
+#: src/snapshot-directory/modals/RestoreModal.tsx:278
 msgid "Begin Restore"
 msgstr "Begin Restore"
 
-#: src/repo/sections/AmazonS3Repo.tsx:25
+#: src/repo/sections/AmazonS3Repo.tsx:26
 #: src/repo/sections/BackblazeB2Repo.tsx:26
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:25
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
 msgid "Bucket"
 msgstr "Bucket"
 
@@ -167,7 +167,7 @@ msgstr "Bucket"
 msgid "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 msgstr "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 
-#: src/preferences/AppearanceSection.tsx:96
+#: src/preferences/AppearanceSection.tsx:97
 msgid "Byte representation"
 msgstr "Byte representation"
 
@@ -183,13 +183,13 @@ msgstr "Cache Miss"
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:229
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
-#: src/preferences/modals/EmailModal.tsx:299
+#: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
 #: src/preferences/modals/WebhookModal.tsx:228
 #: src/repo/RepoPage.tsx:56
-#: src/snapshot-directory/modals/RestoreModal.tsx:274
+#: src/snapshot-directory/modals/RestoreModal.tsx:275
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:78
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:82
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:83
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
 #: src/snapshots/modals/NewSnapshotModal.tsx:134
 #: src/snapshots/modals/TaskEstimationModal.tsx:113
@@ -288,12 +288,12 @@ msgstr "Connected to"
 msgid "Container"
 msgstr "Container"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:175
+#: src/snapshot-directory/modals/RestoreModal.tsx:176
 msgid "Continue on Errors"
 msgstr "Continue on Errors"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:129
-#: src/preferences/modals/EmailModal.tsx:302
+#: src/preferences/modals/EmailModal.tsx:303
 #: src/preferences/modals/PushoverModal.tsx:155
 #: src/preferences/modals/WebhookModal.tsx:231
 msgid "Create"
@@ -303,7 +303,7 @@ msgstr "Create"
 msgid "Create a new repository"
 msgstr "Create a new repository"
 
-#: src/preferences/modals/EmailModal.tsx:178
+#: src/preferences/modals/EmailModal.tsx:179
 msgid "Create email notification"
 msgstr "Create email notification"
 
@@ -328,11 +328,11 @@ msgstr "Create repository"
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:37
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
 msgid "Credentials File"
 msgstr "Credentials File"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:42
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
 msgid "Credentials JSON"
 msgstr "Credentials JSON"
 
@@ -344,18 +344,18 @@ msgstr "Cron Expressions"
 msgid "Daily"
 msgstr "Daily"
 
-#: src/preferences/AppearanceSection.tsx:89
+#: src/preferences/AppearanceSection.tsx:90
 msgid "Dark"
 msgstr "Dark"
 
-#: src/preferences/AppearanceSection.tsx:111
+#: src/preferences/AppearanceSection.tsx:112
 msgid "Default page size"
 msgstr "Default page size"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:65
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:24
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:21
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:35
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:25
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:22
@@ -374,7 +374,7 @@ msgstr "Defined in global policy"
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:82
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:87
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:88
 msgid "Delete"
 msgstr "Delete"
 
@@ -402,7 +402,7 @@ msgstr "Description"
 msgid "Description updated"
 msgstr "Description updated"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:154
+#: src/snapshot-directory/modals/RestoreModal.tsx:155
 msgid "Destination"
 msgstr "Destination"
 
@@ -410,7 +410,7 @@ msgstr "Destination"
 msgid "Directory Ignored"
 msgstr "Directory Ignored"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:198
+#: src/snapshot-directory/modals/RestoreModal.tsx:199
 msgid "Directory Options"
 msgstr "Directory Options"
 
@@ -439,7 +439,7 @@ msgstr "Disable Parent Policy"
 msgid "Disable Parent Policy Evaluation"
 msgstr "Disable Parent Policy Evaluation"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:262
+#: src/snapshot-directory/modals/RestoreModal.tsx:263
 msgid "Disable ZIP compression"
 msgstr "Disable ZIP compression"
 
@@ -457,7 +457,7 @@ msgstr "Disconnect"
 msgid "Disconnect repository?"
 msgstr "Disconnect repository?"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:263
+#: src/snapshot-directory/modals/RestoreModal.tsx:264
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Do not compress when restoring to a ZIP file (faster)."
 
@@ -469,7 +469,7 @@ msgstr "Do not cross filesystem boundaries when creating a snapshot"
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr "Do NOT save a snapshot when no files have been changed"
 
-#: src/repo/sections/AmazonS3Repo.tsx:45
+#: src/repo/sections/AmazonS3Repo.tsx:46
 msgid "Do not verify TLS certificate"
 msgstr "Do not verify TLS certificate"
 
@@ -495,7 +495,7 @@ msgstr "Duration"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/preferences/modals/EmailModal.tsx:178
+#: src/preferences/modals/EmailModal.tsx:179
 msgid "Edit email notification"
 msgstr "Edit email notification"
 
@@ -515,7 +515,7 @@ msgstr "Edit pushover notification"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:76
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:30
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:46
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:23
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:44
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:34
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:23
@@ -544,7 +544,7 @@ msgstr "Endpoint"
 msgid "Enter <name-of-rclone-remote>:<path>"
 msgstr "Enter <name-of-rclone-remote>:<path>"
 
-#: src/repo/sections/AmazonS3Repo.tsx:66
+#: src/repo/sections/AmazonS3Repo.tsx:67
 msgid "Enter access key ID"
 msgstr "Enter access key ID"
 
@@ -556,9 +556,9 @@ msgstr "Enter application or account key"
 msgid "Enter application or account key ID"
 msgstr "Enter application or account key ID"
 
-#: src/repo/sections/AmazonS3Repo.tsx:26
+#: src/repo/sections/AmazonS3Repo.tsx:27
 #: src/repo/sections/BackblazeB2Repo.tsx:27
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:27
 msgid "Enter bucket name"
 msgstr "Enter bucket name"
 
@@ -570,14 +570,14 @@ msgstr "Enter container name"
 msgid "Enter directory path where you want to store repository files"
 msgstr "Enter directory path where you want to store repository files"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:39
 msgid "Enter name of credentials JSON file"
 msgstr "Enter name of credentials JSON file"
 
-#: src/repo/sections/AmazonS3Repo.tsx:59
+#: src/repo/sections/AmazonS3Repo.tsx:60
 #: src/repo/sections/AzureBlobStorageRepo.tsx:42
 #: src/repo/sections/BackblazeB2Repo.tsx:33
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:33
 msgid "Enter object name prefix (optional)"
 msgstr "Enter object name prefix (optional)"
 
@@ -614,7 +614,7 @@ msgstr "Enter repository password"
 msgid "Enter repository password again"
 msgstr "Enter repository password again"
 
-#: src/repo/sections/AmazonS3Repo.tsx:72
+#: src/repo/sections/AmazonS3Repo.tsx:73
 #: src/repo/sections/AzureBlobStorageRepo.tsx:47
 msgid "Enter secret access key"
 msgstr "Enter secret access key"
@@ -623,7 +623,7 @@ msgstr "Enter secret access key"
 msgid "Enter secret SAS token"
 msgstr "Enter secret SAS token"
 
-#: src/repo/sections/AmazonS3Repo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:33
 msgid "Enter server address (e.g., s3.amazonaws.com)"
 msgstr "Enter server address (e.g., s3.amazonaws.com)"
 
@@ -631,11 +631,11 @@ msgstr "Enter server address (e.g., s3.amazonaws.com)"
 msgid "Enter server URL (https://<host>:port)"
 msgstr "Enter server URL (https://<host>:port)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:79
+#: src/repo/sections/AmazonS3Repo.tsx:80
 msgid "Enter session token (optional)"
 msgstr "Enter session token (optional)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:54
+#: src/repo/sections/AmazonS3Repo.tsx:55
 msgid "Enter specific region (e.g., us-west-1) or leave empty"
 msgstr "Enter specific region (e.g., us-west-1) or leave empty"
 
@@ -764,7 +764,7 @@ msgstr "Folder Actions"
 msgid "From now"
 msgstr "From now"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:167
+#: src/snapshot-directory/modals/RestoreModal.tsx:168
 msgid "General Options"
 msgstr "General Options"
 
@@ -772,7 +772,7 @@ msgstr "General Options"
 msgid "Global Policy"
 msgstr "Global Policy"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:18
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:19
 msgid "Google Cloud Storage"
 msgstr "Google Cloud Storage"
 
@@ -822,7 +822,7 @@ msgstr "How many monthly snapshots to retain per source. The latest snapshot fro
 msgid "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 msgstr "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 
-#: src/preferences/modals/EmailModal.tsx:241
+#: src/preferences/modals/EmailModal.tsx:242
 #: src/preferences/modals/PushoverModal.tsx:140
 #: src/preferences/modals/WebhookModal.tsx:190
 msgid "HTML Format"
@@ -954,7 +954,7 @@ msgstr "Leave empty to remove description"
 msgid "Legacy format compatible with v0.8"
 msgstr "Legacy format compatible with v0.8"
 
-#: src/preferences/AppearanceSection.tsx:88
+#: src/preferences/AppearanceSection.tsx:89
 msgid "Light"
 msgstr "Light"
 
@@ -978,7 +978,7 @@ msgstr "Local Path Policies"
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
-#: src/preferences/AppearanceSection.tsx:125
+#: src/preferences/AppearanceSection.tsx:126
 msgid "Locale"
 msgstr "Locale"
 
@@ -1010,11 +1010,11 @@ msgstr "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgid "Logging"
 msgstr "Logging"
 
-#: src/core/context/LoginModal.tsx:82
+#: src/core/context/LoginModal.tsx:83
 msgid "Login"
 msgstr "Login"
 
-#: src/core/context/LoginModal.tsx:47
+#: src/core/context/LoginModal.tsx:48
 msgid "Login to {instanceName}"
 msgstr "Login to {instanceName}"
 
@@ -1022,7 +1022,7 @@ msgstr "Login to {instanceName}"
 msgid "Logs"
 msgstr "Logs"
 
-#: src/preferences/modals/EmailModal.tsx:232
+#: src/preferences/modals/EmailModal.tsx:233
 msgid "Mail From"
 msgstr "Mail From"
 
@@ -1058,7 +1058,7 @@ msgstr "Maximum Parallel File Reads"
 msgid "Maximum Parallel Snapshots"
 msgstr "Maximum Parallel Snapshots"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:189
+#: src/snapshot-directory/modals/RestoreModal.tsx:190
 msgid "Minimal File Size For Shallow Restore"
 msgstr "Minimal File Size For Shallow Restore"
 
@@ -1071,13 +1071,13 @@ msgid "Minimum file size in bytes"
 msgstr "Minimum file size in bytes"
 
 #: src/preferences/components/NotificationCard.tsx:98
-#: src/preferences/modals/EmailModal.tsx:199
+#: src/preferences/modals/EmailModal.tsx:200
 #: src/preferences/modals/PushoverModal.tsx:118
 #: src/preferences/modals/WebhookModal.tsx:159
 msgid "Minimum Severity"
 msgstr "Minimum Severity"
 
-#: src/preferences/modals/EmailModal.tsx:200
+#: src/preferences/modals/EmailModal.tsx:201
 #: src/preferences/modals/PushoverModal.tsx:119
 #: src/preferences/modals/WebhookModal.tsx:160
 msgid "Minimum severity required to use this notification profile"
@@ -1115,14 +1115,14 @@ msgstr "must be specified using global, user, or host policy"
 msgid "Must Succeed"
 msgstr "Must Succeed"
 
-#: src/preferences/modals/EmailModal.tsx:191
+#: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
 #: src/snapshot-directory/SnapshotDirectory.tsx:177
 msgid "Name"
 msgstr "Name"
 
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:76
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:77
 msgid "Name of the pin"
 msgstr "Name of the pin"
 
@@ -1185,8 +1185,8 @@ msgstr "No notifications defined"
 msgid "No policies found"
 msgstr "No policies found"
 
-#: src/preferences/modals/EmailModal.tsx:251
-#: src/preferences/modals/EmailModal.tsx:274
+#: src/preferences/modals/EmailModal.tsx:252
+#: src/preferences/modals/EmailModal.tsx:275
 msgid "No recepients defined"
 msgstr "No recepients defined"
 
@@ -1214,7 +1214,7 @@ msgstr "Not configured"
 msgid "Not defined"
 msgstr "Not defined"
 
-#: src/preferences/modals/EmailModal.tsx:238
+#: src/preferences/modals/EmailModal.tsx:239
 #: src/preferences/modals/WebhookModal.tsx:187
 msgid "Notification Format"
 msgstr "Notification Format"
@@ -1227,10 +1227,10 @@ msgstr "Notifications"
 msgid "Number of the most recent snapshots to retain per source"
 msgstr "Number of the most recent snapshots to retain per source"
 
-#: src/repo/sections/AmazonS3Repo.tsx:58
+#: src/repo/sections/AmazonS3Repo.tsx:59
 #: src/repo/sections/AzureBlobStorageRepo.tsx:41
 #: src/repo/sections/BackblazeB2Repo.tsx:32
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:31
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
 msgid "Object Name Prefix"
 msgstr "Object Name Prefix"
 
@@ -1250,7 +1250,7 @@ msgstr "Only create snapshots manually (disables scheduled snapshots)"
 msgid "Other"
 msgstr "Other"
 
-#: src/repo/sections/AmazonS3Repo.tsx:53
+#: src/repo/sections/AmazonS3Repo.tsx:54
 msgid "Override Region"
 msgstr "Override Region"
 
@@ -1264,15 +1264,15 @@ msgstr "Override this when restoring a snapshot taken by another user"
 msgid "Override this when restoring a snapshot taken on another machine"
 msgstr "Override this when restoring a snapshot taken on another machine"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:229
+#: src/snapshot-directory/modals/RestoreModal.tsx:230
 msgid "Overwrite Directories"
 msgstr "Overwrite Directories"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:222
+#: src/snapshot-directory/modals/RestoreModal.tsx:223
 msgid "Overwrite Files"
 msgstr "Overwrite Files"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:236
+#: src/snapshot-directory/modals/RestoreModal.tsx:237
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
@@ -1280,8 +1280,8 @@ msgstr "Overwrite Symbolic Links"
 msgid "Owner"
 msgstr "Owner"
 
-#: src/core/context/LoginModal.tsx:65
 #: src/core/context/LoginModal.tsx:66
+#: src/core/context/LoginModal.tsx:67
 #: src/repo/sections/SFTPServerRepo.tsx:48
 #: src/repo/sections/SFTPServerRepo.tsx:49
 #: src/repo/sections/WebDavRepo.tsx:33
@@ -1289,7 +1289,7 @@ msgstr "Owner"
 msgid "Password"
 msgstr "Password"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:24
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:25
 msgid "Paste connection token"
 msgstr "Paste connection token"
 
@@ -1301,7 +1301,7 @@ msgstr "Paste contents of the key file"
 msgid "Paste contents of the known_hosts file"
 msgstr "Paste contents of the known_hosts file"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:44
 msgid "Paste JSON credentials here"
 msgstr "Paste JSON credentials here"
 
@@ -1336,11 +1336,11 @@ msgstr "Per-Host Policies"
 msgid "Per-User Policies"
 msgstr "Per-User Policies"
 
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:65
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:66
 msgid "Pin Snapshot"
 msgstr "Pin Snapshot"
 
-#: src/preferences/modals/EmailModal.tsx:240
+#: src/preferences/modals/EmailModal.tsx:241
 #: src/preferences/modals/PushoverModal.tsx:139
 #: src/preferences/modals/WebhookModal.tsx:189
 msgid "Plain Text Format"
@@ -1366,7 +1366,7 @@ msgstr "Port number (e.g., 22)"
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/preferences/AppearanceSection.tsx:61
+#: src/preferences/AppearanceSection.tsx:62
 msgid "Preferences updated"
 msgstr "Preferences updated"
 
@@ -1406,7 +1406,7 @@ msgstr "Read-only mode prevents any changes to the repository"
 msgid "Recipient User Key or Group Key"
 msgstr "Recipient User Key or Group Key"
 
-#: src/core/DataGrid/DataGrid.tsx:75
+#: src/core/DataGrid/DataGrid.tsx:73
 msgid "Records per page"
 msgstr "Records per page"
 
@@ -1453,19 +1453,19 @@ msgstr "Repository synchronized"
 msgid "Restore"
 msgstr "Restore"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:215
+#: src/snapshot-directory/modals/RestoreModal.tsx:216
 msgid "Restore File Modification Time"
 msgstr "Restore File Modification Time"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:201
+#: src/snapshot-directory/modals/RestoreModal.tsx:202
 msgid "Restore File Ownership"
 msgstr "Restore File Ownership"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:208
+#: src/snapshot-directory/modals/RestoreModal.tsx:209
 msgid "Restore File Permissions"
 msgstr "Restore File Permissions"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:132
+#: src/snapshot-directory/modals/RestoreModal.tsx:133
 msgid "Restore files and directories"
 msgstr "Restore files and directories"
 
@@ -1504,11 +1504,11 @@ msgstr "SAS Token"
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
-#: src/preferences/AppearanceSection.tsx:152
-#: src/preferences/modals/EmailModal.tsx:302
+#: src/preferences/AppearanceSection.tsx:153
+#: src/preferences/modals/EmailModal.tsx:303
 #: src/preferences/modals/PushoverModal.tsx:155
 #: src/preferences/modals/WebhookModal.tsx:231
-#: src/snapshot-history/modals/PinSnapshotModal.tsx:91
+#: src/snapshot-history/modals/PinSnapshotModal.tsx:92
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:75
 msgid "Save"
 msgstr "Save"
@@ -1545,7 +1545,7 @@ msgstr "Search files or folder (current level)"
 msgid "Search tasks"
 msgstr "Search tasks"
 
-#: src/repo/sections/AmazonS3Repo.tsx:71
+#: src/repo/sections/AmazonS3Repo.tsx:72
 msgid "Secret Access Key"
 msgstr "Secret Access Key"
 
@@ -1569,7 +1569,7 @@ msgstr "Select the preferred storage type"
 msgid "Send test notification"
 msgstr "Send test notification"
 
-#: src/preferences/modals/EmailModal.tsx:233
+#: src/preferences/modals/EmailModal.tsx:234
 msgid "sender email address"
 msgstr "sender email address"
 
@@ -1582,7 +1582,7 @@ msgstr "Server"
 msgid "Server address"
 msgstr "Server address"
 
-#: src/repo/sections/AmazonS3Repo.tsx:31
+#: src/repo/sections/AmazonS3Repo.tsx:32
 msgid "Server Endpoint"
 msgstr "Server Endpoint"
 
@@ -1594,7 +1594,7 @@ msgstr "Server Password"
 msgid "SERVERS"
 msgstr "SERVERS"
 
-#: src/repo/sections/AmazonS3Repo.tsx:78
+#: src/repo/sections/AmazonS3Repo.tsx:79
 msgid "Session token"
 msgstr "Session token"
 
@@ -1602,11 +1602,11 @@ msgstr "Session token"
 msgid "SFTP Server"
 msgstr "SFTP Server"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:184
+#: src/snapshot-directory/modals/RestoreModal.tsx:185
 msgid "Shallow Restore At Depth"
 msgstr "Shallow Restore At Depth"
 
-#: src/preferences/AppearanceSection.tsx:145
+#: src/preferences/AppearanceSection.tsx:146
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
@@ -1616,31 +1616,31 @@ msgstr "Show all snapshots by default"
 msgid "Size"
 msgstr "Size"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:170
+#: src/snapshot-directory/modals/RestoreModal.tsx:171
 msgid "Skip previously restored files and symlinks"
 msgstr "Skip previously restored files and symlinks"
 
-#: src/preferences/modals/EmailModal.tsx:220
+#: src/preferences/modals/EmailModal.tsx:221
 msgid "SMTP Port"
 msgstr "SMTP Port"
 
-#: src/preferences/modals/EmailModal.tsx:215
+#: src/preferences/modals/EmailModal.tsx:216
 msgid "SMTP Server"
 msgstr "SMTP Server"
 
-#: src/preferences/modals/EmailModal.tsx:216
+#: src/preferences/modals/EmailModal.tsx:217
 msgid "SMTP server DNS name, e.g. smtp.gmail.com"
 msgstr "SMTP server DNS name, e.g. smtp.gmail.com"
 
-#: src/preferences/modals/EmailModal.tsx:229
+#: src/preferences/modals/EmailModal.tsx:230
 msgid "SMTP server password"
 msgstr "SMTP server password"
 
-#: src/preferences/modals/EmailModal.tsx:225
+#: src/preferences/modals/EmailModal.tsx:226
 msgid "SMTP server username, typically the email address"
 msgstr "SMTP server username, typically the email address"
 
-#: src/preferences/modals/EmailModal.tsx:224
+#: src/preferences/modals/EmailModal.tsx:225
 msgid "SMTP Username"
 msgstr "SMTP Username"
 
@@ -1774,7 +1774,7 @@ msgstr "The snapshot(s) was delete successfully"
 msgid "The snapshout was unmounted from the host"
 msgstr "The snapshout was unmounted from the host"
 
-#: src/preferences/AppearanceSection.tsx:86
+#: src/preferences/AppearanceSection.tsx:87
 msgid "Theme"
 msgstr "Theme"
 
@@ -1818,12 +1818,12 @@ msgstr "Times of upcoming snapshots calculated based on policy parameters"
 msgid "Timestamp"
 msgstr "Timestamp"
 
-#: src/preferences/modals/EmailModal.tsx:248
+#: src/preferences/modals/EmailModal.tsx:249
 msgctxt "email-to"
 msgid "To"
 msgstr "To"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:22
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:23
 msgid "Token"
 msgstr "Token"
 
@@ -1843,7 +1843,7 @@ msgstr "Treat unrecognized/unsupported directory entries as non-fatal errors."
 msgid "Trusted server certificate fingerprint (SHA256)"
 msgstr "Trusted server certificate fingerprint (SHA256)"
 
-#: src/preferences/modals/EmailModal.tsx:192
+#: src/preferences/modals/EmailModal.tsx:193
 #: src/preferences/modals/PushoverModal.tsx:111
 #: src/preferences/modals/WebhookModal.tsx:152
 msgid "Unique name for this notification profile"
@@ -1872,7 +1872,7 @@ msgstr "Update description"
 msgid "Update items"
 msgstr "Update items"
 
-#: src/preferences/AppearanceSection.tsx:60
+#: src/preferences/AppearanceSection.tsx:61
 msgid "Updated"
 msgstr "Updated"
 
@@ -1888,11 +1888,11 @@ msgstr "Uploading"
 msgid "URL Endpoint"
 msgstr "URL Endpoint"
 
-#: src/repo/sections/AmazonS3Repo.tsx:39
+#: src/repo/sections/AmazonS3Repo.tsx:40
 msgid "Use HTTP connection (insecure)"
 msgstr "Use HTTP connection (insecure)"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:17
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:18
 msgid "Use Repository Token"
 msgstr "Use Repository Token"
 
@@ -1905,8 +1905,8 @@ msgstr "Used to encrypt content of the repository"
 msgid "User"
 msgstr "User"
 
-#: src/core/context/LoginModal.tsx:59
-#: src/core/context/LoginModal.tsx:61
+#: src/core/context/LoginModal.tsx:60
+#: src/core/context/LoginModal.tsx:62
 #: src/policies/PoliciesPage.tsx:187
 #: src/repo/ConnectRepoSection.tsx:135
 #: src/repo/CreateRepoSection.tsx:201
@@ -1936,7 +1936,7 @@ msgstr "Webhook"
 msgid "Weekly"
 msgstr "Weekly"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:176
+#: src/snapshot-directory/modals/RestoreModal.tsx:177
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "When a restore error occurs, attempt to continue instead of failing fast"
 
@@ -1956,11 +1956,11 @@ msgstr "When set, the files specifying ignore rules (.kopiaignore, etc.) from th
 msgid "Wipe all snapshots and the policy for this source"
 msgstr "Wipe all snapshots and the policy for this source"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:243
+#: src/snapshot-directory/modals/RestoreModal.tsx:244
 msgid "Write files atomically"
 msgstr "Write files atomically"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:250
+#: src/snapshot-directory/modals/RestoreModal.tsx:251
 msgid "Write Sparse Files"
 msgstr "Write Sparse Files"
 
@@ -1969,10 +1969,10 @@ msgstr "Write Sparse Files"
 msgid "Yes"
 msgstr "Yes"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:155
+#: src/snapshot-directory/modals/RestoreModal.tsx:156
 msgid "You can also restore to a .zip or .tar file by providing the appropriate extension"
 msgstr "You can also restore to a .zip or .tar file by providing the appropriate extension"
 
-#: src/snapshot-directory/modals/RestoreModal.tsx:260
+#: src/snapshot-directory/modals/RestoreModal.tsx:261
 msgid "Zip options"
 msgstr "Zip options"
