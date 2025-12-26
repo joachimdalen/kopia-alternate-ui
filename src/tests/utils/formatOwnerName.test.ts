@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { formatOwnerName } from "../../src/utils/formatOwnerName";
+import { formatOwnerName } from "../../utils/formatOwnerName";
 
 describe("formatOwnerName", () => {
   test("formats from SourceInfo", () => {

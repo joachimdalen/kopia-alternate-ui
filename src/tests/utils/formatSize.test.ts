@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import sizeDisplayName from "../../src/utils/formatSize";
+import sizeDisplayName from "../../utils/formatSize";
 
 describe("sizeDisplayName", () => {
   test("formats sizes in base 10", () => {
