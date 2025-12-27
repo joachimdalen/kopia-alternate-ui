@@ -58,7 +58,11 @@ export default function PolicyCompressionInput({ id, title, description, form, f
   }, [data]);
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== "" && inputProps.value !== "none"}
+      />
       <AccordionPanel>
         <Group grow>
           <Select

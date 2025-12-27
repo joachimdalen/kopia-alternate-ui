@@ -18,7 +18,11 @@ export default function PolicySelect({ id, title, description, placeholder, form
 
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value != undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+      />
       <AccordionPanel>
         <Group grow>
           <Select

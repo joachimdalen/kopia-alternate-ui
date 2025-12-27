@@ -16,7 +16,11 @@ export default function PolicyTextInput({ id, title, description, placeholder, f
   const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value != undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+      />
       <AccordionPanel>
         <Group grow>
           <TextInput label={t`Defined`} placeholder={placeholder} {...inputProps} />

@@ -22,7 +22,11 @@ export default function PolicyTimeOfDayInput({ id, title, description, children,
   const effectiveValues = (inputProps.value as TimeOfDay[]) || effective || [];
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+      />
       <AccordionPanel>
         <Stack>
           <Group grow align="start">

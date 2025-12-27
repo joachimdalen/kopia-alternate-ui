@@ -16,7 +16,11 @@ export default function PolicyNumberInput({ id, title, description, placeholder,
   const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value != undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+      />
       <AccordionPanel>
         <Group grow>
           <NumberInput label={t`Defined`} hideControls placeholder={placeholder} {...inputProps} />
