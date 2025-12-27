@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Anchor, Badge, Button, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import {
   IconArchive,
@@ -43,6 +43,11 @@ function SnapshotsPage() {
     columnAccessor: "source.path",
     direction: "asc"
   });
+  const [refreshInterval, setRefreshInterval] = useLocalStorage<number | null>({
+    key: "kopia-alt-ui-snapshot-refresh",
+    defaultValue: 5000,
+    getInitialValueInEffect: false
+  });
 
   const visibleData = useMemo(() => {
     if (data === undefined) return [];
@@ -77,7 +82,7 @@ function SnapshotsPage() {
 
   useInterval(() => {
     execute(undefined, "fetch");
-  }, 3000);
+  }, refreshInterval);
 
   const uniqueOwners = (data?.sources || [])
     .map((x) => formatOwnerName(x.source))
@@ -116,22 +121,37 @@ function SnapshotsPage() {
         <Title order={1}>
           <Trans>Snapshots</Trans>
         </Title>
-        <Group justify={data?.multiUser === false ? "end" : "space-between"}>
-          {data?.multiUser === true && (
+        <Group justify="space-between">
+          <Group>
             <MenuButton
+              prefix="Refresh:"
               options={[
-                { label: <Trans>All Snapshots</Trans>, value: "all" },
-                { label: <Trans>Local Snapshots</Trans>, value: "local" },
-                { label: "", value: "divider" },
-                ...uniqueOwners.map((own) => ({
-                  label: own,
-                  value: own
-                }))
+                { label: t`Disabled`, value: "" },
+                { label: t`3 seconds`, value: "3000" },
+                { label: t`10 seconds`, value: "15000" },
+                { label: t`30 seconds`, value: "30000" },
+                { label: t`1 minute`, value: "60000" },
+                { label: t`5 minutes`, value: "300000" }
               ]}
-              onClick={setFilterState}
-              disabled={loading && loadingKey == "loading"}
+              value={refreshInterval?.toString()}
+              onClick={(val) => setRefreshInterval(val === "" ? null : parseInt(val))}
             />
-          )}
+            {data?.multiUser === true && (
+              <MenuButton
+                options={[
+                  { label: <Trans>All Snapshots</Trans>, value: "all" },
+                  { label: <Trans>Local Snapshots</Trans>, value: "local" },
+                  { label: "", value: "divider" },
+                  ...uniqueOwners.map((own) => ({
+                    label: own,
+                    value: own
+                  }))
+                ]}
+                onClick={setFilterState}
+                disabled={loading && loadingKey == "loading"}
+              />
+            )}
+          </Group>
           <Group>
             <Button disabled={loading && loadingKey == "loading"} onClick={setShow.open} {...newActionProps}>
               <Trans>New Snapshot</Trans>
