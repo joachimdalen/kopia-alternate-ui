@@ -1,5 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
+import { BarChart } from "@mantine/charts";
 import {
   ActionIcon,
   Anchor,
@@ -10,6 +11,8 @@ import {
   Container,
   Divider,
   Group,
+  Paper,
+  SimpleGrid,
   Stack,
   Text,
   Title,
@@ -17,6 +20,7 @@ import {
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
+import dayjs from "dayjs";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
@@ -31,6 +35,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import type { ItemAction, Snapshot, Snapshots, SourceInfo } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
+import groupBy from "../utils/groupBy";
 import RetentionBadge from "./components/RetentionBadge";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
@@ -86,6 +91,30 @@ function SnapshotHistory() {
     execute(undefined, "loading");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAll]);
+
+  const grouped = useMemo(() => {
+    const grouped = groupBy(data?.snapshots || [], (s) => dayjs(s.startTime).format("YYYY-MM-DD"));
+    return grouped;
+  }, [data]);
+  const snapshotsByDate = useMemo(() => {
+    const keys = Array.from(grouped.keys());
+    return keys.map((k) => {
+      return {
+        date: k,
+        items: grouped.get(k).length
+      };
+    });
+  }, [grouped]);
+
+  const sizeByDate = useMemo(() => {
+    const keys = Array.from(grouped.keys());
+    return keys.map((k) => {
+      return {
+        date: k,
+        size: grouped.get(k)[0].summary.size / 1000000
+      };
+    });
+  }, [grouped]);
 
   return (
     <Container fluid>
@@ -144,7 +173,26 @@ function SnapshotHistory() {
         </Group>
         <Divider />
         <ErrorAlert error={error} />
-
+        <SimpleGrid cols={4}>
+          <Paper withBorder>
+            <BarChart
+              h={150}
+              data={snapshotsByDate}
+              dataKey="date"
+              series={[{ name: "items", color: "violet.6" }]}
+              tickLine="y"
+            />
+          </Paper>
+          <Paper withBorder>
+            <BarChart
+              h={150}
+              data={sizeByDate}
+              dataKey="date"
+              series={[{ name: "size", color: "violet.6" }]}
+              tickLine="y"
+            />
+          </Paper>
+        </SimpleGrid>
         <DataGrid
           selectedRecords={selectedRecords}
           onSelectedRecordsChange={setSelectedRecords}
