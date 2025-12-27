@@ -106,3 +106,7 @@ export function isAbsolutePath(p: string) {
 
   return false;
 }
+
+export function getEffectiveValue(value?: string, effective?: string) {
+  return value || effective || "";
+}

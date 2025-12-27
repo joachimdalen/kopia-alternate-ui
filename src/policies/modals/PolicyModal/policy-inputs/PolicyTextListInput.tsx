@@ -38,7 +38,7 @@ export default function PolicyTextListInput({ id, title, description, children, 
       <PolicyAccordionControl
         title={title}
         description={description}
-        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== "" && effectiveValues.length > 0}
       />
       <AccordionPanel>
         <Stack>

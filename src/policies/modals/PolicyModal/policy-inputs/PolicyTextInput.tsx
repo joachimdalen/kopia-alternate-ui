@@ -1,5 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, TextInput } from "@mantine/core";
+import { getEffectiveValue } from "../../../policiesUtil";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
 
@@ -13,7 +14,7 @@ type Props = {
 
 export default function PolicyTextInput({ id, title, description, placeholder, form, formKey, effective }: Props) {
   const inputProps = form.getInputProps(formKey);
-  const effectiveValue = inputProps.value || effective;
+  const effectiveValue = getEffectiveValue(inputProps.value, effective);
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
