@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useServerInstanceContext } from "../../../../core/context/ServerInstanceContext";
 import useApiRequest from "../../../../core/hooks/useApiRequest";
 import type { AlgorithmsList } from "../../../../core/types";
+import { getEffectiveValue } from "../../../policiesUtil";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import type { PolicyInput } from "../types";
 
@@ -17,7 +18,7 @@ type Props = {
 export default function PolicyCompressionInput({ id, title, description, form, formKey, effective }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const inputProps = form.getInputProps(formKey);
-  const effectiveValue = inputProps.value || effective;
+  const effectiveValue = getEffectiveValue(inputProps.value, effective);
   const [data, setData] = useState<AlgorithmsList>();
   const { execute } = useApiRequest({
     action: () => kopiaService.getAlgorithms(),
@@ -58,7 +59,11 @@ export default function PolicyCompressionInput({ id, title, description, form, f
   }, [data]);
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== "" && inputProps.value !== "none"}
+      />
       <AccordionPanel>
         <Group grow>
           <Select

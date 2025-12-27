@@ -79,6 +79,29 @@ export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDe
     // validate: yupResolver(schema),
   });
 
+  function watchAction(key: string, value?: string) {
+    if (value === undefined || value === "") {
+      form.setFieldValue(`actions.${key}`, {});
+    } else {
+      if (form.values.actions?.afterFolder?.timeout === undefined) {
+        form.setFieldValue(`actions.${key}.timeout`, 300);
+      }
+    }
+  }
+
+  form.watch("actions.afterFolder.script", ({ value }) => {
+    watchAction("afterFolder", value);
+  });
+  form.watch("actions.afterSnapshotRoot.script", ({ value }) => {
+    watchAction("afterSnapshotRoot", value);
+  });
+  form.watch("actions.beforeSnapshotRoot.script", ({ value }) => {
+    watchAction("beforeSnapshotRoot", value);
+  });
+  form.watch("actions.beforeFolder.script", ({ value }) => {
+    watchAction("beforeFolder", value);
+  });
+
   const {
     error: loadError,
     loading: loadingData,
@@ -164,6 +187,7 @@ export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDe
             orientation="vertical"
             variant="outline"
             styles={{ tabLabel: { textAlign: "left" } }}
+            keepMounted={false}
           >
             <TabsList ta="left">
               <TabsTab

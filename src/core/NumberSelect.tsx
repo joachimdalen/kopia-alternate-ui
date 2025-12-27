@@ -1,7 +1,7 @@
 import { Select, type SelectProps } from "@mantine/core";
 
 interface Props extends Omit<SelectProps, "value" | "onChange"> {
-  value?: number;
+  value?: number | string;
   onChange?: (value: number) => void;
   defaultIfNotSet?: string;
 }
