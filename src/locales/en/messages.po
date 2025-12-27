@@ -340,6 +340,10 @@ msgstr "Credentials JSON"
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
+#: src/core/context/ServerInstanceContext.tsx:85
+msgid "Currently browsing instance {currentName}"
+msgstr "Currently browsing instance {currentName}"
+
 #: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:39
 msgid "Daily"
 msgstr "Daily"
@@ -1735,6 +1739,10 @@ msgstr "Status"
 #: src/repo/sections/AzureBlobStorageRepo.tsx:32
 msgid "Storage Account"
 msgstr "Storage Account"
+
+#: src/core/context/ServerInstanceContext.tsx:84
+msgid "Switched instance"
+msgstr "Switched instance"
 
 #: src/snapshots/SnapshotsPage.tsx:153
 msgid "Sync"

@@ -1,5 +1,6 @@
+import { t } from "@lingui/core/macro";
 import { LoadingOverlay } from "@mantine/core";
-import { useSessionStorage } from "@mantine/hooks";
+import { useLocalStorage, useSessionStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import useApiRequest from "../hooks/useApiRequest";
@@ -35,13 +36,22 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
   const [loginInfo, setLoginInfo] = useSessionStorage<Record<string, KopiaAuth>>({
     key: "kopia-alt-ui-auth"
   });
+  const [lastInstance, setLastInstance] = useLocalStorage<string>({
+    key: "kopia-alt-ui-last-instance",
+    getInitialValueInEffect: false
+  });
 
   const getInstances = useApiRequest({
     action: () => uiService.getInstances(),
     onReturn(resp) {
       setInstances(resp);
-      const primary = resp.find((x) => x.default);
-      setCurrentInstance(primary || resp[0]);
+
+      let defaultInstance = resp.find((x) => x.id == lastInstance);
+      if (defaultInstance === undefined) {
+        defaultInstance = resp.find((x) => x.default);
+      }
+
+      setCurrentInstance(defaultInstance || resp[0]);
     }
   });
   const loginAction = useApiRequest({
@@ -66,7 +76,13 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
   }, []);
 
   const setServer = useCallback((server: Instance) => {
+    const currentName = server.name || server.id;
     setCurrentInstance(server);
+    setLastInstance(server.id);
+    notifications.show({
+      title: t`Switched instance`,
+      message: t`Currently browsing instance ${currentName}`
+    });
   }, []);
 
   const logoutFromServer = useCallback(
