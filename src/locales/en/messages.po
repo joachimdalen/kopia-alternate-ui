@@ -49,6 +49,26 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
+#: src/snapshots/SnapshotsPage.tsx:133
+msgid "1 minute"
+msgstr "1 minute"
+
+#: src/snapshots/SnapshotsPage.tsx:131
+msgid "10 seconds"
+msgstr "10 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:130
+msgid "3 seconds"
+msgstr "3 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:132
+msgid "30 seconds"
+msgstr "30 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:134
+msgid "5 minutes"
+msgstr "5 minutes"
+
 #: src/preferences/NotificationsSection.tsx:52
 msgid "A test notification was send using the defined profile"
 msgstr "A test notification was send using the defined profile"
@@ -99,7 +119,7 @@ msgstr "All"
 msgid "All Policies"
 msgstr "All Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:123
+#: src/snapshots/SnapshotsPage.tsx:142
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
@@ -449,6 +469,7 @@ msgstr "Disable ZIP compression"
 
 #: src/repo/CreateRepoSection.tsx:180
 #: src/repo/RepoPage.tsx:142
+#: src/snapshots/SnapshotsPage.tsx:129
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -932,7 +953,7 @@ msgstr "Kopia Repository Server"
 msgid "Last Modification"
 msgstr "Last Modification"
 
-#: src/snapshots/SnapshotsPage.tsx:219
+#: src/snapshots/SnapshotsPage.tsx:239
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
@@ -978,7 +999,7 @@ msgstr "Local Directory or NAS"
 msgid "Local Path Policies"
 msgstr "Local Path Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:124
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
@@ -1148,7 +1169,7 @@ msgid "New snapshot"
 msgstr "New snapshot"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:137
+#: src/snapshots/SnapshotsPage.tsx:157
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
@@ -1156,7 +1177,7 @@ msgstr "New Snapshot"
 msgid "Next"
 msgstr "Next"
 
-#: src/snapshots/SnapshotsPage.tsx:224
+#: src/snapshots/SnapshotsPage.tsx:244
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
@@ -1280,7 +1301,7 @@ msgstr "Overwrite Files"
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
-#: src/snapshots/SnapshotsPage.tsx:192
+#: src/snapshots/SnapshotsPage.tsx:212
 msgid "Owner"
 msgstr "Owner"
 
@@ -1312,7 +1333,7 @@ msgstr "Paste JSON credentials here"
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
 #: src/policies/PoliciesPage.tsx:197
 #: src/repo/sections/SFTPServerRepo.tsx:55
-#: src/snapshots/SnapshotsPage.tsx:171
+#: src/snapshots/SnapshotsPage.tsx:191
 msgid "Path"
 msgstr "Path"
 
@@ -1328,7 +1349,7 @@ msgstr "Path to known_hosts File"
 msgid "Path to snapshot"
 msgstr "Path to snapshot"
 
-#: src/snapshots/SnapshotsPage.tsx:272
+#: src/snapshots/SnapshotsPage.tsx:292
 msgid "Pending"
 msgstr "Pending"
 
@@ -1417,12 +1438,12 @@ msgstr "Records per page"
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
 #: src/snapshot-history/SnapshotHistory.tsx:120
-#: src/snapshots/SnapshotsPage.tsx:144
+#: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/snapshots/SnapshotsPage.tsx:200
+#: src/snapshots/SnapshotsPage.tsx:220
 msgid "Remote"
 msgstr "Remote"
 
@@ -1449,7 +1470,7 @@ msgstr "Repository Format"
 msgid "Repository Password"
 msgstr "Repository Password"
 
-#: src/snapshots/SnapshotsPage.tsx:104
+#: src/snapshots/SnapshotsPage.tsx:109
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
@@ -1616,7 +1637,7 @@ msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
 #: src/snapshot-history/SnapshotHistory.tsx:223
-#: src/snapshots/SnapshotsPage.tsx:210
+#: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Size"
 
@@ -1672,7 +1693,7 @@ msgstr "Snapshot is mounted at the following path"
 msgid "Snapshot now"
 msgstr "Snapshot now"
 
-#: src/snapshots/SnapshotsPage.tsx:248
+#: src/snapshots/SnapshotsPage.tsx:268
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
@@ -1695,7 +1716,7 @@ msgstr "Snapshot(s) deleted"
 #: src/core/Header/Header.tsx:27
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/SnapshotHistory.tsx:99
-#: src/snapshots/SnapshotsPage.tsx:117
+#: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -1744,7 +1765,7 @@ msgstr "Storage Account"
 msgid "Switched instance"
 msgstr "Switched instance"
 
-#: src/snapshots/SnapshotsPage.tsx:153
+#: src/snapshots/SnapshotsPage.tsx:173
 msgid "Sync"
 msgstr "Sync"
 
@@ -1770,7 +1791,7 @@ msgstr "The repository description was successfully updated"
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
-#: src/snapshots/SnapshotsPage.tsx:105
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
@@ -1924,7 +1945,7 @@ msgstr "User"
 msgid "Username"
 msgstr "Username"
 
-#: src/snapshots/SnapshotsPage.tsx:262
+#: src/snapshots/SnapshotsPage.tsx:282
 msgid "View Policy"
 msgstr "View Policy"
 
