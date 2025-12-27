@@ -164,6 +164,7 @@ export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDe
             orientation="vertical"
             variant="outline"
             styles={{ tabLabel: { textAlign: "left" } }}
+            keepMounted={false}
           >
             <TabsList ta="left">
               <TabsTab
