@@ -360,7 +360,7 @@ msgstr "Credentials JSON"
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
-#: src/core/context/ServerInstanceContext.tsx:84
+#: src/core/context/ServerInstanceContext.tsx:90
 msgid "Currently browsing instance {currentName}"
 msgstr "Currently browsing instance {currentName}"
 
@@ -1124,7 +1124,7 @@ msgstr "Mounted at"
 msgid "Mounted Snapshots"
 msgstr "Mounted Snapshots"
 
-#: src/core/Header/Header.tsx:33
+#: src/core/Header/Header.tsx:32
 #: src/core/Header/SkeletonHeader.tsx:31
 msgid "Mounts"
 msgstr "Mounts"
@@ -1371,7 +1371,7 @@ msgstr "Pin Snapshot"
 msgid "Plain Text Format"
 msgstr "Plain Text Format"
 
-#: src/core/Header/Header.tsx:39
+#: src/core/Header/Header.tsx:38
 #: src/core/Header/SkeletonHeader.tsx:37
 #: src/policies/PoliciesPage.tsx:135
 msgid "Policies"
@@ -1385,7 +1385,7 @@ msgstr "Port"
 msgid "Port number (e.g., 22)"
 msgstr "Port number (e.g., 22)"
 
-#: src/core/Header/Header.tsx:45
+#: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
 #: src/preferences/PreferencesPage.tsx:13
 msgid "Preferences"
@@ -1447,7 +1447,7 @@ msgstr "Refresh"
 msgid "Remote"
 msgstr "Remote"
 
-#: src/core/Header/Header.tsx:44
+#: src/core/Header/Header.tsx:43
 #: src/core/Header/SkeletonHeader.tsx:49
 msgid "Repository"
 msgstr "Repository"
@@ -1713,7 +1713,7 @@ msgstr "Snapshot unmounted"
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
-#: src/core/Header/Header.tsx:27
+#: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/SnapshotHistory.tsx:99
 #: src/snapshots/SnapshotsPage.tsx:122
@@ -1761,7 +1761,7 @@ msgstr "Status"
 msgid "Storage Account"
 msgstr "Storage Account"
 
-#: src/core/context/ServerInstanceContext.tsx:83
+#: src/core/context/ServerInstanceContext.tsx:89
 msgid "Switched instance"
 msgstr "Switched instance"
 
@@ -1773,7 +1773,7 @@ msgstr "Sync"
 msgid "Task ID"
 msgstr "Task ID"
 
-#: src/core/Header/Header.tsx:43
+#: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
 #: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
