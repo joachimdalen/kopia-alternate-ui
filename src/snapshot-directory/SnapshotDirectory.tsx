@@ -165,7 +165,7 @@ function SnapshotDirectory() {
           </Alert>
         )}
         <DataGrid
-          idAccessor="obj"
+          idAccessor={(snap: DirEntry) => `${snap.obj}-${snap.type}-${snap.name}`}
           loading={loading && loadingKey === "loading"}
           records={visibleItems}
           noRecordsText={debouncedQuery !== "" ? t`No entires matching your search` : t`No entries in folder`}
