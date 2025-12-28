@@ -45,7 +45,7 @@ function SnapshotsPage() {
   });
   const [refreshInterval, setRefreshInterval] = useLocalStorage<number | null>({
     key: "kopia-alt-ui-snapshot-refresh",
-    defaultValue: 5000,
+    defaultValue: 3000,
     getInitialValueInEffect: false
   });
 
