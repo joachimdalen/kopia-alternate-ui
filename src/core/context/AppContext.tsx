@@ -1,6 +1,7 @@
 import { useLingui } from "@lingui/react/macro";
 import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { parseColorScheme } from "../../utils/parseColorScheme";
 import useApiRequest from "../hooks/useApiRequest";
 import type { Preferences, Status } from "../types";
@@ -38,6 +39,7 @@ export function AppContextProvider({ children }: AppContextProps) {
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();
   const { setColorScheme, colorScheme } = useMantineColorScheme();
+  const navigate = useNavigate();
   const loadPreferences = useApiRequest({
     showErrorAsNotification: true,
     action: () => kopiaService.getPreferences(),
@@ -62,6 +64,9 @@ export function AppContextProvider({ children }: AppContextProps) {
     action: () => kopiaService.getStatus(),
     onReturn(resp) {
       setStatus(resp);
+      if (!resp.connected) {
+        navigate("/repo");
+      }
     }
   });
 

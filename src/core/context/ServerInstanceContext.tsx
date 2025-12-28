@@ -3,6 +3,7 @@ import { LoadingOverlay } from "@mantine/core";
 import { useLocalStorage, useSessionStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import useApiRequest from "../hooks/useApiRequest";
 import { type IKopiaService, type KopiaAuth, KopiaService } from "../kopiaService";
 import SkeletonLayout from "../SkeletonLayout";
@@ -30,6 +31,7 @@ const ServerInstanceContext = createContext<ContextState>(initialState);
 
 export type ServerInstanceContextProps = PropsWithChildren;
 export function ServerInstanceContextProvider({ children }: ServerInstanceContextProps) {
+  const navigate = useNavigate();
   const [instances, setInstances] = useState<Instance[]>([]);
   const [currentInstance, setCurrentInstance] = useState<Instance>();
   const [loginRequired, setLoginRequired] = useState(false);
@@ -57,8 +59,9 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
   const loginAction = useApiRequest({
     action: (auth?: { instance: string; username: string; password: string }) =>
       kopiaInstance.login(auth!.username, auth!.password),
-    onReturn(_, req) {
+    onReturn(res, req) {
       setLoginRequired(false);
+
       notifications.clean();
       if (req) {
         setLoginInfo({
@@ -68,6 +71,9 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
             password: req.password
           }
         });
+      }
+      if (!res.connected) {
+        navigate("/repo");
       }
     }
   });
