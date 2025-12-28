@@ -201,7 +201,7 @@ msgstr "Cache Miss"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:253
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -244,7 +244,7 @@ msgstr "Command Mode - After"
 msgid "Command Mode - Before"
 msgstr "Command Mode - Before"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:209
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
 msgid "Compression"
 msgstr "Compression"
 
@@ -686,7 +686,7 @@ msgstr "Error Correction Algorithm"
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
 msgid "Error Handling"
 msgstr "Error Handling"
 
@@ -758,7 +758,7 @@ msgstr "File Ignored"
 msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:200
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/SnapshotHistory.tsx:230
 msgid "Files"
@@ -781,7 +781,7 @@ msgstr "Finished"
 msgid "Finished in"
 msgstr "Finished in"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:224
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
 msgid "Folder Actions"
 msgstr "Folder Actions"
 
@@ -1031,7 +1031,7 @@ msgstr "Log verbosity when a file, symbolic link, etc. is ignored"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Log verbosity when a file, symbolic link, etc. is snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
 msgid "Logging"
 msgstr "Logging"
 
@@ -1271,7 +1271,7 @@ msgstr "Only compress files with the following file extensions (one extension pe
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Only create snapshots manually (disables scheduled snapshots)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:230
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
 msgid "Other"
 msgstr "Other"
 
@@ -1431,7 +1431,7 @@ msgstr "Read-only mode prevents any changes to the repository"
 msgid "Recipient User Key or Group Key"
 msgstr "Recipient User Key or Group Key"
 
-#: src/core/DataGrid/DataGrid.tsx:73
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Records per page"
 
@@ -1527,7 +1527,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:258
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1542,7 +1542,7 @@ msgstr "Save"
 msgid "Scan only one filesystem"
 msgstr "Scan only one filesystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
 msgid "Scheduling"
 msgstr "Scheduling"
 
@@ -1673,7 +1673,7 @@ msgstr "SMTP Username"
 msgid "Snapshot"
 msgstr "Snapshot"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 msgid "Snapshot Actions"
 msgstr "Snapshot Actions"
 
@@ -1697,7 +1697,7 @@ msgstr "Snapshot now"
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
 msgid "Snapshot Retention"
 msgstr "Snapshot Retention"
 
@@ -1905,7 +1905,7 @@ msgstr "Update items"
 msgid "Updated"
 msgstr "Updated"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:215
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
 msgid "Upload"
 msgstr "Upload"
 

@@ -201,7 +201,7 @@ msgstr "Hurtigbufferbom"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:253
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -244,7 +244,7 @@ msgstr "Kommandomodus – Etter"
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:209
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
 msgid "Compression"
 msgstr "Kompresjon"
 
@@ -686,7 +686,7 @@ msgstr "Feilkorrigeringsalgoritme"
 msgid "Error Correction Overhead"
 msgstr "Feilretting Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
@@ -758,7 +758,7 @@ msgstr "Fil irgnorert"
 msgid "File Snapshotted"
 msgstr "Fil øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:200
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/SnapshotHistory.tsx:230
 msgid "Files"
@@ -781,7 +781,7 @@ msgstr "Fullført"
 msgid "Finished in"
 msgstr "Fullført på"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:224
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
 msgid "Folder Actions"
 msgstr "Mappehandlinger"
 
@@ -1031,7 +1031,7 @@ msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. ignoreres"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. blir tatt øyeblikksbilde av"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
 msgid "Logging"
 msgstr "Logging"
 
@@ -1271,7 +1271,7 @@ msgstr "Komprimer kun filer med følgende filtyper (én filtype per linje)"
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilder)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:230
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
 msgid "Other"
 msgstr "Annet"
 
@@ -1431,7 +1431,7 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:73
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
@@ -1527,7 +1527,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:258
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1542,7 +1542,7 @@ msgstr "Lagre"
 msgid "Scan only one filesystem"
 msgstr "Skann bare ett filsystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
 msgid "Scheduling"
 msgstr "Planlegging"
 
@@ -1673,7 +1673,7 @@ msgstr "SMTP Brukernavn"
 msgid "Snapshot"
 msgstr "Øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 msgid "Snapshot Actions"
 msgstr "Handlinger"
 
@@ -1697,7 +1697,7 @@ msgstr "Ta øyeblikksbilde"
 msgid "Snapshot Now"
 msgstr "Øyeblikksbilde nå"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
 msgid "Snapshot Retention"
 msgstr "Oppbevaring"
 
@@ -1905,7 +1905,7 @@ msgstr "Oppdater oppføringer"
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:215
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
 msgid "Upload"
 msgstr "Opplasting"
 
