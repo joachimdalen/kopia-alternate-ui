@@ -67,7 +67,10 @@ export function SkeletonHeader() {
   const items = links.map((link) =>
     link.disabled ? (
       <a key={link.label} aria-disabled className={classes.link}>
-        {link.label}
+        <Group gap={5}>
+          <IconWrapper icon={link.icon} size={14} />
+          {link.label}
+        </Group>
       </a>
     ) : link.link.startsWith("ext:") ? (
       <Anchor key={link.label} href={link.link.replace("ext:", "")} className={classes.link} target="_blank">

@@ -49,6 +49,26 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
+#: src/snapshots/SnapshotsPage.tsx:133
+msgid "1 minute"
+msgstr "1 minute"
+
+#: src/snapshots/SnapshotsPage.tsx:131
+msgid "10 seconds"
+msgstr "10 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:130
+msgid "3 seconds"
+msgstr "3 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:132
+msgid "30 seconds"
+msgstr "30 seconds"
+
+#: src/snapshots/SnapshotsPage.tsx:134
+msgid "5 minutes"
+msgstr "5 minutes"
+
 #: src/preferences/NotificationsSection.tsx:52
 msgid "A test notification was send using the defined profile"
 msgstr "A test notification was send using the defined profile"
@@ -61,7 +81,7 @@ msgstr "Access Key"
 msgid "Access Key ID"
 msgstr "Access Key ID"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:36
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:37
 msgid "Active"
 msgstr "Active"
 
@@ -99,7 +119,7 @@ msgstr "All"
 msgid "All Policies"
 msgstr "All Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:123
+#: src/snapshots/SnapshotsPage.tsx:142
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
@@ -181,7 +201,7 @@ msgstr "Cache Miss"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:229
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -224,7 +244,7 @@ msgstr "Command Mode - After"
 msgid "Command Mode - Before"
 msgstr "Command Mode - Before"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:185
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
 msgid "Compression"
 msgstr "Compression"
 
@@ -340,6 +360,10 @@ msgstr "Credentials JSON"
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
+#: src/core/context/ServerInstanceContext.tsx:90
+msgid "Currently browsing instance {currentName}"
+msgstr "Currently browsing instance {currentName}"
+
 #: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:39
 msgid "Daily"
 msgstr "Daily"
@@ -352,22 +376,22 @@ msgstr "Dark"
 msgid "Default page size"
 msgstr "Default page size"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:65
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:24
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:35
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:25
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:48
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:30
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:70
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:27
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:30
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:27
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:52
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:34
 #: src/policies/PoliciesPage.tsx:202
 msgid "Defined"
 msgstr "Defined"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:75
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:45
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:33
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:80
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
 msgid "Defined in global policy"
 msgstr "Defined in global policy"
 
@@ -387,7 +411,7 @@ msgstr "Delete policy"
 msgid "Delete Selected"
 msgstr "Delete Selected"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:48
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:49
 msgid "Deprecated"
 msgstr "Deprecated"
 
@@ -445,6 +469,7 @@ msgstr "Disable ZIP compression"
 
 #: src/repo/CreateRepoSection.tsx:180
 #: src/repo/RepoPage.tsx:142
+#: src/snapshots/SnapshotsPage.tsx:129
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -503,8 +528,8 @@ msgstr "Edit email notification"
 msgid "Edit existing policy"
 msgstr "Edit existing policy"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:70
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:52
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:74
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:56
 msgid "Edit items"
 msgstr "Edit items"
 
@@ -512,15 +537,15 @@ msgstr "Edit items"
 msgid "Edit pushover notification"
 msgstr "Edit pushover notification"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:76
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:30
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:46
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:44
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:34
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:73
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:55
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:34
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:50
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:39
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:77
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:59
 msgid "Effective"
 msgstr "Effective"
 
@@ -661,7 +686,7 @@ msgstr "Error Correction Algorithm"
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:182
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
 msgid "Error Handling"
 msgstr "Error Handling"
 
@@ -733,7 +758,7 @@ msgstr "File Ignored"
 msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:176
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/SnapshotHistory.tsx:230
 msgid "Files"
@@ -756,7 +781,7 @@ msgstr "Finished"
 msgid "Finished in"
 msgstr "Finished in"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:200
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
 msgid "Folder Actions"
 msgstr "Folder Actions"
 
@@ -928,7 +953,7 @@ msgstr "Kopia Repository Server"
 msgid "Last Modification"
 msgstr "Last Modification"
 
-#: src/snapshots/SnapshotsPage.tsx:219
+#: src/snapshots/SnapshotsPage.tsx:239
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
@@ -974,7 +999,7 @@ msgstr "Local Directory or NAS"
 msgid "Local Path Policies"
 msgstr "Local Path Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:124
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
@@ -1006,7 +1031,7 @@ msgstr "Log verbosity when a file, symbolic link, etc. is ignored"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Log verbosity when a file, symbolic link, etc. is snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
 msgid "Logging"
 msgstr "Logging"
 
@@ -1099,7 +1124,7 @@ msgstr "Mounted at"
 msgid "Mounted Snapshots"
 msgstr "Mounted Snapshots"
 
-#: src/core/Header/Header.tsx:33
+#: src/core/Header/Header.tsx:32
 #: src/core/Header/SkeletonHeader.tsx:31
 msgid "Mounts"
 msgstr "Mounts"
@@ -1144,7 +1169,7 @@ msgid "New snapshot"
 msgstr "New snapshot"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:137
+#: src/snapshots/SnapshotsPage.tsx:157
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
@@ -1152,7 +1177,7 @@ msgstr "New Snapshot"
 msgid "Next"
 msgstr "Next"
 
-#: src/snapshots/SnapshotsPage.tsx:224
+#: src/snapshots/SnapshotsPage.tsx:244
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
@@ -1198,7 +1223,7 @@ msgstr "No snapshots mounted"
 msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:38
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:39
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
 msgid "None"
 msgstr "None"
@@ -1207,10 +1232,10 @@ msgstr "None"
 msgid "Not configured"
 msgstr "Not configured"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:58
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:83
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:40
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:65
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:62
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:87
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:44
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:69
 msgid "Not defined"
 msgstr "Not defined"
 
@@ -1246,7 +1271,7 @@ msgstr "Only compress files with the following file extensions (one extension pe
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Only create snapshots manually (disables scheduled snapshots)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
 msgid "Other"
 msgstr "Other"
 
@@ -1276,7 +1301,7 @@ msgstr "Overwrite Files"
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
-#: src/snapshots/SnapshotsPage.tsx:192
+#: src/snapshots/SnapshotsPage.tsx:212
 msgid "Owner"
 msgstr "Owner"
 
@@ -1308,7 +1333,7 @@ msgstr "Paste JSON credentials here"
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
 #: src/policies/PoliciesPage.tsx:197
 #: src/repo/sections/SFTPServerRepo.tsx:55
-#: src/snapshots/SnapshotsPage.tsx:171
+#: src/snapshots/SnapshotsPage.tsx:191
 msgid "Path"
 msgstr "Path"
 
@@ -1324,7 +1349,7 @@ msgstr "Path to known_hosts File"
 msgid "Path to snapshot"
 msgstr "Path to snapshot"
 
-#: src/snapshots/SnapshotsPage.tsx:272
+#: src/snapshots/SnapshotsPage.tsx:292
 msgid "Pending"
 msgstr "Pending"
 
@@ -1346,7 +1371,7 @@ msgstr "Pin Snapshot"
 msgid "Plain Text Format"
 msgstr "Plain Text Format"
 
-#: src/core/Header/Header.tsx:39
+#: src/core/Header/Header.tsx:38
 #: src/core/Header/SkeletonHeader.tsx:37
 #: src/policies/PoliciesPage.tsx:135
 msgid "Policies"
@@ -1360,7 +1385,7 @@ msgstr "Port"
 msgid "Port number (e.g., 22)"
 msgstr "Port number (e.g., 22)"
 
-#: src/core/Header/Header.tsx:45
+#: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
 #: src/preferences/PreferencesPage.tsx:13
 msgid "Preferences"
@@ -1406,23 +1431,23 @@ msgstr "Read-only mode prevents any changes to the repository"
 msgid "Recipient User Key or Group Key"
 msgstr "Recipient User Key or Group Key"
 
-#: src/core/DataGrid/DataGrid.tsx:73
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
 #: src/snapshot-history/SnapshotHistory.tsx:120
-#: src/snapshots/SnapshotsPage.tsx:144
+#: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/snapshots/SnapshotsPage.tsx:200
+#: src/snapshots/SnapshotsPage.tsx:220
 msgid "Remote"
 msgstr "Remote"
 
-#: src/core/Header/Header.tsx:44
+#: src/core/Header/Header.tsx:43
 #: src/core/Header/SkeletonHeader.tsx:49
 msgid "Repository"
 msgstr "Repository"
@@ -1445,7 +1470,7 @@ msgstr "Repository Format"
 msgid "Repository Password"
 msgstr "Repository Password"
 
-#: src/snapshots/SnapshotsPage.tsx:104
+#: src/snapshots/SnapshotsPage.tsx:109
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
@@ -1502,7 +1527,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1517,7 +1542,7 @@ msgstr "Save"
 msgid "Scan only one filesystem"
 msgstr "Scan only one filesystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:188
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
 msgid "Scheduling"
 msgstr "Scheduling"
 
@@ -1549,7 +1574,7 @@ msgstr "Search tasks"
 msgid "Secret Access Key"
 msgstr "Secret Access Key"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:68
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:73
 msgid "Select compression algorithm"
 msgstr "Select compression algorithm"
 
@@ -1612,7 +1637,7 @@ msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
 #: src/snapshot-history/SnapshotHistory.tsx:223
-#: src/snapshots/SnapshotsPage.tsx:210
+#: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Size"
 
@@ -1648,7 +1673,7 @@ msgstr "SMTP Username"
 msgid "Snapshot"
 msgstr "Snapshot"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 msgid "Snapshot Actions"
 msgstr "Snapshot Actions"
 
@@ -1668,11 +1693,11 @@ msgstr "Snapshot is mounted at the following path"
 msgid "Snapshot now"
 msgstr "Snapshot now"
 
-#: src/snapshots/SnapshotsPage.tsx:248
+#: src/snapshots/SnapshotsPage.tsx:268
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:173
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
 msgid "Snapshot Retention"
 msgstr "Snapshot Retention"
 
@@ -1688,10 +1713,10 @@ msgstr "Snapshot unmounted"
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
-#: src/core/Header/Header.tsx:27
+#: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/SnapshotHistory.tsx:99
-#: src/snapshots/SnapshotsPage.tsx:117
+#: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -1736,7 +1761,11 @@ msgstr "Status"
 msgid "Storage Account"
 msgstr "Storage Account"
 
-#: src/snapshots/SnapshotsPage.tsx:153
+#: src/core/context/ServerInstanceContext.tsx:89
+msgid "Switched instance"
+msgstr "Switched instance"
+
+#: src/snapshots/SnapshotsPage.tsx:173
 msgid "Sync"
 msgstr "Sync"
 
@@ -1744,7 +1773,7 @@ msgstr "Sync"
 msgid "Task ID"
 msgstr "Task ID"
 
-#: src/core/Header/Header.tsx:43
+#: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
 #: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
@@ -1762,7 +1791,7 @@ msgstr "The repository description was successfully updated"
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
-#: src/snapshots/SnapshotsPage.tsx:105
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
@@ -1782,10 +1811,10 @@ msgstr "Theme"
 msgid "This is the internal representation of a policy"
 msgstr "This is the internal representation of a policy"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:66
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:38
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:36
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:26
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:71
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
 msgid "This policy"
 msgstr "This policy"
 
@@ -1876,7 +1905,7 @@ msgstr "Update items"
 msgid "Updated"
 msgstr "Updated"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:191
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
 msgid "Upload"
 msgstr "Upload"
 
@@ -1916,7 +1945,7 @@ msgstr "User"
 msgid "Username"
 msgstr "Username"
 
-#: src/snapshots/SnapshotsPage.tsx:262
+#: src/snapshots/SnapshotsPage.tsx:282
 msgid "View Policy"
 msgstr "View Policy"
 

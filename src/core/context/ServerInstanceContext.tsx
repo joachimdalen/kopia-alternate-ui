@@ -1,7 +1,9 @@
+import { t } from "@lingui/core/macro";
 import { LoadingOverlay } from "@mantine/core";
-import { useSessionStorage } from "@mantine/hooks";
+import { useLocalStorage, useSessionStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import useApiRequest from "../hooks/useApiRequest";
 import { type IKopiaService, type KopiaAuth, KopiaService } from "../kopiaService";
 import SkeletonLayout from "../SkeletonLayout";
@@ -29,26 +31,37 @@ const ServerInstanceContext = createContext<ContextState>(initialState);
 
 export type ServerInstanceContextProps = PropsWithChildren;
 export function ServerInstanceContextProvider({ children }: ServerInstanceContextProps) {
+  const navigate = useNavigate();
   const [instances, setInstances] = useState<Instance[]>([]);
   const [currentInstance, setCurrentInstance] = useState<Instance>();
   const [loginRequired, setLoginRequired] = useState(false);
   const [loginInfo, setLoginInfo] = useSessionStorage<Record<string, KopiaAuth>>({
     key: "kopia-alt-ui-auth"
   });
+  const [lastInstance, setLastInstance] = useLocalStorage<string>({
+    key: "kopia-alt-ui-last-instance",
+    getInitialValueInEffect: false
+  });
 
   const getInstances = useApiRequest({
     action: () => uiService.getInstances(),
     onReturn(resp) {
       setInstances(resp);
-      const primary = resp.find((x) => x.default);
-      setCurrentInstance(primary || resp[0]);
+
+      let defaultInstance = resp.find((x) => x.id == lastInstance);
+      if (defaultInstance === undefined) {
+        defaultInstance = resp.find((x) => x.default);
+      }
+
+      setCurrentInstance(defaultInstance || resp[0]);
     }
   });
   const loginAction = useApiRequest({
     action: (auth?: { instance: string; username: string; password: string }) =>
       kopiaInstance.login(auth!.username, auth!.password),
-    onReturn(_, req) {
+    onReturn(res, req) {
       setLoginRequired(false);
+
       notifications.clean();
       if (req) {
         setLoginInfo({
@@ -59,6 +72,9 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
           }
         });
       }
+      if (!res.connected) {
+        navigate("/repo");
+      }
     }
   });
   useEffect(() => {
@@ -66,7 +82,13 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
   }, []);
 
   const setServer = useCallback((server: Instance) => {
+    const currentName = server.name || server.id;
     setCurrentInstance(server);
+    setLastInstance(server.id);
+    notifications.show({
+      title: t`Switched instance`,
+      message: t`Currently browsing instance ${currentName}`
+    });
   }, []);
 
   const logoutFromServer = useCallback(

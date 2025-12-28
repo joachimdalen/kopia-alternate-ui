@@ -49,6 +49,26 @@ msgstr "# av månedlige øyeblikksbilder"
 msgid "# of weekly snapshots"
 msgstr "# av ukentlige øyeblikksbilder"
 
+#: src/snapshots/SnapshotsPage.tsx:133
+msgid "1 minute"
+msgstr "1 minutt"
+
+#: src/snapshots/SnapshotsPage.tsx:131
+msgid "10 seconds"
+msgstr "10 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:130
+msgid "3 seconds"
+msgstr "3 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:132
+msgid "30 seconds"
+msgstr "30 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:134
+msgid "5 minutes"
+msgstr "5 minutt"
+
 #: src/preferences/NotificationsSection.tsx:52
 msgid "A test notification was send using the defined profile"
 msgstr "En test notifikasjon ble sent med den valgte konfigurasjonen"
@@ -61,7 +81,7 @@ msgstr "Tilgangsnøkkel"
 msgid "Access Key ID"
 msgstr "Tilgangsnøkkel ID"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:36
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:37
 msgid "Active"
 msgstr "Aktiv"
 
@@ -99,7 +119,7 @@ msgstr "Alle"
 msgid "All Policies"
 msgstr "Alle strategier"
 
-#: src/snapshots/SnapshotsPage.tsx:123
+#: src/snapshots/SnapshotsPage.tsx:142
 msgid "All Snapshots"
 msgstr "Alle øyeblikksbilder"
 
@@ -181,7 +201,7 @@ msgstr "Hurtigbufferbom"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:229
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -224,7 +244,7 @@ msgstr "Kommandomodus – Etter"
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:185
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
 msgid "Compression"
 msgstr "Kompresjon"
 
@@ -340,6 +360,10 @@ msgstr "Legitimasjons-JSON"
 msgid "Cron Expressions"
 msgstr "Cron-uttrykk"
 
+#: src/core/context/ServerInstanceContext.tsx:90
+msgid "Currently browsing instance {currentName}"
+msgstr "Byttet aktiv server til {currentName}"
+
 #: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:39
 msgid "Daily"
 msgstr "Daglig"
@@ -352,22 +376,22 @@ msgstr "Mørkt"
 msgid "Default page size"
 msgstr "Standard side størrelse"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:65
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:24
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:35
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:25
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:48
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:30
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:70
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:27
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:30
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:27
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:52
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:34
 #: src/policies/PoliciesPage.tsx:202
 msgid "Defined"
 msgstr "Definert"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:75
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:45
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:33
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:80
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
 msgid "Defined in global policy"
 msgstr "Definert i global strategi"
 
@@ -387,7 +411,7 @@ msgstr "Slett strategi"
 msgid "Delete Selected"
 msgstr "Slett valgte"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:48
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:49
 msgid "Deprecated"
 msgstr "Utdatert"
 
@@ -445,6 +469,7 @@ msgstr "Deaktiver ZIP kompresjon"
 
 #: src/repo/CreateRepoSection.tsx:180
 #: src/repo/RepoPage.tsx:142
+#: src/snapshots/SnapshotsPage.tsx:129
 msgid "Disabled"
 msgstr "Deaktivert"
 
@@ -503,8 +528,8 @@ msgstr "Rediger e-post notifikasjon"
 msgid "Edit existing policy"
 msgstr "Rediger eksisterende strategi"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:70
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:52
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:74
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:56
 msgid "Edit items"
 msgstr "Rediger elementer"
 
@@ -512,15 +537,15 @@ msgstr "Rediger elementer"
 msgid "Edit pushover notification"
 msgstr "Rediger pushover notifikasjon"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:76
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:30
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:46
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:44
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:34
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:73
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:55
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:34
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:50
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:39
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:77
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:59
 msgid "Effective"
 msgstr "Effektiv"
 
@@ -661,7 +686,7 @@ msgstr "Feilkorrigeringsalgoritme"
 msgid "Error Correction Overhead"
 msgstr "Feilretting Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:182
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
@@ -733,7 +758,7 @@ msgstr "Fil irgnorert"
 msgid "File Snapshotted"
 msgstr "Fil øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:176
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/SnapshotHistory.tsx:230
 msgid "Files"
@@ -756,7 +781,7 @@ msgstr "Fullført"
 msgid "Finished in"
 msgstr "Fullført på"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:200
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
 msgid "Folder Actions"
 msgstr "Mappehandlinger"
 
@@ -928,7 +953,7 @@ msgstr "Kopa Repository Server"
 msgid "Last Modification"
 msgstr "Sist Endret"
 
-#: src/snapshots/SnapshotsPage.tsx:219
+#: src/snapshots/SnapshotsPage.tsx:239
 msgid "Last Snapshot"
 msgstr "Siste øyeblikksbilde"
 
@@ -974,7 +999,7 @@ msgstr "Lokal katalog eller NAS"
 msgid "Local Path Policies"
 msgstr "Lokale sti strategier"
 
-#: src/snapshots/SnapshotsPage.tsx:124
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "Local Snapshots"
 msgstr "Lokale øyeblikksbilder"
 
@@ -1006,7 +1031,7 @@ msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. ignoreres"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. blir tatt øyeblikksbilde av"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
 msgid "Logging"
 msgstr "Logging"
 
@@ -1099,7 +1124,7 @@ msgstr "Montert på"
 msgid "Mounted Snapshots"
 msgstr "Monterte øyeblikksbilder"
 
-#: src/core/Header/Header.tsx:33
+#: src/core/Header/Header.tsx:32
 #: src/core/Header/SkeletonHeader.tsx:31
 msgid "Mounts"
 msgstr "Monteringer"
@@ -1144,7 +1169,7 @@ msgid "New snapshot"
 msgstr "Ta nytt øyeblikksbilde"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:137
+#: src/snapshots/SnapshotsPage.tsx:157
 msgid "New Snapshot"
 msgstr "Nytt øyeblikksbilde"
 
@@ -1152,7 +1177,7 @@ msgstr "Nytt øyeblikksbilde"
 msgid "Next"
 msgstr "Neste"
 
-#: src/snapshots/SnapshotsPage.tsx:224
+#: src/snapshots/SnapshotsPage.tsx:244
 msgid "Next snapshot"
 msgstr "Neste øyeblikksbilde"
 
@@ -1198,7 +1223,7 @@ msgstr "Ingen øyeblikksbilder montert"
 msgid "No snapshots taken"
 msgstr "Ingen øyeblikksbilder tatt"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:38
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:39
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
 msgid "None"
 msgstr "Ingen"
@@ -1207,10 +1232,10 @@ msgstr "Ingen"
 msgid "Not configured"
 msgstr "Ikke konfigurerert"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:58
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:83
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:40
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:65
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:62
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:87
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:44
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:69
 msgid "Not defined"
 msgstr "Ikke definert"
 
@@ -1246,7 +1271,7 @@ msgstr "Komprimer kun filer med følgende filtyper (én filtype per linje)"
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilder)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
 msgid "Other"
 msgstr "Annet"
 
@@ -1276,7 +1301,7 @@ msgstr "Overskriv filer"
 msgid "Overwrite Symbolic Links"
 msgstr "Overskriv symbolske lenker"
 
-#: src/snapshots/SnapshotsPage.tsx:192
+#: src/snapshots/SnapshotsPage.tsx:212
 msgid "Owner"
 msgstr "Eier"
 
@@ -1308,7 +1333,7 @@ msgstr "Lim inn JSON-legitimasjon her"
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
 #: src/policies/PoliciesPage.tsx:197
 #: src/repo/sections/SFTPServerRepo.tsx:55
-#: src/snapshots/SnapshotsPage.tsx:171
+#: src/snapshots/SnapshotsPage.tsx:191
 msgid "Path"
 msgstr "Sti"
 
@@ -1324,7 +1349,7 @@ msgstr "Sti til known_hosts-filen"
 msgid "Path to snapshot"
 msgstr "Sti til øyeblikksbilde"
 
-#: src/snapshots/SnapshotsPage.tsx:272
+#: src/snapshots/SnapshotsPage.tsx:292
 msgid "Pending"
 msgstr "Venter"
 
@@ -1346,7 +1371,7 @@ msgstr "Fest Øyeblikksbilde"
 msgid "Plain Text Format"
 msgstr "Vanlig tekstformat"
 
-#: src/core/Header/Header.tsx:39
+#: src/core/Header/Header.tsx:38
 #: src/core/Header/SkeletonHeader.tsx:37
 #: src/policies/PoliciesPage.tsx:135
 msgid "Policies"
@@ -1360,7 +1385,7 @@ msgstr "Port"
 msgid "Port number (e.g., 22)"
 msgstr "Port nummer (e.g., 22)"
 
-#: src/core/Header/Header.tsx:45
+#: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
 #: src/preferences/PreferencesPage.tsx:13
 msgid "Preferences"
@@ -1406,23 +1431,23 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:73
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
 #: src/snapshot-history/SnapshotHistory.tsx:120
-#: src/snapshots/SnapshotsPage.tsx:144
+#: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Oppdater"
 
-#: src/snapshots/SnapshotsPage.tsx:200
+#: src/snapshots/SnapshotsPage.tsx:220
 msgid "Remote"
 msgstr "Ekstern"
 
-#: src/core/Header/Header.tsx:44
+#: src/core/Header/Header.tsx:43
 #: src/core/Header/SkeletonHeader.tsx:49
 msgid "Repository"
 msgstr "Oppbevaringssted"
@@ -1445,7 +1470,7 @@ msgstr "Oppbevaringssted Format"
 msgid "Repository Password"
 msgstr "Oppbevaringssted Passord"
 
-#: src/snapshots/SnapshotsPage.tsx:104
+#: src/snapshots/SnapshotsPage.tsx:109
 msgid "Repository synchronized"
 msgstr "Oppbevaringssted synkronisert"
 
@@ -1502,7 +1527,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1517,7 +1542,7 @@ msgstr "Lagre"
 msgid "Scan only one filesystem"
 msgstr "Skann bare ett filsystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:188
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
 msgid "Scheduling"
 msgstr "Planlegging"
 
@@ -1549,7 +1574,7 @@ msgstr "Søk etter oppgaver"
 msgid "Secret Access Key"
 msgstr "Hemmelig tilgangsnøkkel"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:68
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:73
 msgid "Select compression algorithm"
 msgstr "Velg komprimeringsalgoritme"
 
@@ -1612,7 +1637,7 @@ msgstr "Vis alle øyeblikksbilder som standard"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
 #: src/snapshot-history/SnapshotHistory.tsx:223
-#: src/snapshots/SnapshotsPage.tsx:210
+#: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Størrelse"
 
@@ -1648,7 +1673,7 @@ msgstr "SMTP Brukernavn"
 msgid "Snapshot"
 msgstr "Øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
 msgid "Snapshot Actions"
 msgstr "Handlinger"
 
@@ -1668,11 +1693,11 @@ msgstr "Øyeblikksbilde er montert under følgende sti"
 msgid "Snapshot now"
 msgstr "Ta øyeblikksbilde"
 
-#: src/snapshots/SnapshotsPage.tsx:248
+#: src/snapshots/SnapshotsPage.tsx:268
 msgid "Snapshot Now"
 msgstr "Øyeblikksbilde nå"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:173
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
 msgid "Snapshot Retention"
 msgstr "Oppbevaring"
 
@@ -1688,10 +1713,10 @@ msgstr "Øyeblikksbilde demontert"
 msgid "Snapshot(s) deleted"
 msgstr "Øyeblikksbilde(r) slettet"
 
-#: src/core/Header/Header.tsx:27
+#: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/SnapshotHistory.tsx:99
-#: src/snapshots/SnapshotsPage.tsx:117
+#: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Øyeblikksbilder"
 
@@ -1736,7 +1761,11 @@ msgstr "Status"
 msgid "Storage Account"
 msgstr "Storage Account"
 
-#: src/snapshots/SnapshotsPage.tsx:153
+#: src/core/context/ServerInstanceContext.tsx:89
+msgid "Switched instance"
+msgstr "Server byttet"
+
+#: src/snapshots/SnapshotsPage.tsx:173
 msgid "Sync"
 msgstr "Synk"
 
@@ -1744,7 +1773,7 @@ msgstr "Synk"
 msgid "Task ID"
 msgstr "Oppgave ID"
 
-#: src/core/Header/Header.tsx:43
+#: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
 #: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
@@ -1762,7 +1791,7 @@ msgstr "Beskrivelsen av oppbevaringsstedet ble oppdatert"
 msgid "The repository was successfully disconnected"
 msgstr "Oppbevaringsstedet ble koblet fra"
 
-#: src/snapshots/SnapshotsPage.tsx:105
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "The repository was synchronized successfully"
 msgstr "Oppbevaringsstedet ble synkronisert"
 
@@ -1782,10 +1811,10 @@ msgstr "Tema"
 msgid "This is the internal representation of a policy"
 msgstr "Dette er den interne representasjonen av en strategi"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:66
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:38
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:36
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:26
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:71
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
 msgid "This policy"
 msgstr "Denne strategien"
 
@@ -1876,7 +1905,7 @@ msgstr "Oppdater oppføringer"
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:191
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
 msgid "Upload"
 msgstr "Opplasting"
 
@@ -1916,7 +1945,7 @@ msgstr "Bruker"
 msgid "Username"
 msgstr "Brukernavn"
 
-#: src/snapshots/SnapshotsPage.tsx:262
+#: src/snapshots/SnapshotsPage.tsx:282
 msgid "View Policy"
 msgstr "Vis policy"
 

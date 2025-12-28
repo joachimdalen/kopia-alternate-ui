@@ -7,15 +7,17 @@ export function MenuButton({
   options,
   onClick,
   disabled,
-  prefix
+  prefix,
+  value
 }: {
   options: { label: string | React.ReactNode; value: string }[];
   onClick: (selected: string) => void;
   disabled?: boolean;
   prefix?: string;
+  value?: string;
 }) {
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options.find((x) => x.value === value) || options[0]);
   const items = options.map((item, index) =>
     item.value === "divider" ? (
       <MenuDivider key={`divider-${index}`} />

@@ -1,7 +1,8 @@
 import { t } from "@lingui/core/macro";
+import { usePrevious } from "@mantine/hooks";
 import type { DataTableColumn, DataTableSortStatus } from "mantine-datatable";
 import { DataTable } from "mantine-datatable";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Props<T> {
   records: T[];
@@ -34,6 +35,7 @@ export function DataGrid<T>({
 }: Props<T>) {
   const [intPageSize, setPageSize] = useState(pageSize);
   const [page, setPage] = useState(1);
+  const prevRecordsSize = usePrevious(records.length);
 
   const visibleData = useMemo(() => {
     if (records === undefined) return [];
@@ -43,6 +45,12 @@ export function DataGrid<T>({
 
     return records.slice(from, to);
   }, [records, intPageSize, page]);
+
+  useEffect(() => {
+    if (records.length != prevRecordsSize) {
+      setPage(1);
+    }
+  }, [records, prevRecordsSize]);
 
   return (
     <DataTable
