@@ -41,6 +41,7 @@ type Props = {
   isNew: boolean;
   onCancel: () => void;
   onDeleted?: () => void;
+  onSaved?: () => void;
   onSubmitted?: (policy: Policy) => void;
   saveOnSubmit?: boolean;
 };
@@ -66,7 +67,15 @@ function mergePolicy(current: Policy) {
   );
 }
 
-export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDeleted, saveOnSubmit = true }: Props) {
+export default function PolicyModal({
+  isNew,
+  target,
+  onCancel,
+  onSubmitted,
+  onDeleted,
+  onSaved,
+  saveOnSubmit = true
+}: Props) {
   const { kopiaService } = useServerInstanceContext();
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal = target.host === "" && target.userName === "" && target.path === "";
@@ -136,7 +145,11 @@ export default function PolicyModal({ isNew, target, onCancel, onSubmitted, onDe
     action: (data?: Policy) => kopiaService.savePolicy(data!, target),
     showErrorAsNotification: true,
     onReturn: () => {
-      onCancel();
+      if (onSaved) {
+        onSaved();
+      } else {
+        onCancel();
+      }
     }
   });
 

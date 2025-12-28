@@ -247,6 +247,10 @@ function PoliciesPage() {
           isNew={action.item!.isNew}
           target={action.item!.target}
           onCancel={() => setAction(undefined)}
+          onSaved={() => {
+            setAction(undefined);
+            execute(undefined, "refresh");
+          }}
           onDeleted={() => {
             setAction(undefined);
             execute(undefined, "refresh");
