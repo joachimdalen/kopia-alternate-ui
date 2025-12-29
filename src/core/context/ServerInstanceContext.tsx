@@ -77,19 +77,24 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
       }
     }
   });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     getInstances.execute(undefined, "loading");
   }, []);
 
-  const setServer = useCallback((server: Instance) => {
-    const currentName = server.name || server.id;
-    setCurrentInstance(server);
-    setLastInstance(server.id);
-    notifications.show({
-      title: t`Switched instance`,
-      message: t`Currently browsing instance ${currentName}`
-    });
-  }, []);
+  const setServer = useCallback(
+    (server: Instance) => {
+      const currentName = server.name || server.id;
+      setCurrentInstance(server);
+      setLastInstance(server.id);
+      notifications.show({
+        title: t`Switched instance`,
+        message: t`Currently browsing instance ${currentName}`
+      });
+    },
+    [setLastInstance]
+  );
 
   const logoutFromServer = useCallback(
     (id: string) => {

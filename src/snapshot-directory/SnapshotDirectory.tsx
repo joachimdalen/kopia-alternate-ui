@@ -87,6 +87,7 @@ function SnapshotDirectory() {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     if (previousOid != oid) {
       execute(undefined, "loading");

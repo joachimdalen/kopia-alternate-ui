@@ -77,6 +77,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     if (source != undefined) {
       resolvePolicyAction.execute(source);

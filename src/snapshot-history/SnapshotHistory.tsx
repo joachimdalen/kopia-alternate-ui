@@ -70,9 +70,9 @@ function SnapshotHistory() {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     execute(undefined, "loading");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAll]);
 
   return (

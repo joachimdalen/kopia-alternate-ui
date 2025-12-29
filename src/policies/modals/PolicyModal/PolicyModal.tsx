@@ -153,6 +153,7 @@ export default function PolicyModal({
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     async function intLoad() {
       await executeLoad();
@@ -167,7 +168,6 @@ export default function PolicyModal({
       // form.initialize(np);
       intResolve();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const resolvedValue = resolved?.effective;

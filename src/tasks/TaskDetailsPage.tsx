@@ -34,6 +34,7 @@ function TaskDetailsPage() {
     data?.status === "RUNNING" ? 1000 : null
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     taskApi.execute(undefined, "loading");
   }, []);

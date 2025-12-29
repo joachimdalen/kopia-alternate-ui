@@ -70,15 +70,18 @@ export function AppContextProvider({ children }: AppContextProps) {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     loadPreferences.execute(undefined, "loading");
     loadStatus.execute(undefined, "loading");
   }, [kopiaService]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: implicit reference
   const reloadPrefs = useCallback(() => {
     loadPreferences.execute();
   }, [kopiaService]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: implicit reference
   const reloadStatus = useCallback(() => {
     loadStatus.execute();
   }, [kopiaService]);

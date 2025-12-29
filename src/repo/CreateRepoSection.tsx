@@ -54,6 +54,8 @@ function CreateRepoSection({ form, goBack }: Props) {
       reloadStatus();
     }
   });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     getAlgorithmsAction.execute();
     getCurrentUserAction.execute();

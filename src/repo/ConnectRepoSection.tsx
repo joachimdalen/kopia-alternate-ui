@@ -44,6 +44,7 @@ function ConnectRepoSection({ form, goBack }: Props) {
       reloadStatus();
     }
   });
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     getCurrentUserAction.execute();
   }, []);

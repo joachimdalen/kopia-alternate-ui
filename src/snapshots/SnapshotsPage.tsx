@@ -75,20 +75,18 @@ function SnapshotsPage() {
     return sortStatus.direction === "desc" ? entries.reverse() : entries;
   }, [data, filterState, sortStatus]);
 
-  const { error, execute, loading, loadingKey } = useApiRequest({
+  const loadAction = useApiRequest({
     action: () => kopiaService.getSnapshots(),
-    onReturn(resp) {
-      setData(resp);
-    }
+    onReturn: setData
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only load data on mount
   useEffect(() => {
-    execute(undefined, "loading");
+    loadAction.execute(undefined, "loading");
   }, []);
 
   useInterval(() => {
-    execute(undefined, "fetch");
+    loadAction.execute(undefined, "fetch");
   }, activeRefreshInterval);
 
   const uniqueOwners = (data?.sources || [])
@@ -96,22 +94,17 @@ function SnapshotsPage() {
     .filter(onlyUnique)
     .sort();
 
-  const {
-    error: newSnapshotError,
-    execute: newSnapshot,
-    loading: startSnapshotLoading
-    // loadingKey: startSnapshotKey,
-  } = useApiRequest({
+  const newSnapshotActions = useApiRequest({
     action: (data?: SourceInfo) => kopiaService.startSnapshot(data!),
     onReturn() {
-      execute(undefined, "refresh");
+      loadAction.execute(undefined, "refresh");
     }
   });
   const syncAction = useApiRequest({
     action: () => kopiaService.syncRepo(),
     showErrorAsNotification: true,
     onReturn() {
-      execute(undefined, "refresh");
+      loadAction.execute(undefined, "refresh");
       showNotification({
         title: t`Repository synchronized`,
         message: t`The repository was synchronized successfully`,
@@ -120,7 +113,7 @@ function SnapshotsPage() {
       });
     }
   });
-  const intError = error || newSnapshotError;
+  const intError = loadAction.error || newSnapshotActions.error;
 
   return (
     <Container fluid>
@@ -155,17 +148,21 @@ function SnapshotsPage() {
                   }))
                 ]}
                 onClick={setFilterState}
-                disabled={loading && loadingKey == "loading"}
+                disabled={loadAction.loading && loadAction.loadingKey == "loading"}
               />
             )}
           </Group>
           <Group>
-            <Button disabled={loading && loadingKey == "loading"} onClick={setShow.open} {...newActionProps}>
+            <Button
+              disabled={loadAction.loading && loadAction.loadingKey == "loading"}
+              onClick={setShow.open}
+              {...newActionProps}
+            >
               <Trans>New Snapshot</Trans>
             </Button>
             <Button
-              loading={loading && loadingKey === "refresh"}
-              onClick={() => execute(undefined, "refresh")}
+              loading={loadAction.loading && loadAction.loadingKey === "refresh"}
+              onClick={() => loadAction.execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
               <Trans>Refresh</Trans>
@@ -185,7 +182,7 @@ function SnapshotsPage() {
         <ErrorAlert error={intError} />
         <DataGrid
           records={visibleData}
-          loading={loading && loadingKey === "loading"}
+          loading={loadAction.loading && loadAction.loadingKey === "loading"}
           idAccessor="source.path"
           noRecordsText="No snapshots taken"
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
@@ -269,8 +266,8 @@ function SnapshotsPage() {
                             leftSection={<IconArchive size={14} />}
                             variant="subtle"
                             color="green"
-                            loading={startSnapshotLoading}
-                            onClick={() => newSnapshot(item.source)}
+                            loading={newSnapshotActions.loading}
+                            onClick={() => newSnapshotActions.execute(item.source)}
                           >
                             <Trans>Snapshot Now</Trans>
                           </Button>
@@ -315,7 +312,7 @@ function SnapshotsPage() {
         <NewSnapshotModal
           onSnapshotted={() => {
             setShow.close();
-            execute(undefined, "refresh");
+            loadAction.execute(undefined, "refresh");
           }}
           onCancel={setShow.close}
         />

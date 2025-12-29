@@ -17,18 +17,19 @@ export function Footer() {
     SUCCESS: 0,
     FAILED: 0
   });
-  const { execute } = useApiRequest({
+  const loadAction = useApiRequest({
     action: () => kopiaService.getTasksSummary(),
     onReturn(resp) {
       setData(resp);
     }
   });
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only load data on mount
   useEffect(() => {
-    execute();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    loadAction.execute();
   }, []);
+
   useInterval(() => {
-    execute();
+    loadAction.execute();
   }, 1000 * 60);
 
   const successTaskCount = data.SUCCESS;

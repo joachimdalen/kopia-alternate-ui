@@ -31,6 +31,8 @@ export default function SnapshotHistoryStats({ sourceInfo }: Props) {
       setData(resp?.snapshots || []);
     }
   });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     if (isEnabled) {
       loadSnapshots.execute();

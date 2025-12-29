@@ -76,7 +76,7 @@ export function DataGrid<T>({
       noRecordsIcon={noRecordsIcon}
       fetching={loading}
       onSortStatusChange={onSortStatusChange}
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: need any based on how types are constructed
       sortStatus={sortStatus as any}
       recordsPerPageLabel={t`Records per page`}
     />

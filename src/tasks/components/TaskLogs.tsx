@@ -28,6 +28,7 @@ export default function TaskLogs({ task }: Props) {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     taskAction.execute(task.id, "loading");
   }, [task]);

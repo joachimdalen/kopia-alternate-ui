@@ -26,6 +26,7 @@ export default function PolicyCompressionInput({ id, title, description, form, f
       setData(resp);
     }
   });
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     execute();
   }, []);

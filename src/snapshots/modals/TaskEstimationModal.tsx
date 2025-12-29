@@ -58,6 +58,7 @@ export default function TaskEstimationModal({ policy, source, onCancel }: Props)
     }
   }, 3000);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     const req: EstimateSnapshotRequest = {
       root: source.path,
