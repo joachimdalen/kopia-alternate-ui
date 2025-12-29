@@ -1,4 +1,4 @@
-import { Menu, MenuDivider, UnstyledButton } from "@mantine/core";
+import { Group, Menu, MenuDivider, UnstyledButton } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useState } from "react";
 import classes from "./MenuButton.module.css";
@@ -45,7 +45,15 @@ export function MenuButton({
     >
       <Menu.Target>
         <UnstyledButton className={classes.control} data-expanded={opened || undefined} size="xs">
-          <span className={classes.label}>{prefix === undefined ? selected.label : `${prefix} ${selected.label}`}</span>
+          <span className={classes.label}>
+            {prefix === undefined ? (
+              selected.label
+            ) : (
+              <Group gap={5}>
+                {prefix} {selected.label}
+              </Group>
+            )}
+          </span>
           <IconChevronDown size={16} className={classes.icon} stroke={1.5} />
         </UnstyledButton>
       </Menu.Target>
