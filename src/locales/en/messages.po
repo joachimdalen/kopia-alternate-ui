@@ -93,7 +93,7 @@ msgstr "Active"
 msgid "Add"
 msgstr "Add"
 
-#: src/snapshot-history/SnapshotHistory.tsx:212
+#: src/snapshot-history/SnapshotHistory.tsx:213
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
@@ -131,7 +131,7 @@ msgstr "Amazon S3 or Compatible Storage"
 msgid "Annual"
 msgstr "Annual"
 
-#: src/preferences/PreferencesPage.tsx:20
+#: src/preferences/PreferencesPage.tsx:21
 msgid "Appearance"
 msgstr "Appearance"
 
@@ -407,7 +407,7 @@ msgstr "Delete"
 msgid "Delete policy"
 msgstr "Delete policy"
 
-#: src/snapshot-history/SnapshotHistory.tsx:112
+#: src/snapshot-history/SnapshotHistory.tsx:113
 msgid "Delete Selected"
 msgstr "Delete Selected"
 
@@ -417,7 +417,7 @@ msgstr "Deprecated"
 
 #: src/repo/RepoPage.tsx:82
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:177
+#: src/snapshot-history/SnapshotHistory.tsx:178
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
@@ -429,6 +429,10 @@ msgstr "Description updated"
 #: src/snapshot-directory/modals/RestoreModal.tsx:155
 msgid "Destination"
 msgstr "Destination"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:102
+msgid "Directories"
+msgstr "Directories"
 
 #: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:28
 msgid "Directory Ignored"
@@ -451,7 +455,7 @@ msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:228
-#: src/snapshot-history/SnapshotHistory.tsx:236
+#: src/snapshot-history/SnapshotHistory.tsx:237
 msgid "Dirs"
 msgstr "Dirs"
 
@@ -511,6 +515,10 @@ msgstr "Do you want to delete the selected snapshot?"
 msgid "Download"
 msgstr "Download"
 
+#: src/preferences/StatisticsSection.tsx:15
+msgid "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
+msgstr "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
+
 #: src/tasks/TaskDetailsPage.tsx:86
 msgid "Duration"
 msgstr "Duration"
@@ -552,6 +560,10 @@ msgstr "Effective"
 #: src/preferences/NotificationsSection.tsx:84
 msgid "Email"
 msgstr "Email"
+
+#: src/preferences/StatisticsSection.tsx:21
+msgid "Enable snapshot statistics"
+msgstr "Enable snapshot statistics"
 
 #: src/repo/CreateRepoSection.tsx:140
 msgid "Encryption"
@@ -676,6 +688,10 @@ msgstr "Enter storage account name"
 msgid "Enter trusted server certificate fingerprint printed at server startup"
 msgstr "Enter trusted server certificate fingerprint printed at server startup"
 
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:97
+msgid "Entries over time"
+msgstr "Entries over time"
+
 #: src/repo/CreateRepoSection.tsx:191
 #: src/repo/RepoPage.tsx:148
 msgid "Error Correction Algorithm"
@@ -737,6 +753,7 @@ msgstr "Every 6 hours"
 msgid "Every hour"
 msgstr "Every hour"
 
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
 #: src/tasks/TasksPage.tsx:119
 msgid "Failed"
 msgstr "Failed"
@@ -760,7 +777,8 @@ msgstr "File Snapshotted"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
-#: src/snapshot-history/SnapshotHistory.tsx:230
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
+#: src/snapshot-history/SnapshotHistory.tsx:231
 msgid "Files"
 msgstr "Files"
 
@@ -1219,7 +1237,7 @@ msgstr "No recepients defined"
 msgid "No snapshots mounted"
 msgstr "No snapshots mounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:153
+#: src/snapshot-history/SnapshotHistory.tsx:154
 msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
@@ -1244,7 +1262,7 @@ msgstr "Not defined"
 msgid "Notification Format"
 msgstr "Notification Format"
 
-#: src/preferences/PreferencesPage.tsx:26
+#: src/preferences/PreferencesPage.tsx:27
 msgid "Notifications"
 msgstr "Notifications"
 
@@ -1387,7 +1405,7 @@ msgstr "Port number (e.g., 22)"
 
 #: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
-#: src/preferences/PreferencesPage.tsx:13
+#: src/preferences/PreferencesPage.tsx:14
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -1437,7 +1455,7 @@ msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
-#: src/snapshot-history/SnapshotHistory.tsx:120
+#: src/snapshot-history/SnapshotHistory.tsx:121
 #: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
@@ -1494,11 +1512,11 @@ msgstr "Restore File Permissions"
 msgid "Restore files and directories"
 msgstr "Restore files and directories"
 
-#: src/snapshot-history/SnapshotHistory.tsx:186
+#: src/snapshot-history/SnapshotHistory.tsx:187
 msgid "Retention"
 msgstr "Retention"
 
-#: src/snapshot-history/SnapshotHistory.tsx:181
+#: src/snapshot-history/SnapshotHistory.tsx:182
 msgid "Root"
 msgstr "Root"
 
@@ -1623,6 +1641,10 @@ msgstr "SERVERS"
 msgid "Session token"
 msgstr "Session token"
 
+#: src/preferences/StatisticsSection.tsx:14
+msgid "Settings stored locally"
+msgstr "Settings stored locally"
+
 #: src/repo/sections/SFTPServerRepo.tsx:19
 msgid "SFTP Server"
 msgstr "SFTP Server"
@@ -1636,10 +1658,15 @@ msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
-#: src/snapshot-history/SnapshotHistory.tsx:223
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
+#: src/snapshot-history/SnapshotHistory.tsx:224
 #: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Size"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:88
+msgid "Size over time"
+msgstr "Size over time"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:171
 msgid "Skip previously restored files and symlinks"
@@ -1709,16 +1736,21 @@ msgstr "Snapshot schedules using UNIX crontab syntax:"
 msgid "Snapshot unmounted"
 msgstr "Snapshot unmounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:305
+#: src/snapshot-history/SnapshotHistory.tsx:306
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
 #: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
-#: src/snapshot-history/SnapshotHistory.tsx:99
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
+#: src/snapshot-history/SnapshotHistory.tsx:100
 #: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Snapshots"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:80
+msgid "Snapshots by date"
+msgstr "Snapshots by date"
 
 #: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
@@ -1744,7 +1776,7 @@ msgstr "SSH Command"
 msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
-#: src/snapshot-history/SnapshotHistory.tsx:161
+#: src/snapshot-history/SnapshotHistory.tsx:162
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start Time"
@@ -1752,6 +1784,10 @@ msgstr "Start Time"
 #: src/tasks/TaskDetailsPage.tsx:60
 msgid "Started"
 msgstr "Started"
+
+#: src/preferences/PreferencesPage.tsx:30
+msgid "Statistics"
+msgstr "Statistics"
 
 #: src/tasks/TasksPage.tsx:188
 msgid "Status"
@@ -1764,6 +1800,10 @@ msgstr "Storage Account"
 #: src/core/context/ServerInstanceContext.tsx:89
 msgid "Switched instance"
 msgstr "Switched instance"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:103
+msgid "Symlinks"
+msgstr "Symlinks"
 
 #: src/snapshots/SnapshotsPage.tsx:173
 msgid "Sync"
@@ -1795,7 +1835,7 @@ msgstr "The repository was successfully disconnected"
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
-#: src/snapshot-history/SnapshotHistory.tsx:306
+#: src/snapshot-history/SnapshotHistory.tsx:307
 msgid "The snapshot(s) was delete successfully"
 msgstr "The snapshot(s) was delete successfully"
 
@@ -1892,7 +1932,7 @@ msgid "Update"
 msgstr "Update"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:259
+#: src/snapshot-history/SnapshotHistory.tsx:260
 msgid "Update description"
 msgstr "Update description"
 
@@ -1968,6 +2008,10 @@ msgstr "Weekly"
 #: src/snapshot-directory/modals/RestoreModal.tsx:177
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "When a restore error occurs, attempt to continue instead of failing fast"
+
+#: src/preferences/StatisticsSection.tsx:22
+msgid "When enabled, will show snapshot statistics"
+msgstr "When enabled, will show snapshot statistics"
 
 #: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:39
 msgid "When set, ignore rules from the parent directory are ignored"

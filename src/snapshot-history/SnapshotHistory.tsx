@@ -32,6 +32,7 @@ import IconWrapper from "../core/IconWrapper";
 import type { ItemAction, Snapshot, Snapshots, SourceInfo } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
+import SnapshotHistoryStats from "./components/SnapshotHistoryStats";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
@@ -144,7 +145,7 @@ function SnapshotHistory() {
         </Group>
         <Divider />
         <ErrorAlert error={error} />
-
+        <SnapshotHistoryStats sourceInfo={sourceInfo} />
         <DataGrid
           selectedRecords={selectedRecords}
           onSelectedRecordsChange={setSelectedRecords}

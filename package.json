@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@lingui/react": "^5.7.0",
+    "@mantine/charts": "^8.3.10",
     "@mantine/core": "^8.3.5",
     "@mantine/dates": "^8.3.5",
     "@mantine/form": "^8.3.5",
@@ -36,6 +37,7 @@
     "react-dom": "^19.1.1",
     "react-router": "^7.9.4",
     "react-router-dom": "^7.9.4",
+    "recharts": "^3.6.0",
     "yup": "^1.7.1"
   },
   "devDependencies": {
