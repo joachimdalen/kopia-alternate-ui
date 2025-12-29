@@ -93,7 +93,7 @@ msgstr "Aktiv"
 msgid "Add"
 msgstr "Legg til"
 
-#: src/snapshot-history/SnapshotHistory.tsx:212
+#: src/snapshot-history/SnapshotHistory.tsx:213
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Legg til nål for å forhindre sletting av øyeblikksbilde"
 
@@ -407,7 +407,7 @@ msgstr "Slett"
 msgid "Delete policy"
 msgstr "Slett strategi"
 
-#: src/snapshot-history/SnapshotHistory.tsx:112
+#: src/snapshot-history/SnapshotHistory.tsx:113
 msgid "Delete Selected"
 msgstr "Slett valgte"
 
@@ -417,7 +417,7 @@ msgstr "Utdatert"
 
 #: src/repo/RepoPage.tsx:82
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:177
+#: src/snapshot-history/SnapshotHistory.tsx:178
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
@@ -429,6 +429,10 @@ msgstr "Beskrivelse oppdatert"
 #: src/snapshot-directory/modals/RestoreModal.tsx:155
 msgid "Destination"
 msgstr "Destinasjon"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:95
+msgid "Directories"
+msgstr "Mapper"
 
 #: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:28
 msgid "Directory Ignored"
@@ -451,7 +455,7 @@ msgid "Directory to create policy for"
 msgstr "Mappe som strategi skal opprettes for"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:228
-#: src/snapshot-history/SnapshotHistory.tsx:236
+#: src/snapshot-history/SnapshotHistory.tsx:237
 msgid "Dirs"
 msgstr "Mapper"
 
@@ -676,6 +680,10 @@ msgstr "Enter storage account name"
 msgid "Enter trusted server certificate fingerprint printed at server startup"
 msgstr "Skriv inn sertifikat fingeravtrykk (printet ut ved serveroppstart)"
 
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:90
+msgid "Entries over time"
+msgstr "Oppføringer over tid"
+
 #: src/repo/CreateRepoSection.tsx:191
 #: src/repo/RepoPage.tsx:148
 msgid "Error Correction Algorithm"
@@ -737,6 +745,7 @@ msgstr "Hver 6 time"
 msgid "Every hour"
 msgstr "Hver time"
 
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:97
 #: src/tasks/TasksPage.tsx:119
 msgid "Failed"
 msgstr "Feilet"
@@ -760,7 +769,8 @@ msgstr "Fil øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
-#: src/snapshot-history/SnapshotHistory.tsx:230
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:94
+#: src/snapshot-history/SnapshotHistory.tsx:231
 msgid "Files"
 msgstr "Filer"
 
@@ -1219,7 +1229,7 @@ msgstr "Ingen mottakere definert"
 msgid "No snapshots mounted"
 msgstr "Ingen øyeblikksbilder montert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:153
+#: src/snapshot-history/SnapshotHistory.tsx:154
 msgid "No snapshots taken"
 msgstr "Ingen øyeblikksbilder tatt"
 
@@ -1431,13 +1441,13 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:81
+#: src/core/DataGrid/DataGrid.tsx:80
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
-#: src/snapshot-history/SnapshotHistory.tsx:120
+#: src/snapshot-history/SnapshotHistory.tsx:121
 #: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
@@ -1494,11 +1504,11 @@ msgstr "Gjenopprett filtillatelser"
 msgid "Restore files and directories"
 msgstr "Gjenopprett filer og mapper"
 
-#: src/snapshot-history/SnapshotHistory.tsx:186
+#: src/snapshot-history/SnapshotHistory.tsx:187
 msgid "Retention"
 msgstr "Bevaring"
 
-#: src/snapshot-history/SnapshotHistory.tsx:181
+#: src/snapshot-history/SnapshotHistory.tsx:182
 msgid "Root"
 msgstr "Root"
 
@@ -1636,10 +1646,15 @@ msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
-#: src/snapshot-history/SnapshotHistory.tsx:223
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:84
+#: src/snapshot-history/SnapshotHistory.tsx:224
 #: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Størrelse"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:81
+msgid "Size over time"
+msgstr "Størrelse over tid"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:171
 msgid "Skip previously restored files and symlinks"
@@ -1709,16 +1724,21 @@ msgstr "Øyeblikksbilde-planer ved bruk av UNIX crontab-syntaks:"
 msgid "Snapshot unmounted"
 msgstr "Øyeblikksbilde demontert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:305
+#: src/snapshot-history/SnapshotHistory.tsx:306
 msgid "Snapshot(s) deleted"
 msgstr "Øyeblikksbilde(r) slettet"
 
 #: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
-#: src/snapshot-history/SnapshotHistory.tsx:99
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:76
+#: src/snapshot-history/SnapshotHistory.tsx:100
 #: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Øyeblikksbilder"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:73
+msgid "Snapshots by date"
+msgstr "Øyeblikksbilder per dato"
 
 #: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
@@ -1744,7 +1764,7 @@ msgstr "SSH Kommando"
 msgid "SSH host name (e.g., example.com)"
 msgstr "SSH-vertsnavn (f.eks. example.com)"
 
-#: src/snapshot-history/SnapshotHistory.tsx:161
+#: src/snapshot-history/SnapshotHistory.tsx:162
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start tid"
@@ -1764,6 +1784,10 @@ msgstr "Storage Account"
 #: src/core/context/ServerInstanceContext.tsx:89
 msgid "Switched instance"
 msgstr "Server byttet"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:96
+msgid "Symlinks"
+msgstr "Symlinks"
 
 #: src/snapshots/SnapshotsPage.tsx:173
 msgid "Sync"
@@ -1795,7 +1819,7 @@ msgstr "Oppbevaringsstedet ble koblet fra"
 msgid "The repository was synchronized successfully"
 msgstr "Oppbevaringsstedet ble synkronisert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:306
+#: src/snapshot-history/SnapshotHistory.tsx:307
 msgid "The snapshot(s) was delete successfully"
 msgstr "øyeblikksbilde(ne) ble slettet"
 
@@ -1892,7 +1916,7 @@ msgid "Update"
 msgstr "Oppdater"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:259
+#: src/snapshot-history/SnapshotHistory.tsx:260
 msgid "Update description"
 msgstr "Oppdater beskrivelse"
 
