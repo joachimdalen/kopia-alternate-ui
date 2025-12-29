@@ -26,7 +26,7 @@ import {
   IconFolderOpen,
   IconSearch
 } from "@tabler/icons-react";
-import sortBy from "lodash.sortby";
+import orderBy from "lodash.orderby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
@@ -101,8 +101,8 @@ function SnapshotDirectory() {
       items = items.filter((x) => x.name.indexOf(debouncedQuery) !== -1);
     }
 
-    const entries = sortBy(items, sortStatus.columnAccessor) as DirEntry[];
-    return sortStatus.direction === "desc" ? entries.reverse() : entries;
+    const entries = orderBy(items, ["type", sortStatus.columnAccessor], sortStatus.direction) as DirEntry[];
+    return entries;
   }, [data, debouncedQuery, sortStatus]);
 
   return (
