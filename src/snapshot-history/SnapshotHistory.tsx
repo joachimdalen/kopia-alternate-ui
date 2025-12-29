@@ -1,20 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Anchor,
-  Badge,
-  Button,
-  Checkbox,
-  Code,
-  Container,
-  Divider,
-  Group,
-  Stack,
-  Text,
-  Title,
-  Tooltip
-} from "@mantine/core";
+import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -32,6 +18,7 @@ import IconWrapper from "../core/IconWrapper";
 import type { ItemAction, Snapshot, Snapshots, SourceInfo } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
+import SnapshotCountControl from "./components/SnapshotCountControl";
 import SnapshotHistoryStats from "./components/SnapshotHistoryStats";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
@@ -123,27 +110,17 @@ function SnapshotHistory() {
           </Group>
         </Group>
 
-        <Divider />
-        <Group justify="space-between">
-          <Text fz="sm">
-            Displaying{" "}
-            {data?.snapshots.length !== data?.unfilteredCount
-              ? `${data?.snapshots.length} out of ${data?.unfilteredCount}`
-              : data?.snapshots.length}{" "}
-            snapshots of{" "}
-            <Text fw="bold" span fz="sm">
-              {sourceInfo.userName}@{sourceInfo.host}:{sourceInfo.path}
-            </Text>
-          </Text>
-          {data?.unfilteredCount !== data?.uniqueCount && (
-            <Checkbox
-              label={`Show ${data?.unfilteredCount} individual snapshots`}
-              checked={showAll}
-              onChange={(event) => setShowAll(event.currentTarget.checked)}
-            />
-          )}
-        </Group>
-        <Divider />
+        {data && (
+          <SnapshotCountControl
+            currentLength={data.snapshots.length}
+            totalLength={data.unfilteredCount}
+            uniqueCount={data.uniqueCount}
+            sourceInfo={sourceInfo}
+            showAll={showAll}
+            onShowAll={(sa) => setShowAll(sa)}
+          />
+        )}
+
         <ErrorAlert error={error} />
         <SnapshotHistoryStats sourceInfo={sourceInfo} />
         <DataGrid
