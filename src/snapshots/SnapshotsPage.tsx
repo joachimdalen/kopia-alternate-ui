@@ -49,6 +49,13 @@ function SnapshotsPage() {
     getInitialValueInEffect: false
   });
 
+  const activeRefreshInterval = useMemo(() => {
+    if (data?.sources !== undefined && data.sources.some((x) => x.status === "PENDING" || x.status === "UPLOADING")) {
+      return 3000;
+    }
+    return refreshInterval;
+  }, [refreshInterval, data]);
+
   const visibleData = useMemo(() => {
     if (data === undefined) return [];
 
@@ -82,7 +89,7 @@ function SnapshotsPage() {
 
   useInterval(() => {
     execute(undefined, "fetch");
-  }, refreshInterval);
+  }, activeRefreshInterval);
 
   const uniqueOwners = (data?.sources || [])
     .map((x) => formatOwnerName(x.source))
