@@ -1,9 +1,10 @@
 import { Trans } from "@lingui/react/macro";
 import { Container, Divider, Paper, Stack, Tabs, TabsList, TabsPanel, TabsTab, Title } from "@mantine/core";
-import { IconNotification, IconPalette } from "@tabler/icons-react";
+import { IconChartArea, IconNotification, IconPalette } from "@tabler/icons-react";
 import IconWrapper from "../core/IconWrapper";
 import AppearanceSection from "./AppearanceSection";
 import NotificationsSection from "./NotificationsSection";
+import StatisticsSection from "./StatisticsSection";
 
 function PreferencesPage() {
   return (
@@ -25,12 +26,18 @@ function PreferencesPage() {
               >
                 <Trans>Notifications</Trans>
               </TabsTab>
+              <TabsTab value="stats" leftSection={<IconWrapper icon={IconChartArea} size={18} color="cyan" />}>
+                <Trans>Statistics</Trans>
+              </TabsTab>
             </TabsList>
             <TabsPanel value="appearance" p="md">
               <AppearanceSection />
             </TabsPanel>
             <TabsPanel value="notifications">
               <NotificationsSection />
+            </TabsPanel>
+            <TabsPanel value="stats" p="sm">
+              <StatisticsSection />
             </TabsPanel>
           </Tabs>
         </Paper>

@@ -131,7 +131,7 @@ msgstr "Amazon S3 eller kompatibel lagring"
 msgid "Annual"
 msgstr "Årlige"
 
-#: src/preferences/PreferencesPage.tsx:20
+#: src/preferences/PreferencesPage.tsx:21
 msgid "Appearance"
 msgstr "Utseende"
 
@@ -430,7 +430,7 @@ msgstr "Beskrivelse oppdatert"
 msgid "Destination"
 msgstr "Destinasjon"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:95
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:102
 msgid "Directories"
 msgstr "Mapper"
 
@@ -515,6 +515,10 @@ msgstr "Do you want to delete the selected snapshot?"
 msgid "Download"
 msgstr "Last ned"
 
+#: src/preferences/StatisticsSection.tsx:15
+msgid "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
+msgstr "Siden dette ikke er en funksjonalitet i Kopia, lagres disse innstillingene kun i din nettleseren. Dette betyr at du må sette innstillingene på nytt når du bytter nettleser eller instans."
+
 #: src/tasks/TaskDetailsPage.tsx:86
 msgid "Duration"
 msgstr "Varighet"
@@ -556,6 +560,10 @@ msgstr "Effektiv"
 #: src/preferences/NotificationsSection.tsx:84
 msgid "Email"
 msgstr "E-post"
+
+#: src/preferences/StatisticsSection.tsx:21
+msgid "Enable snapshot statistics"
+msgstr "Aktiver øyeblikksbilde statistikk"
 
 #: src/repo/CreateRepoSection.tsx:140
 msgid "Encryption"
@@ -680,7 +688,7 @@ msgstr "Enter storage account name"
 msgid "Enter trusted server certificate fingerprint printed at server startup"
 msgstr "Skriv inn sertifikat fingeravtrykk (printet ut ved serveroppstart)"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:90
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:97
 msgid "Entries over time"
 msgstr "Oppføringer over tid"
 
@@ -745,7 +753,7 @@ msgstr "Hver 6 time"
 msgid "Every hour"
 msgstr "Hver time"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:97
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
 #: src/tasks/TasksPage.tsx:119
 msgid "Failed"
 msgstr "Feilet"
@@ -769,7 +777,7 @@ msgstr "Fil øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:94
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:231
 msgid "Files"
 msgstr "Filer"
@@ -1254,7 +1262,7 @@ msgstr "Ikke definert"
 msgid "Notification Format"
 msgstr "Notifikasjons Format"
 
-#: src/preferences/PreferencesPage.tsx:26
+#: src/preferences/PreferencesPage.tsx:27
 msgid "Notifications"
 msgstr "Notifikasjoner"
 
@@ -1397,7 +1405,7 @@ msgstr "Port nummer (e.g., 22)"
 
 #: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
-#: src/preferences/PreferencesPage.tsx:13
+#: src/preferences/PreferencesPage.tsx:14
 msgid "Preferences"
 msgstr "Preferanser"
 
@@ -1441,7 +1449,7 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:80
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
@@ -1633,6 +1641,10 @@ msgstr "SERVERE"
 msgid "Session token"
 msgstr "Økttoken"
 
+#: src/preferences/StatisticsSection.tsx:14
+msgid "Settings stored locally"
+msgstr "Innstillinger lagret lokalt
+
 #: src/repo/sections/SFTPServerRepo.tsx:19
 msgid "SFTP Server"
 msgstr "SFTP Server"
@@ -1646,13 +1658,13 @@ msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:84
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:224
 #: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:81
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:88
 msgid "Size over time"
 msgstr "Størrelse over tid"
 
@@ -1730,13 +1742,13 @@ msgstr "Øyeblikksbilde(r) slettet"
 
 #: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:76
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:100
 #: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Øyeblikksbilder"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:73
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:80
 msgid "Snapshots by date"
 msgstr "Øyeblikksbilder per dato"
 
@@ -1773,6 +1785,10 @@ msgstr "Start tid"
 msgid "Started"
 msgstr "Staret"
 
+#: src/preferences/PreferencesPage.tsx:30
+msgid "Statistics"
+msgstr "Statistikk"
+
 #: src/tasks/TasksPage.tsx:188
 msgid "Status"
 msgstr "Status"
@@ -1785,7 +1801,7 @@ msgstr "Storage Account"
 msgid "Switched instance"
 msgstr "Server byttet"
 
-#: src/snapshot-history/components/SnapshotHistoryStats.tsx:96
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:103
 msgid "Symlinks"
 msgstr "Symlinks"
 
@@ -1992,6 +2008,10 @@ msgstr "Ukentlig"
 #: src/snapshot-directory/modals/RestoreModal.tsx:177
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "Når det oppstår en gjenopprettingsfeil, prøv å fortsette i stedet for å mislykkes raskt"
+
+#: src/preferences/StatisticsSection.tsx:22
+msgid "When enabled, will show snapshot statistics"
+msgstr "Når aktivert så vil statistikk for øyeblikksbilder vises"
 
 #: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:39
 msgid "When set, ignore rules from the parent directory are ignored"
