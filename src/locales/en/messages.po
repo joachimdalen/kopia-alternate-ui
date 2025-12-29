@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/snapshot-history/components/SnapshotCountControl.tsx:23
+msgid "{currentLength} out of {totalLength}"
+msgstr "{currentLength} out of {totalLength}"
+
 #: src/core/Footer/Footer.tsx:52
 msgid "{failedTaskCount} task(s) failed"
 msgstr "{failedTaskCount} task(s) failed"
@@ -93,7 +97,7 @@ msgstr "Active"
 msgid "Add"
 msgstr "Add"
 
-#: src/snapshot-history/SnapshotHistory.tsx:213
+#: src/snapshot-history/SnapshotHistory.tsx:190
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
@@ -407,7 +411,7 @@ msgstr "Delete"
 msgid "Delete policy"
 msgstr "Delete policy"
 
-#: src/snapshot-history/SnapshotHistory.tsx:113
+#: src/snapshot-history/SnapshotHistory.tsx:100
 msgid "Delete Selected"
 msgstr "Delete Selected"
 
@@ -417,7 +421,7 @@ msgstr "Deprecated"
 
 #: src/repo/RepoPage.tsx:82
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:178
+#: src/snapshot-history/SnapshotHistory.tsx:155
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
@@ -455,7 +459,7 @@ msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:228
-#: src/snapshot-history/SnapshotHistory.tsx:237
+#: src/snapshot-history/SnapshotHistory.tsx:214
 msgid "Dirs"
 msgstr "Dirs"
 
@@ -485,6 +489,10 @@ msgstr "Disconnect"
 #: src/repo/RepoPage.tsx:50
 msgid "Disconnect repository?"
 msgstr "Disconnect repository?"
+
+#: src/snapshot-history/components/SnapshotCountControl.tsx:32
+msgid "Displaying {textToDisplay} snapshots of"
+msgstr "Displaying {textToDisplay} snapshots of"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:264
 msgid "Do not compress when restoring to a ZIP file (faster)."
@@ -778,7 +786,7 @@ msgstr "File Snapshotted"
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:213
 #: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
-#: src/snapshot-history/SnapshotHistory.tsx:231
+#: src/snapshot-history/SnapshotHistory.tsx:208
 msgid "Files"
 msgstr "Files"
 
@@ -1237,7 +1245,7 @@ msgstr "No recepients defined"
 msgid "No snapshots mounted"
 msgstr "No snapshots mounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:154
+#: src/snapshot-history/SnapshotHistory.tsx:131
 msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
@@ -1455,7 +1463,7 @@ msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:171
 #: src/snapshot-directory/SnapshotDirectory.tsx:141
-#: src/snapshot-history/SnapshotHistory.tsx:121
+#: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshots/SnapshotsPage.tsx:164
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
@@ -1512,11 +1520,11 @@ msgstr "Restore File Permissions"
 msgid "Restore files and directories"
 msgstr "Restore files and directories"
 
-#: src/snapshot-history/SnapshotHistory.tsx:187
+#: src/snapshot-history/SnapshotHistory.tsx:164
 msgid "Retention"
 msgstr "Retention"
 
-#: src/snapshot-history/SnapshotHistory.tsx:182
+#: src/snapshot-history/SnapshotHistory.tsx:159
 msgid "Root"
 msgstr "Root"
 
@@ -1653,13 +1661,17 @@ msgstr "SFTP Server"
 msgid "Shallow Restore At Depth"
 msgstr "Shallow Restore At Depth"
 
+#: src/snapshot-history/components/SnapshotCountControl.tsx:40
+msgid "Show {totalLength} individual snapshots"
+msgstr "Show {totalLength} individual snapshots"
+
 #: src/preferences/AppearanceSection.tsx:146
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:214
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
-#: src/snapshot-history/SnapshotHistory.tsx:224
+#: src/snapshot-history/SnapshotHistory.tsx:201
 #: src/snapshots/SnapshotsPage.tsx:230
 msgid "Size"
 msgstr "Size"
@@ -1736,14 +1748,14 @@ msgstr "Snapshot schedules using UNIX crontab syntax:"
 msgid "Snapshot unmounted"
 msgstr "Snapshot unmounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:306
+#: src/snapshot-history/SnapshotHistory.tsx:283
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
 #: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
-#: src/snapshot-history/SnapshotHistory.tsx:100
+#: src/snapshot-history/SnapshotHistory.tsx:87
 #: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Snapshots"
@@ -1776,7 +1788,7 @@ msgstr "SSH Command"
 msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
-#: src/snapshot-history/SnapshotHistory.tsx:162
+#: src/snapshot-history/SnapshotHistory.tsx:139
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start Time"
@@ -1835,7 +1847,7 @@ msgstr "The repository was successfully disconnected"
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
-#: src/snapshot-history/SnapshotHistory.tsx:307
+#: src/snapshot-history/SnapshotHistory.tsx:284
 msgid "The snapshot(s) was delete successfully"
 msgstr "The snapshot(s) was delete successfully"
 
@@ -1932,7 +1944,7 @@ msgid "Update"
 msgstr "Update"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:260
+#: src/snapshot-history/SnapshotHistory.tsx:237
 msgid "Update description"
 msgstr "Update description"
 
