@@ -22,7 +22,7 @@ import {
   IconSearch,
   IconSettingsAutomation
 } from "@tabler/icons-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
 import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
@@ -33,7 +33,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import { MenuButton } from "../core/MenuButton/MenuButton";
 import RelativeDate from "../core/RelativeDate";
-import type { Task } from "../core/types";
+import type { TaskList } from "../core/types";
 import { onlyUnique } from "../utils/onlyUnique";
 import TaskKindDisplay from "./components/TaskKindDisplay";
 import TaskStatusDisplay from "./components/TaskStatusDisplay";
@@ -43,24 +43,25 @@ type StatusFilter = "all" | "running" | "failed";
 function TasksPage() {
   const { kopiaService } = useServerInstanceContext();
   const { pageSize: tablePageSize } = useAppContext();
-  const [data, setData] = useState<Task[]>();
+  const [data, setData] = useState<TaskList>();
   const [kindFilter, setKindFilter] = useState<string>("all");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [query, setQuery] = useInputState("");
   const [debouncedQuery] = useDebouncedValue(query, 200);
-  const { error, execute, loading, loadingKey } = useApiRequest({
-    action: () => kopiaService.getTasks(),
-    onReturn(resp) {
-      setData(resp.tasks);
-    }
+  const getTasks = useCallback(() => kopiaService.getTasks(), [kopiaService]);
+  //const setReturnData = useCallback((response: TaskList) => setData(response.tasks), []);
+  const loadAction = useApiRequest({
+    action: getTasks,
+    onReturn: setData
   });
 
   useEffect(() => {
-    execute(undefined, "loading");
-  }, []);
+    console.log("CHANGED");
+    loadAction.execute(undefined, "loading");
+  }, [loadAction.execute]);
 
   const visibleTasks = useMemo(() => {
-    let items = [...(data || [])];
+    let items = [...(data?.tasks || [])];
 
     if (kindFilter != "all") {
       items = items.filter((x) => x.kind === kindFilter);
@@ -129,7 +130,7 @@ function TasksPage() {
               options={[
                 { label: t`All`, value: "all" },
                 { label: "divider", value: "divider" },
-                ...(data || [])
+                ...(data?.tasks || [])
                   .map((x) => x.kind)
                   .filter(onlyUnique)
                   .map((x) => ({
@@ -138,7 +139,7 @@ function TasksPage() {
                   }))
               ]}
               onClick={setKindFilter}
-              disabled={loading}
+              disabled={loadAction.loading}
             />
           </Group>
           <Group>
@@ -150,8 +151,8 @@ function TasksPage() {
               onChange={setQuery}
             />
             <Button
-              loading={loading && loadingKey === "refresh"}
-              onClick={() => execute(undefined, "refresh")}
+              loading={loadAction.loading && loadAction.loadingKey === "refresh"}
+              onClick={() => loadAction.execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
               <Trans>Refresh</Trans>
@@ -160,10 +161,10 @@ function TasksPage() {
         </Group>
         <Divider />
 
-        <ErrorAlert error={error} />
+        <ErrorAlert error={loadAction.error} />
 
         <DataGrid
-          loading={loading && loadingKey === "loading"}
+          loading={loadAction.loading && loadAction.loadingKey === "loading"}
           records={visibleTasks}
           noRecordsText="No tasks found"
           noRecordsIcon={<IconWrapper icon={IconSettingsAutomation} size={48} />}
