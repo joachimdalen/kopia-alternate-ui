@@ -35,7 +35,7 @@ export default function PolicyNumberSelect({
         isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <NumberSelect
             label={t`Defined`}
             description={t`This policy`}

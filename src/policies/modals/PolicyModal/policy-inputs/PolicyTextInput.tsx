@@ -23,7 +23,7 @@ export default function PolicyTextInput({ id, title, description, placeholder, f
         isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <TextInput label={t`Defined`} placeholder={placeholder} {...inputProps} />
           <TextInput label={t`Effective`} readOnly value={effectiveValue} variant="filled" />
         </Group>

@@ -1,8 +1,8 @@
 import merge from "lodash.merge";
 import type { Policy } from "../../../../core/types";
-import type { PolicyForm2 } from "../types";
+import type { PolicyForm } from "../types";
 
-export function mergePolicy(current: Policy): PolicyForm2 {
+export function mergePolicy(current: Policy): PolicyForm {
   return merge(
     {
       retention: {
@@ -102,7 +102,7 @@ export function mergePolicy(current: Policy): PolicyForm2 {
         parallelUploadAboveSize: -1
       },
       noParent: undefined
-    } satisfies PolicyForm2,
+    } satisfies PolicyForm,
     current
   );
 }

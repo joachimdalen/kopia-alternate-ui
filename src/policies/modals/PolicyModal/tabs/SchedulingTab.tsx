@@ -16,16 +16,17 @@ import { useAppContext } from "../../../../core/context/AppContext";
 import FormattedDate from "../../../../core/FormattedDate";
 import RelativeDate from "../../../../core/RelativeDate";
 import type { Policy } from "../../../../core/types";
+import { onlyUnique } from "../../../../utils/onlyUnique";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import PolicyInheritYesNoPolicyInput from "../policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyNumberSelect from "../policy-inputs/PolicyNumberSelect";
 import PolicyTextListInput from "../policy-inputs/PolicyTextListInput";
 import PolicyTimeOfDayInput from "../policy-inputs/PolicyTimeOfDayInput";
-import type { PolicyForm2 } from "../types";
+import type { PolicyForm } from "../types";
 import { humanizeSeconds } from "../utils/humanizeSeconds";
 
 type Props = {
-  form: UseFormReturnType<PolicyForm2>;
+  form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
   upcomingSnapshotTimes?: string[];
 };
@@ -40,7 +41,7 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
       .filter((x) => x !== "")
       .map(parseFloat);
 
-    const allValues = [...defaultValues, ...additional].sort((a, b) => a - b);
+    const allValues = [...defaultValues, ...additional].filter(onlyUnique).sort((a, b) => a - b);
     return allValues.map((s) => {
       return {
         label: t`Every` + " " + humanizeSeconds(s, locale),

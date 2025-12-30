@@ -1,7 +1,7 @@
 import type { Policy } from "../../../../core/types";
-import type { PolicyForm2 } from "../types";
+import type { PolicyForm } from "../types";
 
-export function transformPolicy(current: PolicyForm2): Policy {
+export function transformPolicy(current: PolicyForm): Policy {
   return {
     retention: {
       keepLatest: current?.retention?.keepLatest,

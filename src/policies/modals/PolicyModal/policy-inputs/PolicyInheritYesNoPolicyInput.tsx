@@ -22,7 +22,7 @@ export default function PolicyInheritYesNoPolicyInput({ id, title, description, 
         isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <Box>
             <Text size="sm" fw={500}>
               <Trans>Defined</Trans>

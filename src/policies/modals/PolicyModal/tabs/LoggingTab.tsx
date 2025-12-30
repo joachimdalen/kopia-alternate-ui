@@ -3,10 +3,10 @@ import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import type { Policy } from "../../../../core/types";
 import PolicyLogDetailsInput from "../policy-inputs/PolicyLogDetailsInput";
-import type { PolicyForm2 } from "../types";
+import type { PolicyForm } from "../types";
 
 type Props = {
-  form: UseFormReturnType<PolicyForm2>;
+  form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
 };
 

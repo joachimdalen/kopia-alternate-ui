@@ -25,7 +25,7 @@ export default function PolicySelect({ id, title, description, placeholder, form
         isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <Select
             label={t`Defined`}
             description={t`This policy`}

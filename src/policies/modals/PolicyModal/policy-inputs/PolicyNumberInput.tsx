@@ -23,7 +23,7 @@ export default function PolicyNumberInput({ id, title, description, placeholder,
         isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <NumberInput label={t`Defined`} hideControls placeholder={placeholder} {...inputProps} />
           <NumberInput label={t`Effective`} hideControls value={effectiveValue} readOnly variant="filled" />
         </Group>

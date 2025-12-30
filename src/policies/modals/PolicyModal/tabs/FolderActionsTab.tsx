@@ -5,10 +5,10 @@ import type { Policy } from "../../../../core/types";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import PolicySelect from "../policy-inputs/PolicySelect";
 import PolicyTextInput from "../policy-inputs/PolicyTextInput";
-import type { PolicyForm2 } from "../types";
+import type { PolicyForm } from "../types";
 
 type Props = {
-  form: UseFormReturnType<PolicyForm2>;
+  form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
 };
 
