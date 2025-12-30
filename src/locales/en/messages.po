@@ -17,15 +17,15 @@ msgstr ""
 msgid "{currentLength} out of {totalLength}"
 msgstr "{currentLength} out of {totalLength}"
 
-#: src/core/Footer/Footer.tsx:52
+#: src/core/Footer/Footer.tsx:53
 msgid "{failedTaskCount} task(s) failed"
 msgstr "{failedTaskCount} task(s) failed"
 
-#: src/core/Footer/Footer.tsx:59
+#: src/core/Footer/Footer.tsx:60
 msgid "{inProgressTaskCount} task(s) in progress"
 msgstr "{inProgressTaskCount} task(s) in progress"
 
-#: src/core/Footer/Footer.tsx:45
+#: src/core/Footer/Footer.tsx:46
 msgid "{successTaskCount} task(s) completed"
 msgstr "{successTaskCount} task(s) completed"
 
@@ -53,27 +53,27 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
-#: src/snapshots/SnapshotsPage.tsx:140
+#: src/snapshots/SnapshotsPage.tsx:133
 msgid "1 minute"
 msgstr "1 minute"
 
-#: src/snapshots/SnapshotsPage.tsx:138
+#: src/snapshots/SnapshotsPage.tsx:131
 msgid "10 seconds"
 msgstr "10 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:137
+#: src/snapshots/SnapshotsPage.tsx:130
 msgid "3 seconds"
 msgstr "3 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:139
+#: src/snapshots/SnapshotsPage.tsx:132
 msgid "30 seconds"
 msgstr "30 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:141
+#: src/snapshots/SnapshotsPage.tsx:134
 msgid "5 minutes"
 msgstr "5 minutes"
 
-#: src/preferences/NotificationsSection.tsx:52
+#: src/preferences/NotificationsSection.tsx:51
 msgid "A test notification was send using the defined profile"
 msgstr "A test notification was send using the defined profile"
 
@@ -85,7 +85,7 @@ msgstr "Access Key"
 msgid "Access Key ID"
 msgstr "Access Key ID"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:37
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:38
 msgid "Active"
 msgstr "Active"
 
@@ -101,8 +101,8 @@ msgstr "Add"
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
-#: src/repo/ConnectRepoSection.tsx:124
-#: src/repo/CreateRepoSection.tsx:134
+#: src/repo/ConnectRepoSection.tsx:125
+#: src/repo/CreateRepoSection.tsx:136
 msgid "Advanced Options"
 msgstr "Advanced Options"
 
@@ -114,16 +114,16 @@ msgstr "After Folder"
 msgid "After Snapshot"
 msgstr "After Snapshot"
 
-#: src/tasks/TasksPage.tsx:97
-#: src/tasks/TasksPage.tsx:130
+#: src/tasks/TasksPage.tsx:98
+#: src/tasks/TasksPage.tsx:131
 msgid "All"
 msgstr "All"
 
-#: src/policies/PoliciesPage.tsx:142
+#: src/policies/PoliciesPage.tsx:143
 msgid "All Policies"
 msgstr "All Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:149
+#: src/snapshots/SnapshotsPage.tsx:142
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
@@ -139,7 +139,7 @@ msgstr "Annual"
 msgid "Appearance"
 msgstr "Appearance"
 
-#: src/policies/PoliciesPage.tsx:140
+#: src/policies/PoliciesPage.tsx:141
 msgid "Applicable Policies"
 msgstr "Applicable Policies"
 
@@ -160,8 +160,8 @@ msgid "Azure Storage Domain"
 msgstr "Azure Storage Domain"
 
 #: src/repo/ConfigureRepoSection.tsx:180
-#: src/repo/ConnectRepoSection.tsx:151
-#: src/repo/CreateRepoSection.tsx:217
+#: src/repo/ConnectRepoSection.tsx:152
+#: src/repo/CreateRepoSection.tsx:219
 msgid "Back"
 msgstr "Back"
 
@@ -215,12 +215,12 @@ msgstr "Cache Miss"
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:78
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:83
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
-#: src/snapshots/modals/NewSnapshotModal.tsx:134
-#: src/snapshots/modals/TaskEstimationModal.tsx:113
+#: src/snapshots/modals/NewSnapshotModal.tsx:135
+#: src/snapshots/modals/TaskEstimationModal.tsx:114
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/tasks/TasksPage.tsx:212
+#: src/tasks/TasksPage.tsx:213
 msgctxt "cance-operation"
 msgid "Cancel"
 msgstr "Cancel"
@@ -230,11 +230,11 @@ msgstr "Cancel"
 msgid "Canceled after"
 msgstr "Canceled after"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:121
+#: src/snapshots/modals/NewSnapshotModal.tsx:122
 msgid "Change policy parameters"
 msgstr "Change policy parameters"
 
-#: src/snapshots/modals/TaskEstimationModal.tsx:117
+#: src/snapshots/modals/TaskEstimationModal.tsx:118
 msgid "Close"
 msgstr "Close"
 
@@ -280,23 +280,23 @@ msgstr "Configure the selected provider"
 msgid "Configured"
 msgstr "Configured"
 
-#: src/repo/CreateRepoSection.tsx:124
+#: src/repo/CreateRepoSection.tsx:126
 msgid "Confirm Repository Password"
 msgstr "Confirm Repository Password"
 
-#: src/repo/CreateRepoSection.tsx:125
+#: src/repo/CreateRepoSection.tsx:127
 msgid "Confirm the repository password"
 msgstr "Confirm the repository password"
 
-#: src/repo/ConnectRepoSection.tsx:98
+#: src/repo/ConnectRepoSection.tsx:99
 msgid "Connect as"
 msgstr "Connect as"
 
-#: src/repo/ConnectRepoSection.tsx:129
+#: src/repo/ConnectRepoSection.tsx:130
 msgid "Connect in read-only mode"
 msgstr "Connect in read-only mode"
 
-#: src/repo/ConnectRepoSection.tsx:154
+#: src/repo/ConnectRepoSection.tsx:155
 msgid "Connect to repository"
 msgstr "Connect to repository"
 
@@ -344,7 +344,7 @@ msgid "Create pushover notification"
 msgstr "Create pushover notification"
 
 #: src/repo/ConfigureRepoSection.tsx:188
-#: src/repo/CreateRepoSection.tsx:220
+#: src/repo/CreateRepoSection.tsx:222
 msgid "Create repository"
 msgstr "Create repository"
 
@@ -364,7 +364,7 @@ msgstr "Credentials JSON"
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
-#: src/core/context/ServerInstanceContext.tsx:90
+#: src/core/context/ServerInstanceContext.tsx:93
 msgid "Currently browsing instance {currentName}"
 msgstr "Currently browsing instance {currentName}"
 
@@ -380,7 +380,7 @@ msgstr "Dark"
 msgid "Default page size"
 msgstr "Default page size"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:70
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:71
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:28
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:41
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:27
@@ -389,11 +389,11 @@ msgstr "Default page size"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:27
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:52
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:34
-#: src/policies/PoliciesPage.tsx:202
+#: src/policies/PoliciesPage.tsx:203
 msgid "Defined"
 msgstr "Defined"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:80
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
 msgid "Defined in global policy"
@@ -415,14 +415,14 @@ msgstr "Delete policy"
 msgid "Delete Selected"
 msgstr "Delete Selected"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:50
 msgid "Deprecated"
 msgstr "Deprecated"
 
 #: src/repo/RepoPage.tsx:82
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
 #: src/snapshot-history/SnapshotHistory.tsx:155
-#: src/tasks/TasksPage.tsx:198
+#: src/tasks/TasksPage.tsx:199
 msgid "Description"
 msgstr "Description"
 
@@ -458,7 +458,7 @@ msgstr "Directory Snapshotted"
 msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:228
+#: src/snapshot-directory/SnapshotDirectory.tsx:229
 #: src/snapshot-history/SnapshotHistory.tsx:214
 msgid "Dirs"
 msgstr "Dirs"
@@ -475,9 +475,9 @@ msgstr "Disable Parent Policy Evaluation"
 msgid "Disable ZIP compression"
 msgstr "Disable ZIP compression"
 
-#: src/repo/CreateRepoSection.tsx:180
+#: src/repo/CreateRepoSection.tsx:182
 #: src/repo/RepoPage.tsx:142
-#: src/snapshots/SnapshotsPage.tsx:136
+#: src/snapshots/SnapshotsPage.tsx:129
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -519,19 +519,19 @@ msgstr "Do you want to delete the selected <0>{0} snapshots</0>?"
 msgid "Do you want to delete the selected snapshot?"
 msgstr "Do you want to delete the selected snapshot?"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:244
+#: src/snapshot-directory/SnapshotDirectory.tsx:245
 msgid "Download"
 msgstr "Download"
 
-#: src/preferences/StatisticsSection.tsx:15
+#: src/preferences/StatisticsSection.tsx:12
 msgid "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
 msgstr "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
 
-#: src/tasks/TaskDetailsPage.tsx:86
+#: src/tasks/TaskDetailsPage.tsx:87
 msgid "Duration"
 msgstr "Duration"
 
-#: src/policies/PoliciesPage.tsx:238
+#: src/policies/PoliciesPage.tsx:239
 #: src/preferences/components/NotificationCard.tsx:71
 msgid "Edit"
 msgstr "Edit"
@@ -553,7 +553,7 @@ msgstr "Edit items"
 msgid "Edit pushover notification"
 msgstr "Edit pushover notification"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:82
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:34
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:50
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:28
@@ -569,11 +569,11 @@ msgstr "Effective"
 msgid "Email"
 msgstr "Email"
 
-#: src/preferences/StatisticsSection.tsx:21
+#: src/preferences/StatisticsSection.tsx:18
 msgid "Enable snapshot statistics"
 msgstr "Enable snapshot statistics"
 
-#: src/repo/CreateRepoSection.tsx:140
+#: src/repo/CreateRepoSection.tsx:142
 msgid "Encryption"
 msgstr "Encryption"
 
@@ -626,7 +626,7 @@ msgstr "Enter name of credentials JSON file"
 msgid "Enter object name prefix (optional)"
 msgstr "Enter object name prefix (optional)"
 
-#: src/repo/ConnectRepoSection.tsx:112
+#: src/repo/ConnectRepoSection.tsx:113
 msgid "Enter password to connect to server"
 msgstr "Enter password to connect to server"
 
@@ -650,12 +650,12 @@ msgstr "Enter path to the known_hosts file"
 msgid "Enter remote path to repository, e.g., '/mnt/data/repository'"
 msgstr "Enter remote path to repository, e.g., '/mnt/data/repository'"
 
-#: src/repo/ConnectRepoSection.tsx:103
-#: src/repo/CreateRepoSection.tsx:119
+#: src/repo/ConnectRepoSection.tsx:104
+#: src/repo/CreateRepoSection.tsx:121
 msgid "Enter repository password"
 msgstr "Enter repository password"
 
-#: src/repo/CreateRepoSection.tsx:127
+#: src/repo/CreateRepoSection.tsx:129
 msgid "Enter repository password again"
 msgstr "Enter repository password again"
 
@@ -700,12 +700,12 @@ msgstr "Enter trusted server certificate fingerprint printed at server startup"
 msgid "Entries over time"
 msgstr "Entries over time"
 
-#: src/repo/CreateRepoSection.tsx:191
+#: src/repo/CreateRepoSection.tsx:193
 #: src/repo/RepoPage.tsx:148
 msgid "Error Correction Algorithm"
 msgstr "Error Correction Algorithm"
 
-#: src/repo/CreateRepoSection.tsx:178
+#: src/repo/CreateRepoSection.tsx:180
 #: src/repo/RepoPage.tsx:138
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
@@ -721,11 +721,11 @@ msgstr "Error Handling"
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:144
+#: src/snapshots/modals/NewSnapshotModal.tsx:145
 msgid "Estimate"
 msgstr "Estimate"
 
-#: src/snapshots/modals/TaskEstimationModal.tsx:72
+#: src/snapshots/modals/TaskEstimationModal.tsx:73
 msgid "Estimate snapshot"
 msgstr "Estimate snapshot"
 
@@ -762,7 +762,7 @@ msgid "Every hour"
 msgstr "Every hour"
 
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
-#: src/tasks/TasksPage.tsx:119
+#: src/tasks/TasksPage.tsx:120
 msgid "Failed"
 msgstr "Failed"
 
@@ -771,7 +771,7 @@ msgstr "Failed"
 msgid "Failed after"
 msgstr "Failed after"
 
-#: src/policies/PoliciesPage.tsx:87
+#: src/policies/PoliciesPage.tsx:88
 msgid "Failed to find policy"
 msgstr "Failed to find policy"
 
@@ -784,7 +784,7 @@ msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:213
-#: src/snapshot-directory/SnapshotDirectory.tsx:222
+#: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:208
 msgid "Files"
@@ -798,7 +798,7 @@ msgstr "Files that are smaller than the provided value will not be compressed"
 msgid "Files whose size exceeds the provided value will not be compressed"
 msgstr "Files whose size exceeds the provided value will not be compressed"
 
-#: src/tasks/TaskDetailsPage.tsx:73
+#: src/tasks/TaskDetailsPage.tsx:74
 msgid "Finished"
 msgstr "Finished"
 
@@ -819,7 +819,7 @@ msgstr "From now"
 msgid "General Options"
 msgstr "General Options"
 
-#: src/policies/PoliciesPage.tsx:144
+#: src/policies/PoliciesPage.tsx:145
 msgid "Global Policy"
 msgstr "Global Policy"
 
@@ -827,21 +827,21 @@ msgstr "Global Policy"
 msgid "Google Cloud Storage"
 msgstr "Google Cloud Storage"
 
-#: src/repo/CreateRepoSection.tsx:147
+#: src/repo/CreateRepoSection.tsx:149
 #: src/repo/RepoPage.tsx:118
 msgid "Hash Algorithm"
 msgstr "Hash Algorithm"
 
-#: src/repo/ConnectRepoSection.tsx:118
+#: src/repo/ConnectRepoSection.tsx:119
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Helps to distinguish between multiple connected repositories"
 
-#: src/policies/PoliciesPage.tsx:192
+#: src/policies/PoliciesPage.tsx:193
 #: src/repo/sections/SFTPServerRepo.tsx:26
 msgid "Host"
 msgstr "Host"
 
-#: src/repo/ConnectRepoSection.tsx:140
+#: src/repo/ConnectRepoSection.tsx:141
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -962,8 +962,8 @@ msgstr "Key Data"
 msgid "Key ID"
 msgstr "Key ID"
 
-#: src/tasks/TasksPage.tsx:128
-#: src/tasks/TasksPage.tsx:193
+#: src/tasks/TasksPage.tsx:129
+#: src/tasks/TasksPage.tsx:194
 msgid "Kind"
 msgstr "Kind"
 
@@ -975,15 +975,15 @@ msgstr "Known Hosts Data"
 msgid "Kopia Repository Server"
 msgstr "Kopia Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:208
+#: src/snapshot-directory/SnapshotDirectory.tsx:209
 msgid "Last Modification"
 msgstr "Last Modification"
 
-#: src/snapshots/SnapshotsPage.tsx:246
+#: src/snapshots/SnapshotsPage.tsx:243
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
-#: src/repo/CreateRepoSection.tsx:165
+#: src/repo/CreateRepoSection.tsx:167
 #: src/repo/RepoPage.tsx:133
 msgid "Latest format"
 msgstr "Latest format"
@@ -1000,7 +1000,7 @@ msgstr "Launch external password-less SSH command"
 msgid "Leave empty to remove description"
 msgstr "Leave empty to remove description"
 
-#: src/repo/CreateRepoSection.tsx:167
+#: src/repo/CreateRepoSection.tsx:169
 #: src/repo/RepoPage.tsx:133
 msgid "Legacy format compatible with v0.8"
 msgstr "Legacy format compatible with v0.8"
@@ -1021,11 +1021,11 @@ msgstr "List of file and directory names to ignore."
 msgid "Local Directory or NAS"
 msgstr "Local Directory or NAS"
 
-#: src/policies/PoliciesPage.tsx:141
+#: src/policies/PoliciesPage.tsx:142
 msgid "Local Path Policies"
 msgstr "Local Path Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:150
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
@@ -1069,7 +1069,7 @@ msgstr "Login"
 msgid "Login to {instanceName}"
 msgstr "Login to {instanceName}"
 
-#: src/tasks/components/TaskLogs.tsx:40
+#: src/tasks/components/TaskLogs.tsx:41
 msgid "Logs"
 msgstr "Logs"
 
@@ -1169,7 +1169,7 @@ msgstr "Must Succeed"
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:177
+#: src/snapshot-directory/SnapshotDirectory.tsx:178
 msgid "Name"
 msgstr "Name"
 
@@ -1185,17 +1185,17 @@ msgstr "Never Compress Extensions"
 msgid "Never compress the following file extensions (one extension per line)"
 msgstr "Never compress the following file extensions (one extension per line)"
 
-#: src/policies/PoliciesPage.tsx:164
+#: src/policies/PoliciesPage.tsx:165
 msgid "New Policy"
 msgstr "New Policy"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:88
+#: src/snapshots/modals/NewSnapshotModal.tsx:89
 msgctxt "modal-title"
 msgid "New snapshot"
 msgstr "New snapshot"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:164
+#: src/snapshots/SnapshotsPage.tsx:161
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
@@ -1203,7 +1203,7 @@ msgstr "New Snapshot"
 msgid "Next"
 msgstr "Next"
 
-#: src/snapshots/SnapshotsPage.tsx:251
+#: src/snapshots/SnapshotsPage.tsx:248
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
@@ -1216,11 +1216,11 @@ msgstr "No"
 msgid "No don't delete it"
 msgstr "No don't delete it"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:171
+#: src/snapshot-directory/SnapshotDirectory.tsx:172
 msgid "No entires matching your search"
 msgstr "No entires matching your search"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:171
+#: src/snapshot-directory/SnapshotDirectory.tsx:172
 msgid "No entries in folder"
 msgstr "No entries in folder"
 
@@ -1232,7 +1232,7 @@ msgstr "No headers defined"
 msgid "No notifications defined"
 msgstr "No notifications defined"
 
-#: src/policies/PoliciesPage.tsx:181
+#: src/policies/PoliciesPage.tsx:182
 msgid "No policies found"
 msgstr "No policies found"
 
@@ -1249,7 +1249,7 @@ msgstr "No snapshots mounted"
 msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:39
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:40
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
 msgid "None"
 msgstr "None"
@@ -1305,13 +1305,13 @@ msgstr "Other"
 msgid "Override Region"
 msgstr "Override Region"
 
-#: src/repo/ConnectRepoSection.tsx:136
-#: src/repo/CreateRepoSection.tsx:202
+#: src/repo/ConnectRepoSection.tsx:137
+#: src/repo/CreateRepoSection.tsx:204
 msgid "Override this when restoring a snapshot taken by another user"
 msgstr "Override this when restoring a snapshot taken by another user"
 
-#: src/repo/ConnectRepoSection.tsx:141
-#: src/repo/CreateRepoSection.tsx:207
+#: src/repo/ConnectRepoSection.tsx:142
+#: src/repo/CreateRepoSection.tsx:209
 msgid "Override this when restoring a snapshot taken on another machine"
 msgstr "Override this when restoring a snapshot taken on another machine"
 
@@ -1327,7 +1327,7 @@ msgstr "Overwrite Files"
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
-#: src/snapshots/SnapshotsPage.tsx:219
+#: src/snapshots/SnapshotsPage.tsx:216
 msgid "Owner"
 msgstr "Owner"
 
@@ -1357,9 +1357,9 @@ msgid "Paste JSON credentials here"
 msgstr "Paste JSON credentials here"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
-#: src/policies/PoliciesPage.tsx:197
+#: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
-#: src/snapshots/SnapshotsPage.tsx:198
+#: src/snapshots/SnapshotsPage.tsx:195
 msgid "Path"
 msgstr "Path"
 
@@ -1371,19 +1371,19 @@ msgstr "Path to key file"
 msgid "Path to known_hosts File"
 msgstr "Path to known_hosts File"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:101
+#: src/snapshots/modals/NewSnapshotModal.tsx:102
 msgid "Path to snapshot"
 msgstr "Path to snapshot"
 
-#: src/snapshots/SnapshotsPage.tsx:299
+#: src/snapshots/SnapshotsPage.tsx:296
 msgid "Pending"
 msgstr "Pending"
 
-#: src/policies/PoliciesPage.tsx:146
+#: src/policies/PoliciesPage.tsx:147
 msgid "Per-Host Policies"
 msgstr "Per-Host Policies"
 
-#: src/policies/PoliciesPage.tsx:145
+#: src/policies/PoliciesPage.tsx:146
 msgid "Per-User Policies"
 msgstr "Per-User Policies"
 
@@ -1399,7 +1399,7 @@ msgstr "Plain Text Format"
 
 #: src/core/Header/Header.tsx:38
 #: src/core/Header/SkeletonHeader.tsx:37
-#: src/policies/PoliciesPage.tsx:135
+#: src/policies/PoliciesPage.tsx:136
 msgid "Policies"
 msgstr "Policies"
 
@@ -1449,7 +1449,7 @@ msgstr "Rclone Remote"
 msgid "Rclone Remote Path"
 msgstr "Rclone Remote Path"
 
-#: src/repo/ConnectRepoSection.tsx:130
+#: src/repo/ConnectRepoSection.tsx:131
 msgid "Read-only mode prevents any changes to the repository"
 msgstr "Read-only mode prevents any changes to the repository"
 
@@ -1461,15 +1461,15 @@ msgstr "Recipient User Key or Group Key"
 msgid "Records per page"
 msgstr "Records per page"
 
-#: src/policies/PoliciesPage.tsx:171
-#: src/snapshot-directory/SnapshotDirectory.tsx:141
+#: src/policies/PoliciesPage.tsx:172
+#: src/snapshot-directory/SnapshotDirectory.tsx:142
 #: src/snapshot-history/SnapshotHistory.tsx:108
-#: src/snapshots/SnapshotsPage.tsx:171
-#: src/tasks/TasksPage.tsx:157
+#: src/snapshots/SnapshotsPage.tsx:168
+#: src/tasks/TasksPage.tsx:158
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/snapshots/SnapshotsPage.tsx:227
+#: src/snapshots/SnapshotsPage.tsx:224
 msgid "Remote"
 msgstr "Remote"
 
@@ -1478,7 +1478,7 @@ msgstr "Remote"
 msgid "Repository"
 msgstr "Repository"
 
-#: src/repo/ConnectRepoSection.tsx:117
+#: src/repo/ConnectRepoSection.tsx:118
 msgid "Repository Description"
 msgstr "Repository Description"
 
@@ -1486,21 +1486,21 @@ msgstr "Repository Description"
 msgid "Repository disconnected"
 msgstr "Repository disconnected"
 
-#: src/repo/CreateRepoSection.tsx:163
+#: src/repo/CreateRepoSection.tsx:165
 #: src/repo/RepoPage.tsx:130
 msgid "Repository Format"
 msgstr "Repository Format"
 
-#: src/repo/ConnectRepoSection.tsx:101
-#: src/repo/CreateRepoSection.tsx:117
+#: src/repo/ConnectRepoSection.tsx:102
+#: src/repo/CreateRepoSection.tsx:119
 msgid "Repository Password"
 msgstr "Repository Password"
 
-#: src/snapshots/SnapshotsPage.tsx:116
+#: src/snapshots/SnapshotsPage.tsx:109
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:133
+#: src/snapshot-directory/SnapshotDirectory.tsx:134
 msgid "Restore"
 msgstr "Restore"
 
@@ -1539,7 +1539,7 @@ msgstr "Run asynchronously, ignore failures"
 msgid "Run Missed Snapshots on Startup"
 msgstr "Run Missed Snapshots on Startup"
 
-#: src/tasks/TasksPage.tsx:108
+#: src/tasks/TasksPage.tsx:109
 msgid "Running"
 msgstr "Running"
 
@@ -1588,11 +1588,11 @@ msgstr "Script to run before folder"
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:127
+#: src/snapshot-directory/SnapshotDirectory.tsx:128
 msgid "Search files or folder (current level)"
 msgstr "Search files or folder (current level)"
 
-#: src/tasks/TasksPage.tsx:147
+#: src/tasks/TasksPage.tsx:148
 msgid "Search tasks"
 msgstr "Search tasks"
 
@@ -1600,7 +1600,7 @@ msgstr "Search tasks"
 msgid "Secret Access Key"
 msgstr "Secret Access Key"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:73
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:74
 msgid "Select compression algorithm"
 msgstr "Select compression algorithm"
 
@@ -1637,7 +1637,7 @@ msgstr "Server address"
 msgid "Server Endpoint"
 msgstr "Server Endpoint"
 
-#: src/repo/ConnectRepoSection.tsx:110
+#: src/repo/ConnectRepoSection.tsx:111
 msgid "Server Password"
 msgstr "Server Password"
 
@@ -1649,7 +1649,7 @@ msgstr "SERVERS"
 msgid "Session token"
 msgstr "Session token"
 
-#: src/preferences/StatisticsSection.tsx:14
+#: src/preferences/StatisticsSection.tsx:11
 msgid "Settings stored locally"
 msgstr "Settings stored locally"
 
@@ -1669,10 +1669,10 @@ msgstr "Show {totalLength} individual snapshots"
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:214
+#: src/snapshot-directory/SnapshotDirectory.tsx:215
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:201
-#: src/snapshots/SnapshotsPage.tsx:237
+#: src/snapshots/SnapshotsPage.tsx:234
 msgid "Size"
 msgstr "Size"
 
@@ -1708,7 +1708,7 @@ msgstr "SMTP server username, typically the email address"
 msgid "SMTP Username"
 msgstr "SMTP Username"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:118
+#: src/snapshot-directory/SnapshotDirectory.tsx:119
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -1724,15 +1724,15 @@ msgstr "Snapshot Frequency"
 msgid "Snapshot ID"
 msgstr "Snapshot ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:149
+#: src/snapshot-directory/SnapshotDirectory.tsx:150
 msgid "Snapshot is mounted at the following path"
 msgstr "Snapshot is mounted at the following path"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:159
+#: src/snapshots/modals/NewSnapshotModal.tsx:160
 msgid "Snapshot now"
 msgstr "Snapshot now"
 
-#: src/snapshots/SnapshotsPage.tsx:275
+#: src/snapshots/SnapshotsPage.tsx:272
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
@@ -1756,7 +1756,7 @@ msgstr "Snapshot(s) deleted"
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:87
-#: src/snapshots/SnapshotsPage.tsx:129
+#: src/snapshots/SnapshotsPage.tsx:122
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -1768,7 +1768,7 @@ msgstr "Snapshots by date"
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 msgstr "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 
-#: src/repo/CreateRepoSection.tsx:156
+#: src/repo/CreateRepoSection.tsx:158
 msgid "Splitter"
 msgstr "Splitter"
 
@@ -1789,11 +1789,11 @@ msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
 #: src/snapshot-history/SnapshotHistory.tsx:139
-#: src/tasks/TasksPage.tsx:179
+#: src/tasks/TasksPage.tsx:180
 msgid "Start Time"
 msgstr "Start Time"
 
-#: src/tasks/TaskDetailsPage.tsx:60
+#: src/tasks/TaskDetailsPage.tsx:61
 msgid "Started"
 msgstr "Started"
 
@@ -1801,7 +1801,7 @@ msgstr "Started"
 msgid "Statistics"
 msgstr "Statistics"
 
-#: src/tasks/TasksPage.tsx:188
+#: src/tasks/TasksPage.tsx:189
 msgid "Status"
 msgstr "Status"
 
@@ -1809,7 +1809,7 @@ msgstr "Status"
 msgid "Storage Account"
 msgstr "Storage Account"
 
-#: src/core/context/ServerInstanceContext.tsx:89
+#: src/core/context/ServerInstanceContext.tsx:92
 msgid "Switched instance"
 msgstr "Switched instance"
 
@@ -1817,21 +1817,21 @@ msgstr "Switched instance"
 msgid "Symlinks"
 msgstr "Symlinks"
 
-#: src/snapshots/SnapshotsPage.tsx:180
+#: src/snapshots/SnapshotsPage.tsx:177
 msgid "Sync"
 msgstr "Sync"
 
-#: src/tasks/TasksPage.tsx:174
+#: src/tasks/TasksPage.tsx:175
 msgid "Task ID"
 msgstr "Task ID"
 
 #: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
-#: src/tasks/TasksPage.tsx:84
+#: src/tasks/TasksPage.tsx:85
 msgid "Tasks"
 msgstr "Tasks"
 
-#: src/preferences/NotificationsSection.tsx:51
+#: src/preferences/NotificationsSection.tsx:50
 msgid "Test notification sent"
 msgstr "Test notification sent"
 
@@ -1843,7 +1843,7 @@ msgstr "The repository description was successfully updated"
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
-#: src/snapshots/SnapshotsPage.tsx:117
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
@@ -1863,7 +1863,7 @@ msgstr "Theme"
 msgid "This is the internal representation of a policy"
 msgstr "This is the internal representation of a policy"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:71
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:72
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
@@ -1977,8 +1977,8 @@ msgstr "Use HTTP connection (insecure)"
 msgid "Use Repository Token"
 msgstr "Use Repository Token"
 
-#: src/repo/ConnectRepoSection.tsx:104
-#: src/repo/CreateRepoSection.tsx:120
+#: src/repo/ConnectRepoSection.tsx:105
+#: src/repo/CreateRepoSection.tsx:122
 msgid "Used to encrypt content of the repository"
 msgstr "Used to encrypt content of the repository"
 
@@ -1988,16 +1988,16 @@ msgstr "User"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
-#: src/policies/PoliciesPage.tsx:187
-#: src/repo/ConnectRepoSection.tsx:135
-#: src/repo/CreateRepoSection.tsx:201
+#: src/policies/PoliciesPage.tsx:188
+#: src/repo/ConnectRepoSection.tsx:136
+#: src/repo/CreateRepoSection.tsx:203
 #: src/repo/sections/SFTPServerRepo.tsx:42
 #: src/repo/sections/WebDavRepo.tsx:31
 #: src/repo/sections/WebDavRepo.tsx:31
 msgid "Username"
 msgstr "Username"
 
-#: src/snapshots/SnapshotsPage.tsx:289
+#: src/snapshots/SnapshotsPage.tsx:286
 msgid "View Policy"
 msgstr "View Policy"
 
@@ -2021,7 +2021,7 @@ msgstr "Weekly"
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "When a restore error occurs, attempt to continue instead of failing fast"
 
-#: src/preferences/StatisticsSection.tsx:22
+#: src/preferences/StatisticsSection.tsx:19
 msgid "When enabled, will show snapshot statistics"
 msgstr "When enabled, will show snapshot statistics"
 

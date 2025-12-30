@@ -1,13 +1,10 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Alert, Checkbox, Stack } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
+import { useAppContext } from "../core/context/AppContext";
 
 function StatisticsSection() {
-  const [enableStats, setEnableState] = useLocalStorage<boolean>({
-    key: "kaui-snapshot-stats",
-    defaultValue: true
-  });
+  const { showStatistics, setShowStatistics } = useAppContext();
 
   return (
     <Stack>
@@ -20,8 +17,8 @@ function StatisticsSection() {
       <Checkbox
         label={t`Enable snapshot statistics`}
         description={t`When enabled, will show snapshot statistics`}
-        checked={enableStats}
-        onChange={(e) => setEnableState(e.target.checked)}
+        checked={showStatistics}
+        onChange={(e) => setShowStatistics(e.target.checked)}
       />
     </Stack>
   );

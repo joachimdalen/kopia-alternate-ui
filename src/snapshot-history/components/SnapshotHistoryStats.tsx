@@ -1,6 +1,5 @@
 import { t } from "@lingui/core/macro";
 import { SimpleGrid } from "@mantine/core";
-import { readLocalStorageValue } from "@mantine/hooks";
 import { IconCalendar, IconFiles, IconServer } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
 import { useAppContext } from "../../core/context/AppContext";
@@ -17,10 +16,9 @@ type Props = {
 };
 
 export default function SnapshotHistoryStats({ sourceInfo }: Props) {
-  const isEnabled = readLocalStorageValue({ key: "kaui-snapshot-stats", defaultValue: false });
   const [data, setData] = useState<Snapshot[]>([]);
   const { kopiaService } = useServerInstanceContext();
-  const { bytesStringBase2, locale } = useAppContext();
+  const { bytesStringBase2, locale, showStatistics } = useAppContext();
   const loadSnapshots = useApiRequest({
     action: () =>
       kopiaService.getSnapshot({
@@ -34,10 +32,10 @@ export default function SnapshotHistoryStats({ sourceInfo }: Props) {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
-    if (isEnabled) {
+    if (showStatistics) {
       loadSnapshots.execute();
     }
-  }, [isEnabled]);
+  }, [showStatistics]);
 
   const groupedByDate = useMemo(() => {
     const grouped = groupBy(data, (s) => formatLocalDate(s.startTime, locale, "L"));
@@ -73,7 +71,7 @@ export default function SnapshotHistoryStats({ sourceInfo }: Props) {
     });
   }, [groupedByDateAndTime]);
 
-  if (!isEnabled) return null;
+  if (!showStatistics) return null;
 
   return (
     <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }}>
