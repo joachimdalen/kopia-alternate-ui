@@ -13,7 +13,7 @@ import {
   IconTestPipe,
   IconUpload
 } from "@tabler/icons-react";
-import merge from "lodash.merge";
+import { yupResolver } from "mantine-form-yup-resolver";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
@@ -24,6 +24,7 @@ import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { getPolicyType } from "../../policiesUtil";
 import DeletePolicyButton from "./components/DeletePolicyButton";
+import { defaultForm, policyFormSchema } from "./constants";
 import CompressionTab from "./tabs/CompressionTab";
 import ErrorHandlingTab from "./tabs/ErrorHandlingTab";
 import FilesTab from "./tabs/FilesTab";
@@ -35,6 +36,9 @@ import SnapshotActionsTab from "./tabs/SnapshotActionsTab";
 import SnapshotRetentionTab from "./tabs/SnapshotRetentionTab";
 import UploadTab from "./tabs/UploadTab";
 import type { PolicyForm } from "./types";
+import deleteUnusedProps from "./utils/deleteUnusedProps";
+import { mergePolicy } from "./utils/mergePolicy";
+import { transformPolicy } from "./utils/transformPolicy";
 
 type Props = {
   target: SourceInfo;
@@ -45,27 +49,6 @@ type Props = {
   onSubmitted?: (policy: Policy) => void;
   saveOnSubmit?: boolean;
 };
-
-function mergePolicy(current: Policy) {
-  return merge(
-    {
-      actions: {
-        afterFolder: {},
-        afterSnapshotRoot: {},
-        beforeFolder: {},
-        beforeSnapshotRoot: {}
-      },
-      osSnapshots: {
-        volumeShadowCopy: {}
-      },
-      logging: {
-        directories: {},
-        entries: {}
-      }
-    } satisfies Policy,
-    current
-  );
-}
 
 export default function PolicyModal({
   isNew,
@@ -79,18 +62,25 @@ export default function PolicyModal({
   const { kopiaService } = useServerInstanceContext();
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal = target.host === "" && target.userName === "" && target.path === "";
+
   const form = useForm<PolicyForm, (values: PolicyForm) => Policy>({
     mode: "controlled",
-    initialValues: {},
+    initialValues: defaultForm,
     transformValues(values) {
-      return { ...values };
-    }
-    // validate: yupResolver(schema),
+      return transformPolicy(values);
+    },
+    validate: yupResolver(policyFormSchema())
   });
 
   function watchAction(key: string, value?: string) {
     if (value === undefined || value === "") {
-      form.setFieldValue(`actions.${key}`, {});
+      form.setFieldValue(`actions.${key}`, {
+        args: [],
+        mode: "",
+        path: "",
+        script: "",
+        timeout: undefined
+      });
     } else {
       if (form.values.actions?.afterFolder?.timeout === undefined) {
         form.setFieldValue(`actions.${key}.timeout`, 300);
@@ -128,7 +118,7 @@ export default function PolicyModal({
     loading: loadingResolve,
     execute: executeResolve
   } = useApiRequest({
-    action: (data?: PolicyForm) =>
+    action: (data?: Policy) =>
       kopiaService.resolvePolicy(target, {
         numUpcomingSnapshotTimes: 5,
         updates: data!
@@ -164,8 +154,6 @@ export default function PolicyModal({
     if (!isNew) {
       intLoad();
     } else {
-      // const np: Policy = {};
-      // form.initialize(np);
       intResolve();
     }
   }, []);
@@ -173,11 +161,15 @@ export default function PolicyModal({
   const resolvedValue = resolved?.effective;
 
   async function submitForm(values: Policy) {
+    // Clean inner field
+    const firstPass = deleteUnusedProps(values);
+    // Clean root objects
+    const secondPass = deleteUnusedProps(firstPass);
     if (saveOnSubmit) {
-      saveAction.execute(values);
+      saveAction.execute(secondPass);
     } else {
       if (onSubmitted !== undefined) {
-        onSubmitted(values);
+        onSubmitted(secondPass);
       }
     }
   }
@@ -265,6 +257,12 @@ export default function PolicyModal({
         <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={false}>
           <Trans>Cancel</Trans>
         </Button>
+        <Button
+          onClick={() => {
+            form.validate();
+            console.log(form.errors);
+          }}
+        ></Button>
         <Group>
           {!isNew && !isGlobal && onDeleted && <DeletePolicyButton sourceInfo={target} onDeleted={onDeleted} />}
           <Button size="xs" type="submit" form="update-policy-form" loading={false} disabled={!form.isValid()}>

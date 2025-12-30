@@ -66,7 +66,7 @@ export default function PolicyCompressionInput({ id, title, description, form, f
         isConfigured={inputProps.value !== undefined && inputProps.value !== "" && inputProps.value !== "none"}
       />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <Select
             label={t`Defined`}
             description={t`This policy`}
@@ -85,6 +85,7 @@ export default function PolicyCompressionInput({ id, title, description, form, f
             allowDeselect={false}
             readOnly
             value={effectiveValue}
+            variant="filled"
           />
         </Group>
       </AccordionPanel>
