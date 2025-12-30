@@ -85,6 +85,7 @@ export default function PolicyCompressionInput({ id, title, description, form, f
             allowDeselect={false}
             readOnly
             value={effectiveValue}
+            variant="filled"
           />
         </Group>
       </AccordionPanel>

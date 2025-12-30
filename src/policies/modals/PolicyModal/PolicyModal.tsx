@@ -13,7 +13,6 @@ import {
   IconTestPipe,
   IconUpload
 } from "@tabler/icons-react";
-import merge from "lodash.merge";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../../core/ErrorAlert/ErrorAlert";
@@ -24,6 +23,7 @@ import modalBaseStyles from "../../../styles/modalStyles";
 import modalClasses from "../../../styles/modals.module.css";
 import { getPolicyType } from "../../policiesUtil";
 import DeletePolicyButton from "./components/DeletePolicyButton";
+import { defaultForm } from "./constants";
 import CompressionTab from "./tabs/CompressionTab";
 import ErrorHandlingTab from "./tabs/ErrorHandlingTab";
 import FilesTab from "./tabs/FilesTab";
@@ -34,7 +34,10 @@ import SchedulingTab from "./tabs/SchedulingTab";
 import SnapshotActionsTab from "./tabs/SnapshotActionsTab";
 import SnapshotRetentionTab from "./tabs/SnapshotRetentionTab";
 import UploadTab from "./tabs/UploadTab";
-import type { PolicyForm } from "./types";
+import type { PolicyForm, PolicyForm2 } from "./types";
+import deleteUnusedProps from "./utils/deleteUnusedProps";
+import { mergePolicy } from "./utils/mergePolicy";
+import { transformPolicy } from "./utils/transformPolicy";
 
 type Props = {
   target: SourceInfo;
@@ -45,27 +48,6 @@ type Props = {
   onSubmitted?: (policy: Policy) => void;
   saveOnSubmit?: boolean;
 };
-
-function mergePolicy(current: Policy) {
-  return merge(
-    {
-      actions: {
-        afterFolder: {},
-        afterSnapshotRoot: {},
-        beforeFolder: {},
-        beforeSnapshotRoot: {}
-      },
-      osSnapshots: {
-        volumeShadowCopy: {}
-      },
-      logging: {
-        directories: {},
-        entries: {}
-      }
-    } satisfies Policy,
-    current
-  );
-}
 
 export default function PolicyModal({
   isNew,
@@ -79,13 +61,13 @@ export default function PolicyModal({
   const { kopiaService } = useServerInstanceContext();
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal = target.host === "" && target.userName === "" && target.path === "";
-  const form = useForm<PolicyForm, (values: PolicyForm) => Policy>({
+
+  const form = useForm<PolicyForm2, (values: PolicyForm2) => Policy>({
     mode: "controlled",
-    initialValues: {},
+    initialValues: defaultForm,
     transformValues(values) {
-      return { ...values };
+      return transformPolicy(values);
     }
-    // validate: yupResolver(schema),
   });
 
   function watchAction(key: string, value?: string) {
@@ -164,8 +146,6 @@ export default function PolicyModal({
     if (!isNew) {
       intLoad();
     } else {
-      // const np: Policy = {};
-      // form.initialize(np);
       intResolve();
     }
   }, []);
@@ -173,11 +153,15 @@ export default function PolicyModal({
   const resolvedValue = resolved?.effective;
 
   async function submitForm(values: Policy) {
+    // Clean inner field
+    const firstPass = deleteUnusedProps(values);
+    // Clean root objects
+    const secondPass = deleteUnusedProps(firstPass);
     if (saveOnSubmit) {
-      saveAction.execute(values);
+      saveAction.execute(secondPass);
     } else {
       if (onSubmitted !== undefined) {
-        onSubmitted(values);
+        onSubmitted(secondPass);
       }
     }
   }

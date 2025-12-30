@@ -10,10 +10,10 @@ import {
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
-import type { PolicyForm } from "../types";
+import type { PolicyForm2 } from "../types";
 
 type Props = {
-  form: UseFormReturnType<PolicyForm>;
+  form: UseFormReturnType<PolicyForm2>;
 };
 
 export default function OtherTab({ form }: Props) {

@@ -52,6 +52,7 @@ export default function PolicyLogDetailsInput({ id, title, description, form, fo
             withCheckIcon={false}
             readOnly
             value={effectiveValue}
+            variant="filled"
           />
         </Group>
       </AccordionPanel>

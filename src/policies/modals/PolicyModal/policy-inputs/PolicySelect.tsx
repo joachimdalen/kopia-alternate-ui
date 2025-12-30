@@ -41,6 +41,7 @@ export default function PolicySelect({ id, title, description, placeholder, form
             withCheckIcon={false}
             disabled
             value={effectiveValue}
+            variant="filled"
           />
         </Group>
       </AccordionPanel>

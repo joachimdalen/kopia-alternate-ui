@@ -89,7 +89,7 @@ msgstr "Access Key ID"
 msgid "Active"
 msgstr "Active"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:97
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:98
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:109
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
@@ -204,8 +204,8 @@ msgid "Cache Miss"
 msgstr "Cache Miss"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:250
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -248,7 +248,7 @@ msgstr "Command Mode - After"
 msgid "Command Mode - Before"
 msgstr "Command Mode - Before"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
 msgid "Compression"
 msgstr "Compression"
 
@@ -348,7 +348,7 @@ msgstr "Create pushover notification"
 msgid "Create repository"
 msgstr "Create repository"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:68
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
 
@@ -360,7 +360,7 @@ msgstr "Credentials File"
 msgid "Credentials JSON"
 msgstr "Credentials JSON"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:66
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:77
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
@@ -710,7 +710,7 @@ msgstr "Error Correction Algorithm"
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
 msgid "Error Handling"
 msgstr "Error Handling"
 
@@ -729,37 +729,41 @@ msgstr "Estimate"
 msgid "Estimate snapshot"
 msgstr "Estimate snapshot"
 
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
+msgid "Every"
+msgstr "Every"
+
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
-msgid "Every 10 Minutes"
-msgstr "Every 10 Minutes"
+#~ msgid "Every 10 Minutes"
+#~ msgstr "Every 10 Minutes"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
-msgid "Every 12 hours"
-msgstr "Every 12 hours"
+#~ msgid "Every 12 hours"
+#~ msgstr "Every 12 hours"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
-msgid "Every 15 Minutes"
-msgstr "Every 15 Minutes"
+#~ msgid "Every 15 Minutes"
+#~ msgstr "Every 15 Minutes"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
-msgid "Every 20 Minutes"
-msgstr "Every 20 Minutes"
+#~ msgid "Every 20 Minutes"
+#~ msgstr "Every 20 Minutes"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
-msgid "Every 3 hours"
-msgstr "Every 3 hours"
+#~ msgid "Every 3 hours"
+#~ msgstr "Every 3 hours"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:45
-msgid "Every 30 Minutes"
-msgstr "Every 30 Minutes"
+#~ msgid "Every 30 Minutes"
+#~ msgstr "Every 30 Minutes"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
-msgid "Every 6 hours"
-msgstr "Every 6 hours"
+#~ msgid "Every 6 hours"
+#~ msgstr "Every 6 hours"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
-msgid "Every hour"
-msgstr "Every hour"
+#~ msgid "Every hour"
+#~ msgstr "Every hour"
 
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
 #: src/tasks/TasksPage.tsx:120
@@ -783,7 +787,7 @@ msgstr "File Ignored"
 msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
 #: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:208
@@ -807,11 +811,11 @@ msgstr "Finished"
 msgid "Finished in"
 msgstr "Finished in"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
 msgid "Folder Actions"
 msgstr "Folder Actions"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:112
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:123
 msgid "From now"
 msgstr "From now"
 
@@ -849,7 +853,7 @@ msgstr "Hostname"
 msgid "Hourly"
 msgstr "Hourly"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:38
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
 msgid "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 msgstr "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 
@@ -934,7 +938,7 @@ msgstr "Ignore Unknown Directory Entries"
 msgid "Ignore Well-Known Cache Directories"
 msgstr "Ignore Well-Known Cache Directories"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:95
 msgid "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 msgstr "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 
@@ -1057,7 +1061,7 @@ msgstr "Log verbosity when a file, symbolic link, etc. is ignored"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Log verbosity when a file, symbolic link, etc. is snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:224
 msgid "Logging"
 msgstr "Logging"
 
@@ -1077,7 +1081,7 @@ msgstr "Logs"
 msgid "Mail From"
 msgstr "Mail From"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:91
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:102
 msgid "Manual Snapshots Only"
 msgstr "Manual Snapshots Only"
 
@@ -1250,7 +1254,7 @@ msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:40
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
 msgid "None"
 msgstr "None"
 
@@ -1293,11 +1297,11 @@ msgstr "Only Compress Extensions"
 msgid "Only compress files with the following file extensions (one extension per line)"
 msgstr "Only compress files with the following file extensions (one extension per line)"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:92
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:103
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Only create snapshots manually (disables scheduled snapshots)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
 msgid "Other"
 msgstr "Other"
 
@@ -1535,7 +1539,7 @@ msgstr "Root"
 msgid "Run asynchronously, ignore failures"
 msgstr "Run asynchronously, ignore failures"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:83
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:94
 msgid "Run Missed Snapshots on Startup"
 msgstr "Run Missed Snapshots on Startup"
 
@@ -1552,8 +1556,8 @@ msgstr "Running for"
 msgid "SAS Token"
 msgstr "SAS Token"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:116
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:255
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1568,7 +1572,7 @@ msgstr "Save"
 msgid "Scan only one filesystem"
 msgstr "Scan only one filesystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:209
 msgid "Scheduling"
 msgstr "Scheduling"
 
@@ -1608,7 +1612,7 @@ msgstr "Select compression algorithm"
 msgid "Select Provider"
 msgstr "Select Provider"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:39
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
 msgid "Select Snapshot Frequency"
 msgstr "Select Snapshot Frequency"
 
@@ -1712,11 +1716,11 @@ msgstr "SMTP Username"
 msgid "Snapshot"
 msgstr "Snapshot"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:218
 msgid "Snapshot Actions"
 msgstr "Snapshot Actions"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
 msgid "Snapshot Frequency"
 msgstr "Snapshot Frequency"
 
@@ -1736,11 +1740,11 @@ msgstr "Snapshot now"
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:194
 msgid "Snapshot Retention"
 msgstr "Snapshot Retention"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:67
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:78
 msgid "Snapshot schedules using UNIX crontab syntax:"
 msgstr "Snapshot schedules using UNIX crontab syntax:"
 
@@ -1870,7 +1874,7 @@ msgstr "This is the internal representation of a policy"
 msgid "This policy"
 msgstr "This policy"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:67
 msgid "Time Of Day"
 msgstr "Time Of Day"
 
@@ -1891,11 +1895,11 @@ msgstr "Timeout - Before"
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Timeout in seconds before Kopia kills the process"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:100
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:111
 msgid "Times of upcoming snapshots calculated based on policy parameters"
 msgstr "Times of upcoming snapshots calculated based on policy parameters"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:120
 msgid "Timestamp"
 msgstr "Timestamp"
 
@@ -1935,7 +1939,7 @@ msgstr "Unique name for this notification profile"
 msgid "Unmount"
 msgstr "Unmount"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:110
 msgid "Upcoming Snapshots"
 msgstr "Upcoming Snapshots"
 
@@ -1948,7 +1952,7 @@ msgstr "Update"
 msgid "Update description"
 msgstr "Update description"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:67
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:68
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:79
 msgid "Update items"
 msgstr "Update items"
@@ -1957,7 +1961,7 @@ msgstr "Update items"
 msgid "Updated"
 msgstr "Updated"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
 msgid "Upload"
 msgstr "Upload"
 

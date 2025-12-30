@@ -89,7 +89,7 @@ msgstr "Tilgangsnøkkel ID"
 msgid "Active"
 msgstr "Aktiv"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:97
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:98
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:109
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
@@ -204,8 +204,8 @@ msgid "Cache Miss"
 msgstr "Hurtigbufferbom"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:266
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:250
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -248,7 +248,7 @@ msgstr "Kommandomodus – Etter"
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:222
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
 msgid "Compression"
 msgstr "Kompresjon"
 
@@ -348,7 +348,7 @@ msgstr "Opprett pushover notifikasjon"
 msgid "Create repository"
 msgstr "Opprett oppbevaringssted"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:68
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Lag øyeblikksbilder på de angitte tidspunktene på dagen (24-timers format)"
 
@@ -360,7 +360,7 @@ msgstr "Legitimasjonsfil"
 msgid "Credentials JSON"
 msgstr "Legitimasjons-JSON"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:66
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:77
 msgid "Cron Expressions"
 msgstr "Cron-uttrykk"
 
@@ -710,7 +710,7 @@ msgstr "Feilkorrigeringsalgoritme"
 msgid "Error Correction Overhead"
 msgstr "Feilretting Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:219
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
@@ -729,37 +729,41 @@ msgstr "Estimer"
 msgid "Estimate snapshot"
 msgstr "Estimer øyeblikksbilde"
 
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
+msgid "Every"
+msgstr "Hver"
+
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
-msgid "Every 10 Minutes"
-msgstr "Hvert 10 minutt"
+#~ msgid "Every 10 Minutes"
+#~ msgstr "Hvert 10 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
-msgid "Every 12 hours"
-msgstr "Hver 12 time"
+#~ msgid "Every 12 hours"
+#~ msgstr "Hver 12 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
-msgid "Every 15 Minutes"
-msgstr "Hvert 15 minutt"
+#~ msgid "Every 15 Minutes"
+#~ msgstr "Hvert 15 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
-msgid "Every 20 Minutes"
-msgstr "Hvert 20 minutt"
+#~ msgid "Every 20 Minutes"
+#~ msgstr "Hvert 20 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
-msgid "Every 3 hours"
-msgstr "Hver 3 time"
+#~ msgid "Every 3 hours"
+#~ msgstr "Hver 3 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:45
-msgid "Every 30 Minutes"
-msgstr "Hvert 30 minutt"
+#~ msgid "Every 30 Minutes"
+#~ msgstr "Hvert 30 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
-msgid "Every 6 hours"
-msgstr "Hver 6 time"
+#~ msgid "Every 6 hours"
+#~ msgstr "Hver 6 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
-msgid "Every hour"
-msgstr "Hver time"
+#~ msgid "Every hour"
+#~ msgstr "Hver time"
 
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
 #: src/tasks/TasksPage.tsx:120
@@ -783,7 +787,7 @@ msgstr "Fil irgnorert"
 msgid "File Snapshotted"
 msgstr "Fil øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:213
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
 #: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:208
@@ -807,11 +811,11 @@ msgstr "Fullført"
 msgid "Finished in"
 msgstr "Fullført på"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:237
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
 msgid "Folder Actions"
 msgstr "Mappehandlinger"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:112
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:123
 msgid "From now"
 msgstr "Fra nå"
 
@@ -849,7 +853,7 @@ msgstr "Vertsnavn"
 msgid "Hourly"
 msgstr "Hver time"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:38
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
 msgid "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 msgstr "Hvor ofte skal man lage øyeblikksbilder i KopiaUI eller Kopia-serveren (har ingen effekt utenfor servermodus)"
 
@@ -934,7 +938,7 @@ msgstr "Ignorer ukjente mapper"
 msgid "Ignore Well-Known Cache Directories"
 msgstr "Ignorer kjente hurtigbuffermapper"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:95
 msgid "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 msgstr "Kjør eventuelle tapte øyeblikksbilder umiddelbart når kopia starter (kun relevant for klokkeslett-øyeblikksbilder)"
 
@@ -1057,7 +1061,7 @@ msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. ignoreres"
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. blir tatt øyeblikksbilde av"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:240
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:224
 msgid "Logging"
 msgstr "Logging"
 
@@ -1077,7 +1081,7 @@ msgstr "Logger"
 msgid "Mail From"
 msgstr "Avsender"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:91
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:102
 msgid "Manual Snapshots Only"
 msgstr "Kun manuelle øyeblikksbilder"
 
@@ -1250,7 +1254,7 @@ msgid "No snapshots taken"
 msgstr "Ingen øyeblikksbilder tatt"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:40
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
 msgid "None"
 msgstr "Ingen"
 
@@ -1293,11 +1297,11 @@ msgstr "Komprimer kun utvidelser"
 msgid "Only compress files with the following file extensions (one extension per line)"
 msgstr "Komprimer kun filer med følgende filtyper (én filtype per linje)"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:92
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:103
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilder)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:243
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
 msgid "Other"
 msgstr "Annet"
 
@@ -1535,7 +1539,7 @@ msgstr "Root"
 msgid "Run asynchronously, ignore failures"
 msgstr "Kjør asynkront, ignorer feil"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:83
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:94
 msgid "Run Missed Snapshots on Startup"
 msgstr "Kjør tapte øyeblikksbilder ved oppstart"
 
@@ -1552,8 +1556,8 @@ msgstr "Kjørende for"
 msgid "SAS Token"
 msgstr "SAS Token"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:271
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:116
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:255
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1568,7 +1572,7 @@ msgstr "Lagre"
 msgid "Scan only one filesystem"
 msgstr "Skann bare ett filsystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:225
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:209
 msgid "Scheduling"
 msgstr "Planlegging"
 
@@ -1608,7 +1612,7 @@ msgstr "Velg komprimeringsalgoritme"
 msgid "Select Provider"
 msgstr "Velg tilbyder"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:39
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
 msgid "Select Snapshot Frequency"
 msgstr "Velg frekvens for øyeblikksbilder"
 
@@ -1712,11 +1716,11 @@ msgstr "SMTP Brukernavn"
 msgid "Snapshot"
 msgstr "Øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:218
 msgid "Snapshot Actions"
 msgstr "Handlinger"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
 msgid "Snapshot Frequency"
 msgstr "Øyeblikksbildefrekvens"
 
@@ -1736,11 +1740,11 @@ msgstr "Ta øyeblikksbilde"
 msgid "Snapshot Now"
 msgstr "Øyeblikksbilde nå"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:210
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:194
 msgid "Snapshot Retention"
 msgstr "Oppbevaring"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:67
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:78
 msgid "Snapshot schedules using UNIX crontab syntax:"
 msgstr "Øyeblikksbilde-planer ved bruk av UNIX crontab-syntaks:"
 
@@ -1870,7 +1874,7 @@ msgstr "Dette er den interne representasjonen av en strategi"
 msgid "This policy"
 msgstr "Denne strategien"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:67
 msgid "Time Of Day"
 msgstr "Tid på dagen"
 
@@ -1891,11 +1895,11 @@ msgstr "Tidsavbrudd - Før"
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Tidsavbrudd i sekunder før Kopia avslutter prosessen"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:100
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:111
 msgid "Times of upcoming snapshots calculated based on policy parameters"
 msgstr "Tidspunkter for kommende øyeblikksbilder beregnet basert på strategi parametere"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:120
 msgid "Timestamp"
 msgstr "Tidsstempel"
 
@@ -1935,7 +1939,7 @@ msgstr "Unikt navn for denne notifikasjons profilen"
 msgid "Unmount"
 msgstr "Demonter"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:110
 msgid "Upcoming Snapshots"
 msgstr "Kommende Øyeblikksbilder"
 
@@ -1948,7 +1952,7 @@ msgstr "Oppdater"
 msgid "Update description"
 msgstr "Oppdater beskrivelse"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:67
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:68
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:79
 msgid "Update items"
 msgstr "Oppdater oppføringer"
@@ -1957,7 +1961,7 @@ msgstr "Oppdater oppføringer"
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:228
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
 msgid "Upload"
 msgstr "Opplasting"
 

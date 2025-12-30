@@ -25,7 +25,7 @@ export default function PolicyTextInput({ id, title, description, placeholder, f
       <AccordionPanel>
         <Group grow>
           <TextInput label={t`Defined`} placeholder={placeholder} {...inputProps} />
-          <TextInput label={t`Effective`} readOnly value={effectiveValue} />
+          <TextInput label={t`Effective`} readOnly value={effectiveValue} variant="filled" />
         </Group>
       </AccordionPanel>
     </AccordionItem>

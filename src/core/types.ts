@@ -48,7 +48,7 @@ export type SchedulingPolicy = {
   noParentTimeOfDay?: boolean;
   manual?: boolean;
   cron?: string[];
-  runMissed: boolean;
+  runMissed?: boolean;
 };
 export type DirEntry = {
   name: string;

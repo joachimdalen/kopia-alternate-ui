@@ -25,7 +25,7 @@ export default function PolicyNumberInput({ id, title, description, placeholder,
       <AccordionPanel>
         <Group grow>
           <NumberInput label={t`Defined`} hideControls placeholder={placeholder} {...inputProps} />
-          <NumberInput label={t`Effective`} hideControls value={effectiveValue} readOnly />
+          <NumberInput label={t`Effective`} hideControls value={effectiveValue} readOnly variant="filled" />
         </Group>
       </AccordionPanel>
     </AccordionItem>
