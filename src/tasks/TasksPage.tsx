@@ -56,7 +56,6 @@ function TasksPage() {
   });
 
   useEffect(() => {
-    console.log("CHANGED");
     loadAction.execute(undefined, "loading");
   }, [loadAction.execute]);
 
