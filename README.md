@@ -93,12 +93,17 @@ location /api/[INSTANCE-ID] {
 services:
   kopiaaltui:
     conatiner_name: kopia-ui
-    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.2
+    image: ghcr.io/joachimdalen/kopia-alternate-ui:v0.4
     ports:
       - 8080:80
     volumes:
       - ../docker/instances.json:/app/config/instances.json:ro
       - ../docker/nginx.conf:/etc/nginx/templates/default.conf.template:ro
+    environment:
+      # Enables you to pass more predefined intervals for snapshots
+      # By default the following is set: 600, 900, 1200, 1800, 3600, 10800, 21600, 43200
+      # Pass values in seconds
+      VITE_PUBLIC_SNAPSHOT_INTERVALS="86400,172800,604800"
 ```
 
 ### Authenticating to servers
