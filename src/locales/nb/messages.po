@@ -107,17 +107,17 @@ msgid "Advanced Options"
 msgstr "Avanserte valg"
 
 #: src/policies/modals/PolicyModal/constants.ts:170
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:64
 msgid "After Folder"
 msgstr "Etter mappe"
 
 #: src/policies/modals/PolicyModal/constants.ts:184
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:68
 msgid "After Snapshot"
 msgstr "Etter øyeblikksbilde"
 
-#: src/tasks/TasksPage.tsx:98
-#: src/tasks/TasksPage.tsx:131
+#: src/tasks/TasksPage.tsx:97
+#: src/tasks/TasksPage.tsx:130
 msgid "All"
 msgstr "Alle"
 
@@ -173,12 +173,12 @@ msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
 #: src/policies/modals/PolicyModal/constants.ts:163
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:26
 msgid "Before Folder"
 msgstr "Før Mappe"
 
 #: src/policies/modals/PolicyModal/constants.ts:177
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:26
 msgid "Before Snapshot"
 msgstr "Før Øyeblikksbilde"
 
@@ -225,7 +225,7 @@ msgstr "Hurtigbufferbom"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/tasks/TasksPage.tsx:213
+#: src/tasks/TasksPage.tsx:212
 msgctxt "cance-operation"
 msgid "Cancel"
 msgstr "Kanseller"
@@ -239,21 +239,22 @@ msgstr "Kansellert etter"
 msgid "Change policy parameters"
 msgstr "Endre policy parametere"
 
+#: src/policies/modals/PolicyCodeEditModal/PolicyCodeEditModal.tsx:32
 #: src/snapshots/modals/TaskEstimationModal.tsx:118
 msgid "Close"
 msgstr "Lukk"
 
 #: src/policies/modals/PolicyModal/constants.ts:172
 #: src/policies/modals/PolicyModal/constants.ts:186
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:69
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:87
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:91
 msgid "Command Mode - After"
 msgstr "Kommandomodus – Etter"
 
 #: src/policies/modals/PolicyModal/constants.ts:165
 #: src/policies/modals/PolicyModal/constants.ts:179
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:38
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:38
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:53
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
@@ -398,7 +399,7 @@ msgstr "Standard side størrelse"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:27
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:40
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:30
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:27
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:37
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:52
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:34
 #: src/policies/PoliciesPage.tsx:203
@@ -434,7 +435,7 @@ msgstr "Utdatert"
 #: src/repo/RepoPage.tsx:82
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
 #: src/snapshot-history/SnapshotHistory.tsx:155
-#: src/tasks/TasksPage.tsx:199
+#: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -565,13 +566,17 @@ msgstr "Rediger elementer"
 msgid "Edit pushover notification"
 msgstr "Rediger pushover notifikasjon"
 
+#: src/policies/modals/PolicyCodeEditModal/PolicyCodeEditModal.tsx:18
+msgid "Edit script"
+msgstr "Rediger skript"
+
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:82
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:34
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:50
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:28
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:49
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:39
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:28
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:38
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:77
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:59
 msgid "Effective"
@@ -726,10 +731,10 @@ msgstr "Feilretting Overhead"
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:39
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:39
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:70
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:50
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:88
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:92
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essensiell (må lykkes; standardoppførsel), valgfri (feil tolereres), eller asynkron (Kopia starter handlingen, men venter ikke til den er ferdig)"
 
@@ -778,7 +783,7 @@ msgstr "Hver"
 #~ msgstr "Hver time"
 
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
-#: src/tasks/TasksPage.tsx:120
+#: src/tasks/TasksPage.tsx:119
 msgid "Failed"
 msgstr "Feilet"
 
@@ -909,10 +914,10 @@ msgstr "Ignorer mapper som inneholder CACHEDIR.TAG og lignende"
 msgid "Ignore Directory Errors"
 msgstr "Ignorer mappe feil"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:42
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:73
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:42
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:91
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:95
 msgid "Ignore failures"
 msgstr "Ignorer feil"
 
@@ -989,8 +994,8 @@ msgstr "Nøkkeldata"
 msgid "Key ID"
 msgstr "Nøkkel ID"
 
-#: src/tasks/TasksPage.tsx:129
-#: src/tasks/TasksPage.tsx:194
+#: src/tasks/TasksPage.tsx:128
+#: src/tasks/TasksPage.tsx:193
 msgid "Kind"
 msgstr "Type"
 
@@ -1191,10 +1196,10 @@ msgstr "Monteringer"
 msgid "must be specified using global, user, or host policy"
 msgstr "må spesifiseres ved hjelp av global, bruker- eller vertsstrategier"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:41
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:72
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:41
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:72
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:90
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:94
 msgid "Must Succeed"
 msgstr "Må lykkes"
 
@@ -1330,6 +1335,13 @@ msgstr "Komprimer kun filer med følgende filtyper (én filtype per linje)"
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:104
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilder)"
+
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
+msgid "Open in large edit"
+msgstr "Åpne i stort vindu"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:235
 msgid "Other"
@@ -1499,7 +1511,7 @@ msgstr "Oppføringer per side"
 #: src/snapshot-directory/SnapshotDirectory.tsx:142
 #: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshots/SnapshotsPage.tsx:168
-#: src/tasks/TasksPage.tsx:158
+#: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Oppdater"
 
@@ -1562,10 +1574,10 @@ msgstr "Bevaring"
 msgid "Root"
 msgstr "Root"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:75
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:97
 msgid "Run asynchronously, ignore failures"
 msgstr "Kjør asynkront, ignorer feil"
 
@@ -1574,7 +1586,7 @@ msgstr "Kjør asynkront, ignorer feil"
 msgid "Run Missed Snapshots on Startup"
 msgstr "Kjør tapte øyeblikksbilder ved oppstart"
 
-#: src/tasks/TasksPage.tsx:109
+#: src/tasks/TasksPage.tsx:108
 msgid "Running"
 msgstr "Kjørende"
 
@@ -1588,7 +1600,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:116
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:269
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:263
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1608,19 +1620,19 @@ msgstr "Skann bare ett filsystem"
 msgid "Scheduling"
 msgstr "Planlegging"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:65
 msgid "Script to run after folder"
 msgstr "Skript som skal kjøres etter mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:69
 msgid "Script to run after snapshot"
 msgstr "Skript som skal kjøres etter øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
 msgid "Script to run before folder"
 msgstr "Skript som skal kjøres før mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
 msgid "Script to run before snapshot"
 msgstr "Skript som skal kjøres før øyeblikksbilde"
 
@@ -1628,7 +1640,7 @@ msgstr "Skript som skal kjøres før øyeblikksbilde"
 msgid "Search files or folder (current level)"
 msgstr "Søk etter filer eller mapper (nåværende nivå)"
 
-#: src/tasks/TasksPage.tsx:148
+#: src/tasks/TasksPage.tsx:147
 msgid "Search tasks"
 msgstr "Søk etter oppgaver"
 
@@ -1826,7 +1838,7 @@ msgid "SSH host name (e.g., example.com)"
 msgstr "SSH-vertsnavn (f.eks. example.com)"
 
 #: src/snapshot-history/SnapshotHistory.tsx:139
-#: src/tasks/TasksPage.tsx:180
+#: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start tid"
 
@@ -1838,7 +1850,7 @@ msgstr "Staret"
 msgid "Statistics"
 msgstr "Statistikk"
 
-#: src/tasks/TasksPage.tsx:189
+#: src/tasks/TasksPage.tsx:188
 msgid "Status"
 msgstr "Status"
 
@@ -1858,13 +1870,13 @@ msgstr "Symlinks"
 msgid "Sync"
 msgstr "Synk"
 
-#: src/tasks/TasksPage.tsx:175
+#: src/tasks/TasksPage.tsx:174
 msgid "Task ID"
 msgstr "Oppgave ID"
 
 #: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
-#: src/tasks/TasksPage.tsx:85
+#: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
 msgstr "Oppgaver"
 
@@ -1914,22 +1926,22 @@ msgstr "Tid på dagen"
 
 #: src/policies/modals/PolicyModal/constants.ts:171
 #: src/policies/modals/PolicyModal/constants.ts:185
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:61
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:79
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:83
 msgid "Timeout - After"
 msgstr "Tidsavbrudd - Etter"
 
 #: src/policies/modals/PolicyModal/constants.ts:164
 #: src/policies/modals/PolicyModal/constants.ts:178
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:30
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:30
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:45
 msgid "Timeout - Before"
 msgstr "Tidsavbrudd - Før"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:31
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:62
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:31
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:42
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:80
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:46
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:84
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Tidsavbrudd i sekunder før Kopia avslutter prosessen"
 

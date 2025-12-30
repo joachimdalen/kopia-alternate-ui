@@ -1,7 +1,10 @@
 import { t } from "@lingui/core/macro";
-import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
+import { Accordion, ActionIcon, ScrollAreaAutosize, TabsPanel, Tooltip } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
+import { IconPencilCode } from "@tabler/icons-react";
+import { useState } from "react";
 import type { Policy } from "../../../../core/types";
+import PolicyCodeEditModal from "../../PolicyCodeEditModal/PolicyCodeEditModal";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import PolicySelect from "../policy-inputs/PolicySelect";
 import PolicyTextInput from "../policy-inputs/PolicyTextInput";
@@ -13,6 +16,7 @@ type Props = {
 };
 
 export default function FolderActionsTab({ form, resolvedValue }: Props) {
+  const [action, setAction] = useState<string>();
   return (
     <TabsPanel value="folder-actions" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -24,6 +28,13 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.beforeFolder.script"
             effective={resolvedValue?.actions?.beforeFolder?.script}
+            rightSection={
+              <Tooltip label={t`Open in large edit`}>
+                <ActionIcon variant="subtle" color="gray" onClick={() => setAction("actions.beforeFolder.script")}>
+                  <IconPencilCode size={16} />
+                </ActionIcon>
+              </Tooltip>
+            }
           />
           <PolicyNumberInput
             id="before-timeout"
@@ -55,6 +66,13 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.afterFolder.script"
             effective={resolvedValue?.actions?.afterFolder?.script}
+            rightSection={
+              <Tooltip label={t`Open in large edit`}>
+                <ActionIcon variant="subtle" color="gray" onClick={() => setAction("actions.afterFolder.script")}>
+                  <IconPencilCode size={16} />
+                </ActionIcon>
+              </Tooltip>
+            }
           />
           <PolicyNumberInput
             id="after-timeout"
@@ -81,6 +99,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
           />
         </Accordion>
       </ScrollAreaAutosize>
+      {action && <PolicyCodeEditModal form={form} formKey={action} onClose={() => setAction(undefined)} />}
     </TabsPanel>
   );
 }

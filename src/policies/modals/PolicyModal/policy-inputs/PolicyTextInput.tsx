@@ -10,9 +10,19 @@ type Props = {
   description: string;
   placeholder?: string;
   effective?: string;
+  rightSection?: React.ReactNode;
 } & PolicyInput;
 
-export default function PolicyTextInput({ id, title, description, placeholder, form, formKey, effective }: Props) {
+export default function PolicyTextInput({
+  id,
+  title,
+  description,
+  placeholder,
+  form,
+  formKey,
+  effective,
+  rightSection
+}: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = getEffectiveValue(inputProps.value, effective);
   return (
@@ -24,7 +34,7 @@ export default function PolicyTextInput({ id, title, description, placeholder, f
       />
       <AccordionPanel>
         <Group grow align="flex-start">
-          <TextInput label={t`Defined`} placeholder={placeholder} {...inputProps} />
+          <TextInput label={t`Defined`} placeholder={placeholder} rightSection={rightSection} {...inputProps} />
           <TextInput label={t`Effective`} readOnly value={effectiveValue} variant="filled" />
         </Group>
       </AccordionPanel>
