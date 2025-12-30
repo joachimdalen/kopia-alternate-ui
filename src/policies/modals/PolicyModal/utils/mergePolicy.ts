@@ -78,28 +78,28 @@ export function mergePolicy(current: Policy): PolicyForm {
           mode: "",
           path: "",
           script: "",
-          timeout: -1
+          timeout: undefined
         }
       },
       osSnapshots: {
         volumeShadowCopy: {
-          enable: -1
+          enable: undefined
         }
       },
       logging: {
         directories: {
-          ignored: -1,
-          snapshotted: -1
+          ignored: undefined,
+          snapshotted: undefined
         },
         entries: {
-          cacheHit: -1,
-          cacheMiss: -1
+          cacheHit: undefined,
+          cacheMiss: undefined
         }
       },
       upload: {
-        maxParallelFileReads: -1,
-        maxParallelSnapshots: -1,
-        parallelUploadAboveSize: -1
+        maxParallelFileReads: undefined,
+        maxParallelSnapshots: undefined,
+        parallelUploadAboveSize: undefined
       },
       noParent: undefined
     } satisfies PolicyForm,

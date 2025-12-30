@@ -69,7 +69,7 @@ export default function PolicyModal({
     transformValues(values) {
       return transformPolicy(values);
     },
-    validate: yupResolver(policyFormSchema)
+    validate: yupResolver(policyFormSchema())
   });
 
   function watchAction(key: string, value?: string) {
