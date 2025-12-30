@@ -257,12 +257,6 @@ export default function PolicyModal({
         <Button size="xs" color="gray" variant="subtle" onClick={onCancel} disabled={false}>
           <Trans>Cancel</Trans>
         </Button>
-        <Button
-          onClick={() => {
-            form.validate();
-            console.log(form.errors);
-          }}
-        ></Button>
         <Group>
           {!isNew && !isGlobal && onDeleted && <DeletePolicyButton sourceInfo={target} onDeleted={onDeleted} />}
           <Button size="xs" type="submit" form="update-policy-form" loading={false} disabled={!form.isValid()}>
