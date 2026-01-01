@@ -3,7 +3,7 @@ import { Accordion, ActionIcon, ScrollAreaAutosize, TabsPanel, Tooltip } from "@
 import { type UseFormReturnType } from "@mantine/form";
 import { IconPencilCode } from "@tabler/icons-react";
 import { useState } from "react";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyCodeEditModal from "../../PolicyCodeEditModal/PolicyCodeEditModal";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import PolicySelect from "../policy-inputs/PolicySelect";
@@ -13,9 +13,10 @@ import type { PolicyForm } from "../types";
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function FolderActionsTab({ form, resolvedValue }: Props) {
+export default function FolderActionsTab({ form, resolvedValue, definition }: Props) {
   const [action, setAction] = useState<string>();
   return (
     <TabsPanel value="folder-actions" px="xs">
@@ -28,6 +29,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.beforeFolder.script"
             effective={resolvedValue?.actions?.beforeFolder?.script}
+            effectiveDefinedIn={definition?.actions?.beforeFolder}
             rightSection={
               <Tooltip label={t`Open in large edit`}>
                 <ActionIcon variant="subtle" color="gray" onClick={() => setAction("actions.beforeFolder.script")}>
@@ -43,6 +45,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.beforeFolder.timeout"
             effective={resolvedValue?.actions?.beforeFolder?.timeout}
+            effectiveDefinedIn={definition?.actions?.beforeFolder}
           />
           <PolicySelect
             id="before-command-mode"
@@ -58,6 +61,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             ]}
             form={form}
             formKey="actions.beforeFolder.mode"
+            effectiveDefinedIn={definition?.actions?.beforeFolder}
           />
           <PolicyTextInput
             id="after-folder"
@@ -66,6 +70,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.afterFolder.script"
             effective={resolvedValue?.actions?.afterFolder?.script}
+            effectiveDefinedIn={definition?.actions?.afterFolder}
             rightSection={
               <Tooltip label={t`Open in large edit`}>
                 <ActionIcon variant="subtle" color="gray" onClick={() => setAction("actions.afterFolder.script")}>
@@ -81,6 +86,7 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="actions.afterFolder.timeout"
             effective={resolvedValue?.actions?.afterFolder?.timeout}
+            effectiveDefinedIn={definition?.actions?.afterFolder}
           />
           <PolicySelect
             id="after-command-mode"
@@ -96,6 +102,8 @@ export default function FolderActionsTab({ form, resolvedValue }: Props) {
             ]}
             form={form}
             formKey="actions.afterFolder.mode"
+            effective={resolvedValue?.actions?.afterFolder?.mode}
+            effectiveDefinedIn={definition?.actions?.afterFolder}
           />
         </Accordion>
       </ScrollAreaAutosize>

@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyCompressionInput from "../policy-inputs/PolicyCompressionInput";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import PolicyTextListInput from "../policy-inputs/PolicyTextListInput";
@@ -10,9 +10,10 @@ import type { PolicyForm } from "../types";
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function CompressionTab({ form, resolvedValue }: Props) {
+export default function CompressionTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="compression" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -24,6 +25,7 @@ export default function CompressionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="compression.compressorName"
             effective={resolvedValue?.compression?.compressorName}
+            effectiveDefinedIn={definition?.compression?.compressorName}
           />
 
           <PolicyNumberInput
@@ -34,6 +36,7 @@ export default function CompressionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="compression.minSize"
             effective={resolvedValue?.compression?.minSize}
+            effectiveDefinedIn={definition?.compression?.minSize}
           />
           <PolicyNumberInput
             id="max-file-size"
@@ -43,6 +46,7 @@ export default function CompressionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="compression.maxSize"
             effective={resolvedValue?.compression?.maxSize}
+            effectiveDefinedIn={definition?.compression?.maxSize}
           />
           <PolicyTextListInput
             id="only-compress-ext"
@@ -52,6 +56,7 @@ export default function CompressionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="compression.onlyCompress"
             effective={resolvedValue?.compression?.onlyCompress}
+            effectiveDefinedIn={definition?.compression?.onlyCompress}
           />
           <PolicyTextListInput
             id="never-compress-ext"
@@ -61,6 +66,7 @@ export default function CompressionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="compression.neverCompress"
             effective={resolvedValue?.compression?.neverCompress}
+            effectiveDefinedIn={definition?.compression?.neverCompress}
           />
         </Accordion>
       </ScrollAreaAutosize>

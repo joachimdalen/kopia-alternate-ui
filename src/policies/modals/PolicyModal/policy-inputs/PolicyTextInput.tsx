@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, TextInput } from "@mantine/core";
 import { getEffectiveValue } from "../../../policiesUtil";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -21,10 +22,12 @@ export default function PolicyTextInput({
   form,
   formKey,
   effective,
-  rightSection
+  rightSection,
+  effectiveDefinedIn
 }: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = getEffectiveValue(inputProps.value, effective);
+  const isDefined = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -35,7 +38,14 @@ export default function PolicyTextInput({
       <AccordionPanel>
         <Group grow align="flex-start">
           <TextInput label={t`Defined`} placeholder={placeholder} rightSection={rightSection} {...inputProps} />
-          <TextInput label={t`Effective`} readOnly value={effectiveValue} variant="filled" />
+          <TextInput
+            label={
+              effectiveDefinedIn && isDefined ? <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} /> : t`Effective`
+            }
+            readOnly
+            value={effectiveValue}
+            variant="filled"
+          />
         </Group>
       </AccordionPanel>
     </AccordionItem>

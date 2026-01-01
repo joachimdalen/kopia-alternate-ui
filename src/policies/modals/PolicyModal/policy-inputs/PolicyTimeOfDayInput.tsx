@@ -5,6 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import type { TimeOfDay } from "../../../../core/types";
 import PolicyTodModal from "../../PolicyTodModal/PolicyTodModal";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -15,11 +16,21 @@ type Props = {
   effective?: TimeOfDay[];
 } & PolicyInput;
 
-export default function PolicyTimeOfDayInput({ id, title, description, children, form, formKey, effective }: Props) {
+export default function PolicyTimeOfDayInput({
+  id,
+  title,
+  description,
+  children,
+  form,
+  formKey,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as TimeOfDay[]) || [];
   const effectiveValues = (inputProps.value as TimeOfDay[]) || effective || [];
+  const isDefined = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -56,7 +67,15 @@ export default function PolicyTimeOfDayInput({ id, title, description, children,
                 <Trans>Edit items</Trans>
               </Anchor>
             </Stack>
-            <InputWrapper label={t`Effective`}>
+            <InputWrapper
+              label={
+                effectiveDefinedIn && isDefined ? (
+                  <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} />
+                ) : (
+                  t`Effective`
+                )
+              }
+            >
               <List listStyleType="none" style={{ paddingInlineStart: 0 }}>
                 {effectiveValues.length > 0 ? (
                   effectiveValues.map((x) => (

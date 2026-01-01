@@ -1,16 +1,17 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyLogDetailsInput from "../policy-inputs/PolicyLogDetailsInput";
 import type { PolicyForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function LoggingTab({ form, resolvedValue }: Props) {
+export default function LoggingTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="logging" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -22,6 +23,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.directories.snapshotted"
             effective={resolvedValue?.logging?.directories?.snapshotted}
+            effectiveDefinedIn={definition?.logging?.directories?.snapshotted}
           />
           <PolicyLogDetailsInput
             id="directory-ignored"
@@ -30,6 +32,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.directories.ignored"
             effective={resolvedValue?.logging?.directories?.ignored}
+            effectiveDefinedIn={definition?.logging?.directories?.ignored}
           />
           <PolicyLogDetailsInput
             id="file-snapshotted"
@@ -38,6 +41,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.entries.snapshotted"
             effective={resolvedValue?.logging?.entries?.snapshotted}
+            effectiveDefinedIn={definition?.logging?.directories?.snapshotted}
           />
           <PolicyLogDetailsInput
             id="file-ignored"
@@ -46,6 +50,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.entries.ignored"
             effective={resolvedValue?.logging?.entries?.ignored}
+            effectiveDefinedIn={definition?.logging?.entries?.snapshotted}
           />
           <PolicyLogDetailsInput
             id="cache-hit"
@@ -54,6 +59,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.entries.cacheHit"
             effective={resolvedValue?.logging?.entries?.cacheHit}
+            effectiveDefinedIn={definition?.logging?.entries?.cacheHit}
           />
           <PolicyLogDetailsInput
             id="cache-miss"
@@ -62,6 +68,7 @@ export default function LoggingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="logging.entries.cacheMiss"
             effective={resolvedValue?.logging?.entries?.cacheMiss}
+            effectiveDefinedIn={definition?.logging?.entries?.cacheMiss}
           />
         </Accordion>
       </ScrollAreaAutosize>

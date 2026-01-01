@@ -1,16 +1,17 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import type { PolicyForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function UploadTab({ form, resolvedValue }: Props) {
+export default function UploadTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="upload" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -23,6 +24,7 @@ export default function UploadTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="upload.maxParallelSnapshots"
             effective={resolvedValue?.upload?.maxParallelSnapshots}
+            effectiveDefinedIn={definition?.upload?.maxParallelSnapshots}
           />
           <PolicyNumberInput
             id="maximum-parallel-file-reads"
@@ -32,6 +34,7 @@ export default function UploadTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="upload.maxParallelFileReads"
             effective={resolvedValue?.upload?.maxParallelFileReads}
+            effectiveDefinedIn={definition?.upload?.maxParallelFileReads}
           />
         </Accordion>
       </ScrollAreaAutosize>

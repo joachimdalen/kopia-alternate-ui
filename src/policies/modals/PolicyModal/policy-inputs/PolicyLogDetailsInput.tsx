@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group } from "@mantine/core";
 import NumberSelect from "../../../../core/NumberSelect";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -25,9 +26,18 @@ const logDetailsOptions = [
   { label: "10 - maximum details", value: "10" }
 ];
 
-export default function PolicyLogDetailsInput({ id, title, description, form, formKey, effective }: Props) {
+export default function PolicyLogDetailsInput({
+  id,
+  title,
+  description,
+  form,
+  formKey,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective || "";
+  const isDefined = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -39,15 +49,15 @@ export default function PolicyLogDetailsInput({ id, title, description, form, fo
         <Group grow align="flex-start">
           <NumberSelect
             label={t`Defined`}
-            description={t`This policy`}
             data={logDetailsOptions}
             withCheckIcon={false}
             defaultIfNotSet=""
             {...inputProps}
           />
           <NumberSelect
-            description={t`Defined in global policy`}
-            label={t`Effective`}
+            label={
+              effectiveDefinedIn && isDefined ? <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} /> : t`Effective`
+            }
             data={logDetailsOptions}
             withCheckIcon={false}
             readOnly

@@ -509,7 +509,9 @@ type SplitterPolicyDefinition = {
 };
 type ActionsPolicyDefinition = {
   beforeSnapshotRoot?: SourceInfo;
+  beforeFolder?: SourceInfo;
   afterSnapshotRoot?: SourceInfo;
+  afterFolder?: SourceInfo;
 };
 type OSSnapshotPolicyDefinition = {
   volumeShadowCopy?: SourceInfo;

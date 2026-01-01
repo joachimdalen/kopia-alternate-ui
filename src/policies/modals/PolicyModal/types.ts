@@ -1,9 +1,10 @@
 import type { UseFormReturnType } from "@mantine/form";
-import type { TimeOfDay } from "../../../core/types";
+import type { SourceInfo, TimeOfDay } from "../../../core/types";
 
 export type PolicyInput = {
   form: UseFormReturnType<PolicyForm>;
   formKey: string;
+  effectiveDefinedIn?: SourceInfo;
 };
 export type PolicyForm = {
   retention?: PolicyFormRetention;
