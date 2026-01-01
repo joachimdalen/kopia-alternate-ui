@@ -58,10 +58,10 @@ function ConnectRepoSection({ form, goBack }: Props) {
   function connectToRepository() {
     let request: ConnectRepoRequest = {
       clientOptions: {
-        description: form.values.description,
-        username: form.values.username,
-        readonly: form.values.readonly,
-        hostname: form.values.hostname
+        description: form.values.description!,
+        username: form.values.username!,
+        readonly: form.values.readonly!,
+        hostname: form.values.hostname!
       }
     };
     switch (form.values.provider) {
@@ -84,8 +84,8 @@ function ConnectRepoSection({ form, goBack }: Props) {
         request = {
           ...request,
           storage: {
-            type: form.values.provider,
-            config: form.values.providerConfig
+            type: form.values.provider!,
+            config: form.values.providerConfig!
           },
           password: form.values.password
         };

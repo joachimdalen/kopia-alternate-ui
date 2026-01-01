@@ -1,5 +1,5 @@
 import type { AllProviderConfigurations } from "../repo/ConfigureRepoSection";
-import type { KopiaRepoServerRepoConfig } from "../repo/types";
+import type { KopiaRepoServerRepoConfig } from "../repo/sections/KopiaRepoServerRepo";
 
 export interface ApiResponse<T> {
   isError: boolean;
