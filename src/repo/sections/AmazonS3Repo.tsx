@@ -3,23 +3,65 @@ import { Trans } from "@lingui/react/macro";
 import { Checkbox, Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconBrandAmazon } from "@tabler/icons-react";
+import { boolean, ObjectSchema, object, string } from "yup";
 import IconWrapper from "../../core/IconWrapper";
-import type { AmazonS3RepoConfig, RepoConfigurationForm } from "../types";
+import type { RepoConfigurationForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<AmazonS3RepoConfig>>;
 };
+export type AmazonS3RepoConfig = {
+  bucket: string;
+  endpoint: string;
+  doNotUseTLS: boolean;
+  doNotVerifyTLS: boolean;
+  accessKeyID: string;
+  secretAccessKey: string;
+  region?: string;
+  sessionToken?: string;
+  prefix?: string;
+};
+
+export const amazonS3RepoConfigDefault: AmazonS3RepoConfig = {
+  bucket: "",
+  endpoint: "",
+  doNotUseTLS: false,
+  doNotVerifyTLS: false,
+  accessKeyID: "",
+  secretAccessKey: "",
+  region: "",
+  sessionToken: "",
+  prefix: ""
+};
+
+export const amazonS3RepoConfigSchema = (): ObjectSchema<AmazonS3RepoConfig> =>
+  object({
+    bucket: string().required().label(t`Bucket`),
+    endpoint: string().required().label(t`Server Endpoint`),
+    accessKeyID: string().required().label(t`Access Key ID`),
+    secretAccessKey: string().required().label(t`Secret Access Key`),
+    region: string().optional().label(t`Override Region`),
+    doNotUseTLS: boolean().required().label(t`Use HTTP connection (insecure)`),
+    doNotVerifyTLS: boolean().required().label(t`Do not verify TLS certificate`),
+    sessionToken: string().optional().label(t`Enter session token (optional)`),
+    prefix: string().optional().label(t`Object Name Prefix`)
+  });
+
+export function AmazonS3RepoHeader() {
+  return (
+    <Group>
+      <IconWrapper icon={IconBrandAmazon} size={32} color="orange" />
+      <Text fw="bold">
+        <Trans>Amazon S3 or Compatible Storage</Trans>
+      </Text>
+    </Group>
+  );
+}
 
 function AmazonS3Repo({ form }: Props) {
   return (
     <Stack>
-      <Group>
-        <IconWrapper icon={IconBrandAmazon} size={32} color="orange" />
-        <Text fw="bold">
-          <Trans>Amazon S3 or Compatible Storage</Trans>
-        </Text>
-      </Group>
-
+      <AmazonS3RepoHeader />
       <Stack>
         <Group grow>
           <TextInput

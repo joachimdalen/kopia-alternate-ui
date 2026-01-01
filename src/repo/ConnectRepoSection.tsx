@@ -21,7 +21,9 @@ import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import useApiRequest from "../core/hooks/useApiRequest";
 import type { ConnectRepoRequest } from "../core/types";
 import type { AllProviderConfigurations } from "./ConfigureRepoSection";
-import type { KopiaRepoServerRepoConfig, KopiaRepoTokenRepoConfig, RepoConfigurationForm } from "./types";
+import type { KopiaRepoServerRepoConfig } from "./sections/KopiaRepoServerRepo";
+import type { KopiaRepoTokenRepoConfig } from "./sections/KopiaRepoTokenRepo";
+import type { RepoConfigurationForm } from "./types";
 
 export type Props = {
   goBack: () => void;
