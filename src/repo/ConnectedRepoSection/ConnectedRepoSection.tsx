@@ -1,6 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
+  Alert,
   Button,
   Card,
   CardSection,
@@ -15,10 +16,11 @@ import {
 import { useField } from "@mantine/form";
 import { modals } from "@mantine/modals";
 import { showNotification } from "@mantine/notifications";
-import { IconCircleCheck } from "@tabler/icons-react";
+import { IconCircleCheck, IconEditOff } from "@tabler/icons-react";
 import { useAppContext } from "../../core/context/AppContext";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import useApiRequest from "../../core/hooks/useApiRequest";
+import IconWrapper from "../../core/IconWrapper";
 import { AmazonS3RepoHeader } from "../sections/AmazonS3Repo";
 import { AzureBlobStorageRepoHeader } from "../sections/AzureBlobStorageRepo";
 import { BackblazeB2RepoHeader } from "../sections/BackblazeB2Repo";
@@ -96,7 +98,7 @@ function ConnectedRepoSection() {
       <Card withBorder radius="xs" className={classes.connectedRepoSection}>
         <CardSection withBorder inheritPadding py="xs">
           <Group justify="space-between">
-            <Stack>{repoStatus?.storage && headers[repoStatus.storage]}</Stack>
+            <Stack>{(repoStatus?.storage && headers[repoStatus.storage]) || <KopiaRepoServerRepoHeader />}</Stack>
             <Button
               color="red"
               variant="light"
@@ -128,6 +130,16 @@ function ConnectedRepoSection() {
               </Button>
             </Group>
             <Divider />
+            {repoStatus.readonly && (
+              <Alert color="orange">
+                <Group>
+                  <IconWrapper icon={IconEditOff} size={18} />
+                  <Text fw="bold">
+                    <Trans>Repository is connected as read-only</Trans>
+                  </Text>
+                </Group>
+              </Alert>
+            )}
             <SimpleGrid cols={2}>
               <Stack gap={0}>
                 <Text fz="xs" c="dimmed">

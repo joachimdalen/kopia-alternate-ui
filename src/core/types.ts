@@ -299,7 +299,7 @@ export type Status = {
 type ClientOptions = {
   hostname: string;
   username: string;
-  readOnly?: boolean;
+  readonly?: boolean;
   permissiveCacheLoading?: boolean;
   description?: string;
   enableActions: boolean;

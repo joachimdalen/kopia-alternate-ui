@@ -13,4 +13,5 @@ export type RepoConfigurationForm<T> = {
   ecc?: string;
   readonly?: boolean;
   description?: string;
+  confirmCreate?: boolean;
 };

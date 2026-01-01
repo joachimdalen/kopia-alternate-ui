@@ -80,7 +80,7 @@ export type AllProviderConfigurations =
 function ConfigureRepoSection() {
   const { kopiaService } = useServerInstanceContext();
   const [active, setActive] = useState(0);
-  const [confirmCreate, setConfirmCreate] = useState(false);
+
   const getSchema = (): ObjectSchema<RepoConfigurationForm<object>> =>
     object({
       hostname: string(),
@@ -113,8 +113,16 @@ function ConfigureRepoSection() {
         }
         throw Error("Unknown provider");
       }),
-      password: string(),
-      confirmPassword: string(),
+      password: string().when("provider", {
+        is: (p: string) => p !== "_server",
+        then: (schema) => schema.required(),
+        otherwise: (schema) => schema.optional()
+      }),
+      confirmPassword: string().when("confirmCreate", {
+        is: true,
+        then: (schema) => schema.required(),
+        otherwise: (schema) => schema.optional()
+      }),
       ecc: string(),
       eccOverheadPercent: string(),
       encryption: string(),
@@ -122,25 +130,23 @@ function ConfigureRepoSection() {
       hash: string(),
       splitter: string(),
       readonly: boolean(),
-      description: string()
+      description: string(),
+      confirmCreate: boolean()
+    }).when("confirmCreate", {
+      is: true,
+      then: (schema) =>
+        schema.test({
+          name: "password-confirmation",
+          test: (values, context) => {
+            if (values.password !== values.confirmPassword) {
+              return context.createError({
+                path: "confirmPassword",
+                message: "Passwords does not match"
+              });
+            }
+          }
+        })
     });
-  const checkRepoAction = useApiRequest({
-    action: (data?: CheckRepoRequest) => kopiaService.repoExists(data!),
-    onReturn() {
-      setConfirmCreate(false);
-      setActive(2);
-    },
-    handleError(data) {
-      if (data.title === "NOT_INITIALIZED") {
-        console.log("NOT_INITIALIZED");
-        setConfirmCreate(true);
-        setActive(2);
-        return false;
-      }
-      return true;
-    }
-  });
-
   const form = useForm<RepoConfigurationForm<AllProviderConfigurations>>({
     mode: "controlled",
     initialValues: {
@@ -158,10 +164,27 @@ function ConfigureRepoSection() {
       hash: "",
       splitter: "",
       readonly: false,
-      description: "My Repository"
+      description: "My Repository",
+      confirmCreate: false
     },
     validate: yupResolver(getSchema()),
     validateInputOnBlur: true
+  });
+  const checkRepoAction = useApiRequest({
+    action: (data?: CheckRepoRequest) => kopiaService.repoExists(data!),
+    onReturn() {
+      form.setFieldValue("confirmCreate", true);
+      setActive(2);
+    },
+    handleError(data) {
+      if (data.title === "NOT_INITIALIZED") {
+        console.log("NOT_INITIALIZED");
+        form.setFieldValue("confirmCreate", true);
+        setActive(2);
+        return false;
+      }
+      return true;
+    }
   });
 
   const getProvider = () => {
@@ -224,7 +247,7 @@ function ConfigureRepoSection() {
 
   const validateConfig = () => {
     if (form.values.provider === "_token" || form.values.provider === "_server") {
-      setConfirmCreate(false);
+      form.setFieldValue("confirmCreate", false);
       setActive(2);
       return;
     }
@@ -285,10 +308,10 @@ function ConfigureRepoSection() {
             </Group>
           </Stepper.Step>
           <Stepper.Step
-            label={confirmCreate ? t`Create repository` : t`Configure repository`}
-            description={confirmCreate ? t`Create a new repository` : t`Configure the repository`}
+            label={form.values.confirmCreate ? t`Create repository` : t`Configure repository`}
+            description={form.values.confirmCreate ? t`Create a new repository` : t`Configure the repository`}
           >
-            {confirmCreate && (
+            {form.values.confirmCreate && (
               <CreateRepoSection
                 form={form}
                 goBack={() => {
@@ -296,7 +319,7 @@ function ConfigureRepoSection() {
                 }}
               />
             )}
-            {!confirmCreate && (
+            {!form.values.confirmCreate && (
               <ConnectRepoSection
                 form={form}
                 goBack={() => {
