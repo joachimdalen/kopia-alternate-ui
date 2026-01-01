@@ -113,7 +113,7 @@ export const sftpRepoConfigSchema = (): ObjectSchema<SftpRepoConfig> =>
             const presentFields = [isDefined(knownHostsFile), isDefined(knownHostsData)];
             const result = presentFields.filter((x) => x == true).length > 1;
             if (result) {
-              const errorMessage = t`Only one of Path to known_hosts File orKnown Hosts Data must be set`;
+              const errorMessage = t`Only one of Path to known_hosts File or Known Hosts Data must be set`;
               const errors = [];
               if (presentFields[0]) {
                 errors.push(

@@ -77,11 +77,13 @@ msgstr "5 minutes"
 msgid "A test notification was send using the defined profile"
 msgstr "A test notification was send using the defined profile"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:46
+#: src/repo/sections/AzureBlobStorageRepo.tsx:36
+#: src/repo/sections/AzureBlobStorageRepo.tsx:80
 msgid "Access Key"
 msgstr "Access Key"
 
-#: src/repo/sections/AmazonS3Repo.tsx:66
+#: src/repo/sections/AmazonS3Repo.tsx:41
+#: src/repo/sections/AmazonS3Repo.tsx:108
 msgid "Access Key ID"
 msgstr "Access Key ID"
 
@@ -101,7 +103,7 @@ msgstr "Add"
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
-#: src/repo/ConnectRepoSection.tsx:125
+#: src/repo/ConnectRepoSection.tsx:127
 #: src/repo/CreateRepoSection.tsx:136
 msgid "Advanced Options"
 msgstr "Advanced Options"
@@ -129,7 +131,7 @@ msgstr "All Policies"
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
-#: src/repo/sections/AmazonS3Repo.tsx:19
+#: src/repo/sections/AmazonS3Repo.tsx:55
 msgid "Amazon S3 or Compatible Storage"
 msgstr "Amazon S3 or Compatible Storage"
 
@@ -150,25 +152,26 @@ msgstr "Applicable Policies"
 msgid "Are you sure you want to delete this policy?"
 msgstr "Are you sure you want to delete this policy?"
 
-#: src/repo/RepoPage.tsx:53
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:88
 msgid "Are you sure you want to disconnect from this repository?"
 msgstr "Are you sure you want to disconnect from this repository?"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:19
+#: src/repo/sections/AzureBlobStorageRepo.tsx:47
 msgid "Azure Blob Storage"
 msgstr "Azure Blob Storage"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:53
+#: src/repo/sections/AzureBlobStorageRepo.tsx:37
+#: src/repo/sections/AzureBlobStorageRepo.tsx:87
 msgid "Azure Storage Domain"
 msgstr "Azure Storage Domain"
 
-#: src/repo/ConfigureRepoSection.tsx:180
-#: src/repo/ConnectRepoSection.tsx:152
+#: src/repo/ConfigureRepoSection.tsx:303
+#: src/repo/ConnectRepoSection.tsx:154
 #: src/repo/CreateRepoSection.tsx:219
 msgid "Back"
 msgstr "Back"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:19
+#: src/repo/sections/BackblazeB2Repo.tsx:41
 msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
@@ -186,13 +189,16 @@ msgstr "Before Snapshot"
 msgid "Begin Restore"
 msgstr "Begin Restore"
 
-#: src/repo/sections/AmazonS3Repo.tsx:26
-#: src/repo/sections/BackblazeB2Repo.tsx:26
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
+#: src/repo/sections/AmazonS3Repo.tsx:39
+#: src/repo/sections/AmazonS3Repo.tsx:68
+#: src/repo/sections/BackblazeB2Repo.tsx:30
+#: src/repo/sections/BackblazeB2Repo.tsx:54
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:29
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:53
 msgid "Bucket"
 msgstr "Bucket"
 
-#: src/repo/sections/SFTPServerRepo.tsx:93
+#: src/repo/sections/SFTPServerRepo.tsx:227
 msgid "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 msgstr "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 
@@ -215,7 +221,7 @@ msgstr "Cache Miss"
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
 #: src/preferences/modals/WebhookModal.tsx:228
-#: src/repo/RepoPage.tsx:56
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:91
 #: src/snapshot-directory/modals/RestoreModal.tsx:275
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:78
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:83
@@ -267,23 +273,23 @@ msgstr "Compression"
 msgid "Compression Algorithm"
 msgstr "Compression Algorithm"
 
-#: src/repo/RepoPage.tsx:100
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:146
 msgid "Config file"
 msgstr "Config file"
 
-#: src/repo/ConfigureRepoSection.tsx:170
+#: src/repo/ConfigureRepoSection.tsx:293
 msgid "Configure Provider"
 msgstr "Configure Provider"
 
-#: src/repo/ConfigureRepoSection.tsx:188
+#: src/repo/ConfigureRepoSection.tsx:311
 msgid "Configure repository"
 msgstr "Configure repository"
 
-#: src/repo/ConfigureRepoSection.tsx:189
+#: src/repo/ConfigureRepoSection.tsx:312
 msgid "Configure the repository"
 msgstr "Configure the repository"
 
-#: src/repo/ConfigureRepoSection.tsx:170
+#: src/repo/ConfigureRepoSection.tsx:293
 msgid "Configure the selected provider"
 msgstr "Configure the selected provider"
 
@@ -299,19 +305,19 @@ msgstr "Confirm Repository Password"
 msgid "Confirm the repository password"
 msgstr "Confirm the repository password"
 
-#: src/repo/ConnectRepoSection.tsx:99
+#: src/repo/ConnectRepoSection.tsx:101
 msgid "Connect as"
 msgstr "Connect as"
 
-#: src/repo/ConnectRepoSection.tsx:130
+#: src/repo/ConnectRepoSection.tsx:132
 msgid "Connect in read-only mode"
 msgstr "Connect in read-only mode"
 
-#: src/repo/ConnectRepoSection.tsx:155
+#: src/repo/ConnectRepoSection.tsx:157
 msgid "Connect to repository"
 msgstr "Connect to repository"
 
-#: src/repo/RepoPage.tsx:160
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:206
 msgid "Connected as"
 msgstr "Connected as"
 
@@ -319,7 +325,8 @@ msgstr "Connected as"
 msgid "Connected to"
 msgstr "Connected to"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:26
+#: src/repo/sections/AzureBlobStorageRepo.tsx:34
+#: src/repo/sections/AzureBlobStorageRepo.tsx:60
 msgid "Container"
 msgstr "Container"
 
@@ -334,7 +341,7 @@ msgstr "Continue on Errors"
 msgid "Create"
 msgstr "Create"
 
-#: src/repo/ConfigureRepoSection.tsx:189
+#: src/repo/ConfigureRepoSection.tsx:312
 msgid "Create a new repository"
 msgstr "Create a new repository"
 
@@ -354,7 +361,7 @@ msgstr "Create policy"
 msgid "Create pushover notification"
 msgstr "Create pushover notification"
 
-#: src/repo/ConfigureRepoSection.tsx:188
+#: src/repo/ConfigureRepoSection.tsx:311
 #: src/repo/CreateRepoSection.tsx:222
 msgid "Create repository"
 msgstr "Create repository"
@@ -363,11 +370,13 @@ msgstr "Create repository"
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:31
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:65
 msgid "Credentials File"
 msgstr "Credentials File"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:70
 msgid "Credentials JSON"
 msgstr "Credentials JSON"
 
@@ -432,14 +441,14 @@ msgstr "Delete Selected"
 msgid "Deprecated"
 msgstr "Deprecated"
 
-#: src/repo/RepoPage.tsx:82
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
 #: src/snapshot-history/SnapshotHistory.tsx:155
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
 
-#: src/repo/RepoPage.tsx:34
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:69
 msgid "Description updated"
 msgstr "Description updated"
 
@@ -459,7 +468,8 @@ msgstr "Directory Ignored"
 msgid "Directory Options"
 msgstr "Directory Options"
 
-#: src/repo/sections/FileSystemRepo.tsx:23
+#: src/repo/sections/FileSystemRepo.tsx:24
+#: src/repo/sections/FileSystemRepo.tsx:43
 msgid "Directory Path"
 msgstr "Directory Path"
 
@@ -488,18 +498,18 @@ msgstr "Disable Parent Policy Evaluation"
 msgid "Disable ZIP compression"
 msgstr "Disable ZIP compression"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:188
 #: src/repo/CreateRepoSection.tsx:182
-#: src/repo/RepoPage.tsx:142
 #: src/snapshots/SnapshotsPage.tsx:129
 msgid "Disabled"
 msgstr "Disabled"
 
-#: src/repo/RepoPage.tsx:56
-#: src/repo/RepoPage.tsx:76
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:91
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:109
 msgid "Disconnect"
 msgstr "Disconnect"
 
-#: src/repo/RepoPage.tsx:50
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:85
 msgid "Disconnect repository?"
 msgstr "Disconnect repository?"
 
@@ -519,7 +529,8 @@ msgstr "Do not cross filesystem boundaries when creating a snapshot"
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr "Do NOT save a snapshot when no files have been changed"
 
-#: src/repo/sections/AmazonS3Repo.tsx:46
+#: src/repo/sections/AmazonS3Repo.tsx:45
+#: src/repo/sections/AmazonS3Repo.tsx:88
 msgid "Do not verify TLS certificate"
 msgstr "Do not verify TLS certificate"
 
@@ -594,7 +605,7 @@ msgstr "Enable snapshot statistics"
 msgid "Encryption"
 msgstr "Encryption"
 
-#: src/repo/RepoPage.tsx:112
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:158
 msgid "Encryption Algorithm"
 msgstr "Encryption Algorithm"
 
@@ -602,72 +613,72 @@ msgstr "Encryption Algorithm"
 msgid "Endpoint"
 msgstr "Endpoint"
 
-#: src/repo/sections/RcloneRepo.tsx:25
+#: src/repo/sections/RcloneRepo.tsx:48
 msgid "Enter <name-of-rclone-remote>:<path>"
 msgstr "Enter <name-of-rclone-remote>:<path>"
 
-#: src/repo/sections/AmazonS3Repo.tsx:67
+#: src/repo/sections/AmazonS3Repo.tsx:109
 msgid "Enter access key ID"
 msgstr "Enter access key ID"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:46
+#: src/repo/sections/BackblazeB2Repo.tsx:74
 msgid "Enter application or account key"
 msgstr "Enter application or account key"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:40
+#: src/repo/sections/BackblazeB2Repo.tsx:68
 msgid "Enter application or account key ID"
 msgstr "Enter application or account key ID"
 
-#: src/repo/sections/AmazonS3Repo.tsx:27
-#: src/repo/sections/BackblazeB2Repo.tsx:27
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:27
+#: src/repo/sections/AmazonS3Repo.tsx:69
+#: src/repo/sections/BackblazeB2Repo.tsx:55
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:54
 msgid "Enter bucket name"
 msgstr "Enter bucket name"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:27
+#: src/repo/sections/AzureBlobStorageRepo.tsx:61
 msgid "Enter container name"
 msgstr "Enter container name"
 
-#: src/repo/sections/FileSystemRepo.tsx:24
+#: src/repo/sections/FileSystemRepo.tsx:44
 msgid "Enter directory path where you want to store repository files"
 msgstr "Enter directory path where you want to store repository files"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:39
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:66
 msgid "Enter name of credentials JSON file"
 msgstr "Enter name of credentials JSON file"
 
-#: src/repo/sections/AmazonS3Repo.tsx:60
-#: src/repo/sections/AzureBlobStorageRepo.tsx:42
-#: src/repo/sections/BackblazeB2Repo.tsx:33
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:33
+#: src/repo/sections/AmazonS3Repo.tsx:102
+#: src/repo/sections/AzureBlobStorageRepo.tsx:76
+#: src/repo/sections/BackblazeB2Repo.tsx:61
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:60
 msgid "Enter object name prefix (optional)"
 msgstr "Enter object name prefix (optional)"
 
-#: src/repo/ConnectRepoSection.tsx:113
+#: src/repo/ConnectRepoSection.tsx:115
 msgid "Enter password to connect to server"
 msgstr "Enter password to connect to server"
 
-#: src/repo/sections/SFTPServerRepo.tsx:102
+#: src/repo/sections/SFTPServerRepo.tsx:236
 msgid "Enter passwordless SSH command to execute (typically 'ssh')"
 msgstr "Enter passwordless SSH command to execute (typically 'ssh')"
 
-#: src/repo/sections/RcloneRepo.tsx:31
+#: src/repo/sections/RcloneRepo.tsx:54
 msgid "Enter path to rclone executable"
 msgstr "Enter path to rclone executable"
 
-#: src/repo/sections/SFTPServerRepo.tsx:66
+#: src/repo/sections/SFTPServerRepo.tsx:200
 msgid "Enter path to the key file"
 msgstr "Enter path to the key file"
 
-#: src/repo/sections/SFTPServerRepo.tsx:71
+#: src/repo/sections/SFTPServerRepo.tsx:205
 msgid "Enter path to the known_hosts file"
 msgstr "Enter path to the known_hosts file"
 
-#: src/repo/sections/SFTPServerRepo.tsx:56
+#: src/repo/sections/SFTPServerRepo.tsx:190
 msgid "Enter remote path to repository, e.g., '/mnt/data/repository'"
 msgstr "Enter remote path to repository, e.g., '/mnt/data/repository'"
 
-#: src/repo/ConnectRepoSection.tsx:104
+#: src/repo/ConnectRepoSection.tsx:106
 #: src/repo/CreateRepoSection.tsx:121
 msgid "Enter repository password"
 msgstr "Enter repository password"
@@ -676,40 +687,41 @@ msgstr "Enter repository password"
 msgid "Enter repository password again"
 msgstr "Enter repository password again"
 
-#: src/repo/sections/AmazonS3Repo.tsx:73
-#: src/repo/sections/AzureBlobStorageRepo.tsx:47
+#: src/repo/sections/AmazonS3Repo.tsx:115
+#: src/repo/sections/AzureBlobStorageRepo.tsx:81
 msgid "Enter secret access key"
 msgstr "Enter secret access key"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:59
+#: src/repo/sections/AzureBlobStorageRepo.tsx:93
 msgid "Enter secret SAS token"
 msgstr "Enter secret SAS token"
 
-#: src/repo/sections/AmazonS3Repo.tsx:33
+#: src/repo/sections/AmazonS3Repo.tsx:75
 msgid "Enter server address (e.g., s3.amazonaws.com)"
 msgstr "Enter server address (e.g., s3.amazonaws.com)"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:26
+#: src/repo/sections/KopiaRepoServerRepo.tsx:47
 msgid "Enter server URL (https://<host>:port)"
 msgstr "Enter server URL (https://<host>:port)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:80
+#: src/repo/sections/AmazonS3Repo.tsx:46
+#: src/repo/sections/AmazonS3Repo.tsx:122
 msgid "Enter session token (optional)"
 msgstr "Enter session token (optional)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:55
+#: src/repo/sections/AmazonS3Repo.tsx:97
 msgid "Enter specific region (e.g., us-west-1) or leave empty"
 msgstr "Enter specific region (e.g., us-west-1) or leave empty"
 
-#: src/repo/sections/SFTPServerRepo.tsx:107
+#: src/repo/sections/SFTPServerRepo.tsx:241
 msgid "Enter SSH command arguments ('user@host -s sftp' will be appended automatically)"
 msgstr "Enter SSH command arguments ('user@host -s sftp' will be appended automatically)"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:33
+#: src/repo/sections/AzureBlobStorageRepo.tsx:67
 msgid "Enter storage account name"
 msgstr "Enter storage account name"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:32
+#: src/repo/sections/KopiaRepoServerRepo.tsx:53
 msgid "Enter trusted server certificate fingerprint printed at server startup"
 msgstr "Enter trusted server certificate fingerprint printed at server startup"
 
@@ -717,13 +729,13 @@ msgstr "Enter trusted server certificate fingerprint printed at server startup"
 msgid "Entries over time"
 msgstr "Entries over time"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:194
 #: src/repo/CreateRepoSection.tsx:193
-#: src/repo/RepoPage.tsx:148
 msgid "Error Correction Algorithm"
 msgstr "Error Correction Algorithm"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:184
 #: src/repo/CreateRepoSection.tsx:180
-#: src/repo/RepoPage.tsx:138
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
 
@@ -844,25 +856,26 @@ msgstr "General Options"
 msgid "Global Policy"
 msgstr "Global Policy"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:19
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:40
 msgid "Google Cloud Storage"
 msgstr "Google Cloud Storage"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:164
 #: src/repo/CreateRepoSection.tsx:149
-#: src/repo/RepoPage.tsx:118
 msgid "Hash Algorithm"
 msgstr "Hash Algorithm"
 
-#: src/repo/ConnectRepoSection.tsx:119
+#: src/repo/ConnectRepoSection.tsx:121
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Helps to distinguish between multiple connected repositories"
 
 #: src/policies/PoliciesPage.tsx:193
-#: src/repo/sections/SFTPServerRepo.tsx:26
+#: src/repo/sections/SFTPServerRepo.tsx:52
+#: src/repo/sections/SFTPServerRepo.tsx:160
 msgid "Host"
 msgstr "Host"
 
-#: src/repo/ConnectRepoSection.tsx:141
+#: src/repo/ConnectRepoSection.tsx:143
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -974,7 +987,7 @@ msgstr "Immediately run any missed snapshots when kopia starts (only relevant fo
 msgid "Inherit"
 msgstr "Inherit"
 
-#: src/repo/RepoPage.tsx:154
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:200
 msgid "Internal Compression"
 msgstr "Internal Compression"
 
@@ -982,15 +995,18 @@ msgstr "Internal Compression"
 msgid "JSON Representation"
 msgstr "JSON Representation"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:45
+#: src/repo/sections/BackblazeB2Repo.tsx:32
+#: src/repo/sections/BackblazeB2Repo.tsx:73
 msgid "Key"
 msgstr "Key"
 
-#: src/repo/sections/SFTPServerRepo.tsx:77
+#: src/repo/sections/SFTPServerRepo.tsx:59
+#: src/repo/sections/SFTPServerRepo.tsx:211
 msgid "Key Data"
 msgstr "Key Data"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:39
+#: src/repo/sections/BackblazeB2Repo.tsx:31
+#: src/repo/sections/BackblazeB2Repo.tsx:67
 msgid "Key ID"
 msgstr "Key ID"
 
@@ -999,11 +1015,12 @@ msgstr "Key ID"
 msgid "Kind"
 msgstr "Kind"
 
-#: src/repo/sections/SFTPServerRepo.tsx:83
+#: src/repo/sections/SFTPServerRepo.tsx:62
+#: src/repo/sections/SFTPServerRepo.tsx:217
 msgid "Known Hosts Data"
 msgstr "Known Hosts Data"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:19
+#: src/repo/sections/KopiaRepoServerRepo.tsx:34
 msgid "Kopia Repository Server"
 msgstr "Kopia Repository Server"
 
@@ -1015,8 +1032,8 @@ msgstr "Last Modification"
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:179
 #: src/repo/CreateRepoSection.tsx:167
-#: src/repo/RepoPage.tsx:133
 msgid "Latest format"
 msgstr "Latest format"
 
@@ -1025,7 +1042,8 @@ msgstr "Latest format"
 msgid "Latest Snapshots"
 msgstr "Latest Snapshots"
 
-#: src/repo/sections/SFTPServerRepo.tsx:92
+#: src/repo/sections/SFTPServerRepo.tsx:63
+#: src/repo/sections/SFTPServerRepo.tsx:226
 msgid "Launch external password-less SSH command"
 msgstr "Launch external password-less SSH command"
 
@@ -1033,8 +1051,8 @@ msgstr "Launch external password-less SSH command"
 msgid "Leave empty to remove description"
 msgstr "Leave empty to remove description"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:179
 #: src/repo/CreateRepoSection.tsx:169
-#: src/repo/RepoPage.tsx:133
 msgid "Legacy format compatible with v0.8"
 msgstr "Legacy format compatible with v0.8"
 
@@ -1050,7 +1068,7 @@ msgstr "List of additional files containing ignore rules (each file configures i
 msgid "List of file and directory names to ignore."
 msgstr "List of file and directory names to ignore."
 
-#: src/repo/sections/FileSystemRepo.tsx:19
+#: src/repo/sections/FileSystemRepo.tsx:32
 msgid "Local Directory or NAS"
 msgstr "Local Directory or NAS"
 
@@ -1237,7 +1255,7 @@ msgstr "New snapshot"
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
-#: src/repo/ConfigureRepoSection.tsx:183
+#: src/repo/ConfigureRepoSection.tsx:306
 msgid "Next"
 msgstr "Next"
 
@@ -1246,7 +1264,7 @@ msgid "Next snapshot"
 msgstr "Next snapshot"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:60
-#: src/repo/RepoPage.tsx:156
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:202
 msgid "No"
 msgstr "No"
 
@@ -1316,10 +1334,14 @@ msgstr "Notifications"
 msgid "Number of the most recent snapshots to retain per source"
 msgstr "Number of the most recent snapshots to retain per source"
 
-#: src/repo/sections/AmazonS3Repo.tsx:59
-#: src/repo/sections/AzureBlobStorageRepo.tsx:41
-#: src/repo/sections/BackblazeB2Repo.tsx:32
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:47
+#: src/repo/sections/AmazonS3Repo.tsx:101
+#: src/repo/sections/AzureBlobStorageRepo.tsx:39
+#: src/repo/sections/AzureBlobStorageRepo.tsx:75
+#: src/repo/sections/BackblazeB2Repo.tsx:33
+#: src/repo/sections/BackblazeB2Repo.tsx:60
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:30
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:59
 msgid "Object Name Prefix"
 msgstr "Object Name Prefix"
 
@@ -1336,6 +1358,18 @@ msgstr "Only compress files with the following file extensions (one extension pe
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Only create snapshots manually (disables scheduled snapshots)"
 
+#: src/repo/sections/SFTPServerRepo.tsx:77
+msgid "Only one of Password, Path to key file or Key Data must be set"
+msgstr "Only one of Password, Path to key file or Key Data must be set"
+
+#: src/repo/sections/SFTPServerRepo.tsx:116
+msgid "Only one of Path to known_hosts File or Known Hosts Data must be set"
+msgstr "Only one of Path to known_hosts File or Known Hosts Data must be set"
+
+#: src/repo/sections/SFTPServerRepo.tsx:116
+#~ msgid "Only one of Path to known_hosts File orKnown Hosts Data must be set"
+#~ msgstr "Only one of Path to known_hosts File orKnown Hosts Data must be set"
+
 #: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:32
 #: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
 #: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:32
@@ -1347,16 +1381,17 @@ msgstr "Open in large edit"
 msgid "Other"
 msgstr "Other"
 
-#: src/repo/sections/AmazonS3Repo.tsx:54
+#: src/repo/sections/AmazonS3Repo.tsx:43
+#: src/repo/sections/AmazonS3Repo.tsx:96
 msgid "Override Region"
 msgstr "Override Region"
 
-#: src/repo/ConnectRepoSection.tsx:137
+#: src/repo/ConnectRepoSection.tsx:139
 #: src/repo/CreateRepoSection.tsx:204
 msgid "Override this when restoring a snapshot taken by another user"
 msgstr "Override this when restoring a snapshot taken by another user"
 
-#: src/repo/ConnectRepoSection.tsx:142
+#: src/repo/ConnectRepoSection.tsx:144
 #: src/repo/CreateRepoSection.tsx:209
 msgid "Override this when restoring a snapshot taken on another machine"
 msgstr "Override this when restoring a snapshot taken on another machine"
@@ -1379,41 +1414,46 @@ msgstr "Owner"
 
 #: src/core/context/LoginModal.tsx:66
 #: src/core/context/LoginModal.tsx:67
-#: src/repo/sections/SFTPServerRepo.tsx:48
-#: src/repo/sections/SFTPServerRepo.tsx:49
-#: src/repo/sections/WebDavRepo.tsx:33
-#: src/repo/sections/WebDavRepo.tsx:34
+#: src/repo/sections/SFTPServerRepo.tsx:57
+#: src/repo/sections/SFTPServerRepo.tsx:182
+#: src/repo/sections/SFTPServerRepo.tsx:183
+#: src/repo/sections/WebDavRepo.tsx:29
+#: src/repo/sections/WebDavRepo.tsx:57
+#: src/repo/sections/WebDavRepo.tsx:58
 msgid "Password"
 msgstr "Password"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:25
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:45
 msgid "Paste connection token"
 msgstr "Paste connection token"
 
-#: src/repo/sections/SFTPServerRepo.tsx:78
+#: src/repo/sections/SFTPServerRepo.tsx:212
 msgid "Paste contents of the key file"
 msgstr "Paste contents of the key file"
 
-#: src/repo/sections/SFTPServerRepo.tsx:84
+#: src/repo/sections/SFTPServerRepo.tsx:218
 msgid "Paste contents of the known_hosts file"
 msgstr "Paste contents of the known_hosts file"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:44
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:71
 msgid "Paste JSON credentials here"
 msgstr "Paste JSON credentials here"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
+#: src/repo/sections/SFTPServerRepo.tsx:189
 #: src/snapshots/SnapshotsPage.tsx:195
 msgid "Path"
 msgstr "Path"
 
-#: src/repo/sections/SFTPServerRepo.tsx:65
+#: src/repo/sections/SFTPServerRepo.tsx:58
+#: src/repo/sections/SFTPServerRepo.tsx:199
 msgid "Path to key file"
 msgstr "Path to key file"
 
-#: src/repo/sections/SFTPServerRepo.tsx:70
+#: src/repo/sections/SFTPServerRepo.tsx:61
+#: src/repo/sections/SFTPServerRepo.tsx:204
 msgid "Path to known_hosts File"
 msgstr "Path to known_hosts File"
 
@@ -1449,11 +1489,12 @@ msgstr "Plain Text Format"
 msgid "Policies"
 msgstr "Policies"
 
-#: src/repo/sections/SFTPServerRepo.tsx:32
+#: src/repo/sections/SFTPServerRepo.tsx:53
+#: src/repo/sections/SFTPServerRepo.tsx:166
 msgid "Port"
 msgstr "Port"
 
-#: src/repo/sections/SFTPServerRepo.tsx:33
+#: src/repo/sections/SFTPServerRepo.tsx:167
 msgid "Port number (e.g., 22)"
 msgstr "Port number (e.g., 22)"
 
@@ -1471,7 +1512,7 @@ msgstr "Preferences updated"
 msgid "Prevents any parent policies from affecting this directory and its subdirectories"
 msgstr "Prevents any parent policies from affecting this directory and its subdirectories"
 
-#: src/repo/RepoPage.tsx:106
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:152
 msgid "Provider"
 msgstr "Provider"
 
@@ -1483,19 +1524,21 @@ msgstr "Pushover"
 msgid "Pushover App Token"
 msgstr "Pushover App Token"
 
-#: src/repo/sections/RcloneRepo.tsx:30
+#: src/repo/sections/RcloneRepo.tsx:27
+#: src/repo/sections/RcloneRepo.tsx:53
 msgid "Rclone Executable Path"
 msgstr "Rclone Executable Path"
 
-#: src/repo/sections/RcloneRepo.tsx:18
+#: src/repo/sections/RcloneRepo.tsx:35
 msgid "Rclone Remote"
 msgstr "Rclone Remote"
 
-#: src/repo/sections/RcloneRepo.tsx:24
+#: src/repo/sections/RcloneRepo.tsx:26
+#: src/repo/sections/RcloneRepo.tsx:47
 msgid "Rclone Remote Path"
 msgstr "Rclone Remote Path"
 
-#: src/repo/ConnectRepoSection.tsx:131
+#: src/repo/ConnectRepoSection.tsx:133
 msgid "Read-only mode prevents any changes to the repository"
 msgstr "Read-only mode prevents any changes to the repository"
 
@@ -1524,20 +1567,24 @@ msgstr "Remote"
 msgid "Repository"
 msgstr "Repository"
 
-#: src/repo/ConnectRepoSection.tsx:118
+#: src/repo/ConnectRepoSection.tsx:120
 msgid "Repository Description"
 msgstr "Repository Description"
 
-#: src/repo/RepoPage.tsx:22
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:57
 msgid "Repository disconnected"
 msgstr "Repository disconnected"
 
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:176
 #: src/repo/CreateRepoSection.tsx:165
-#: src/repo/RepoPage.tsx:130
 msgid "Repository Format"
 msgstr "Repository Format"
 
-#: src/repo/ConnectRepoSection.tsx:102
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:138
+msgid "Repository is connected as read-only"
+msgstr "Repository is connected as read-only"
+
+#: src/repo/ConnectRepoSection.tsx:104
 #: src/repo/CreateRepoSection.tsx:119
 msgid "Repository Password"
 msgstr "Repository Password"
@@ -1595,7 +1642,8 @@ msgstr "Running"
 msgid "Running for"
 msgstr "Running for"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:58
+#: src/repo/sections/AzureBlobStorageRepo.tsx:38
+#: src/repo/sections/AzureBlobStorageRepo.tsx:92
 msgid "SAS Token"
 msgstr "SAS Token"
 
@@ -1644,7 +1692,8 @@ msgstr "Search files or folder (current level)"
 msgid "Search tasks"
 msgstr "Search tasks"
 
-#: src/repo/sections/AmazonS3Repo.tsx:72
+#: src/repo/sections/AmazonS3Repo.tsx:42
+#: src/repo/sections/AmazonS3Repo.tsx:114
 msgid "Secret Access Key"
 msgstr "Secret Access Key"
 
@@ -1652,7 +1701,7 @@ msgstr "Secret Access Key"
 msgid "Select compression algorithm"
 msgstr "Select compression algorithm"
 
-#: src/repo/ConfigureRepoSection.tsx:147
+#: src/repo/ConfigureRepoSection.tsx:269
 msgid "Select Provider"
 msgstr "Select Provider"
 
@@ -1660,7 +1709,7 @@ msgstr "Select Provider"
 msgid "Select Snapshot Frequency"
 msgstr "Select Snapshot Frequency"
 
-#: src/repo/ConfigureRepoSection.tsx:147
+#: src/repo/ConfigureRepoSection.tsx:269
 msgid "Select the preferred storage type"
 msgstr "Select the preferred storage type"
 
@@ -1678,14 +1727,16 @@ msgid "Server"
 msgstr "Server"
 
 #: src/repo/sections/KopiaRepoServerRepo.tsx:25
+#: src/repo/sections/KopiaRepoServerRepo.tsx:46
 msgid "Server address"
 msgstr "Server address"
 
-#: src/repo/sections/AmazonS3Repo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:40
+#: src/repo/sections/AmazonS3Repo.tsx:74
 msgid "Server Endpoint"
 msgstr "Server Endpoint"
 
-#: src/repo/ConnectRepoSection.tsx:111
+#: src/repo/ConnectRepoSection.tsx:113
 msgid "Server Password"
 msgstr "Server Password"
 
@@ -1693,7 +1744,7 @@ msgstr "Server Password"
 msgid "SERVERS"
 msgstr "SERVERS"
 
-#: src/repo/sections/AmazonS3Repo.tsx:79
+#: src/repo/sections/AmazonS3Repo.tsx:121
 msgid "Session token"
 msgstr "Session token"
 
@@ -1701,7 +1752,7 @@ msgstr "Session token"
 msgid "Settings stored locally"
 msgstr "Settings stored locally"
 
-#: src/repo/sections/SFTPServerRepo.tsx:19
+#: src/repo/sections/SFTPServerRepo.tsx:146
 msgid "SFTP Server"
 msgstr "SFTP Server"
 
@@ -1821,19 +1872,21 @@ msgstr "Specify compression algorithm to use when snapshotting files in this dir
 msgid "Splitter"
 msgstr "Splitter"
 
-#: src/repo/RepoPage.tsx:124
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:170
 msgid "Splitter Algorithm"
 msgstr "Splitter Algorithm"
 
-#: src/repo/sections/SFTPServerRepo.tsx:106
+#: src/repo/sections/SFTPServerRepo.tsx:65
+#: src/repo/sections/SFTPServerRepo.tsx:240
 msgid "SSH Arguments"
 msgstr "SSH Arguments"
 
-#: src/repo/sections/SFTPServerRepo.tsx:101
+#: src/repo/sections/SFTPServerRepo.tsx:64
+#: src/repo/sections/SFTPServerRepo.tsx:235
 msgid "SSH Command"
 msgstr "SSH Command"
 
-#: src/repo/sections/SFTPServerRepo.tsx:27
+#: src/repo/sections/SFTPServerRepo.tsx:161
 msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
@@ -1854,7 +1907,8 @@ msgstr "Statistics"
 msgid "Status"
 msgstr "Status"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:32
+#: src/repo/sections/AzureBlobStorageRepo.tsx:35
+#: src/repo/sections/AzureBlobStorageRepo.tsx:66
 msgid "Storage Account"
 msgstr "Storage Account"
 
@@ -1884,11 +1938,11 @@ msgstr "Tasks"
 msgid "Test notification sent"
 msgstr "Test notification sent"
 
-#: src/repo/RepoPage.tsx:35
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:70
 msgid "The repository description was successfully updated"
 msgstr "The repository description was successfully updated"
 
-#: src/repo/RepoPage.tsx:23
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:58
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
@@ -1958,7 +2012,8 @@ msgctxt "email-to"
 msgid "To"
 msgstr "To"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:23
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:24
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:43
 msgid "Token"
 msgstr "Token"
 
@@ -1974,7 +2029,8 @@ msgstr "Treat file errors as non-fatal"
 msgid "Treat unrecognized/unsupported directory entries as non-fatal errors."
 msgstr "Treat unrecognized/unsupported directory entries as non-fatal errors."
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:31
+#: src/repo/sections/KopiaRepoServerRepo.tsx:26
+#: src/repo/sections/KopiaRepoServerRepo.tsx:52
 msgid "Trusted server certificate fingerprint (SHA256)"
 msgstr "Trusted server certificate fingerprint (SHA256)"
 
@@ -1993,7 +2049,7 @@ msgstr "Unmount"
 msgid "Upcoming Snapshots"
 msgstr "Upcoming Snapshots"
 
-#: src/repo/RepoPage.tsx:93
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:129
 msgid "Update"
 msgstr "Update"
 
@@ -2023,31 +2079,34 @@ msgstr "Uploading"
 msgid "URL Endpoint"
 msgstr "URL Endpoint"
 
-#: src/repo/sections/AmazonS3Repo.tsx:40
+#: src/repo/sections/AmazonS3Repo.tsx:44
+#: src/repo/sections/AmazonS3Repo.tsx:82
 msgid "Use HTTP connection (insecure)"
 msgstr "Use HTTP connection (insecure)"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:18
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:32
 msgid "Use Repository Token"
 msgstr "Use Repository Token"
 
-#: src/repo/ConnectRepoSection.tsx:105
+#: src/repo/ConnectRepoSection.tsx:107
 #: src/repo/CreateRepoSection.tsx:122
 msgid "Used to encrypt content of the repository"
 msgstr "Used to encrypt content of the repository"
 
-#: src/repo/sections/SFTPServerRepo.tsx:41
+#: src/repo/sections/SFTPServerRepo.tsx:54
+#: src/repo/sections/SFTPServerRepo.tsx:175
 msgid "User"
 msgstr "User"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
 #: src/policies/PoliciesPage.tsx:188
-#: src/repo/ConnectRepoSection.tsx:136
+#: src/repo/ConnectRepoSection.tsx:138
 #: src/repo/CreateRepoSection.tsx:203
-#: src/repo/sections/SFTPServerRepo.tsx:42
-#: src/repo/sections/WebDavRepo.tsx:31
-#: src/repo/sections/WebDavRepo.tsx:31
+#: src/repo/sections/SFTPServerRepo.tsx:176
+#: src/repo/sections/WebDavRepo.tsx:28
+#: src/repo/sections/WebDavRepo.tsx:55
+#: src/repo/sections/WebDavRepo.tsx:55
 msgid "Username"
 msgstr "Username"
 
@@ -2055,11 +2114,12 @@ msgstr "Username"
 msgid "View Policy"
 msgstr "View Policy"
 
-#: src/repo/sections/WebDavRepo.tsx:19
+#: src/repo/sections/WebDavRepo.tsx:37
 msgid "WebDAV Server"
 msgstr "WebDAV Server"
 
-#: src/repo/sections/WebDavRepo.tsx:25
+#: src/repo/sections/WebDavRepo.tsx:27
+#: src/repo/sections/WebDavRepo.tsx:49
 msgid "WebDAV Server URL"
 msgstr "WebDAV Server URL"
 
@@ -2105,7 +2165,7 @@ msgid "Write Sparse Files"
 msgstr "Write Sparse Files"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:49
-#: src/repo/RepoPage.tsx:156
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:202
 msgid "Yes"
 msgstr "Yes"
 
