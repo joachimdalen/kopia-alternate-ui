@@ -159,6 +159,7 @@ export default function PolicyModal({
   }, []);
 
   const resolvedValue = resolved?.effective;
+  const resolvedDefinition = resolved?.definition;
 
   async function submitForm(values: Policy) {
     // Clean inner field
@@ -235,19 +236,20 @@ export default function PolicyModal({
                 <Trans>Other</Trans>
               </TabsTab>
             </TabsList>
-            <SnapshotRetentionTab form={form} resolvedValue={resolvedValue} />
-            <FilesTab form={form} resolvedValue={resolvedValue} />
-            <ErrorHandlingTab form={form} resolvedValue={resolvedValue} />
-            <CompressionTab form={form} resolvedValue={resolvedValue} />
+            <SnapshotRetentionTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <FilesTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <ErrorHandlingTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <CompressionTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
             <SchedulingTab
               form={form}
               resolvedValue={resolvedValue}
               upcomingSnapshotTimes={resolved?.upcomingSnapshotTimes}
+              definition={resolvedDefinition}
             />
-            <UploadTab form={form} resolvedValue={resolvedValue} />
-            <SnapshotActionsTab form={form} resolvedValue={resolvedValue} />
-            <FolderActionsTab form={form} resolvedValue={resolvedValue} />
-            <LoggingTab form={form} resolvedValue={resolvedValue} />
+            <UploadTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <SnapshotActionsTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <FolderActionsTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
+            <LoggingTab form={form} resolvedValue={resolvedValue} definition={resolvedDefinition} />
             <OtherTab form={form} />
           </Tabs>
         </Stack>

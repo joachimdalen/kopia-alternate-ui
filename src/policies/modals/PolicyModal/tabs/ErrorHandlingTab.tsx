@@ -1,16 +1,17 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyInheritYesNoPolicyInput from "../policy-inputs/PolicyInheritYesNoPolicyInput";
 import type { PolicyForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function ErrorHandlingTab({ form, resolvedValue }: Props) {
+export default function ErrorHandlingTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="error-handling" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -22,6 +23,7 @@ export default function ErrorHandlingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="errorHandling.ignoreDirectoryErrors"
             effective={resolvedValue?.errorHandling?.ignoreDirectoryErrors}
+            effectiveDefinedIn={definition?.errorHandling?.ignoreDirectoryErrors}
           />
           <PolicyInheritYesNoPolicyInput
             id="ignore-file-errors"
@@ -30,6 +32,7 @@ export default function ErrorHandlingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="errorHandling.ignoreFileErrors"
             effective={resolvedValue?.errorHandling?.ignoreFileErrors}
+            effectiveDefinedIn={definition?.errorHandling?.ignoreFileErrors}
           />
           <PolicyInheritYesNoPolicyInput
             id="ignore-unknown-dir-entries"
@@ -38,6 +41,7 @@ export default function ErrorHandlingTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="errorHandling.ignoreUnknownTypes"
             effective={resolvedValue?.errorHandling?.ignoreUnknownTypes}
+            effectiveDefinedIn={definition?.errorHandling?.ignoreUnknownTypes}
           />
         </Accordion>
       </ScrollAreaAutosize>

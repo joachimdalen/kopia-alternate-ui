@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, Anchor, ScrollAreaAutosize, Switch, TabsPanel, Text } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyInheritYesNoPolicyInput from "../policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import PolicyTextListInput from "../policy-inputs/PolicyTextListInput";
@@ -10,9 +10,10 @@ import type { PolicyForm } from "../types";
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function FilesTab({ form, resolvedValue }: Props) {
+export default function FilesTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="files" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -33,6 +34,7 @@ export default function FilesTab({ form, resolvedValue }: Props) {
               </Text>
             }
             effective={resolvedValue?.files?.ignore}
+            effectiveDefinedIn={definition?.files?.ignore}
           >
             <Switch
               label={t`Ignore Rules From Parent Directories`}
@@ -49,6 +51,7 @@ export default function FilesTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="files.ignoreDotFiles"
             effective={resolvedValue?.files?.ignoreDotFiles}
+            effectiveDefinedIn={definition?.files?.ignoreDotFiles}
           >
             <Switch
               label={t`Ignore Rule Files From Parent Directories`}
@@ -64,6 +67,7 @@ export default function FilesTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="files.ignoreCacheDirs"
             effective={resolvedValue?.files?.ignoreCacheDirs}
+            effectiveDefinedIn={definition?.files?.ignoreCacheDirs}
           />
 
           <PolicyNumberInput
@@ -73,6 +77,7 @@ export default function FilesTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="files.maxFileSize"
             effective={resolvedValue?.files?.maxFileSize}
+            effectiveDefinedIn={definition?.files?.maxFileSize}
           />
           <PolicyInheritYesNoPolicyInput
             id="scan-only-one-fs"
@@ -81,6 +86,7 @@ export default function FilesTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="files.oneFileSystem"
             effective={resolvedValue?.files?.oneFileSystem}
+            effectiveDefinedIn={definition?.files?.oneFileSystem}
           />
         </Accordion>
       </ScrollAreaAutosize>

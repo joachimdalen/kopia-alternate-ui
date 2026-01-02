@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { AccordionItem, AccordionPanel, Group, NumberInput } from "@mantine/core";
 import { getEffectiveValue } from "../../../policiesUtil";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -12,9 +13,19 @@ type Props = {
   effective?: number;
 } & PolicyInput;
 
-export default function PolicyNumberInput({ id, title, description, placeholder, form, formKey, effective }: Props) {
+export default function PolicyNumberInput({
+  id,
+  title,
+  description,
+  placeholder,
+  form,
+  formKey,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = getEffectiveValue(inputProps.value, effective?.toString());
+  const isDefined = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
       <PolicyAccordionControl
@@ -25,7 +36,15 @@ export default function PolicyNumberInput({ id, title, description, placeholder,
       <AccordionPanel>
         <Group grow align="flex-start">
           <NumberInput label={t`Defined`} hideControls placeholder={placeholder} {...inputProps} />
-          <NumberInput label={t`Effective`} hideControls value={effectiveValue} readOnly variant="filled" />
+          <NumberInput
+            label={
+              effectiveDefinedIn && isDefined ? <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} /> : t`Effective`
+            }
+            hideControls
+            value={effectiveValue}
+            readOnly
+            variant="filled"
+          />
         </Group>
       </AccordionPanel>
     </AccordionItem>
