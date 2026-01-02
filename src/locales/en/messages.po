@@ -29,27 +29,27 @@ msgstr "{inProgressTaskCount} task(s) in progress"
 msgid "{successTaskCount} task(s) completed"
 msgstr "{successTaskCount} task(s) completed"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:74
 msgid "# of annual snapshots"
 msgstr "# of annual snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:44
 msgid "# of daily snapshots"
 msgstr "# of daily snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:34
 msgid "# of hourly snapshots"
 msgstr "# of hourly snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:24
 msgid "# of latest snapshots"
 msgstr "# of latest snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:64
 msgid "# of monthly snapshots"
 msgstr "# of monthly snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:50
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:54
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
@@ -87,7 +87,7 @@ msgstr "Access Key"
 msgid "Access Key ID"
 msgstr "Access Key ID"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:38
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:48
 msgid "Active"
 msgstr "Active"
 
@@ -109,12 +109,12 @@ msgid "Advanced Options"
 msgstr "Advanced Options"
 
 #: src/policies/modals/PolicyModal/constants.ts:170
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:64
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:68
 msgid "After Folder"
 msgstr "After Folder"
 
 #: src/policies/modals/PolicyModal/constants.ts:184
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
 msgid "After Snapshot"
 msgstr "After Snapshot"
 
@@ -136,7 +136,7 @@ msgid "Amazon S3 or Compatible Storage"
 msgstr "Amazon S3 or Compatible Storage"
 
 #: src/policies/modals/PolicyModal/constants.ts:112
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:66
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:72
 msgid "Annual"
 msgstr "Annual"
 
@@ -176,12 +176,12 @@ msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
 #: src/policies/modals/PolicyModal/constants.ts:163
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:26
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
 msgid "Before Folder"
 msgstr "Before Folder"
 
 #: src/policies/modals/PolicyModal/constants.ts:177
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:26
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
 msgid "Before Snapshot"
 msgstr "Before Snapshot"
 
@@ -206,17 +206,17 @@ msgstr "By default Kopia connects to the server using internal SSH client which 
 msgid "Byte representation"
 msgstr "Byte representation"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:52
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:57
 msgid "Cache Hit"
 msgstr "Cache Hit"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:66
 msgid "Cache Miss"
 msgstr "Cache Miss"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:258
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:260
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
@@ -252,24 +252,24 @@ msgstr "Close"
 
 #: src/policies/modals/PolicyModal/constants.ts:172
 #: src/policies/modals/PolicyModal/constants.ts:186
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:87
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:91
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:98
 msgid "Command Mode - After"
 msgstr "Command Mode - After"
 
 #: src/policies/modals/PolicyModal/constants.ts:165
 #: src/policies/modals/PolicyModal/constants.ts:179
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:49
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
 msgid "Command Mode - Before"
 msgstr "Command Mode - Before"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:214
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:215
 msgid "Compression"
 msgstr "Compression"
 
 #: src/policies/modals/PolicyModal/constants.ts:145
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
 msgid "Compression Algorithm"
 msgstr "Compression Algorithm"
 
@@ -366,7 +366,7 @@ msgstr "Create pushover notification"
 msgid "Create repository"
 msgstr "Create repository"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:69
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:72
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
 
@@ -381,7 +381,7 @@ msgid "Credentials JSON"
 msgstr "Credentials JSON"
 
 #: src/policies/modals/PolicyModal/constants.ts:141
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:78
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:82
 msgid "Cron Expressions"
 msgstr "Cron Expressions"
 
@@ -390,7 +390,7 @@ msgid "Currently browsing instance {currentName}"
 msgstr "Currently browsing instance {currentName}"
 
 #: src/policies/modals/PolicyModal/constants.ts:109
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:39
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:42
 msgid "Daily"
 msgstr "Daily"
 
@@ -402,15 +402,15 @@ msgstr "Dark"
 msgid "Default page size"
 msgstr "Default page size"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:71
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:28
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:41
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:27
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:40
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:30
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:52
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:34
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:37
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:51
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:38
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:43
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:37
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:64
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:45
 #: src/policies/PoliciesPage.tsx:203
 msgid "Defined"
 msgstr "Defined"
@@ -418,8 +418,8 @@ msgstr "Defined"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
-msgid "Defined in global policy"
-msgstr "Defined in global policy"
+#~ msgid "Defined in global policy"
+#~ msgstr "Defined in global policy"
 
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
@@ -437,7 +437,7 @@ msgstr "Delete policy"
 msgid "Delete Selected"
 msgstr "Delete Selected"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:50
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:60
 msgid "Deprecated"
 msgstr "Deprecated"
 
@@ -460,7 +460,7 @@ msgstr "Destination"
 msgid "Directories"
 msgstr "Directories"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:30
 msgid "Directory Ignored"
 msgstr "Directory Ignored"
 
@@ -473,7 +473,7 @@ msgstr "Directory Options"
 msgid "Directory Path"
 msgstr "Directory Path"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:20
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:21
 msgid "Directory Snapshotted"
 msgstr "Directory Snapshotted"
 
@@ -521,11 +521,11 @@ msgstr "Displaying {textToDisplay} snapshots of"
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Do not compress when restoring to a ZIP file (faster)."
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:80
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:85
 msgid "Do not cross filesystem boundaries when creating a snapshot"
 msgstr "Do not cross filesystem boundaries when creating a snapshot"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:76
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:83
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr "Do NOT save a snapshot when no files have been changed"
 
@@ -568,8 +568,8 @@ msgstr "Edit email notification"
 msgid "Edit existing policy"
 msgstr "Edit existing policy"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:74
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:56
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:86
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:67
 msgid "Edit items"
 msgstr "Edit items"
 
@@ -581,15 +581,16 @@ msgstr "Edit pushover notification"
 msgid "Edit script"
 msgstr "Edit script"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:82
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:34
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:50
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:28
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:49
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:39
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:38
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:77
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:59
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:15
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:91
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:46
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:59
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:51
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:43
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:94
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:75
 msgid "Effective"
 msgstr "Effective"
 
@@ -739,14 +740,14 @@ msgstr "Error Correction Algorithm"
 msgid "Error Correction Overhead"
 msgstr "Error Correction Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:211
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
 msgid "Error Handling"
 msgstr "Error Handling"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:50
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:88
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:54
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:92
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 
@@ -758,7 +759,7 @@ msgstr "Estimate"
 msgid "Estimate snapshot"
 msgstr "Estimate snapshot"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
 msgid "Every"
 msgstr "Every"
 
@@ -808,26 +809,26 @@ msgstr "Failed after"
 msgid "Failed to find policy"
 msgstr "Failed to find policy"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:48
 msgid "File Ignored"
 msgstr "File Ignored"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:36
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:39
 msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:205
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
 #: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:208
 msgid "Files"
 msgstr "Files"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:34
 msgid "Files that are smaller than the provided value will not be compressed"
 msgstr "Files that are smaller than the provided value will not be compressed"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:44
 msgid "Files whose size exceeds the provided value will not be compressed"
 msgstr "Files whose size exceeds the provided value will not be compressed"
 
@@ -840,11 +841,11 @@ msgstr "Finished"
 msgid "Finished in"
 msgstr "Finished in"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:229
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:230
 msgid "Folder Actions"
 msgstr "Folder Actions"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:124
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:131
 msgid "From now"
 msgstr "From now"
 
@@ -869,6 +870,7 @@ msgstr "Hash Algorithm"
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Helps to distinguish between multiple connected repositories"
 
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:44
 #: src/policies/PoliciesPage.tsx:193
 #: src/repo/sections/SFTPServerRepo.tsx:52
 #: src/repo/sections/SFTPServerRepo.tsx:160
@@ -880,31 +882,31 @@ msgid "Hostname"
 msgstr "Hostname"
 
 #: src/policies/modals/PolicyModal/constants.ts:108
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:30
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:32
 msgid "Hourly"
 msgstr "Hourly"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:61
 msgid "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 msgstr "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:67
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:73
 msgid "How many annual snapshots to retain per source. The latest snapshot from each calendar year will be retained"
 msgstr "How many annual snapshots to retain per source. The latest snapshot from each calendar year will be retained"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:40
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:43
 msgid "How many daily snapshots to retain per source. The latest snapshot from each day will be retained"
 msgstr "How many daily snapshots to retain per source. The latest snapshot from each day will be retained"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:31
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:33
 msgid "How many hourly snapshots to retain per source. The latest snapshot from each hour will be retained"
 msgstr "How many hourly snapshots to retain per source. The latest snapshot from each hour will be retained"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:63
 msgid "How many monthly snapshots to retain per source. The latest snapshot from each calendar month will be retained"
 msgstr "How many monthly snapshots to retain per source. The latest snapshot from each calendar month will be retained"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:53
 msgid "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 msgstr "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 
@@ -918,68 +920,68 @@ msgstr "HTML Format"
 msgid "HTTP Method"
 msgstr "HTTP Method"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:63
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:66
 msgid "Ignore directories containing CACHEDIR.TAG and similar"
 msgstr "Ignore directories containing CACHEDIR.TAG and similar"
 
 #: src/policies/modals/PolicyModal/constants.ts:126
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:20
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:21
 msgid "Ignore Directory Errors"
 msgstr "Ignore Directory Errors"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:91
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:95
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
 msgid "Ignore failures"
 msgstr "Ignore failures"
 
 #: src/policies/modals/PolicyModal/constants.ts:125
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:30
 msgid "Ignore File Errors"
 msgstr "Ignore File Errors"
 
 #: src/policies/modals/PolicyModal/constants.ts:116
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:23
 msgid "Ignore Files"
 msgstr "Ignore Files"
 
 #: src/policies/modals/PolicyModal/constants.ts:121
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:71
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:75
 msgid "Ignore Files larger than"
 msgstr "Ignore Files larger than"
 
 #: src/policies/modals/PolicyModal/constants.ts:113
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:75
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:82
 msgid "Ignore Identical Snapshots"
 msgstr "Ignore Identical Snapshots"
 
 #: src/policies/modals/PolicyModal/constants.ts:118
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:47
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:49
 msgid "Ignore Rule Files"
 msgstr "Ignore Rule Files"
 
 #: src/policies/modals/PolicyModal/constants.ts:119
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:57
 msgid "Ignore Rule Files From Parent Directories"
 msgstr "Ignore Rule Files From Parent Directories"
 
 #: src/policies/modals/PolicyModal/constants.ts:117
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:38
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:40
 msgid "Ignore Rules From Parent Directories"
 msgstr "Ignore Rules From Parent Directories"
 
 #: src/policies/modals/PolicyModal/constants.ts:127
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:36
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:39
 msgid "Ignore Unknown Directory Entries"
 msgstr "Ignore Unknown Directory Entries"
 
 #: src/policies/modals/PolicyModal/constants.ts:120
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:62
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:65
 msgid "Ignore Well-Known Cache Directories"
 msgstr "Ignore Well-Known Cache Directories"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:96
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:101
 msgid "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 msgstr "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 
@@ -1038,7 +1040,7 @@ msgid "Latest format"
 msgstr "Latest format"
 
 #: src/policies/modals/PolicyModal/constants.ts:107
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:22
 msgid "Latest Snapshots"
 msgstr "Latest Snapshots"
 
@@ -1060,11 +1062,11 @@ msgstr "Legacy format compatible with v0.8"
 msgid "Light"
 msgstr "Light"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:48
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:50
 msgid "List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
 msgstr "List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:24
 msgid "List of file and directory names to ignore."
 msgstr "List of file and directory names to ignore."
 
@@ -1084,31 +1086,31 @@ msgstr "Local Snapshots"
 msgid "Locale"
 msgstr "Locale"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:67
 msgid "Log verbosity when a cache cannot be used and a file must be hashed"
 msgstr "Log verbosity when a cache cannot be used and a file must be hashed"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:58
 msgid "Log verbosity when a cache is used instead of uploading the file"
 msgstr "Log verbosity when a cache is used instead of uploading the file"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:31
 msgid "Log verbosity when a directory is ignored"
 msgstr "Log verbosity when a directory is ignored"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:22
 msgid "Log verbosity when a directory is snapshotted"
 msgstr "Log verbosity when a directory is snapshotted"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:45
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:49
 msgid "Log verbosity when a file, symbolic link, etc. is ignored"
 msgstr "Log verbosity when a file, symbolic link, etc. is ignored"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:40
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Log verbosity when a file, symbolic link, etc. is snapshotted"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:232
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:233
 msgid "Logging"
 msgstr "Logging"
 
@@ -1129,36 +1131,36 @@ msgid "Mail From"
 msgstr "Mail From"
 
 #: src/policies/modals/PolicyModal/constants.ts:140
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:103
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
 msgid "Manual Snapshots Only"
 msgstr "Manual Snapshots Only"
 
 #: src/policies/modals/PolicyModal/constants.ts:151
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:40
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:43
 msgid "Max File Size"
 msgstr "Max File Size"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:31
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:33
 msgid "max number of parallel file reads"
 msgstr "max number of parallel file reads"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:42
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:45
 msgid "Maximum file size in bytes"
 msgstr "Maximum file size in bytes"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:30
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:32
 msgid "Maximum number of files that will be read in parallel (defaults to the number of logical processors)"
 msgstr "Maximum number of files that will be read in parallel (defaults to the number of logical processors)"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:22
 msgid "Maximum number of snapshots that can be uploaded simultaneously"
 msgstr "Maximum number of snapshots that can be uploaded simultaneously"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:31
 msgid "Maximum Parallel File Reads"
 msgstr "Maximum Parallel File Reads"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:20
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:21
 msgid "Maximum Parallel Snapshots"
 msgstr "Maximum Parallel Snapshots"
 
@@ -1167,11 +1169,11 @@ msgid "Minimal File Size For Shallow Restore"
 msgstr "Minimal File Size For Shallow Restore"
 
 #: src/policies/modals/PolicyModal/constants.ts:150
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:31
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:33
 msgid "Minimum File Size"
 msgstr "Minimum File Size"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:33
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:35
 msgid "Minimum file size in bytes"
 msgstr "Minimum file size in bytes"
 
@@ -1189,7 +1191,7 @@ msgid "Minimum severity required to use this notification profile"
 msgstr "Minimum severity required to use this notification profile"
 
 #: src/policies/modals/PolicyModal/constants.ts:111
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:62
 msgid "Monthly"
 msgstr "Monthly"
 
@@ -1210,14 +1212,14 @@ msgstr "Mounted Snapshots"
 msgid "Mounts"
 msgstr "Mounts"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:23
 msgid "must be specified using global, user, or host policy"
 msgstr "must be specified using global, user, or host policy"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:90
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:94
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:96
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:101
 msgid "Must Succeed"
 msgstr "Must Succeed"
 
@@ -1233,11 +1235,11 @@ msgid "Name of the pin"
 msgstr "Name of the pin"
 
 #: src/policies/modals/PolicyModal/constants.ts:148
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:63
 msgid "Never Compress Extensions"
 msgstr "Never Compress Extensions"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:64
 msgid "Never compress the following file extensions (one extension per line)"
 msgstr "Never compress the following file extensions (one extension per line)"
 
@@ -1305,8 +1307,8 @@ msgstr "No snapshots mounted"
 msgid "No snapshots taken"
 msgstr "No snapshots taken"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:40
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:62
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:50
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:63
 msgid "None"
 msgstr "None"
 
@@ -1314,10 +1316,10 @@ msgstr "None"
 msgid "Not configured"
 msgstr "Not configured"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:62
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:87
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:44
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:69
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:74
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:107
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:55
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:88
 msgid "Not defined"
 msgstr "Not defined"
 
@@ -1330,7 +1332,7 @@ msgstr "Notification Format"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:23
 msgid "Number of the most recent snapshots to retain per source"
 msgstr "Number of the most recent snapshots to retain per source"
 
@@ -1346,15 +1348,15 @@ msgid "Object Name Prefix"
 msgstr "Object Name Prefix"
 
 #: src/policies/modals/PolicyModal/constants.ts:146
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:53
 msgid "Only Compress Extensions"
 msgstr "Only Compress Extensions"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:50
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:54
 msgid "Only compress files with the following file extensions (one extension per line)"
 msgstr "Only compress files with the following file extensions (one extension per line)"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:104
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:110
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Only create snapshots manually (disables scheduled snapshots)"
 
@@ -1370,14 +1372,14 @@ msgstr "Only one of Path to known_hosts File or Known Hosts Data must be set"
 #~ msgid "Only one of Path to known_hosts File orKnown Hosts Data must be set"
 #~ msgstr "Only one of Path to known_hosts File orKnown Hosts Data must be set"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:32
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:32
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:34
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:34
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:80
 msgid "Open in large edit"
 msgstr "Open in large edit"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:235
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:236
 msgid "Other"
 msgstr "Other"
 
@@ -1440,6 +1442,7 @@ msgid "Paste JSON credentials here"
 msgstr "Paste JSON credentials here"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:51
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
 #: src/repo/sections/SFTPServerRepo.tsx:189
@@ -1621,15 +1624,15 @@ msgstr "Retention"
 msgid "Root"
 msgstr "Root"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:97
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:104
 msgid "Run asynchronously, ignore failures"
 msgstr "Run asynchronously, ignore failures"
 
 #: src/policies/modals/PolicyModal/constants.ts:142
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:95
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:100
 msgid "Run Missed Snapshots on Startup"
 msgstr "Run Missed Snapshots on Startup"
 
@@ -1648,7 +1651,7 @@ msgid "SAS Token"
 msgstr "SAS Token"
 
 #: src/policies/modals/PolicyListModal/PolicyListModal.tsx:116
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:263
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:265
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1660,27 +1663,27 @@ msgid "Save"
 msgstr "Save"
 
 #: src/policies/modals/PolicyModal/constants.ts:122
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:79
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:84
 msgid "Scan only one filesystem"
 msgstr "Scan only one filesystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:217
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:218
 msgid "Scheduling"
 msgstr "Scheduling"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:65
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
 msgid "Script to run after folder"
 msgstr "Script to run after folder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:69
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
 msgid "Script to run after snapshot"
 msgstr "Script to run after snapshot"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
 msgid "Script to run before folder"
 msgstr "Script to run before folder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
@@ -1697,7 +1700,7 @@ msgstr "Search tasks"
 msgid "Secret Access Key"
 msgstr "Secret Access Key"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:74
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:83
 msgid "Select compression algorithm"
 msgstr "Select compression algorithm"
 
@@ -1705,7 +1708,7 @@ msgstr "Select compression algorithm"
 msgid "Select Provider"
 msgstr "Select Provider"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:62
 msgid "Select Snapshot Frequency"
 msgstr "Select Snapshot Frequency"
 
@@ -1811,12 +1814,12 @@ msgstr "SMTP Username"
 msgid "Snapshot"
 msgstr "Snapshot"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:226
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
 msgid "Snapshot Actions"
 msgstr "Snapshot Actions"
 
 #: src/policies/modals/PolicyModal/constants.ts:130
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:60
 msgid "Snapshot Frequency"
 msgstr "Snapshot Frequency"
 
@@ -1836,11 +1839,11 @@ msgstr "Snapshot now"
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:202
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
 msgid "Snapshot Retention"
 msgstr "Snapshot Retention"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:79
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:83
 msgid "Snapshot schedules using UNIX crontab syntax:"
 msgstr "Snapshot schedules using UNIX crontab syntax:"
 
@@ -1864,7 +1867,7 @@ msgstr "Snapshots"
 msgid "Snapshots by date"
 msgstr "Snapshots by date"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:24
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 msgstr "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 
@@ -1970,40 +1973,40 @@ msgstr "This is the internal representation of a policy"
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
 #: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
-msgid "This policy"
-msgstr "This policy"
+#~ msgid "This policy"
+#~ msgstr "This policy"
 
 #: src/policies/modals/PolicyModal/constants.ts:138
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:71
 msgid "Time Of Day"
 msgstr "Time Of Day"
 
 #: src/policies/modals/PolicyModal/constants.ts:171
 #: src/policies/modals/PolicyModal/constants.ts:185
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:79
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:83
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:89
 msgid "Timeout - After"
 msgstr "Timeout - After"
 
 #: src/policies/modals/PolicyModal/constants.ts:164
 #: src/policies/modals/PolicyModal/constants.ts:178
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:41
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:45
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:43
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:47
 msgid "Timeout - Before"
 msgstr "Timeout - Before"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:42
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:80
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:46
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Timeout in seconds before Kopia kills the process"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:112
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:119
 msgid "Times of upcoming snapshots calculated based on policy parameters"
 msgstr "Times of upcoming snapshots calculated based on policy parameters"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:121
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:128
 msgid "Timestamp"
 msgstr "Timestamp"
 
@@ -2017,15 +2020,15 @@ msgstr "To"
 msgid "Token"
 msgstr "Token"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:22
 msgid "Treat directory read errors as non-fatal"
 msgstr "Treat directory read errors as non-fatal"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:31
 msgid "Treat file errors as non-fatal"
 msgstr "Treat file errors as non-fatal"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:40
 msgid "Treat unrecognized/unsupported directory entries as non-fatal errors."
 msgstr "Treat unrecognized/unsupported directory entries as non-fatal errors."
 
@@ -2045,7 +2048,7 @@ msgstr "Unique name for this notification profile"
 msgid "Unmount"
 msgstr "Unmount"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:111
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:118
 msgid "Upcoming Snapshots"
 msgstr "Upcoming Snapshots"
 
@@ -2067,7 +2070,7 @@ msgstr "Update items"
 msgid "Updated"
 msgstr "Updated"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:220
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
 msgid "Upload"
 msgstr "Upload"
 
@@ -2100,6 +2103,7 @@ msgstr "User"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:38
 #: src/policies/PoliciesPage.tsx:188
 #: src/repo/ConnectRepoSection.tsx:138
 #: src/repo/CreateRepoSection.tsx:203
@@ -2109,6 +2113,10 @@ msgstr "User"
 #: src/repo/sections/WebDavRepo.tsx:55
 msgid "Username"
 msgstr "Username"
+
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:26
+msgid "Value defined in policy"
+msgstr "Value defined in policy"
 
 #: src/snapshots/SnapshotsPage.tsx:286
 msgid "View Policy"
@@ -2128,7 +2136,7 @@ msgid "Webhook"
 msgstr "Webhook"
 
 #: src/policies/modals/PolicyModal/constants.ts:110
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:48
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:52
 msgid "Weekly"
 msgstr "Weekly"
 
@@ -2140,15 +2148,15 @@ msgstr "When a restore error occurs, attempt to continue instead of failing fast
 msgid "When enabled, will show snapshot statistics"
 msgstr "When enabled, will show snapshot statistics"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:39
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:41
 msgid "When set, ignore rules from the parent directory are ignored"
 msgstr "When set, ignore rules from the parent directory are ignored"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:72
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:76
 msgid "When set, the files larger than the specified size are ignored (specified in bytes)"
 msgstr "When set, the files larger than the specified size are ignored (specified in bytes)"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:55
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:58
 msgid "When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored"
 msgstr "When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored"
 
