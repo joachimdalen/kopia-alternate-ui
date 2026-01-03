@@ -29,6 +29,7 @@ import RelativeDate from "../core/RelativeDate";
 import type { SourceInfo, SourceStatus, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
+import { isPastDateTime } from "../utils/isPasteDateTime";
 import { onlyUnique } from "../utils/onlyUnique";
 import UploadingLoader from "./components/UploadingLoader";
 import NewSnapshotModal from "./modals/NewSnapshotModal";
@@ -36,7 +37,7 @@ import NewSnapshotModal from "./modals/NewSnapshotModal";
 function SnapshotsPage() {
   const { kopiaService } = useServerInstanceContext();
   const [show, setShow] = useDisclosure();
-  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
+  const { pageSize: tablePageSize, bytesStringBase2, locale } = useAppContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>("all");
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<SourceStatus>>({
@@ -246,7 +247,27 @@ function SnapshotsPage() {
             {
               accessor: "nextSnapshotTime",
               title: <Trans>Next snapshot</Trans>,
-              render: (item) => item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />
+              render: (item) => {
+                if (!item.nextSnapshotTime) return undefined;
+
+                return (
+                  <Group>
+                    <Text fz="sm">{item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />}</Text>
+                    {isPastDateTime(item.nextSnapshotTime, locale) && (
+                      <Badge
+                        color="yellow"
+                        variant="light"
+                        radius={3}
+                        size="sm"
+                        tt="none"
+                        leftSection={<IconClockExclamation size={12} />}
+                      >
+                        <Trans>Overdue</Trans>
+                      </Badge>
+                    )}
+                  </Group>
+                );
+              }
             },
             {
               accessor: "",

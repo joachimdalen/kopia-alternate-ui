@@ -53,23 +53,23 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
-#: src/snapshots/SnapshotsPage.tsx:133
+#: src/snapshots/SnapshotsPage.tsx:134
 msgid "1 minute"
 msgstr "1 minute"
 
-#: src/snapshots/SnapshotsPage.tsx:131
+#: src/snapshots/SnapshotsPage.tsx:132
 msgid "10 seconds"
 msgstr "10 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:130
+#: src/snapshots/SnapshotsPage.tsx:131
 msgid "3 seconds"
 msgstr "3 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:132
+#: src/snapshots/SnapshotsPage.tsx:133
 msgid "30 seconds"
 msgstr "30 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:134
+#: src/snapshots/SnapshotsPage.tsx:135
 msgid "5 minutes"
 msgstr "5 minutes"
 
@@ -127,7 +127,7 @@ msgstr "All"
 msgid "All Policies"
 msgstr "All Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:142
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
@@ -227,7 +227,7 @@ msgstr "Cache Miss"
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:83
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
 #: src/snapshots/modals/NewSnapshotModal.tsx:135
-#: src/snapshots/modals/TaskEstimationModal.tsx:114
+#: src/snapshots/modals/TaskEstimationModal.tsx:92
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -246,7 +246,7 @@ msgid "Change policy parameters"
 msgstr "Change policy parameters"
 
 #: src/policies/modals/PolicyCodeEditModal/PolicyCodeEditModal.tsx:32
-#: src/snapshots/modals/TaskEstimationModal.tsx:118
+#: src/snapshots/modals/TaskEstimationModal.tsx:96
 msgid "Close"
 msgstr "Close"
 
@@ -500,7 +500,7 @@ msgstr "Disable ZIP compression"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:188
 #: src/repo/CreateRepoSection.tsx:182
-#: src/snapshots/SnapshotsPage.tsx:129
+#: src/snapshots/SnapshotsPage.tsx:130
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -755,7 +755,7 @@ msgstr "Essential (must succeed; default behavior), optional (failures are toler
 msgid "Estimate"
 msgstr "Estimate"
 
-#: src/snapshots/modals/TaskEstimationModal.tsx:73
+#: src/snapshots/modals/TaskEstimationModal.tsx:66
 msgid "Estimate snapshot"
 msgstr "Estimate snapshot"
 
@@ -1030,7 +1030,7 @@ msgstr "Kopia Repository Server"
 msgid "Last Modification"
 msgstr "Last Modification"
 
-#: src/snapshots/SnapshotsPage.tsx:243
+#: src/snapshots/SnapshotsPage.tsx:244
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
@@ -1078,7 +1078,7 @@ msgstr "Local Directory or NAS"
 msgid "Local Path Policies"
 msgstr "Local Path Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:143
+#: src/snapshots/SnapshotsPage.tsx:144
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
@@ -1122,7 +1122,7 @@ msgstr "Login"
 msgid "Login to {instanceName}"
 msgstr "Login to {instanceName}"
 
-#: src/tasks/components/TaskLogs.tsx:41
+#: src/tasks/components/TaskLogs.tsx:34
 msgid "Logs"
 msgstr "Logs"
 
@@ -1253,7 +1253,7 @@ msgid "New snapshot"
 msgstr "New snapshot"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:161
+#: src/snapshots/SnapshotsPage.tsx:162
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
@@ -1261,7 +1261,7 @@ msgstr "New Snapshot"
 msgid "Next"
 msgstr "Next"
 
-#: src/snapshots/SnapshotsPage.tsx:248
+#: src/snapshots/SnapshotsPage.tsx:249
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
@@ -1383,6 +1383,10 @@ msgstr "Open in large edit"
 msgid "Other"
 msgstr "Other"
 
+#: src/snapshots/SnapshotsPage.tsx:265
+msgid "Overdue"
+msgstr "Overdue"
+
 #: src/repo/sections/AmazonS3Repo.tsx:43
 #: src/repo/sections/AmazonS3Repo.tsx:96
 msgid "Override Region"
@@ -1410,7 +1414,7 @@ msgstr "Overwrite Files"
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
-#: src/snapshots/SnapshotsPage.tsx:216
+#: src/snapshots/SnapshotsPage.tsx:217
 msgid "Owner"
 msgstr "Owner"
 
@@ -1446,7 +1450,7 @@ msgstr "Paste JSON credentials here"
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
 #: src/repo/sections/SFTPServerRepo.tsx:189
-#: src/snapshots/SnapshotsPage.tsx:195
+#: src/snapshots/SnapshotsPage.tsx:196
 msgid "Path"
 msgstr "Path"
 
@@ -1464,7 +1468,7 @@ msgstr "Path to known_hosts File"
 msgid "Path to snapshot"
 msgstr "Path to snapshot"
 
-#: src/snapshots/SnapshotsPage.tsx:296
+#: src/snapshots/SnapshotsPage.tsx:317
 msgid "Pending"
 msgstr "Pending"
 
@@ -1556,12 +1560,12 @@ msgstr "Records per page"
 #: src/policies/PoliciesPage.tsx:172
 #: src/snapshot-directory/SnapshotDirectory.tsx:142
 #: src/snapshot-history/SnapshotHistory.tsx:108
-#: src/snapshots/SnapshotsPage.tsx:168
+#: src/snapshots/SnapshotsPage.tsx:169
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/snapshots/SnapshotsPage.tsx:224
+#: src/snapshots/SnapshotsPage.tsx:225
 msgid "Remote"
 msgstr "Remote"
 
@@ -1592,7 +1596,7 @@ msgstr "Repository is connected as read-only"
 msgid "Repository Password"
 msgstr "Repository Password"
 
-#: src/snapshots/SnapshotsPage.tsx:109
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
@@ -1774,7 +1778,7 @@ msgstr "Show all snapshots by default"
 #: src/snapshot-directory/SnapshotDirectory.tsx:215
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:201
-#: src/snapshots/SnapshotsPage.tsx:234
+#: src/snapshots/SnapshotsPage.tsx:235
 msgid "Size"
 msgstr "Size"
 
@@ -1835,7 +1839,7 @@ msgstr "Snapshot is mounted at the following path"
 msgid "Snapshot now"
 msgstr "Snapshot now"
 
-#: src/snapshots/SnapshotsPage.tsx:272
+#: src/snapshots/SnapshotsPage.tsx:293
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
@@ -1859,7 +1863,7 @@ msgstr "Snapshot(s) deleted"
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:87
-#: src/snapshots/SnapshotsPage.tsx:122
+#: src/snapshots/SnapshotsPage.tsx:123
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -1923,7 +1927,7 @@ msgstr "Switched instance"
 msgid "Symlinks"
 msgstr "Symlinks"
 
-#: src/snapshots/SnapshotsPage.tsx:177
+#: src/snapshots/SnapshotsPage.tsx:178
 msgid "Sync"
 msgstr "Sync"
 
@@ -1949,7 +1953,7 @@ msgstr "The repository description was successfully updated"
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
-#: src/snapshots/SnapshotsPage.tsx:110
+#: src/snapshots/SnapshotsPage.tsx:111
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
@@ -2118,7 +2122,7 @@ msgstr "Username"
 msgid "Value defined in policy"
 msgstr "Value defined in policy"
 
-#: src/snapshots/SnapshotsPage.tsx:286
+#: src/snapshots/SnapshotsPage.tsx:307
 msgid "View Policy"
 msgstr "View Policy"
 
