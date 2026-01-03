@@ -10,6 +10,7 @@ import {
   Container,
   Group,
   Stack,
+  Text,
   Title,
   Tooltip
 } from "@mantine/core";
@@ -150,6 +151,7 @@ function SnapshotHistory() {
               accessor: "startTime",
               title: t`Start Time`,
               sortable: true,
+              width: 200,
               render: (item) => (
                 <Anchor
                   component={Link}
@@ -163,18 +165,28 @@ function SnapshotHistory() {
               )
             },
             {
-              accessor: "description",
-              title: t`Description`
-            },
-            {
               accessor: "rootID",
               title: t`Root`,
-              render: (item) => <Code>{item.rootID}</Code>
+              width: 300,
+              render: (item) => (
+                <Stack>
+                  <div>
+                    <Code fz="xs">{item.rootID}</Code>
+                  </div>
+                  {item.description && (
+                    <Tooltip label={item.description}>
+                      <Text truncate fz="xs">
+                        {item.description}
+                      </Text>
+                    </Tooltip>
+                  )}
+                </Stack>
+              )
             },
             {
               accessor: "retention",
               title: t`Retention`,
-              width: 600,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.lg})`,
               render: (item) => {
                 return (
                   <Group gap="xs">
@@ -220,31 +232,6 @@ function SnapshotHistory() {
               sortable: true,
               textAlign: "center"
             },
-            // {
-            //   accessor: "",
-            //   title: "",
-            //   width: 300,
-            //   render: (item) => {
-            //     return (
-            //       <Group justify="end">
-            //         <Button
-            //           td="none"
-            //           size="xs"
-            //           leftSection={<IconFileText size={14} />}
-            //           variant="subtle"
-            //           onClick={() =>
-            //             setItemAction({
-            //               item,
-            //               action: "description"
-            //             })
-            //           }
-            //         >
-            //           <Trans>Update description</Trans>
-            //         </Button>
-            //       </Group>
-            //     );
-            //   }
-            // },
             {
               accessor: "actions",
               title: (
@@ -252,7 +239,7 @@ function SnapshotHistory() {
                   <IconClick size={16} />
                 </Center>
               ),
-              width: "0%", // 👈 use minimal width
+              width: "0%",
               textAlign: "right",
               render: (item) => (
                 <Group gap={4} justify="right" wrap="nowrap">
