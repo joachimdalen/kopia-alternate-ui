@@ -3,9 +3,9 @@ import { Card, CardSection, Group, LoadingOverlay, Text } from "@mantine/core";
 import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
-import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
-import type { Task } from "../../core/types";
+import type { LogEntry, Task } from "../../core/types";
+import { formatLogLine } from "../../utils/formatLogLine";
 
 type Props = {
   task: Task;
@@ -13,14 +13,7 @@ type Props = {
 
 export default function TaskLogs({ task }: Props) {
   const { kopiaService } = useServerInstanceContext();
-  const [data, setData] = useState<
-    {
-      level: number;
-      ts: number;
-      msg: string;
-      mod: string;
-    }[]
-  >([]);
+  const [data, setData] = useState<LogEntry[]>([]);
   const taskAction = useApiRequest({
     action: (taskId?: string) => kopiaService.getTaskLogs(taskId!),
     onReturn(resp) {
@@ -53,17 +46,7 @@ export default function TaskLogs({ task }: Props) {
             height="500"
             selectableLines
             wrapLines
-            text={data
-              .map((l) => {
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                const { level, ts, msg, mod, ...rest } = l;
-                const parts = JSON.stringify(rest);
-                const timespan = formatTimestamp(new Date(ts * 1000));
-                const message = msg;
-                const partText = parts === "{}" ? "" : parts;
-                return `\x1b[34m ${timespan}\x1b[0m : ${message} \x1b[35m ${partText}\x1b[0m`;
-              })
-              .join(` \n`)}
+            text={data.map(formatLogLine).join(` \n`)}
           />
         )}
       </CardSection>

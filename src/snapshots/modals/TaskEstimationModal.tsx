@@ -5,14 +5,14 @@ import { LazyLog } from "@melloware/react-logviewer";
 import { useEffect, useState } from "react";
 import { useServerInstanceContext } from "../../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../../core/ErrorAlert/ErrorAlert";
-import { formatTimestamp } from "../../core/formatTimestamp";
 import useApiRequest from "../../core/hooks/useApiRequest";
 import { useInterval } from "../../core/hooks/useInterval";
-import { type EstimateSnapshotRequest, type Policy, type SourceInfo, type Task } from "../../core/types";
+import { type EstimateSnapshotRequest, type LogEntry, type Policy, type SourceInfo, type Task } from "../../core/types";
 import modalBaseStyles from "../../styles/modalStyles";
 import modalClasses from "../../styles/modals.module.css";
 import TaskCounterGrid from "../../tasks/components/TaskCounterGrid";
 import TaskStatusDisplay from "../../tasks/components/TaskStatusDisplay";
+import { formatLogLine } from "../../utils/formatLogLine";
 
 type Props = {
   policy: Policy;
@@ -23,14 +23,7 @@ type Props = {
 export default function TaskEstimationModal({ policy, source, onCancel }: Props) {
   const { kopiaService } = useServerInstanceContext();
   const [task, setTask] = useState<Task>();
-  const [logs, setLogs] = useState<
-    {
-      level: number;
-      ts: number;
-      msg: string;
-      mod: string;
-    }[]
-  >([]);
+  const [logs, setLogs] = useState<LogEntry[]>([]);
   const estimateAction = useApiRequest({
     action: (data?: EstimateSnapshotRequest) => kopiaService.estimateSnapshot(data!),
     onReturn: (t) => {
@@ -87,22 +80,7 @@ export default function TaskEstimationModal({ policy, source, onCancel }: Props)
             {task.counters !== null && <TaskCounterGrid task={task} showZeroCounters={false} gridSize={3} />}
             {logs.length > 0 && (
               <Paper withBorder>
-                <LazyLog
-                  extraLines={1}
-                  height="250"
-                  wrapLines
-                  text={logs
-                    .map((l) => {
-                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                      const { level, ts, msg, mod, ...rest } = l;
-                      const parts = JSON.stringify(rest);
-                      const timespan = formatTimestamp(new Date(ts * 1000));
-                      const message = msg;
-                      const partText = parts === "{}" ? "" : parts;
-                      return `\x1b[34m ${timespan}\x1b[0m : ${message} \x1b[35m ${partText}\x1b[0m`;
-                    })
-                    .join(` \n`)}
-                />
+                <LazyLog extraLines={1} height="250" wrapLines text={logs.map(formatLogLine).join(` \n`)} />
               </Paper>
             )}
           </>

@@ -637,3 +637,9 @@ export type MountSnapshotRequest = {
 export type MountsResponse = {
   items: MountedSnapshot[];
 };
+export type LogEntry = {
+  level: number;
+  ts: number;
+  msg: string;
+  mod: string;
+};
