@@ -1,6 +1,18 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { Anchor, Badge, Button, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Anchor,
+  Badge,
+  Button,
+  Container,
+  Divider,
+  Group,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title
+} from "@mantine/core";
 import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import {
@@ -10,7 +22,9 @@ import {
   IconEye,
   IconFileDatabase,
   IconFolderOpen,
-  IconRefreshAlert
+  IconList,
+  IconRefreshAlert,
+  IconTable
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
@@ -30,6 +44,7 @@ import type { SourceInfo, SourceStatus, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
 import { onlyUnique } from "../utils/onlyUnique";
+import SnapshotCard from "./components/SnapshotCard/SnapshotCard";
 import UploadingLoader from "./components/UploadingLoader";
 import NewSnapshotModal from "./modals/NewSnapshotModal";
 
@@ -39,6 +54,7 @@ function SnapshotsPage() {
   const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>("all");
+  const [view, setView] = useState<"table" | "list">("table");
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<SourceStatus>>({
     columnAccessor: "source.path",
     direction: "asc"
@@ -176,137 +192,160 @@ function SnapshotsPage() {
             >
               <Trans>Sync</Trans>
             </Button>
+            <ActionIcon.Group>
+              <ActionIcon variant="default" size="lg" aria-label="Table" onClick={() => setView("table")}>
+                <IconWrapper icon={IconTable} size={20} />
+              </ActionIcon>
+              <ActionIcon variant="default" size="lg" aria-label="List" onClick={() => setView("list")}>
+                <IconWrapper icon={IconList} size={20} />
+              </ActionIcon>
+            </ActionIcon.Group>
           </Group>
         </Group>
+
         <Divider />
         <ErrorAlert error={intError} />
-        <DataGrid
-          records={visibleData}
-          loading={loadAction.loading && loadAction.loadingKey === "loading"}
-          idAccessor="source.path"
-          noRecordsText="No snapshots taken"
-          noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
-          pageSize={tablePageSize}
-          sortStatus={sortStatus}
-          onSortStatusChange={setSortStatus}
-          columns={[
-            {
-              accessor: "source.path",
-              title: <Trans>Path</Trans>,
-              sortable: true,
-              render: (item) => (
-                <Group gap="5">
-                  <IconWrapper icon={IconFolderOpen} color="yellow" size={18} />
-                  <Anchor
-                    component={Link}
-                    to={{
-                      pathname: "/snapshots/single-source",
-                      search: `?userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}`
-                    }}
-                    td="none"
-                    fz="sm"
-                  >
-                    {item.source.path}
-                  </Anchor>
-                </Group>
-              )
-            },
-            {
-              accessor: "owner",
-              title: <Trans>Owner</Trans>,
-              sortable: true,
-              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
-              render: (item) =>
-                item.status === "REMOTE" ? (
-                  <Group gap="xs" align="center">
-                    <Text fz="sm">{`${item.source.userName}@${item.source.host}`}</Text>
-                    <Badge size="sm" radius={5} tt="none" variant="light" color="grape">
-                      <Trans>Remote</Trans>
-                    </Badge>
+        {view === "table" ? (
+          <DataGrid
+            records={visibleData}
+            loading={loadAction.loading && loadAction.loadingKey === "loading"}
+            idAccessor="source.path"
+            noRecordsText="No snapshots taken"
+            noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
+            pageSize={tablePageSize}
+            sortStatus={sortStatus}
+            onSortStatusChange={setSortStatus}
+            columns={[
+              {
+                accessor: "source.path",
+                title: <Trans>Path</Trans>,
+                sortable: true,
+                render: (item) => (
+                  <Group gap="5">
+                    <IconWrapper icon={IconFolderOpen} color="yellow" size={18} />
+                    <Anchor
+                      component={Link}
+                      to={{
+                        pathname: "/snapshots/single-source",
+                        search: `?userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}`
+                      }}
+                      td="none"
+                      fz="sm"
+                    >
+                      {item.source.path}
+                    </Anchor>
                   </Group>
-                ) : (
-                  `${item.source.userName}@${item.source.host}`
                 )
-            },
-            {
-              accessor: "lastSnapshot.rootEntry.summ.size",
-              sortable: true,
-              title: <Trans>Size</Trans>,
-              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
-              render: (item) =>
-                item.lastSnapshot?.rootEntry?.summ?.size &&
-                sizeDisplayName(item.lastSnapshot.rootEntry.summ.size, bytesStringBase2)
-            },
-            {
-              accessor: "lastSnapshot.startTime",
-              sortable: true,
-              title: <Trans>Last Snapshot</Trans>,
-              render: (item) => item.lastSnapshot && <RelativeDate value={item.lastSnapshot.startTime} />
-            },
-            {
-              accessor: "nextSnapshotTime",
-              title: <Trans>Next snapshot</Trans>,
-              render: (item) => item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />
-            },
-            {
-              accessor: "",
-              title: "",
-              width: 300,
-              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.sm})`,
-              render: (item) => {
-                switch (item.status) {
-                  case "IDLE":
-                  case "PAUSED":
-                  case "REMOTE": {
-                    return (
-                      <Group justify="end">
-                        {item.status !== "REMOTE" && (
+              },
+              {
+                accessor: "owner",
+                title: <Trans>Owner</Trans>,
+                sortable: true,
+                visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
+                render: (item) =>
+                  item.status === "REMOTE" ? (
+                    <Group gap="xs" align="center">
+                      <Text fz="sm">{`${item.source.userName}@${item.source.host}`}</Text>
+                      <Badge size="sm" radius={5} tt="none" variant="light" color="grape">
+                        <Trans>Remote</Trans>
+                      </Badge>
+                    </Group>
+                  ) : (
+                    `${item.source.userName}@${item.source.host}`
+                  )
+              },
+              {
+                accessor: "lastSnapshot.rootEntry.summ.size",
+                sortable: true,
+                title: <Trans>Size</Trans>,
+                visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.md})`,
+                render: (item) =>
+                  item.lastSnapshot?.rootEntry?.summ?.size &&
+                  sizeDisplayName(item.lastSnapshot.rootEntry.summ.size, bytesStringBase2)
+              },
+              {
+                accessor: "lastSnapshot.startTime",
+                sortable: true,
+                title: <Trans>Last Snapshot</Trans>,
+                render: (item) => item.lastSnapshot && <RelativeDate value={item.lastSnapshot.startTime} />
+              },
+              {
+                accessor: "nextSnapshotTime",
+                title: <Trans>Next snapshot</Trans>,
+                render: (item) => item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />
+              },
+              {
+                accessor: "",
+                title: "",
+                width: 300,
+                visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.sm})`,
+                render: (item) => {
+                  switch (item.status) {
+                    case "IDLE":
+                    case "PAUSED":
+                    case "REMOTE": {
+                      return (
+                        <Group justify="end">
+                          {item.status !== "REMOTE" && (
+                            <Button
+                              size="xs"
+                              leftSection={<IconArchive size={14} />}
+                              variant="subtle"
+                              color="green"
+                              loading={newSnapshotActions.loading}
+                              onClick={() => newSnapshotActions.execute(item.source)}
+                            >
+                              <Trans>Snapshot Now</Trans>
+                            </Button>
+                          )}
                           <Button
+                            component={Link}
+                            to={{
+                              pathname: "/policies",
+                              search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
+                            }}
+                            td="none"
                             size="xs"
-                            leftSection={<IconArchive size={14} />}
+                            leftSection={<IconEye size={14} />}
                             variant="subtle"
-                            color="green"
-                            loading={newSnapshotActions.loading}
-                            onClick={() => newSnapshotActions.execute(item.source)}
                           >
-                            <Trans>Snapshot Now</Trans>
+                            <Trans>View Policy</Trans>
                           </Button>
-                        )}
-                        <Button
-                          component={Link}
-                          to={{
-                            pathname: "/policies",
-                            search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
-                          }}
-                          td="none"
-                          size="xs"
-                          leftSection={<IconEye size={14} />}
-                          variant="subtle"
-                        >
-                          <Trans>View Policy</Trans>
-                        </Button>
-                      </Group>
-                    );
+                        </Group>
+                      );
+                    }
+                    case "PENDING":
+                      return (
+                        <Group gap={5}>
+                          <IconWrapper icon={IconClockExclamation} color="yellow" />
+                          <Text fz="xs" c="yellow">
+                            <Trans>Pending</Trans>
+                          </Text>
+                        </Group>
+                      );
+                    case "UPLOADING": {
+                      return <UploadingLoader data={item.upload} bytesStringBase2={bytesStringBase2} />;
+                    }
+                    default:
+                      return item.status;
                   }
-                  case "PENDING":
-                    return (
-                      <Group gap={5}>
-                        <IconWrapper icon={IconClockExclamation} color="yellow" />
-                        <Text fz="xs" c="yellow">
-                          <Trans>Pending</Trans>
-                        </Text>
-                      </Group>
-                    );
-                  case "UPLOADING": {
-                    return <UploadingLoader data={item.upload} bytesStringBase2={bytesStringBase2} />;
-                  }
-                  default:
-                    return item.status;
                 }
               }
-            }
-          ]}
-        />
+            ]}
+          />
+        ) : (
+          <SimpleGrid cols={4}>
+            {visibleData.map((item) => (
+              <SnapshotCard
+                key={item.source.path}
+                item={item}
+                bytesStringBase2={bytesStringBase2}
+                snapshotLoading={newSnapshotActions.loading}
+                onTakeSnapshot={() => newSnapshotActions.execute(item.source)}
+              />
+            ))}
+          </SimpleGrid>
+        )}
       </Stack>
       {show && (
         <NewSnapshotModal

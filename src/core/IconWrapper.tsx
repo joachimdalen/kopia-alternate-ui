@@ -12,7 +12,18 @@ export default function IconWrapper({
   size?: number;
   tooltip?: string;
 }) {
-  const icn = <Icon height={size} width={size} color={color && `var(--mantine-color-${color}-5)`} stroke={2} />;
+  const icn = (
+    <Icon
+      height={size}
+      width={size}
+      color={color && `var(--mantine-color-${color}-5)`}
+      stroke={2}
+      style={{
+        minWidth: size,
+        minHeight: size
+      }}
+    />
+  );
   if (tooltip) return <Tooltip label={tooltip}>{icn}</Tooltip>;
   return icn;
 }
