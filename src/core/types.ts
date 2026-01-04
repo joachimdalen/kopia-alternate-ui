@@ -642,4 +642,5 @@ export type LogEntry = {
   ts: number;
   msg: string;
   mod: string;
+  [key: string]: string | number | object;
 };
