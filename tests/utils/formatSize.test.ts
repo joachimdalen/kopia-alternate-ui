@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import sizeDisplayName from "../../utils/formatSize";
+import sizeDisplayName from "../../src/utils/formatSize";
 
 describe("sizeDisplayName", () => {
   test("formats sizes in base 10", () => {
@@ -10,7 +10,7 @@ describe("sizeDisplayName", () => {
     expect(sizeDisplayName(1000000, false)).toBe("1 MB");
     expect(sizeDisplayName(1200000000, false)).toBe("1.2 GB");
   });
-   test("formats sizes in base 2", () => {
+  test("formats sizes in base 2", () => {
     expect(sizeDisplayName(0, true)).toBe("0 B");
     expect(sizeDisplayName(512, true)).toBe("512 B");
     expect(sizeDisplayName(1024, true)).toBe("1 KiB");

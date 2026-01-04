@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { parseColorScheme } from "../../utils/parseColorScheme";
+import { parseColorScheme } from "../../src/utils/parseColorScheme";
 
 describe("parseColorScheme", () => {
   test("returns light when unknown", () => {

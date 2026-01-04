@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import TaskKindDisplay from "../../../tasks/components/TaskKindDisplay";
+import TaskKindDisplay from "../../../src/tasks/components/TaskKindDisplay";
 import { render } from "../../testing-utils";
 
 describe("TaskKindDisplay", () => {
