@@ -99,7 +99,7 @@ msgstr "Aktiv"
 msgid "Add"
 msgstr "Legg til"
 
-#: src/snapshot-history/SnapshotHistory.tsx:190
+#: src/snapshot-history/SnapshotHistory.tsx:201
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Legg til nål for å forhindre sletting av øyeblikksbilde"
 
@@ -443,7 +443,6 @@ msgstr "Utdatert"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:155
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
@@ -482,7 +481,7 @@ msgid "Directory to create policy for"
 msgstr "Mappe som strategi skal opprettes for"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:229
-#: src/snapshot-history/SnapshotHistory.tsx:214
+#: src/snapshot-history/SnapshotHistory.tsx:225
 msgid "Dirs"
 msgstr "Mapper"
 
@@ -820,7 +819,7 @@ msgstr "Fil øyeblikksbilde"
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
 #: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
-#: src/snapshot-history/SnapshotHistory.tsx:208
+#: src/snapshot-history/SnapshotHistory.tsx:219
 msgid "Files"
 msgstr "Filer"
 
@@ -1616,11 +1615,11 @@ msgstr "Gjenopprett filtillatelser"
 msgid "Restore files and directories"
 msgstr "Gjenopprett filer og mapper"
 
-#: src/snapshot-history/SnapshotHistory.tsx:164
+#: src/snapshot-history/SnapshotHistory.tsx:175
 msgid "Retention"
 msgstr "Bevaring"
 
-#: src/snapshot-history/SnapshotHistory.tsx:159
+#: src/snapshot-history/SnapshotHistory.tsx:156
 msgid "Root"
 msgstr "Root"
 
@@ -1773,7 +1772,7 @@ msgstr "Vis alle øyeblikksbilder som standard"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:215
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
-#: src/snapshot-history/SnapshotHistory.tsx:201
+#: src/snapshot-history/SnapshotHistory.tsx:212
 #: src/snapshots/SnapshotsPage.tsx:235
 msgid "Size"
 msgstr "Størrelse"
@@ -1851,7 +1850,7 @@ msgstr "Øyeblikksbilde-planer ved bruk av UNIX crontab-syntaks:"
 msgid "Snapshot unmounted"
 msgstr "Øyeblikksbilde demontert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:283
+#: src/snapshot-history/SnapshotHistory.tsx:294
 msgid "Snapshot(s) deleted"
 msgstr "Øyeblikksbilde(r) slettet"
 
@@ -1953,7 +1952,7 @@ msgstr "Oppbevaringsstedet ble koblet fra"
 msgid "The repository was synchronized successfully"
 msgstr "Oppbevaringsstedet ble synkronisert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:284
+#: src/snapshot-history/SnapshotHistory.tsx:295
 msgid "The snapshot(s) was delete successfully"
 msgstr "øyeblikksbilde(ne) ble slettet"
 
@@ -2057,7 +2056,7 @@ msgid "Update"
 msgstr "Oppdater"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:237
+#: src/snapshot-history/SnapshotHistory.tsx:248
 msgid "Update description"
 msgstr "Oppdater beskrivelse"
 
