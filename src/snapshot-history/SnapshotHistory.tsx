@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Title, Tooltip } from "@mantine/core";
+import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Text, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -138,6 +138,7 @@ function SnapshotHistory() {
               accessor: "startTime",
               title: t`Start Time`,
               sortable: true,
+              width: 200,
               render: (item) => (
                 <Anchor
                   component={Link}
@@ -151,18 +152,28 @@ function SnapshotHistory() {
               )
             },
             {
-              accessor: "description",
-              title: t`Description`
-            },
-            {
               accessor: "rootID",
               title: t`Root`,
-              render: (item) => <Code>{item.rootID}</Code>
+              width: 300,
+              render: (item) => (
+                <Stack>
+                  <div>
+                    <Code fz="xs">{item.rootID}</Code>
+                  </div>
+                  {item.description && (
+                    <Tooltip label={item.description}>
+                      <Text truncate fz="xs">
+                        {item.description}
+                      </Text>
+                    </Tooltip>
+                  )}
+                </Stack>
+              )
             },
             {
               accessor: "retention",
               title: t`Retention`,
-              width: 600,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.lg})`,
               render: (item) => {
                 return (
                   <Group justify="space-between" wrap="nowrap">
