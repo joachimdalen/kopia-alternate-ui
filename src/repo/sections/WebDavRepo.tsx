@@ -3,23 +3,47 @@ import { Trans } from "@lingui/react/macro";
 import { Group, PasswordInput, Stack, Text, TextInput } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { IconFile } from "@tabler/icons-react";
+import { ObjectSchema, object, string } from "yup";
 import IconWrapper from "../../core/IconWrapper";
-import type { RepoConfigurationForm, WebDavRepoConfig } from "../types";
+import type { RepoConfigurationForm } from "../types";
 
 type Props = {
   form: UseFormReturnType<RepoConfigurationForm<WebDavRepoConfig>>;
 };
 
+export type WebDavRepoConfig = {
+  url: string;
+  username?: string;
+  password?: string;
+};
+
+export const webDavRepoConfigDefault: WebDavRepoConfig = {
+  url: "",
+  username: "",
+  password: ""
+};
+export const webDavRepoConfigSchema = (): ObjectSchema<WebDavRepoConfig> =>
+  object({
+    url: string().url().required().label(t`WebDAV Server URL`),
+    username: string().optional().label(t`Username`),
+    password: string().optional().label(t`Password`)
+  });
+
+export function WebDavRepoHeader() {
+  return (
+    <Group>
+      <IconWrapper icon={IconFile} size={32} color="indigo" />
+      <Text fw="bold">
+        <Trans>WebDAV Server</Trans>
+      </Text>
+    </Group>
+  );
+}
+
 function WebDavRepo({ form }: Props) {
   return (
     <Stack>
-      <Group>
-        <IconWrapper icon={IconFile} size={32} color="indigo" />
-        <Text fw="bold">
-          <Trans>WebDAV Server</Trans>
-        </Text>
-      </Group>
-
+      <WebDavRepoHeader />
       <Stack>
         <TextInput
           label={t`WebDAV Server URL`}

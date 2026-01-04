@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@lingui/react": "^5.7.0",
+    "@mantine/charts": "^8.3.10",
     "@mantine/core": "^8.3.5",
     "@mantine/dates": "^8.3.5",
     "@mantine/form": "^8.3.5",
@@ -31,6 +32,7 @@
     "country-flag-icons": "^1.6.4",
     "dayjs": "^1.11.18",
     "lodash.merge": "^4.6.2",
+    "lodash.orderby": "^4.6.0",
     "lodash.sortby": "^4.7.0",
     "mantine-datatable": "^8.2.0",
     "mantine-form-yup-resolver": "^2.0.0",
@@ -38,6 +40,7 @@
     "react-dom": "^19.1.1",
     "react-router": "^7.9.4",
     "react-router-dom": "^7.9.4",
+    "recharts": "^3.6.0",
     "yup": "^1.7.1"
   },
   "devDependencies": {
@@ -50,6 +53,7 @@
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash.merge": "^4.6.9",
+    "@types/lodash.orderby": "^4.6.9",
     "@types/lodash.sortby": "^4.7.9",
     "@types/node": "^24.6.0",
     "@types/react": "^19.2.7",

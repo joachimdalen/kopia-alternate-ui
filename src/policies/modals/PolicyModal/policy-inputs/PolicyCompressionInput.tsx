@@ -4,7 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useServerInstanceContext } from "../../../../core/context/ServerInstanceContext";
 import useApiRequest from "../../../../core/hooks/useApiRequest";
 import type { AlgorithmsList } from "../../../../core/types";
+import { getEffectiveValue } from "../../../policiesUtil";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -14,10 +16,19 @@ type Props = {
   effective?: string;
 } & PolicyInput;
 
-export default function PolicyCompressionInput({ id, title, description, form, formKey, effective }: Props) {
+export default function PolicyCompressionInput({
+  id,
+  title,
+  description,
+  form,
+  formKey,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const { kopiaService } = useServerInstanceContext();
   const inputProps = form.getInputProps(formKey);
-  const effectiveValue = inputProps.value || effective;
+  const effectiveValue = getEffectiveValue(inputProps.value, effective);
+  const isDefined = inputProps.value || effective;
   const [data, setData] = useState<AlgorithmsList>();
   const { execute } = useApiRequest({
     action: () => kopiaService.getAlgorithms(),
@@ -25,6 +36,7 @@ export default function PolicyCompressionInput({ id, title, description, form, f
       setData(resp);
     }
   });
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     execute();
   }, []);
@@ -58,12 +70,15 @@ export default function PolicyCompressionInput({ id, title, description, form, f
   }, [data]);
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== "" && inputProps.value !== "none"}
+      />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <Select
             label={t`Defined`}
-            description={t`This policy`}
             data={algorithmOptions}
             placeholder={t`Select compression algorithm`}
             defaultValue=""
@@ -72,13 +87,15 @@ export default function PolicyCompressionInput({ id, title, description, form, f
             {...inputProps}
           />
           <Select
-            description={t`Defined in global policy`}
-            label={t`Effective`}
+            label={
+              effectiveDefinedIn && isDefined ? <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} /> : t`Effective`
+            }
             data={algorithmOptions}
             withCheckIcon={false}
             allowDeselect={false}
             readOnly
             value={effectiveValue}
+            variant="filled"
           />
         </Group>
       </AccordionPanel>

@@ -66,9 +66,9 @@ function AppearanceSection() {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     loadPreferences.execute(undefined, "loading");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function submitForm(values: Preferences) {

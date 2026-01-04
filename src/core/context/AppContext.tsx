@@ -1,6 +1,8 @@
 import { useLingui } from "@lingui/react/macro";
 import { LoadingOverlay, useMantineColorScheme } from "@mantine/core";
+import { useLocalStorage } from "@mantine/hooks";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { parseColorScheme } from "../../utils/parseColorScheme";
 import useApiRequest from "../hooks/useApiRequest";
 import type { Preferences, Status } from "../types";
@@ -9,7 +11,9 @@ import { useServerInstanceContext } from "./ServerInstanceContext";
 type ContextState = Preferences & {
   reloadPreferences: () => void;
   reloadStatus: () => void;
+  setShowStatistics: (value: boolean) => void;
   repoStatus: Status;
+  showStatistics: boolean;
 };
 const initialState: ContextState = {
   bytesStringBase2: true,
@@ -19,10 +23,13 @@ const initialState: ContextState = {
   locale: "en",
   pageSize: 20,
   theme: "light",
+  showStatistics: true,
   // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   reloadPreferences: () => {},
   // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
   reloadStatus: () => {},
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: is not set in inital state
+  setShowStatistics: () => {},
   repoStatus: {
     connected: false,
     description: "Unknown"
@@ -38,6 +45,9 @@ export function AppContextProvider({ children }: AppContextProps) {
   const [data, setData] = useState<Preferences>(initialState);
   const [status, setStatus] = useState<Status>();
   const { setColorScheme, colorScheme } = useMantineColorScheme();
+  const [intShowStats, setShowStatistics] = useLocalStorage({ key: "kopia-alt-ui-snapshot-stats", defaultValue: true });
+
+  const navigate = useNavigate();
   const loadPreferences = useApiRequest({
     showErrorAsNotification: true,
     action: () => kopiaService.getPreferences(),
@@ -62,18 +72,24 @@ export function AppContextProvider({ children }: AppContextProps) {
     action: () => kopiaService.getStatus(),
     onReturn(resp) {
       setStatus(resp);
+      if (!resp.connected) {
+        navigate("/repo");
+      }
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     loadPreferences.execute(undefined, "loading");
     loadStatus.execute(undefined, "loading");
   }, [kopiaService]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: implicit reference
   const reloadPrefs = useCallback(() => {
     loadPreferences.execute();
   }, [kopiaService]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: implicit reference
   const reloadStatus = useCallback(() => {
     loadStatus.execute();
   }, [kopiaService]);
@@ -91,7 +107,9 @@ export function AppContextProvider({ children }: AppContextProps) {
           ({
             connected: false,
             description: "Unknown"
-          } as Status)
+          } as Status),
+        showStatistics: intShowStats,
+        setShowStatistics
       }}
     >
       {loading ? <LoadingOverlay visible /> : children}

@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Accordion, ScrollAreaAutosize, TabsPanel } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyInheritYesNoPolicyInput from "../policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
 import type { PolicyForm } from "../types";
@@ -9,9 +9,10 @@ import type { PolicyForm } from "../types";
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
+  definition?: PolicyDefinition;
 };
 
-export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
+export default function SnapshotRetentionTab({ form, resolvedValue, definition }: Props) {
   return (
     <TabsPanel value="snapshot-retention" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -24,6 +25,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepLatest"
             effective={resolvedValue?.retention?.keepLatest}
+            effectiveDefinedIn={definition?.retention?.keepLatest}
           />
           <PolicyNumberInput
             id="hourly"
@@ -33,6 +35,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepHourly"
             effective={resolvedValue?.retention?.keepHourly}
+            effectiveDefinedIn={definition?.retention?.keepHourly}
           />
           <PolicyNumberInput
             id="daily"
@@ -42,6 +45,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepDaily"
             effective={resolvedValue?.retention?.keepDaily}
+            effectiveDefinedIn={definition?.retention?.keepDaily}
           />
           <PolicyNumberInput
             id="weekly"
@@ -51,6 +55,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepWeekly"
             effective={resolvedValue?.retention?.keepWeekly}
+            effectiveDefinedIn={definition?.retention?.keepWeekly}
           />
           <PolicyNumberInput
             id="monthly"
@@ -60,6 +65,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepMonthly"
             effective={resolvedValue?.retention?.keepMonthly}
+            effectiveDefinedIn={definition?.retention?.keepMonthly}
           />
           <PolicyNumberInput
             id="annual"
@@ -69,6 +75,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.keepAnnual"
             effective={resolvedValue?.retention?.keepAnnual}
+            effectiveDefinedIn={definition?.retention?.keepAnnual}
           />
           <PolicyInheritYesNoPolicyInput
             id="ignore-idential-snapshots"
@@ -77,6 +84,7 @@ export default function SnapshotRetentionTab({ form, resolvedValue }: Props) {
             form={form}
             formKey="retention.ignoreIdenticalSnapshots"
             effective={resolvedValue?.retention?.ignoreIdenticalSnapshots}
+            effectiveDefinedIn={definition?.retention?.ignoreIdenticalSnapshots}
           />
         </Accordion>
       </ScrollAreaAutosize>

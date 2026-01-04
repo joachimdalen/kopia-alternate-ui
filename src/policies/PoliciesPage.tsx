@@ -64,6 +64,7 @@ function PoliciesPage() {
     return `${sources.localUsername}@${sources.localHost}`;
   }, [sources]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     execute(undefined, "loading");
     executeSources(undefined);
@@ -247,6 +248,10 @@ function PoliciesPage() {
           isNew={action.item!.isNew}
           target={action.item!.target}
           onCancel={() => setAction(undefined)}
+          onSaved={() => {
+            setAction(undefined);
+            execute(undefined, "refresh");
+          }}
           onDeleted={() => {
             setAction(undefined);
             execute(undefined, "refresh");

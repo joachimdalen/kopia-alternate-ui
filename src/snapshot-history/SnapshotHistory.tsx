@@ -1,20 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Anchor,
-  Badge,
-  Button,
-  Checkbox,
-  Code,
-  Container,
-  Divider,
-  Group,
-  Stack,
-  Text,
-  Title,
-  Tooltip
-} from "@mantine/core";
+import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Text, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -32,6 +18,8 @@ import IconWrapper from "../core/IconWrapper";
 import type { ItemAction, Snapshot, Snapshots, SourceInfo } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
 import RetentionBadge from "./components/RetentionBadge";
+import SnapshotCountControl from "./components/SnapshotCountControl";
+import SnapshotHistoryStats from "./components/SnapshotHistoryStats";
 import DeleteSnapshotModal from "./modals/DeleteSnapshotModal";
 import PinSnapshotModal from "./modals/PinSnapshotModal";
 import UpdateDescriptionModal from "./modals/UpdateDescriptionModal";
@@ -82,9 +70,9 @@ function SnapshotHistory() {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     execute(undefined, "loading");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAll]);
 
   return (
@@ -122,29 +110,19 @@ function SnapshotHistory() {
           </Group>
         </Group>
 
-        <Divider />
-        <Group justify="space-between">
-          <Text fz="sm">
-            Displaying{" "}
-            {data?.snapshots.length !== data?.unfilteredCount
-              ? `${data?.snapshots.length} out of ${data?.unfilteredCount}`
-              : data?.snapshots.length}{" "}
-            snapshots of{" "}
-            <Text fw="bold" span fz="sm">
-              {sourceInfo.userName}@{sourceInfo.host}:{sourceInfo.path}
-            </Text>
-          </Text>
-          {data?.unfilteredCount !== data?.uniqueCount && (
-            <Checkbox
-              label={`Show ${data?.unfilteredCount} individual snapshots`}
-              checked={showAll}
-              onChange={(event) => setShowAll(event.currentTarget.checked)}
-            />
-          )}
-        </Group>
-        <Divider />
-        <ErrorAlert error={error} />
+        {data && (
+          <SnapshotCountControl
+            currentLength={data.snapshots.length}
+            totalLength={data.unfilteredCount}
+            uniqueCount={data.uniqueCount}
+            sourceInfo={sourceInfo}
+            showAll={showAll}
+            onShowAll={(sa) => setShowAll(sa)}
+          />
+        )}
 
+        <ErrorAlert error={error} />
+        <SnapshotHistoryStats sourceInfo={sourceInfo} />
         <DataGrid
           selectedRecords={selectedRecords}
           onSelectedRecordsChange={setSelectedRecords}
@@ -160,6 +138,7 @@ function SnapshotHistory() {
               accessor: "startTime",
               title: t`Start Time`,
               sortable: true,
+              width: 200,
               render: (item) => (
                 <Anchor
                   component={Link}
@@ -173,18 +152,28 @@ function SnapshotHistory() {
               )
             },
             {
-              accessor: "description",
-              title: t`Description`
-            },
-            {
               accessor: "rootID",
               title: t`Root`,
-              render: (item) => <Code>{item.rootID}</Code>
+              width: 300,
+              render: (item) => (
+                <Stack>
+                  <div>
+                    <Code fz="xs">{item.rootID}</Code>
+                  </div>
+                  {item.description && (
+                    <Tooltip label={item.description}>
+                      <Text truncate fz="xs">
+                        {item.description}
+                      </Text>
+                    </Tooltip>
+                  )}
+                </Stack>
+              )
             },
             {
               accessor: "retention",
               title: t`Retention`,
-              width: 600,
+              visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.lg})`,
               render: (item) => {
                 return (
                   <Group justify="space-between" wrap="nowrap">

@@ -26,7 +26,7 @@ import {
   IconFolderOpen,
   IconSearch
 } from "@tabler/icons-react";
-import sortBy from "lodash.sortby";
+import orderBy from "lodash.orderby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
@@ -87,6 +87,7 @@ function SnapshotDirectory() {
     }
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     if (previousOid != oid) {
       execute(undefined, "loading");
@@ -101,8 +102,8 @@ function SnapshotDirectory() {
       items = items.filter((x) => x.name.indexOf(debouncedQuery) !== -1);
     }
 
-    const entries = sortBy(items, sortStatus.columnAccessor) as DirEntry[];
-    return sortStatus.direction === "desc" ? entries.reverse() : entries;
+    const entries = orderBy(items, ["type", sortStatus.columnAccessor], sortStatus.direction) as DirEntry[];
+    return entries;
   }, [data, debouncedQuery, sortStatus]);
 
   return (
@@ -165,7 +166,7 @@ function SnapshotDirectory() {
           </Alert>
         )}
         <DataGrid
-          idAccessor="obj"
+          idAccessor={(snap: DirEntry) => `${snap.obj}-${snap.type}-${snap.name}`}
           loading={loading && loadingKey === "loading"}
           records={visibleItems}
           noRecordsText={debouncedQuery !== "" ? t`No entires matching your search` : t`No entries in folder`}

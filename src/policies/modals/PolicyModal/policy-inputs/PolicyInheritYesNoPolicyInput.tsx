@@ -2,6 +2,7 @@ import { Trans } from "@lingui/react/macro";
 import { AccordionItem, AccordionPanel, Box, Group, Text } from "@mantine/core";
 import InheritYesNoPolicyControl from "../components/InheritYesNoPolicyControl";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -11,14 +12,26 @@ type Props = {
   effective?: boolean;
 } & PolicyInput;
 
-export default function PolicyInheritYesNoPolicyInput({ id, title, description, form, formKey, effective }: Props) {
+export default function PolicyInheritYesNoPolicyInput({
+  id,
+  title,
+  description,
+  form,
+  formKey,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const inputProps = form.getInputProps(formKey);
   const effectiveValue = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== ""}
+      />
       <AccordionPanel>
-        <Group grow>
+        <Group grow align="flex-start">
           <Box>
             <Text size="sm" fw={500}>
               <Trans>Defined</Trans>
@@ -26,9 +39,13 @@ export default function PolicyInheritYesNoPolicyInput({ id, title, description, 
             <InheritYesNoPolicyControl {...inputProps} />
           </Box>
           <Box>
-            <Text size="sm" fw={500}>
-              <Trans>Effective</Trans>
-            </Text>
+            {effectiveDefinedIn && effectiveValue ? (
+              <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} />
+            ) : (
+              <Text size="sm" fw={500}>
+                <Trans>Effective</Trans>
+              </Text>
+            )}
             <InheritYesNoPolicyControl value={effectiveValue} disabled />
           </Box>
         </Group>

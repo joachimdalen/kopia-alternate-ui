@@ -54,6 +54,8 @@ function CreateRepoSection({ form, goBack }: Props) {
       reloadStatus();
     }
   });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     getAlgorithmsAction.execute();
     getCurrentUserAction.execute();
@@ -88,11 +90,11 @@ function CreateRepoSection({ form, goBack }: Props) {
       password: form.values.password,
       options: {
         blockFormat: {
-          version: parseInt(form.values.formatVersion),
+          version: parseInt(form.values.formatVersion!),
           hash: form.values.hash,
           encryption: form.values.encryption,
           ecc: form.values.ecc,
-          eccOverheadPercent: parseInt(form.values.eccOverheadPercent)
+          eccOverheadPercent: parseInt(form.values.eccOverheadPercent!)
         },
         objectFormat: {
           splitter: form.values.splitter

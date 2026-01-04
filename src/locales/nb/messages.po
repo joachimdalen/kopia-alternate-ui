@@ -13,59 +13,85 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/core/Footer/Footer.tsx:52
+#: src/snapshot-history/components/SnapshotCountControl.tsx:23
+msgid "{currentLength} out of {totalLength}"
+msgstr "{currentLength} av {totalLength}"
+
+#: src/core/Footer/Footer.tsx:53
 msgid "{failedTaskCount} task(s) failed"
 msgstr "{failedTaskCount} oppgave(r) feilet"
 
-#: src/core/Footer/Footer.tsx:59
+#: src/core/Footer/Footer.tsx:60
 msgid "{inProgressTaskCount} task(s) in progress"
 msgstr "{inProgressTaskCount} oppgave(r) kjørende"
 
-#: src/core/Footer/Footer.tsx:45
+#: src/core/Footer/Footer.tsx:46
 msgid "{successTaskCount} task(s) completed"
 msgstr "{successTaskCount} oppgave(r) fullført"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:74
 msgid "# of annual snapshots"
 msgstr "# årlige øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:44
 msgid "# of daily snapshots"
 msgstr "# av dalige øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:34
 msgid "# of hourly snapshots"
 msgstr "# fra hver time"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:24
 msgid "# of latest snapshots"
 msgstr "# av siste øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:64
 msgid "# of monthly snapshots"
 msgstr "# av månedlige øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:50
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:54
 msgid "# of weekly snapshots"
 msgstr "# av ukentlige øyeblikksbilder"
 
-#: src/preferences/NotificationsSection.tsx:52
+#: src/snapshots/SnapshotsPage.tsx:134
+msgid "1 minute"
+msgstr "1 minutt"
+
+#: src/snapshots/SnapshotsPage.tsx:132
+msgid "10 seconds"
+msgstr "10 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:131
+msgid "3 seconds"
+msgstr "3 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:133
+msgid "30 seconds"
+msgstr "30 sekunder"
+
+#: src/snapshots/SnapshotsPage.tsx:135
+msgid "5 minutes"
+msgstr "5 minutt"
+
+#: src/preferences/NotificationsSection.tsx:51
 msgid "A test notification was send using the defined profile"
 msgstr "En test notifikasjon ble sent med den valgte konfigurasjonen"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:46
+#: src/repo/sections/AzureBlobStorageRepo.tsx:36
+#: src/repo/sections/AzureBlobStorageRepo.tsx:80
 msgid "Access Key"
 msgstr "Tilgangsnøkkel"
 
-#: src/repo/sections/AmazonS3Repo.tsx:66
+#: src/repo/sections/AmazonS3Repo.tsx:41
+#: src/repo/sections/AmazonS3Repo.tsx:108
 msgid "Access Key ID"
 msgstr "Tilgangsnøkkel ID"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:36
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:48
 msgid "Active"
 msgstr "Aktiv"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:97
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:98
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:109
 #: src/preferences/modals/EmailModal.tsx:268
 #: src/preferences/modals/EmailModal.tsx:291
@@ -73,20 +99,22 @@ msgstr "Aktiv"
 msgid "Add"
 msgstr "Legg til"
 
-#: src/snapshot-history/SnapshotHistory.tsx:212
+#: src/snapshot-history/SnapshotHistory.tsx:190
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Legg til nål for å forhindre sletting av øyeblikksbilde"
 
-#: src/repo/ConnectRepoSection.tsx:124
-#: src/repo/CreateRepoSection.tsx:134
+#: src/repo/ConnectRepoSection.tsx:127
+#: src/repo/CreateRepoSection.tsx:136
 msgid "Advanced Options"
 msgstr "Avanserte valg"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/constants.ts:170
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:68
 msgid "After Folder"
 msgstr "Etter mappe"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/constants.ts:184
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
 msgid "After Snapshot"
 msgstr "Etter øyeblikksbilde"
 
@@ -95,27 +123,28 @@ msgstr "Etter øyeblikksbilde"
 msgid "All"
 msgstr "Alle"
 
-#: src/policies/PoliciesPage.tsx:142
+#: src/policies/PoliciesPage.tsx:143
 msgid "All Policies"
 msgstr "Alle strategier"
 
-#: src/snapshots/SnapshotsPage.tsx:123
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "All Snapshots"
 msgstr "Alle øyeblikksbilder"
 
-#: src/repo/sections/AmazonS3Repo.tsx:19
+#: src/repo/sections/AmazonS3Repo.tsx:55
 msgid "Amazon S3 or Compatible Storage"
 msgstr "Amazon S3 eller kompatibel lagring"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:66
+#: src/policies/modals/PolicyModal/constants.ts:112
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:72
 msgid "Annual"
 msgstr "Årlige"
 
-#: src/preferences/PreferencesPage.tsx:20
+#: src/preferences/PreferencesPage.tsx:21
 msgid "Appearance"
 msgstr "Utseende"
 
-#: src/policies/PoliciesPage.tsx:140
+#: src/policies/PoliciesPage.tsx:141
 msgid "Applicable Policies"
 msgstr "Gjeldende strategier"
 
@@ -123,33 +152,36 @@ msgstr "Gjeldende strategier"
 msgid "Are you sure you want to delete this policy?"
 msgstr "Er du sikker på at du vil slette denne strategien?"
 
-#: src/repo/RepoPage.tsx:53
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:88
 msgid "Are you sure you want to disconnect from this repository?"
 msgstr "Er du sikkert på at du vil koble fra oppbevaringsstedet?"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:19
+#: src/repo/sections/AzureBlobStorageRepo.tsx:47
 msgid "Azure Blob Storage"
 msgstr "Azure Blob Lagring"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:53
+#: src/repo/sections/AzureBlobStorageRepo.tsx:37
+#: src/repo/sections/AzureBlobStorageRepo.tsx:87
 msgid "Azure Storage Domain"
 msgstr "Azure Lagrings Domene"
 
-#: src/repo/ConfigureRepoSection.tsx:180
-#: src/repo/ConnectRepoSection.tsx:151
-#: src/repo/CreateRepoSection.tsx:217
+#: src/repo/ConfigureRepoSection.tsx:303
+#: src/repo/ConnectRepoSection.tsx:154
+#: src/repo/CreateRepoSection.tsx:219
 msgid "Back"
 msgstr "Tilbake"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:19
+#: src/repo/sections/BackblazeB2Repo.tsx:41
 msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:22
+#: src/policies/modals/PolicyModal/constants.ts:163
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
 msgid "Before Folder"
 msgstr "Før Mappe"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:22
+#: src/policies/modals/PolicyModal/constants.ts:177
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
 msgid "Before Snapshot"
 msgstr "Før Øyeblikksbilde"
 
@@ -157,13 +189,16 @@ msgstr "Før Øyeblikksbilde"
 msgid "Begin Restore"
 msgstr "Start gjenoppretting"
 
-#: src/repo/sections/AmazonS3Repo.tsx:26
-#: src/repo/sections/BackblazeB2Repo.tsx:26
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:26
+#: src/repo/sections/AmazonS3Repo.tsx:39
+#: src/repo/sections/AmazonS3Repo.tsx:68
+#: src/repo/sections/BackblazeB2Repo.tsx:30
+#: src/repo/sections/BackblazeB2Repo.tsx:54
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:29
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:53
 msgid "Bucket"
 msgstr "Bøtte"
 
-#: src/repo/sections/SFTPServerRepo.tsx:93
+#: src/repo/sections/SFTPServerRepo.tsx:227
 msgid "By default Kopia connects to the server using internal SSH client which supports limited options. Alternatively it may launch external password-less SSH command, which supports additional options, but is generally less efficient than the built-in client."
 msgstr "Som standard kobler Kopia seg til serveren ved hjelp av en intern SSH-klient som støtter begrensede alternativer. Alternativt kan den starte en ekstern passordløs SSH-kommando, som støtter flere alternativer, men er generelt mindre effektiv enn den innebygde klienten."
 
@@ -171,28 +206,28 @@ msgstr "Som standard kobler Kopia seg til serveren ved hjelp av en intern SSH-kl
 msgid "Byte representation"
 msgstr "Byte representasjon"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:52
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:57
 msgid "Cache Hit"
 msgstr "Hurtigbuffertreff"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:66
 msgid "Cache Miss"
 msgstr "Hurtigbufferbom"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:126
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:112
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:229
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:113
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:260
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:124
 #: src/preferences/modals/EmailModal.tsx:300
 #: src/preferences/modals/PushoverModal.tsx:152
 #: src/preferences/modals/WebhookModal.tsx:228
-#: src/repo/RepoPage.tsx:56
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:91
 #: src/snapshot-directory/modals/RestoreModal.tsx:275
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:78
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:83
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
-#: src/snapshots/modals/NewSnapshotModal.tsx:134
-#: src/snapshots/modals/TaskEstimationModal.tsx:113
+#: src/snapshots/modals/NewSnapshotModal.tsx:135
+#: src/snapshots/modals/TaskEstimationModal.tsx:92
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -206,49 +241,55 @@ msgstr "Kanseller"
 msgid "Canceled after"
 msgstr "Kansellert etter"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:121
+#: src/snapshots/modals/NewSnapshotModal.tsx:122
 msgid "Change policy parameters"
 msgstr "Endre policy parametere"
 
-#: src/snapshots/modals/TaskEstimationModal.tsx:117
+#: src/policies/modals/PolicyCodeEditModal/PolicyCodeEditModal.tsx:32
+#: src/snapshots/modals/TaskEstimationModal.tsx:96
 msgid "Close"
 msgstr "Lukk"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:69
+#: src/policies/modals/PolicyModal/constants.ts:172
+#: src/policies/modals/PolicyModal/constants.ts:186
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:98
 msgid "Command Mode - After"
 msgstr "Kommandomodus – Etter"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:38
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:38
+#: src/policies/modals/PolicyModal/constants.ts:165
+#: src/policies/modals/PolicyModal/constants.ts:179
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:185
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:215
 msgid "Compression"
 msgstr "Kompresjon"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:22
+#: src/policies/modals/PolicyModal/constants.ts:145
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
 msgid "Compression Algorithm"
 msgstr "Kompresjonsalgoritme"
 
-#: src/repo/RepoPage.tsx:100
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:146
 msgid "Config file"
 msgstr "Konfigurasjonsfil"
 
-#: src/repo/ConfigureRepoSection.tsx:170
+#: src/repo/ConfigureRepoSection.tsx:293
 msgid "Configure Provider"
 msgstr "Konfigurer tilbyder"
 
-#: src/repo/ConfigureRepoSection.tsx:188
+#: src/repo/ConfigureRepoSection.tsx:311
 msgid "Configure repository"
 msgstr "Konfigurerer oppbevaringsstedet"
 
-#: src/repo/ConfigureRepoSection.tsx:189
+#: src/repo/ConfigureRepoSection.tsx:312
 msgid "Configure the repository"
 msgstr "Konfigurerer oppbevaringsstedet"
 
-#: src/repo/ConfigureRepoSection.tsx:170
+#: src/repo/ConfigureRepoSection.tsx:293
 msgid "Configure the selected provider"
 msgstr "Konfigurer den valgte tilbyderen"
 
@@ -256,27 +297,27 @@ msgstr "Konfigurer den valgte tilbyderen"
 msgid "Configured"
 msgstr "Konfigurert"
 
-#: src/repo/CreateRepoSection.tsx:124
+#: src/repo/CreateRepoSection.tsx:126
 msgid "Confirm Repository Password"
 msgstr "Bekreft password til oppbevaringsstedet"
 
-#: src/repo/CreateRepoSection.tsx:125
+#: src/repo/CreateRepoSection.tsx:127
 msgid "Confirm the repository password"
 msgstr "Bekreft password til oppbevaringsstedet"
 
-#: src/repo/ConnectRepoSection.tsx:98
+#: src/repo/ConnectRepoSection.tsx:101
 msgid "Connect as"
 msgstr "Koble til som"
 
-#: src/repo/ConnectRepoSection.tsx:129
+#: src/repo/ConnectRepoSection.tsx:132
 msgid "Connect in read-only mode"
 msgstr "Koble til i lese-modus"
 
-#: src/repo/ConnectRepoSection.tsx:154
+#: src/repo/ConnectRepoSection.tsx:157
 msgid "Connect to repository"
 msgstr "Koble til oppbevaringsstedet"
 
-#: src/repo/RepoPage.tsx:160
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:206
 msgid "Connected as"
 msgstr "Koblet til som"
 
@@ -284,7 +325,8 @@ msgstr "Koblet til som"
 msgid "Connected to"
 msgstr "Koblet til"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:26
+#: src/repo/sections/AzureBlobStorageRepo.tsx:34
+#: src/repo/sections/AzureBlobStorageRepo.tsx:60
 msgid "Container"
 msgstr "Container"
 
@@ -299,7 +341,7 @@ msgstr "Fortsett ved feil"
 msgid "Create"
 msgstr "Opprett"
 
-#: src/repo/ConfigureRepoSection.tsx:189
+#: src/repo/ConfigureRepoSection.tsx:312
 msgid "Create a new repository"
 msgstr "Opprett nytt oppbevaringssted"
 
@@ -319,28 +361,36 @@ msgstr "Opprett strategi"
 msgid "Create pushover notification"
 msgstr "Opprett pushover notifikasjon"
 
-#: src/repo/ConfigureRepoSection.tsx:188
-#: src/repo/CreateRepoSection.tsx:220
+#: src/repo/ConfigureRepoSection.tsx:311
+#: src/repo/CreateRepoSection.tsx:222
 msgid "Create repository"
 msgstr "Opprett oppbevaringssted"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:72
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Lag øyeblikksbilder på de angitte tidspunktene på dagen (24-timers format)"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:38
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:31
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:65
 msgid "Credentials File"
 msgstr "Legitimasjonsfil"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:43
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:70
 msgid "Credentials JSON"
 msgstr "Legitimasjons-JSON"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:66
+#: src/policies/modals/PolicyModal/constants.ts:141
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:82
 msgid "Cron Expressions"
 msgstr "Cron-uttrykk"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:39
+#: src/core/context/ServerInstanceContext.tsx:93
+msgid "Currently browsing instance {currentName}"
+msgstr "Byttet aktiv server til {currentName}"
+
+#: src/policies/modals/PolicyModal/constants.ts:109
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:42
 msgid "Daily"
 msgstr "Daglig"
 
@@ -352,24 +402,24 @@ msgstr "Mørkt"
 msgid "Default page size"
 msgstr "Standard side størrelse"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:65
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:24
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:37
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:35
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:25
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:22
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:48
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:30
-#: src/policies/PoliciesPage.tsx:202
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:37
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:51
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:38
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:43
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:37
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:64
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:45
+#: src/policies/PoliciesPage.tsx:203
 msgid "Defined"
 msgstr "Definert"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:75
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:45
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:33
-msgid "Defined in global policy"
-msgstr "Definert i global strategi"
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
+#~ msgid "Defined in global policy"
+#~ msgstr "Definert i global strategi"
 
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
@@ -383,22 +433,22 @@ msgstr "Slett"
 msgid "Delete policy"
 msgstr "Slett strategi"
 
-#: src/snapshot-history/SnapshotHistory.tsx:112
+#: src/snapshot-history/SnapshotHistory.tsx:100
 msgid "Delete Selected"
 msgstr "Slett valgte"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:48
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:60
 msgid "Deprecated"
 msgstr "Utdatert"
 
-#: src/repo/RepoPage.tsx:82
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:177
+#: src/snapshot-history/SnapshotHistory.tsx:155
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/repo/RepoPage.tsx:34
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:69
 msgid "Description updated"
 msgstr "Beskrivelse oppdatert"
 
@@ -406,7 +456,11 @@ msgstr "Beskrivelse oppdatert"
 msgid "Destination"
 msgstr "Destinasjon"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:28
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:102
+msgid "Directories"
+msgstr "Mapper"
+
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:30
 msgid "Directory Ignored"
 msgstr "Mappe ignorert"
 
@@ -414,11 +468,12 @@ msgstr "Mappe ignorert"
 msgid "Directory Options"
 msgstr "Mappealternativer"
 
-#: src/repo/sections/FileSystemRepo.tsx:23
+#: src/repo/sections/FileSystemRepo.tsx:24
+#: src/repo/sections/FileSystemRepo.tsx:43
 msgid "Directory Path"
 msgstr "Mappe sti"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:20
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:21
 msgid "Directory Snapshotted"
 msgstr "Mappeøyeblikksbilde"
 
@@ -426,8 +481,8 @@ msgstr "Mappeøyeblikksbilde"
 msgid "Directory to create policy for"
 msgstr "Mappe som strategi skal opprettes for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:228
-#: src/snapshot-history/SnapshotHistory.tsx:236
+#: src/snapshot-directory/SnapshotDirectory.tsx:229
+#: src/snapshot-history/SnapshotHistory.tsx:214
 msgid "Dirs"
 msgstr "Mapper"
 
@@ -443,33 +498,39 @@ msgstr "Deaktiver overordnet strategi evaluering"
 msgid "Disable ZIP compression"
 msgstr "Deaktiver ZIP kompresjon"
 
-#: src/repo/CreateRepoSection.tsx:180
-#: src/repo/RepoPage.tsx:142
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:188
+#: src/repo/CreateRepoSection.tsx:182
+#: src/snapshots/SnapshotsPage.tsx:130
 msgid "Disabled"
 msgstr "Deaktivert"
 
-#: src/repo/RepoPage.tsx:56
-#: src/repo/RepoPage.tsx:76
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:91
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:109
 msgid "Disconnect"
 msgstr "Koble fra"
 
-#: src/repo/RepoPage.tsx:50
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:85
 msgid "Disconnect repository?"
 msgstr "Koble fra oppbevaringsstedet?"
+
+#: src/snapshot-history/components/SnapshotCountControl.tsx:32
+msgid "Displaying {textToDisplay} snapshots of"
+msgstr "Viser {textToDisplay} øyeblikksbilder av"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:264
 msgid "Do not compress when restoring to a ZIP file (faster)."
 msgstr "Ikke komprimer når du gjenoppretter til en ZIP-fil (raskere)."
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:80
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:85
 msgid "Do not cross filesystem boundaries when creating a snapshot"
 msgstr "Ikke kryss filsystemgrenser når du lager et øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:76
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:83
 msgid "Do NOT save a snapshot when no files have been changed"
 msgstr "IKKE lagre et øyeblikksbilde når ingen filer er endret"
 
-#: src/repo/sections/AmazonS3Repo.tsx:46
+#: src/repo/sections/AmazonS3Repo.tsx:45
+#: src/repo/sections/AmazonS3Repo.tsx:88
 msgid "Do not verify TLS certificate"
 msgstr "Ikke bekreft TLS-sertifikatet"
 
@@ -482,15 +543,19 @@ msgstr "Vil du slette de valgte <0>{0} øyeblikksbildene</0>?"
 msgid "Do you want to delete the selected snapshot?"
 msgstr "Do you want to delete the selected snapshot?"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:244
+#: src/snapshot-directory/SnapshotDirectory.tsx:245
 msgid "Download"
 msgstr "Last ned"
 
-#: src/tasks/TaskDetailsPage.tsx:86
+#: src/preferences/StatisticsSection.tsx:12
+msgid "Due to this being a local feature and not a feature in Kopia, these settings are only stored in the local browser. This means that switching browsers or instances you will have to re-apply the settings."
+msgstr "Siden dette ikke er en funksjonalitet i Kopia, lagres disse innstillingene kun i din nettleseren. Dette betyr at du må sette innstillingene på nytt når du bytter nettleser eller instans."
+
+#: src/tasks/TaskDetailsPage.tsx:87
 msgid "Duration"
 msgstr "Varighet"
 
-#: src/policies/PoliciesPage.tsx:238
+#: src/policies/PoliciesPage.tsx:239
 #: src/preferences/components/NotificationCard.tsx:71
 msgid "Edit"
 msgstr "Rediger"
@@ -503,8 +568,8 @@ msgstr "Rediger e-post notifikasjon"
 msgid "Edit existing policy"
 msgstr "Rediger eksisterende strategi"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:70
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:52
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:86
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:67
 msgid "Edit items"
 msgstr "Rediger elementer"
 
@@ -512,15 +577,20 @@ msgstr "Rediger elementer"
 msgid "Edit pushover notification"
 msgstr "Rediger pushover notifikasjon"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:76
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:30
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:46
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:44
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:34
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:23
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:73
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:55
+#: src/policies/modals/PolicyCodeEditModal/PolicyCodeEditModal.tsx:18
+msgid "Edit script"
+msgstr "Rediger skript"
+
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:15
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:91
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:46
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:59
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberInput.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:51
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:40
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextInput.tsx:43
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:94
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:75
 msgid "Effective"
 msgstr "Effektiv"
 
@@ -528,11 +598,15 @@ msgstr "Effektiv"
 msgid "Email"
 msgstr "E-post"
 
-#: src/repo/CreateRepoSection.tsx:140
+#: src/preferences/StatisticsSection.tsx:18
+msgid "Enable snapshot statistics"
+msgstr "Aktiver øyeblikksbilde statistikk"
+
+#: src/repo/CreateRepoSection.tsx:142
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: src/repo/RepoPage.tsx:112
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:158
 msgid "Encryption Algorithm"
 msgstr "Krypteringsalgoritme"
 
@@ -540,178 +614,188 @@ msgstr "Krypteringsalgoritme"
 msgid "Endpoint"
 msgstr "Endepunkt"
 
-#: src/repo/sections/RcloneRepo.tsx:25
+#: src/repo/sections/RcloneRepo.tsx:48
 msgid "Enter <name-of-rclone-remote>:<path>"
 msgstr "Skriv inn <name-of-rclone-remote>:<path>"
 
-#: src/repo/sections/AmazonS3Repo.tsx:67
+#: src/repo/sections/AmazonS3Repo.tsx:109
 msgid "Enter access key ID"
 msgstr "Skriv inn tilgangs nøkkel ID"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:46
+#: src/repo/sections/BackblazeB2Repo.tsx:74
 msgid "Enter application or account key"
 msgstr "Skriv inn applikasjons eller konto nøkkel"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:40
+#: src/repo/sections/BackblazeB2Repo.tsx:68
 msgid "Enter application or account key ID"
 msgstr "Skriv inn applikasjons eller konto nøkkel ID"
 
-#: src/repo/sections/AmazonS3Repo.tsx:27
-#: src/repo/sections/BackblazeB2Repo.tsx:27
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:27
+#: src/repo/sections/AmazonS3Repo.tsx:69
+#: src/repo/sections/BackblazeB2Repo.tsx:55
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:54
 msgid "Enter bucket name"
 msgstr "Skriv inn bøtte navn"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:27
+#: src/repo/sections/AzureBlobStorageRepo.tsx:61
 msgid "Enter container name"
 msgstr "Skriv inn container name"
 
-#: src/repo/sections/FileSystemRepo.tsx:24
+#: src/repo/sections/FileSystemRepo.tsx:44
 msgid "Enter directory path where you want to store repository files"
 msgstr "Skriv inn katalogstien der du vil lagre filene"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:39
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:66
 msgid "Enter name of credentials JSON file"
 msgstr "Skriv inn navnet på JSON-filen med påloggingsinformasjon"
 
-#: src/repo/sections/AmazonS3Repo.tsx:60
-#: src/repo/sections/AzureBlobStorageRepo.tsx:42
-#: src/repo/sections/BackblazeB2Repo.tsx:33
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:33
+#: src/repo/sections/AmazonS3Repo.tsx:102
+#: src/repo/sections/AzureBlobStorageRepo.tsx:76
+#: src/repo/sections/BackblazeB2Repo.tsx:61
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:60
 msgid "Enter object name prefix (optional)"
 msgstr "Skriv inn prefiks for objektnavn (valgfritt)"
 
-#: src/repo/ConnectRepoSection.tsx:112
+#: src/repo/ConnectRepoSection.tsx:115
 msgid "Enter password to connect to server"
 msgstr "Skriv inn passordet for å koble til serveren"
 
-#: src/repo/sections/SFTPServerRepo.tsx:102
+#: src/repo/sections/SFTPServerRepo.tsx:236
 msgid "Enter passwordless SSH command to execute (typically 'ssh')"
 msgstr "Skriv inn en passordløs SSH-kommando for å kjøre den (vanligvis 'ssh')"
 
-#: src/repo/sections/RcloneRepo.tsx:31
+#: src/repo/sections/RcloneRepo.tsx:54
 msgid "Enter path to rclone executable"
 msgstr "Skriv inn banen til den kjørbare rclone-filen"
 
-#: src/repo/sections/SFTPServerRepo.tsx:66
+#: src/repo/sections/SFTPServerRepo.tsx:200
 msgid "Enter path to the key file"
 msgstr "Skriv inn banen til nøkkelfilen"
 
-#: src/repo/sections/SFTPServerRepo.tsx:71
+#: src/repo/sections/SFTPServerRepo.tsx:205
 msgid "Enter path to the known_hosts file"
 msgstr "Skriv inn banen til known_hosts-filen"
 
-#: src/repo/sections/SFTPServerRepo.tsx:56
+#: src/repo/sections/SFTPServerRepo.tsx:190
 msgid "Enter remote path to repository, e.g., '/mnt/data/repository'"
 msgstr "Skriv inn ekstern sti til depotet, f.eks. '/mnt/data/repository'"
 
-#: src/repo/ConnectRepoSection.tsx:103
-#: src/repo/CreateRepoSection.tsx:119
+#: src/repo/ConnectRepoSection.tsx:106
+#: src/repo/CreateRepoSection.tsx:121
 msgid "Enter repository password"
 msgstr "Skriv inn passordet for oppbevaringsstedet"
 
-#: src/repo/CreateRepoSection.tsx:127
+#: src/repo/CreateRepoSection.tsx:129
 msgid "Enter repository password again"
 msgstr "Skriv inn passordet for oppbevaringsstedet på nytt"
 
-#: src/repo/sections/AmazonS3Repo.tsx:73
-#: src/repo/sections/AzureBlobStorageRepo.tsx:47
+#: src/repo/sections/AmazonS3Repo.tsx:115
+#: src/repo/sections/AzureBlobStorageRepo.tsx:81
 msgid "Enter secret access key"
 msgstr "Skriv inn hemmelig tilgangsnøkkel"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:59
+#: src/repo/sections/AzureBlobStorageRepo.tsx:93
 msgid "Enter secret SAS token"
 msgstr "Skriv inn hemmelig SAS-token"
 
-#: src/repo/sections/AmazonS3Repo.tsx:33
+#: src/repo/sections/AmazonS3Repo.tsx:75
 msgid "Enter server address (e.g., s3.amazonaws.com)"
 msgstr "Skriv inn serveradressen (f.eks. s3.amazonaws.com)"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:26
+#: src/repo/sections/KopiaRepoServerRepo.tsx:47
 msgid "Enter server URL (https://<host>:port)"
 msgstr "Skriv inn server-URL (https://<vert>:port)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:80
+#: src/repo/sections/AmazonS3Repo.tsx:46
+#: src/repo/sections/AmazonS3Repo.tsx:122
 msgid "Enter session token (optional)"
 msgstr "Skriv inn økttoken (valgfritt)"
 
-#: src/repo/sections/AmazonS3Repo.tsx:55
+#: src/repo/sections/AmazonS3Repo.tsx:97
 msgid "Enter specific region (e.g., us-west-1) or leave empty"
 msgstr "Skriv inn en spesifikk region (f.eks. us-west-1) eller la feltet stå tomt"
 
-#: src/repo/sections/SFTPServerRepo.tsx:107
+#: src/repo/sections/SFTPServerRepo.tsx:241
 msgid "Enter SSH command arguments ('user@host -s sftp' will be appended automatically)"
 msgstr "Skriv inn SSH-kommandoargumenter ('user@host -s sftp' vil bli lagt til automatisk)"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:33
+#: src/repo/sections/AzureBlobStorageRepo.tsx:67
 msgid "Enter storage account name"
 msgstr "Enter storage account name"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:32
+#: src/repo/sections/KopiaRepoServerRepo.tsx:53
 msgid "Enter trusted server certificate fingerprint printed at server startup"
 msgstr "Skriv inn sertifikat fingeravtrykk (printet ut ved serveroppstart)"
 
-#: src/repo/CreateRepoSection.tsx:191
-#: src/repo/RepoPage.tsx:148
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:97
+msgid "Entries over time"
+msgstr "Oppføringer over tid"
+
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:194
+#: src/repo/CreateRepoSection.tsx:193
 msgid "Error Correction Algorithm"
 msgstr "Feilkorrigeringsalgoritme"
 
-#: src/repo/CreateRepoSection.tsx:178
-#: src/repo/RepoPage.tsx:138
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:184
+#: src/repo/CreateRepoSection.tsx:180
 msgid "Error Correction Overhead"
 msgstr "Feilretting Overhead"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:182
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:212
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:39
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:39
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:70
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essensiell (må lykkes; standardoppførsel), valgfri (feil tolereres), eller asynkron (Kopia starter handlingen, men venter ikke til den er ferdig)"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:144
+#: src/snapshots/modals/NewSnapshotModal.tsx:145
 msgid "Estimate"
 msgstr "Estimer"
 
-#: src/snapshots/modals/TaskEstimationModal.tsx:72
+#: src/snapshots/modals/TaskEstimationModal.tsx:66
 msgid "Estimate snapshot"
 msgstr "Estimer øyeblikksbilde"
 
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
+msgid "Every"
+msgstr "Hver"
+
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
-msgid "Every 10 Minutes"
-msgstr "Hvert 10 minutt"
+#~ msgid "Every 10 Minutes"
+#~ msgstr "Hvert 10 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
-msgid "Every 12 hours"
-msgstr "Hver 12 time"
+#~ msgid "Every 12 hours"
+#~ msgstr "Hver 12 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
-msgid "Every 15 Minutes"
-msgstr "Hvert 15 minutt"
+#~ msgid "Every 15 Minutes"
+#~ msgstr "Hvert 15 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
-msgid "Every 20 Minutes"
-msgstr "Hvert 20 minutt"
+#~ msgid "Every 20 Minutes"
+#~ msgstr "Hvert 20 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
-msgid "Every 3 hours"
-msgstr "Hver 3 time"
+#~ msgid "Every 3 hours"
+#~ msgstr "Hver 3 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:45
-msgid "Every 30 Minutes"
-msgstr "Hvert 30 minutt"
+#~ msgid "Every 30 Minutes"
+#~ msgstr "Hvert 30 minutt"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
-msgid "Every 6 hours"
-msgstr "Hver 6 time"
+#~ msgid "Every 6 hours"
+#~ msgstr "Hver 6 time"
 
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
-msgid "Every hour"
-msgstr "Hver time"
+#~ msgid "Every hour"
+#~ msgstr "Hver time"
 
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
 #: src/tasks/TasksPage.tsx:119
 msgid "Failed"
 msgstr "Feilet"
@@ -721,33 +805,34 @@ msgstr "Feilet"
 msgid "Failed after"
 msgstr "Feilet etter"
 
-#: src/policies/PoliciesPage.tsx:87
+#: src/policies/PoliciesPage.tsx:88
 msgid "Failed to find policy"
 msgstr "Kunne ikke finne strategi"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:48
 msgid "File Ignored"
 msgstr "Fil irgnorert"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:36
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:39
 msgid "File Snapshotted"
 msgstr "Fil øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:176
-#: src/snapshot-directory/SnapshotDirectory.tsx:222
-#: src/snapshot-history/SnapshotHistory.tsx:230
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/snapshot-directory/SnapshotDirectory.tsx:223
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
+#: src/snapshot-history/SnapshotHistory.tsx:208
 msgid "Files"
 msgstr "Filer"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:32
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:34
 msgid "Files that are smaller than the provided value will not be compressed"
 msgstr "Filer som er mindre enn den angitte verdien vil ikke bli komprimert"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:41
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:44
 msgid "Files whose size exceeds the provided value will not be compressed"
 msgstr "Filer med en størrelse som overstiger den angitte verdien, vil ikke bli komprimert"
 
-#: src/tasks/TaskDetailsPage.tsx:73
+#: src/tasks/TaskDetailsPage.tsx:74
 msgid "Finished"
 msgstr "Fullført"
 
@@ -756,11 +841,11 @@ msgstr "Fullført"
 msgid "Finished in"
 msgstr "Fullført på"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:200
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:230
 msgid "Folder Actions"
 msgstr "Mappehandlinger"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:112
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:131
 msgid "From now"
 msgstr "Fra nå"
 
@@ -768,57 +853,60 @@ msgstr "Fra nå"
 msgid "General Options"
 msgstr "Generelle alternativer"
 
-#: src/policies/PoliciesPage.tsx:144
+#: src/policies/PoliciesPage.tsx:145
 msgid "Global Policy"
 msgstr "Global strategi"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:19
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:40
 msgid "Google Cloud Storage"
 msgstr "Google Cloud Lagring"
 
-#: src/repo/CreateRepoSection.tsx:147
-#: src/repo/RepoPage.tsx:118
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:164
+#: src/repo/CreateRepoSection.tsx:149
 msgid "Hash Algorithm"
 msgstr "Hash-algoritme"
 
-#: src/repo/ConnectRepoSection.tsx:118
+#: src/repo/ConnectRepoSection.tsx:121
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Hjelper med å skille mellom flere tilkoblede oppbevaringssteder"
 
-#: src/policies/PoliciesPage.tsx:192
-#: src/repo/sections/SFTPServerRepo.tsx:26
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:44
+#: src/policies/PoliciesPage.tsx:193
+#: src/repo/sections/SFTPServerRepo.tsx:52
+#: src/repo/sections/SFTPServerRepo.tsx:160
 msgid "Host"
 msgstr "Vert"
 
-#: src/repo/ConnectRepoSection.tsx:140
+#: src/repo/ConnectRepoSection.tsx:143
 msgid "Hostname"
 msgstr "Vertsnavn"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:30
+#: src/policies/modals/PolicyModal/constants.ts:108
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:32
 msgid "Hourly"
 msgstr "Hver time"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:38
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:61
 msgid "How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)"
 msgstr "Hvor ofte skal man lage øyeblikksbilder i KopiaUI eller Kopia-serveren (har ingen effekt utenfor servermodus)"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:67
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:73
 msgid "How many annual snapshots to retain per source. The latest snapshot from each calendar year will be retained"
 msgstr "Hvor mange årlige øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hvert kalenderår vil bli beholdt."
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:40
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:43
 msgid "How many daily snapshots to retain per source. The latest snapshot from each day will be retained"
 msgstr "Hvor mange daglige øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hver dag vil bli beholdt."
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:31
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:33
 msgid "How many hourly snapshots to retain per source. The latest snapshot from each hour will be retained"
 msgstr "Hvor mange timebaserte øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hver time vil beholdes."
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:63
 msgid "How many monthly snapshots to retain per source. The latest snapshot from each calendar month will be retained"
 msgstr "Hvor mange månedlige øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hver kalendermåned vil bli beholdt."
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:53
 msgid "How many weekly snapshots to retain per source. The latest snapshot from each week will be retained"
 msgstr "Hvor mange ukentlige øyeblikksbilder som skal beholdes per kilde. Det siste øyeblikksbildet fra hver uke vil bli beholdt."
 
@@ -832,58 +920,68 @@ msgstr "HTML Format"
 msgid "HTTP Method"
 msgstr "HTTP Metode"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:63
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:66
 msgid "Ignore directories containing CACHEDIR.TAG and similar"
 msgstr "Ignorer mapper som inneholder CACHEDIR.TAG og lignende"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:20
+#: src/policies/modals/PolicyModal/constants.ts:126
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:21
 msgid "Ignore Directory Errors"
 msgstr "Ignorer mappe feil"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:42
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:73
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:42
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
 msgid "Ignore failures"
 msgstr "Ignorer feil"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:28
+#: src/policies/modals/PolicyModal/constants.ts:125
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:30
 msgid "Ignore File Errors"
 msgstr "Ignorer fil feil"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:22
+#: src/policies/modals/PolicyModal/constants.ts:116
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:23
 msgid "Ignore Files"
 msgstr "Ignorer filer"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:71
+#: src/policies/modals/PolicyModal/constants.ts:121
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:75
 msgid "Ignore Files larger than"
 msgstr "Ignorer filer større enn"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:75
+#: src/policies/modals/PolicyModal/constants.ts:113
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:82
 msgid "Ignore Identical Snapshots"
 msgstr "Ignore Identical Snapshots"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:47
+#: src/policies/modals/PolicyModal/constants.ts:118
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:49
 msgid "Ignore Rule Files"
 msgstr "Ignorer regelfiler"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:54
+#: src/policies/modals/PolicyModal/constants.ts:119
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:57
 msgid "Ignore Rule Files From Parent Directories"
 msgstr "Ignorer regelfiler fra overordnede mapper"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:38
+#: src/policies/modals/PolicyModal/constants.ts:117
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:40
 msgid "Ignore Rules From Parent Directories"
 msgstr "Ignorer regler fra overordnede mapper"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:36
+#: src/policies/modals/PolicyModal/constants.ts:127
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:39
 msgid "Ignore Unknown Directory Entries"
 msgstr "Ignorer ukjente mapper"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:62
+#: src/policies/modals/PolicyModal/constants.ts:120
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:65
 msgid "Ignore Well-Known Cache Directories"
 msgstr "Ignorer kjente hurtigbuffermapper"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:101
 msgid "Immediately run any missed snapshots when kopia starts (only relevant for Time-of-day snapshots)"
 msgstr "Kjør eventuelle tapte øyeblikksbilder umiddelbart når kopia starter (kun relevant for klokkeslett-øyeblikksbilder)"
 
@@ -891,7 +989,7 @@ msgstr "Kjør eventuelle tapte øyeblikksbilder umiddelbart når kopia starter (
 msgid "Inherit"
 msgstr "Arve"
 
-#: src/repo/RepoPage.tsx:154
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:200
 msgid "Internal Compression"
 msgstr "Intern kompresjon"
 
@@ -899,15 +997,18 @@ msgstr "Intern kompresjon"
 msgid "JSON Representation"
 msgstr "JSON-representasjon"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:45
+#: src/repo/sections/BackblazeB2Repo.tsx:32
+#: src/repo/sections/BackblazeB2Repo.tsx:73
 msgid "Key"
 msgstr "Nøkkel"
 
-#: src/repo/sections/SFTPServerRepo.tsx:77
+#: src/repo/sections/SFTPServerRepo.tsx:59
+#: src/repo/sections/SFTPServerRepo.tsx:211
 msgid "Key Data"
 msgstr "Nøkkeldata"
 
-#: src/repo/sections/BackblazeB2Repo.tsx:39
+#: src/repo/sections/BackblazeB2Repo.tsx:31
+#: src/repo/sections/BackblazeB2Repo.tsx:67
 msgid "Key ID"
 msgstr "Nøkkel ID"
 
@@ -916,32 +1017,35 @@ msgstr "Nøkkel ID"
 msgid "Kind"
 msgstr "Type"
 
-#: src/repo/sections/SFTPServerRepo.tsx:83
+#: src/repo/sections/SFTPServerRepo.tsx:62
+#: src/repo/sections/SFTPServerRepo.tsx:217
 msgid "Known Hosts Data"
 msgstr "Kjente vertsdata"
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:19
+#: src/repo/sections/KopiaRepoServerRepo.tsx:34
 msgid "Kopia Repository Server"
 msgstr "Kopa Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:208
+#: src/snapshot-directory/SnapshotDirectory.tsx:209
 msgid "Last Modification"
 msgstr "Sist Endret"
 
-#: src/snapshots/SnapshotsPage.tsx:219
+#: src/snapshots/SnapshotsPage.tsx:244
 msgid "Last Snapshot"
 msgstr "Siste øyeblikksbilde"
 
-#: src/repo/CreateRepoSection.tsx:165
-#: src/repo/RepoPage.tsx:133
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:179
+#: src/repo/CreateRepoSection.tsx:167
 msgid "Latest format"
 msgstr "Siste format"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:21
+#: src/policies/modals/PolicyModal/constants.ts:107
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:22
 msgid "Latest Snapshots"
 msgstr "Siste øyeblikksbilde"
 
-#: src/repo/sections/SFTPServerRepo.tsx:92
+#: src/repo/sections/SFTPServerRepo.tsx:63
+#: src/repo/sections/SFTPServerRepo.tsx:226
 msgid "Launch external password-less SSH command"
 msgstr "Start ekstern passordløs SSH-kommando"
 
@@ -949,8 +1053,8 @@ msgstr "Start ekstern passordløs SSH-kommando"
 msgid "Leave empty to remove description"
 msgstr "La stå tomt for å fjerne beskrivelsen"
 
-#: src/repo/CreateRepoSection.tsx:167
-#: src/repo/RepoPage.tsx:133
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:179
+#: src/repo/CreateRepoSection.tsx:169
 msgid "Legacy format compatible with v0.8"
 msgstr "Eldre format kompatibelt med v0.8"
 
@@ -958,23 +1062,23 @@ msgstr "Eldre format kompatibelt med v0.8"
 msgid "Light"
 msgstr "Lyst"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:48
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:50
 msgid "List of additional files containing ignore rules (each file configures ignore rules for the directory and its subdirectories)"
 msgstr "Liste over tilleggsfiler som inneholder ignoreringsregler (hver fil konfigurerer ignoreringsregler for katalogen og dens underkataloger)"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:24
 msgid "List of file and directory names to ignore."
 msgstr "Liste over fil- og katalognavn som skal ignoreres."
 
-#: src/repo/sections/FileSystemRepo.tsx:19
+#: src/repo/sections/FileSystemRepo.tsx:32
 msgid "Local Directory or NAS"
 msgstr "Lokal katalog eller NAS"
 
-#: src/policies/PoliciesPage.tsx:141
+#: src/policies/PoliciesPage.tsx:142
 msgid "Local Path Policies"
 msgstr "Lokale sti strategier"
 
-#: src/snapshots/SnapshotsPage.tsx:124
+#: src/snapshots/SnapshotsPage.tsx:144
 msgid "Local Snapshots"
 msgstr "Lokale øyeblikksbilder"
 
@@ -982,31 +1086,31 @@ msgstr "Lokale øyeblikksbilder"
 msgid "Locale"
 msgstr "Lokalitet"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:67
 msgid "Log verbosity when a cache cannot be used and a file must be hashed"
 msgstr "Logg detaljnivå når en hurtigbuffer ikke kan brukes og en fil må hashes"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:58
 msgid "Log verbosity when a cache is used instead of uploading the file"
 msgstr "Logg detaljnivået når en hurtigbuffer brukes i stedet for å laste opp filen"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:31
 msgid "Log verbosity when a directory is ignored"
 msgstr "Logg detaljnivå når en mappe ignoreres"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:22
 msgid "Log verbosity when a directory is snapshotted"
 msgstr "Logg detaljnivå når en mappe blir tatt øyeblikksbilde av"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:45
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:49
 msgid "Log verbosity when a file, symbolic link, etc. is ignored"
 msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. ignoreres"
 
-#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/LoggingTab.tsx:40
 msgid "Log verbosity when a file, symbolic link, etc. is snapshotted"
 msgstr "Logg detaljnivå når en fil, symbolsk lenke osv. blir tatt øyeblikksbilde av"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:233
 msgid "Logging"
 msgstr "Logging"
 
@@ -1018,7 +1122,7 @@ msgstr "Logg inn"
 msgid "Login to {instanceName}"
 msgstr "Logg inn på {instanceName}"
 
-#: src/tasks/components/TaskLogs.tsx:40
+#: src/tasks/components/TaskLogs.tsx:34
 msgid "Logs"
 msgstr "Logger"
 
@@ -1026,35 +1130,37 @@ msgstr "Logger"
 msgid "Mail From"
 msgstr "Avsender"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:91
+#: src/policies/modals/PolicyModal/constants.ts:140
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
 msgid "Manual Snapshots Only"
 msgstr "Kun manuelle øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:40
+#: src/policies/modals/PolicyModal/constants.ts:151
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:43
 msgid "Max File Size"
 msgstr "Maks filstørrelse"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:31
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:33
 msgid "max number of parallel file reads"
 msgstr "maks antall parallelle fillesninger"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:42
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:45
 msgid "Maximum file size in bytes"
 msgstr "Maksimal filstørrelse i byte"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:30
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:32
 msgid "Maximum number of files that will be read in parallel (defaults to the number of logical processors)"
 msgstr "Maksimalt antall filer som skal leses parallelt (standard er antall logiske prosessorer)"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:22
 msgid "Maximum number of snapshots that can be uploaded simultaneously"
 msgstr "Maksimalt antall øyeblikksbilder som kan lastes opp samtidig"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:31
 msgid "Maximum Parallel File Reads"
 msgstr "Maksimalt antall parallelle fillesninger"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:20
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:21
 msgid "Maximum Parallel Snapshots"
 msgstr "Maksimalt antall parallelle øyeblikksbilder"
 
@@ -1062,11 +1168,12 @@ msgstr "Maksimalt antall parallelle øyeblikksbilder"
 msgid "Minimal File Size For Shallow Restore"
 msgstr "Minimal filstørrelse for overfladisk gjenoppretting"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:31
+#: src/policies/modals/PolicyModal/constants.ts:150
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:33
 msgid "Minimum File Size"
 msgstr "Minimum filstørrelse"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:33
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:35
 msgid "Minimum file size in bytes"
 msgstr "Minimum filstørrelse i byte"
 
@@ -1083,7 +1190,8 @@ msgstr "Minimum alvorlighetsgrad"
 msgid "Minimum severity required to use this notification profile"
 msgstr "Minimum alvorlighetsgrad som kreves for å bruke denne varslingsprofilen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:57
+#: src/policies/modals/PolicyModal/constants.ts:111
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:62
 msgid "Monthly"
 msgstr "Månedlig"
 
@@ -1099,26 +1207,26 @@ msgstr "Montert på"
 msgid "Mounted Snapshots"
 msgstr "Monterte øyeblikksbilder"
 
-#: src/core/Header/Header.tsx:33
+#: src/core/Header/Header.tsx:32
 #: src/core/Header/SkeletonHeader.tsx:31
 msgid "Mounts"
 msgstr "Monteringer"
 
-#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/UploadTab.tsx:23
 msgid "must be specified using global, user, or host policy"
 msgstr "må spesifiseres ved hjelp av global, bruker- eller vertsstrategier"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:41
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:72
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:41
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:72
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:96
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:101
 msgid "Must Succeed"
 msgstr "Må lykkes"
 
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:177
+#: src/snapshot-directory/SnapshotDirectory.tsx:178
 msgid "Name"
 msgstr "Navn"
 
@@ -1126,38 +1234,39 @@ msgstr "Navn"
 msgid "Name of the pin"
 msgstr "Navn på pin"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:58
+#: src/policies/modals/PolicyModal/constants.ts:148
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:63
 msgid "Never Compress Extensions"
 msgstr "Komprimer aldri filutvidelser"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:64
 msgid "Never compress the following file extensions (one extension per line)"
 msgstr "Komprimer aldri følgende filtyper (én filtype per linje)"
 
-#: src/policies/PoliciesPage.tsx:164
+#: src/policies/PoliciesPage.tsx:165
 msgid "New Policy"
 msgstr "Ny strategi"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:88
+#: src/snapshots/modals/NewSnapshotModal.tsx:89
 msgctxt "modal-title"
 msgid "New snapshot"
 msgstr "Ta nytt øyeblikksbilde"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:137
+#: src/snapshots/SnapshotsPage.tsx:162
 msgid "New Snapshot"
 msgstr "Nytt øyeblikksbilde"
 
-#: src/repo/ConfigureRepoSection.tsx:183
+#: src/repo/ConfigureRepoSection.tsx:306
 msgid "Next"
 msgstr "Neste"
 
-#: src/snapshots/SnapshotsPage.tsx:224
+#: src/snapshots/SnapshotsPage.tsx:249
 msgid "Next snapshot"
 msgstr "Neste øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:60
-#: src/repo/RepoPage.tsx:156
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:202
 msgid "No"
 msgstr "Nei"
 
@@ -1165,11 +1274,11 @@ msgstr "Nei"
 msgid "No don't delete it"
 msgstr "Nei, ikke slett den"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:171
+#: src/snapshot-directory/SnapshotDirectory.tsx:172
 msgid "No entires matching your search"
 msgstr "Ingen oppføringer samsvarer med søket ditt"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:171
+#: src/snapshot-directory/SnapshotDirectory.tsx:172
 msgid "No entries in folder"
 msgstr "Ingen oppføringer i mappen"
 
@@ -1181,7 +1290,7 @@ msgstr "Ingen headers definert"
 msgid "No notifications defined"
 msgstr "Ingen notifikasjoner opprettet"
 
-#: src/policies/PoliciesPage.tsx:181
+#: src/policies/PoliciesPage.tsx:182
 msgid "No policies found"
 msgstr "Ingen strategier funnet"
 
@@ -1194,12 +1303,12 @@ msgstr "Ingen mottakere definert"
 msgid "No snapshots mounted"
 msgstr "Ingen øyeblikksbilder montert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:153
+#: src/snapshot-history/SnapshotHistory.tsx:131
 msgid "No snapshots taken"
 msgstr "Ingen øyeblikksbilder tatt"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:38
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:50
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:63
 msgid "None"
 msgstr "Ingen"
 
@@ -1207,10 +1316,10 @@ msgstr "Ingen"
 msgid "Not configured"
 msgstr "Ikke konfigurerert"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:58
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:83
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:40
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:65
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:74
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTextListInput.tsx:107
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:55
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyTimeOfDayInput.tsx:88
 msgid "Not defined"
 msgstr "Ikke definert"
 
@@ -1219,48 +1328,73 @@ msgstr "Ikke definert"
 msgid "Notification Format"
 msgstr "Notifikasjons Format"
 
-#: src/preferences/PreferencesPage.tsx:26
+#: src/preferences/PreferencesPage.tsx:27
 msgid "Notifications"
 msgstr "Notifikasjoner"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:22
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:23
 msgid "Number of the most recent snapshots to retain per source"
 msgstr "Antall nyeste øyeblikksbilder som skal beholdes per kilde"
 
-#: src/repo/sections/AmazonS3Repo.tsx:59
-#: src/repo/sections/AzureBlobStorageRepo.tsx:41
-#: src/repo/sections/BackblazeB2Repo.tsx:32
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:47
+#: src/repo/sections/AmazonS3Repo.tsx:101
+#: src/repo/sections/AzureBlobStorageRepo.tsx:39
+#: src/repo/sections/AzureBlobStorageRepo.tsx:75
+#: src/repo/sections/BackblazeB2Repo.tsx:33
+#: src/repo/sections/BackblazeB2Repo.tsx:60
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:30
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:59
 msgid "Object Name Prefix"
 msgstr "Prefiks for objektnavn"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:49
+#: src/policies/modals/PolicyModal/constants.ts:146
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:53
 msgid "Only Compress Extensions"
 msgstr "Komprimer kun utvidelser"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:50
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:54
 msgid "Only compress files with the following file extensions (one extension per line)"
 msgstr "Komprimer kun filer med følgende filtyper (én filtype per linje)"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:92
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:110
 msgid "Only create snapshots manually (disables scheduled snapshots)"
 msgstr "Lag bare øyeblikksbilder manuelt (deaktiverer planlagte øyeblikksbilder)"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:206
+#: src/repo/sections/SFTPServerRepo.tsx:77
+msgid "Only one of Password, Path to key file or Key Data must be set"
+msgstr "Kun en av Passord, Sti til nøkkelfilen eller Nøkkeldata kan være definert"
+
+#: src/repo/sections/SFTPServerRepo.tsx:116
+msgid "Only one of Path to known_hosts File or Known Hosts Data must be set"
+msgstr "Kun en av Sti til known_hosts-filen eller Kjente vertsdata kan være definert"
+
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:34
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:34
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:80
+msgid "Open in large edit"
+msgstr "Åpne i stort vindu"
+
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:236
 msgid "Other"
 msgstr "Annet"
 
-#: src/repo/sections/AmazonS3Repo.tsx:54
+#: src/snapshots/SnapshotsPage.tsx:265
+msgid "Overdue"
+msgstr "Forfalt"
+
+#: src/repo/sections/AmazonS3Repo.tsx:43
+#: src/repo/sections/AmazonS3Repo.tsx:96
 msgid "Override Region"
 msgstr "Overstyr region"
 
-#: src/repo/ConnectRepoSection.tsx:136
-#: src/repo/CreateRepoSection.tsx:202
+#: src/repo/ConnectRepoSection.tsx:139
+#: src/repo/CreateRepoSection.tsx:204
 msgid "Override this when restoring a snapshot taken by another user"
 msgstr "Overstyr dette når du gjenoppretter et øyeblikksbilde tatt av en annen bruker"
 
-#: src/repo/ConnectRepoSection.tsx:141
-#: src/repo/CreateRepoSection.tsx:207
+#: src/repo/ConnectRepoSection.tsx:144
+#: src/repo/CreateRepoSection.tsx:209
 msgid "Override this when restoring a snapshot taken on another machine"
 msgstr "Overstyr dette når du gjenoppretter et øyeblikksbilde tatt på en annen maskin"
 
@@ -1276,63 +1410,69 @@ msgstr "Overskriv filer"
 msgid "Overwrite Symbolic Links"
 msgstr "Overskriv symbolske lenker"
 
-#: src/snapshots/SnapshotsPage.tsx:192
+#: src/snapshots/SnapshotsPage.tsx:217
 msgid "Owner"
 msgstr "Eier"
 
 #: src/core/context/LoginModal.tsx:66
 #: src/core/context/LoginModal.tsx:67
-#: src/repo/sections/SFTPServerRepo.tsx:48
-#: src/repo/sections/SFTPServerRepo.tsx:49
-#: src/repo/sections/WebDavRepo.tsx:33
-#: src/repo/sections/WebDavRepo.tsx:34
+#: src/repo/sections/SFTPServerRepo.tsx:57
+#: src/repo/sections/SFTPServerRepo.tsx:182
+#: src/repo/sections/SFTPServerRepo.tsx:183
+#: src/repo/sections/WebDavRepo.tsx:29
+#: src/repo/sections/WebDavRepo.tsx:57
+#: src/repo/sections/WebDavRepo.tsx:58
 msgid "Password"
 msgstr "Passord"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:25
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:45
 msgid "Paste connection token"
 msgstr "Lim inn tilkoblingstoken"
 
-#: src/repo/sections/SFTPServerRepo.tsx:78
+#: src/repo/sections/SFTPServerRepo.tsx:212
 msgid "Paste contents of the key file"
 msgstr "Lim inn innholdet i nøkkelfilen"
 
-#: src/repo/sections/SFTPServerRepo.tsx:84
+#: src/repo/sections/SFTPServerRepo.tsx:218
 msgid "Paste contents of the known_hosts file"
 msgstr "Lim inn innholdet i known_hosts-filen"
 
-#: src/repo/sections/GoogleCloudStorageRepo.tsx:44
+#: src/repo/sections/GoogleCloudStorageRepo.tsx:71
 msgid "Paste JSON credentials here"
 msgstr "Lim inn JSON-legitimasjon her"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
-#: src/policies/PoliciesPage.tsx:197
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:51
+#: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
-#: src/snapshots/SnapshotsPage.tsx:171
+#: src/repo/sections/SFTPServerRepo.tsx:189
+#: src/snapshots/SnapshotsPage.tsx:196
 msgid "Path"
 msgstr "Sti"
 
-#: src/repo/sections/SFTPServerRepo.tsx:65
+#: src/repo/sections/SFTPServerRepo.tsx:58
+#: src/repo/sections/SFTPServerRepo.tsx:199
 msgid "Path to key file"
 msgstr "Sti til nøkkelfilen"
 
-#: src/repo/sections/SFTPServerRepo.tsx:70
+#: src/repo/sections/SFTPServerRepo.tsx:61
+#: src/repo/sections/SFTPServerRepo.tsx:204
 msgid "Path to known_hosts File"
 msgstr "Sti til known_hosts-filen"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:101
+#: src/snapshots/modals/NewSnapshotModal.tsx:102
 msgid "Path to snapshot"
 msgstr "Sti til øyeblikksbilde"
 
-#: src/snapshots/SnapshotsPage.tsx:272
+#: src/snapshots/SnapshotsPage.tsx:317
 msgid "Pending"
 msgstr "Venter"
 
-#: src/policies/PoliciesPage.tsx:146
+#: src/policies/PoliciesPage.tsx:147
 msgid "Per-Host Policies"
 msgstr "Stategier per vert"
 
-#: src/policies/PoliciesPage.tsx:145
+#: src/policies/PoliciesPage.tsx:146
 msgid "Per-User Policies"
 msgstr "Strategier per bruker"
 
@@ -1346,23 +1486,24 @@ msgstr "Fest Øyeblikksbilde"
 msgid "Plain Text Format"
 msgstr "Vanlig tekstformat"
 
-#: src/core/Header/Header.tsx:39
+#: src/core/Header/Header.tsx:38
 #: src/core/Header/SkeletonHeader.tsx:37
-#: src/policies/PoliciesPage.tsx:135
+#: src/policies/PoliciesPage.tsx:136
 msgid "Policies"
 msgstr "Strategier"
 
-#: src/repo/sections/SFTPServerRepo.tsx:32
+#: src/repo/sections/SFTPServerRepo.tsx:53
+#: src/repo/sections/SFTPServerRepo.tsx:166
 msgid "Port"
 msgstr "Port"
 
-#: src/repo/sections/SFTPServerRepo.tsx:33
+#: src/repo/sections/SFTPServerRepo.tsx:167
 msgid "Port number (e.g., 22)"
 msgstr "Port nummer (e.g., 22)"
 
-#: src/core/Header/Header.tsx:45
+#: src/core/Header/Header.tsx:44
 #: src/core/Header/SkeletonHeader.tsx:55
-#: src/preferences/PreferencesPage.tsx:13
+#: src/preferences/PreferencesPage.tsx:14
 msgid "Preferences"
 msgstr "Preferanser"
 
@@ -1374,7 +1515,7 @@ msgstr "Preferanser oppdatert"
 msgid "Prevents any parent policies from affecting this directory and its subdirectories"
 msgstr "Forhindrer at overordnede strategier påvirker denne katalogen og dens underkataloger"
 
-#: src/repo/RepoPage.tsx:106
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:152
 msgid "Provider"
 msgstr "Tilbyder"
 
@@ -1386,19 +1527,21 @@ msgstr "Pushover"
 msgid "Pushover App Token"
 msgstr "Pushover App Token"
 
-#: src/repo/sections/RcloneRepo.tsx:30
+#: src/repo/sections/RcloneRepo.tsx:27
+#: src/repo/sections/RcloneRepo.tsx:53
 msgid "Rclone Executable Path"
 msgstr "Rclone kjørbar sti"
 
-#: src/repo/sections/RcloneRepo.tsx:18
+#: src/repo/sections/RcloneRepo.tsx:35
 msgid "Rclone Remote"
 msgstr "Rclone Extern"
 
-#: src/repo/sections/RcloneRepo.tsx:24
+#: src/repo/sections/RcloneRepo.tsx:26
+#: src/repo/sections/RcloneRepo.tsx:47
 msgid "Rclone Remote Path"
 msgstr "Rclone ekstern sti"
 
-#: src/repo/ConnectRepoSection.tsx:130
+#: src/repo/ConnectRepoSection.tsx:133
 msgid "Read-only mode prevents any changes to the repository"
 msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 
@@ -1406,50 +1549,54 @@ msgstr "Skrivebeskyttet modus forhindrer endringer i oppbevaringsstedet"
 msgid "Recipient User Key or Group Key"
 msgstr "Mottakerbrukernøkkel eller gruppenøkkel"
 
-#: src/core/DataGrid/DataGrid.tsx:73
+#: src/core/DataGrid/DataGrid.tsx:81
 msgid "Records per page"
 msgstr "Oppføringer per side"
 
-#: src/policies/PoliciesPage.tsx:171
-#: src/snapshot-directory/SnapshotDirectory.tsx:141
-#: src/snapshot-history/SnapshotHistory.tsx:120
-#: src/snapshots/SnapshotsPage.tsx:144
+#: src/policies/PoliciesPage.tsx:172
+#: src/snapshot-directory/SnapshotDirectory.tsx:142
+#: src/snapshot-history/SnapshotHistory.tsx:108
+#: src/snapshots/SnapshotsPage.tsx:169
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Oppdater"
 
-#: src/snapshots/SnapshotsPage.tsx:200
+#: src/snapshots/SnapshotsPage.tsx:225
 msgid "Remote"
 msgstr "Ekstern"
 
-#: src/core/Header/Header.tsx:44
+#: src/core/Header/Header.tsx:43
 #: src/core/Header/SkeletonHeader.tsx:49
 msgid "Repository"
 msgstr "Oppbevaringssted"
 
-#: src/repo/ConnectRepoSection.tsx:117
+#: src/repo/ConnectRepoSection.tsx:120
 msgid "Repository Description"
 msgstr "Oppbevaringssted beskrivelse"
 
-#: src/repo/RepoPage.tsx:22
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:57
 msgid "Repository disconnected"
 msgstr "Oppbevaringssted koblet fra"
 
-#: src/repo/CreateRepoSection.tsx:163
-#: src/repo/RepoPage.tsx:130
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:176
+#: src/repo/CreateRepoSection.tsx:165
 msgid "Repository Format"
 msgstr "Oppbevaringssted Format"
 
-#: src/repo/ConnectRepoSection.tsx:101
-#: src/repo/CreateRepoSection.tsx:117
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:138
+msgid "Repository is connected as read-only"
+msgstr "Oppbevaringssted er koblet til i lesemodus"
+
+#: src/repo/ConnectRepoSection.tsx:104
+#: src/repo/CreateRepoSection.tsx:119
 msgid "Repository Password"
 msgstr "Oppbevaringssted Passord"
 
-#: src/snapshots/SnapshotsPage.tsx:104
+#: src/snapshots/SnapshotsPage.tsx:110
 msgid "Repository synchronized"
 msgstr "Oppbevaringssted synkronisert"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:133
+#: src/snapshot-directory/SnapshotDirectory.tsx:134
 msgid "Restore"
 msgstr "Gjenopprett"
 
@@ -1469,22 +1616,23 @@ msgstr "Gjenopprett filtillatelser"
 msgid "Restore files and directories"
 msgstr "Gjenopprett filer og mapper"
 
-#: src/snapshot-history/SnapshotHistory.tsx:186
+#: src/snapshot-history/SnapshotHistory.tsx:164
 msgid "Retention"
 msgstr "Bevaring"
 
-#: src/snapshot-history/SnapshotHistory.tsx:181
+#: src/snapshot-history/SnapshotHistory.tsx:159
 msgid "Root"
 msgstr "Root"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:75
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:104
 msgid "Run asynchronously, ignore failures"
 msgstr "Kjør asynkront, ignorer feil"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:83
+#: src/policies/modals/PolicyModal/constants.ts:142
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:100
 msgid "Run Missed Snapshots on Startup"
 msgstr "Kjør tapte øyeblikksbilder ved oppstart"
 
@@ -1497,12 +1645,13 @@ msgstr "Kjørende"
 msgid "Running for"
 msgstr "Kjørende for"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:58
+#: src/repo/sections/AzureBlobStorageRepo.tsx:38
+#: src/repo/sections/AzureBlobStorageRepo.tsx:92
 msgid "SAS Token"
 msgstr "SAS Token"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:115
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:234
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:116
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:265
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:127
 #: src/preferences/AppearanceSection.tsx:153
 #: src/preferences/modals/EmailModal.tsx:303
@@ -1513,31 +1662,32 @@ msgstr "SAS Token"
 msgid "Save"
 msgstr "Lagre"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:79
+#: src/policies/modals/PolicyModal/constants.ts:122
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:84
 msgid "Scan only one filesystem"
 msgstr "Skann bare ett filsystem"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:188
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:218
 msgid "Scheduling"
 msgstr "Planlegging"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
 msgid "Script to run after folder"
 msgstr "Skript som skal kjøres etter mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
 msgid "Script to run after snapshot"
 msgstr "Skript som skal kjøres etter øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
 msgid "Script to run before folder"
 msgstr "Skript som skal kjøres før mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:23
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
 msgid "Script to run before snapshot"
 msgstr "Skript som skal kjøres før øyeblikksbilde"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:127
+#: src/snapshot-directory/SnapshotDirectory.tsx:128
 msgid "Search files or folder (current level)"
 msgstr "Søk etter filer eller mapper (nåværende nivå)"
 
@@ -1545,23 +1695,24 @@ msgstr "Søk etter filer eller mapper (nåværende nivå)"
 msgid "Search tasks"
 msgstr "Søk etter oppgaver"
 
-#: src/repo/sections/AmazonS3Repo.tsx:72
+#: src/repo/sections/AmazonS3Repo.tsx:42
+#: src/repo/sections/AmazonS3Repo.tsx:114
 msgid "Secret Access Key"
 msgstr "Hemmelig tilgangsnøkkel"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:68
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:83
 msgid "Select compression algorithm"
 msgstr "Velg komprimeringsalgoritme"
 
-#: src/repo/ConfigureRepoSection.tsx:147
+#: src/repo/ConfigureRepoSection.tsx:269
 msgid "Select Provider"
 msgstr "Velg tilbyder"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:39
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:62
 msgid "Select Snapshot Frequency"
 msgstr "Velg frekvens for øyeblikksbilder"
 
-#: src/repo/ConfigureRepoSection.tsx:147
+#: src/repo/ConfigureRepoSection.tsx:269
 msgid "Select the preferred storage type"
 msgstr "Velg ønsket lagringstype"
 
@@ -1579,14 +1730,16 @@ msgid "Server"
 msgstr "Server"
 
 #: src/repo/sections/KopiaRepoServerRepo.tsx:25
+#: src/repo/sections/KopiaRepoServerRepo.tsx:46
 msgid "Server address"
 msgstr "Server adresse"
 
-#: src/repo/sections/AmazonS3Repo.tsx:32
+#: src/repo/sections/AmazonS3Repo.tsx:40
+#: src/repo/sections/AmazonS3Repo.tsx:74
 msgid "Server Endpoint"
 msgstr "Server endepunkt"
 
-#: src/repo/ConnectRepoSection.tsx:110
+#: src/repo/ConnectRepoSection.tsx:113
 msgid "Server Password"
 msgstr "Server Passord"
 
@@ -1594,11 +1747,15 @@ msgstr "Server Passord"
 msgid "SERVERS"
 msgstr "SERVERE"
 
-#: src/repo/sections/AmazonS3Repo.tsx:79
+#: src/repo/sections/AmazonS3Repo.tsx:121
 msgid "Session token"
 msgstr "Økttoken"
 
-#: src/repo/sections/SFTPServerRepo.tsx:19
+#: src/preferences/StatisticsSection.tsx:11
+msgid "Settings stored locally"
+msgstr "Innstillinger lagret lokalt"
+
+#: src/repo/sections/SFTPServerRepo.tsx:146
 msgid "SFTP Server"
 msgstr "SFTP Server"
 
@@ -1606,15 +1763,24 @@ msgstr "SFTP Server"
 msgid "Shallow Restore At Depth"
 msgstr "Grunngjenoppretting i dybden"
 
+#: src/snapshot-history/components/SnapshotCountControl.tsx:40
+msgid "Show {totalLength} individual snapshots"
+msgstr "Vis {totalLength} individuelle øyeblikksbilder"
+
 #: src/preferences/AppearanceSection.tsx:146
 msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:214
-#: src/snapshot-history/SnapshotHistory.tsx:223
-#: src/snapshots/SnapshotsPage.tsx:210
+#: src/snapshot-directory/SnapshotDirectory.tsx:215
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
+#: src/snapshot-history/SnapshotHistory.tsx:201
+#: src/snapshots/SnapshotsPage.tsx:235
 msgid "Size"
 msgstr "Størrelse"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:88
+msgid "Size over time"
+msgstr "Størrelse over tid"
 
 #: src/snapshot-directory/modals/RestoreModal.tsx:171
 msgid "Skip previously restored files and symlinks"
@@ -1644,15 +1810,16 @@ msgstr "Brukernavn for SMTP-serveren, vanligvis e-postadressen"
 msgid "SMTP Username"
 msgstr "SMTP Brukernavn"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:118
+#: src/snapshot-directory/SnapshotDirectory.tsx:119
 msgid "Snapshot"
 msgstr "Øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:197
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:227
 msgid "Snapshot Actions"
 msgstr "Handlinger"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:37
+#: src/policies/modals/PolicyModal/constants.ts:130
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:60
 msgid "Snapshot Frequency"
 msgstr "Øyeblikksbildefrekvens"
 
@@ -1660,23 +1827,23 @@ msgstr "Øyeblikksbildefrekvens"
 msgid "Snapshot ID"
 msgstr "Øyeblikksbilde ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:149
+#: src/snapshot-directory/SnapshotDirectory.tsx:150
 msgid "Snapshot is mounted at the following path"
 msgstr "Øyeblikksbilde er montert under følgende sti"
 
-#: src/snapshots/modals/NewSnapshotModal.tsx:159
+#: src/snapshots/modals/NewSnapshotModal.tsx:160
 msgid "Snapshot now"
 msgstr "Ta øyeblikksbilde"
 
-#: src/snapshots/SnapshotsPage.tsx:248
+#: src/snapshots/SnapshotsPage.tsx:293
 msgid "Snapshot Now"
 msgstr "Øyeblikksbilde nå"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:173
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:203
 msgid "Snapshot Retention"
 msgstr "Oppbevaring"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:67
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:83
 msgid "Snapshot schedules using UNIX crontab syntax:"
 msgstr "Øyeblikksbilde-planer ved bruk av UNIX crontab-syntaks:"
 
@@ -1684,59 +1851,79 @@ msgstr "Øyeblikksbilde-planer ved bruk av UNIX crontab-syntaks:"
 msgid "Snapshot unmounted"
 msgstr "Øyeblikksbilde demontert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:305
+#: src/snapshot-history/SnapshotHistory.tsx:283
 msgid "Snapshot(s) deleted"
 msgstr "Øyeblikksbilde(r) slettet"
 
-#: src/core/Header/Header.tsx:27
+#: src/core/Header/Header.tsx:26
 #: src/core/Header/SkeletonHeader.tsx:25
-#: src/snapshot-history/SnapshotHistory.tsx:99
-#: src/snapshots/SnapshotsPage.tsx:117
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
+#: src/snapshot-history/SnapshotHistory.tsx:87
+#: src/snapshots/SnapshotsPage.tsx:123
 msgid "Snapshots"
 msgstr "Øyeblikksbilder"
 
-#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:23
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:80
+msgid "Snapshots by date"
+msgstr "Øyeblikksbilder per dato"
+
+#: src/policies/modals/PolicyModal/tabs/CompressionTab.tsx:24
 msgid "Specify compression algorithm to use when snapshotting files in this directory and subdirectories"
 msgstr "Angi komprimeringsalgoritmen som skal brukes ved øyeblikksbilder av filer i denne mappen og undermappene"
 
-#: src/repo/CreateRepoSection.tsx:156
+#: src/repo/CreateRepoSection.tsx:158
 msgid "Splitter"
 msgstr "Splitter"
 
-#: src/repo/RepoPage.tsx:124
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:170
 msgid "Splitter Algorithm"
 msgstr "Splitteralgoritme"
 
-#: src/repo/sections/SFTPServerRepo.tsx:106
+#: src/repo/sections/SFTPServerRepo.tsx:65
+#: src/repo/sections/SFTPServerRepo.tsx:240
 msgid "SSH Arguments"
 msgstr "SSH Argumenter"
 
-#: src/repo/sections/SFTPServerRepo.tsx:101
+#: src/repo/sections/SFTPServerRepo.tsx:64
+#: src/repo/sections/SFTPServerRepo.tsx:235
 msgid "SSH Command"
 msgstr "SSH Kommando"
 
-#: src/repo/sections/SFTPServerRepo.tsx:27
+#: src/repo/sections/SFTPServerRepo.tsx:161
 msgid "SSH host name (e.g., example.com)"
 msgstr "SSH-vertsnavn (f.eks. example.com)"
 
-#: src/snapshot-history/SnapshotHistory.tsx:161
+#: src/snapshot-history/SnapshotHistory.tsx:139
 #: src/tasks/TasksPage.tsx:179
 msgid "Start Time"
 msgstr "Start tid"
 
-#: src/tasks/TaskDetailsPage.tsx:60
+#: src/tasks/TaskDetailsPage.tsx:61
 msgid "Started"
 msgstr "Staret"
+
+#: src/preferences/PreferencesPage.tsx:30
+msgid "Statistics"
+msgstr "Statistikk"
 
 #: src/tasks/TasksPage.tsx:188
 msgid "Status"
 msgstr "Status"
 
-#: src/repo/sections/AzureBlobStorageRepo.tsx:32
+#: src/repo/sections/AzureBlobStorageRepo.tsx:35
+#: src/repo/sections/AzureBlobStorageRepo.tsx:66
 msgid "Storage Account"
 msgstr "Storage Account"
 
-#: src/snapshots/SnapshotsPage.tsx:153
+#: src/core/context/ServerInstanceContext.tsx:92
+msgid "Switched instance"
+msgstr "Server byttet"
+
+#: src/snapshot-history/components/SnapshotHistoryStats.tsx:103
+msgid "Symlinks"
+msgstr "Symlinks"
+
+#: src/snapshots/SnapshotsPage.tsx:178
 msgid "Sync"
 msgstr "Synk"
 
@@ -1744,29 +1931,29 @@ msgstr "Synk"
 msgid "Task ID"
 msgstr "Oppgave ID"
 
-#: src/core/Header/Header.tsx:43
+#: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
 #: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
 msgstr "Oppgaver"
 
-#: src/preferences/NotificationsSection.tsx:51
+#: src/preferences/NotificationsSection.tsx:50
 msgid "Test notification sent"
 msgstr "Test notifikasjon sendt"
 
-#: src/repo/RepoPage.tsx:35
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:70
 msgid "The repository description was successfully updated"
 msgstr "Beskrivelsen av oppbevaringsstedet ble oppdatert"
 
-#: src/repo/RepoPage.tsx:23
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:58
 msgid "The repository was successfully disconnected"
 msgstr "Oppbevaringsstedet ble koblet fra"
 
-#: src/snapshots/SnapshotsPage.tsx:105
+#: src/snapshots/SnapshotsPage.tsx:111
 msgid "The repository was synchronized successfully"
 msgstr "Oppbevaringsstedet ble synkronisert"
 
-#: src/snapshot-history/SnapshotHistory.tsx:306
+#: src/snapshot-history/SnapshotHistory.tsx:284
 msgid "The snapshot(s) was delete successfully"
 msgstr "øyeblikksbilde(ne) ble slettet"
 
@@ -1782,39 +1969,44 @@ msgstr "Tema"
 msgid "This is the internal representation of a policy"
 msgstr "Dette er den interne representasjonen av en strategi"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:66
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:38
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:36
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:26
-msgid "This policy"
-msgstr "Denne strategien"
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:72
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
+#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
+#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
+#~ msgid "This policy"
+#~ msgstr "Denne strategien"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:56
+#: src/policies/modals/PolicyModal/constants.ts:138
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:71
 msgid "Time Of Day"
 msgstr "Tid på dagen"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:61
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:61
+#: src/policies/modals/PolicyModal/constants.ts:171
+#: src/policies/modals/PolicyModal/constants.ts:185
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:84
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:89
 msgid "Timeout - After"
 msgstr "Tidsavbrudd - Etter"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:30
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:30
+#: src/policies/modals/PolicyModal/constants.ts:164
+#: src/policies/modals/PolicyModal/constants.ts:178
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:43
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:47
 msgid "Timeout - Before"
 msgstr "Tidsavbrudd - Før"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:31
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:62
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:31
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Tidsavbrudd i sekunder før Kopia avslutter prosessen"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:100
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:119
 msgid "Times of upcoming snapshots calculated based on policy parameters"
 msgstr "Tidspunkter for kommende øyeblikksbilder beregnet basert på strategi parametere"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:128
 msgid "Timestamp"
 msgstr "Tidsstempel"
 
@@ -1823,23 +2015,25 @@ msgctxt "email-to"
 msgid "To"
 msgstr "Til"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:23
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:24
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:43
 msgid "Token"
 msgstr "Token"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:21
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:22
 msgid "Treat directory read errors as non-fatal"
 msgstr "Behandle lesefeil i mapper som ikke-fatale"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:29
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:31
 msgid "Treat file errors as non-fatal"
 msgstr "Behandle filfeil som ikke-fatale"
 
-#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:37
+#: src/policies/modals/PolicyModal/tabs/ErrorHandlingTab.tsx:40
 msgid "Treat unrecognized/unsupported directory entries as non-fatal errors."
 msgstr "Behandle ugjenkjente/ikke-støttede mappeoppføringer som ikke-fatale feil."
 
-#: src/repo/sections/KopiaRepoServerRepo.tsx:31
+#: src/repo/sections/KopiaRepoServerRepo.tsx:26
+#: src/repo/sections/KopiaRepoServerRepo.tsx:52
 msgid "Trusted server certificate fingerprint (SHA256)"
 msgstr "Fingeravtrykk for sertifikat for klarert server (SHA256)"
 
@@ -1854,20 +2048,20 @@ msgstr "Unikt navn for denne notifikasjons profilen"
 msgid "Unmount"
 msgstr "Demonter"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:118
 msgid "Upcoming Snapshots"
 msgstr "Kommende Øyeblikksbilder"
 
-#: src/repo/RepoPage.tsx:93
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:129
 msgid "Update"
 msgstr "Oppdater"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:259
+#: src/snapshot-history/SnapshotHistory.tsx:237
 msgid "Update description"
 msgstr "Oppdater beskrivelse"
 
-#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:67
+#: src/policies/modals/PolicyListModal/PolicyListModal.tsx:68
 #: src/policies/modals/PolicyTodModal/PolicyTodModal.tsx:79
 msgid "Update items"
 msgstr "Oppdater oppføringer"
@@ -1876,7 +2070,7 @@ msgstr "Oppdater oppføringer"
 msgid "Updated"
 msgstr "Oppdatert"
 
-#: src/policies/modals/PolicyModal/PolicyModal.tsx:191
+#: src/policies/modals/PolicyModal/PolicyModal.tsx:221
 msgid "Upload"
 msgstr "Opplasting"
 
@@ -1888,43 +2082,52 @@ msgstr "Opplasting"
 msgid "URL Endpoint"
 msgstr "URL Endepunkt"
 
-#: src/repo/sections/AmazonS3Repo.tsx:40
+#: src/repo/sections/AmazonS3Repo.tsx:44
+#: src/repo/sections/AmazonS3Repo.tsx:82
 msgid "Use HTTP connection (insecure)"
 msgstr "Bruk HTTP-tilkobling (usikker)"
 
-#: src/repo/sections/KopiaRepoTokenRepo.tsx:18
+#: src/repo/sections/KopiaRepoTokenRepo.tsx:32
 msgid "Use Repository Token"
 msgstr "Bruk oppbevaringssted token"
 
-#: src/repo/ConnectRepoSection.tsx:104
-#: src/repo/CreateRepoSection.tsx:120
+#: src/repo/ConnectRepoSection.tsx:107
+#: src/repo/CreateRepoSection.tsx:122
 msgid "Used to encrypt content of the repository"
 msgstr "Brukes til å kryptere innholdet i oppbevaringsstedet"
 
-#: src/repo/sections/SFTPServerRepo.tsx:41
+#: src/repo/sections/SFTPServerRepo.tsx:54
+#: src/repo/sections/SFTPServerRepo.tsx:175
 msgid "User"
 msgstr "Bruker"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
-#: src/policies/PoliciesPage.tsx:187
-#: src/repo/ConnectRepoSection.tsx:135
-#: src/repo/CreateRepoSection.tsx:201
-#: src/repo/sections/SFTPServerRepo.tsx:42
-#: src/repo/sections/WebDavRepo.tsx:31
-#: src/repo/sections/WebDavRepo.tsx:31
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:38
+#: src/policies/PoliciesPage.tsx:188
+#: src/repo/ConnectRepoSection.tsx:138
+#: src/repo/CreateRepoSection.tsx:203
+#: src/repo/sections/SFTPServerRepo.tsx:176
+#: src/repo/sections/WebDavRepo.tsx:28
+#: src/repo/sections/WebDavRepo.tsx:55
+#: src/repo/sections/WebDavRepo.tsx:55
 msgid "Username"
 msgstr "Brukernavn"
 
-#: src/snapshots/SnapshotsPage.tsx:262
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:26
+msgid "Value defined in policy"
+msgstr "Verdi definert i strategi"
+
+#: src/snapshots/SnapshotsPage.tsx:307
 msgid "View Policy"
 msgstr "Vis policy"
 
-#: src/repo/sections/WebDavRepo.tsx:19
+#: src/repo/sections/WebDavRepo.tsx:37
 msgid "WebDAV Server"
 msgstr "WebDAV Server"
 
-#: src/repo/sections/WebDavRepo.tsx:25
+#: src/repo/sections/WebDavRepo.tsx:27
+#: src/repo/sections/WebDavRepo.tsx:49
 msgid "WebDAV Server URL"
 msgstr "WebDAV Server URL"
 
@@ -1932,7 +2135,8 @@ msgstr "WebDAV Server URL"
 msgid "Webhook"
 msgstr "Webhook"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:48
+#: src/policies/modals/PolicyModal/constants.ts:110
+#: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:52
 msgid "Weekly"
 msgstr "Ukentlig"
 
@@ -1940,15 +2144,19 @@ msgstr "Ukentlig"
 msgid "When a restore error occurs, attempt to continue instead of failing fast"
 msgstr "Når det oppstår en gjenopprettingsfeil, prøv å fortsette i stedet for å mislykkes raskt"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:39
+#: src/preferences/StatisticsSection.tsx:19
+msgid "When enabled, will show snapshot statistics"
+msgstr "Når aktivert så vil statistikk for øyeblikksbilder vises"
+
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:41
 msgid "When set, ignore rules from the parent directory are ignored"
 msgstr "Når de er angitt, ignoreres ignoreringsregler fra den overordnede katalogen"
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:72
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:76
 msgid "When set, the files larger than the specified size are ignored (specified in bytes)"
 msgstr "Når den er angitt, ignoreres filer som er større enn den angitte størrelsen (spesifisert i byte)."
 
-#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:55
+#: src/policies/modals/PolicyModal/tabs/FilesTab.tsx:58
 msgid "When set, the files specifying ignore rules (.kopiaignore, etc.) from the parent directory are ignored"
 msgstr "Når den er satt, ignoreres filene som spesifiserer ignoreringsregler (.kopiignore osv.) fra den overordnede katalogen."
 
@@ -1965,7 +2173,7 @@ msgid "Write Sparse Files"
 msgstr "Skriv sparsomme filer"
 
 #: src/policies/modals/PolicyModal/components/InheritYesNoPolicyControl.tsx:49
-#: src/repo/RepoPage.tsx:156
+#: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:202
 msgid "Yes"
 msgstr "Ja"
 

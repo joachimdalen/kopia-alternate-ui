@@ -41,7 +41,8 @@ export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
     }
   });
 
-  function submitForm(values: string[]) {
+  function submitForm(values: string[], event: React.FormEvent<HTMLFormElement> | undefined) {
+    event?.stopPropagation();
     onUpdated(values);
     onCancel();
   }

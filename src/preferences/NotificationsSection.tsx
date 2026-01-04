@@ -45,7 +45,6 @@ function NotificationsSection() {
   const testAction = useApiRequest({
     action: (data?: NotificationProfile) => kopiaService.testNotificationProfile(data!),
     showErrorAsNotification: true,
-    returnsData: false,
     onReturn: () => {
       showNotification({
         title: t`Test notification sent`,
@@ -55,9 +54,10 @@ function NotificationsSection() {
       });
     }
   });
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need-to-fix-later
   useEffect(() => {
     loadAction.execute(undefined, "loading");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

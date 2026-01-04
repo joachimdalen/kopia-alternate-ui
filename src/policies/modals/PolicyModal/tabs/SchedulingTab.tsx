@@ -11,23 +11,46 @@ import {
   Text
 } from "@mantine/core";
 import { type UseFormReturnType } from "@mantine/form";
+import { useMemo } from "react";
+import { useAppContext } from "../../../../core/context/AppContext";
 import FormattedDate from "../../../../core/FormattedDate";
 import RelativeDate from "../../../../core/RelativeDate";
-import type { Policy } from "../../../../core/types";
+import type { Policy, PolicyDefinition } from "../../../../core/types";
+import { onlyUnique } from "../../../../utils/onlyUnique";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
 import PolicyInheritYesNoPolicyInput from "../policy-inputs/PolicyInheritYesNoPolicyInput";
 import PolicyNumberSelect from "../policy-inputs/PolicyNumberSelect";
 import PolicyTextListInput from "../policy-inputs/PolicyTextListInput";
 import PolicyTimeOfDayInput from "../policy-inputs/PolicyTimeOfDayInput";
 import type { PolicyForm } from "../types";
+import { humanizeSeconds } from "../utils/humanizeSeconds";
 
 type Props = {
   form: UseFormReturnType<PolicyForm>;
   resolvedValue?: Policy;
   upcomingSnapshotTimes?: string[];
+  definition?: PolicyDefinition;
 };
 
-export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTimes }: Props) {
+const defaultValues = [600, 900, 1200, 1800, 3600, 10800, 21600, 43200];
+
+export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTimes, definition }: Props) {
+  const { locale } = useAppContext();
+  const intervalOptions = useMemo(() => {
+    const additional = ((import.meta.env.VITE_PUBLIC_SNAPSHOT_INTERVALS as string) || "")
+      .split(",")
+      .filter((x) => x !== "")
+      .map(parseFloat);
+
+    const allValues = [...defaultValues, ...additional].filter(onlyUnique).sort((a, b) => a - b);
+    return allValues.map((s) => {
+      return {
+        label: t`Every` + " " + humanizeSeconds(s, locale),
+        value: s.toString()
+      };
+    });
+  }, [locale]);
+
   return (
     <TabsPanel value="scheduling" px="xs">
       <ScrollAreaAutosize mah={600} scrollbarSize={4}>
@@ -37,19 +60,11 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
             title={t`Snapshot Frequency`}
             description={t`How frequently to create snapshots in KopiaUI or Kopia server (has no effect outside of the server mode)`}
             placeholder={t`Select Snapshot Frequency`}
-            data={[
-              { label: t`None`, value: "" },
-              { label: t`Every 10 Minutes`, value: "600" },
-              { label: t`Every 15 Minutes`, value: "900" },
-              { label: t`Every 20 Minutes`, value: "1200" },
-              { label: t`Every 30 Minutes`, value: "1800" },
-              { label: t`Every hour`, value: "3600" },
-              { label: t`Every 3 hours`, value: "10800" },
-              { label: t`Every 6 hours`, value: "21600" },
-              { label: t`Every 12 hours`, value: "43200" }
-            ]}
+            data={[{ label: t`None`, value: "" }, ...intervalOptions]}
             form={form}
             formKey="scheduling.intervalSeconds"
+            effective={resolvedValue?.scheduling?.intervalSeconds?.toString()}
+            effectiveDefinedIn={definition?.scheduling?.intervalSeconds}
           />
           <PolicyTimeOfDayInput
             id="time-of-day"
@@ -59,6 +74,7 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
             form={form}
             formKey="scheduling.timeOfDay"
             effective={resolvedValue?.scheduling?.timeOfDay}
+            effectiveDefinedIn={definition?.scheduling?.timeOfDay}
           />
 
           <PolicyTextListInput
@@ -77,6 +93,7 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
               </Text>
             }
             effective={resolvedValue?.scheduling?.cron}
+            effectiveDefinedIn={definition?.scheduling?.cron}
           />
           <PolicyInheritYesNoPolicyInput
             id="run-missed-snapshots-on-startup"
@@ -85,6 +102,7 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
             form={form}
             formKey="scheduling.runMissed"
             effective={resolvedValue?.scheduling?.runMissed}
+            effectiveDefinedIn={definition?.scheduling?.runMissed}
           />
           <PolicyInheritYesNoPolicyInput
             id="manual-snapshots-only"
@@ -93,6 +111,7 @@ export default function SchedulingTab({ form, resolvedValue, upcomingSnapshotTim
             form={form}
             formKey="scheduling.manual"
             effective={resolvedValue?.scheduling?.manual}
+            effectiveDefinedIn={definition?.scheduling?.manual}
           />
           <AccordionItem value="before-command-mode">
             <PolicyAccordionControl

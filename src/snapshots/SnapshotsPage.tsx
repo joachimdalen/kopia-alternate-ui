@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Anchor, Badge, Button, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import {
   IconArchive,
@@ -29,6 +29,7 @@ import RelativeDate from "../core/RelativeDate";
 import type { SourceInfo, SourceStatus, Sources } from "../core/types";
 import { formatOwnerName } from "../utils/formatOwnerName";
 import sizeDisplayName from "../utils/formatSize";
+import { isPastDateTime } from "../utils/isPasteDateTime";
 import { onlyUnique } from "../utils/onlyUnique";
 import UploadingLoader from "./components/UploadingLoader";
 import NewSnapshotModal from "./modals/NewSnapshotModal";
@@ -36,13 +37,25 @@ import NewSnapshotModal from "./modals/NewSnapshotModal";
 function SnapshotsPage() {
   const { kopiaService } = useServerInstanceContext();
   const [show, setShow] = useDisclosure();
-  const { pageSize: tablePageSize, bytesStringBase2 } = useAppContext();
+  const { pageSize: tablePageSize, bytesStringBase2, locale } = useAppContext();
   const [data, setData] = useState<Sources>();
   const [filterState, setFilterState] = useState<"all" | "local" | string>("all");
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<SourceStatus>>({
     columnAccessor: "source.path",
     direction: "asc"
   });
+  const [refreshInterval, setRefreshInterval] = useLocalStorage<number | null>({
+    key: "kopia-alt-ui-snapshot-refresh",
+    defaultValue: 3000,
+    getInitialValueInEffect: false
+  });
+
+  const activeRefreshInterval = useMemo(() => {
+    if (data?.sources !== undefined && data.sources.some((x) => x.status === "PENDING" || x.status === "UPLOADING")) {
+      return 3000;
+    }
+    return refreshInterval;
+  }, [refreshInterval, data]);
 
   const visibleData = useMemo(() => {
     if (data === undefined) return [];
@@ -63,43 +76,36 @@ function SnapshotsPage() {
     return sortStatus.direction === "desc" ? entries.reverse() : entries;
   }, [data, filterState, sortStatus]);
 
-  const { error, execute, loading, loadingKey } = useApiRequest({
+  const loadAction = useApiRequest({
     action: () => kopiaService.getSnapshots(),
-    onReturn(resp) {
-      setData(resp);
-    }
+    onReturn: setData
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only load data on mount
   useEffect(() => {
-    execute(undefined, "loading");
+    loadAction.execute(undefined, "loading");
   }, []);
 
   useInterval(() => {
-    execute(undefined, "fetch");
-  }, 3000);
+    loadAction.execute(undefined, "fetch");
+  }, activeRefreshInterval);
 
   const uniqueOwners = (data?.sources || [])
     .map((x) => formatOwnerName(x.source))
     .filter(onlyUnique)
     .sort();
 
-  const {
-    error: newSnapshotError,
-    execute: newSnapshot,
-    loading: startSnapshotLoading
-    // loadingKey: startSnapshotKey,
-  } = useApiRequest({
+  const newSnapshotActions = useApiRequest({
     action: (data?: SourceInfo) => kopiaService.startSnapshot(data!),
     onReturn() {
-      execute(undefined, "refresh");
+      loadAction.execute(undefined, "refresh");
     }
   });
   const syncAction = useApiRequest({
     action: () => kopiaService.syncRepo(),
     showErrorAsNotification: true,
     onReturn() {
-      execute(undefined, "refresh");
+      loadAction.execute(undefined, "refresh");
       showNotification({
         title: t`Repository synchronized`,
         message: t`The repository was synchronized successfully`,
@@ -108,7 +114,7 @@ function SnapshotsPage() {
       });
     }
   });
-  const intError = error || newSnapshotError;
+  const intError = loadAction.error || newSnapshotActions.error;
 
   return (
     <Container fluid>
@@ -116,29 +122,48 @@ function SnapshotsPage() {
         <Title order={1}>
           <Trans>Snapshots</Trans>
         </Title>
-        <Group justify={data?.multiUser === false ? "end" : "space-between"}>
-          {data?.multiUser === true && (
-            <MenuButton
-              options={[
-                { label: <Trans>All Snapshots</Trans>, value: "all" },
-                { label: <Trans>Local Snapshots</Trans>, value: "local" },
-                { label: "", value: "divider" },
-                ...uniqueOwners.map((own) => ({
-                  label: own,
-                  value: own
-                }))
-              ]}
-              onClick={setFilterState}
-              disabled={loading && loadingKey == "loading"}
-            />
-          )}
+        <Group justify="space-between">
           <Group>
-            <Button disabled={loading && loadingKey == "loading"} onClick={setShow.open} {...newActionProps}>
+            <MenuButton
+              prefix="Refresh:"
+              options={[
+                { label: t`Disabled`, value: "" },
+                { label: t`3 seconds`, value: "3000" },
+                { label: t`10 seconds`, value: "15000" },
+                { label: t`30 seconds`, value: "30000" },
+                { label: t`1 minute`, value: "60000" },
+                { label: t`5 minutes`, value: "300000" }
+              ]}
+              value={refreshInterval?.toString()}
+              onClick={(val) => setRefreshInterval(val === "" ? null : parseInt(val))}
+            />
+            {data?.multiUser === true && (
+              <MenuButton
+                options={[
+                  { label: <Trans>All Snapshots</Trans>, value: "all" },
+                  { label: <Trans>Local Snapshots</Trans>, value: "local" },
+                  { label: "", value: "divider" },
+                  ...uniqueOwners.map((own) => ({
+                    label: own,
+                    value: own
+                  }))
+                ]}
+                onClick={setFilterState}
+                disabled={loadAction.loading && loadAction.loadingKey == "loading"}
+              />
+            )}
+          </Group>
+          <Group>
+            <Button
+              disabled={loadAction.loading && loadAction.loadingKey == "loading"}
+              onClick={setShow.open}
+              {...newActionProps}
+            >
               <Trans>New Snapshot</Trans>
             </Button>
             <Button
-              loading={loading && loadingKey === "refresh"}
-              onClick={() => execute(undefined, "refresh")}
+              loading={loadAction.loading && loadAction.loadingKey === "refresh"}
+              onClick={() => loadAction.execute(undefined, "refresh")}
               {...refreshButtonProps}
             >
               <Trans>Refresh</Trans>
@@ -158,7 +183,7 @@ function SnapshotsPage() {
         <ErrorAlert error={intError} />
         <DataGrid
           records={visibleData}
-          loading={loading && loadingKey === "loading"}
+          loading={loadAction.loading && loadAction.loadingKey === "loading"}
           idAccessor="source.path"
           noRecordsText="No snapshots taken"
           noRecordsIcon={<IconWrapper icon={IconFileDatabase} size={48} />}
@@ -222,7 +247,27 @@ function SnapshotsPage() {
             {
               accessor: "nextSnapshotTime",
               title: <Trans>Next snapshot</Trans>,
-              render: (item) => item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />
+              render: (item) => {
+                if (!item.nextSnapshotTime) return undefined;
+
+                return (
+                  <Group>
+                    <Text fz="sm">{item.nextSnapshotTime && <RelativeDate value={item.nextSnapshotTime} />}</Text>
+                    {isPastDateTime(item.nextSnapshotTime, locale) && (
+                      <Badge
+                        color="yellow"
+                        variant="light"
+                        radius={3}
+                        size="sm"
+                        tt="none"
+                        leftSection={<IconClockExclamation size={12} />}
+                      >
+                        <Trans>Overdue</Trans>
+                      </Badge>
+                    )}
+                  </Group>
+                );
+              }
             },
             {
               accessor: "",
@@ -242,8 +287,8 @@ function SnapshotsPage() {
                             leftSection={<IconArchive size={14} />}
                             variant="subtle"
                             color="green"
-                            loading={startSnapshotLoading}
-                            onClick={() => newSnapshot(item.source)}
+                            loading={newSnapshotActions.loading}
+                            onClick={() => newSnapshotActions.execute(item.source)}
                           >
                             <Trans>Snapshot Now</Trans>
                           </Button>
@@ -288,7 +333,7 @@ function SnapshotsPage() {
         <NewSnapshotModal
           onSnapshotted={() => {
             setShow.close();
-            execute(undefined, "refresh");
+            loadAction.execute(undefined, "refresh");
           }}
           onCancel={setShow.close}
         />

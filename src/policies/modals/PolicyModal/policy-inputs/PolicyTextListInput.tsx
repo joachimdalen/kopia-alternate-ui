@@ -16,6 +16,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconInfoCircle } from "@tabler/icons-react";
 import PolicyListModal from "../../PolicyListModal/PolicyListModal";
 import PolicyAccordionControl from "../components/PolicyAccordionControl";
+import PolicyEffectiveLabel from "../components/PolicyEffectiveLabel";
 import type { PolicyInput } from "../types";
 
 type Props = {
@@ -28,14 +29,29 @@ type Props = {
   infoNode?: React.ReactNode;
 } & PolicyInput;
 
-export default function PolicyTextListInput({ id, title, description, children, form, formKey, infoNode }: Props) {
+export default function PolicyTextListInput({
+  id,
+  title,
+  description,
+  children,
+  form,
+  formKey,
+  infoNode,
+  effective,
+  effectiveDefinedIn
+}: Props) {
   const [open, openHandlers] = useDisclosure(false);
   const inputProps = form.getInputProps(formKey);
   const items = (inputProps.value as string[]) || [];
-  const effectiveValues = (inputProps.value as string[]) || [];
+  const effectiveValues = (inputProps.value as string[]) || effective || [];
+  const isDefined = inputProps.value || effective;
   return (
     <AccordionItem value={id}>
-      <PolicyAccordionControl title={title} description={description} isConfigured={inputProps.value !== undefined} />
+      <PolicyAccordionControl
+        title={title}
+        description={description}
+        isConfigured={inputProps.value !== undefined && inputProps.value !== "" && effectiveValues.length > 0}
+      />
       <AccordionPanel>
         <Stack>
           {infoNode && (
@@ -70,7 +86,15 @@ export default function PolicyTextListInput({ id, title, description, children, 
                 <Trans>Edit items</Trans>
               </Anchor>
             </Stack>
-            <InputWrapper label={t`Effective`}>
+            <InputWrapper
+              label={
+                effectiveDefinedIn && isDefined ? (
+                  <PolicyEffectiveLabel sourceInfo={effectiveDefinedIn} />
+                ) : (
+                  t`Effective`
+                )
+              }
+            >
               <List listStyleType="none" style={{ paddingInlineStart: 0 }}>
                 {effectiveValues.length > 0 ? (
                   effectiveValues.map((x) => (

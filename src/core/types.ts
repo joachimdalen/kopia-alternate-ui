@@ -1,5 +1,5 @@
 import type { AllProviderConfigurations } from "../repo/ConfigureRepoSection";
-import type { KopiaRepoServerRepoConfig } from "../repo/types";
+import type { KopiaRepoServerRepoConfig } from "../repo/sections/KopiaRepoServerRepo";
 
 export interface ApiResponse<T> {
   isError: boolean;
@@ -48,7 +48,7 @@ export type SchedulingPolicy = {
   noParentTimeOfDay?: boolean;
   manual?: boolean;
   cron?: string[];
-  runMissed: boolean;
+  runMissed?: boolean;
 };
 export type DirEntry = {
   name: string;
@@ -299,7 +299,7 @@ export type Status = {
 type ClientOptions = {
   hostname: string;
   username: string;
-  readOnly?: boolean;
+  readonly?: boolean;
   permissiveCacheLoading?: boolean;
   description?: string;
   enableActions: boolean;
@@ -509,7 +509,9 @@ type SplitterPolicyDefinition = {
 };
 type ActionsPolicyDefinition = {
   beforeSnapshotRoot?: SourceInfo;
+  beforeFolder?: SourceInfo;
   afterSnapshotRoot?: SourceInfo;
+  afterFolder?: SourceInfo;
 };
 type OSSnapshotPolicyDefinition = {
   volumeShadowCopy?: SourceInfo;
@@ -634,4 +636,10 @@ export type MountSnapshotRequest = {
 
 export type MountsResponse = {
   items: MountedSnapshot[];
+};
+export type LogEntry = {
+  level: number;
+  ts: number;
+  msg: string;
+  mod: string;
 };
