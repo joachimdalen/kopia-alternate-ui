@@ -8,5 +8,10 @@
     "id": "secondary",
     "name": "repo-docker-prod-02",
     "default": false
+  },
+  {
+    "id": "tertiary",
+    "name": "repo-docker-prod-03",
+    "default": false
   }
 ]
