@@ -56,7 +56,7 @@ services:
       - --address=0.0.0.0:51515
       - --server-username=USER_TWO
       - --server-password=PASSWORD_TWO
-   #   - --tls-generate-cert
+      #   - --tls-generate-cert
       - --tls-cert-file=/app/config/my.cert
       - --tls-key-file=/app/config/my.key
       - --server-control-username=CONTROL_ADMIN
@@ -70,17 +70,54 @@ services:
       - ./secondary-data/cache:/app/cache
       - ./secondary-data/logs:/app/logs
       # Mount local folders to snapshot
-      - ./secondary-data/demo-data:/data:ro
+      - ./secondary-data/demo-data:/data
       # Mount repository location
       - ./secondary-data/repo:/repository
       # Mount path for browsing mounted snapshots
       - ./secondary-data/temp:/tmp:shared
+  kopia-tertiary:
+    image: kopia/kopia:latest
+    hostname: kopia-tertiary
+    container_name: kopia-tertiary
+    #restart: unless-stopped
+    ports:
+      - 51535:51515
+    # Setup the server that provides the web gui
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      #- --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=USER_THREE
+      - --server-password=PASSWORD_THREE
+      #- --tls-generate-cert
+      - --tls-cert-file=/app/config/my.cert
+      - --tls-key-file=/app/config/my.key
+      - --server-control-username=CONTROL_ADMIN
+      - --server-control-password=PASSWORD_HERE
+    environment:
+      # Set repository password
+      KOPIA_PASSWORD: "PASSWORD_THREE"
+    volumes:
+      # Mount local folders needed by kopia
+      - ./tertiary-data/config:/app/config
+      - ./tertiary-data/cache:/app/cache
+      - ./tertiary-data/logs:/app/logs
+      # Mount local folders to snapshot
+      - ./tertiary-data/demo-data:/data
+      # Mount repository location
+      - ./tertiary-data/repo:/repository
+      # Mount path for browsing mounted snapshots
+      - ./tertiary-data/temp:/tmp:shared
   # kopiaaltui:
   #   build:
   #     dockerfile: ./Dockerfile
   #     context: ../
   #   ports:
   #     - 8080:80
+  #   environment:
+  #     - VITE_PUBLIC_SNAPSHOT_INTERVALS="86400,172800,604800"
   #   volumes:
-  #     - ../docker/instances.json:/app/config/instances.json:ro
+  #     - ./servers.json:/app/config/instances.json:ro
   #     - ../docker/nginx.conf:/etc/nginx/templates/default.conf.template:ro

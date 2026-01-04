@@ -51,6 +51,23 @@ export default defineConfig(() =>
               return path.replace("secondary/", "");
             }
           },
+          "/api/tertiary": {
+            target: "https://localhost:51535",
+            changeOrigin: true,
+            secure: false,
+            configure: (
+              proxy
+              //  options
+            ) => {
+              //   options.auth = `${env.KAU_KOPIA_USERNAME}:${env.KAU_KOPIA_PASSWORD}`;
+              proxy.on("proxyRes", (proxyRes) => {
+                delete proxyRes.headers["www-authenticate"];
+              });
+            },
+            rewrite(path) {
+              return path.replace("tertiary/", "");
+            }
+          },
           "/instances": {
             target: "",
             secure: false,
