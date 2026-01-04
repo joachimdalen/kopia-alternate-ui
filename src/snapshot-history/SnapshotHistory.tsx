@@ -245,7 +245,6 @@ function SnapshotHistory() {
                 <Group gap={4} justify="right" wrap="nowrap">
                   <Tooltip label={t`Update description`}>
                     <ActionIcon
-                      size="sm"
                       variant="subtle"
                       color="blue"
                       onClick={() =>
@@ -255,17 +254,12 @@ function SnapshotHistory() {
                         })
                       }
                     >
-                      <IconFileText size={16} />
+                      <IconFileText size={18} />
                     </ActionIcon>
                   </Tooltip>
                   <Tooltip label={t`Add pin to prevent snapshot deletion`}>
-                    <ActionIcon
-                      size="sm"
-                      variant="subtle"
-                      color="grape"
-                      onClick={() => setItemAction({ item, action: "pin" })}
-                    >
-                      <IconPin size={16} />
+                    <ActionIcon variant="subtle" color="grape" onClick={() => setItemAction({ item, action: "pin" })}>
+                      <IconPin size={18} />
                     </ActionIcon>
                   </Tooltip>
                 </Group>

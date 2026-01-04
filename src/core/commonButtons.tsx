@@ -4,7 +4,6 @@ import { IconPlus, IconRefresh } from "@tabler/icons-react";
 export const refreshButtonProps: ButtonProps = {
   size: "xs",
   color: "blue",
-  variant: "outline",
   leftSection: <IconRefresh size={16} />
 };
 export const newActionProps: ButtonProps = {
