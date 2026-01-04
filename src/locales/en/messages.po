@@ -103,6 +103,10 @@ msgstr "Add"
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
+#: src/users/UsersPage.tsx:70
+msgid "Add User"
+msgstr "Add User"
+
 #: src/repo/ConnectRepoSection.tsx:127
 #: src/repo/CreateRepoSection.tsx:136
 msgid "Advanced Options"
@@ -147,6 +151,10 @@ msgstr "Appearance"
 #: src/policies/PoliciesPage.tsx:141
 msgid "Applicable Policies"
 msgstr "Applicable Policies"
+
+#: src/users/UsersPage.tsx:43
+msgid "Are you sure you want to delete the user {username}?"
+msgstr "Are you sure you want to delete the user {username}?"
 
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:30
 msgid "Are you sure you want to delete this policy?"
@@ -228,6 +236,7 @@ msgstr "Cache Miss"
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:72
 #: src/snapshots/modals/NewSnapshotModal.tsx:135
 #: src/snapshots/modals/TaskEstimationModal.tsx:92
+#: src/users/modals/NewUserModal.tsx:114
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -296,6 +305,10 @@ msgstr "Configure the selected provider"
 #: src/policies/modals/PolicyModal/components/PolicyAccordionControl.tsx:22
 msgid "Configured"
 msgstr "Configured"
+
+#: src/users/modals/NewUserModal.tsx:104
+msgid "Confirm password"
+msgstr "Confirm password"
 
 #: src/repo/CreateRepoSection.tsx:126
 msgid "Confirm Repository Password"
@@ -370,6 +383,10 @@ msgstr "Create repository"
 msgid "Create snapshots at the specified times of day (24hr format)"
 msgstr "Create snapshots at the specified times of day (24hr format)"
 
+#: src/users/modals/NewUserModal.tsx:76
+msgid "Create user"
+msgstr "Create user"
+
 #: src/repo/sections/GoogleCloudStorageRepo.tsx:31
 #: src/repo/sections/GoogleCloudStorageRepo.tsx:65
 msgid "Credentials File"
@@ -425,6 +442,7 @@ msgstr "Defined"
 #: src/preferences/components/NotificationCard.tsx:89
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:82
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:88
+#: src/users/UsersPage.tsx:117
 msgid "Delete"
 msgstr "Delete"
 
@@ -436,6 +454,11 @@ msgstr "Delete policy"
 #: src/snapshot-history/SnapshotHistory.tsx:100
 msgid "Delete Selected"
 msgstr "Delete Selected"
+
+#: src/users/UsersPage.tsx:40
+#: src/users/UsersPage.tsx:46
+msgid "Delete user"
+msgstr "Delete user"
 
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:60
 msgid "Deprecated"
@@ -877,8 +900,15 @@ msgid "Host"
 msgstr "Host"
 
 #: src/repo/ConnectRepoSection.tsx:143
+#: src/users/modals/NewUserModal.tsx:29
+#: src/users/modals/NewUserModal.tsx:90
+#: src/users/UsersPage.tsx:100
 msgid "Hostname"
 msgstr "Hostname"
+
+#: src/users/modals/NewUserModal.tsx:27
+msgid "Hostname can only contain lowercase letters, numbers, dashes, underscore and period"
+msgstr "Hostname can only contain lowercase letters, numbers, dashes, underscore and period"
 
 #: src/policies/modals/PolicyModal/constants.ts:108
 #: src/policies/modals/PolicyModal/tabs/SnapshotRetentionTab.tsx:32
@@ -1206,8 +1236,8 @@ msgstr "Mounted at"
 msgid "Mounted Snapshots"
 msgstr "Mounted Snapshots"
 
-#: src/core/Header/Header.tsx:32
-#: src/core/Header/SkeletonHeader.tsx:31
+#: src/core/Header/Header.tsx:33
+#: src/core/Header/SkeletonHeader.tsx:32
 msgid "Mounts"
 msgstr "Mounts"
 
@@ -1226,8 +1256,15 @@ msgstr "Must Succeed"
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
 #: src/snapshot-directory/SnapshotDirectory.tsx:178
+#: src/users/modals/NewUserModal.tsx:24
+#: src/users/modals/NewUserModal.tsx:88
+#: src/users/UsersPage.tsx:96
 msgid "Name"
 msgstr "Name"
+
+#: src/users/modals/NewUserModal.tsx:22
+msgid "Name can only contain lowercase letters, numbers, dashes, underscore and period"
+msgstr "Name can only contain lowercase letters, numbers, dashes, underscore and period"
 
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:77
 msgid "Name of the pin"
@@ -1270,6 +1307,7 @@ msgid "No"
 msgstr "No"
 
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:33
+#: src/users/UsersPage.tsx:46
 msgid "No don't delete it"
 msgstr "No don't delete it"
 
@@ -1425,8 +1463,14 @@ msgstr "Owner"
 #: src/repo/sections/WebDavRepo.tsx:29
 #: src/repo/sections/WebDavRepo.tsx:57
 #: src/repo/sections/WebDavRepo.tsx:58
+#: src/users/modals/NewUserModal.tsx:30
+#: src/users/modals/NewUserModal.tsx:98
 msgid "Password"
 msgstr "Password"
+
+#: src/users/modals/NewUserModal.tsx:32
+msgid "Passwords must match"
+msgstr "Passwords must match"
 
 #: src/repo/sections/KopiaRepoTokenRepo.tsx:45
 msgid "Paste connection token"
@@ -1489,8 +1533,8 @@ msgstr "Pin Snapshot"
 msgid "Plain Text Format"
 msgstr "Plain Text Format"
 
-#: src/core/Header/Header.tsx:38
-#: src/core/Header/SkeletonHeader.tsx:37
+#: src/core/Header/Header.tsx:39
+#: src/core/Header/SkeletonHeader.tsx:38
 #: src/policies/PoliciesPage.tsx:136
 msgid "Policies"
 msgstr "Policies"
@@ -1504,8 +1548,8 @@ msgstr "Port"
 msgid "Port number (e.g., 22)"
 msgstr "Port number (e.g., 22)"
 
-#: src/core/Header/Header.tsx:44
-#: src/core/Header/SkeletonHeader.tsx:55
+#: src/core/Header/Header.tsx:45
+#: src/core/Header/SkeletonHeader.tsx:56
 #: src/preferences/PreferencesPage.tsx:14
 msgid "Preferences"
 msgstr "Preferences"
@@ -1517,6 +1561,10 @@ msgstr "Preferences updated"
 #: src/policies/modals/PolicyModal/tabs/OtherTab.tsx:27
 msgid "Prevents any parent policies from affecting this directory and its subdirectories"
 msgstr "Prevents any parent policies from affecting this directory and its subdirectories"
+
+#: src/users/UsersPage.tsx:61
+msgid "Profiles"
+msgstr "Profiles"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:152
 msgid "Provider"
@@ -1561,6 +1609,7 @@ msgstr "Records per page"
 #: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshots/SnapshotsPage.tsx:169
 #: src/tasks/TasksPage.tsx:157
+#: src/users/UsersPage.tsx:77
 msgid "Refresh"
 msgstr "Refresh"
 
@@ -1568,8 +1617,8 @@ msgstr "Refresh"
 msgid "Remote"
 msgstr "Remote"
 
-#: src/core/Header/Header.tsx:43
-#: src/core/Header/SkeletonHeader.tsx:49
+#: src/core/Header/Header.tsx:44
+#: src/core/Header/SkeletonHeader.tsx:50
 msgid "Repository"
 msgstr "Repository"
 
@@ -1662,6 +1711,7 @@ msgstr "SAS Token"
 #: src/preferences/modals/WebhookModal.tsx:231
 #: src/snapshot-history/modals/PinSnapshotModal.tsx:92
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:75
+#: src/users/modals/NewUserModal.tsx:123
 msgid "Save"
 msgstr "Save"
 
@@ -1858,8 +1908,8 @@ msgstr "Snapshot unmounted"
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
-#: src/core/Header/Header.tsx:26
-#: src/core/Header/SkeletonHeader.tsx:25
+#: src/core/Header/Header.tsx:27
+#: src/core/Header/SkeletonHeader.tsx:26
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:87
 #: src/snapshots/SnapshotsPage.tsx:123
@@ -1934,8 +1984,8 @@ msgstr "Sync"
 msgid "Task ID"
 msgstr "Task ID"
 
-#: src/core/Header/Header.tsx:42
-#: src/core/Header/SkeletonHeader.tsx:43
+#: src/core/Header/Header.tsx:43
+#: src/core/Header/SkeletonHeader.tsx:44
 #: src/tasks/TasksPage.tsx:84
 msgid "Tasks"
 msgstr "Tasks"
@@ -2114,8 +2164,14 @@ msgstr "User"
 #: src/repo/sections/WebDavRepo.tsx:28
 #: src/repo/sections/WebDavRepo.tsx:55
 #: src/repo/sections/WebDavRepo.tsx:55
+#: src/users/UsersPage.tsx:92
 msgid "Username"
 msgstr "Username"
+
+#: src/core/Header/Header.tsx:46
+#: src/core/Header/SkeletonHeader.tsx:62
+msgid "Users"
+msgstr "Users"
 
 #: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:26
 msgid "Value defined in policy"

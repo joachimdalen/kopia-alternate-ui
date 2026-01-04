@@ -644,3 +644,15 @@ export type LogEntry = {
   mod: string;
   [key: string]: string | number | object;
 };
+export type Profile = {
+  username: string;
+  user: string;
+  hostname: string;
+};
+export type ProfilesReponse = {
+  profiles: Profile[];
+};
+export type CreateProfileRequest = {
+  username: string;
+  password: string;
+};

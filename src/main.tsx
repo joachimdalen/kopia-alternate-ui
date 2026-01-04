@@ -17,6 +17,7 @@ import SnapshotMountsPage from "./snapshot-mounts/SnapshotMountsPage.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
 import TaskDetailsPage from "./tasks/TaskDetailsPage.tsx";
 import TasksPage from "./tasks/TasksPage.tsx";
+import UsersPage from "./users/UsersPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/policies" element={<PoliciesPage />} />
           <Route path="/preferences" element={<PreferencesPage />} />
           <Route path="/repo" element={<RepoPage />} />
+          <Route path="/users" element={<UsersPage />} />
           <Route path="/" element={<Navigate to="/snapshots" />} />
         </Route>
       </Routes>

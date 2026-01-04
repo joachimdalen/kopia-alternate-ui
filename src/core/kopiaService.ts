@@ -4,6 +4,7 @@ import type {
   ApiResponse,
   CheckRepoRequest,
   ConnectRepoRequest,
+  CreateProfileRequest,
   CreateSnapshotRequest,
   CurrentUser,
   DeleteSnapshotRequest,
@@ -16,6 +17,8 @@ import type {
   PoliciesList,
   Policy,
   Preferences,
+  Profile,
+  ProfilesReponse,
   ResolvedPolicy,
   ResolvePath,
   ResolvePolicyRequest,
@@ -69,10 +72,8 @@ export interface IKopiaService {
   setPreferences(data: Preferences): Promise<ApiResponse<Preferences>>;
   getNotificationProfiles(): Promise<ApiResponse<NotificationProfile[]>>;
   createNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<NotificationProfile>>;
-
   deleteNotificationProfile(profileName: string): Promise<ApiResponse<unknown>>;
   testNotificationProfile(profile: NotificationProfile): Promise<ApiResponse<unknown>>;
-
   resolvePath(path: string): Promise<ApiResponse<ResolvePath>>;
   estimateSnapshot(data: EstimateSnapshotRequest): Promise<ApiResponse<Task>>;
   createSnapshot(data: CreateSnapshotRequest): Promise<ApiResponse<Task>>;
@@ -89,6 +90,9 @@ export interface IKopiaService {
   getMountedSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>>;
   unMountSnapshot(root: string): Promise<ApiResponse<unknown>>;
   getMountedSnapshots(): Promise<ApiResponse<MountsResponse>>;
+  getUsers(): Promise<ApiResponse<ProfilesReponse>>;
+  deleteUser(username: string): Promise<ApiResponse<ProfilesReponse>>;
+  addUser(data: CreateProfileRequest): Promise<ApiResponse<Profile>>;
 }
 
 export class KopiaService implements IKopiaService {
@@ -270,7 +274,15 @@ export class KopiaService implements IKopiaService {
   public getMountedSnapshots(): Promise<ApiResponse<MountsResponse>> {
     return this.get(`/api/${this.instance}/v1/mounts`);
   }
-
+  public getUsers(): Promise<ApiResponse<ProfilesReponse>> {
+    return this.get(`/api/${this.instance}/v1/users`);
+  }
+  public deleteUser(username: string): Promise<ApiResponse<ProfilesReponse>> {
+    return this.delete(`/api/${this.instance}/v1/users/${username}`);
+  }
+  public addUser(data: CreateProfileRequest): Promise<ApiResponse<Profile>> {
+    return this.post(`/api/${this.instance}/v1/users`, data);
+  }
   // Privates
   private async requestWrapper<T>(requestFunc: () => Promise<T>): Promise<ApiResponse<T>> {
     try {

@@ -8,7 +8,8 @@ import {
   IconFileCertificate,
   IconFolderBolt,
   IconPackage,
-  IconSettings
+  IconSettings,
+  IconUsers
 } from "@tabler/icons-react";
 import { useMemo } from "react";
 import { Link, NavLink } from "react-router";
@@ -42,6 +43,7 @@ export function Header() {
       { link: "/tasks", label: t`Tasks`, icon: IconClipboardCheck },
       { link: "/repo", label: t`Repository`, icon: IconDatabase },
       { link: "/preferences", label: t`Preferences`, icon: IconSettings },
+      { link: "/users", label: t`Users`, icon: IconUsers },
       {
         link: "ext:https://github.com/joachimdalen/kopia-alternate-ui",
         label: "GitHub",

@@ -8,7 +8,8 @@ import {
   IconFileCertificate,
   IconFolderBolt,
   IconPackage,
-  IconSettings
+  IconSettings,
+  IconUsers
 } from "@tabler/icons-react";
 import { useMemo } from "react";
 import { Link, NavLink } from "react-router";
@@ -54,6 +55,12 @@ export function SkeletonHeader() {
         link: "/preferences",
         label: t`Preferences`,
         icon: IconSettings,
+        disabled: true
+      },
+      {
+        link: "/users",
+        label: t`Users`,
+        icon: IconUsers,
         disabled: true
       },
       {
