@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { ActionIcon, Button, Center, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
+import { ActionIcon, Button, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconClick, IconFileCertificate, IconPencil, IconPlus } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
@@ -214,11 +214,7 @@ function PoliciesPage() {
             },
             {
               accessor: "actions",
-              title: (
-                <Center>
-                  <IconClick size={16} />
-                </Center>
-              ),
+              title: <IconClick size={16} />,
               width: "0%",
               textAlign: "right",
               render: (item) => (

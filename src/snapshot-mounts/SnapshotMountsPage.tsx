@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { ActionIcon, Anchor, Button, Center, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
+import { ActionIcon, Anchor, Button, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconClick, IconFolderBolt, IconFolderMinus } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
@@ -86,11 +86,7 @@ function SnapshotMountsPage() {
             },
             {
               accessor: "actions",
-              title: (
-                <Center>
-                  <IconClick size={16} />
-                </Center>
-              ),
+              title: <IconClick size={16} />,
               width: "0%",
               textAlign: "right",
               render: (item) => (

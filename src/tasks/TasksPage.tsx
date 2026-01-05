@@ -200,12 +200,8 @@ function TasksPage() {
             },
             {
               accessor: "actions",
-              title: (
-                <Center>
-                  <IconClick size={16} />
-                </Center>
-              ),
-              width: "0%", // 👈 use minimal width
+              title: <IconClick size={16} />,
+              width: "0%",
               render: (item) =>
                 item.status === "RUNNING" && (
                   <Button size="xs" variant="subtle" leftSection={<IconBan size={14} />} color="red">

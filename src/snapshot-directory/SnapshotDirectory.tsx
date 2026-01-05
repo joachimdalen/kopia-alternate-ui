@@ -5,7 +5,6 @@ import {
   Alert,
   Anchor,
   Button,
-  Center,
   Container,
   CopyButton,
   Divider,
@@ -233,11 +232,7 @@ function SnapshotDirectory() {
             },
             {
               accessor: "actions",
-              title: (
-                <Center>
-                  <IconClick size={16} />
-                </Center>
-              ),
+              title: <IconClick size={16} />,
               width: "0%",
               textAlign: "right",
               render: (item) =>
