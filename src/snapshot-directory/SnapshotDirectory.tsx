@@ -105,7 +105,6 @@ function SnapshotDirectory() {
     }
 
     const itemTypes = items.map((x) => x.type).filter(onlyUnique).length;
-
     const entries = orderBy(
       items,
       itemTypes > 1 ? ["type", sortStatus.columnAccessor] : sortStatus.columnAccessor,
