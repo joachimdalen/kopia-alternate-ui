@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { Button, Center, Container, Divider, Group, Stack, Title } from "@mantine/core";
+import { ActionIcon, Button, Center, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconClick, IconFileCertificate, IconPencil, IconPlus } from "@tabler/icons-react";
 import { useEffect, useMemo, useState } from "react";
@@ -219,25 +219,26 @@ function PoliciesPage() {
                   <IconClick size={16} />
                 </Center>
               ),
-              width: "0%", // 👈 use minimal width
+              width: "0%",
+              textAlign: "right",
               render: (item) => (
-                <Button
-                  size="xs"
-                  variant="subtle"
-                  leftSection={<IconPencil size={14} />}
-                  color="yellow"
-                  onClick={() =>
-                    setAction({
-                      action: "edit",
-                      item: {
-                        isNew: false,
-                        target: item.target
-                      }
-                    })
-                  }
-                >
-                  <Trans>Edit</Trans>
-                </Button>
+                <Tooltip label={t`Edit`}>
+                  <ActionIcon
+                    variant="subtle"
+                    color="yellow"
+                    onClick={() =>
+                      setAction({
+                        action: "edit",
+                        item: {
+                          isNew: false,
+                          target: item.target
+                        }
+                      })
+                    }
+                  >
+                    <IconPencil size={18} />
+                  </ActionIcon>
+                </Tooltip>
               )
             }
           ]}

@@ -1,19 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import {
-  ActionIcon,
-  Anchor,
-  Badge,
-  Button,
-  Center,
-  Code,
-  Container,
-  Group,
-  Stack,
-  Text,
-  Title,
-  Tooltip
-} from "@mantine/core";
+import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Text, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconArrowLeft, IconClick, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -234,11 +221,7 @@ function SnapshotHistory() {
             },
             {
               accessor: "actions",
-              title: (
-                <Center>
-                  <IconClick size={16} />
-                </Center>
-              ),
+              title: <IconClick size={16} />,
               width: "0%",
               textAlign: "right",
               render: (item) => (

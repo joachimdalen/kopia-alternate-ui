@@ -132,7 +132,7 @@ function SnapshotDirectory() {
               value={query}
               onChange={setQuery}
             />
-            <Button size="xs" color="indigo" leftSection={<IconFileDelta size={16} />} onClick={setShow.open}>
+            <Button size="xs" color="green" leftSection={<IconFileDelta size={16} />} onClick={setShow.open}>
               <Trans>Restore</Trans>
             </Button>
             {oid && <MountButton mount={mount} rootID={oid} onMounted={(mnt) => setMount(mnt)} />}

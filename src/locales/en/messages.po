@@ -53,23 +53,23 @@ msgstr "# of monthly snapshots"
 msgid "# of weekly snapshots"
 msgstr "# of weekly snapshots"
 
-#: src/snapshots/SnapshotsPage.tsx:134
+#: src/snapshots/SnapshotsPage.tsx:147
 msgid "1 minute"
 msgstr "1 minute"
 
-#: src/snapshots/SnapshotsPage.tsx:132
+#: src/snapshots/SnapshotsPage.tsx:145
 msgid "10 seconds"
 msgstr "10 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:131
+#: src/snapshots/SnapshotsPage.tsx:144
 msgid "3 seconds"
 msgstr "3 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:133
+#: src/snapshots/SnapshotsPage.tsx:146
 msgid "30 seconds"
 msgstr "30 seconds"
 
-#: src/snapshots/SnapshotsPage.tsx:135
+#: src/snapshots/SnapshotsPage.tsx:148
 msgid "5 minutes"
 msgstr "5 minutes"
 
@@ -99,7 +99,7 @@ msgstr "Active"
 msgid "Add"
 msgstr "Add"
 
-#: src/snapshot-history/SnapshotHistory.tsx:201
+#: src/snapshot-history/SnapshotHistory.tsx:243
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
@@ -127,7 +127,7 @@ msgstr "All"
 msgid "All Policies"
 msgstr "All Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:143
+#: src/snapshots/SnapshotsPage.tsx:156
 msgid "All Snapshots"
 msgstr "All Snapshots"
 
@@ -480,8 +480,8 @@ msgstr "Directory Snapshotted"
 msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:229
-#: src/snapshot-history/SnapshotHistory.tsx:225
+#: src/snapshot-directory/SnapshotDirectory.tsx:231
+#: src/snapshot-history/SnapshotHistory.tsx:218
 msgid "Dirs"
 msgstr "Dirs"
 
@@ -499,7 +499,7 @@ msgstr "Disable ZIP compression"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:188
 #: src/repo/CreateRepoSection.tsx:182
-#: src/snapshots/SnapshotsPage.tsx:130
+#: src/snapshots/SnapshotsPage.tsx:143
 msgid "Disabled"
 msgstr "Disabled"
 
@@ -554,7 +554,7 @@ msgstr "Due to this being a local feature and not a feature in Kopia, these sett
 msgid "Duration"
 msgstr "Duration"
 
-#: src/policies/PoliciesPage.tsx:239
+#: src/policies/PoliciesPage.tsx:225
 #: src/preferences/components/NotificationCard.tsx:71
 msgid "Edit"
 msgstr "Edit"
@@ -817,9 +817,9 @@ msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
-#: src/snapshot-directory/SnapshotDirectory.tsx:223
+#: src/snapshot-directory/SnapshotDirectory.tsx:225
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
-#: src/snapshot-history/SnapshotHistory.tsx:219
+#: src/snapshot-history/SnapshotHistory.tsx:212
 msgid "Files"
 msgstr "Files"
 
@@ -1025,11 +1025,11 @@ msgstr "Known Hosts Data"
 msgid "Kopia Repository Server"
 msgstr "Kopia Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:209
+#: src/snapshot-directory/SnapshotDirectory.tsx:211
 msgid "Last Modification"
 msgstr "Last Modification"
 
-#: src/snapshots/SnapshotsPage.tsx:244
+#: src/snapshots/SnapshotsPage.tsx:257
 msgid "Last Snapshot"
 msgstr "Last Snapshot"
 
@@ -1077,7 +1077,7 @@ msgstr "Local Directory or NAS"
 msgid "Local Path Policies"
 msgstr "Local Path Policies"
 
-#: src/snapshots/SnapshotsPage.tsx:144
+#: src/snapshots/SnapshotsPage.tsx:157
 msgid "Local Snapshots"
 msgstr "Local Snapshots"
 
@@ -1198,11 +1198,11 @@ msgstr "Monthly"
 msgid "Mount"
 msgstr "Mount"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:75
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:85
 msgid "Mounted at"
 msgstr "Mounted at"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:50
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:52
 msgid "Mounted Snapshots"
 msgstr "Mounted Snapshots"
 
@@ -1225,7 +1225,7 @@ msgstr "Must Succeed"
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:178
+#: src/snapshot-directory/SnapshotDirectory.tsx:180
 msgid "Name"
 msgstr "Name"
 
@@ -1252,7 +1252,7 @@ msgid "New snapshot"
 msgstr "New snapshot"
 
 #: src/snapshots/components/NewSnapshotButton.tsx:33
-#: src/snapshots/SnapshotsPage.tsx:162
+#: src/snapshots/SnapshotsPage.tsx:175
 msgid "New Snapshot"
 msgstr "New Snapshot"
 
@@ -1260,7 +1260,7 @@ msgstr "New Snapshot"
 msgid "Next"
 msgstr "Next"
 
-#: src/snapshots/SnapshotsPage.tsx:249
+#: src/snapshots/SnapshotsPage.tsx:262
 msgid "Next snapshot"
 msgstr "Next snapshot"
 
@@ -1273,11 +1273,11 @@ msgstr "No"
 msgid "No don't delete it"
 msgstr "No don't delete it"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:172
+#: src/snapshot-directory/SnapshotDirectory.tsx:174
 msgid "No entires matching your search"
 msgstr "No entires matching your search"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:172
+#: src/snapshot-directory/SnapshotDirectory.tsx:174
 msgid "No entries in folder"
 msgstr "No entries in folder"
 
@@ -1298,7 +1298,7 @@ msgstr "No policies found"
 msgid "No recepients defined"
 msgstr "No recepients defined"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:59
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:69
 msgid "No snapshots mounted"
 msgstr "No snapshots mounted"
 
@@ -1382,7 +1382,7 @@ msgstr "Open in large edit"
 msgid "Other"
 msgstr "Other"
 
-#: src/snapshots/SnapshotsPage.tsx:265
+#: src/snapshots/SnapshotsPage.tsx:278
 msgid "Overdue"
 msgstr "Overdue"
 
@@ -1413,7 +1413,7 @@ msgstr "Overwrite Files"
 msgid "Overwrite Symbolic Links"
 msgstr "Overwrite Symbolic Links"
 
-#: src/snapshots/SnapshotsPage.tsx:217
+#: src/snapshots/SnapshotsPage.tsx:230
 msgid "Owner"
 msgstr "Owner"
 
@@ -1449,7 +1449,7 @@ msgstr "Paste JSON credentials here"
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
 #: src/repo/sections/SFTPServerRepo.tsx:189
-#: src/snapshots/SnapshotsPage.tsx:196
+#: src/snapshots/SnapshotsPage.tsx:209
 msgid "Path"
 msgstr "Path"
 
@@ -1467,7 +1467,7 @@ msgstr "Path to known_hosts File"
 msgid "Path to snapshot"
 msgstr "Path to snapshot"
 
-#: src/snapshots/SnapshotsPage.tsx:317
+#: src/snapshots/SnapshotsPage.tsx:332
 msgid "Pending"
 msgstr "Pending"
 
@@ -1557,14 +1557,15 @@ msgid "Records per page"
 msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:172
-#: src/snapshot-directory/SnapshotDirectory.tsx:142
+#: src/snapshot-directory/SnapshotDirectory.tsx:144
 #: src/snapshot-history/SnapshotHistory.tsx:108
-#: src/snapshots/SnapshotsPage.tsx:169
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:59
+#: src/snapshots/SnapshotsPage.tsx:182
 #: src/tasks/TasksPage.tsx:157
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/snapshots/SnapshotsPage.tsx:225
+#: src/snapshots/SnapshotsPage.tsx:238
 msgid "Remote"
 msgstr "Remote"
 
@@ -1595,11 +1596,11 @@ msgstr "Repository is connected as read-only"
 msgid "Repository Password"
 msgstr "Repository Password"
 
-#: src/snapshots/SnapshotsPage.tsx:110
+#: src/snapshots/SnapshotsPage.tsx:123
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:134
+#: src/snapshot-directory/SnapshotDirectory.tsx:136
 msgid "Restore"
 msgstr "Restore"
 
@@ -1690,7 +1691,7 @@ msgstr "Script to run before folder"
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:128
+#: src/snapshot-directory/SnapshotDirectory.tsx:130
 msgid "Search files or folder (current level)"
 msgstr "Search files or folder (current level)"
 
@@ -1774,10 +1775,10 @@ msgstr "Show {totalLength} individual snapshots"
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:215
+#: src/snapshot-directory/SnapshotDirectory.tsx:217
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
-#: src/snapshot-history/SnapshotHistory.tsx:212
-#: src/snapshots/SnapshotsPage.tsx:235
+#: src/snapshot-history/SnapshotHistory.tsx:205
+#: src/snapshots/SnapshotsPage.tsx:248
 msgid "Size"
 msgstr "Size"
 
@@ -1813,7 +1814,7 @@ msgstr "SMTP server username, typically the email address"
 msgid "SMTP Username"
 msgstr "SMTP Username"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:119
+#: src/snapshot-directory/SnapshotDirectory.tsx:121
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -1826,11 +1827,11 @@ msgstr "Snapshot Actions"
 msgid "Snapshot Frequency"
 msgstr "Snapshot Frequency"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:65
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:75
 msgid "Snapshot ID"
 msgstr "Snapshot ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:150
+#: src/snapshot-directory/SnapshotDirectory.tsx:152
 msgid "Snapshot is mounted at the following path"
 msgstr "Snapshot is mounted at the following path"
 
@@ -1838,7 +1839,7 @@ msgstr "Snapshot is mounted at the following path"
 msgid "Snapshot now"
 msgstr "Snapshot now"
 
-#: src/snapshots/SnapshotsPage.tsx:293
+#: src/snapshots/SnapshotsPage.tsx:299
 msgid "Snapshot Now"
 msgstr "Snapshot Now"
 
@@ -1850,11 +1851,11 @@ msgstr "Snapshot Retention"
 msgid "Snapshot schedules using UNIX crontab syntax:"
 msgstr "Snapshot schedules using UNIX crontab syntax:"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:34
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:35
 msgid "Snapshot unmounted"
 msgstr "Snapshot unmounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:294
+#: src/snapshot-history/SnapshotHistory.tsx:291
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
@@ -1862,7 +1863,7 @@ msgstr "Snapshot(s) deleted"
 #: src/core/Header/SkeletonHeader.tsx:25
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:87
-#: src/snapshots/SnapshotsPage.tsx:123
+#: src/snapshots/SnapshotsPage.tsx:136
 msgid "Snapshots"
 msgstr "Snapshots"
 
@@ -1926,7 +1927,7 @@ msgstr "Switched instance"
 msgid "Symlinks"
 msgstr "Symlinks"
 
-#: src/snapshots/SnapshotsPage.tsx:178
+#: src/snapshots/SnapshotsPage.tsx:191
 msgid "Sync"
 msgstr "Sync"
 
@@ -1952,15 +1953,15 @@ msgstr "The repository description was successfully updated"
 msgid "The repository was successfully disconnected"
 msgstr "The repository was successfully disconnected"
 
-#: src/snapshots/SnapshotsPage.tsx:111
+#: src/snapshots/SnapshotsPage.tsx:124
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
-#: src/snapshot-history/SnapshotHistory.tsx:295
+#: src/snapshot-history/SnapshotHistory.tsx:292
 msgid "The snapshot(s) was delete successfully"
 msgstr "The snapshot(s) was delete successfully"
 
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:35
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:36
 msgid "The snapshout was unmounted from the host"
 msgstr "The snapshout was unmounted from the host"
 
@@ -2047,7 +2048,7 @@ msgid "Unique name for this notification profile"
 msgstr "Unique name for this notification profile"
 
 #: src/snapshot-directory/components/MountButton.tsx:49
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:92
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:97
 msgid "Unmount"
 msgstr "Unmount"
 
@@ -2060,7 +2061,7 @@ msgid "Update"
 msgstr "Update"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:248
+#: src/snapshot-history/SnapshotHistory.tsx:229
 msgid "Update description"
 msgstr "Update description"
 
@@ -2121,7 +2122,7 @@ msgstr "Username"
 msgid "Value defined in policy"
 msgstr "Value defined in policy"
 
-#: src/snapshots/SnapshotsPage.tsx:307
+#: src/snapshots/SnapshotsPage.tsx:311
 msgid "View Policy"
 msgstr "View Policy"
 
