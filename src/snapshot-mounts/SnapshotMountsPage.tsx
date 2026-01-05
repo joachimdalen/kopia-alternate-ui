@@ -1,10 +1,11 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { Anchor, Button, Container, Divider, Group, Stack, Title } from "@mantine/core";
+import { ActionIcon, Anchor, Button, Container, Divider, Group, Stack, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { IconClick, IconFolderBolt, IconFolderMinus } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { refreshButtonProps } from "../core/commonButtons";
 import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { DataGrid } from "../core/DataGrid/DataGrid";
@@ -46,9 +47,18 @@ function SnapshotMountsPage() {
   return (
     <Container fluid>
       <Stack>
-        <Title order={1}>
-          <Trans>Mounted Snapshots</Trans>
-        </Title>
+        <Group justify="space-between">
+          <Title order={1}>
+            <Trans>Mounted Snapshots</Trans>
+          </Title>
+          <Button
+            loading={loadMountsAction.loading && loadMountsAction.loadingKey === "refresh"}
+            onClick={() => loadMountsAction.execute(undefined, "refresh")}
+            {...refreshButtonProps}
+          >
+            <Trans>Refresh</Trans>
+          </Button>
+        </Group>
 
         <Divider />
         <ErrorAlert error={loadMountsAction.error} />
@@ -77,21 +87,19 @@ function SnapshotMountsPage() {
             {
               accessor: "actions",
               title: <IconClick size={16} />,
+              width: "0%",
               textAlign: "right",
-              width: "25%",
               render: (item) => (
-                <Group justify="end">
-                  <Button
-                    size="xs"
+                <Tooltip label={t`Unmount`}>
+                  <ActionIcon
                     variant="subtle"
-                    leftSection={<IconFolderMinus size={14} />}
                     color="red"
                     onClick={() => unMountAction.execute(item.root, item.root)}
                     loading={unMountAction.loading && unMountAction.loadingKey === item.root}
                   >
-                    <Trans>Unmount</Trans>
-                  </Button>
-                </Group>
+                    <IconFolderMinus size={18} />
+                  </ActionIcon>
+                </Tooltip>
               )
             }
           ]}

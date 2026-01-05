@@ -2,7 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Text, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import { IconArrowLeft, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
+import { IconArrowLeft, IconClick, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
@@ -176,33 +176,26 @@ function SnapshotHistory() {
               visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.lg})`,
               render: (item) => {
                 return (
-                  <Group justify="space-between" wrap="nowrap">
-                    <Group gap="xs">
-                      {item.retention.map((z) => (
-                        <RetentionBadge retention={z} key={z} />
-                      ))}
-                      {item.pins.map((p) => (
-                        <Badge
-                          tt="none"
-                          radius={5}
-                          rightSection={<IconPin size={14} />}
-                          onClick={() => {
-                            setPinAction({
-                              item: p,
-                              action: "pin"
-                            });
-                            setItemAction({ item: item, action: "pin" });
-                          }}
-                        >
-                          {p}
-                        </Badge>
-                      ))}
-                    </Group>
-                    <Tooltip label={t`Add pin to prevent snapshot deletion`}>
-                      <ActionIcon variant="subtle" onClick={() => setItemAction({ item, action: "pin" })}>
-                        <IconPin size={16} />
-                      </ActionIcon>
-                    </Tooltip>
+                  <Group gap="xs">
+                    {item.retention.map((z) => (
+                      <RetentionBadge retention={z} key={z} />
+                    ))}
+                    {item.pins.map((p) => (
+                      <Badge
+                        tt="none"
+                        radius={5}
+                        rightSection={<IconPin size={14} />}
+                        onClick={() => {
+                          setPinAction({
+                            item: p,
+                            action: "pin"
+                          });
+                          setItemAction({ item: item, action: "pin" });
+                        }}
+                      >
+                        {p}
+                      </Badge>
+                    ))}
                   </Group>
                 );
               }
@@ -227,17 +220,16 @@ function SnapshotHistory() {
               textAlign: "center"
             },
             {
-              accessor: "",
-              title: "",
-              width: 300,
-              render: (item) => {
-                return (
-                  <Group justify="end">
-                    <Button
-                      td="none"
-                      size="xs"
-                      leftSection={<IconFileText size={14} />}
+              accessor: "actions",
+              title: <IconClick size={16} />,
+              width: "0%",
+              textAlign: "right",
+              render: (item) => (
+                <Group gap={4} justify="right" wrap="nowrap">
+                  <Tooltip label={t`Update description`}>
+                    <ActionIcon
                       variant="subtle"
+                      color="blue"
                       onClick={() =>
                         setItemAction({
                           item,
@@ -245,11 +237,16 @@ function SnapshotHistory() {
                         })
                       }
                     >
-                      <Trans>Update description</Trans>
-                    </Button>
-                  </Group>
-                );
-              }
+                      <IconFileText size={18} />
+                    </ActionIcon>
+                  </Tooltip>
+                  <Tooltip label={t`Add pin to prevent snapshot deletion`}>
+                    <ActionIcon variant="subtle" color="grape" onClick={() => setItemAction({ item, action: "pin" })}>
+                      <IconPin size={18} />
+                    </ActionIcon>
+                  </Tooltip>
+                </Group>
+              )
             }
           ]}
         />

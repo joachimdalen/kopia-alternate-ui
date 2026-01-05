@@ -1,15 +1,28 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { Anchor, Badge, Button, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Anchor,
+  Badge,
+  Button,
+  Container,
+  Divider,
+  Group,
+  Stack,
+  Text,
+  Title,
+  Tooltip
+} from "@mantine/core";
 import { useDisclosure, useLocalStorage } from "@mantine/hooks";
 import { showNotification } from "@mantine/notifications";
 import {
-  IconArchive,
   IconCircleCheck,
+  IconClick,
   IconClockExclamation,
-  IconEye,
+  IconFileCertificate,
   IconFileDatabase,
   IconFolderOpen,
+  IconPackageExport,
   IconRefreshAlert
 } from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
@@ -271,7 +284,8 @@ function SnapshotsPage() {
             },
             {
               accessor: "",
-              title: "",
+              title: <IconClick size={16} />,
+              textAlign: "right",
               width: 300,
               visibleMediaQuery: (theme) => `(min-width: ${theme.breakpoints.sm})`,
               render: (item) => {
@@ -280,32 +294,33 @@ function SnapshotsPage() {
                   case "PAUSED":
                   case "REMOTE": {
                     return (
-                      <Group justify="end">
+                      <Group gap={4} justify="right" wrap="nowrap">
                         {item.status !== "REMOTE" && (
-                          <Button
-                            size="xs"
-                            leftSection={<IconArchive size={14} />}
-                            variant="subtle"
-                            color="green"
-                            loading={newSnapshotActions.loading}
-                            onClick={() => newSnapshotActions.execute(item.source)}
-                          >
-                            <Trans>Snapshot Now</Trans>
-                          </Button>
+                          <Tooltip label={t`Snapshot Now`}>
+                            <ActionIcon
+                              variant="subtle"
+                              color="blue"
+                              loading={newSnapshotActions.loading}
+                              onClick={() => newSnapshotActions.execute(item.source)}
+                            >
+                              <IconWrapper icon={IconPackageExport} color="green" size={18} />
+                            </ActionIcon>
+                          </Tooltip>
                         )}
-                        <Button
-                          component={Link}
-                          to={{
-                            pathname: "/policies",
-                            search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
-                          }}
-                          td="none"
-                          size="xs"
-                          leftSection={<IconEye size={14} />}
-                          variant="subtle"
-                        >
-                          <Trans>View Policy</Trans>
-                        </Button>
+
+                        <Tooltip label={t`View Policy`}>
+                          <ActionIcon
+                            component={Link}
+                            to={{
+                              pathname: "/policies",
+                              search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
+                            }}
+                            variant="subtle"
+                            color="grape"
+                          >
+                            <IconWrapper icon={IconFileCertificate} size={18} />
+                          </ActionIcon>
+                        </Tooltip>
                       </Group>
                     );
                   }

@@ -19,6 +19,7 @@ import { useDebouncedValue, useDisclosure, useInputState, usePrevious } from "@m
 import {
   IconArrowLeft,
   IconCheck,
+  IconClick,
   IconCopy,
   IconFile,
   IconFileDelta,
@@ -130,7 +131,7 @@ function SnapshotDirectory() {
               value={query}
               onChange={setQuery}
             />
-            <Button size="xs" color="indigo" leftSection={<IconFileDelta size={16} />} onClick={setShow.open}>
+            <Button size="xs" color="green" leftSection={<IconFileDelta size={16} />} onClick={setShow.open}>
               <Trans>Restore</Trans>
             </Button>
             {oid && <MountButton mount={mount} rootID={oid} onMounted={(mnt) => setMount(mnt)} />}
@@ -230,20 +231,22 @@ function SnapshotDirectory() {
               textAlign: "center"
             },
             {
-              accessor: "",
-              width: 200,
+              accessor: "actions",
+              title: <IconClick size={16} />,
+              width: "0%",
+              textAlign: "right",
               render: (item) =>
                 !item.obj.startsWith("k") && (
-                  <Button
-                    component="a"
-                    href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}
-                    td="none"
-                    size="xs"
-                    leftSection={<IconFileDownload size={14} />}
-                    variant="subtle"
-                  >
-                    <Trans>Download</Trans>
-                  </Button>
+                  <Tooltip label={t`Download`}>
+                    <ActionIcon
+                      variant="subtle"
+                      color="blue"
+                      component="a"
+                      href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}
+                    >
+                      <IconFileDownload size={18} />
+                    </ActionIcon>
+                  </Tooltip>
                 )
             }
           ]}
