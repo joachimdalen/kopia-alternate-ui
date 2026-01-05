@@ -47,6 +47,7 @@ export interface IKopiaService {
   restore(data: RestoreRequest): Promise<ApiResponse<Task>>;
   getTasks(): Promise<ApiResponse<TaskList>>;
   getTask(taskId: string): Promise<ApiResponse<Task>>;
+  cancelTask(taskId: string): Promise<ApiResponse<unknown>>;
   getTaskLogs(taskId: string): Promise<
     ApiResponse<{
       logs: {
@@ -153,6 +154,9 @@ export class KopiaService implements IKopiaService {
   }
   public getTask(taskId: string): Promise<ApiResponse<Task>> {
     return this.get(`/api/${this.instance}/v1/tasks/${taskId}`);
+  }
+  public cancelTask(taskId: string): Promise<ApiResponse<Task>> {
+    return this.post(`/api/${this.instance}/v1/tasks/${taskId}/cancel`);
   }
   public getTaskLogs(taskId: string): Promise<
     ApiResponse<{
