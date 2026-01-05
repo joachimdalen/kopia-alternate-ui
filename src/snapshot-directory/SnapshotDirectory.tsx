@@ -42,6 +42,7 @@ import useApiRequest from "../core/hooks/useApiRequest";
 import IconWrapper from "../core/IconWrapper";
 import { type DirEntry, type DirManifest, type MountedSnapshot } from "../core/types";
 import sizeDisplayName from "../utils/formatSize";
+import { onlyUnique } from "../utils/onlyUnique";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import MountButton from "./components/MountButton";
 import { fileIcons } from "./fileIcons";
@@ -103,7 +104,13 @@ function SnapshotDirectory() {
       items = items.filter((x) => x.name.indexOf(debouncedQuery) !== -1);
     }
 
-    const entries = orderBy(items, ["type", sortStatus.columnAccessor], sortStatus.direction) as DirEntry[];
+    const itemTypes = items.map((x) => x.type).filter(onlyUnique).length;
+
+    const entries = orderBy(
+      items,
+      itemTypes > 1 ? ["type", sortStatus.columnAccessor] : sortStatus.columnAccessor,
+      sortStatus.direction
+    ) as DirEntry[];
     return entries;
   }, [data, debouncedQuery, sortStatus]);
 
