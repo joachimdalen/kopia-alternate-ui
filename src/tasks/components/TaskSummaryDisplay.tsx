@@ -57,5 +57,16 @@ export default function TaskSummaryDisplay({ task }: Props) {
           </Group>
         </Alert>
       );
+    case "CANCELING":
+      return (
+        <Alert color="yellow" title="Canceling task">
+          <Group gap="xs">
+            <IconBan color="var(--mantine-color-yellow-5)" />
+            <Text fz="sm">
+              <Trans>Canceling for</Trans> <TimeDuration from={task.startTime} to={task.endTime!} />
+            </Text>
+          </Group>
+        </Alert>
+      );
   }
 }

@@ -118,8 +118,8 @@ msgstr "After Folder"
 msgid "After Snapshot"
 msgstr "After Snapshot"
 
-#: src/tasks/TasksPage.tsx:97
-#: src/tasks/TasksPage.tsx:130
+#: src/tasks/TasksPage.tsx:113
+#: src/tasks/TasksPage.tsx:146
 msgid "All"
 msgstr "All"
 
@@ -231,15 +231,20 @@ msgstr "Cache Miss"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/tasks/TasksPage.tsx:212
-msgctxt "cance-operation"
-msgid "Cancel"
-msgstr "Cancel"
+#: src/tasks/TasksPage.tsx:225
+msgctxt "cancel-operation"
+msgid "Cancel Task"
+msgstr "Cancel Task"
 
-#: src/tasks/components/TaskStatusDisplay.tsx:47
+#: src/tasks/components/TaskStatusDisplay.tsx:56
 #: src/tasks/components/TaskSummaryDisplay.tsx:55
 msgid "Canceled after"
 msgstr "Canceled after"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:47
+#: src/tasks/components/TaskSummaryDisplay.tsx:66
+msgid "Canceling for"
+msgstr "Canceling for"
 
 #: src/snapshots/modals/NewSnapshotModal.tsx:122
 msgid "Change policy parameters"
@@ -415,12 +420,6 @@ msgstr "Default page size"
 msgid "Defined"
 msgstr "Defined"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
-#~ msgid "Defined in global policy"
-#~ msgstr "Defined in global policy"
-
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:82
@@ -443,7 +442,7 @@ msgstr "Deprecated"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/tasks/TasksPage.tsx:198
+#: src/tasks/TasksPage.tsx:214
 msgid "Description"
 msgstr "Description"
 
@@ -480,7 +479,7 @@ msgstr "Directory Snapshotted"
 msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:231
+#: src/snapshot-directory/SnapshotDirectory.tsx:230
 #: src/snapshot-history/SnapshotHistory.tsx:218
 msgid "Dirs"
 msgstr "Dirs"
@@ -542,7 +541,7 @@ msgstr "Do you want to delete the selected <0>{0} snapshots</0>?"
 msgid "Do you want to delete the selected snapshot?"
 msgstr "Do you want to delete the selected snapshot?"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:245
+#: src/snapshot-directory/SnapshotDirectory.tsx:240
 msgid "Download"
 msgstr "Download"
 
@@ -554,7 +553,7 @@ msgstr "Due to this being a local feature and not a feature in Kopia, these sett
 msgid "Duration"
 msgstr "Duration"
 
-#: src/policies/PoliciesPage.tsx:225
+#: src/policies/PoliciesPage.tsx:221
 #: src/preferences/components/NotificationCard.tsx:71
 msgid "Edit"
 msgstr "Edit"
@@ -762,40 +761,8 @@ msgstr "Estimate snapshot"
 msgid "Every"
 msgstr "Every"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
-#~ msgid "Every 10 Minutes"
-#~ msgstr "Every 10 Minutes"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
-#~ msgid "Every 12 hours"
-#~ msgstr "Every 12 hours"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
-#~ msgid "Every 15 Minutes"
-#~ msgstr "Every 15 Minutes"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
-#~ msgid "Every 20 Minutes"
-#~ msgstr "Every 20 Minutes"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
-#~ msgid "Every 3 hours"
-#~ msgstr "Every 3 hours"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:45
-#~ msgid "Every 30 Minutes"
-#~ msgstr "Every 30 Minutes"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
-#~ msgid "Every 6 hours"
-#~ msgstr "Every 6 hours"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
-#~ msgid "Every hour"
-#~ msgstr "Every hour"
-
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
-#: src/tasks/TasksPage.tsx:119
+#: src/tasks/TasksPage.tsx:135
 msgid "Failed"
 msgstr "Failed"
 
@@ -817,7 +784,7 @@ msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
-#: src/snapshot-directory/SnapshotDirectory.tsx:225
+#: src/snapshot-directory/SnapshotDirectory.tsx:224
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:212
 msgid "Files"
@@ -1011,8 +978,8 @@ msgstr "Key Data"
 msgid "Key ID"
 msgstr "Key ID"
 
-#: src/tasks/TasksPage.tsx:128
-#: src/tasks/TasksPage.tsx:193
+#: src/tasks/TasksPage.tsx:144
+#: src/tasks/TasksPage.tsx:209
 msgid "Kind"
 msgstr "Kind"
 
@@ -1025,7 +992,7 @@ msgstr "Known Hosts Data"
 msgid "Kopia Repository Server"
 msgstr "Kopia Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:211
+#: src/snapshot-directory/SnapshotDirectory.tsx:210
 msgid "Last Modification"
 msgstr "Last Modification"
 
@@ -1225,7 +1192,7 @@ msgstr "Must Succeed"
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:180
+#: src/snapshot-directory/SnapshotDirectory.tsx:179
 msgid "Name"
 msgstr "Name"
 
@@ -1273,11 +1240,11 @@ msgstr "No"
 msgid "No don't delete it"
 msgstr "No don't delete it"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:174
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
 msgid "No entires matching your search"
 msgstr "No entires matching your search"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:174
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
 msgid "No entries in folder"
 msgstr "No entries in folder"
 
@@ -1366,10 +1333,6 @@ msgstr "Only one of Password, Path to key file or Key Data must be set"
 #: src/repo/sections/SFTPServerRepo.tsx:116
 msgid "Only one of Path to known_hosts File or Known Hosts Data must be set"
 msgstr "Only one of Path to known_hosts File or Known Hosts Data must be set"
-
-#: src/repo/sections/SFTPServerRepo.tsx:116
-#~ msgid "Only one of Path to known_hosts File orKnown Hosts Data must be set"
-#~ msgstr "Only one of Path to known_hosts File orKnown Hosts Data must be set"
 
 #: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:34
 #: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
@@ -1557,11 +1520,11 @@ msgid "Records per page"
 msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:172
-#: src/snapshot-directory/SnapshotDirectory.tsx:144
+#: src/snapshot-directory/SnapshotDirectory.tsx:143
 #: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshot-mounts/SnapshotMountsPage.tsx:59
 #: src/snapshots/SnapshotsPage.tsx:182
-#: src/tasks/TasksPage.tsx:157
+#: src/tasks/TasksPage.tsx:173
 msgid "Refresh"
 msgstr "Refresh"
 
@@ -1600,7 +1563,7 @@ msgstr "Repository Password"
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:136
+#: src/snapshot-directory/SnapshotDirectory.tsx:135
 msgid "Restore"
 msgstr "Restore"
 
@@ -1640,7 +1603,7 @@ msgstr "Run asynchronously, ignore failures"
 msgid "Run Missed Snapshots on Startup"
 msgstr "Run Missed Snapshots on Startup"
 
-#: src/tasks/TasksPage.tsx:108
+#: src/tasks/TasksPage.tsx:124
 msgid "Running"
 msgstr "Running"
 
@@ -1691,11 +1654,11 @@ msgstr "Script to run before folder"
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:130
+#: src/snapshot-directory/SnapshotDirectory.tsx:129
 msgid "Search files or folder (current level)"
 msgstr "Search files or folder (current level)"
 
-#: src/tasks/TasksPage.tsx:147
+#: src/tasks/TasksPage.tsx:163
 msgid "Search tasks"
 msgstr "Search tasks"
 
@@ -1775,7 +1738,7 @@ msgstr "Show {totalLength} individual snapshots"
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:217
+#: src/snapshot-directory/SnapshotDirectory.tsx:216
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:205
 #: src/snapshots/SnapshotsPage.tsx:248
@@ -1814,7 +1777,7 @@ msgstr "SMTP server username, typically the email address"
 msgid "SMTP Username"
 msgstr "SMTP Username"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:121
+#: src/snapshot-directory/SnapshotDirectory.tsx:120
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -1831,7 +1794,7 @@ msgstr "Snapshot Frequency"
 msgid "Snapshot ID"
 msgstr "Snapshot ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:152
+#: src/snapshot-directory/SnapshotDirectory.tsx:151
 msgid "Snapshot is mounted at the following path"
 msgstr "Snapshot is mounted at the following path"
 
@@ -1898,7 +1861,7 @@ msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
 #: src/snapshot-history/SnapshotHistory.tsx:139
-#: src/tasks/TasksPage.tsx:179
+#: src/tasks/TasksPage.tsx:195
 msgid "Start Time"
 msgstr "Start Time"
 
@@ -1910,7 +1873,7 @@ msgstr "Started"
 msgid "Statistics"
 msgstr "Statistics"
 
-#: src/tasks/TasksPage.tsx:188
+#: src/tasks/TasksPage.tsx:204
 msgid "Status"
 msgstr "Status"
 
@@ -1931,13 +1894,17 @@ msgstr "Symlinks"
 msgid "Sync"
 msgstr "Sync"
 
-#: src/tasks/TasksPage.tsx:174
+#: src/tasks/TasksPage.tsx:67
+msgid "Task cancelled"
+msgstr "Task cancelled"
+
+#: src/tasks/TasksPage.tsx:190
 msgid "Task ID"
 msgstr "Task ID"
 
 #: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
-#: src/tasks/TasksPage.tsx:84
+#: src/tasks/TasksPage.tsx:100
 msgid "Tasks"
 msgstr "Tasks"
 
@@ -1965,6 +1932,10 @@ msgstr "The snapshot(s) was delete successfully"
 msgid "The snapshout was unmounted from the host"
 msgstr "The snapshout was unmounted from the host"
 
+#: src/tasks/TasksPage.tsx:68
+msgid "The task was cancelled"
+msgstr "The task was cancelled"
+
 #: src/preferences/AppearanceSection.tsx:87
 msgid "Theme"
 msgstr "Theme"
@@ -1972,13 +1943,6 @@ msgstr "Theme"
 #: src/policies/modals/PolicyModal/tabs/OtherTab.tsx:42
 msgid "This is the internal representation of a policy"
 msgstr "This is the internal representation of a policy"
-
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:72
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
-#~ msgid "This policy"
-#~ msgstr "This policy"
 
 #: src/policies/modals/PolicyModal/constants.ts:138
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:71
@@ -2048,7 +2012,7 @@ msgid "Unique name for this notification profile"
 msgstr "Unique name for this notification profile"
 
 #: src/snapshot-directory/components/MountButton.tsx:49
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:97
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:93
 msgid "Unmount"
 msgstr "Unmount"
 

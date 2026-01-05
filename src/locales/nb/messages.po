@@ -118,8 +118,8 @@ msgstr "Etter mappe"
 msgid "After Snapshot"
 msgstr "Etter øyeblikksbilde"
 
-#: src/tasks/TasksPage.tsx:97
-#: src/tasks/TasksPage.tsx:130
+#: src/tasks/TasksPage.tsx:113
+#: src/tasks/TasksPage.tsx:146
 msgid "All"
 msgstr "Alle"
 
@@ -231,15 +231,20 @@ msgstr "Hurtigbufferbom"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/tasks/TasksPage.tsx:212
-msgctxt "cance-operation"
-msgid "Cancel"
-msgstr "Kanseller"
+#: src/tasks/TasksPage.tsx:225
+msgctxt "cancel-operation"
+msgid "Cancel Task"
+msgstr "Kanseller oppgave"
 
-#: src/tasks/components/TaskStatusDisplay.tsx:47
+#: src/tasks/components/TaskStatusDisplay.tsx:56
 #: src/tasks/components/TaskSummaryDisplay.tsx:55
 msgid "Canceled after"
 msgstr "Kansellert etter"
+
+#: src/tasks/components/TaskStatusDisplay.tsx:47
+#: src/tasks/components/TaskSummaryDisplay.tsx:66
+msgid "Canceling for"
+msgstr "Avbryter for"
 
 #: src/snapshots/modals/NewSnapshotModal.tsx:122
 msgid "Change policy parameters"
@@ -415,12 +420,6 @@ msgstr "Standard side størrelse"
 msgid "Defined"
 msgstr "Definert"
 
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:81
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:49
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:38
-#~ msgid "Defined in global policy"
-#~ msgstr "Definert i global strategi"
-
 #: src/policies/modals/PolicyModal/components/DeletePolicyButton.tsx:41
 #: src/preferences/components/NotificationCard.tsx:89
 #: src/snapshot-history/modals/DeleteSnapshotModal.tsx:82
@@ -443,7 +442,7 @@ msgstr "Utdatert"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/tasks/TasksPage.tsx:198
+#: src/tasks/TasksPage.tsx:214
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -480,7 +479,7 @@ msgstr "Mappeøyeblikksbilde"
 msgid "Directory to create policy for"
 msgstr "Mappe som strategi skal opprettes for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:231
+#: src/snapshot-directory/SnapshotDirectory.tsx:230
 #: src/snapshot-history/SnapshotHistory.tsx:218
 msgid "Dirs"
 msgstr "Mapper"
@@ -542,7 +541,7 @@ msgstr "Vil du slette de valgte <0>{0} øyeblikksbildene</0>?"
 msgid "Do you want to delete the selected snapshot?"
 msgstr "Do you want to delete the selected snapshot?"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:245
+#: src/snapshot-directory/SnapshotDirectory.tsx:240
 msgid "Download"
 msgstr "Last ned"
 
@@ -554,7 +553,7 @@ msgstr "Siden dette ikke er en funksjonalitet i Kopia, lagres disse innstillinge
 msgid "Duration"
 msgstr "Varighet"
 
-#: src/policies/PoliciesPage.tsx:225
+#: src/policies/PoliciesPage.tsx:221
 #: src/preferences/components/NotificationCard.tsx:71
 msgid "Edit"
 msgstr "Rediger"
@@ -762,40 +761,8 @@ msgstr "Estimer øyeblikksbilde"
 msgid "Every"
 msgstr "Hver"
 
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:42
-#~ msgid "Every 10 Minutes"
-#~ msgstr "Hvert 10 minutt"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:49
-#~ msgid "Every 12 hours"
-#~ msgstr "Hver 12 time"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:43
-#~ msgid "Every 15 Minutes"
-#~ msgstr "Hvert 15 minutt"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:44
-#~ msgid "Every 20 Minutes"
-#~ msgstr "Hvert 20 minutt"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:47
-#~ msgid "Every 3 hours"
-#~ msgstr "Hver 3 time"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:45
-#~ msgid "Every 30 Minutes"
-#~ msgstr "Hvert 30 minutt"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:48
-#~ msgid "Every 6 hours"
-#~ msgstr "Hver 6 time"
-
-#: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:46
-#~ msgid "Every hour"
-#~ msgstr "Hver time"
-
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
-#: src/tasks/TasksPage.tsx:119
+#: src/tasks/TasksPage.tsx:135
 msgid "Failed"
 msgstr "Feilet"
 
@@ -817,7 +784,7 @@ msgid "File Snapshotted"
 msgstr "Fil øyeblikksbilde"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
-#: src/snapshot-directory/SnapshotDirectory.tsx:225
+#: src/snapshot-directory/SnapshotDirectory.tsx:224
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:212
 msgid "Files"
@@ -1011,8 +978,8 @@ msgstr "Nøkkeldata"
 msgid "Key ID"
 msgstr "Nøkkel ID"
 
-#: src/tasks/TasksPage.tsx:128
-#: src/tasks/TasksPage.tsx:193
+#: src/tasks/TasksPage.tsx:144
+#: src/tasks/TasksPage.tsx:209
 msgid "Kind"
 msgstr "Type"
 
@@ -1025,7 +992,7 @@ msgstr "Kjente vertsdata"
 msgid "Kopia Repository Server"
 msgstr "Kopa Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:211
+#: src/snapshot-directory/SnapshotDirectory.tsx:210
 msgid "Last Modification"
 msgstr "Sist Endret"
 
@@ -1225,7 +1192,7 @@ msgstr "Må lykkes"
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:180
+#: src/snapshot-directory/SnapshotDirectory.tsx:179
 msgid "Name"
 msgstr "Navn"
 
@@ -1273,11 +1240,11 @@ msgstr "Nei"
 msgid "No don't delete it"
 msgstr "Nei, ikke slett den"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:174
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
 msgid "No entires matching your search"
 msgstr "Ingen oppføringer samsvarer med søket ditt"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:174
+#: src/snapshot-directory/SnapshotDirectory.tsx:173
 msgid "No entries in folder"
 msgstr "Ingen oppføringer i mappen"
 
@@ -1553,11 +1520,11 @@ msgid "Records per page"
 msgstr "Oppføringer per side"
 
 #: src/policies/PoliciesPage.tsx:172
-#: src/snapshot-directory/SnapshotDirectory.tsx:144
+#: src/snapshot-directory/SnapshotDirectory.tsx:143
 #: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshot-mounts/SnapshotMountsPage.tsx:59
 #: src/snapshots/SnapshotsPage.tsx:182
-#: src/tasks/TasksPage.tsx:157
+#: src/tasks/TasksPage.tsx:173
 msgid "Refresh"
 msgstr "Oppdater"
 
@@ -1596,7 +1563,7 @@ msgstr "Oppbevaringssted Passord"
 msgid "Repository synchronized"
 msgstr "Oppbevaringssted synkronisert"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:136
+#: src/snapshot-directory/SnapshotDirectory.tsx:135
 msgid "Restore"
 msgstr "Gjenopprett"
 
@@ -1636,7 +1603,7 @@ msgstr "Kjør asynkront, ignorer feil"
 msgid "Run Missed Snapshots on Startup"
 msgstr "Kjør tapte øyeblikksbilder ved oppstart"
 
-#: src/tasks/TasksPage.tsx:108
+#: src/tasks/TasksPage.tsx:124
 msgid "Running"
 msgstr "Kjørende"
 
@@ -1687,11 +1654,11 @@ msgstr "Skript som skal kjøres før mappen"
 msgid "Script to run before snapshot"
 msgstr "Skript som skal kjøres før øyeblikksbilde"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:130
+#: src/snapshot-directory/SnapshotDirectory.tsx:129
 msgid "Search files or folder (current level)"
 msgstr "Søk etter filer eller mapper (nåværende nivå)"
 
-#: src/tasks/TasksPage.tsx:147
+#: src/tasks/TasksPage.tsx:163
 msgid "Search tasks"
 msgstr "Søk etter oppgaver"
 
@@ -1771,7 +1738,7 @@ msgstr "Vis {totalLength} individuelle øyeblikksbilder"
 msgid "Show all snapshots by default"
 msgstr "Vis alle øyeblikksbilder som standard"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:217
+#: src/snapshot-directory/SnapshotDirectory.tsx:216
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:205
 #: src/snapshots/SnapshotsPage.tsx:248
@@ -1810,7 +1777,7 @@ msgstr "Brukernavn for SMTP-serveren, vanligvis e-postadressen"
 msgid "SMTP Username"
 msgstr "SMTP Brukernavn"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:121
+#: src/snapshot-directory/SnapshotDirectory.tsx:120
 msgid "Snapshot"
 msgstr "Øyeblikksbilde"
 
@@ -1827,7 +1794,7 @@ msgstr "Øyeblikksbildefrekvens"
 msgid "Snapshot ID"
 msgstr "Øyeblikksbilde ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:152
+#: src/snapshot-directory/SnapshotDirectory.tsx:151
 msgid "Snapshot is mounted at the following path"
 msgstr "Øyeblikksbilde er montert under følgende sti"
 
@@ -1894,7 +1861,7 @@ msgid "SSH host name (e.g., example.com)"
 msgstr "SSH-vertsnavn (f.eks. example.com)"
 
 #: src/snapshot-history/SnapshotHistory.tsx:139
-#: src/tasks/TasksPage.tsx:179
+#: src/tasks/TasksPage.tsx:195
 msgid "Start Time"
 msgstr "Start tid"
 
@@ -1906,7 +1873,7 @@ msgstr "Staret"
 msgid "Statistics"
 msgstr "Statistikk"
 
-#: src/tasks/TasksPage.tsx:188
+#: src/tasks/TasksPage.tsx:204
 msgid "Status"
 msgstr "Status"
 
@@ -1927,13 +1894,17 @@ msgstr "Symlinks"
 msgid "Sync"
 msgstr "Synk"
 
-#: src/tasks/TasksPage.tsx:174
+#: src/tasks/TasksPage.tsx:67
+msgid "Task cancelled"
+msgstr "Oppgave Kansellert"
+
+#: src/tasks/TasksPage.tsx:190
 msgid "Task ID"
 msgstr "Oppgave ID"
 
 #: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
-#: src/tasks/TasksPage.tsx:84
+#: src/tasks/TasksPage.tsx:100
 msgid "Tasks"
 msgstr "Oppgaver"
 
@@ -1961,6 +1932,10 @@ msgstr "øyeblikksbilde(ne) ble slettet"
 msgid "The snapshout was unmounted from the host"
 msgstr "Øyeblikksbildet ble demontert fra tjeneren"
 
+#: src/tasks/TasksPage.tsx:68
+msgid "The task was cancelled"
+msgstr "Oppgaven ble Kansellert"
+
 #: src/preferences/AppearanceSection.tsx:87
 msgid "Theme"
 msgstr "Tema"
@@ -1968,13 +1943,6 @@ msgstr "Tema"
 #: src/policies/modals/PolicyModal/tabs/OtherTab.tsx:42
 msgid "This is the internal representation of a policy"
 msgstr "Dette er den interne representasjonen av en strategi"
-
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:72
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:42
-#: src/policies/modals/PolicyModal/policy-inputs/PolicyNumberSelect.tsx:41
-#: src/policies/modals/PolicyModal/policy-inputs/PolicySelect.tsx:31
-#~ msgid "This policy"
-#~ msgstr "Denne strategien"
 
 #: src/policies/modals/PolicyModal/constants.ts:138
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:71
@@ -2044,7 +2012,7 @@ msgid "Unique name for this notification profile"
 msgstr "Unikt navn for denne notifikasjons profilen"
 
 #: src/snapshot-directory/components/MountButton.tsx:49
-#: src/snapshot-mounts/SnapshotMountsPage.tsx:97
+#: src/snapshot-mounts/SnapshotMountsPage.tsx:93
 msgid "Unmount"
 msgstr "Demonter"
 

@@ -1,6 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import {
+  ActionIcon,
   Anchor,
   Button,
   Center,
@@ -10,9 +11,11 @@ import {
   SegmentedControl,
   Stack,
   TextInput,
-  Title
+  Title,
+  Tooltip
 } from "@mantine/core";
 import { useDebouncedValue, useInputState } from "@mantine/hooks";
+import { showNotification } from "@mantine/notifications";
 import {
   IconBan,
   IconCircleXFilled,
@@ -49,10 +52,22 @@ function TasksPage() {
   const [query, setQuery] = useInputState("");
   const [debouncedQuery] = useDebouncedValue(query, 200);
   const getTasks = useCallback(() => kopiaService.getTasks(), [kopiaService]);
-  //const setReturnData = useCallback((response: TaskList) => setData(response.tasks), []);
   const loadAction = useApiRequest({
     action: getTasks,
     onReturn: setData
+  });
+
+  const cancelTaskAction = useApiRequest({
+    showErrorAsNotification: true,
+    action: (tid?: string) => kopiaService.cancelTask(tid!),
+    onReturn() {
+      loadAction.execute(undefined, "refresh");
+      showNotification({
+        title: t`Task cancelled`,
+        message: t`The task was cancelled`,
+        color: "green"
+      });
+    }
   });
 
   useEffect(() => {
@@ -202,11 +217,24 @@ function TasksPage() {
               accessor: "actions",
               title: <IconClick size={16} />,
               width: "0%",
+              textAlign: "right",
               render: (item) =>
                 item.status === "RUNNING" && (
-                  <Button size="xs" variant="subtle" leftSection={<IconBan size={14} />} color="red">
-                    <Trans context="cance-operation">Cancel</Trans>
-                  </Button>
+                  <Tooltip
+                    label={t({
+                      context: "cancel-operation",
+                      message: "Cancel Task"
+                    })}
+                  >
+                    <ActionIcon
+                      variant="subtle"
+                      color="red"
+                      onClick={() => cancelTaskAction.execute(item.id, item.id)}
+                      loading={cancelTaskAction.loading && cancelTaskAction.loadingKey === item.id}
+                    >
+                      <IconBan size={18} />
+                    </ActionIcon>
+                  </Tooltip>
                 )
             }
           ]}

@@ -11,7 +11,7 @@
     "format": "biome format ./src ./tests",
     "format:fix": "biome format --write ./src ./tests",
     "preview": "vite preview",
-    "lang:extract": "lingui extract",
+    "lang:extract": "lingui extract --clean",
     "lang:compile": "lingui compile --typescript",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"

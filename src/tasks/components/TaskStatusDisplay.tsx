@@ -39,6 +39,15 @@ export default function TaskStatusDisplay({ task }: Props) {
           </Tooltip>
         </Group>
       );
+    case "CANCELING":
+      return (
+        <Group gap="xs">
+          <IconCircleXFilled color="var(--mantine-color-yellow-5)" />
+          <Text fz="sm">
+            <Trans>Canceling for</Trans> <TimeDuration from={task.startTime} to={task.endTime!} />
+          </Text>
+        </Group>
+      );
     case "CANCELED":
       return (
         <Group gap="xs">
