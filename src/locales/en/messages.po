@@ -99,7 +99,7 @@ msgstr "Active"
 msgid "Add"
 msgstr "Add"
 
-#: src/snapshot-history/SnapshotHistory.tsx:190
+#: src/snapshot-history/SnapshotHistory.tsx:201
 msgid "Add pin to prevent snapshot deletion"
 msgstr "Add pin to prevent snapshot deletion"
 
@@ -443,7 +443,6 @@ msgstr "Deprecated"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/snapshot-history/SnapshotHistory.tsx:155
 #: src/tasks/TasksPage.tsx:198
 msgid "Description"
 msgstr "Description"
@@ -482,7 +481,7 @@ msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:229
-#: src/snapshot-history/SnapshotHistory.tsx:214
+#: src/snapshot-history/SnapshotHistory.tsx:225
 msgid "Dirs"
 msgstr "Dirs"
 
@@ -820,7 +819,7 @@ msgstr "File Snapshotted"
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
 #: src/snapshot-directory/SnapshotDirectory.tsx:223
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
-#: src/snapshot-history/SnapshotHistory.tsx:208
+#: src/snapshot-history/SnapshotHistory.tsx:219
 msgid "Files"
 msgstr "Files"
 
@@ -1620,11 +1619,11 @@ msgstr "Restore File Permissions"
 msgid "Restore files and directories"
 msgstr "Restore files and directories"
 
-#: src/snapshot-history/SnapshotHistory.tsx:164
+#: src/snapshot-history/SnapshotHistory.tsx:175
 msgid "Retention"
 msgstr "Retention"
 
-#: src/snapshot-history/SnapshotHistory.tsx:159
+#: src/snapshot-history/SnapshotHistory.tsx:156
 msgid "Root"
 msgstr "Root"
 
@@ -1777,7 +1776,7 @@ msgstr "Show all snapshots by default"
 
 #: src/snapshot-directory/SnapshotDirectory.tsx:215
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
-#: src/snapshot-history/SnapshotHistory.tsx:201
+#: src/snapshot-history/SnapshotHistory.tsx:212
 #: src/snapshots/SnapshotsPage.tsx:235
 msgid "Size"
 msgstr "Size"
@@ -1855,7 +1854,7 @@ msgstr "Snapshot schedules using UNIX crontab syntax:"
 msgid "Snapshot unmounted"
 msgstr "Snapshot unmounted"
 
-#: src/snapshot-history/SnapshotHistory.tsx:283
+#: src/snapshot-history/SnapshotHistory.tsx:294
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
@@ -1957,7 +1956,7 @@ msgstr "The repository was successfully disconnected"
 msgid "The repository was synchronized successfully"
 msgstr "The repository was synchronized successfully"
 
-#: src/snapshot-history/SnapshotHistory.tsx:284
+#: src/snapshot-history/SnapshotHistory.tsx:295
 msgid "The snapshot(s) was delete successfully"
 msgstr "The snapshot(s) was delete successfully"
 
@@ -2061,7 +2060,7 @@ msgid "Update"
 msgstr "Update"
 
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:50
-#: src/snapshot-history/SnapshotHistory.tsx:237
+#: src/snapshot-history/SnapshotHistory.tsx:248
 msgid "Update description"
 msgstr "Update description"
 
