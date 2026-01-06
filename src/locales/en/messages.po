@@ -118,8 +118,8 @@ msgstr "After Folder"
 msgid "After Snapshot"
 msgstr "After Snapshot"
 
-#: src/tasks/TasksPage.tsx:113
-#: src/tasks/TasksPage.tsx:146
+#: src/tasks/TasksPage.tsx:112
+#: src/tasks/TasksPage.tsx:145
 msgid "All"
 msgstr "All"
 
@@ -231,7 +231,7 @@ msgstr "Cache Miss"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/tasks/TasksPage.tsx:225
+#: src/tasks/TasksPage.tsx:224
 msgctxt "cancel-operation"
 msgid "Cancel Task"
 msgstr "Cancel Task"
@@ -442,7 +442,7 @@ msgstr "Deprecated"
 
 #: src/repo/ConnectedRepoSection/ConnectedRepoSection.tsx:118
 #: src/snapshot-history/modals/UpdateDescriptionModal.tsx:62
-#: src/tasks/TasksPage.tsx:214
+#: src/tasks/TasksPage.tsx:213
 msgid "Description"
 msgstr "Description"
 
@@ -479,7 +479,7 @@ msgstr "Directory Snapshotted"
 msgid "Directory to create policy for"
 msgstr "Directory to create policy for"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:230
+#: src/snapshot-directory/SnapshotDirectory.tsx:236
 #: src/snapshot-history/SnapshotHistory.tsx:218
 msgid "Dirs"
 msgstr "Dirs"
@@ -541,7 +541,7 @@ msgstr "Do you want to delete the selected <0>{0} snapshots</0>?"
 msgid "Do you want to delete the selected snapshot?"
 msgstr "Do you want to delete the selected snapshot?"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:240
+#: src/snapshot-directory/SnapshotDirectory.tsx:246
 msgid "Download"
 msgstr "Download"
 
@@ -762,7 +762,7 @@ msgid "Every"
 msgstr "Every"
 
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:104
-#: src/tasks/TasksPage.tsx:135
+#: src/tasks/TasksPage.tsx:134
 msgid "Failed"
 msgstr "Failed"
 
@@ -784,7 +784,7 @@ msgid "File Snapshotted"
 msgstr "File Snapshotted"
 
 #: src/policies/modals/PolicyModal/PolicyModal.tsx:206
-#: src/snapshot-directory/SnapshotDirectory.tsx:224
+#: src/snapshot-directory/SnapshotDirectory.tsx:230
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:101
 #: src/snapshot-history/SnapshotHistory.tsx:212
 msgid "Files"
@@ -978,8 +978,8 @@ msgstr "Key Data"
 msgid "Key ID"
 msgstr "Key ID"
 
-#: src/tasks/TasksPage.tsx:144
-#: src/tasks/TasksPage.tsx:209
+#: src/tasks/TasksPage.tsx:143
+#: src/tasks/TasksPage.tsx:208
 msgid "Kind"
 msgstr "Kind"
 
@@ -992,7 +992,7 @@ msgstr "Known Hosts Data"
 msgid "Kopia Repository Server"
 msgstr "Kopia Repository Server"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:210
+#: src/snapshot-directory/SnapshotDirectory.tsx:216
 msgid "Last Modification"
 msgstr "Last Modification"
 
@@ -1192,7 +1192,7 @@ msgstr "Must Succeed"
 #: src/preferences/modals/EmailModal.tsx:192
 #: src/preferences/modals/PushoverModal.tsx:110
 #: src/preferences/modals/WebhookModal.tsx:151
-#: src/snapshot-directory/SnapshotDirectory.tsx:179
+#: src/snapshot-directory/SnapshotDirectory.tsx:185
 msgid "Name"
 msgstr "Name"
 
@@ -1240,11 +1240,11 @@ msgstr "No"
 msgid "No don't delete it"
 msgstr "No don't delete it"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:173
+#: src/snapshot-directory/SnapshotDirectory.tsx:179
 msgid "No entires matching your search"
 msgstr "No entires matching your search"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:173
+#: src/snapshot-directory/SnapshotDirectory.tsx:179
 msgid "No entries in folder"
 msgstr "No entries in folder"
 
@@ -1520,11 +1520,11 @@ msgid "Records per page"
 msgstr "Records per page"
 
 #: src/policies/PoliciesPage.tsx:172
-#: src/snapshot-directory/SnapshotDirectory.tsx:143
+#: src/snapshot-directory/SnapshotDirectory.tsx:149
 #: src/snapshot-history/SnapshotHistory.tsx:108
 #: src/snapshot-mounts/SnapshotMountsPage.tsx:59
 #: src/snapshots/SnapshotsPage.tsx:182
-#: src/tasks/TasksPage.tsx:173
+#: src/tasks/TasksPage.tsx:172
 msgid "Refresh"
 msgstr "Refresh"
 
@@ -1563,7 +1563,7 @@ msgstr "Repository Password"
 msgid "Repository synchronized"
 msgstr "Repository synchronized"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:135
+#: src/snapshot-directory/SnapshotDirectory.tsx:141
 msgid "Restore"
 msgstr "Restore"
 
@@ -1603,7 +1603,7 @@ msgstr "Run asynchronously, ignore failures"
 msgid "Run Missed Snapshots on Startup"
 msgstr "Run Missed Snapshots on Startup"
 
-#: src/tasks/TasksPage.tsx:124
+#: src/tasks/TasksPage.tsx:123
 msgid "Running"
 msgstr "Running"
 
@@ -1654,11 +1654,11 @@ msgstr "Script to run before folder"
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:129
+#: src/snapshot-directory/SnapshotDirectory.tsx:135
 msgid "Search files or folder (current level)"
 msgstr "Search files or folder (current level)"
 
-#: src/tasks/TasksPage.tsx:163
+#: src/tasks/TasksPage.tsx:162
 msgid "Search tasks"
 msgstr "Search tasks"
 
@@ -1738,7 +1738,7 @@ msgstr "Show {totalLength} individual snapshots"
 msgid "Show all snapshots by default"
 msgstr "Show all snapshots by default"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:216
+#: src/snapshot-directory/SnapshotDirectory.tsx:222
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:91
 #: src/snapshot-history/SnapshotHistory.tsx:205
 #: src/snapshots/SnapshotsPage.tsx:248
@@ -1777,7 +1777,7 @@ msgstr "SMTP server username, typically the email address"
 msgid "SMTP Username"
 msgstr "SMTP Username"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:120
+#: src/snapshot-directory/SnapshotDirectory.tsx:126
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -1794,7 +1794,7 @@ msgstr "Snapshot Frequency"
 msgid "Snapshot ID"
 msgstr "Snapshot ID"
 
-#: src/snapshot-directory/SnapshotDirectory.tsx:151
+#: src/snapshot-directory/SnapshotDirectory.tsx:157
 msgid "Snapshot is mounted at the following path"
 msgstr "Snapshot is mounted at the following path"
 
@@ -1861,7 +1861,7 @@ msgid "SSH host name (e.g., example.com)"
 msgstr "SSH host name (e.g., example.com)"
 
 #: src/snapshot-history/SnapshotHistory.tsx:139
-#: src/tasks/TasksPage.tsx:195
+#: src/tasks/TasksPage.tsx:194
 msgid "Start Time"
 msgstr "Start Time"
 
@@ -1873,7 +1873,7 @@ msgstr "Started"
 msgid "Statistics"
 msgstr "Statistics"
 
-#: src/tasks/TasksPage.tsx:204
+#: src/tasks/TasksPage.tsx:203
 msgid "Status"
 msgstr "Status"
 
@@ -1894,17 +1894,17 @@ msgstr "Symlinks"
 msgid "Sync"
 msgstr "Sync"
 
-#: src/tasks/TasksPage.tsx:67
+#: src/tasks/TasksPage.tsx:66
 msgid "Task cancelled"
 msgstr "Task cancelled"
 
-#: src/tasks/TasksPage.tsx:190
+#: src/tasks/TasksPage.tsx:189
 msgid "Task ID"
 msgstr "Task ID"
 
 #: src/core/Header/Header.tsx:42
 #: src/core/Header/SkeletonHeader.tsx:43
-#: src/tasks/TasksPage.tsx:100
+#: src/tasks/TasksPage.tsx:99
 msgid "Tasks"
 msgstr "Tasks"
 
@@ -1932,7 +1932,7 @@ msgstr "The snapshot(s) was delete successfully"
 msgid "The snapshout was unmounted from the host"
 msgstr "The snapshout was unmounted from the host"
 
-#: src/tasks/TasksPage.tsx:68
+#: src/tasks/TasksPage.tsx:67
 msgid "The task was cancelled"
 msgstr "The task was cancelled"
 
