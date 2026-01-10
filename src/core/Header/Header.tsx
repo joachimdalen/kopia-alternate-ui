@@ -8,19 +8,22 @@ import {
   IconFileCertificate,
   IconFolderBolt,
   IconPackage,
-  IconSettings
+  IconSettings,
+  IconTools
 } from "@tabler/icons-react";
 import { useMemo } from "react";
 import { Link, NavLink } from "react-router";
 import { useAppContext } from "../context/AppContext";
+import { useServerInstanceContext } from "../context/ServerInstanceContext";
 import IconWrapper from "../IconWrapper";
 import classes from "./Header.module.css";
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
+  const { currentServer } = useServerInstanceContext();
   const { repoStatus } = useAppContext();
 
   const links = useMemo(() => {
-    return [
+    const baseLinks = [
       {
         link: "/snapshots",
         label: t`Snapshots`,
@@ -41,14 +44,24 @@ export function Header() {
       },
       { link: "/tasks", label: t`Tasks`, icon: IconClipboardCheck },
       { link: "/repo", label: t`Repository`, icon: IconDatabase },
-      { link: "/preferences", label: t`Preferences`, icon: IconSettings },
+      { link: "/preferences", label: t`Preferences`, icon: IconSettings }
+    ];
+
+    const cliProxyLinks = [];
+    if (currentServer?.cliProxyFeatures) {
+      cliProxyLinks.push({ link: "/maintenance", label: t`Maintenance`, icon: IconTools });
+    }
+
+    return [
+      ...baseLinks,
+      ...cliProxyLinks,
       {
         link: "ext:https://github.com/joachimdalen/kopia-alternate-ui",
         label: "GitHub",
         icon: IconBrandGithub
       }
     ];
-  }, [repoStatus]);
+  }, [repoStatus, currentServer]);
 
   const items = links.map((link) =>
     link.disabled ? (

@@ -2,7 +2,8 @@
   {
     "id": "primary",
     "name": "repo-docker-prod-01",
-    "default": true
+    "default": true,
+    "cliProxyFeatures": true
   },
   {
     "id": "secondary",

@@ -9,6 +9,7 @@ import type {
   DeleteSnapshotRequest,
   DirManifest,
   EstimateSnapshotRequest,
+  MaintenanceInfo,
   MountedSnapshot,
   MountSnapshotRequest,
   MountsResponse,
@@ -90,6 +91,8 @@ export interface IKopiaService {
   getMountedSnapshot(root: string): Promise<ApiResponse<MountedSnapshot>>;
   unMountSnapshot(root: string): Promise<ApiResponse<unknown>>;
   getMountedSnapshots(): Promise<ApiResponse<MountsResponse>>;
+
+  getMaintenanceInfo(): Promise<ApiResponse<MaintenanceInfo>>;
 }
 
 export class KopiaService implements IKopiaService {
@@ -274,6 +277,12 @@ export class KopiaService implements IKopiaService {
   public getMountedSnapshots(): Promise<ApiResponse<MountsResponse>> {
     return this.get(`/api/${this.instance}/v1/mounts`);
   }
+
+  // CLI PROXY START
+  public getMaintenanceInfo(): Promise<ApiResponse<MaintenanceInfo>> {
+    return this.get(`/apip/${this.instance}/maintenance/info`);
+  }
+  // CLI PROXY END
 
   // Privates
   private async requestWrapper<T>(requestFunc: () => Promise<T>): Promise<ApiResponse<T>> {

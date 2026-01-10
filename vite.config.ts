@@ -34,6 +34,23 @@ export default defineConfig(() =>
               return path.replace("primary/", "");
             }
           },
+          "/apip/primary": {
+            target: "http://localhost:1212",
+            changeOrigin: true,
+            secure: false,
+            configure: (
+              proxy
+              //  , options
+            ) => {
+              //   options.auth = `${env.KAU_KOPIA_USERNAME}:${env.KAU_KOPIA_PASSWORD}`;
+              proxy.on("proxyRes", (proxyRes) => {
+                delete proxyRes.headers["www-authenticate"];
+              });
+            },
+            rewrite(path) {
+              return path.replace("/apip/primary/", "");
+            }
+          },
           "/api/secondary": {
             target: "https://localhost:51525",
             changeOrigin: true,

@@ -5,6 +5,7 @@ export type Instance = {
   id: string;
   name: string;
   default: boolean;
+  cliProxyFeatures: boolean;
 };
 
 function getInstances(): Promise<ApiResponse<Instance[]>> {

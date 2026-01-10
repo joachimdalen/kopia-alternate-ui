@@ -644,3 +644,41 @@ export type LogEntry = {
   mod: string;
   [key: string]: string | number | object;
 };
+
+// Temp Proxy Models
+
+export type MaintenanceInfo = {
+  owner: string;
+  quick: CycleParams;
+  full: CycleParams;
+  logRetention: LogRetentionOptions;
+  extendObjectLocks: boolean;
+  listParallelism: number;
+  schedule: Schedule;
+};
+
+export type CycleParams = {
+  enabled: boolean;
+  interval: number;
+};
+export type LogRetentionOptions = {
+  maxTotalSize: number;
+  maxCount: number;
+  maxAge: number;
+};
+export type Schedule = {
+  nextFullMaintenance: string;
+  nextQuickMaintenance: string;
+  runs: Record<string, RunInfo[]>;
+};
+export type RunInfo = {
+  start: string;
+  end: string;
+  success?: boolean;
+  error?: string;
+  extra?: Extra[];
+};
+export type Extra = {
+  kind?: string;
+  data?: Record<string, string | number | boolean> | null;
+};
