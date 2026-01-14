@@ -40,3 +40,25 @@
     }
   }
 }
+.active {
+  background-color: #040d1b;
+}
+
+.subLink {
+  width: 100%;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  border-radius: var(--mantine-radius-md);
+  &[aria-disabled] {
+    color: var(--mantine-color-dimmed);
+  }
+
+  @mixin hover {
+    &:not([aria-disabled]) {
+      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+    }
+  }
+
+  &.active {
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+  }
+}
