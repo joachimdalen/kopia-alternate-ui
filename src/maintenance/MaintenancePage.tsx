@@ -16,7 +16,6 @@ import {
 } from "@mantine/core";
 import { IconCircleCheckFilled, IconCircleXFilled } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
-import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
@@ -42,8 +41,6 @@ import SnapshotGcTabPanel from "./tabs/SnapshotGcTabPanel";
 
 function MaintenancePage() {
   const { kopiaService } = useServerInstanceContext();
-
-  const { pageSize: tablePageSize, bytesStringBase2, locale } = useAppContext();
   const [data, setData] = useState<MaintenanceInfo>();
 
   const loadAction = useApiRequest({
