@@ -1096,6 +1096,22 @@ msgstr "Logs"
 msgid "Mail From"
 msgstr "Mail From"
 
+#: src/core/Header/Header.tsx:76
+msgid "Manage mounted snapshots"
+msgstr "Manage mounted snapshots"
+
+#: src/core/Header/Header.tsx:89
+msgid "Manage repository status and configuration"
+msgstr "Manage repository status and configuration"
+
+#: src/core/Header/Header.tsx:96
+msgid "Manage snapshot policies for this repository"
+msgstr "Manage snapshot policies for this repository"
+
+#: src/core/Header/Header.tsx:69
+msgid "Manage snapshots"
+msgstr "Manage snapshots"
+
 #: src/policies/modals/PolicyModal/constants.ts:140
 #: src/policies/modals/PolicyModal/tabs/SchedulingTab.tsx:109
 msgid "Manual Snapshots Only"
@@ -1173,8 +1189,7 @@ msgstr "Mounted at"
 msgid "Mounted Snapshots"
 msgstr "Mounted Snapshots"
 
-#: src/core/Header/Header.tsx:32
-#: src/core/Header/SkeletonHeader.tsx:31
+#: src/core/Header/Header.tsx:73
 msgid "Mounts"
 msgstr "Mounts"
 
@@ -1452,8 +1467,7 @@ msgstr "Pin Snapshot"
 msgid "Plain Text Format"
 msgstr "Plain Text Format"
 
-#: src/core/Header/Header.tsx:38
-#: src/core/Header/SkeletonHeader.tsx:37
+#: src/core/Header/Header.tsx:93
 #: src/policies/PoliciesPage.tsx:136
 msgid "Policies"
 msgstr "Policies"
@@ -1467,8 +1481,7 @@ msgstr "Port"
 msgid "Port number (e.g., 22)"
 msgstr "Port number (e.g., 22)"
 
-#: src/core/Header/Header.tsx:44
-#: src/core/Header/SkeletonHeader.tsx:55
+#: src/core/Header/Header.tsx:101
 #: src/preferences/PreferencesPage.tsx:14
 msgid "Preferences"
 msgstr "Preferences"
@@ -1532,8 +1545,7 @@ msgstr "Refresh"
 msgid "Remote"
 msgstr "Remote"
 
-#: src/core/Header/Header.tsx:43
-#: src/core/Header/SkeletonHeader.tsx:49
+#: src/core/Header/Header.tsx:82
 msgid "Repository"
 msgstr "Repository"
 
@@ -1822,8 +1834,8 @@ msgstr "Snapshot unmounted"
 msgid "Snapshot(s) deleted"
 msgstr "Snapshot(s) deleted"
 
-#: src/core/Header/Header.tsx:26
-#: src/core/Header/SkeletonHeader.tsx:25
+#: src/core/Header/Header.tsx:60
+#: src/core/Header/Header.tsx:66
 #: src/snapshot-history/components/SnapshotHistoryStats.tsx:83
 #: src/snapshot-history/SnapshotHistory.tsx:87
 #: src/snapshots/SnapshotsPage.tsx:136
@@ -1873,6 +1885,7 @@ msgstr "Started"
 msgid "Statistics"
 msgstr "Statistics"
 
+#: src/core/Header/Header.tsx:87
 #: src/tasks/TasksPage.tsx:203
 msgid "Status"
 msgstr "Status"
@@ -1902,8 +1915,7 @@ msgstr "Task cancelled"
 msgid "Task ID"
 msgstr "Task ID"
 
-#: src/core/Header/Header.tsx:42
-#: src/core/Header/SkeletonHeader.tsx:43
+#: src/core/Header/Header.tsx:100
 #: src/tasks/TasksPage.tsx:99
 msgid "Tasks"
 msgstr "Tasks"
