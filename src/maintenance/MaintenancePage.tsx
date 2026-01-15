@@ -4,7 +4,6 @@ import {
   Container,
   Divider,
   Group,
-  LoadingOverlay,
   Paper,
   SimpleGrid,
   Stack,
@@ -14,8 +13,9 @@ import {
   Text,
   Title
 } from "@mantine/core";
-import { IconCircleCheckFilled, IconCircleXFilled } from "@tabler/icons-react";
+import { IconCircleCheckFilled, IconCircleXFilled, IconFile } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { useAppContext } from "../core/context/AppContext";
 import { useServerInstanceContext } from "../core/context/ServerInstanceContext";
 import { ErrorAlert } from "../core/ErrorAlert/ErrorAlert";
 import FormattedDate from "../core/FormattedDate";
@@ -24,6 +24,8 @@ import IconWrapper from "../core/IconWrapper";
 import RelativeDate from "../core/RelativeDate";
 import type { MaintenanceInfo } from "../core/types";
 import { formatDuration } from "../utils/formatDuration";
+import sizeDisplayName from "../utils/formatSize";
+import RunMaintenanceButton from "./components/RunMaintenanceButton";
 import AdvanceEpochTabPanel from "./tabs/AdvanceEpochTabPanel";
 import CleanupEpochMarkersTabPanel from "./tabs/CleanupEpochMarkersTabPanel";
 import CleanupLogsTabPanel from "./tabs/CleanupLogsTabPanel";
@@ -40,6 +42,7 @@ import QuickRewriteContentsTabPanel from "./tabs/QuickRewriteContentsTabPanel";
 import SnapshotGcTabPanel from "./tabs/SnapshotGcTabPanel";
 
 function MaintenancePage() {
+  const { bytesStringBase2 } = useAppContext();
   const { kopiaService } = useServerInstanceContext();
   const [data, setData] = useState<MaintenanceInfo>();
 
@@ -61,6 +64,9 @@ function MaintenancePage() {
         <Title order={1}>
           <Trans>Maintenance</Trans>
         </Title>
+        <Group justify="end">
+          <RunMaintenanceButton />
+        </Group>
         <Divider />
         <ErrorAlert error={intError} />
 
@@ -124,101 +130,116 @@ function MaintenancePage() {
                 </div>
               </Group>
             </Paper>
+            <Paper withBorder radius="md" p="xs">
+              <Group wrap="nowrap">
+                <IconWrapper icon={IconFile} size={48} color="blue" />
+
+                <div>
+                  <Text tt="uppercase" fw={700}>
+                    Log Retention
+                  </Text>
+                  <Text fw={700} size="xl">
+                    {formatDuration(data?.logRetention.maxAge || 0)}
+                  </Text>
+                  {data?.schedule?.nextFullMaintenance && (
+                    <Text>
+                      <Text c="dimmed" span>
+                        {data.logRetention.maxCount}
+                      </Text>{" "}
+                      -{" "}
+                      <Text c="dimmed" span>
+                        {sizeDisplayName(data.logRetention.maxTotalSize, bytesStringBase2)}
+                      </Text>
+                    </Text>
+                  )}
+                </div>
+              </Group>
+            </Paper>
           </SimpleGrid>
         )}
 
-        <Paper
-          withBorder
-          styles={{
-            root: loadAction.loading
-              ? {
-                  position: "relative"
-                }
-              : {}
-          }}
-        >
-          <LoadingOverlay visible={loadAction.loading} />
-          <Tabs orientation="vertical">
+        <Paper withBorder>
+          <Tabs orientation="vertical" defaultValue="advance-epoch">
             <TabsList>
-              <TabsTab value="advance-epoch">
+              <TabsTab value="advance-epoch" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Advance Epoch</Text>
                   <Badge color="gray">{data?.schedule.runs["advance-epoch"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="cleanup-epoch-markers">
+              <TabsTab value="cleanup-epoch-markers" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Cleanup Epoch Markers</Text>
                   <Badge color="gray">{data?.schedule.runs["cleanup-epoch-markers"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="cleanup-logs">
+              <TabsTab value="cleanup-logs" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Cleanup Logs</Text>
                   <Badge color="gray">{data?.schedule.runs["cleanup-logs"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="compact-single-epoch">
+              <TabsTab value="compact-single-epoch" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Compact Single Epoch</Text>
                   <Badge color="gray">{data?.schedule.runs["compact-single-epoch"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="delete-superseded-epoch-indexes">
+              <TabsTab value="delete-superseded-epoch-indexes" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Delete Superseded Epoch Indexes</Text>
                   <Badge color="gray">{data?.schedule.runs["delete-superseded-epoch-indexes"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="full-delete-blobs">
+              <TabsTab value="full-delete-blobs" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Full Delete Blobs</Text>
                   <Badge color="gray">{data?.schedule.runs["full-delete-blobs"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="full-drop-deleted-content">
+              <TabsTab value="full-drop-deleted-content" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Full Drop Deleted Content</Text>
                   <Badge color="gray">{data?.schedule.runs["full-drop-deleted-content"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="full-rewrite-contents">
+              <TabsTab value="full-rewrite-contents" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Full Rewrite Contents</Text>
                   <Badge color="gray">{data?.schedule.runs["full-rewrite-contents"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="generate-epoch-range-index">
+              <TabsTab value="generate-epoch-range-index" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Generate Epoch Range Index</Text>
                   <Badge color="gray">{data?.schedule.runs["generate-epoch-range-index"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="snapshot-gc">
+              <TabsTab value="snapshot-gc" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Snapshot Gc</Text>
                   <Badge color="gray">{data?.schedule.runs["snapshot-gc"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="quick-delete-blobs">
+              <TabsTab value="quick-delete-blobs" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Quick Delete Blobs</Text>
                   <Badge color="gray">{data?.schedule.runs["quick-delete-blobs"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="quick-rewrite-contents">
+              <TabsTab value="quick-rewrite-contents" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Quick Rewrite Contents</Text>
                   <Badge color="gray">{data?.schedule.runs["quick-rewrite-contents"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="index-compaction">
+              <TabsTab value="index-compaction" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Index Compaction</Text>
                   <Badge color="gray">{data?.schedule.runs["index-compaction"]?.length || 0}</Badge>
                 </Group>
               </TabsTab>
-              <TabsTab value="extend-blob-retention-time">
+              <TabsTab value="extend-blob-retention-time" disabled={loadAction.loading}>
                 <Group justify="space-between">
                   <Text size="sm">Extend Blob Retention Time</Text>
                   <Badge color="gray">{data?.schedule.runs["extend-blob-retention-time"]?.length || 0}</Badge>

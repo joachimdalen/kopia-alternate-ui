@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import {
   Anchor,
   AppShellHeader,
+  Badge,
   Box,
   Burger,
   Center,
@@ -12,6 +13,7 @@ import {
   SimpleGrid,
   Text,
   ThemeIcon,
+  Tooltip,
   UnstyledButton
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -38,6 +40,7 @@ type Link1 = {
   id: string;
   label: string;
   disabled?: boolean;
+  requiresProxy?: boolean;
   links: Link2[];
   icon: typeof IconSettings;
 };
@@ -45,6 +48,7 @@ type Link2 = {
   link: string;
   label: string;
   disabled?: boolean;
+  requiresProxy?: boolean;
   icon: typeof IconSettings;
   description?: string;
 };
@@ -55,6 +59,7 @@ export function Header() {
   const { currentServer } = useServerInstanceContext();
   const { repoStatus } = useAppContext();
   const location = useLocation();
+  const cliFeaturesEnabled = currentServer?.cliProxyFeatures === true;
 
   const links: AllLinks[] = useMemo(() => {
     return [
@@ -97,6 +102,14 @@ export function Header() {
             disabled: !repoStatus.connected,
             icon: IconFileCertificate,
             description: t`Manage snapshot policies for this repository`
+          },
+          {
+            link: "/maintenance",
+            label: t`Maintenance`,
+            icon: IconTools,
+            description: t`Manage maintenance for this repository`,
+            disabled: !cliFeaturesEnabled,
+            requiresProxy: true
           }
         ]
       },
@@ -125,6 +138,13 @@ export function Header() {
               <Text size="xs" c="dimmed">
                 {item.description}
               </Text>
+              {item.requiresProxy && (
+                <Tooltip label="This feature requires the CLI Proxy">
+                  <Badge color="grape" fz="xs" tt="none" variant="light" radius={4}>
+                    CLI Proxy Feature
+                  </Badge>
+                </Tooltip>
+              )}
             </div>
           </Group>
         );
