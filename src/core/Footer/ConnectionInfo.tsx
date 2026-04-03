@@ -14,6 +14,7 @@ import {
 import { IconLockAccessOff } from "@tabler/icons-react";
 import { useAppContext } from "../context/AppContext";
 import { useServerInstanceContext } from "../context/ServerInstanceContext";
+import IconWrapper from "../IconWrapper";
 import classes from "./Footer.module.css";
 
 export function ConnectionInfo() {
@@ -60,13 +61,13 @@ export function ConnectionInfo() {
                 <div>
                   <Tooltip label="Logout">
                     <ActionIcon
-                      variant="subtle"
+                      variant="light"
                       color="red"
                       onClick={() => {
                         logoutFromServer(currentServer?.id);
                       }}
                     >
-                      <IconLockAccessOff />
+                      <IconWrapper icon={IconLockAccessOff} />
                     </ActionIcon>
                   </Tooltip>
                 </div>

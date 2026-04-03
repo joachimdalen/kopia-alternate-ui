@@ -92,7 +92,7 @@ function SnapshotMountsPage() {
               render: (item) => (
                 <Tooltip label={t`Unmount`}>
                   <ActionIcon
-                    variant="subtle"
+                    variant="light"
                     color="red"
                     onClick={() => unMountAction.execute(item.root, item.root)}
                     loading={unMountAction.loading && unMountAction.loadingKey === item.root}

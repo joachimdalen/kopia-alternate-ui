@@ -1,20 +1,24 @@
 import { lingui } from "@lingui/vite-plugin";
+import babel, { defineRolldownBabelPreset } from "@rolldown/plugin-babel";
 import react from "@vitejs/plugin-react";
 import fs from "fs";
 import { defineConfig } from "vite";
+
+const linguiPreset = defineRolldownBabelPreset({
+  preset: () => ({ plugins: ["@lingui/babel-plugin-lingui-macro"] }),
+  rolldown: {
+    filter: {
+      code: /from ['"]@lingui\/(?:react|core)\/macro['"]/
+    }
+  }
+});
+
 export default defineConfig(() =>
   // { mode }
   {
     //const env = loadEnv(mode, process.cwd(), "KAU_");
     return {
-      plugins: [
-        react({
-          babel: {
-            plugins: ["@lingui/babel-plugin-lingui-macro"]
-          }
-        }),
-        lingui()
-      ],
+      plugins: [react(), lingui(), babel({ presets: [linguiPreset] })],
       server: {
         proxy: {
           "/api/primary": {

@@ -66,7 +66,12 @@ function NotificationsSection() {
         <Group>
           <Menu transitionProps={{ transition: "pop-top-right" }} position="top-end" withinPortal radius="md">
             <Menu.Target>
-              <Button rightSection={<IconChevronDown size={18} stroke={1.5} />} pr={12} variant="subtle" color="green">
+              <Button
+                rightSection={<IconChevronDown size={18} stroke={1.5} />}
+                pr={12}
+                variant="subtle"
+                color="green.5"
+              >
                 <Trans>Create new</Trans>
               </Button>
             </Menu.Target>

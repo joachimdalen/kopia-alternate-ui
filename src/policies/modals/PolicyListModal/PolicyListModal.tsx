@@ -29,7 +29,7 @@ type ItemsForm = {
 };
 
 export default function PolicyListModal({ items, onCancel, onUpdated }: Props) {
-  const form = useForm<ItemsForm, (values: ItemsForm) => string[]>({
+  const form = useForm<ItemsForm, string[]>({
     mode: "controlled",
     initialValues: {
       items: items.map((x) => ({ id: randomId(), value: x }))

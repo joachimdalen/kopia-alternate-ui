@@ -63,7 +63,7 @@ export default function PolicyModal({
   const [resolved, setResolved] = useState<ResolvedPolicy>();
   const isGlobal = target.host === "" && target.userName === "" && target.path === "";
 
-  const form = useForm<PolicyForm, (values: PolicyForm) => Policy>({
+  const form = useForm<PolicyForm, Policy>({
     mode: "controlled",
     initialValues: defaultForm,
     transformValues(values) {

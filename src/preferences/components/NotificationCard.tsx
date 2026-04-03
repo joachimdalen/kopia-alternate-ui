@@ -61,7 +61,7 @@ function NotificationCard({
           </Group>
           <Menu withinPortal position="bottom-end" shadow="sm" disabled={disabled}>
             <MenuTarget>
-              <ActionIcon variant="subtle" color="gray" disabled={disabled}>
+              <ActionIcon variant="light" color="gray" disabled={disabled}>
                 <IconDots size={16} />
               </ActionIcon>
             </MenuTarget>

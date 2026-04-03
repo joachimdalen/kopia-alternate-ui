@@ -162,7 +162,7 @@ function SnapshotDirectory() {
                 <CopyButton value={mount.path} timeout={2000}>
                   {({ copied, copy }) => (
                     <Tooltip label={copied ? "Copied" : "Copy"} withArrow position="right">
-                      <ActionIcon color={copied ? "teal" : "gray"} variant="subtle" onClick={copy}>
+                      <ActionIcon color={copied ? "teal" : "gray"} variant="light" onClick={copy}>
                         {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
                       </ActionIcon>
                     </Tooltip>
@@ -245,7 +245,7 @@ function SnapshotDirectory() {
                 !item.obj.startsWith("k") && (
                   <Tooltip label={t`Download`}>
                     <ActionIcon
-                      variant="subtle"
+                      variant="light"
                       color="blue"
                       component="a"
                       href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}

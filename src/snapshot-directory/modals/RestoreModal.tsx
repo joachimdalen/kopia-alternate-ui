@@ -54,7 +54,7 @@ type RestoreForm = {
 
 export default function RestoreModal({ oid, onCancel, onRestoreStarted }: Props) {
   const { kopiaService } = useServerInstanceContext();
-  const form = useForm<RestoreForm, (values: RestoreForm) => RestoreRequest>({
+  const form = useForm<RestoreForm, RestoreRequest>({
     mode: "controlled",
     initialValues: {
       destination: "",

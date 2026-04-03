@@ -227,7 +227,7 @@ function TasksPage() {
                     })}
                   >
                     <ActionIcon
-                      variant="subtle"
+                      variant="light"
                       color="red"
                       onClick={() => cancelTaskAction.execute(item.id, item.id)}
                       loading={cancelTaskAction.loading && cancelTaskAction.loadingKey === item.id}
