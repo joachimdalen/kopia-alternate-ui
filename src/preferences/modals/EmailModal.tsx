@@ -106,7 +106,7 @@ export default function EmailModal({ onCancel, onSaved, profile }: Props) {
       };
     }
   };
-  const form = useForm<EmailForm, (values: EmailForm) => NotificationProfile>({
+  const form = useForm<EmailForm, NotificationProfile>({
     mode: "controlled",
     initialValues: getForm(),
     validate: yupResolver(schema),

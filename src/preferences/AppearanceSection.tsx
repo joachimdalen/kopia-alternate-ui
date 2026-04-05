@@ -24,7 +24,7 @@ function AppearanceSection() {
   const { setColorScheme } = useMantineColorScheme();
   const { reloadPreferences } = useAppContext();
   const [data, setData] = useState<Preferences>();
-  const form = useForm<PreferencesForm, (values: PreferencesForm) => Preferences>({
+  const form = useForm<PreferencesForm, Preferences>({
     mode: "controlled",
     validateInputOnBlur: true,
     transformValues: (values) => {

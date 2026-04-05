@@ -31,7 +31,7 @@ type ItemsForm = {
 };
 
 export default function PolicyTodModal({ items, onCancel, onUpdated }: Props) {
-  const form = useForm<ItemsForm, (values: ItemsForm) => TimeOfDay[]>({
+  const form = useForm<ItemsForm, TimeOfDay[]>({
     mode: "controlled",
     initialValues: {
       items: items.map((x) => ({

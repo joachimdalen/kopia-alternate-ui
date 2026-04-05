@@ -78,7 +78,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
       };
     }
   };
-  const form = useForm<WebhookForm, (values: WebhookForm) => NotificationProfile>({
+  const form = useForm<WebhookForm, NotificationProfile>({
     mode: "controlled",
     initialValues: getForm(),
     validate: yupResolver(schema),
@@ -207,7 +207,7 @@ export default function WebhookModal({ onCancel, onSaved, profile }: Props) {
             <Group justify="center" mt="md">
               <Button
                 size="xs"
-                variant="subtle"
+                color="green"
                 onClick={() =>
                   form.insertListItem("headers", {
                     name: "",

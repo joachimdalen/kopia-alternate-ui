@@ -1,6 +1,7 @@
 import { Trans } from "@lingui/react/macro";
 import { ActionIcon, Divider, Group, Popover, Stack, Text } from "@mantine/core";
 import { IconInfoCircleFilled } from "@tabler/icons-react";
+import IconWrapper from "../../../../core/IconWrapper";
 import type { SourceInfo } from "../../../../core/types";
 
 type Props = {
@@ -16,8 +17,8 @@ export default function PolicyEffectiveLabel({ sourceInfo }: Props) {
       </Text>
       <Popover width={400} position="bottom" withArrow shadow="md">
         <Popover.Target>
-          <ActionIcon variant="subtle" size="xs" p={0}>
-            <IconInfoCircleFilled size={12} />
+          <ActionIcon variant="subtle" color="blue" size="xs" p={0}>
+            <IconWrapper icon={IconInfoCircleFilled} size={12} color="blue" />
           </ActionIcon>
         </Popover.Target>
         <Popover.Dropdown px="0">

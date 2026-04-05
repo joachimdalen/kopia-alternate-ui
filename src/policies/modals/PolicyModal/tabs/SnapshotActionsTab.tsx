@@ -3,6 +3,7 @@ import { Accordion, ActionIcon, ScrollAreaAutosize, TabsPanel, Tooltip } from "@
 import { type UseFormReturnType } from "@mantine/form";
 import { IconPencilCode } from "@tabler/icons-react";
 import { useState } from "react";
+import IconWrapper from "../../../../core/IconWrapper";
 import type { Policy, PolicyDefinition } from "../../../../core/types";
 import PolicyCodeEditModal from "../../PolicyCodeEditModal/PolicyCodeEditModal";
 import PolicyNumberInput from "../policy-inputs/PolicyNumberInput";
@@ -37,7 +38,7 @@ export default function SnapshotActionsTab({ form, resolvedValue, definition }: 
                   color="gray"
                   onClick={() => setAction("actions.beforeSnapshotRoot.script")}
                 >
-                  <IconPencilCode size={16} />
+                  <IconWrapper icon={IconPencilCode} size={16} />
                 </ActionIcon>
               </Tooltip>
             }
@@ -79,7 +80,7 @@ export default function SnapshotActionsTab({ form, resolvedValue, definition }: 
             rightSection={
               <Tooltip label={t`Open in large edit`}>
                 <ActionIcon variant="subtle" color="gray" onClick={() => setAction("actions.afterSnapshotRoot.script")}>
-                  <IconPencilCode size={16} />
+                  <IconWrapper icon={IconPencilCode} size={16} />
                 </ActionIcon>
               </Tooltip>
             }

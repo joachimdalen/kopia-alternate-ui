@@ -220,7 +220,7 @@ function PoliciesPage() {
               render: (item) => (
                 <Tooltip label={t`Edit`}>
                   <ActionIcon
-                    variant="subtle"
+                    variant="light"
                     color="yellow"
                     onClick={() =>
                       setAction({
@@ -232,7 +232,7 @@ function PoliciesPage() {
                       })
                     }
                   >
-                    <IconPencil size={18} />
+                    <IconWrapper icon={IconPencil} size={18} />
                   </ActionIcon>
                 </Tooltip>
               )

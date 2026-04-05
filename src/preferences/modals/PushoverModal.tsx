@@ -58,7 +58,7 @@ export default function PushoverModal({ onCancel, onSaved, profile }: Props) {
       } satisfies PushoverForm;
     }
   };
-  const form = useForm<PushoverForm, (values: PushoverForm) => NotificationProfile>({
+  const form = useForm<PushoverForm, NotificationProfile>({
     mode: "controlled",
     initialValues: getForm(),
     validate: yupResolver(schema),
