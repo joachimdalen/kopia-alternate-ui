@@ -83,7 +83,7 @@ location /api/[INSTANCE-ID] {
 ```
 
 > [!IMPORTANT]
-> Currently the container is using a Nginx templating feature. This means you will have to re-create the container for changes to apply. An update will come later that will ensure you can only restart the container for changes to take effect.
+> Currently the container is using a Nginx templating feature. This means you will have to re-create or restart the container for changes to apply.
 
 3. Mount the `instances.json` file and your custom `nginx.conf` file to the container
 
