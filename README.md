@@ -34,6 +34,14 @@ I wanted a cleaner and easier to use UI for Kopia than the offical one. There ar
 - 🇳🇴 Localized (Currently supports English and Norwegain)
 - 🖥️ Multi repository server support
 
+
+|                                       |                                  |
+| ------------------------------------- | -------------------------------- |
+| ![](./screenshots/snapshots.jpeg)     | ![](./screenshots/snapshot.png) |
+| ![](./screenshots/policies.jpeg)     | ![](./screenshots/policy-editor.jpeg) |
+| ![](./screenshots/repository-config.jpeg) | ![](./screenshots/tasks.jpeg)    |
+
+
 ## Getting Started
 
 ### Configure
