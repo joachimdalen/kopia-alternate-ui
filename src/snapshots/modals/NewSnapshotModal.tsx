@@ -111,7 +111,7 @@ export default function NewSnapshotModal({ onCancel, onSnapshotted }: Props) {
                 loading={resolvePathAction.loading}
                 onClick={() => resolvePathAction.execute(form.values.path)}
               >
-                <IconSearch size={14} stroke={1.5} />
+                <IconSearch size={14} />
               </ActionIcon>
             }
             {...form.getInputProps("path")}

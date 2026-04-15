@@ -133,7 +133,7 @@ function SnapshotDirectory() {
             <TextInput
               size="sm"
               placeholder={t`Search files or folder (current level)`}
-              leftSection={<IconSearch size={18} stroke={1.5} />}
+              leftSection={<IconSearch size={18} />}
               value={query}
               onChange={setQuery}
             />
@@ -162,7 +162,7 @@ function SnapshotDirectory() {
                 <CopyButton value={mount.path} timeout={2000}>
                   {({ copied, copy }) => (
                     <Tooltip label={copied ? "Copied" : "Copy"} withArrow position="right">
-                      <ActionIcon color={copied ? "teal" : "gray"} variant="light" onClick={copy}>
+                      <ActionIcon color={copied ? "teal.5" : "gray.5"} variant="subtle" onClick={copy}>
                         {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
                       </ActionIcon>
                     </Tooltip>
@@ -245,8 +245,8 @@ function SnapshotDirectory() {
                 !item.obj.startsWith("k") && (
                   <Tooltip label={t`Download`}>
                     <ActionIcon
-                      variant="light"
-                      color="blue"
+                      variant="subtle"
+                      color="blue.5"
                       component="a"
                       href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}
                     >

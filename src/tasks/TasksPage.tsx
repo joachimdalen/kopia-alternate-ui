@@ -160,7 +160,7 @@ function TasksPage() {
             <TextInput
               size="sm"
               placeholder={t`Search tasks`}
-              leftSection={<IconSearch size={18} stroke={1.5} />}
+              leftSection={<IconSearch size={18} />}
               value={query}
               onChange={setQuery}
             />
@@ -227,8 +227,8 @@ function TasksPage() {
                     })}
                   >
                     <ActionIcon
-                      variant="light"
-                      color="red"
+                      variant="subtle"
+                      color="red.5"
                       onClick={() => cancelTaskAction.execute(item.id, item.id)}
                       loading={cancelTaskAction.loading && cancelTaskAction.loadingKey === item.id}
                     >

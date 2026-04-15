@@ -61,8 +61,8 @@ export function ConnectionInfo() {
                 <div>
                   <Tooltip label="Logout">
                     <ActionIcon
-                      variant="light"
-                      color="red"
+                      variant="subtle"
+                      color="red.5"
                       onClick={() => {
                         logoutFromServer(currentServer?.id);
                       }}
