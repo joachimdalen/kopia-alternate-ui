@@ -220,8 +220,8 @@ function PoliciesPage() {
               render: (item) => (
                 <Tooltip label={t`Edit`}>
                   <ActionIcon
-                    variant="light"
-                    color="yellow"
+                    variant="subtle"
+                    color="yellow.5"
                     onClick={() =>
                       setAction({
                         action: "edit",

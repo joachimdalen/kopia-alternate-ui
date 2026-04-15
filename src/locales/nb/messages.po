@@ -109,12 +109,12 @@ msgid "Advanced Options"
 msgstr "Avanserte valg"
 
 #: src/policies/modals/PolicyModal/constants.ts:170
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
 msgid "After Folder"
 msgstr "Etter mappe"
 
 #: src/policies/modals/PolicyModal/constants.ts:184
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
 msgid "After Snapshot"
 msgstr "Etter øyeblikksbilde"
 
@@ -176,12 +176,12 @@ msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
 #: src/policies/modals/PolicyModal/constants.ts:163
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
 msgid "Before Folder"
 msgstr "Før Mappe"
 
 #: src/policies/modals/PolicyModal/constants.ts:177
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
 msgid "Before Snapshot"
 msgstr "Før Øyeblikksbilde"
 
@@ -257,15 +257,15 @@ msgstr "Lukk"
 
 #: src/policies/modals/PolicyModal/constants.ts:172
 #: src/policies/modals/PolicyModal/constants.ts:186
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:98
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
 msgid "Command Mode - After"
 msgstr "Kommandomodus – Etter"
 
 #: src/policies/modals/PolicyModal/constants.ts:165
 #: src/policies/modals/PolicyModal/constants.ts:179
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
 msgid "Command Mode - Before"
 msgstr "Kommandomodus – Før"
 
@@ -326,7 +326,7 @@ msgstr "Koble til oppbevaringsstedet"
 msgid "Connected as"
 msgstr "Koblet til som"
 
-#: src/core/Footer/ConnectionInfo.tsx:53
+#: src/core/Footer/ConnectionInfo.tsx:54
 msgid "Connected to"
 msgstr "Koblet til"
 
@@ -579,7 +579,7 @@ msgstr "Rediger pushover notifikasjon"
 msgid "Edit script"
 msgstr "Rediger skript"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:15
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:16
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:91
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:46
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:59
@@ -742,10 +742,10 @@ msgstr "Feilretting Overhead"
 msgid "Error Handling"
 msgstr "Feilhåndtering"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:95
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:100
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essensiell (må lykkes; standardoppførsel), valgfri (feil tolereres), eller asynkron (Kopia starter handlingen, men venter ikke til den er ferdig)"
 
@@ -836,7 +836,7 @@ msgstr "Hash-algoritme"
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Hjelper med å skille mellom flere tilkoblede oppbevaringssteder"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:44
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:45
 #: src/policies/PoliciesPage.tsx:193
 #: src/repo/sections/SFTPServerRepo.tsx:52
 #: src/repo/sections/SFTPServerRepo.tsx:160
@@ -895,10 +895,10 @@ msgstr "Ignorer mapper som inneholder CACHEDIR.TAG og lignende"
 msgid "Ignore Directory Errors"
 msgstr "Ignorer mappe feil"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:98
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:103
 msgid "Ignore failures"
 msgstr "Ignorer feil"
 
@@ -1197,10 +1197,10 @@ msgstr "Monteringer"
 msgid "must be specified using global, user, or host policy"
 msgstr "må spesifiseres ved hjelp av global, bruker- eller vertsstrategier"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:96
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:101
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
 msgid "Must Succeed"
 msgstr "Må lykkes"
 
@@ -1349,10 +1349,10 @@ msgstr "Kun en av Passord, Sti til nøkkelfilen eller Nøkkeldata kan være defi
 msgid "Only one of Path to known_hosts File or Known Hosts Data must be set"
 msgstr "Kun en av Sti til known_hosts-filen eller Kjente vertsdata kan være definert"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:34
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:34
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:80
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:35
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:76
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:35
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:81
 msgid "Open in large edit"
 msgstr "Åpne i stort vindu"
 
@@ -1423,7 +1423,7 @@ msgid "Paste JSON credentials here"
 msgstr "Lim inn JSON-legitimasjon her"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:51
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:52
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
 #: src/repo/sections/SFTPServerRepo.tsx:189
@@ -1603,10 +1603,10 @@ msgstr "Bevaring"
 msgid "Root"
 msgstr "Root"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:58
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:99
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:104
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:100
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:63
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:105
 msgid "Run asynchronously, ignore failures"
 msgstr "Kjør asynkront, ignorer feil"
 
@@ -1650,19 +1650,19 @@ msgstr "Skann bare ett filsystem"
 msgid "Scheduling"
 msgstr "Planlegging"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
 msgid "Script to run after folder"
 msgstr "Skript som skal kjøres etter mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:75
 msgid "Script to run after snapshot"
 msgstr "Skript som skal kjøres etter øyeblikksbilde"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:29
 msgid "Script to run before folder"
 msgstr "Skript som skal kjøres før mappen"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:29
 msgid "Script to run before snapshot"
 msgstr "Skript som skal kjøres før øyeblikksbilde"
 
@@ -1703,8 +1703,8 @@ msgstr "Send test notifikasjon"
 msgid "sender email address"
 msgstr "Avsender epost adresse"
 
-#: src/core/Footer/ConnectionInfo.tsx:33
-#: src/core/Footer/ConnectionInfo.tsx:47
+#: src/core/Footer/ConnectionInfo.tsx:34
+#: src/core/Footer/ConnectionInfo.tsx:48
 msgid "Server"
 msgstr "Server"
 
@@ -1722,7 +1722,7 @@ msgstr "Server endepunkt"
 msgid "Server Password"
 msgstr "Server Passord"
 
-#: src/core/Footer/ConnectionInfo.tsx:81
+#: src/core/Footer/ConnectionInfo.tsx:82
 msgid "SERVERS"
 msgstr "SERVERE"
 
@@ -1963,22 +1963,22 @@ msgstr "Tid på dagen"
 
 #: src/policies/modals/PolicyModal/constants.ts:171
 #: src/policies/modals/PolicyModal/constants.ts:185
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:84
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:89
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
 msgid "Timeout - After"
 msgstr "Tidsavbrudd - Etter"
 
 #: src/policies/modals/PolicyModal/constants.ts:164
 #: src/policies/modals/PolicyModal/constants.ts:178
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:43
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:47
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
 msgid "Timeout - Before"
 msgstr "Tidsavbrudd - Før"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:45
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:86
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:91
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Tidsavbrudd i sekunder før Kopia avslutter prosessen"
 
@@ -2083,7 +2083,7 @@ msgstr "Bruker"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:38
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:39
 #: src/policies/PoliciesPage.tsx:188
 #: src/repo/ConnectRepoSection.tsx:138
 #: src/repo/CreateRepoSection.tsx:203
@@ -2094,7 +2094,7 @@ msgstr "Bruker"
 msgid "Username"
 msgstr "Brukernavn"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:26
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:27
 msgid "Value defined in policy"
 msgstr "Verdi definert i strategi"
 

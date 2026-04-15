@@ -54,7 +54,7 @@ export function MenuButton({
               </Group>
             )}
           </span>
-          <IconChevronDown size={16} className={classes.icon} stroke={1.5} />
+          <IconChevronDown size={16} className={classes.icon} />
         </UnstyledButton>
       </Menu.Target>
       <Menu.Dropdown>{items}</Menu.Dropdown>

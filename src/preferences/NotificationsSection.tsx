@@ -66,30 +66,25 @@ function NotificationsSection() {
         <Group>
           <Menu transitionProps={{ transition: "pop-top-right" }} position="top-end" withinPortal radius="md">
             <Menu.Target>
-              <Button
-                rightSection={<IconChevronDown size={18} stroke={1.5} />}
-                pr={12}
-                variant="subtle"
-                color="green.5"
-              >
+              <Button rightSection={<IconChevronDown size={18} />} pr={12} variant="subtle" color="green.5">
                 <Trans>Create new</Trans>
               </Button>
             </Menu.Target>
             <Menu.Dropdown>
               <Menu.Item
-                leftSection={<IconWebhook size={16} stroke={1.5} />}
+                leftSection={<IconWebhook size={16} />}
                 onClick={() => setAction({ action: "new", item: { type: "webhook" } })}
               >
                 <Trans>Webhook</Trans>
               </Menu.Item>
               <Menu.Item
-                leftSection={<IconMail size={16} stroke={1.5} />}
+                leftSection={<IconMail size={16} />}
                 onClick={() => setAction({ action: "new", item: { type: "email" } })}
               >
                 <Trans>Email</Trans>
               </Menu.Item>
               <Menu.Item
-                leftSection={<IconBrandPushover size={16} stroke={1.5} />}
+                leftSection={<IconBrandPushover size={16} />}
                 onClick={() => setAction({ action: "new", item: { type: "pushover" } })}
               >
                 <Trans>Pushover</Trans>

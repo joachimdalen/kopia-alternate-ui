@@ -17,7 +17,7 @@ export default function PolicyEffectiveLabel({ sourceInfo }: Props) {
       </Text>
       <Popover width={400} position="bottom" withArrow shadow="md">
         <Popover.Target>
-          <ActionIcon variant="subtle" color="blue" size="xs" p={0}>
+          <ActionIcon variant="subtle" color="blue.5" size="xs" p={0}>
             <IconWrapper icon={IconInfoCircleFilled} size={12} color="blue" />
           </ActionIcon>
         </Popover.Target>

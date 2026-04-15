@@ -298,8 +298,8 @@ function SnapshotsPage() {
                         {item.status !== "REMOTE" && (
                           <Tooltip label={t`Snapshot Now`}>
                             <ActionIcon
-                              variant="light"
-                              color="green"
+                              variant="subtle"
+                              color="green.5"
                               loading={newSnapshotActions.loading}
                               onClick={() => newSnapshotActions.execute(item.source)}
                             >
@@ -315,8 +315,8 @@ function SnapshotsPage() {
                               pathname: "/policies",
                               search: `userName=${item.source.userName}&host=${item.source.host}&path=${encodeURIComponent(item.source.path)}&viewPolicy=true`
                             }}
-                            variant="light"
-                            color="grape"
+                            variant="subtle"
+                            color="grape.5"
                           >
                             <IconWrapper icon={IconFileCertificate} size={16} />
                           </ActionIcon>
