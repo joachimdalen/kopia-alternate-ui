@@ -109,12 +109,12 @@ msgid "Advanced Options"
 msgstr "Advanced Options"
 
 #: src/policies/modals/PolicyModal/constants.ts:170
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:68
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
 msgid "After Folder"
 msgstr "After Folder"
 
 #: src/policies/modals/PolicyModal/constants.ts:184
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:73
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
 msgid "After Snapshot"
 msgstr "After Snapshot"
 
@@ -176,12 +176,12 @@ msgid "Backblaze B2"
 msgstr "Backblaze B2"
 
 #: src/policies/modals/PolicyModal/constants.ts:163
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
 msgid "Before Folder"
 msgstr "Before Folder"
 
 #: src/policies/modals/PolicyModal/constants.ts:177
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:27
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
 msgid "Before Snapshot"
 msgstr "Before Snapshot"
 
@@ -257,15 +257,15 @@ msgstr "Close"
 
 #: src/policies/modals/PolicyModal/constants.ts:172
 #: src/policies/modals/PolicyModal/constants.ts:186
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:93
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:98
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
 msgid "Command Mode - After"
 msgstr "Command Mode - After"
 
 #: src/policies/modals/PolicyModal/constants.ts:165
 #: src/policies/modals/PolicyModal/constants.ts:179
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:52
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
 msgid "Command Mode - Before"
 msgstr "Command Mode - Before"
 
@@ -326,7 +326,7 @@ msgstr "Connect to repository"
 msgid "Connected as"
 msgstr "Connected as"
 
-#: src/core/Footer/ConnectionInfo.tsx:53
+#: src/core/Footer/ConnectionInfo.tsx:54
 msgid "Connected to"
 msgstr "Connected to"
 
@@ -579,7 +579,7 @@ msgstr "Edit pushover notification"
 msgid "Edit script"
 msgstr "Edit script"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:15
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:16
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyCompressionInput.tsx:91
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyInheritYesNoPolicyInput.tsx:46
 #: src/policies/modals/PolicyModal/policy-inputs/PolicyLogDetailsInput.tsx:59
@@ -742,10 +742,10 @@ msgstr "Error Correction Overhead"
 msgid "Error Handling"
 msgstr "Error Handling"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:53
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:94
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:57
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:99
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:54
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:95
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:58
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:100
 msgid "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 msgstr "Essential (must succeed; default behavior), optional (failures are tolerated), or async (Kopia will start the action but not wait for it to finish)"
 
@@ -836,7 +836,7 @@ msgstr "Hash Algorithm"
 msgid "Helps to distinguish between multiple connected repositories"
 msgstr "Helps to distinguish between multiple connected repositories"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:44
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:45
 #: src/policies/PoliciesPage.tsx:193
 #: src/repo/sections/SFTPServerRepo.tsx:52
 #: src/repo/sections/SFTPServerRepo.tsx:160
@@ -895,10 +895,10 @@ msgstr "Ignore directories containing CACHEDIR.TAG and similar"
 msgid "Ignore Directory Errors"
 msgstr "Ignore Directory Errors"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:57
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:98
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:61
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:103
 msgid "Ignore failures"
 msgstr "Ignore failures"
 
@@ -1197,10 +1197,10 @@ msgstr "Mounts"
 msgid "must be specified using global, user, or host policy"
 msgstr "must be specified using global, user, or host policy"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:55
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:96
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:59
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:101
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:56
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:97
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:60
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:102
 msgid "Must Succeed"
 msgstr "Must Succeed"
 
@@ -1349,10 +1349,10 @@ msgstr "Only one of Password, Path to key file or Key Data must be set"
 msgid "Only one of Path to known_hosts File or Known Hosts Data must be set"
 msgstr "Only one of Path to known_hosts File or Known Hosts Data must be set"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:34
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:75
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:34
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:80
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:35
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:76
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:35
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:81
 msgid "Open in large edit"
 msgstr "Open in large edit"
 
@@ -1423,7 +1423,7 @@ msgid "Paste JSON credentials here"
 msgstr "Paste JSON credentials here"
 
 #: src/policies/modals/CreatePolicyModal/CreatePolicyModal.tsx:115
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:51
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:52
 #: src/policies/PoliciesPage.tsx:198
 #: src/repo/sections/SFTPServerRepo.tsx:55
 #: src/repo/sections/SFTPServerRepo.tsx:189
@@ -1603,10 +1603,10 @@ msgstr "Retention"
 msgid "Root"
 msgstr "Root"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:58
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:99
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:62
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:104
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:59
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:100
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:63
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:105
 msgid "Run asynchronously, ignore failures"
 msgstr "Run asynchronously, ignore failures"
 
@@ -1650,19 +1650,19 @@ msgstr "Scan only one filesystem"
 msgid "Scheduling"
 msgstr "Scheduling"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:69
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:70
 msgid "Script to run after folder"
 msgstr "Script to run after folder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:74
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:75
 msgid "Script to run after snapshot"
 msgstr "Script to run after snapshot"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:29
 msgid "Script to run before folder"
 msgstr "Script to run before folder"
 
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:28
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:29
 msgid "Script to run before snapshot"
 msgstr "Script to run before snapshot"
 
@@ -1703,8 +1703,8 @@ msgstr "Send test notification"
 msgid "sender email address"
 msgstr "sender email address"
 
-#: src/core/Footer/ConnectionInfo.tsx:33
-#: src/core/Footer/ConnectionInfo.tsx:47
+#: src/core/Footer/ConnectionInfo.tsx:34
+#: src/core/Footer/ConnectionInfo.tsx:48
 msgid "Server"
 msgstr "Server"
 
@@ -1722,7 +1722,7 @@ msgstr "Server Endpoint"
 msgid "Server Password"
 msgstr "Server Password"
 
-#: src/core/Footer/ConnectionInfo.tsx:81
+#: src/core/Footer/ConnectionInfo.tsx:82
 msgid "SERVERS"
 msgstr "SERVERS"
 
@@ -1963,22 +1963,22 @@ msgstr "Time Of Day"
 
 #: src/policies/modals/PolicyModal/constants.ts:171
 #: src/policies/modals/PolicyModal/constants.ts:185
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:84
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:89
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
 msgid "Timeout - After"
 msgstr "Timeout - After"
 
 #: src/policies/modals/PolicyModal/constants.ts:164
 #: src/policies/modals/PolicyModal/constants.ts:178
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:43
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:47
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
 msgid "Timeout - Before"
 msgstr "Timeout - Before"
 
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:44
-#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:85
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:48
-#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:90
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:45
+#: src/policies/modals/PolicyModal/tabs/FolderActionsTab.tsx:86
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:49
+#: src/policies/modals/PolicyModal/tabs/SnapshotActionsTab.tsx:91
 msgid "Timeout in seconds before Kopia kills the process"
 msgstr "Timeout in seconds before Kopia kills the process"
 
@@ -2083,7 +2083,7 @@ msgstr "User"
 
 #: src/core/context/LoginModal.tsx:60
 #: src/core/context/LoginModal.tsx:62
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:38
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:39
 #: src/policies/PoliciesPage.tsx:188
 #: src/repo/ConnectRepoSection.tsx:138
 #: src/repo/CreateRepoSection.tsx:203
@@ -2094,7 +2094,7 @@ msgstr "User"
 msgid "Username"
 msgstr "Username"
 
-#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:26
+#: src/policies/modals/PolicyModal/components/PolicyEffectiveLabel.tsx:27
 msgid "Value defined in policy"
 msgstr "Value defined in policy"
 
