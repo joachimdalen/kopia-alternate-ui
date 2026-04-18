@@ -27,7 +27,7 @@
     "@mantine/notifications": "^9.0.0",
     "@melloware/react-logviewer": "^6.5.1",
     "@tabler/icons-react": "^3.41.1",
-    "axios": "1.14.0",
+    "axios": "^1.15.0",
     "clsx": "^2.1.1",
     "country-flag-icons": "^1.6.4",
     "dayjs": "^1.11.18",
