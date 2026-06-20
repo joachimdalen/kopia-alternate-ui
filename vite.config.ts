@@ -22,7 +22,7 @@ export default defineConfig(() =>
       server: {
         proxy: {
           "/api/primary": {
-            target: "https://localhost:51515",
+            target: "https://localhost:51545",
             changeOrigin: true,
             secure: false,
             configure: (
