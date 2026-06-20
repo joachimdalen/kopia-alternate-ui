@@ -173,7 +173,7 @@ function ConfigureRepoSection() {
   const checkRepoAction = useApiRequest({
     action: (data?: CheckRepoRequest) => kopiaService.repoExists(data!),
     onReturn() {
-      form.setFieldValue("confirmCreate", true);
+      form.setFieldValue("confirmCreate", false);
       setActive(2);
     },
     handleError(data) {
