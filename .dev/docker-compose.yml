@@ -5,7 +5,7 @@ services:
     hostname: kopia-primary
     container_name: kopia-primary
     ports:
-      - 51515:51515
+      - 51545:51515
     cap_add:
       - SYS_ADMIN
     security_opt:
