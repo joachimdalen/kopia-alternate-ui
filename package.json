@@ -44,6 +44,7 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
+    "@babel/types": "^8.0.4",
     "@biomejs/biome": "^2.4.15",
     "@eslint/js": "^10.0.1",
     "@lingui/cli": "^6.3.0",
