@@ -44,6 +44,7 @@ export interface IKopiaService {
   updatePin(snapshotId: string, currentPin: string, pin: string): Promise<ApiResponse<Snapshot[]>>;
   removePin(snapshotId: string, pin: string): Promise<ApiResponse<Snapshot[]>>;
   getObjects(oid: string): Promise<ApiResponse<DirManifest>>;
+  objectUrl(obj: string, fname: string): string;
   restore(data: RestoreRequest): Promise<ApiResponse<Task>>;
   getTasks(): Promise<ApiResponse<TaskList>>;
   getTask(taskId: string): Promise<ApiResponse<Task>>;
@@ -144,6 +145,9 @@ export class KopiaService implements IKopiaService {
   }
   public getObjects(oid: string): Promise<ApiResponse<DirManifest>> {
     return this.get(`/api/${this.instance}/v1/objects/${oid}`);
+  }
+  public objectUrl(obj: string, fname: string): string {
+    return `/api/${this.instance}/v1/objects/${obj}?fname=${encodeURIComponent(fname)}`;
   }
 
   public restore(data: RestoreRequest): Promise<ApiResponse<Task>> {
