@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { LoadingOverlay } from "@mantine/core";
-import { useLocalStorage, useSessionStorage } from "@mantine/hooks";
+import { useLocalStorage } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import { createContext, type PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
@@ -35,7 +35,7 @@ export function ServerInstanceContextProvider({ children }: ServerInstanceContex
   const [instances, setInstances] = useState<Instance[]>([]);
   const [currentInstance, setCurrentInstance] = useState<Instance>();
   const [loginRequired, setLoginRequired] = useState(false);
-  const [loginInfo, setLoginInfo] = useSessionStorage<Record<string, KopiaAuth>>({
+  const [loginInfo, setLoginInfo] = useLocalStorage<Record<string, KopiaAuth>>({
     key: "kopia-alt-ui-auth"
   });
   const [lastInstance, setLastInstance] = useLocalStorage<string>({
