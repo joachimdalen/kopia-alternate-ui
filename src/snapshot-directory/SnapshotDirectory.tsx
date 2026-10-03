@@ -248,7 +248,7 @@ function SnapshotDirectory() {
                       variant="subtle"
                       color="blue.5"
                       component="a"
-                      href={`/api/v1/objects/${item.obj}?fname=${encodeURIComponent(item.name)}`}
+                      href={kopiaService.objectUrl(item.obj, item.name)}
                     >
                       <IconFileDownload size={18} />
                     </ActionIcon>
