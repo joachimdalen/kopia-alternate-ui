@@ -1,3 +1,4 @@
+import { IconFile } from "@tabler/icons-react";
 import {
   IconFile3d,
   IconFileTypeCss,
@@ -49,3 +50,12 @@ export const fileIcons: Record<string, typeof IconHome> = {
   ts: IconFileTypeTs,
   tsx: IconFileTypeTsx
 };
+
+export function getFileIcon(name: string) {
+  const parts = name.split(".");
+  const ext = parts[parts.length - 1];
+
+  const iconMapping = fileIcons[ext];
+  if (iconMapping === undefined) return IconFile;
+  return iconMapping;
+}

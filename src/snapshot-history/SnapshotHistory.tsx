@@ -2,7 +2,15 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { ActionIcon, Anchor, Badge, Button, Code, Container, Group, Stack, Text, Title, Tooltip } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import { IconArrowLeft, IconClick, IconFileDatabase, IconFileText, IconPin, IconTrash } from "@tabler/icons-react";
+import {
+  IconArrowLeft,
+  IconClick,
+  IconFileDatabase,
+  IconFileText,
+  IconPin,
+  IconTrash,
+  IconArrowsDiff
+} from "@tabler/icons-react";
 import sortBy from "lodash.sortby";
 import type { DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useMemo, useState } from "react";
@@ -46,6 +54,13 @@ function SnapshotHistory() {
     columnAccessor: "startTime",
     direction: "desc"
   });
+
+  const previousSnapshot = (current: Snapshot): Snapshot | undefined => {
+    const time = new Date(current.startTime).getTime();
+    return (data?.snapshots ?? [])
+      .filter((s) => new Date(s.startTime).getTime() < time)
+      .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())[0];
+  };
 
   const visibleData = useMemo(() => {
     if (data?.snapshots === undefined) return [];
@@ -226,6 +241,28 @@ function SnapshotHistory() {
               textAlign: "right",
               render: (item) => (
                 <Group gap={4} justify="right" wrap="nowrap">
+                  {previousSnapshot(item) && (
+                    <Tooltip label={t`Compare with previous snapshot`}>
+                      <ActionIcon
+                        variant="subtle"
+                        color="blue.5"
+                        aria-label={t`Compare with previous snapshot`}
+                        onClick={() => {
+                          const older = previousSnapshot(item)!;
+                          const params = new URLSearchParams({
+                            host: sourceInfo.host ?? "",
+                            userName: sourceInfo.userName ?? "",
+                            path: sourceInfo.path ?? "",
+                            a: older.rootID,
+                            b: item.rootID
+                          });
+                          navigate(`/snapshots/compare?${params.toString()}`);
+                        }}
+                      >
+                        <IconArrowsDiff size={18} />
+                      </ActionIcon>
+                    </Tooltip>
+                  )}
                   <Tooltip label={t`Update description`}>
                     <ActionIcon
                       variant="subtle"

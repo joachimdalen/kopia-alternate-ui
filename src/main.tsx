@@ -14,6 +14,7 @@ import RepoPage from "./repo/RepoPage.tsx";
 import SnapshotDirectory from "./snapshot-directory/SnapshotDirectory.tsx";
 import SnapshotHistory from "./snapshot-history/SnapshotHistory.tsx";
 import SnapshotMountsPage from "./snapshot-mounts/SnapshotMountsPage.tsx";
+import SnapshotComparePage from "./snapshot-compare/SnapshotComparePage.tsx";
 import SnapshotsPage from "./snapshots/SnapshotsPage.tsx";
 import TaskDetailsPage from "./tasks/TaskDetailsPage.tsx";
 import TasksPage from "./tasks/TasksPage.tsx";
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/snapshots" element={<SnapshotsPage />} />
           <Route path="/snapshots/single-source" element={<SnapshotHistory />} />
           <Route path="/snapshots/dir/:oid" element={<SnapshotDirectory />} />
+          <Route path="/snapshots/compare" element={<SnapshotComparePage />} />
           <Route path="/mounts" element={<SnapshotMountsPage />} />
           <Route path="/tasks" element={<TasksPage />} />
           <Route path="/tasks/:tid" element={<TaskDetailsPage />} />

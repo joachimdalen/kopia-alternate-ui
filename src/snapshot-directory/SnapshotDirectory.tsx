@@ -21,7 +21,6 @@ import {
   IconCheck,
   IconClick,
   IconCopy,
-  IconFile,
   IconFileDelta,
   IconFileDownload,
   IconFolderOpen,
@@ -45,17 +44,8 @@ import sizeDisplayName from "../utils/formatSize";
 import { onlyUnique } from "../utils/onlyUnique";
 import DirectoryCrumbs from "./components/DirectoryCrumbs";
 import MountButton from "./components/MountButton";
-import { fileIcons } from "./fileIcons";
+import { getFileIcon } from "./fileIcons";
 import RestoreModal from "./modals/RestoreModal";
-
-const getFileIcon = (name: string) => {
-  const parts = name.split(".");
-  const ext = parts[parts.length - 1];
-
-  const iconMapping = fileIcons[ext];
-  if (iconMapping === undefined) return IconFile;
-  return iconMapping;
-};
 
 function SnapshotDirectory() {
   const { kopiaService } = useServerInstanceContext();
