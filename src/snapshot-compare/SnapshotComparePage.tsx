@@ -305,6 +305,23 @@ function SnapshotComparePage() {
   };
 
   const renderContentDiff = (node: DiffNode): ReactNode => {
+    // Deterministic outcomes — no button, no fetch:
+    // equal object IDs prove identical content; two zero-size files are
+    // both empty. The error state is left for genuine fetch failures.
+    if (node.a && node.b && node.a.obj === node.b.obj) {
+      return (
+        <Text fz="xs" c="dimmed">
+          {t`Text is identical \u2014 only metadata differs.`}
+        </Text>
+      );
+    }
+    if ((node.a?.size ?? -1) === 0 && (node.b?.size ?? -1) === 0) {
+      return (
+        <Text fz="xs" c="dimmed">
+          {t`Both files are empty.`}
+        </Text>
+      );
+    }
     const current = contentDiffs[node.id];
     if (!current) {
       return (
